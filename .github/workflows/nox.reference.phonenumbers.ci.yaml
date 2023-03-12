@@ -6,13 +6,13 @@ on:
     paths:
       - src/**
       - tests/**
-      - .github/workflows/ci.yaml
+      - .github/workflows/nox.reference.phonenumbers.ci.yaml
   push:
     branches: [ main ]
     paths:
       - src/**
       - tests/**
-      - .github/workflows/ci.yaml
+      - .github/workflows/nox.reference.phonenumbers.ci.yaml
 
 jobs:
   build:
@@ -32,4 +32,4 @@ jobs:
       - name: Build
         run: dotnet build ./src/Nox.Reference.PhoneNumbers/Nox.Reference.PhoneNumbers.csproj --warnaserror --configuration Release --no-restore      
       - name: Tests
-        run: dotnet test ./tests/Nox.Reference.PhoneNumbers.Tests/Nox.Reference.PhoneNumbers.csproj --no-restore --verbosity minimal --configuration Release
+        run: dotnet test ./tests/Nox.Reference.PhoneNumbers.Tests/Nox.Reference.PhoneNumbers.Tests.csproj --no-restore --verbosity minimal --configuration Release
