@@ -1,4 +1,4 @@
-# Nox.Utilities.PhoneNumberInfo
+# Nox.Reference.PhoneNumbers
 Validate and format phone numbers
 
 ```csharp
