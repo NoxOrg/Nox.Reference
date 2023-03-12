@@ -1,20 +1,27 @@
-﻿using LibPhoneNumber = PhoneNumbers;
+﻿
+using System.Runtime.CompilerServices;
+using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;
 
-public static partial class PhoneNumberExtensions
+public partial class PhoneNumberService : IPhoneNumberService
 {
     private static readonly LibPhoneNumber.PhoneNumberUtil _phoneUtil = LibPhoneNumber.PhoneNumberUtil.GetInstance();
 
     private static readonly LibPhoneNumber.PhoneNumberOfflineGeocoder _geoCoder = LibPhoneNumber.PhoneNumberOfflineGeocoder.GetInstance();
 
-    public static IPhoneNumberInfo GetPhoneNumberInfo(this string inputNumber, string? region = null)
+
+    public PhoneNumberService()
     {
-        var phoneNumber = _phoneUtil.Parse(inputNumber, region);
+    }
+
+    public IPhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
+    {
+        var phoneNumber = _phoneUtil.Parse(inputPhoneNumber, countryAlpha2Code);
 
         PhoneNumberInfo phoneInfo = new()
         {
-            InputNumber = inputNumber,
+            InputNumber = inputPhoneNumber,
             IsValid = _phoneUtil.IsValidNumber(phoneNumber)
         };
 
@@ -34,16 +41,16 @@ public static partial class PhoneNumberExtensions
 
             phoneInfo.IsMobile = !string.IsNullOrEmpty(phoneInfo.NumberType) && phoneInfo.NumberType.Equals("MOBILE");
 
-            phoneInfo.RegionName= _geoCoder.GetDescriptionForNumber(phoneNumber, LibPhoneNumber.Locale.English);
+            phoneInfo.RegionName = _geoCoder.GetDescriptionForNumber(phoneNumber, LibPhoneNumber.Locale.English);
 
-            phoneInfo.CarrierName = phoneInfo.FormattedNumber.GuessCarrier();
+            phoneInfo.CarrierName = GuessCarrier(phoneInfo.FormattedNumber);
         }
         return phoneInfo;
     }
 
-    private static string GuessCarrier(this string formattedNumber)
+    private string GuessCarrier(string formattedNumber)
     {
-        var key = Convert.ToInt32(formattedNumber.TrimStart('+').PadRight(9,'0')[..9]);
+        var key = Convert.ToInt32(formattedNumber.TrimStart('+').PadRight(9, '0')[..9]);
 
         int min = 0;
         int max = _carrierMap.Length - 1;
@@ -51,12 +58,12 @@ public static partial class PhoneNumberExtensions
         while (min <= max)
         {
             mid = (min + max) / 2;
-            if (key == _carrierMap[mid,0])
+            if (key == _carrierMap[mid, 0])
             {
                 max = mid;
                 break;
             }
-            else if (key < _carrierMap[mid,0])
+            else if (key < _carrierMap[mid, 0])
             {
                 max = mid - 1;
             }
@@ -66,10 +73,9 @@ public static partial class PhoneNumberExtensions
             }
         }
 
-        if (min < 1 || max > _carrierMap.Length-1) return "Unknown";
-     
+        if (min < 1 || max > _carrierMap.Length - 1) return "Unknown";
+
         return _carriers[_carrierMap[max, 1]];
 
     }
 }
-

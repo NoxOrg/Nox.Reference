@@ -1,10 +1,10 @@
-
+﻿
 namespace Nox.Reference.PhoneNumbers;
 
-public static partial class PhoneNumberExtensions
+public partial class PhoneNumberService
 {
-         private static readonly int[,] _carrierMap = new int[,]
-        {
+    private static readonly int[,] _carrierMap = new int[,]
+   {
             {124235700, 98},
             {124273000, 46},
             {124623000, 145},
@@ -8008,7 +8008,7 @@ public static partial class PhoneNumberExtensions
             {998970000, 587},
             {998980000, 738},
             {998990000, 1069},
-        };
+   };
 
-    }
+}
 

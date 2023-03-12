@@ -21,7 +21,9 @@ public class PhoneNumberInfoTests
     [Test]
     public void PhoneNumberInfo_WithKnownSouthAfricanMobileNumber_ReturnsValidInfo()
     {
-        IPhoneNumberInfo info = "833770694".GetPhoneNumberInfo("ZA");
+        IPhoneNumberService phoneNumberService = new PhoneNumberService();
+
+        IPhoneNumberInfo info = phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -39,7 +41,6 @@ public class PhoneNumberInfoTests
             Assert.That(info.CarrierName, Is.EqualTo("MTN"));
         });
         
-
     }
 
     [TearDown]

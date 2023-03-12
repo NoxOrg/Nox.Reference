@@ -1,9 +1,9 @@
-
+﻿
 namespace Nox.Reference.PhoneNumbers;
 
-public static partial class PhoneNumberExtensions
+public partial class PhoneNumberService
 {
-        private static readonly string[] _carriers = new string[] {
+    private static readonly string[] _carriers = new string[] {
             "019mobile",
             "0700 LTD",
             "08Direct",
@@ -1173,5 +1173,5 @@ public static partial class PhoneNumberExtensions
         };
 
 
-    }
+}
 
