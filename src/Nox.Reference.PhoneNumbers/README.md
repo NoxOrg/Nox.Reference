@@ -1,4 +1,4 @@
-# Nox.Utilities.PhoneNumberInfo
+# Nox.Reference.PhoneNumbers
 Validate and format phone numbers
 
 ```csharp
@@ -36,7 +36,7 @@ Console.WriteLine(JsonSerializer.Serialize(info,options));
 
 ### To install from nuget.org
 ```powershell
-dotnet add package Nox.Utilities.PhoneNumberInfo
+dotnet add package Nox.Reference.PhoneNumbers
 ```
 
 ### Dependancies
