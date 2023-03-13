@@ -18,4 +18,3 @@
 - Nox.Reference.VatNumbers
 - Nox.Reference.TaxNumbers
 - Nox.Reference.StockCodes
-- Nox.Reference.Religions
