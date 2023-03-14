@@ -40,7 +40,6 @@ if($null -eq $Env:Environment)
     $Env:ASPNETCORE_ENVIRONMENT = $script:DefaultEnvironment
 }
 
-
 <# --- ADD YOUR COMMAND DEFINITIONS HERE --- #>
 
 <# 
