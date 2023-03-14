@@ -1,6 +1,6 @@
 # Nox.Reference
 
-- Nox.Reference.Astonomy
+- Nox.Reference.Astronomy
 - Nox.Reference.TimeZones
 - Nox.Reference.Holidays
 - Nox.Reference.Languages

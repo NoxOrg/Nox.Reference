@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Nox.Reference.Countries</PackageId>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <PackageVersion>1.0.4</PackageVersion>
+    <Authors>Andre Sharpe, Jan Schutte</Authors>
+    <Company>The Nox Factory</Company>
+    <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
+    <PackageProjectUrl>https://github.com/NoxOrg/Nox.Reference</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NoxOrg/Nox.Reference.git</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>nox.png</PackageIcon>
+    <Description>Phone number info utilities</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\data\Nox.Reference.Countries.json" LogicalName="Nox.Reference.Countries.json"/>
+  </ItemGroup>
+</Project>
