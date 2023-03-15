@@ -1,5 +1,4 @@
-﻿using RestSharp;
-using Nox.Reference.Countries;
+﻿using Nox.Reference.Countries;
 using System.Text.Json;
 
 internal class CountryData
