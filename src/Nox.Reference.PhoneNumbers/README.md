@@ -1,6 +1,8 @@
 # Nox.Reference.PhoneNumbers
 Validate and format phone numbers
 
+## Usage example
+
 ```csharp
 using System.Text.Json;
 using Nox.Reference.PhoneNumbers;
@@ -39,5 +41,5 @@ Console.WriteLine(JsonSerializer.Serialize(info,options));
 dotnet add package Nox.Reference.PhoneNumbers
 ```
 
-### Dependancies
+### Dependencies
 Uses Thomas Clegg's [libphonenumber-csharp](https://github.com/twcclegg/libphonenumber-csharp) which is a C# port of [Google's libphonenumber](https://github.com/google/libphonenumber) Java project.
