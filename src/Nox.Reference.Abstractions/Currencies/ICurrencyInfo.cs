@@ -1,5 +1,4 @@
-﻿
-namespace Nox.Reference.Abstractions.Currencies;
+﻿namespace Nox.Reference.Abstractions.Currencies;
 
 public interface ICurrencyInfo
 {
@@ -14,4 +13,5 @@ public interface ICurrencyInfo
     public string Name { get; }
     public ICurrencyUsage Banknotes { get; }
     public ICurrencyUsage Coins { get; }
+    public ICurrencyUnit Units { get; }
 }

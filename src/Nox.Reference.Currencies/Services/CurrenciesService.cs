@@ -38,7 +38,11 @@ public class CurrenciesService : ICurrenciesService
         foreach (var currency in _currencies)
         {
             _currenciesByIsoCode[currency.IsoCode] = currency;
-            _currenciesByIsoNumber[currency.IsoNumber] = currency;
+
+            if (!string.IsNullOrWhiteSpace(currency.IsoNumber))
+            {
+                _currenciesByIsoNumber[currency.IsoNumber] = currency;
+            }
         }
     }
 
