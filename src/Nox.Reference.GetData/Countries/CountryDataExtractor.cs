@@ -5,7 +5,7 @@ internal class CountryDataExtractor
 {
     private static string uriRestCountries = @"https://gitlab.com/restcountries/restcountries/-/raw/master/src/main/resources/countriesV3.1.json";
 
-    internal static void GetRestcountryData(string sourceOutputPath, string targetOutputPath)
+    internal static void GetRestCountryData(string sourceOutputPath, string targetOutputPath)
     {
         try
         {
@@ -22,7 +22,6 @@ internal class CountryDataExtractor
 
             // save content
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
-
 
             RestcountryCountryInfo[] countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
@@ -68,42 +67,5 @@ internal class CountryDataExtractor
         {
             Console.Write(ex.Message);
         }
-
     }
-
 }
-
-
-
-    //public override Task<RestcountryCountryInfo[]> FixData(RestcountryCountryInfo[] data)
-    //{
-    //    throw new NotImplementedException();
-    //}
-
-    //public override Task<RestcountryCountryInfo[]> PrepareAndGetData()
-    //{
-    //    throw new NotImplementedException();
-    //}
-
-    //public override string SaveData(RestcountryCountryInfo[] data)
-    //{
-    //    var options = new JsonSerializerOptions()
-    //    {
-    //        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    //        WriteIndented = true,
-
-    //    };
-
-    //    var outputContent = JsonSerializer.Serialize(
-    //        data
-    //        .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-    //        .Cast<ICountryInfo>()
-    //    , options);
-
-    //    File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
-    //}
-
-    //public override Task<RestcountryCountryInfo[]> TransformData(RestcountryCountryInfo[] data)
-    //{
-    //    throw new NotImplementedException();
-    //}

@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Countries\Nox.Reference.Countries.csproj" />
+    <ProjectReference Include="..\Nox.Reference.Currencies\Nox.Reference.Currencies.csproj" />
   </ItemGroup>
 
 </Project>

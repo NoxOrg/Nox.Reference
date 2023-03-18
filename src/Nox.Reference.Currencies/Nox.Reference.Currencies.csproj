@@ -26,6 +26,6 @@
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\..\data\Nox.Reference.Currencies.json" LogicalName="Nox.Reference.Currencies.json"/>
+    <EmbeddedResource Include="..\..\data\Nox.Reference.Currencies.json" LogicalName="Nox.Reference.Currencies.json" />
   </ItemGroup>
 </Project>

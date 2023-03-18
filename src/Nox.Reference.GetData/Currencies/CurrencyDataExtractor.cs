@@ -1,50 +1,54 @@
-﻿using Nox.Reference.Countries;
+﻿using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Currencies.Models.Rest;
 using System.Text.Json;
 
 internal class CurrencyDataExtractor
 {
-    private static string uriRestCountries = @"https://gitlab.com/restcountries/restcountries/-/raw/master/src/main/resources/countriesV3.1.json";
+    private static string uriRestWorldCurrencies = @"https://github.com/wiredmax/world-currencies/blob/master/src/uah.json5";
+    private static string uriRestCurrencyFormatterCurrencies = @"https://github.com/smirzaei/currency-formatter/blob/master/currencies.json";
 
-    internal static void GetRestcountryData(string sourceOutputPath, string targetOutputPath)
+    internal static void GetRestCurrencyData(string sourceOutputPath, string targetOutputPath)
     {
         try
         {
-            var data = RestHelper.GetInternetContent(uriRestCountries);
+            var worldCurrencyRestData = RestHelper.GetInternetContent(uriRestWorldCurrencies);
+            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies);
 
-            var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
+            var sourceFilePath = Path.Combine(sourceOutputPath, "Currencies");
             Directory.CreateDirectory(sourceFilePath);
 
             var targetFilePath = targetOutputPath;
             Directory.CreateDirectory(targetFilePath);
 
-            // Fix empty dictionaries for 'currencies' from empty arrays
-            var editedContent = data.Replace(@"""currencies"": [],", @"""currencies"": {},");
-
             // save content
-            File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
+            File.WriteAllText(Path.Combine(sourceFilePath, "currencyFormatter.json"), currencyFormatterRestData);
+            File.WriteAllText(Path.Combine(sourceFilePath, "worldCurrency.json"), worldCurrencyRestData);
 
-
-            RestcountryCountryInfo[] countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
-
-            // Edit germany 
-            var germany = countries.First(c => c.Code.Equals("DEU"));
-
-            if (germany is not null && germany.VehicleInfo1 is not null)
+            var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData) ?? new();
+            foreach (var currency in currencyData)
             {
-                germany.VehicleInfo1.InternationalRegistrationCodes = new string[] { "D" };
+                currency.Value.IsoCode_ = currency.Key;
             }
 
-            // Add fips codes
-            var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(
-                File.ReadAllText(Path.Combine(sourceFilePath, "static-iso2fips.json"))
-            );
-
-            foreach (var country in countries)
+            var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData) ?? new();
+            foreach (var worldCurrency in worldCurrencyData)
             {
-                if (isoAlpha2ToFipsMapping?.TryGetValue(country.AlphaCode2, out var fips) ?? false)
+                if (!currencyData.TryGetValue(worldCurrency.Key, out var currency))
                 {
-                    country.FipsCode = fips;
+                    Console.WriteLine($"Warning! CurrencyFormatter data doesn't have key for currency '{worldCurrency.Key}' from worldData!");
+                    continue;
                 }
+
+                currency.IsoNumber_ = worldCurrency.Value.Iso.Number;
+                currency.Banknotes_ = worldCurrency.Value.Banknotes;
+                currency.Coins_ = worldCurrency.Value.Coins;
+                currency.Units_ = worldCurrency.Value.Units;
+                currency.Name_ = worldCurrency.Value.Name;
+            }
+
+            foreach (var currency in currencyData.Where(x => string.IsNullOrWhiteSpace(x.Value.IsoNumber)))
+            {
+                Console.WriteLine($"Warning! WorldData doesn't have key for currency '{currency.Key}' from CurrencyFormatter!");
             }
 
             // Store output
@@ -56,54 +60,15 @@ internal class CurrencyDataExtractor
             };
 
             var outputContent = JsonSerializer.Serialize(
-                countries
-                .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>()
-            , options);
+                currencyData.Cast<ICurrencyInfo>(),
+                options);
 
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
+            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Currencies.json"), outputContent);
 
         }
         catch (Exception ex)
         {
             Console.Write(ex.Message);
         }
-
     }
-
 }
-
-
-
-    //public override Task<RestcountryCountryInfo[]> FixData(RestcountryCountryInfo[] data)
-    //{
-    //    throw new NotImplementedException();
-    //}
-
-    //public override Task<RestcountryCountryInfo[]> PrepareAndGetData()
-    //{
-    //    throw new NotImplementedException();
-    //}
-
-    //public override string SaveData(RestcountryCountryInfo[] data)
-    //{
-    //    var options = new JsonSerializerOptions()
-    //    {
-    //        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    //        WriteIndented = true,
-
-    //    };
-
-    //    var outputContent = JsonSerializer.Serialize(
-    //        data
-    //        .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-    //        .Cast<ICountryInfo>()
-    //    , options);
-
-    //    File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
-    //}
-
-    //public override Task<RestcountryCountryInfo[]> TransformData(RestcountryCountryInfo[] data)
-    //{
-    //    throw new NotImplementedException();
-    //}
