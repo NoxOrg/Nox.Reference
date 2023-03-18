@@ -45,7 +45,7 @@ internal class CurrencyDataExtractor
                     // Fix Ni-Vanuatu Vatu
                     if (currency.Key.Equals("VUV"))
                     {
-                        worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 0");
+                        worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
                     }
 
                     // Save content
