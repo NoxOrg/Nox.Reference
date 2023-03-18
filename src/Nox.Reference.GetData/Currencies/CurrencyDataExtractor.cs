@@ -4,15 +4,14 @@ using System.Text.Json;
 
 internal class CurrencyDataExtractor
 {
-    private static string uriRestWorldCurrencies = @"https://github.com/wiredmax/world-currencies/blob/master/src/uah.json5";
-    private static string uriRestCurrencyFormatterCurrencies = @"https://github.com/smirzaei/currency-formatter/blob/master/currencies.json";
+    private static string uriRestWorldCurrencies = @"https://raw.githubusercontent.com/wiredmax/world-currencies/master/src/";
+    private static string uriRestCurrencyFormatterCurrencies = @"https://raw.githubusercontent.com/smirzaei/currency-formatter/master/currencies.json";
 
     internal static void GetRestCurrencyData(string sourceOutputPath, string targetOutputPath)
     {
         try
         {
-            var worldCurrencyRestData = RestHelper.GetInternetContent(uriRestWorldCurrencies);
-            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies);
+            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies).Content;
 
             var sourceFilePath = Path.Combine(sourceOutputPath, "Currencies");
             Directory.CreateDirectory(sourceFilePath);
@@ -20,48 +19,61 @@ internal class CurrencyDataExtractor
             var targetFilePath = targetOutputPath;
             Directory.CreateDirectory(targetFilePath);
 
-            // save content
+            // Save content
             File.WriteAllText(Path.Combine(sourceFilePath, "currencyFormatter.json"), currencyFormatterRestData);
-            File.WriteAllText(Path.Combine(sourceFilePath, "worldCurrency.json"), worldCurrencyRestData);
 
-            var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData) ?? new();
+            var deserializationOptions = new JsonSerializerOptions()
+            {
+                AllowTrailingCommas = true,
+                ReadCommentHandling = JsonCommentHandling.Skip
+            };
+
+            var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData, deserializationOptions) ?? new();
             foreach (var currency in currencyData)
             {
-                currency.Value.IsoCode_ = currency.Key;
-            }
-
-            var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData) ?? new();
-            foreach (var worldCurrency in worldCurrencyData)
-            {
-                if (!currencyData.TryGetValue(worldCurrency.Key, out var currency))
+                try
                 {
-                    Console.WriteLine($"Warning! CurrencyFormatter data doesn't have key for currency '{worldCurrency.Key}' from worldData!");
-                    continue;
+                    currency.Value.IsoCode_ = currency.Key;
+                    var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies + currency.Value.IsoCode.ToLower() + ".json5");
+
+                    if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+                    {
+                        throw new Exception("Can't find file in worldCurrency repo.");
+                    }
+                    var worldCurrencyRestData = worldCurrencyRestDataResponse.Content;
+
+                    // Fix Ni-Vanuatu Vatu
+                    if (currency.Key.Equals("VUV"))
+                    {
+                        worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 0");
+                    }
+
+                    // Save content
+                    File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency_{currency.Value.IsoCode}.json"), worldCurrencyRestData);
+                    var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
+
+                    currency.Value.IsoNumber_ = worldCurrencyData.First().Value.Iso.Number;
+                    currency.Value.Banknotes_ = worldCurrencyData.First().Value.Banknotes;
+                    currency.Value.Coins_ = worldCurrencyData.First().Value.Coins;
+                    currency.Value.Units_ = worldCurrencyData.First().Value.Units;
+                    currency.Value.Name_ = worldCurrencyData.First().Value.Name;
                 }
-
-                currency.IsoNumber_ = worldCurrency.Value.Iso.Number;
-                currency.Banknotes_ = worldCurrency.Value.Banknotes;
-                currency.Coins_ = worldCurrency.Value.Coins;
-                currency.Units_ = worldCurrency.Value.Units;
-                currency.Name_ = worldCurrency.Value.Name;
-            }
-
-            foreach (var currency in currencyData.Where(x => string.IsNullOrWhiteSpace(x.Value.IsoNumber)))
-            {
-                Console.WriteLine($"Warning! WorldData doesn't have key for currency '{currency.Key}' from CurrencyFormatter!");
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Warning! WorldData doesn't have key for currency '{currency.Key}' from CurrencyFormatter. Error message: {ex.Message}");
+                }
             }
 
             // Store output
-            var options = new JsonSerializerOptions()
+            var serializationOptions = new JsonSerializerOptions()
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true,
-
             };
 
             var outputContent = JsonSerializer.Serialize(
-                currencyData.Cast<ICurrencyInfo>(),
-                options);
+                currencyData.Select(x => x.Value).Cast<ICurrencyInfo>(),
+                serializationOptions);
 
             File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Currencies.json"), outputContent);
 

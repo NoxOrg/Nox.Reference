@@ -1,9 +1,8 @@
-﻿
-using RestSharp;
+﻿using RestSharp;
 
 internal class RestHelper
 {
-    internal static string GetInternetContent(string uri, string accept = "application/json")
+    internal static RestResponse? GetInternetContent(string uri, string accept = "application/json")
     {
         var client = new RestClient(uri);
 
@@ -23,6 +22,11 @@ internal class RestHelper
             throw new Exception($"Error retreiving data from {uri} ({data.ErrorException?.Message})");
         }
 
-        return data.Content ?? "";
+        if (data.ResponseStatus == ResponseStatus.Error)
+        {
+            throw new Exception($"Error retreiving data from {uri} ({data.ErrorException?.Message})");
+        }
+
+        return data;
     }
 }

@@ -9,7 +9,7 @@ internal class CountryDataExtractor
     {
         try
         {
-            var data = RestHelper.GetInternetContent(uriRestCountries);
+            var data = RestHelper.GetInternetContent(uriRestCountries).Content;
 
             var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
             Directory.CreateDirectory(sourceFilePath);
@@ -23,7 +23,7 @@ internal class CountryDataExtractor
             // save content
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
-            RestcountryCountryInfo[] countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+            var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
             // Edit germany 
             var germany = countries.First(c => c.Code.Equals("DEU"));
@@ -51,14 +51,12 @@ internal class CountryDataExtractor
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true,
-
             };
 
-            var outputContent = JsonSerializer.Serialize(
-                countries
+            var outputContent = JsonSerializer.Serialize(countries
                 .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>()
-            , options);
+                .Cast<ICountryInfo>(),
+                options);
 
             File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
 
