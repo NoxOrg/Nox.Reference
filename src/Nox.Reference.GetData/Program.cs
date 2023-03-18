@@ -21,7 +21,10 @@ var sourceOutputPath = Path.Combine(path.FullName, @"data\source");
 Directory.CreateDirectory(sourceOutputPath);
 
 Console.WriteLine("Getting country data...");
-CountryData.GetRestcountryData(sourceOutputPath, targetOutputPath);
+CountryDataExtractor.GetRestcountryData(sourceOutputPath, targetOutputPath);
+
+Console.WriteLine("Getting currency data...");
+CurrencyDataExtractor.GetRestcountryData(sourceOutputPath, targetOutputPath);
 
 Console.WriteLine();
 Console.WriteLine("Completed.");

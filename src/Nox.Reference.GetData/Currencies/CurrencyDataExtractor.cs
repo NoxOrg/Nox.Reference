@@ -1,7 +1,7 @@
 ﻿using Nox.Reference.Countries;
 using System.Text.Json;
 
-internal class CountryData
+internal class CurrencyDataExtractor
 {
     private static string uriRestCountries = @"https://gitlab.com/restcountries/restcountries/-/raw/master/src/main/resources/countriesV3.1.json";
 
@@ -73,3 +73,37 @@ internal class CountryData
 
 }
 
+
+
+    //public override Task<RestcountryCountryInfo[]> FixData(RestcountryCountryInfo[] data)
+    //{
+    //    throw new NotImplementedException();
+    //}
+
+    //public override Task<RestcountryCountryInfo[]> PrepareAndGetData()
+    //{
+    //    throw new NotImplementedException();
+    //}
+
+    //public override string SaveData(RestcountryCountryInfo[] data)
+    //{
+    //    var options = new JsonSerializerOptions()
+    //    {
+    //        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    //        WriteIndented = true,
+
+    //    };
+
+    //    var outputContent = JsonSerializer.Serialize(
+    //        data
+    //        .Where(c => !string.IsNullOrEmpty(c.NumericCode))
+    //        .Cast<ICountryInfo>()
+    //    , options);
+
+    //    File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
+    //}
+
+    //public override Task<RestcountryCountryInfo[]> TransformData(RestcountryCountryInfo[] data)
+    //{
+    //    throw new NotImplementedException();
+    //}
