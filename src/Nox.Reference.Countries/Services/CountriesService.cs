@@ -1,29 +1,36 @@
-﻿
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.Json;
 
 namespace Nox.Reference.Countries;
 
 public class CountriesService : ICountriesService
 {
-    private readonly ICountryInfo[]? _countries;
+    private readonly IReadOnlyList<ICountryInfo> _countries = new List<ICountryInfo>();
 
     public CountriesService()
     {
         var assembly = Assembly.GetExecutingAssembly();
         var resourceName = "Nox.Reference.Countries.json";
-        if (assembly != null)
+        if (assembly == null)
         {
-            using var stream = assembly.GetManifestResourceStream(resourceName);
-            if (stream != null)
-            {
-                using var reader = new StreamReader(stream);
-
-                _countries = JsonSerializer.Deserialize<CountryInfo[]>(reader.ReadToEnd(),
-                    new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-            }
+            return;
         }
+
+        using var stream = assembly.GetManifestResourceStream(resourceName);
+        if (stream == null)
+        {
+            return;
+        }
+
+        using var reader = new StreamReader(stream);
+
+        _countries = JsonSerializer.Deserialize<List<CountryInfo>>(
+            reader.ReadToEnd(),
+            new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            }) ?? new List<CountryInfo>();
     }
 
-    public ICountryInfo[]? GetCountries() => _countries;
+    public IReadOnlyList<ICountryInfo> GetCountries() => _countries;
 }
