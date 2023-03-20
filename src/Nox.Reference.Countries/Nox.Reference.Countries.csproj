@@ -15,7 +15,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>nox.png</PackageIcon>
-    <Description>Phone number info utilities</Description>
+    <Description>Countries info utilities</Description>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />

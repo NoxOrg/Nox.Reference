@@ -1,5 +1,4 @@
 ﻿
-using System.Runtime.CompilerServices;
 using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;

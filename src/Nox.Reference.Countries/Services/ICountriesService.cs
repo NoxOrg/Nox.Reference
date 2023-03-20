@@ -2,6 +2,6 @@
 {
     public interface ICountriesService
     {
-        ICountryInfo[]? GetCountries();
+        IReadOnlyList<ICountryInfo> GetCountries();
     }
 }

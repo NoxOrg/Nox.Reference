@@ -1,16 +1,15 @@
-﻿using RestSharp;
-using Nox.Reference.Countries;
+﻿using Nox.Reference.Countries;
 using System.Text.Json;
 
-internal class CountryData
+internal class CountryDataExtractor
 {
     private static string uriRestCountries = @"https://gitlab.com/restcountries/restcountries/-/raw/master/src/main/resources/countriesV3.1.json";
 
-    internal static void GetRestcountryData(string sourceOutputPath, string targetOutputPath)
+    internal static void GetRestCountryData(string sourceOutputPath, string targetOutputPath)
     {
         try
         {
-            var data = RestHelper.GetInternetContent(uriRestCountries);
+            var data = RestHelper.GetInternetContent(uriRestCountries).Content;
 
             var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
             Directory.CreateDirectory(sourceFilePath);
@@ -24,8 +23,7 @@ internal class CountryData
             // save content
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
-
-            RestcountryCountryInfo[] countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+            var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
             // Edit germany 
             var germany = countries.First(c => c.Code.Equals("DEU"));
@@ -53,14 +51,12 @@ internal class CountryData
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 WriteIndented = true,
-
             };
 
-            var outputContent = JsonSerializer.Serialize(
-                countries
+            var outputContent = JsonSerializer.Serialize(countries
                 .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>()
-            , options);
+                .Cast<ICountryInfo>(),
+                options);
 
             File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
 
@@ -69,8 +65,5 @@ internal class CountryData
         {
             Console.Write(ex.Message);
         }
-
     }
-
 }
-

@@ -2,6 +2,7 @@
   {
     "id": 533,
     "name": "Aruba",
+    "code": "ABW",
     "languages": [
       "nld",
       "pap"
@@ -28,7 +29,6 @@
     "alphaCode2": "AW",
     "numericCode": "533",
     "alphaCode3": "ABW",
-    "code": "ABW",
     "olympicCommitteeCode": "ARU",
     "fifaCode": "ARU",
     "fipsCode": "AA",
@@ -240,6 +240,7 @@
   {
     "id": 4,
     "name": "Afghanistan",
+    "code": "AFG",
     "languages": [
       "prs",
       "pus",
@@ -272,7 +273,6 @@
     "alphaCode2": "AF",
     "numericCode": "004",
     "alphaCode3": "AFG",
-    "code": "AFG",
     "olympicCommitteeCode": "AFG",
     "fifaCode": "AFG",
     "fipsCode": "AF",
@@ -494,6 +494,7 @@
   {
     "id": 24,
     "name": "Angola",
+    "code": "AGO",
     "languages": [
       "por"
     ],
@@ -514,7 +515,6 @@
     "alphaCode2": "AO",
     "numericCode": "024",
     "alphaCode3": "AGO",
-    "code": "AGO",
     "olympicCommitteeCode": "ANG",
     "fifaCode": "ANG",
     "fipsCode": "AO",
@@ -737,6 +737,7 @@
   {
     "id": 660,
     "name": "Anguilla",
+    "code": "AIA",
     "languages": [
       "eng"
     ],
@@ -757,7 +758,6 @@
     "alphaCode2": "AI",
     "numericCode": "660",
     "alphaCode3": "AIA",
-    "code": "AIA",
     "olympicCommitteeCode": "",
     "fifaCode": "AIA",
     "fipsCode": "AV",
@@ -971,6 +971,7 @@
   {
     "id": 248,
     "name": "\u00C5land Islands",
+    "code": "ALA",
     "languages": [
       "swe"
     ],
@@ -991,7 +992,6 @@
     "alphaCode2": "AX",
     "numericCode": "248",
     "alphaCode3": "ALA",
-    "code": "ALA",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "",
@@ -1208,6 +1208,7 @@
   {
     "id": 8,
     "name": "Albania",
+    "code": "ALB",
     "languages": [
       "sqi"
     ],
@@ -1228,7 +1229,6 @@
     "alphaCode2": "AL",
     "numericCode": "008",
     "alphaCode3": "ALB",
-    "code": "ALB",
     "olympicCommitteeCode": "ALB",
     "fifaCode": "ALB",
     "fipsCode": "AL",
@@ -1452,6 +1452,7 @@
   {
     "id": 20,
     "name": "Andorra",
+    "code": "AND",
     "languages": [
       "cat"
     ],
@@ -1472,7 +1473,6 @@
     "alphaCode2": "AD",
     "numericCode": "020",
     "alphaCode3": "AND",
-    "code": "AND",
     "olympicCommitteeCode": "AND",
     "fifaCode": "AND",
     "fipsCode": "AN",
@@ -1691,6 +1691,7 @@
   {
     "id": 784,
     "name": "United Arab Emirates",
+    "code": "ARE",
     "languages": [
       "ara"
     ],
@@ -1712,7 +1713,6 @@
     "alphaCode2": "AE",
     "numericCode": "784",
     "alphaCode3": "ARE",
-    "code": "ARE",
     "olympicCommitteeCode": "UAE",
     "fifaCode": "UAE",
     "fipsCode": "AE",
@@ -1933,6 +1933,7 @@
   {
     "id": 32,
     "name": "Argentina",
+    "code": "ARG",
     "languages": [
       "grn",
       "spa"
@@ -1959,7 +1960,6 @@
     "alphaCode2": "AR",
     "numericCode": "032",
     "alphaCode3": "ARG",
-    "code": "ARG",
     "olympicCommitteeCode": "ARG",
     "fifaCode": "ARG",
     "fipsCode": "AR",
@@ -2183,6 +2183,7 @@
   {
     "id": 51,
     "name": "Armenia",
+    "code": "ARM",
     "languages": [
       "hye"
     ],
@@ -2203,7 +2204,6 @@
     "alphaCode2": "AM",
     "numericCode": "051",
     "alphaCode3": "ARM",
-    "code": "ARM",
     "olympicCommitteeCode": "ARM",
     "fifaCode": "ARM",
     "fipsCode": "AM",
@@ -2427,6 +2427,7 @@
   {
     "id": 16,
     "name": "American Samoa",
+    "code": "ASM",
     "languages": [
       "eng",
       "smo"
@@ -2453,7 +2454,6 @@
     "alphaCode2": "AS",
     "numericCode": "016",
     "alphaCode3": "ASM",
-    "code": "ASM",
     "olympicCommitteeCode": "ASA",
     "fifaCode": "ASA",
     "fipsCode": "AQ",
@@ -2670,6 +2670,7 @@
   {
     "id": 10,
     "name": "Antarctica",
+    "code": "ATA",
     "languages": [],
     "names": {
       "commonName": "Antarctica",
@@ -2682,7 +2683,6 @@
     "alphaCode2": "AQ",
     "numericCode": "010",
     "alphaCode3": "ATA",
-    "code": "ATA",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "AY",
@@ -2894,6 +2894,7 @@
   {
     "id": 260,
     "name": "French Southern and Antarctic Lands",
+    "code": "ATF",
     "languages": [
       "fra"
     ],
@@ -2914,7 +2915,6 @@
     "alphaCode2": "TF",
     "numericCode": "260",
     "alphaCode3": "ATF",
-    "code": "ATF",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "FS",
@@ -3129,6 +3129,7 @@
   {
     "id": 28,
     "name": "Antigua and Barbuda",
+    "code": "ATG",
     "languages": [
       "eng"
     ],
@@ -3149,7 +3150,6 @@
     "alphaCode2": "AG",
     "numericCode": "028",
     "alphaCode3": "ATG",
-    "code": "ATG",
     "olympicCommitteeCode": "ANT",
     "fifaCode": "ATG",
     "fipsCode": "AC",
@@ -3220,7 +3220,7 @@
       },
       {
         "language": "fra",
-        "officialName": "Antigua -et-Barbuda",
+        "officialName": "Antigua-et-Barbuda",
         "commonName": "Antigua-et-Barbuda"
       },
       {
@@ -3363,6 +3363,7 @@
   {
     "id": 36,
     "name": "Australia",
+    "code": "AUS",
     "languages": [
       "eng"
     ],
@@ -3383,7 +3384,6 @@
     "alphaCode2": "AU",
     "numericCode": "036",
     "alphaCode3": "AUS",
-    "code": "AUS",
     "olympicCommitteeCode": "AUS",
     "fifaCode": "AUS",
     "fipsCode": "AS",
@@ -3606,6 +3606,7 @@
   {
     "id": 40,
     "name": "Austria",
+    "code": "AUT",
     "languages": [
       "de"
     ],
@@ -3626,7 +3627,6 @@
     "alphaCode2": "AT",
     "numericCode": "040",
     "alphaCode3": "AUT",
-    "code": "AUT",
     "olympicCommitteeCode": "AUT",
     "fifaCode": "AUT",
     "fipsCode": "AU",
@@ -3853,6 +3853,7 @@
   {
     "id": 31,
     "name": "Azerbaijan",
+    "code": "AZE",
     "languages": [
       "aze",
       "rus"
@@ -3879,7 +3880,6 @@
     "alphaCode2": "AZ",
     "numericCode": "031",
     "alphaCode3": "AZE",
-    "code": "AZE",
     "olympicCommitteeCode": "AZE",
     "fifaCode": "AZE",
     "fipsCode": "AJ",
@@ -4103,6 +4103,7 @@
   {
     "id": 108,
     "name": "Burundi",
+    "code": "BDI",
     "languages": [
       "fra",
       "run"
@@ -4129,7 +4130,6 @@
     "alphaCode2": "BI",
     "numericCode": "108",
     "alphaCode3": "BDI",
-    "code": "BDI",
     "olympicCommitteeCode": "BDI",
     "fifaCode": "BDI",
     "fipsCode": "BY",
@@ -4352,6 +4352,7 @@
   {
     "id": 56,
     "name": "Belgium",
+    "code": "BEL",
     "languages": [
       "deu",
       "fra",
@@ -4384,7 +4385,6 @@
     "alphaCode2": "BE",
     "numericCode": "056",
     "alphaCode3": "BEL",
-    "code": "BEL",
     "olympicCommitteeCode": "BEL",
     "fifaCode": "BEL",
     "fipsCode": "BE",
@@ -4613,6 +4613,7 @@
   {
     "id": 204,
     "name": "Benin",
+    "code": "BEN",
     "languages": [
       "fra"
     ],
@@ -4633,7 +4634,6 @@
     "alphaCode2": "BJ",
     "numericCode": "204",
     "alphaCode3": "BEN",
-    "code": "BEN",
     "olympicCommitteeCode": "BEN",
     "fifaCode": "BEN",
     "fipsCode": "BN",
@@ -4856,6 +4856,7 @@
   {
     "id": 854,
     "name": "Burkina Faso",
+    "code": "BFA",
     "languages": [
       "fra"
     ],
@@ -4876,7 +4877,6 @@
     "alphaCode2": "BF",
     "numericCode": "854",
     "alphaCode3": "BFA",
-    "code": "BFA",
     "olympicCommitteeCode": "BUR",
     "fifaCode": "BFA",
     "fipsCode": "UV",
@@ -5099,6 +5099,7 @@
   {
     "id": 50,
     "name": "Bangladesh",
+    "code": "BGD",
     "languages": [
       "ben"
     ],
@@ -5119,7 +5120,6 @@
     "alphaCode2": "BD",
     "numericCode": "050",
     "alphaCode3": "BGD",
-    "code": "BGD",
     "olympicCommitteeCode": "BAN",
     "fifaCode": "BAN",
     "fipsCode": "BG",
@@ -5340,6 +5340,7 @@
   {
     "id": 100,
     "name": "Bulgaria",
+    "code": "BGR",
     "languages": [
       "bul"
     ],
@@ -5360,7 +5361,6 @@
     "alphaCode2": "BG",
     "numericCode": "100",
     "alphaCode3": "BGR",
-    "code": "BGR",
     "olympicCommitteeCode": "BUL",
     "fifaCode": "BUL",
     "fipsCode": "BU",
@@ -5584,6 +5584,7 @@
   {
     "id": 48,
     "name": "Bahrain",
+    "code": "BHR",
     "languages": [
       "ara"
     ],
@@ -5604,7 +5605,6 @@
     "alphaCode2": "BH",
     "numericCode": "048",
     "alphaCode3": "BHR",
-    "code": "BHR",
     "olympicCommitteeCode": "BHR",
     "fifaCode": "BHR",
     "fipsCode": "BA",
@@ -5820,6 +5820,7 @@
   {
     "id": 44,
     "name": "Bahamas",
+    "code": "BHS",
     "languages": [
       "eng"
     ],
@@ -5840,7 +5841,6 @@
     "alphaCode2": "BS",
     "numericCode": "044",
     "alphaCode3": "BHS",
-    "code": "BHS",
     "olympicCommitteeCode": "BAH",
     "fifaCode": "BAH",
     "fipsCode": "BF",
@@ -6056,6 +6056,7 @@
   {
     "id": 70,
     "name": "Bosnia and Herzegovina",
+    "code": "BIH",
     "languages": [
       "bos",
       "hrv",
@@ -6088,7 +6089,6 @@
     "alphaCode2": "BA",
     "numericCode": "070",
     "alphaCode3": "BIH",
-    "code": "BIH",
     "olympicCommitteeCode": "BIH",
     "fifaCode": "BIH",
     "fipsCode": "BK",
@@ -6310,6 +6310,7 @@
   {
     "id": 652,
     "name": "Saint Barth\u00E9lemy",
+    "code": "BLM",
     "languages": [
       "fra"
     ],
@@ -6330,7 +6331,6 @@
     "alphaCode2": "BL",
     "numericCode": "652",
     "alphaCode3": "BLM",
-    "code": "BLM",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "TB",
@@ -6547,6 +6547,7 @@
   {
     "id": 654,
     "name": "Saint Helena, Ascension and Tristan da Cunha",
+    "code": "SHN",
     "languages": [
       "eng"
     ],
@@ -6568,7 +6569,6 @@
     "alphaCode2": "SH",
     "numericCode": "654",
     "alphaCode3": "SHN",
-    "code": "SHN",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "SH",
@@ -6785,6 +6785,7 @@
   {
     "id": 112,
     "name": "Belarus",
+    "code": "BLR",
     "languages": [
       "bel",
       "rus"
@@ -6811,7 +6812,6 @@
     "alphaCode2": "BY",
     "numericCode": "112",
     "alphaCode3": "BLR",
-    "code": "BLR",
     "olympicCommitteeCode": "BLR",
     "fifaCode": "BLR",
     "fipsCode": "BO",
@@ -7037,6 +7037,7 @@
   {
     "id": 84,
     "name": "Belize",
+    "code": "BLZ",
     "languages": [
       "bjz",
       "eng",
@@ -7069,7 +7070,6 @@
     "alphaCode2": "BZ",
     "numericCode": "084",
     "alphaCode3": "BLZ",
-    "code": "BLZ",
     "olympicCommitteeCode": "BIZ",
     "fifaCode": "BLZ",
     "fipsCode": "BH",
@@ -7288,6 +7288,7 @@
   {
     "id": 60,
     "name": "Bermuda",
+    "code": "BMU",
     "languages": [
       "eng"
     ],
@@ -7308,7 +7309,6 @@
     "alphaCode2": "BM",
     "numericCode": "060",
     "alphaCode3": "BMU",
-    "code": "BMU",
     "olympicCommitteeCode": "BER",
     "fifaCode": "BER",
     "fipsCode": "BD",
@@ -7525,6 +7525,7 @@
   {
     "id": 68,
     "name": "Bolivia",
+    "code": "BOL",
     "languages": [
       "aym",
       "grn",
@@ -7563,7 +7564,6 @@
     "alphaCode2": "BO",
     "numericCode": "068",
     "alphaCode3": "BOL",
-    "code": "BOL",
     "olympicCommitteeCode": "BOL",
     "fifaCode": "BOL",
     "fipsCode": "BL",
@@ -7793,6 +7793,7 @@
   {
     "id": 535,
     "name": "Caribbean Netherlands",
+    "code": "BES",
     "languages": [
       "eng",
       "nld",
@@ -7821,7 +7822,6 @@
     "alphaCode2": "BQ",
     "numericCode": "535",
     "alphaCode3": "BES",
-    "code": "BES",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "",
@@ -8035,6 +8035,7 @@
   {
     "id": 76,
     "name": "Brazil",
+    "code": "BRA",
     "languages": [
       "por"
     ],
@@ -8055,7 +8056,6 @@
     "alphaCode2": "BR",
     "numericCode": "076",
     "alphaCode3": "BRA",
-    "code": "BRA",
     "olympicCommitteeCode": "BRA",
     "fifaCode": "BRA",
     "fipsCode": "BR",
@@ -8288,6 +8288,7 @@
   {
     "id": 52,
     "name": "Barbados",
+    "code": "BRB",
     "languages": [
       "eng"
     ],
@@ -8308,7 +8309,6 @@
     "alphaCode2": "BB",
     "numericCode": "052",
     "alphaCode3": "BRB",
-    "code": "BRB",
     "olympicCommitteeCode": "BAR",
     "fifaCode": "BRB",
     "fipsCode": "BB",
@@ -8522,6 +8522,7 @@
   {
     "id": 96,
     "name": "Brunei",
+    "code": "BRN",
     "languages": [
       "msa"
     ],
@@ -8542,7 +8543,6 @@
     "alphaCode2": "BN",
     "numericCode": "096",
     "alphaCode3": "BRN",
-    "code": "BRN",
     "olympicCommitteeCode": "BRU",
     "fifaCode": "BRU",
     "fipsCode": "BX",
@@ -8762,6 +8762,7 @@
   {
     "id": 64,
     "name": "Bhutan",
+    "code": "BTN",
     "languages": [
       "dzo"
     ],
@@ -8782,7 +8783,6 @@
     "alphaCode2": "BT",
     "numericCode": "064",
     "alphaCode3": "BTN",
-    "code": "BTN",
     "olympicCommitteeCode": "BHU",
     "fifaCode": "BHU",
     "fipsCode": "BT",
@@ -9003,6 +9003,7 @@
   {
     "id": 74,
     "name": "Bouvet Island",
+    "code": "BVT",
     "languages": [
       "nor"
     ],
@@ -9023,7 +9024,6 @@
     "alphaCode2": "BV",
     "numericCode": "074",
     "alphaCode3": "BVT",
-    "code": "BVT",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "BV",
@@ -9232,6 +9232,7 @@
   {
     "id": 72,
     "name": "Botswana",
+    "code": "BWA",
     "languages": [
       "eng",
       "tsn"
@@ -9258,7 +9259,6 @@
     "alphaCode2": "BW",
     "numericCode": "072",
     "alphaCode3": "BWA",
-    "code": "BWA",
     "olympicCommitteeCode": "BOT",
     "fifaCode": "BOT",
     "fipsCode": "BC",
@@ -9481,6 +9481,7 @@
   {
     "id": 140,
     "name": "Central African Republic",
+    "code": "CAF",
     "languages": [
       "fra",
       "sag"
@@ -9507,7 +9508,6 @@
     "alphaCode2": "CF",
     "numericCode": "140",
     "alphaCode3": "CAF",
-    "code": "CAF",
     "olympicCommitteeCode": "CAF",
     "fifaCode": "CTA",
     "fipsCode": "CT",
@@ -9732,6 +9732,7 @@
   {
     "id": 124,
     "name": "Canada",
+    "code": "CAN",
     "languages": [
       "eng",
       "fra"
@@ -9758,7 +9759,6 @@
     "alphaCode2": "CA",
     "numericCode": "124",
     "alphaCode3": "CAN",
-    "code": "CAN",
     "olympicCommitteeCode": "CAN",
     "fifaCode": "CAN",
     "fipsCode": "CA",
@@ -9981,6 +9981,7 @@
   {
     "id": 166,
     "name": "Cocos (Keeling) Islands",
+    "code": "CCK",
     "languages": [
       "eng"
     ],
@@ -10001,7 +10002,6 @@
     "alphaCode2": "CC",
     "numericCode": "166",
     "alphaCode3": "CCK",
-    "code": "CCK",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "CK",
@@ -10217,6 +10217,7 @@
   {
     "id": 756,
     "name": "Switzerland",
+    "code": "CHE",
     "languages": [
       "fra",
       "gsw",
@@ -10255,7 +10256,6 @@
     "alphaCode2": "CH",
     "numericCode": "756",
     "alphaCode3": "CHE",
-    "code": "CHE",
     "olympicCommitteeCode": "SUI",
     "fifaCode": "SUI",
     "fipsCode": "SZ",
@@ -10482,6 +10482,7 @@
   {
     "id": 152,
     "name": "Chile",
+    "code": "CHL",
     "languages": [
       "spa"
     ],
@@ -10502,7 +10503,6 @@
     "alphaCode2": "CL",
     "numericCode": "152",
     "alphaCode3": "CHL",
-    "code": "CHL",
     "olympicCommitteeCode": "CHI",
     "fifaCode": "CHI",
     "fipsCode": "CI",
@@ -10725,6 +10725,7 @@
   {
     "id": 156,
     "name": "China",
+    "code": "CHN",
     "languages": [
       "zho"
     ],
@@ -10749,7 +10750,6 @@
     "alphaCode2": "CN",
     "numericCode": "156",
     "alphaCode3": "CHN",
-    "code": "CHN",
     "olympicCommitteeCode": "CHN",
     "fifaCode": "CHN",
     "fipsCode": "CH",
@@ -10983,6 +10983,7 @@
   {
     "id": 384,
     "name": "Ivory Coast",
+    "code": "CIV",
     "languages": [
       "fra"
     ],
@@ -11003,7 +11004,6 @@
     "alphaCode2": "CI",
     "numericCode": "384",
     "alphaCode3": "CIV",
-    "code": "CIV",
     "olympicCommitteeCode": "CIV",
     "fifaCode": "CIV",
     "fipsCode": "IV",
@@ -11229,6 +11229,7 @@
   {
     "id": 120,
     "name": "Cameroon",
+    "code": "CMR",
     "languages": [
       "eng",
       "fra"
@@ -11255,7 +11256,6 @@
     "alphaCode2": "CM",
     "numericCode": "120",
     "alphaCode3": "CMR",
-    "code": "CMR",
     "olympicCommitteeCode": "CMR",
     "fifaCode": "CMR",
     "fipsCode": "CM",
@@ -11480,6 +11480,7 @@
   {
     "id": 180,
     "name": "DR Congo",
+    "code": "COD",
     "languages": [
       "fra",
       "kon",
@@ -11524,7 +11525,6 @@
     "alphaCode2": "CD",
     "numericCode": "180",
     "alphaCode3": "COD",
-    "code": "COD",
     "olympicCommitteeCode": "COD",
     "fifaCode": "COD",
     "fipsCode": "CG",
@@ -11755,6 +11755,7 @@
   {
     "id": 178,
     "name": "Republic of the Congo",
+    "code": "COG",
     "languages": [
       "fra",
       "kon",
@@ -11787,7 +11788,6 @@
     "alphaCode2": "CG",
     "numericCode": "178",
     "alphaCode3": "COG",
-    "code": "COG",
     "olympicCommitteeCode": "CGO",
     "fifaCode": "CGO",
     "fipsCode": "CF",
@@ -12011,6 +12011,7 @@
   {
     "id": 184,
     "name": "Cook Islands",
+    "code": "COK",
     "languages": [
       "eng",
       "rar"
@@ -12037,7 +12038,6 @@
     "alphaCode2": "CK",
     "numericCode": "184",
     "alphaCode3": "COK",
-    "code": "COK",
     "olympicCommitteeCode": "COK",
     "fifaCode": "COK",
     "fipsCode": "CW",
@@ -12253,6 +12253,7 @@
   {
     "id": 170,
     "name": "Colombia",
+    "code": "COL",
     "languages": [
       "spa"
     ],
@@ -12273,7 +12274,6 @@
     "alphaCode2": "CO",
     "numericCode": "170",
     "alphaCode3": "COL",
-    "code": "COL",
     "olympicCommitteeCode": "COL",
     "fifaCode": "COL",
     "fipsCode": "CO",
@@ -12497,6 +12497,7 @@
   {
     "id": 174,
     "name": "Comoros",
+    "code": "COM",
     "languages": [
       "ara",
       "fra",
@@ -12529,7 +12530,6 @@
     "alphaCode2": "KM",
     "numericCode": "174",
     "alphaCode3": "COM",
-    "code": "COM",
     "olympicCommitteeCode": "COM",
     "fifaCode": "COM",
     "fipsCode": "CN",
@@ -12749,6 +12749,7 @@
   {
     "id": 132,
     "name": "Cape Verde",
+    "code": "CPV",
     "languages": [
       "por"
     ],
@@ -12769,7 +12770,6 @@
     "alphaCode2": "CV",
     "numericCode": "132",
     "alphaCode3": "CPV",
-    "code": "CPV",
     "olympicCommitteeCode": "CPV",
     "fifaCode": "CPV",
     "fipsCode": "CV",
@@ -12987,6 +12987,7 @@
   {
     "id": 188,
     "name": "Costa Rica",
+    "code": "CRI",
     "languages": [
       "spa"
     ],
@@ -13007,7 +13008,6 @@
     "alphaCode2": "CR",
     "numericCode": "188",
     "alphaCode3": "CRI",
-    "code": "CRI",
     "olympicCommitteeCode": "CRC",
     "fifaCode": "CRC",
     "fipsCode": "CS",
@@ -13228,6 +13228,7 @@
   {
     "id": 192,
     "name": "Cuba",
+    "code": "CUB",
     "languages": [
       "spa"
     ],
@@ -13248,7 +13249,6 @@
     "alphaCode2": "CU",
     "numericCode": "192",
     "alphaCode3": "CUB",
-    "code": "CUB",
     "olympicCommitteeCode": "CUB",
     "fifaCode": "CUB",
     "fipsCode": "CU",
@@ -13465,6 +13465,7 @@
   {
     "id": 531,
     "name": "Cura\u00E7ao",
+    "code": "CUW",
     "languages": [
       "eng",
       "nld",
@@ -13497,7 +13498,6 @@
     "alphaCode2": "CW",
     "numericCode": "531",
     "alphaCode3": "CUW",
-    "code": "CUW",
     "olympicCommitteeCode": "",
     "fifaCode": "CUW",
     "fipsCode": "UC",
@@ -13706,6 +13706,7 @@
   {
     "id": 162,
     "name": "Christmas Island",
+    "code": "CXR",
     "languages": [
       "eng"
     ],
@@ -13726,7 +13727,6 @@
     "alphaCode2": "CX",
     "numericCode": "162",
     "alphaCode3": "CXR",
-    "code": "CXR",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "KT",
@@ -13941,6 +13941,7 @@
   {
     "id": 136,
     "name": "Cayman Islands",
+    "code": "CYM",
     "languages": [
       "eng"
     ],
@@ -13961,7 +13962,6 @@
     "alphaCode2": "KY",
     "numericCode": "136",
     "alphaCode3": "CYM",
-    "code": "CYM",
     "olympicCommitteeCode": "CAY",
     "fifaCode": "CAY",
     "fipsCode": "CJ",
@@ -14175,6 +14175,7 @@
   {
     "id": 196,
     "name": "Cyprus",
+    "code": "CYP",
     "languages": [
       "ell",
       "tur"
@@ -14201,7 +14202,6 @@
     "alphaCode2": "CY",
     "numericCode": "196",
     "alphaCode3": "CYP",
-    "code": "CYP",
     "olympicCommitteeCode": "CYP",
     "fifaCode": "CYP",
     "fipsCode": "CY",
@@ -14422,6 +14422,7 @@
   {
     "id": 203,
     "name": "Czechia",
+    "code": "CZE",
     "languages": [
       "ces",
       "slk"
@@ -14448,7 +14449,6 @@
     "alphaCode2": "CZ",
     "numericCode": "203",
     "alphaCode3": "CZE",
-    "code": "CZE",
     "olympicCommitteeCode": "CZE",
     "fifaCode": "CZE",
     "fipsCode": "EZ",
@@ -14671,6 +14671,7 @@
   {
     "id": 276,
     "name": "Germany",
+    "code": "DEU",
     "languages": [
       "deu"
     ],
@@ -14691,7 +14692,6 @@
     "alphaCode2": "DE",
     "numericCode": "276",
     "alphaCode3": "DEU",
-    "code": "DEU",
     "olympicCommitteeCode": "GER",
     "fifaCode": "GER",
     "fipsCode": "GM",
@@ -14919,6 +14919,7 @@
   {
     "id": 262,
     "name": "Djibouti",
+    "code": "DJI",
     "languages": [
       "ara",
       "fra"
@@ -14945,7 +14946,6 @@
     "alphaCode2": "DJ",
     "numericCode": "262",
     "alphaCode3": "DJI",
-    "code": "DJI",
     "olympicCommitteeCode": "DJI",
     "fifaCode": "DJI",
     "fipsCode": "DJ",
@@ -15171,6 +15171,7 @@
   {
     "id": 212,
     "name": "Dominica",
+    "code": "DMA",
     "languages": [
       "eng"
     ],
@@ -15191,7 +15192,6 @@
     "alphaCode2": "DM",
     "numericCode": "212",
     "alphaCode3": "DMA",
-    "code": "DMA",
     "olympicCommitteeCode": "DMA",
     "fifaCode": "DMA",
     "fipsCode": "DO",
@@ -15408,6 +15408,7 @@
   {
     "id": 208,
     "name": "Denmark",
+    "code": "DNK",
     "languages": [
       "dan"
     ],
@@ -15428,7 +15429,6 @@
     "alphaCode2": "DK",
     "numericCode": "208",
     "alphaCode3": "DNK",
-    "code": "DNK",
     "olympicCommitteeCode": "DEN",
     "fifaCode": "DEN",
     "fipsCode": "DK",
@@ -15653,6 +15653,7 @@
   {
     "id": 214,
     "name": "Dominican Republic",
+    "code": "DOM",
     "languages": [
       "spa"
     ],
@@ -15673,7 +15674,6 @@
     "alphaCode2": "DO",
     "numericCode": "214",
     "alphaCode3": "DOM",
-    "code": "DOM",
     "olympicCommitteeCode": "DOM",
     "fifaCode": "DOM",
     "fipsCode": "DR",
@@ -15893,6 +15893,7 @@
   {
     "id": 12,
     "name": "Algeria",
+    "code": "DZA",
     "languages": [
       "ara"
     ],
@@ -15914,7 +15915,6 @@
     "alphaCode2": "DZ",
     "numericCode": "012",
     "alphaCode3": "DZA",
-    "code": "DZA",
     "olympicCommitteeCode": "ALG",
     "fifaCode": "ALG",
     "fipsCode": "AG",
@@ -16140,6 +16140,7 @@
   {
     "id": 218,
     "name": "Ecuador",
+    "code": "ECU",
     "languages": [
       "spa"
     ],
@@ -16160,7 +16161,6 @@
     "alphaCode2": "EC",
     "numericCode": "218",
     "alphaCode3": "ECU",
-    "code": "ECU",
     "olympicCommitteeCode": "ECU",
     "fifaCode": "ECU",
     "fipsCode": "EC",
@@ -16382,6 +16382,7 @@
   {
     "id": 818,
     "name": "Egypt",
+    "code": "EGY",
     "languages": [
       "ara"
     ],
@@ -16403,7 +16404,6 @@
     "alphaCode2": "EG",
     "numericCode": "818",
     "alphaCode3": "EGY",
-    "code": "EGY",
     "olympicCommitteeCode": "EGY",
     "fifaCode": "EGY",
     "fipsCode": "EG",
@@ -16625,6 +16625,7 @@
   {
     "id": 232,
     "name": "Eritrea",
+    "code": "ERI",
     "languages": [
       "ara",
       "eng",
@@ -16657,7 +16658,6 @@
     "alphaCode2": "ER",
     "numericCode": "232",
     "alphaCode3": "ERI",
-    "code": "ERI",
     "olympicCommitteeCode": "ERI",
     "fifaCode": "ERI",
     "fipsCode": "ER",
@@ -16880,6 +16880,7 @@
   {
     "id": 732,
     "name": "Western Sahara",
+    "code": "ESH",
     "languages": [
       "ber",
       "mey",
@@ -16912,7 +16913,6 @@
     "alphaCode2": "EH",
     "numericCode": "732",
     "alphaCode3": "ESH",
-    "code": "ESH",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "WI",
@@ -17134,6 +17134,7 @@
   {
     "id": 724,
     "name": "Spain",
+    "code": "ESP",
     "languages": [
       "spa"
     ],
@@ -17154,7 +17155,6 @@
     "alphaCode2": "ES",
     "numericCode": "724",
     "alphaCode3": "ESP",
-    "code": "ESP",
     "olympicCommitteeCode": "ESP",
     "fifaCode": "ESP",
     "fipsCode": "SP",
@@ -17379,6 +17379,7 @@
   {
     "id": 233,
     "name": "Estonia",
+    "code": "EST",
     "languages": [
       "est"
     ],
@@ -17399,7 +17400,6 @@
     "alphaCode2": "EE",
     "numericCode": "233",
     "alphaCode3": "EST",
-    "code": "EST",
     "olympicCommitteeCode": "EST",
     "fifaCode": "EST",
     "fipsCode": "EN",
@@ -17621,6 +17621,7 @@
   {
     "id": 231,
     "name": "Ethiopia",
+    "code": "ETH",
     "languages": [
       "amh"
     ],
@@ -17641,7 +17642,6 @@
     "alphaCode2": "ET",
     "numericCode": "231",
     "alphaCode3": "ETH",
-    "code": "ETH",
     "olympicCommitteeCode": "ETH",
     "fifaCode": "ETH",
     "fipsCode": "ET",
@@ -17867,6 +17867,7 @@
   {
     "id": 246,
     "name": "Finland",
+    "code": "FIN",
     "languages": [
       "fin",
       "swe"
@@ -17893,7 +17894,6 @@
     "alphaCode2": "FI",
     "numericCode": "246",
     "alphaCode3": "FIN",
-    "code": "FIN",
     "olympicCommitteeCode": "FIN",
     "fifaCode": "FIN",
     "fipsCode": "FI",
@@ -18117,6 +18117,7 @@
   {
     "id": 242,
     "name": "Fiji",
+    "code": "FJI",
     "languages": [
       "eng",
       "fij",
@@ -18149,7 +18150,6 @@
     "alphaCode2": "FJ",
     "numericCode": "242",
     "alphaCode3": "FJI",
-    "code": "FJI",
     "olympicCommitteeCode": "FIJ",
     "fifaCode": "FIJ",
     "fipsCode": "FJ",
@@ -18369,6 +18369,7 @@
   {
     "id": 238,
     "name": "Falkland Islands",
+    "code": "FLK",
     "languages": [
       "eng"
     ],
@@ -18389,7 +18390,6 @@
     "alphaCode2": "FK",
     "numericCode": "238",
     "alphaCode3": "FLK",
-    "code": "FLK",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "FK",
@@ -18605,6 +18605,7 @@
   {
     "id": 250,
     "name": "France",
+    "code": "FRA",
     "languages": [
       "fra"
     ],
@@ -18625,7 +18626,6 @@
     "alphaCode2": "FR",
     "numericCode": "250",
     "alphaCode3": "FRA",
-    "code": "FRA",
     "olympicCommitteeCode": "FRA",
     "fifaCode": "FRA",
     "fipsCode": "FR",
@@ -18865,6 +18865,7 @@
   {
     "id": 234,
     "name": "Faroe Islands",
+    "code": "FRO",
     "languages": [
       "dan",
       "fao"
@@ -18891,7 +18892,6 @@
     "alphaCode2": "FO",
     "numericCode": "234",
     "alphaCode3": "FRO",
-    "code": "FRO",
     "olympicCommitteeCode": "",
     "fifaCode": "FRO",
     "fipsCode": "FO",
@@ -19108,6 +19108,7 @@
   {
     "id": 583,
     "name": "Micronesia",
+    "code": "FSM",
     "languages": [
       "eng"
     ],
@@ -19128,7 +19129,6 @@
     "alphaCode2": "FM",
     "numericCode": "583",
     "alphaCode3": "FSM",
-    "code": "FSM",
     "olympicCommitteeCode": "FSM",
     "fifaCode": "",
     "fipsCode": "FM",
@@ -19347,6 +19347,7 @@
   {
     "id": 266,
     "name": "Gabon",
+    "code": "GAB",
     "languages": [
       "fra"
     ],
@@ -19367,7 +19368,6 @@
     "alphaCode2": "GA",
     "numericCode": "266",
     "alphaCode3": "GAB",
-    "code": "GAB",
     "olympicCommitteeCode": "GAB",
     "fifaCode": "GAB",
     "fipsCode": "GB",
@@ -19589,6 +19589,7 @@
   {
     "id": 826,
     "name": "United Kingdom",
+    "code": "GBR",
     "languages": [
       "eng"
     ],
@@ -19609,7 +19610,6 @@
     "alphaCode2": "GB",
     "numericCode": "826",
     "alphaCode3": "GBR",
-    "code": "GBR",
     "olympicCommitteeCode": "GBR",
     "fifaCode": "",
     "fipsCode": "UK",
@@ -19837,6 +19837,7 @@
   {
     "id": 268,
     "name": "Georgia",
+    "code": "GEO",
     "languages": [
       "kat"
     ],
@@ -19857,7 +19858,6 @@
     "alphaCode2": "GE",
     "numericCode": "268",
     "alphaCode3": "GEO",
-    "code": "GEO",
     "olympicCommitteeCode": "GEO",
     "fifaCode": "GEO",
     "fipsCode": "GG",
@@ -20079,6 +20079,7 @@
   {
     "id": 831,
     "name": "Guernsey",
+    "code": "GGY",
     "languages": [
       "eng",
       "fra",
@@ -20111,7 +20112,6 @@
     "alphaCode2": "GG",
     "numericCode": "831",
     "alphaCode3": "GGY",
-    "code": "GGY",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "GK",
@@ -20328,6 +20328,7 @@
   {
     "id": 288,
     "name": "Ghana",
+    "code": "GHA",
     "languages": [
       "eng"
     ],
@@ -20348,7 +20349,6 @@
     "alphaCode2": "GH",
     "numericCode": "288",
     "alphaCode3": "GHA",
-    "code": "GHA",
     "olympicCommitteeCode": "GHA",
     "fifaCode": "GHA",
     "fipsCode": "GH",
@@ -20568,6 +20568,7 @@
   {
     "id": 292,
     "name": "Gibraltar",
+    "code": "GIB",
     "languages": [
       "eng"
     ],
@@ -20588,7 +20589,6 @@
     "alphaCode2": "GI",
     "numericCode": "292",
     "alphaCode3": "GIB",
-    "code": "GIB",
     "olympicCommitteeCode": "",
     "fifaCode": "GIB",
     "fipsCode": "GI",
@@ -20804,6 +20804,7 @@
   {
     "id": 324,
     "name": "Guinea",
+    "code": "GIN",
     "languages": [
       "fra"
     ],
@@ -20824,7 +20825,6 @@
     "alphaCode2": "GN",
     "numericCode": "324",
     "alphaCode3": "GIN",
-    "code": "GIN",
     "olympicCommitteeCode": "GUI",
     "fifaCode": "GUI",
     "fipsCode": "GV",
@@ -21049,6 +21049,7 @@
   {
     "id": 312,
     "name": "Guadeloupe",
+    "code": "GLP",
     "languages": [
       "fra"
     ],
@@ -21069,7 +21070,6 @@
     "alphaCode2": "GP",
     "numericCode": "312",
     "alphaCode3": "GLP",
-    "code": "GLP",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "GP",
@@ -21284,6 +21284,7 @@
   {
     "id": 270,
     "name": "Gambia",
+    "code": "GMB",
     "languages": [
       "eng"
     ],
@@ -21304,7 +21305,6 @@
     "alphaCode2": "GM",
     "numericCode": "270",
     "alphaCode3": "GMB",
-    "code": "GMB",
     "olympicCommitteeCode": "GAM",
     "fifaCode": "GAM",
     "fipsCode": "GA",
@@ -21523,6 +21523,7 @@
   {
     "id": 624,
     "name": "Guinea-Bissau",
+    "code": "GNB",
     "languages": [
       "por",
       "pov"
@@ -21549,7 +21550,6 @@
     "alphaCode2": "GW",
     "numericCode": "624",
     "alphaCode3": "GNB",
-    "code": "GNB",
     "olympicCommitteeCode": "GBS",
     "fifaCode": "GNB",
     "fipsCode": "PU",
@@ -21770,6 +21770,7 @@
   {
     "id": 226,
     "name": "Equatorial Guinea",
+    "code": "GNQ",
     "languages": [
       "fra",
       "por",
@@ -21802,7 +21803,6 @@
     "alphaCode2": "GQ",
     "numericCode": "226",
     "alphaCode3": "GNQ",
-    "code": "GNQ",
     "olympicCommitteeCode": "GEQ",
     "fifaCode": "EQG",
     "fipsCode": "EK",
@@ -22023,6 +22023,7 @@
   {
     "id": 300,
     "name": "Greece",
+    "code": "GRC",
     "languages": [
       "ell"
     ],
@@ -22043,7 +22044,6 @@
     "alphaCode2": "GR",
     "numericCode": "300",
     "alphaCode3": "GRC",
-    "code": "GRC",
     "olympicCommitteeCode": "GRE",
     "fifaCode": "GRE",
     "fipsCode": "GR",
@@ -22267,6 +22267,7 @@
   {
     "id": 308,
     "name": "Grenada",
+    "code": "GRD",
     "languages": [
       "eng"
     ],
@@ -22287,7 +22288,6 @@
     "alphaCode2": "GD",
     "numericCode": "308",
     "alphaCode3": "GRD",
-    "code": "GRD",
     "olympicCommitteeCode": "GRN",
     "fifaCode": "GRN",
     "fipsCode": "GJ",
@@ -22501,6 +22501,7 @@
   {
     "id": 304,
     "name": "Greenland",
+    "code": "GRL",
     "languages": [
       "kal"
     ],
@@ -22521,7 +22522,6 @@
     "alphaCode2": "GL",
     "numericCode": "304",
     "alphaCode3": "GRL",
-    "code": "GRL",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "GL",
@@ -22739,6 +22739,7 @@
   {
     "id": 320,
     "name": "Guatemala",
+    "code": "GTM",
     "languages": [
       "spa"
     ],
@@ -22759,7 +22760,6 @@
     "alphaCode2": "GT",
     "numericCode": "320",
     "alphaCode3": "GTM",
-    "code": "GTM",
     "olympicCommitteeCode": "GUA",
     "fifaCode": "GUA",
     "fipsCode": "GT",
@@ -22980,6 +22980,7 @@
   {
     "id": 254,
     "name": "French Guiana",
+    "code": "GUF",
     "languages": [
       "fra"
     ],
@@ -23000,7 +23001,6 @@
     "alphaCode2": "GF",
     "numericCode": "254",
     "alphaCode3": "GUF",
-    "code": "GUF",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "FG",
@@ -23219,6 +23219,7 @@
   {
     "id": 316,
     "name": "Guam",
+    "code": "GUM",
     "languages": [
       "cha",
       "eng",
@@ -23251,7 +23252,6 @@
     "alphaCode2": "GU",
     "numericCode": "316",
     "alphaCode3": "GUM",
-    "code": "GUM",
     "olympicCommitteeCode": "GUM",
     "fifaCode": "GUM",
     "fipsCode": "GQ",
@@ -23466,6 +23466,7 @@
   {
     "id": 328,
     "name": "Guyana",
+    "code": "GUY",
     "languages": [
       "eng"
     ],
@@ -23486,7 +23487,6 @@
     "alphaCode2": "GY",
     "numericCode": "328",
     "alphaCode3": "GUY",
-    "code": "GUY",
     "olympicCommitteeCode": "GUY",
     "fifaCode": "GUY",
     "fipsCode": "GY",
@@ -23707,6 +23707,7 @@
   {
     "id": 344,
     "name": "Hong Kong",
+    "code": "HKG",
     "languages": [
       "eng",
       "zho"
@@ -23734,7 +23735,6 @@
     "alphaCode2": "HK",
     "numericCode": "344",
     "alphaCode3": "HKG",
-    "code": "HKG",
     "olympicCommitteeCode": "HKG",
     "fifaCode": "HKG",
     "fipsCode": "HK",
@@ -23945,6 +23945,7 @@
   {
     "id": 334,
     "name": "Heard Island and McDonald Islands",
+    "code": "HMD",
     "languages": [
       "eng"
     ],
@@ -23966,7 +23967,6 @@
     "alphaCode2": "HM",
     "numericCode": "334",
     "alphaCode3": "HMD",
-    "code": "HMD",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "HM",
@@ -24172,6 +24172,7 @@
   {
     "id": 340,
     "name": "Honduras",
+    "code": "HND",
     "languages": [
       "spa"
     ],
@@ -24192,7 +24193,6 @@
     "alphaCode2": "HN",
     "numericCode": "340",
     "alphaCode3": "HND",
-    "code": "HND",
     "olympicCommitteeCode": "HON",
     "fifaCode": "HON",
     "fipsCode": "HO",
@@ -24414,6 +24414,7 @@
   {
     "id": 191,
     "name": "Croatia",
+    "code": "HRV",
     "languages": [
       "hrv"
     ],
@@ -24434,7 +24435,6 @@
     "alphaCode2": "HR",
     "numericCode": "191",
     "alphaCode3": "HRV",
-    "code": "HRV",
     "olympicCommitteeCode": "CRO",
     "fifaCode": "CRO",
     "fipsCode": "HR",
@@ -24659,6 +24659,7 @@
   {
     "id": 332,
     "name": "Haiti",
+    "code": "HTI",
     "languages": [
       "fra",
       "hat"
@@ -24685,7 +24686,6 @@
     "alphaCode2": "HT",
     "numericCode": "332",
     "alphaCode3": "HTI",
-    "code": "HTI",
     "olympicCommitteeCode": "HAI",
     "fifaCode": "HAI",
     "fipsCode": "HA",
@@ -24906,6 +24906,7 @@
   {
     "id": 348,
     "name": "Hungary",
+    "code": "HUN",
     "languages": [
       "hun"
     ],
@@ -24926,7 +24927,6 @@
     "alphaCode2": "HU",
     "numericCode": "348",
     "alphaCode3": "HUN",
-    "code": "HUN",
     "olympicCommitteeCode": "HUN",
     "fifaCode": "HUN",
     "fipsCode": "HU",
@@ -25150,6 +25150,7 @@
   {
     "id": 360,
     "name": "Indonesia",
+    "code": "IDN",
     "languages": [
       "ind"
     ],
@@ -25170,7 +25171,6 @@
     "alphaCode2": "ID",
     "numericCode": "360",
     "alphaCode3": "IDN",
-    "code": "IDN",
     "olympicCommitteeCode": "INA",
     "fifaCode": "IDN",
     "fipsCode": "ID",
@@ -25394,6 +25394,7 @@
   {
     "id": 833,
     "name": "Isle of Man",
+    "code": "IMN",
     "languages": [
       "eng",
       "glv"
@@ -25420,7 +25421,6 @@
     "alphaCode2": "IM",
     "numericCode": "833",
     "alphaCode3": "IMN",
-    "code": "IMN",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "IM",
@@ -25638,6 +25638,7 @@
   {
     "id": 356,
     "name": "India",
+    "code": "IND",
     "languages": [
       "eng",
       "hin",
@@ -25670,7 +25671,6 @@
     "alphaCode2": "IN",
     "numericCode": "356",
     "alphaCode3": "IND",
-    "code": "IND",
     "olympicCommitteeCode": "IND",
     "fifaCode": "IND",
     "fipsCode": "IN",
@@ -25897,6 +25897,7 @@
   {
     "id": 86,
     "name": "British Indian Ocean Territory",
+    "code": "IOT",
     "languages": [
       "eng"
     ],
@@ -25917,7 +25918,6 @@
     "alphaCode2": "IO",
     "numericCode": "086",
     "alphaCode3": "IOT",
-    "code": "IOT",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "IO",
@@ -26131,6 +26131,7 @@
   {
     "id": 372,
     "name": "Ireland",
+    "code": "IRL",
     "languages": [
       "eng",
       "gle"
@@ -26157,7 +26158,6 @@
     "alphaCode2": "IE",
     "numericCode": "372",
     "alphaCode3": "IRL",
-    "code": "IRL",
     "olympicCommitteeCode": "IRL",
     "fifaCode": "IRL",
     "fipsCode": "EI",
@@ -26378,6 +26378,7 @@
   {
     "id": 364,
     "name": "Iran",
+    "code": "IRN",
     "languages": [
       "fas"
     ],
@@ -26399,7 +26400,6 @@
     "alphaCode2": "IR",
     "numericCode": "364",
     "alphaCode3": "IRN",
-    "code": "IRN",
     "olympicCommitteeCode": "IRI",
     "fifaCode": "IRN",
     "fipsCode": "IR",
@@ -26621,6 +26621,7 @@
   {
     "id": 368,
     "name": "Iraq",
+    "code": "IRQ",
     "languages": [
       "ara",
       "arc",
@@ -26653,7 +26654,6 @@
     "alphaCode2": "IQ",
     "numericCode": "368",
     "alphaCode3": "IRQ",
-    "code": "IRQ",
     "olympicCommitteeCode": "IRQ",
     "fifaCode": "IRQ",
     "fipsCode": "IZ",
@@ -26878,6 +26878,7 @@
   {
     "id": 352,
     "name": "Iceland",
+    "code": "ISL",
     "languages": [
       "isl"
     ],
@@ -26898,7 +26899,6 @@
     "alphaCode2": "IS",
     "numericCode": "352",
     "alphaCode3": "ISL",
-    "code": "ISL",
     "olympicCommitteeCode": "ISL",
     "fifaCode": "ISL",
     "fipsCode": "IC",
@@ -27117,6 +27117,7 @@
   {
     "id": 376,
     "name": "Israel",
+    "code": "ISR",
     "languages": [
       "ara",
       "heb"
@@ -27143,7 +27144,6 @@
     "alphaCode2": "IL",
     "numericCode": "376",
     "alphaCode3": "ISR",
-    "code": "ISR",
     "olympicCommitteeCode": "ISR",
     "fifaCode": "ISR",
     "fipsCode": "IS",
@@ -27367,6 +27367,7 @@
   {
     "id": 380,
     "name": "Italy",
+    "code": "ITA",
     "languages": [
       "ita"
     ],
@@ -27387,7 +27388,6 @@
     "alphaCode2": "IT",
     "numericCode": "380",
     "alphaCode3": "ITA",
-    "code": "ITA",
     "olympicCommitteeCode": "ITA",
     "fifaCode": "ITA",
     "fipsCode": "IT",
@@ -27612,6 +27612,7 @@
   {
     "id": 388,
     "name": "Jamaica",
+    "code": "JAM",
     "languages": [
       "eng",
       "jam"
@@ -27638,7 +27639,6 @@
     "alphaCode2": "JM",
     "numericCode": "388",
     "alphaCode3": "JAM",
-    "code": "JAM",
     "olympicCommitteeCode": "JAM",
     "fifaCode": "JAM",
     "fipsCode": "JM",
@@ -27854,6 +27854,7 @@
   {
     "id": 832,
     "name": "Jersey",
+    "code": "JEY",
     "languages": [
       "eng",
       "fra",
@@ -27886,7 +27887,6 @@
     "alphaCode2": "JE",
     "numericCode": "832",
     "alphaCode3": "JEY",
-    "code": "JEY",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "JE",
@@ -28104,6 +28104,7 @@
   {
     "id": 400,
     "name": "Jordan",
+    "code": "JOR",
     "languages": [
       "ara"
     ],
@@ -28125,7 +28126,6 @@
     "alphaCode2": "JO",
     "numericCode": "400",
     "alphaCode3": "JOR",
-    "code": "JOR",
     "olympicCommitteeCode": "JOR",
     "fifaCode": "JOR",
     "fipsCode": "JO",
@@ -28349,6 +28349,7 @@
   {
     "id": 392,
     "name": "Japan",
+    "code": "JPN",
     "languages": [
       "jpn"
     ],
@@ -28370,7 +28371,6 @@
     "alphaCode2": "JP",
     "numericCode": "392",
     "alphaCode3": "JPN",
-    "code": "JPN",
     "olympicCommitteeCode": "JPN",
     "fifaCode": "JPN",
     "fipsCode": "JA",
@@ -28588,6 +28588,7 @@
   {
     "id": 398,
     "name": "Kazakhstan",
+    "code": "KAZ",
     "languages": [
       "kaz",
       "rus"
@@ -28615,7 +28616,6 @@
     "alphaCode2": "KZ",
     "numericCode": "398",
     "alphaCode3": "KAZ",
-    "code": "KAZ",
     "olympicCommitteeCode": "KAZ",
     "fifaCode": "KAZ",
     "fipsCode": "KZ",
@@ -28846,6 +28846,7 @@
   {
     "id": 404,
     "name": "Kenya",
+    "code": "KEN",
     "languages": [
       "eng",
       "swa"
@@ -28872,7 +28873,6 @@
     "alphaCode2": "KE",
     "numericCode": "404",
     "alphaCode3": "KEN",
-    "code": "KEN",
     "olympicCommitteeCode": "KEN",
     "fifaCode": "KEN",
     "fipsCode": "KE",
@@ -29096,6 +29096,7 @@
   {
     "id": 417,
     "name": "Kyrgyzstan",
+    "code": "KGZ",
     "languages": [
       "kir",
       "rus"
@@ -29122,7 +29123,6 @@
     "alphaCode2": "KG",
     "numericCode": "417",
     "alphaCode3": "KGZ",
-    "code": "KGZ",
     "olympicCommitteeCode": "KGZ",
     "fifaCode": "KGZ",
     "fipsCode": "KG",
@@ -29347,6 +29347,7 @@
   {
     "id": 116,
     "name": "Cambodia",
+    "code": "KHM",
     "languages": [
       "khm"
     ],
@@ -29367,7 +29368,6 @@
     "alphaCode2": "KH",
     "numericCode": "116",
     "alphaCode3": "KHM",
-    "code": "KHM",
     "olympicCommitteeCode": "CAM",
     "fifaCode": "CAM",
     "fipsCode": "CB",
@@ -29587,6 +29587,7 @@
   {
     "id": 296,
     "name": "Kiribati",
+    "code": "KIR",
     "languages": [
       "eng",
       "gil"
@@ -29613,7 +29614,6 @@
     "alphaCode2": "KI",
     "numericCode": "296",
     "alphaCode3": "KIR",
-    "code": "KIR",
     "olympicCommitteeCode": "KIR",
     "fifaCode": "",
     "fipsCode": "KR",
@@ -29834,6 +29834,7 @@
   {
     "id": 659,
     "name": "Saint Kitts and Nevis",
+    "code": "KNA",
     "languages": [
       "eng"
     ],
@@ -29854,7 +29855,6 @@
     "alphaCode2": "KN",
     "numericCode": "659",
     "alphaCode3": "KNA",
-    "code": "KNA",
     "olympicCommitteeCode": "SKN",
     "fifaCode": "SKN",
     "fipsCode": "SC",
@@ -30069,6 +30069,7 @@
   {
     "id": 410,
     "name": "South Korea",
+    "code": "KOR",
     "languages": [
       "kor"
     ],
@@ -30090,7 +30091,6 @@
     "alphaCode2": "KR",
     "numericCode": "410",
     "alphaCode3": "KOR",
-    "code": "KOR",
     "olympicCommitteeCode": "KOR",
     "fifaCode": "KOR",
     "fipsCode": "KS",
@@ -30312,6 +30312,7 @@
   {
     "id": 414,
     "name": "Kuwait",
+    "code": "KWT",
     "languages": [
       "ara"
     ],
@@ -30332,7 +30333,6 @@
     "alphaCode2": "KW",
     "numericCode": "414",
     "alphaCode3": "KWT",
-    "code": "KWT",
     "olympicCommitteeCode": "KUW",
     "fifaCode": "KUW",
     "fipsCode": "KU",
@@ -30551,6 +30551,7 @@
   {
     "id": 418,
     "name": "Laos",
+    "code": "LAO",
     "languages": [
       "lao"
     ],
@@ -30571,7 +30572,6 @@
     "alphaCode2": "LA",
     "numericCode": "418",
     "alphaCode3": "LAO",
-    "code": "LAO",
     "olympicCommitteeCode": "LAO",
     "fifaCode": "LAO",
     "fipsCode": "LA",
@@ -30796,6 +30796,7 @@
   {
     "id": 422,
     "name": "Lebanon",
+    "code": "LBN",
     "languages": [
       "ara",
       "fra"
@@ -30822,7 +30823,6 @@
     "alphaCode2": "LB",
     "numericCode": "422",
     "alphaCode3": "LBN",
-    "code": "LBN",
     "olympicCommitteeCode": "LBN",
     "fifaCode": "LBN",
     "fipsCode": "LE",
@@ -31043,6 +31043,7 @@
   {
     "id": 430,
     "name": "Liberia",
+    "code": "LBR",
     "languages": [
       "eng"
     ],
@@ -31063,7 +31064,6 @@
     "alphaCode2": "LR",
     "numericCode": "430",
     "alphaCode3": "LBR",
-    "code": "LBR",
     "olympicCommitteeCode": "LBR",
     "fifaCode": "LBR",
     "fipsCode": "LI",
@@ -31284,6 +31284,7 @@
   {
     "id": 434,
     "name": "Libya",
+    "code": "LBY",
     "languages": [
       "ara"
     ],
@@ -31304,7 +31305,6 @@
     "alphaCode2": "LY",
     "numericCode": "434",
     "alphaCode3": "LBY",
-    "code": "LBY",
     "olympicCommitteeCode": "LBA",
     "fifaCode": "LBY",
     "fipsCode": "LY",
@@ -31527,6 +31527,7 @@
   {
     "id": 662,
     "name": "Saint Lucia",
+    "code": "LCA",
     "languages": [
       "eng"
     ],
@@ -31547,7 +31548,6 @@
     "alphaCode2": "LC",
     "numericCode": "662",
     "alphaCode3": "LCA",
-    "code": "LCA",
     "olympicCommitteeCode": "LCA",
     "fifaCode": "LCA",
     "fipsCode": "ST",
@@ -31763,6 +31763,7 @@
   {
     "id": 438,
     "name": "Liechtenstein",
+    "code": "LIE",
     "languages": [
       "deu"
     ],
@@ -31783,7 +31784,6 @@
     "alphaCode2": "LI",
     "numericCode": "438",
     "alphaCode3": "LIE",
-    "code": "LIE",
     "olympicCommitteeCode": "LIE",
     "fifaCode": "LIE",
     "fipsCode": "LS",
@@ -32002,6 +32002,7 @@
   {
     "id": 144,
     "name": "Sri Lanka",
+    "code": "LKA",
     "languages": [
       "sin",
       "tam"
@@ -32030,7 +32031,6 @@
     "alphaCode2": "LK",
     "numericCode": "144",
     "alphaCode3": "LKA",
-    "code": "LKA",
     "olympicCommitteeCode": "SRI",
     "fifaCode": "SRI",
     "fipsCode": "CE",
@@ -32250,6 +32250,7 @@
   {
     "id": 426,
     "name": "Lesotho",
+    "code": "LSO",
     "languages": [
       "eng",
       "sot"
@@ -32276,7 +32277,6 @@
     "alphaCode2": "LS",
     "numericCode": "426",
     "alphaCode3": "LSO",
-    "code": "LSO",
     "olympicCommitteeCode": "LES",
     "fifaCode": "LES",
     "fipsCode": "LT",
@@ -32497,6 +32497,7 @@
   {
     "id": 440,
     "name": "Lithuania",
+    "code": "LTU",
     "languages": [
       "lit"
     ],
@@ -32517,7 +32518,6 @@
     "alphaCode2": "LT",
     "numericCode": "440",
     "alphaCode3": "LTU",
-    "code": "LTU",
     "olympicCommitteeCode": "LTU",
     "fifaCode": "LTU",
     "fipsCode": "LH",
@@ -32740,6 +32740,7 @@
   {
     "id": 442,
     "name": "Luxembourg",
+    "code": "LUX",
     "languages": [
       "deu",
       "fra",
@@ -32772,7 +32773,6 @@
     "alphaCode2": "LU",
     "numericCode": "442",
     "alphaCode3": "LUX",
-    "code": "LUX",
     "olympicCommitteeCode": "LUX",
     "fifaCode": "LUX",
     "fipsCode": "LU",
@@ -32996,6 +32996,7 @@
   {
     "id": 428,
     "name": "Latvia",
+    "code": "LVA",
     "languages": [
       "lav"
     ],
@@ -33016,7 +33017,6 @@
     "alphaCode2": "LV",
     "numericCode": "428",
     "alphaCode3": "LVA",
-    "code": "LVA",
     "olympicCommitteeCode": "LAT",
     "fifaCode": "LVA",
     "fipsCode": "LG",
@@ -33239,6 +33239,7 @@
   {
     "id": 446,
     "name": "Macau",
+    "code": "MAC",
     "languages": [
       "por",
       "zho"
@@ -33265,7 +33266,6 @@
     "alphaCode2": "MO",
     "numericCode": "446",
     "alphaCode3": "MAC",
-    "code": "MAC",
     "olympicCommitteeCode": "",
     "fifaCode": "MAC",
     "fipsCode": "MC",
@@ -33476,6 +33476,7 @@
   {
     "id": 663,
     "name": "Saint Martin",
+    "code": "MAF",
     "languages": [
       "fra"
     ],
@@ -33497,7 +33498,6 @@
     "alphaCode2": "MF",
     "numericCode": "663",
     "alphaCode3": "MAF",
-    "code": "MAF",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "RN",
@@ -33716,6 +33716,7 @@
   {
     "id": 504,
     "name": "Morocco",
+    "code": "MAR",
     "languages": [
       "ara",
       "ber"
@@ -33743,7 +33744,6 @@
     "alphaCode2": "MA",
     "numericCode": "504",
     "alphaCode3": "MAR",
-    "code": "MAR",
     "olympicCommitteeCode": "MAR",
     "fifaCode": "MAR",
     "fipsCode": "MO",
@@ -33965,6 +33965,7 @@
   {
     "id": 492,
     "name": "Monaco",
+    "code": "MCO",
     "languages": [
       "fra"
     ],
@@ -33985,7 +33986,6 @@
     "alphaCode2": "MC",
     "numericCode": "492",
     "alphaCode3": "MCO",
-    "code": "MCO",
     "olympicCommitteeCode": "MON",
     "fifaCode": "",
     "fipsCode": "MN",
@@ -34203,6 +34203,7 @@
   {
     "id": 498,
     "name": "Moldova",
+    "code": "MDA",
     "languages": [
       "ron"
     ],
@@ -34223,7 +34224,6 @@
     "alphaCode2": "MD",
     "numericCode": "498",
     "alphaCode3": "MDA",
-    "code": "MDA",
     "olympicCommitteeCode": "MDA",
     "fifaCode": "MDA",
     "fipsCode": "MD",
@@ -34445,6 +34445,7 @@
   {
     "id": 450,
     "name": "Madagascar",
+    "code": "MDG",
     "languages": [
       "fra",
       "mlg"
@@ -34471,7 +34472,6 @@
     "alphaCode2": "MG",
     "numericCode": "450",
     "alphaCode3": "MDG",
-    "code": "MDG",
     "olympicCommitteeCode": "MAD",
     "fifaCode": "MAD",
     "fipsCode": "MA",
@@ -34690,6 +34690,7 @@
   {
     "id": 462,
     "name": "Maldives",
+    "code": "MDV",
     "languages": [
       "div"
     ],
@@ -34710,7 +34711,6 @@
     "alphaCode2": "MV",
     "numericCode": "462",
     "alphaCode3": "MDV",
-    "code": "MDV",
     "olympicCommitteeCode": "MDV",
     "fifaCode": "MDV",
     "fipsCode": "MV",
@@ -34929,6 +34929,7 @@
   {
     "id": 484,
     "name": "Mexico",
+    "code": "MEX",
     "languages": [
       "spa"
     ],
@@ -34949,7 +34950,6 @@
     "alphaCode2": "MX",
     "numericCode": "484",
     "alphaCode3": "MEX",
-    "code": "MEX",
     "olympicCommitteeCode": "MEX",
     "fifaCode": "MEX",
     "fipsCode": "MX",
@@ -35174,6 +35174,7 @@
   {
     "id": 584,
     "name": "Marshall Islands",
+    "code": "MHL",
     "languages": [
       "eng",
       "mah"
@@ -35200,7 +35201,6 @@
     "alphaCode2": "MH",
     "numericCode": "584",
     "alphaCode3": "MHL",
-    "code": "MHL",
     "olympicCommitteeCode": "MHL",
     "fifaCode": "",
     "fipsCode": "RM",
@@ -35416,6 +35416,7 @@
   {
     "id": 807,
     "name": "North Macedonia",
+    "code": "MKD",
     "languages": [
       "mkd"
     ],
@@ -35436,7 +35437,6 @@
     "alphaCode2": "MK",
     "numericCode": "807",
     "alphaCode3": "MKD",
-    "code": "MKD",
     "olympicCommitteeCode": "MKD",
     "fifaCode": "MKD",
     "fipsCode": "MK",
@@ -35662,6 +35662,7 @@
   {
     "id": 466,
     "name": "Mali",
+    "code": "MLI",
     "languages": [
       "fra"
     ],
@@ -35682,7 +35683,6 @@
     "alphaCode2": "ML",
     "numericCode": "466",
     "alphaCode3": "MLI",
-    "code": "MLI",
     "olympicCommitteeCode": "MLI",
     "fifaCode": "MLI",
     "fipsCode": "ML",
@@ -35908,6 +35908,7 @@
   {
     "id": 470,
     "name": "Malta",
+    "code": "MLT",
     "languages": [
       "eng",
       "mlt"
@@ -35934,7 +35935,6 @@
     "alphaCode2": "MT",
     "numericCode": "470",
     "alphaCode3": "MLT",
-    "code": "MLT",
     "olympicCommitteeCode": "MLT",
     "fifaCode": "MLT",
     "fipsCode": "MT",
@@ -36152,6 +36152,7 @@
   {
     "id": 104,
     "name": "Myanmar",
+    "code": "MMR",
     "languages": [
       "mya"
     ],
@@ -36172,7 +36173,6 @@
     "alphaCode2": "MM",
     "numericCode": "104",
     "alphaCode3": "MMR",
-    "code": "MMR",
     "olympicCommitteeCode": "MYA",
     "fifaCode": "MYA",
     "fipsCode": "BM",
@@ -36397,6 +36397,7 @@
   {
     "id": 499,
     "name": "Montenegro",
+    "code": "MNE",
     "languages": [
       "cnr"
     ],
@@ -36417,7 +36418,6 @@
     "alphaCode2": "ME",
     "numericCode": "499",
     "alphaCode3": "MNE",
-    "code": "MNE",
     "olympicCommitteeCode": "MNE",
     "fifaCode": "MNE",
     "fipsCode": "MJ",
@@ -36640,6 +36640,7 @@
   {
     "id": 496,
     "name": "Mongolia",
+    "code": "MNG",
     "languages": [
       "mon"
     ],
@@ -36660,7 +36661,6 @@
     "alphaCode2": "MN",
     "numericCode": "496",
     "alphaCode3": "MNG",
-    "code": "MNG",
     "olympicCommitteeCode": "MGL",
     "fifaCode": "MNG",
     "fipsCode": "MG",
@@ -36880,6 +36880,7 @@
   {
     "id": 580,
     "name": "Northern Mariana Islands",
+    "code": "MNP",
     "languages": [
       "cal",
       "cha",
@@ -36912,7 +36913,6 @@
     "alphaCode2": "MP",
     "numericCode": "580",
     "alphaCode3": "MNP",
-    "code": "MNP",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "CQ",
@@ -37128,6 +37128,7 @@
   {
     "id": 508,
     "name": "Mozambique",
+    "code": "MOZ",
     "languages": [
       "por"
     ],
@@ -37148,7 +37149,6 @@
     "alphaCode2": "MZ",
     "numericCode": "508",
     "alphaCode3": "MOZ",
-    "code": "MOZ",
     "olympicCommitteeCode": "MOZ",
     "fifaCode": "MOZ",
     "fipsCode": "MZ",
@@ -37373,6 +37373,7 @@
   {
     "id": 478,
     "name": "Mauritania",
+    "code": "MRT",
     "languages": [
       "ara"
     ],
@@ -37393,7 +37394,6 @@
     "alphaCode2": "MR",
     "numericCode": "478",
     "alphaCode3": "MRT",
-    "code": "MRT",
     "olympicCommitteeCode": "MTN",
     "fifaCode": "MTN",
     "fipsCode": "MR",
@@ -37616,6 +37616,7 @@
   {
     "id": 500,
     "name": "Montserrat",
+    "code": "MSR",
     "languages": [
       "eng"
     ],
@@ -37636,7 +37637,6 @@
     "alphaCode2": "MS",
     "numericCode": "500",
     "alphaCode3": "MSR",
-    "code": "MSR",
     "olympicCommitteeCode": "",
     "fifaCode": "MSR",
     "fipsCode": "MH",
@@ -37850,6 +37850,7 @@
   {
     "id": 474,
     "name": "Martinique",
+    "code": "MTQ",
     "languages": [
       "fra"
     ],
@@ -37870,7 +37871,6 @@
     "alphaCode2": "MQ",
     "numericCode": "474",
     "alphaCode3": "MTQ",
-    "code": "MTQ",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "MB",
@@ -38084,6 +38084,7 @@
   {
     "id": 480,
     "name": "Mauritius",
+    "code": "MUS",
     "languages": [
       "eng",
       "fra",
@@ -38116,7 +38117,6 @@
     "alphaCode2": "MU",
     "numericCode": "480",
     "alphaCode3": "MUS",
-    "code": "MUS",
     "olympicCommitteeCode": "MRI",
     "fifaCode": "MRI",
     "fipsCode": "MP",
@@ -38334,6 +38334,7 @@
   {
     "id": 454,
     "name": "Malawi",
+    "code": "MWI",
     "languages": [
       "eng",
       "nya"
@@ -38360,7 +38361,6 @@
     "alphaCode2": "MW",
     "numericCode": "454",
     "alphaCode3": "MWI",
-    "code": "MWI",
     "olympicCommitteeCode": "MAW",
     "fifaCode": "MWI",
     "fipsCode": "MI",
@@ -38581,6 +38581,7 @@
   {
     "id": 458,
     "name": "Malaysia",
+    "code": "MYS",
     "languages": [
       "eng",
       "msa"
@@ -38607,7 +38608,6 @@
     "alphaCode2": "MY",
     "numericCode": "458",
     "alphaCode3": "MYS",
-    "code": "MYS",
     "olympicCommitteeCode": "MAS",
     "fifaCode": "MAS",
     "fipsCode": "MY",
@@ -38827,6 +38827,7 @@
   {
     "id": 175,
     "name": "Mayotte",
+    "code": "MYT",
     "languages": [
       "fra"
     ],
@@ -38847,7 +38848,6 @@
     "alphaCode2": "YT",
     "numericCode": "175",
     "alphaCode3": "MYT",
-    "code": "MYT",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "MF",
@@ -39063,6 +39063,7 @@
   {
     "id": 516,
     "name": "Namibia",
+    "code": "NAM",
     "languages": [
       "afr",
       "deu",
@@ -39131,7 +39132,6 @@
     "alphaCode2": "NA",
     "numericCode": "516",
     "alphaCode3": "NAM",
-    "code": "NAM",
     "olympicCommitteeCode": "NAM",
     "fifaCode": "NAM",
     "fipsCode": "WA",
@@ -39355,6 +39355,7 @@
   {
     "id": 540,
     "name": "New Caledonia",
+    "code": "NCL",
     "languages": [
       "fra"
     ],
@@ -39375,7 +39376,6 @@
     "alphaCode2": "NC",
     "numericCode": "540",
     "alphaCode3": "NCL",
-    "code": "NCL",
     "olympicCommitteeCode": "",
     "fifaCode": "NCL",
     "fipsCode": "NC",
@@ -39589,6 +39589,7 @@
   {
     "id": 562,
     "name": "Niger",
+    "code": "NER",
     "languages": [
       "fra"
     ],
@@ -39609,7 +39610,6 @@
     "alphaCode2": "NE",
     "numericCode": "562",
     "alphaCode3": "NER",
-    "code": "NER",
     "olympicCommitteeCode": "NIG",
     "fifaCode": "NIG",
     "fipsCode": "NG",
@@ -39834,6 +39834,7 @@
   {
     "id": 574,
     "name": "Norfolk Island",
+    "code": "NFK",
     "languages": [
       "eng",
       "pih"
@@ -39860,7 +39861,6 @@
     "alphaCode2": "NF",
     "numericCode": "574",
     "alphaCode3": "NFK",
-    "code": "NFK",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "NF",
@@ -40076,6 +40076,7 @@
   {
     "id": 566,
     "name": "Nigeria",
+    "code": "NGA",
     "languages": [
       "eng"
     ],
@@ -40096,7 +40097,6 @@
     "alphaCode2": "NG",
     "numericCode": "566",
     "alphaCode3": "NGA",
-    "code": "NGA",
     "olympicCommitteeCode": "NGR",
     "fifaCode": "NGA",
     "fipsCode": "NI",
@@ -40320,6 +40320,7 @@
   {
     "id": 558,
     "name": "Nicaragua",
+    "code": "NIC",
     "languages": [
       "spa"
     ],
@@ -40340,7 +40341,6 @@
     "alphaCode2": "NI",
     "numericCode": "558",
     "alphaCode3": "NIC",
-    "code": "NIC",
     "olympicCommitteeCode": "NCA",
     "fifaCode": "NCA",
     "fipsCode": "NU",
@@ -40561,6 +40561,7 @@
   {
     "id": 570,
     "name": "Niue",
+    "code": "NIU",
     "languages": [
       "eng",
       "niu"
@@ -40587,7 +40588,6 @@
     "alphaCode2": "NU",
     "numericCode": "570",
     "alphaCode3": "NIU",
-    "code": "NIU",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "NE",
@@ -40801,6 +40801,7 @@
   {
     "id": 528,
     "name": "Netherlands",
+    "code": "NLD",
     "languages": [
       "nld"
     ],
@@ -40821,7 +40822,6 @@
     "alphaCode2": "NL",
     "numericCode": "528",
     "alphaCode3": "NLD",
-    "code": "NLD",
     "olympicCommitteeCode": "NED",
     "fifaCode": "NED",
     "fipsCode": "NL",
@@ -41044,6 +41044,7 @@
   {
     "id": 578,
     "name": "Norway",
+    "code": "NOR",
     "languages": [
       "nno",
       "nob",
@@ -41076,7 +41077,6 @@
     "alphaCode2": "NO",
     "numericCode": "578",
     "alphaCode3": "NOR",
-    "code": "NOR",
     "olympicCommitteeCode": "NOR",
     "fifaCode": "NOR",
     "fipsCode": "NO",
@@ -41301,6 +41301,7 @@
   {
     "id": 524,
     "name": "Nepal",
+    "code": "NPL",
     "languages": [
       "nep"
     ],
@@ -41321,7 +41322,6 @@
     "alphaCode2": "NP",
     "numericCode": "524",
     "alphaCode3": "NPL",
-    "code": "NPL",
     "olympicCommitteeCode": "NEP",
     "fifaCode": "NEP",
     "fipsCode": "NP",
@@ -41542,6 +41542,7 @@
   {
     "id": 520,
     "name": "Nauru",
+    "code": "NRU",
     "languages": [
       "eng",
       "nau"
@@ -41568,7 +41569,6 @@
     "alphaCode2": "NR",
     "numericCode": "520",
     "alphaCode3": "NRU",
-    "code": "NRU",
     "olympicCommitteeCode": "NRU",
     "fifaCode": "",
     "fipsCode": "NR",
@@ -41788,6 +41788,7 @@
   {
     "id": 554,
     "name": "New Zealand",
+    "code": "NZL",
     "languages": [
       "eng",
       "mri",
@@ -41820,7 +41821,6 @@
     "alphaCode2": "NZ",
     "numericCode": "554",
     "alphaCode3": "NZL",
-    "code": "NZL",
     "olympicCommitteeCode": "NZL",
     "fifaCode": "NZL",
     "fipsCode": "NZ",
@@ -42039,6 +42039,7 @@
   {
     "id": 512,
     "name": "Oman",
+    "code": "OMN",
     "languages": [
       "ara"
     ],
@@ -42059,7 +42060,6 @@
     "alphaCode2": "OM",
     "numericCode": "512",
     "alphaCode3": "OMN",
-    "code": "OMN",
     "olympicCommitteeCode": "OMA",
     "fifaCode": "OMA",
     "fipsCode": "MU",
@@ -42279,6 +42279,7 @@
   {
     "id": 586,
     "name": "Pakistan",
+    "code": "PAK",
     "languages": [
       "eng",
       "urd"
@@ -42305,7 +42306,6 @@
     "alphaCode2": "PK",
     "numericCode": "586",
     "alphaCode3": "PAK",
-    "code": "PAK",
     "olympicCommitteeCode": "PAK",
     "fifaCode": "PAK",
     "fipsCode": "PK",
@@ -42529,6 +42529,7 @@
   {
     "id": 591,
     "name": "Panama",
+    "code": "PAN",
     "languages": [
       "spa"
     ],
@@ -42549,7 +42550,6 @@
     "alphaCode2": "PA",
     "numericCode": "591",
     "alphaCode3": "PAN",
-    "code": "PAN",
     "olympicCommitteeCode": "PAN",
     "fifaCode": "PAN",
     "fipsCode": "PM",
@@ -42771,6 +42771,7 @@
   {
     "id": 612,
     "name": "Pitcairn Islands",
+    "code": "PCN",
     "languages": [
       "eng"
     ],
@@ -42791,7 +42792,6 @@
     "alphaCode2": "PN",
     "numericCode": "612",
     "alphaCode3": "PCN",
-    "code": "PCN",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "PC",
@@ -43007,6 +43007,7 @@
   {
     "id": 604,
     "name": "Peru",
+    "code": "PER",
     "languages": [
       "aym",
       "que",
@@ -43039,7 +43040,6 @@
     "alphaCode2": "PE",
     "numericCode": "604",
     "alphaCode3": "PER",
-    "code": "PER",
     "olympicCommitteeCode": "PER",
     "fifaCode": "PER",
     "fipsCode": "PE",
@@ -43263,6 +43263,7 @@
   {
     "id": 608,
     "name": "Philippines",
+    "code": "PHL",
     "languages": [
       "eng",
       "fil"
@@ -43289,7 +43290,6 @@
     "alphaCode2": "PH",
     "numericCode": "608",
     "alphaCode3": "PHL",
-    "code": "PHL",
     "olympicCommitteeCode": "PHI",
     "fifaCode": "PHI",
     "fipsCode": "RP",
@@ -43507,6 +43507,7 @@
   {
     "id": 585,
     "name": "Palau",
+    "code": "PLW",
     "languages": [
       "eng",
       "pau"
@@ -43533,7 +43534,6 @@
     "alphaCode2": "PW",
     "numericCode": "585",
     "alphaCode3": "PLW",
-    "code": "PLW",
     "olympicCommitteeCode": "PLW",
     "fifaCode": "",
     "fipsCode": "PS",
@@ -43749,6 +43749,7 @@
   {
     "id": 598,
     "name": "Papua New Guinea",
+    "code": "PNG",
     "languages": [
       "eng",
       "hmo",
@@ -43781,7 +43782,6 @@
     "alphaCode2": "PG",
     "numericCode": "598",
     "alphaCode3": "PNG",
-    "code": "PNG",
     "olympicCommitteeCode": "PNG",
     "fifaCode": "PNG",
     "fipsCode": "PP",
@@ -44001,6 +44001,7 @@
   {
     "id": 616,
     "name": "Poland",
+    "code": "POL",
     "languages": [
       "pol"
     ],
@@ -44021,7 +44022,6 @@
     "alphaCode2": "PL",
     "numericCode": "616",
     "alphaCode3": "POL",
-    "code": "POL",
     "olympicCommitteeCode": "POL",
     "fifaCode": "POL",
     "fipsCode": "PL",
@@ -44247,6 +44247,7 @@
   {
     "id": 630,
     "name": "Puerto Rico",
+    "code": "PRI",
     "languages": [
       "eng",
       "spa"
@@ -44273,7 +44274,6 @@
     "alphaCode2": "PR",
     "numericCode": "630",
     "alphaCode3": "PRI",
-    "code": "PRI",
     "olympicCommitteeCode": "PUR",
     "fifaCode": "PUR",
     "fipsCode": "RQ",
@@ -44490,6 +44490,7 @@
   {
     "id": 408,
     "name": "North Korea",
+    "code": "PRK",
     "languages": [
       "kor"
     ],
@@ -44510,7 +44511,6 @@
     "alphaCode2": "KP",
     "numericCode": "408",
     "alphaCode3": "PRK",
-    "code": "PRK",
     "olympicCommitteeCode": "PRK",
     "fifaCode": "PRK",
     "fipsCode": "KN",
@@ -44735,6 +44735,7 @@
   {
     "id": 620,
     "name": "Portugal",
+    "code": "PRT",
     "languages": [
       "por"
     ],
@@ -44755,7 +44756,6 @@
     "alphaCode2": "PT",
     "numericCode": "620",
     "alphaCode3": "PRT",
-    "code": "PRT",
     "olympicCommitteeCode": "POR",
     "fifaCode": "POR",
     "fipsCode": "PO",
@@ -44977,6 +44977,7 @@
   {
     "id": 600,
     "name": "Paraguay",
+    "code": "PRY",
     "languages": [
       "grn",
       "spa"
@@ -45003,7 +45004,6 @@
     "alphaCode2": "PY",
     "numericCode": "600",
     "alphaCode3": "PRY",
-    "code": "PRY",
     "olympicCommitteeCode": "PAR",
     "fifaCode": "PAR",
     "fipsCode": "PA",
@@ -45226,6 +45226,7 @@
   {
     "id": 275,
     "name": "Palestine",
+    "code": "PSE",
     "languages": [
       "ara"
     ],
@@ -45247,7 +45248,6 @@
     "alphaCode2": "PS",
     "numericCode": "275",
     "alphaCode3": "PSE",
-    "code": "PSE",
     "olympicCommitteeCode": "PLE",
     "fifaCode": "PLE",
     "fipsCode": "WE",
@@ -45473,6 +45473,7 @@
   {
     "id": 258,
     "name": "French Polynesia",
+    "code": "PYF",
     "languages": [
       "fra"
     ],
@@ -45493,7 +45494,6 @@
     "alphaCode2": "PF",
     "numericCode": "258",
     "alphaCode3": "PYF",
-    "code": "PYF",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "FP",
@@ -45712,6 +45712,7 @@
   {
     "id": 634,
     "name": "Qatar",
+    "code": "QAT",
     "languages": [
       "ara"
     ],
@@ -45733,7 +45734,6 @@
     "alphaCode2": "QA",
     "numericCode": "634",
     "alphaCode3": "QAT",
-    "code": "QAT",
     "olympicCommitteeCode": "QAT",
     "fifaCode": "QAT",
     "fipsCode": "QA",
@@ -45951,6 +45951,7 @@
   {
     "id": 638,
     "name": "R\u00E9union",
+    "code": "REU",
     "languages": [
       "fra"
     ],
@@ -45971,7 +45972,6 @@
     "alphaCode2": "RE",
     "numericCode": "638",
     "alphaCode3": "REU",
-    "code": "REU",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "RE",
@@ -46186,6 +46186,7 @@
   {
     "id": 642,
     "name": "Romania",
+    "code": "ROU",
     "languages": [
       "ron"
     ],
@@ -46206,7 +46207,6 @@
     "alphaCode2": "RO",
     "numericCode": "642",
     "alphaCode3": "ROU",
-    "code": "ROU",
     "olympicCommitteeCode": "ROU",
     "fifaCode": "ROU",
     "fipsCode": "RO",
@@ -46431,6 +46431,7 @@
   {
     "id": 643,
     "name": "Russia",
+    "code": "RUS",
     "languages": [
       "rus"
     ],
@@ -46453,7 +46454,6 @@
     "alphaCode2": "RU",
     "numericCode": "643",
     "alphaCode3": "RUS",
-    "code": "RUS",
     "olympicCommitteeCode": "RUS",
     "fifaCode": "RUS",
     "fipsCode": "RS",
@@ -46698,6 +46698,7 @@
   {
     "id": 646,
     "name": "Rwanda",
+    "code": "RWA",
     "languages": [
       "eng",
       "fra",
@@ -46730,7 +46731,6 @@
     "alphaCode2": "RW",
     "numericCode": "646",
     "alphaCode3": "RWA",
-    "code": "RWA",
     "olympicCommitteeCode": "RWA",
     "fifaCode": "RWA",
     "fipsCode": "RW",
@@ -46954,6 +46954,7 @@
   {
     "id": 682,
     "name": "Saudi Arabia",
+    "code": "SAU",
     "languages": [
       "ara"
     ],
@@ -46975,7 +46976,6 @@
     "alphaCode2": "SA",
     "numericCode": "682",
     "alphaCode3": "SAU",
-    "code": "SAU",
     "olympicCommitteeCode": "KSA",
     "fifaCode": "KSA",
     "fipsCode": "SA",
@@ -47200,6 +47200,7 @@
   {
     "id": 729,
     "name": "Sudan",
+    "code": "SDN",
     "languages": [
       "ara",
       "eng"
@@ -47226,7 +47227,6 @@
     "alphaCode2": "SD",
     "numericCode": "729",
     "alphaCode3": "SDN",
-    "code": "SDN",
     "olympicCommitteeCode": "SUD",
     "fifaCode": "SDN",
     "fipsCode": "SU",
@@ -47452,6 +47452,7 @@
   {
     "id": 686,
     "name": "Senegal",
+    "code": "SEN",
     "languages": [
       "fra"
     ],
@@ -47472,7 +47473,6 @@
     "alphaCode2": "SN",
     "numericCode": "686",
     "alphaCode3": "SEN",
-    "code": "SEN",
     "olympicCommitteeCode": "SEN",
     "fifaCode": "SEN",
     "fipsCode": "SG",
@@ -47696,6 +47696,7 @@
   {
     "id": 702,
     "name": "Singapore",
+    "code": "SGP",
     "languages": [
       "zho",
       "eng",
@@ -47736,7 +47737,6 @@
     "alphaCode2": "SG",
     "numericCode": "702",
     "alphaCode3": "SGP",
-    "code": "SGP",
     "olympicCommitteeCode": "SGP",
     "fifaCode": "SIN",
     "fipsCode": "SN",
@@ -47948,6 +47948,7 @@
   {
     "id": 239,
     "name": "South Georgia",
+    "code": "SGS",
     "languages": [
       "eng"
     ],
@@ -47968,7 +47969,6 @@
     "alphaCode2": "GS",
     "numericCode": "239",
     "alphaCode3": "SGS",
-    "code": "SGS",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "SX",
@@ -48183,6 +48183,7 @@
   {
     "id": 744,
     "name": "Svalbard and Jan Mayen",
+    "code": "SJM",
     "languages": [
       "nor"
     ],
@@ -48203,7 +48204,6 @@
     "alphaCode2": "SJ",
     "numericCode": "744",
     "alphaCode3": "SJM",
-    "code": "SJM",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "SV",
@@ -48418,6 +48418,7 @@
   {
     "id": 90,
     "name": "Solomon Islands",
+    "code": "SLB",
     "languages": [
       "eng"
     ],
@@ -48438,7 +48439,6 @@
     "alphaCode2": "SB",
     "numericCode": "090",
     "alphaCode3": "SLB",
-    "code": "SLB",
     "olympicCommitteeCode": "SOL",
     "fifaCode": "SOL",
     "fipsCode": "BP",
@@ -48654,6 +48654,7 @@
   {
     "id": 694,
     "name": "Sierra Leone",
+    "code": "SLE",
     "languages": [
       "eng"
     ],
@@ -48674,7 +48675,6 @@
     "alphaCode2": "SL",
     "numericCode": "694",
     "alphaCode3": "SLE",
-    "code": "SLE",
     "olympicCommitteeCode": "SLE",
     "fifaCode": "SLE",
     "fipsCode": "SL",
@@ -48894,6 +48894,7 @@
   {
     "id": 222,
     "name": "El Salvador",
+    "code": "SLV",
     "languages": [
       "spa"
     ],
@@ -48914,7 +48915,6 @@
     "alphaCode2": "SV",
     "numericCode": "222",
     "alphaCode3": "SLV",
-    "code": "SLV",
     "olympicCommitteeCode": "ESA",
     "fifaCode": "SLV",
     "fipsCode": "ES",
@@ -49135,6 +49135,7 @@
   {
     "id": 674,
     "name": "San Marino",
+    "code": "SMR",
     "languages": [
       "ita"
     ],
@@ -49155,7 +49156,6 @@
     "alphaCode2": "SM",
     "numericCode": "674",
     "alphaCode3": "SMR",
-    "code": "SMR",
     "olympicCommitteeCode": "SMR",
     "fifaCode": "SMR",
     "fipsCode": "SM",
@@ -49373,6 +49373,7 @@
   {
     "id": 706,
     "name": "Somalia",
+    "code": "SOM",
     "languages": [
       "ara",
       "som"
@@ -49399,7 +49400,6 @@
     "alphaCode2": "SO",
     "numericCode": "706",
     "alphaCode3": "SOM",
-    "code": "SOM",
     "olympicCommitteeCode": "SOM",
     "fifaCode": "SOM",
     "fipsCode": "SO",
@@ -49623,6 +49623,7 @@
   {
     "id": 666,
     "name": "Saint Pierre and Miquelon",
+    "code": "SPM",
     "languages": [
       "fra"
     ],
@@ -49643,7 +49644,6 @@
     "alphaCode2": "PM",
     "numericCode": "666",
     "alphaCode3": "SPM",
-    "code": "SPM",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "SB",
@@ -49858,6 +49858,7 @@
   {
     "id": 688,
     "name": "Serbia",
+    "code": "SRB",
     "languages": [
       "srp"
     ],
@@ -49879,7 +49880,6 @@
     "alphaCode2": "RS",
     "numericCode": "688",
     "alphaCode3": "SRB",
-    "code": "SRB",
     "olympicCommitteeCode": "SRB",
     "fifaCode": "SRB",
     "fipsCode": "RI",
@@ -50108,6 +50108,7 @@
   {
     "id": 728,
     "name": "South Sudan",
+    "code": "SSD",
     "languages": [
       "eng"
     ],
@@ -50128,7 +50129,6 @@
     "alphaCode2": "SS",
     "numericCode": "728",
     "alphaCode3": "SSD",
-    "code": "SSD",
     "olympicCommitteeCode": "SSD",
     "fifaCode": "SSD",
     "fipsCode": "OD",
@@ -50351,6 +50351,7 @@
   {
     "id": 678,
     "name": "S\u00E3o Tom\u00E9 and Pr\u00EDncipe",
+    "code": "STP",
     "languages": [
       "por"
     ],
@@ -50371,7 +50372,6 @@
     "alphaCode2": "ST",
     "numericCode": "678",
     "alphaCode3": "STP",
-    "code": "STP",
     "olympicCommitteeCode": "STP",
     "fifaCode": "STP",
     "fipsCode": "TP",
@@ -50590,6 +50590,7 @@
   {
     "id": 740,
     "name": "Suriname",
+    "code": "SUR",
     "languages": [
       "nld"
     ],
@@ -50610,7 +50611,6 @@
     "alphaCode2": "SR",
     "numericCode": "740",
     "alphaCode3": "SUR",
-    "code": "SUR",
     "olympicCommitteeCode": "SUR",
     "fifaCode": "SUR",
     "fipsCode": "NS",
@@ -50834,6 +50834,7 @@
   {
     "id": 703,
     "name": "Slovakia",
+    "code": "SVK",
     "languages": [
       "slk"
     ],
@@ -50854,7 +50855,6 @@
     "alphaCode2": "SK",
     "numericCode": "703",
     "alphaCode3": "SVK",
-    "code": "SVK",
     "olympicCommitteeCode": "SVK",
     "fifaCode": "SVK",
     "fipsCode": "LO",
@@ -51078,6 +51078,7 @@
   {
     "id": 705,
     "name": "Slovenia",
+    "code": "SVN",
     "languages": [
       "slv"
     ],
@@ -51098,7 +51099,6 @@
     "alphaCode2": "SI",
     "numericCode": "705",
     "alphaCode3": "SVN",
-    "code": "SVN",
     "olympicCommitteeCode": "SLO",
     "fifaCode": "SVN",
     "fipsCode": "SI",
@@ -51321,6 +51321,7 @@
   {
     "id": 752,
     "name": "Sweden",
+    "code": "SWE",
     "languages": [
       "swe"
     ],
@@ -51341,7 +51342,6 @@
     "alphaCode2": "SE",
     "numericCode": "752",
     "alphaCode3": "SWE",
-    "code": "SWE",
     "olympicCommitteeCode": "SWE",
     "fifaCode": "SWE",
     "fipsCode": "SW",
@@ -51562,6 +51562,7 @@
   {
     "id": 748,
     "name": "Eswatini",
+    "code": "SWZ",
     "languages": [
       "eng",
       "ssw"
@@ -51588,7 +51589,6 @@
     "alphaCode2": "SZ",
     "numericCode": "748",
     "alphaCode3": "SWZ",
-    "code": "SWZ",
     "olympicCommitteeCode": "SWZ",
     "fifaCode": "SWZ",
     "fipsCode": "WZ",
@@ -51814,6 +51814,7 @@
   {
     "id": 534,
     "name": "Sint Maarten",
+    "code": "SXM",
     "languages": [
       "eng",
       "fra",
@@ -51846,7 +51847,6 @@
     "alphaCode2": "SX",
     "numericCode": "534",
     "alphaCode3": "SXM",
-    "code": "SXM",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "NN",
@@ -52063,6 +52063,7 @@
   {
     "id": 690,
     "name": "Seychelles",
+    "code": "SYC",
     "languages": [
       "crs",
       "eng",
@@ -52095,7 +52096,6 @@
     "alphaCode2": "SC",
     "numericCode": "690",
     "alphaCode3": "SYC",
-    "code": "SYC",
     "olympicCommitteeCode": "SEY",
     "fifaCode": "SEY",
     "fipsCode": "SE",
@@ -52314,6 +52314,7 @@
   {
     "id": 760,
     "name": "Syria",
+    "code": "SYR",
     "languages": [
       "ara"
     ],
@@ -52335,7 +52336,6 @@
     "alphaCode2": "SY",
     "numericCode": "760",
     "alphaCode3": "SYR",
-    "code": "SYR",
     "olympicCommitteeCode": "SYR",
     "fifaCode": "SYR",
     "fipsCode": "SY",
@@ -52559,6 +52559,7 @@
   {
     "id": 796,
     "name": "Turks and Caicos Islands",
+    "code": "TCA",
     "languages": [
       "eng"
     ],
@@ -52579,7 +52580,6 @@
     "alphaCode2": "TC",
     "numericCode": "796",
     "alphaCode3": "TCA",
-    "code": "TCA",
     "olympicCommitteeCode": "",
     "fifaCode": "TCA",
     "fipsCode": "TK",
@@ -52793,6 +52793,7 @@
   {
     "id": 148,
     "name": "Chad",
+    "code": "TCD",
     "languages": [
       "ara",
       "fra"
@@ -52819,7 +52820,6 @@
     "alphaCode2": "TD",
     "numericCode": "148",
     "alphaCode3": "TCD",
-    "code": "TCD",
     "olympicCommitteeCode": "CHA",
     "fifaCode": "CHA",
     "fipsCode": "CD",
@@ -53046,6 +53046,7 @@
   {
     "id": 768,
     "name": "Togo",
+    "code": "TGO",
     "languages": [
       "fra"
     ],
@@ -53066,7 +53067,6 @@
     "alphaCode2": "TG",
     "numericCode": "768",
     "alphaCode3": "TGO",
-    "code": "TGO",
     "olympicCommitteeCode": "TOG",
     "fifaCode": "TOG",
     "fipsCode": "TO",
@@ -53289,6 +53289,7 @@
   {
     "id": 764,
     "name": "Thailand",
+    "code": "THA",
     "languages": [
       "tha"
     ],
@@ -53310,7 +53311,6 @@
     "alphaCode2": "TH",
     "numericCode": "764",
     "alphaCode3": "THA",
-    "code": "THA",
     "olympicCommitteeCode": "THA",
     "fifaCode": "THA",
     "fipsCode": "TH",
@@ -53536,6 +53536,7 @@
   {
     "id": 762,
     "name": "Tajikistan",
+    "code": "TJK",
     "languages": [
       "rus",
       "tgk"
@@ -53562,7 +53563,6 @@
     "alphaCode2": "TJ",
     "numericCode": "762",
     "alphaCode3": "TJK",
-    "code": "TJK",
     "olympicCommitteeCode": "TJK",
     "fifaCode": "TJK",
     "fipsCode": "TI",
@@ -53787,6 +53787,7 @@
   {
     "id": 772,
     "name": "Tokelau",
+    "code": "TKL",
     "languages": [
       "eng",
       "smo",
@@ -53819,7 +53820,6 @@
     "alphaCode2": "TK",
     "numericCode": "772",
     "alphaCode3": "TKL",
-    "code": "TKL",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "TL",
@@ -54033,6 +54033,7 @@
   {
     "id": 795,
     "name": "Turkmenistan",
+    "code": "TKM",
     "languages": [
       "rus",
       "tuk"
@@ -54059,7 +54060,6 @@
     "alphaCode2": "TM",
     "numericCode": "795",
     "alphaCode3": "TKM",
-    "code": "TKM",
     "olympicCommitteeCode": "TKM",
     "fifaCode": "TKM",
     "fipsCode": "TX",
@@ -54280,6 +54280,7 @@
   {
     "id": 626,
     "name": "Timor-Leste",
+    "code": "TLS",
     "languages": [
       "por",
       "tet"
@@ -54306,7 +54307,6 @@
     "alphaCode2": "TL",
     "numericCode": "626",
     "alphaCode3": "TLS",
-    "code": "TLS",
     "olympicCommitteeCode": "TLS",
     "fifaCode": "TLS",
     "fipsCode": "TT",
@@ -54530,6 +54530,7 @@
   {
     "id": 776,
     "name": "Tonga",
+    "code": "TON",
     "languages": [
       "eng",
       "ton"
@@ -54556,7 +54557,6 @@
     "alphaCode2": "TO",
     "numericCode": "776",
     "alphaCode3": "TON",
-    "code": "TON",
     "olympicCommitteeCode": "TGA",
     "fifaCode": "TGA",
     "fipsCode": "TN",
@@ -54772,6 +54772,7 @@
   {
     "id": 780,
     "name": "Trinidad and Tobago",
+    "code": "TTO",
     "languages": [
       "eng"
     ],
@@ -54792,7 +54793,6 @@
     "alphaCode2": "TT",
     "numericCode": "780",
     "alphaCode3": "TTO",
-    "code": "TTO",
     "olympicCommitteeCode": "TTO",
     "fifaCode": "TRI",
     "fipsCode": "TD",
@@ -55009,6 +55009,7 @@
   {
     "id": 788,
     "name": "Tunisia",
+    "code": "TUN",
     "languages": [
       "ara"
     ],
@@ -55029,7 +55030,6 @@
     "alphaCode2": "TN",
     "numericCode": "788",
     "alphaCode3": "TUN",
-    "code": "TUN",
     "olympicCommitteeCode": "TUN",
     "fifaCode": "TUN",
     "fipsCode": "TS",
@@ -55250,6 +55250,7 @@
   {
     "id": 792,
     "name": "Turkey",
+    "code": "TUR",
     "languages": [
       "tur"
     ],
@@ -55270,7 +55271,6 @@
     "alphaCode2": "TR",
     "numericCode": "792",
     "alphaCode3": "TUR",
-    "code": "TUR",
     "olympicCommitteeCode": "TUR",
     "fifaCode": "TUR",
     "fipsCode": "TU",
@@ -55498,6 +55498,7 @@
   {
     "id": 798,
     "name": "Tuvalu",
+    "code": "TUV",
     "languages": [
       "eng",
       "tvl"
@@ -55524,7 +55525,6 @@
     "alphaCode2": "TV",
     "numericCode": "798",
     "alphaCode3": "TUV",
-    "code": "TUV",
     "olympicCommitteeCode": "TUV",
     "fifaCode": "",
     "fipsCode": "TV",
@@ -55741,6 +55741,7 @@
   {
     "id": 158,
     "name": "Taiwan",
+    "code": "TWN",
     "languages": [
       "zho"
     ],
@@ -55763,7 +55764,6 @@
     "alphaCode2": "TW",
     "numericCode": "158",
     "alphaCode3": "TWN",
-    "code": "TWN",
     "olympicCommitteeCode": "TPE",
     "fifaCode": "TPE",
     "fipsCode": "TW",
@@ -55977,6 +55977,7 @@
   {
     "id": 834,
     "name": "Tanzania",
+    "code": "TZA",
     "languages": [
       "eng",
       "swa"
@@ -56003,7 +56004,6 @@
     "alphaCode2": "TZ",
     "numericCode": "834",
     "alphaCode3": "TZA",
-    "code": "TZA",
     "olympicCommitteeCode": "TAN",
     "fifaCode": "TAN",
     "fipsCode": "TZ",
@@ -56231,6 +56231,7 @@
   {
     "id": 800,
     "name": "Uganda",
+    "code": "UGA",
     "languages": [
       "eng",
       "swa"
@@ -56257,7 +56258,6 @@
     "alphaCode2": "UG",
     "numericCode": "800",
     "alphaCode3": "UGA",
-    "code": "UGA",
     "olympicCommitteeCode": "UGA",
     "fifaCode": "UGA",
     "fipsCode": "UG",
@@ -56481,6 +56481,7 @@
   {
     "id": 804,
     "name": "Ukraine",
+    "code": "UKR",
     "languages": [
       "ukr"
     ],
@@ -56502,7 +56503,6 @@
     "alphaCode2": "UA",
     "numericCode": "804",
     "alphaCode3": "UKR",
-    "code": "UKR",
     "olympicCommitteeCode": "UKR",
     "fifaCode": "UKR",
     "fipsCode": "UP",
@@ -56727,6 +56727,7 @@
   {
     "id": 581,
     "name": "United States Minor Outlying Islands",
+    "code": "UMI",
     "languages": [
       "eng"
     ],
@@ -56747,7 +56748,6 @@
     "alphaCode2": "UM",
     "numericCode": "581",
     "alphaCode3": "UMI",
-    "code": "UMI",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "",
@@ -56960,6 +56960,7 @@
   {
     "id": 858,
     "name": "Uruguay",
+    "code": "URY",
     "languages": [
       "spa"
     ],
@@ -56980,7 +56981,6 @@
     "alphaCode2": "UY",
     "numericCode": "858",
     "alphaCode3": "URY",
-    "code": "URY",
     "olympicCommitteeCode": "URU",
     "fifaCode": "URU",
     "fipsCode": "UY",
@@ -57201,6 +57201,7 @@
   {
     "id": 840,
     "name": "United States",
+    "code": "USA",
     "languages": [
       "eng"
     ],
@@ -57221,7 +57222,6 @@
     "alphaCode2": "US",
     "numericCode": "840",
     "alphaCode3": "USA",
-    "code": "USA",
     "olympicCommitteeCode": "USA",
     "fifaCode": "USA",
     "fipsCode": "US",
@@ -57768,6 +57768,7 @@
   {
     "id": 860,
     "name": "Uzbekistan",
+    "code": "UZB",
     "languages": [
       "rus",
       "uzb"
@@ -57794,7 +57795,6 @@
     "alphaCode2": "UZ",
     "numericCode": "860",
     "alphaCode3": "UZB",
-    "code": "UZB",
     "olympicCommitteeCode": "UZB",
     "fifaCode": "UZB",
     "fipsCode": "UZ",
@@ -58019,6 +58019,7 @@
   {
     "id": 336,
     "name": "Vatican City",
+    "code": "VAT",
     "languages": [
       "ita",
       "lat"
@@ -58045,7 +58046,6 @@
     "alphaCode2": "VA",
     "numericCode": "336",
     "alphaCode3": "VAT",
-    "code": "VAT",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "VT",
@@ -58265,6 +58265,7 @@
   {
     "id": 670,
     "name": "Saint Vincent and the Grenadines",
+    "code": "VCT",
     "languages": [
       "eng"
     ],
@@ -58285,7 +58286,6 @@
     "alphaCode2": "VC",
     "numericCode": "670",
     "alphaCode3": "VCT",
-    "code": "VCT",
     "olympicCommitteeCode": "VIN",
     "fifaCode": "VIN",
     "fipsCode": "VC",
@@ -58499,6 +58499,7 @@
   {
     "id": 862,
     "name": "Venezuela",
+    "code": "VEN",
     "languages": [
       "spa"
     ],
@@ -58519,7 +58520,6 @@
     "alphaCode2": "VE",
     "numericCode": "862",
     "alphaCode3": "VEN",
-    "code": "VEN",
     "olympicCommitteeCode": "VEN",
     "fifaCode": "VEN",
     "fipsCode": "VE",
@@ -58742,6 +58742,7 @@
   {
     "id": 92,
     "name": "British Virgin Islands",
+    "code": "VGB",
     "languages": [
       "eng"
     ],
@@ -58762,7 +58763,6 @@
     "alphaCode2": "VG",
     "numericCode": "092",
     "alphaCode3": "VGB",
-    "code": "VGB",
     "olympicCommitteeCode": "IVB",
     "fifaCode": "VGB",
     "fipsCode": "VI",
@@ -58977,6 +58977,7 @@
   {
     "id": 850,
     "name": "United States Virgin Islands",
+    "code": "VIR",
     "languages": [
       "eng"
     ],
@@ -58997,7 +58998,6 @@
     "alphaCode2": "VI",
     "numericCode": "850",
     "alphaCode3": "VIR",
-    "code": "VIR",
     "olympicCommitteeCode": "ISV",
     "fifaCode": "VIR",
     "fipsCode": "VQ",
@@ -59212,6 +59212,7 @@
   {
     "id": 704,
     "name": "Vietnam",
+    "code": "VNM",
     "languages": [
       "vie"
     ],
@@ -59232,7 +59233,6 @@
     "alphaCode2": "VN",
     "numericCode": "704",
     "alphaCode3": "VNM",
-    "code": "VNM",
     "olympicCommitteeCode": "VIE",
     "fifaCode": "VIE",
     "fipsCode": "VN",
@@ -59455,6 +59455,7 @@
   {
     "id": 548,
     "name": "Vanuatu",
+    "code": "VUT",
     "languages": [
       "bis",
       "eng",
@@ -59487,7 +59488,6 @@
     "alphaCode2": "VU",
     "numericCode": "548",
     "alphaCode3": "VUT",
-    "code": "VUT",
     "olympicCommitteeCode": "VAN",
     "fifaCode": "VAN",
     "fipsCode": "NH",
@@ -59706,6 +59706,7 @@
   {
     "id": 876,
     "name": "Wallis and Futuna",
+    "code": "WLF",
     "languages": [
       "fra"
     ],
@@ -59726,7 +59727,6 @@
     "alphaCode2": "WF",
     "numericCode": "876",
     "alphaCode3": "WLF",
-    "code": "WLF",
     "olympicCommitteeCode": "",
     "fifaCode": "",
     "fipsCode": "WF",
@@ -59942,6 +59942,7 @@
   {
     "id": 882,
     "name": "Samoa",
+    "code": "WSM",
     "languages": [
       "eng",
       "smo"
@@ -59968,7 +59969,6 @@
     "alphaCode2": "WS",
     "numericCode": "882",
     "alphaCode3": "WSM",
-    "code": "WSM",
     "olympicCommitteeCode": "SAM",
     "fifaCode": "SAM",
     "fipsCode": "WS",
@@ -60186,6 +60186,7 @@
   {
     "id": 887,
     "name": "Yemen",
+    "code": "YEM",
     "languages": [
       "ara"
     ],
@@ -60206,7 +60207,6 @@
     "alphaCode2": "YE",
     "numericCode": "887",
     "alphaCode3": "YEM",
-    "code": "YEM",
     "olympicCommitteeCode": "YEM",
     "fifaCode": "YEM",
     "fipsCode": "YM",
@@ -60427,6 +60427,7 @@
   {
     "id": 710,
     "name": "South Africa",
+    "code": "ZAF",
     "languages": [
       "afr",
       "eng",
@@ -60507,7 +60508,6 @@
     "alphaCode2": "ZA",
     "numericCode": "710",
     "alphaCode3": "ZAF",
-    "code": "ZAF",
     "olympicCommitteeCode": "RSA",
     "fifaCode": "RSA",
     "fipsCode": "SF",
@@ -60735,6 +60735,7 @@
   {
     "id": 894,
     "name": "Zambia",
+    "code": "ZMB",
     "languages": [
       "eng"
     ],
@@ -60755,7 +60756,6 @@
     "alphaCode2": "ZM",
     "numericCode": "894",
     "alphaCode3": "ZMB",
-    "code": "ZMB",
     "olympicCommitteeCode": "ZAM",
     "fifaCode": "ZAM",
     "fipsCode": "ZA",
@@ -60981,6 +60981,7 @@
   {
     "id": 716,
     "name": "Zimbabwe",
+    "code": "ZWE",
     "languages": [
       "bwg",
       "eng",
@@ -61085,7 +61086,6 @@
     "alphaCode2": "ZW",
     "numericCode": "716",
     "alphaCode3": "ZWE",
-    "code": "ZWE",
     "olympicCommitteeCode": "ZIM",
     "fifaCode": "ZIM",
     "fipsCode": "ZI",

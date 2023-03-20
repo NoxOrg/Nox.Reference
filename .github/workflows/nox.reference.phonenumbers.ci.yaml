@@ -4,14 +4,16 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - src/**
-      - tests/**
+      - src/Nox.Reference.Abstractions/**
+      - src/Nox.Reference.PhoneNumbers/**
+      - tests/Nox.Reference.PhoneNumbers.Tests/**
       - .github/workflows/nox.reference.phonenumbers.ci.yaml
   push:
     branches: [ main ]
     paths:
-      - src/**
-      - tests/**
+      - src/Nox.Reference.Abstractions/**
+      - src/Nox.Reference.PhoneNumbers/**
+      - tests/Nox.Reference.PhoneNumbers.Tests/**
       - .github/workflows/nox.reference.phonenumbers.ci.yaml
 
 jobs:
