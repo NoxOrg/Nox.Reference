@@ -3,7 +3,7 @@ namespace Nox.Reference.Countries;
 
 public class VehicleInfo : IVehicleInfo
 {
-    public string[] InternationalRegistrationCodes { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> InternationalRegistrationCodes { get; set; } = new List<string>();
 
     public string DrivingSide { get; set; } = string.Empty;
 }

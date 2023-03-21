@@ -2,6 +2,6 @@
 
 public interface ICapitalInfo
 {
-    public decimal[] LatLong { get; }
+    public IReadOnlyList<decimal> LatLong { get; }
 }
 
