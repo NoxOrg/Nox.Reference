@@ -5,11 +5,11 @@ Holidays list and info
 
 ```csharp
 using System.Text.Json;
-using Nox.Reference.Currencies;
+using Nox.Reference.Holidays;
 
-var currencyService = new CurrenciesService();
+var holidaysService = new HolidaysService(2024);
 
-var info = currencyService.GetCurrencies(); 
+var info = holidaysService.GetHolidays(); 
 
 var options = new JsonSerializerOptions
 {
@@ -26,55 +26,53 @@ Console.WriteLine(JsonSerializer.Serialize(info,options));
 ```csharp
 /* Outputs:
 [
-    {
-        "isoCode": "UAH",
-        "isoNumber": "980",
-        "symbol": "₴",
-        "thousandsSeparator": " ",
-        "decimalSeparator": ",",
-        "symbolOnLeft": false,
-        "spaceBetweenAmountAndSymbol": false,
-        "decimalDigits": 2,
-        "name": "Ukrainian Hryvnia",
-        "units": {
-            "major": {
-                "name": "Hryvnia",
-                "symbol": "₴"
-            },
-            "minor": {
-                "name": "Kopiyka",
-                "symbol": "",
-                "majorValue": 0.01
-            }
-        },
-        "banknotes": {
-            "frequent": [
-                "₴1",
-                "₴2",
-                "₴5",
-                "₴10",
-                "₴20",
-                "₴50",
-                "₴100",
-                "₴200",
-                "₴500"
+    "holidaysByCountries": [
+        {
+            "country": "US",
+            "countryName": "United States of America",
+            "dayOff": "Sunday",
+            "holidays": [
+                {
+                    "name": "New Year's Day",
+                    "type": "public",
+                    "date": "2024-01-01",
+                    "localNames": []
+                },
+                ...
             ],
-            "rare": [
-            ]
-        },
-        "coins": {
-            "frequent": [
-                "1",
-                "2",
-                "5",
-                "10",
-                "25",
-                "50"
-            ],
-            "rare": [
+            "states": [
+                {
+                    "state": "CA",
+                    "stateName": "California",
+                    "holidays": [
+                        {
+                            "name": "New Year's Day",
+                            "type": "public",
+                            "date": "2024-01-01",
+                            "localNames": []
+                        },
+                        ...
+                    ],
+                    "regions": [
+                        {
+                            "region": "AL",
+                            "regionName": "Alabama",
+                            "holidays": [
+                                {
+                                    "name": "New Year's Day",
+                                    "type": "public",
+                                    "date": "2024-01-01",
+                                    "localNames": []
+                                },
+                                ...
+                            ]
+                        },
+                    ]
+                }
             ]
         }
-    }
+    ],
+    year:2024
 ]
 */
 ```
@@ -82,8 +80,8 @@ Console.WriteLine(JsonSerializer.Serialize(info,options));
 
 ### To install from nuget.org
 ```powershell
-dotnet add package Nox.Reference.Currencies
+dotnet add package Nox.Reference.Holidays
 ```
 
 ### Dependencies
-Uses [world-currencies](https://github.com/wiredmax/world-currencies) and [currency-formatter](https://github.com/smirzaei/currency-formatter) libraries as a data source for currencies info.
+Uses [date-holidays](https://github.com/commenthol/date-holidays) library as a data source for holidays info.

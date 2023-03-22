@@ -18,11 +18,6 @@
     <PackageIcon>nox.png</PackageIcon>
     <Description>Holidays info utilities</Description>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Nox.Reference.Holidays-2023.json" />
-    <None Remove="Nox.Reference.Holidays-2024.json" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
@@ -31,9 +26,7 @@
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\..\data\Nox.Reference.Holidays-2023.json" LogicalName="Nox.Reference.Holidays-2023.json" />
-    <EmbeddedResource Include="..\..\data\Nox.Reference.Holidays-2024.json" LogicalName="Nox.Reference.Holidays-2024.json" />
-    <EmbeddedResource Include="Nox.Reference.Holidays-2023.json" />
-    <EmbeddedResource Include="Nox.Reference.Holidays-2024.json" />
+    <EmbeddedResource Include="..\..\data\Nox.Reference.Holidays-2023.json.gz" LogicalName="Nox.Reference.Holidays-2023.json.gz" />
+    <EmbeddedResource Include="..\..\data\Nox.Reference.Holidays-2024.json.gz" LogicalName="Nox.Reference.Holidays-2024.json.gz" />
   </ItemGroup>
 </Project>

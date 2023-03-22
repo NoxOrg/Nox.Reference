@@ -2,6 +2,7 @@ import { Command } from "commander";
 import Holidays, { HolidaysTypes } from 'date-holidays';
 import { DateTime } from "luxon";
 import fs from 'fs';
+import zlib from 'zlib';
 
 /// Add an extension method to String type
 
@@ -189,14 +190,23 @@ Object.entries(getCountries).map(([countryCode, countryName]) => {
     };
 });
 
-const data = JSON.stringify(yearInfo, null, 3);
+const data = JSON.stringify(yearInfo);
 
-fs.writeFile(file, data, err => {
-    if (!err) {
-        return;
-    }
+fs.writeFileSync(file, data);
 
-    console.error('Error during writing to file!', err);
-});
+// Create a gzip function for reusable purpose
+// WARNING: Currently async, could be improved to sync version using
+// Promise when needed.
+const compressFile = (filePath: string) => {
+  return fs
+    .createReadStream(filePath)
+    .pipe(zlib.createGzip())
+    .pipe(fs.createWriteStream(`${filePath}.gz`))
+    .on("finish", () =>
+      console.log(`Successfully compressed the file at ${filePath}`)
+    );
+};
+
+compressFile(file);
 
 console.log("Done.");

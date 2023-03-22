@@ -1,6 +1,8 @@
 ﻿using Nox.Reference.Abstractions.Holidays;
 using Nox.Reference.Holidays.Models;
+using System.IO.Compression;
 using System.Reflection;
+using System.Text;
 using System.Text.Json;
 
 namespace Nox.Reference.Holidays;
@@ -20,7 +22,7 @@ public class HolidaysService : IHolidaysService
         }
 
         var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = $"Nox.Reference.Holidays-{year}.json";
+        var resourceName = $"Nox.Reference.Holidays-{year}.json.gz";
         if (assembly == null)
         {
             return;
@@ -32,10 +34,9 @@ public class HolidaysService : IHolidaysService
             return;
         }
 
-        using var reader = new StreamReader(stream);
-
+        var decompressedContent = DecompressGzip(stream);
         _holidays = JsonSerializer.Deserialize<HolidayInfo>(
-            reader.ReadToEnd(),
+            decompressedContent,
             new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -46,6 +47,16 @@ public class HolidaysService : IHolidaysService
             _holidayInfoByCountryIsoCode[holiday.Country] = holiday;
             _holidayInfoCountryName[holiday.CountryName] = holiday;
         }
+    }
+
+    private string DecompressGzip(Stream compressedStream)
+    {
+        var resultStream = new MemoryStream();
+        using (GZipStream decompressionStream = new GZipStream(compressedStream, CompressionMode.Decompress))
+        {
+            decompressionStream.CopyTo(resultStream);
+        }
+        return Encoding.UTF8.GetString(resultStream.ToArray());
     }
 
     public IHolidayInfo GetHolidays() => _holidays;
