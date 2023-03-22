@@ -4,18 +4,18 @@ namespace Nox.Reference.Abstractions.Currencies;
 
 public class CurrencyInfo : ICurrencyInfo
 {
-    [JsonPropertyName("isoCode")] public string IsoCode_ { get; set; } = null;
-    [JsonPropertyName("isoNumber")] public string IsoNumber_ { get; set; } = null;
-    [JsonPropertyName("symbol")] public string Symbol_ { get; set; } = null;
-    [JsonPropertyName("thousandsSeparator")] public string ThousandsSeparator_ { get; set; } = null;
-    [JsonPropertyName("decimalSeparator")] public string DecimalSeparator_ { get; set; } = null;
+    [JsonPropertyName("isoCode")] public string IsoCode_ { get; set; } = "";
+    [JsonPropertyName("isoNumber")] public string IsoNumber_ { get; set; } = "";
+    [JsonPropertyName("symbol")] public string Symbol_ { get; set; } = "";
+    [JsonPropertyName("thousandsSeparator")] public string ThousandsSeparator_ { get; set; } = "";
+    [JsonPropertyName("decimalSeparator")] public string DecimalSeparator_ { get; set; } = "";
     [JsonPropertyName("symbolOnLeft")] public bool SymbolOnLeft_ { get; set; } = false;
     [JsonPropertyName("spaceBetweenAmountAndSymbol")] public bool SpaceBetweenAmountAndSymbol_ { get; set; } = false;
     [JsonPropertyName("decimalDigits")] public int DecimalDigits_ { get; set; } = 0;
-    [JsonPropertyName("name")] public string Name_ { get; set; } = null;
-    [JsonPropertyName("units")] public CurrencyUnit Units_ { get; set; } = null;
-    [JsonPropertyName("banknotes")] public CurrencyUsage Banknotes_ { get; set; } = null;
-    [JsonPropertyName("coins")] public CurrencyUsage Coins_ { get; set; } = null;
+    [JsonPropertyName("name")] public string Name_ { get; set; } = "";
+    [JsonPropertyName("units")] public CurrencyUnit Units_ { get; set; } = new CurrencyUnit();
+    [JsonPropertyName("banknotes")] public CurrencyUsage Banknotes_ { get; set; } = new CurrencyUsage();
+    [JsonPropertyName("coins")] public CurrencyUsage Coins_ { get; set; } = new CurrencyUsage();
 
     [JsonIgnore] public string IsoCode => IsoCode_;
     [JsonIgnore] public string IsoNumber => IsoNumber_;
