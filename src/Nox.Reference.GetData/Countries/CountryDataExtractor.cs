@@ -46,6 +46,8 @@ internal class CountryDataExtractor
                 {
                     country.FipsCode = fips;
                 }
+
+                MapLatLongIntoGeoCoordinates(country);
             }
 
             // Store output
@@ -66,6 +68,27 @@ internal class CountryDataExtractor
         catch (Exception ex)
         {
             Console.Write(ex.Message);
+        }
+    }
+
+    private static void MapLatLongIntoGeoCoordinates(RestcountryCountryInfo country)
+    {
+        if (country.LatLong?.Count == 2)
+        {
+            country.GeoCoordinates.Latitude = country.LatLong[0];
+            country.GeoCoordinates.Longitude = country.LatLong[1];
+        }
+        country.LatLong = null!;
+
+        if (country.CapitalInfo1?.LatLong?.Count == 2)
+        {
+            country.CapitalInfo1.GeoCoordinates.Latitude = country.CapitalInfo1.LatLong[0];
+            country.CapitalInfo1.GeoCoordinates.Longitude = country.CapitalInfo1.LatLong[1];
+        }
+
+        if (country.CapitalInfo1 != null)
+        {
+            country.CapitalInfo1.LatLong = null!;
         }
     }
 }

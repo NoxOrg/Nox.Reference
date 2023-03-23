@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Countries;
 
@@ -100,6 +99,9 @@ public class RestcountryCountryInfo : ICountryInfo
 
     [JsonPropertyName("latlng")]
     public IReadOnlyList<decimal> LatLong { get; set; } = null!;
+
+    [JsonPropertyName("geoCoordinates")]
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
 
     [JsonPropertyName("landlocked")]
     public bool IsLandlocked { get; set; }

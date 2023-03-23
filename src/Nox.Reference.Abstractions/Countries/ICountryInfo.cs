@@ -1,4 +1,5 @@
 ﻿namespace Nox.Reference.Countries;
+
 public interface ICountryInfo
 {
     public int Id { get; }
@@ -25,7 +26,7 @@ public interface ICountryInfo
     public string SubRegion { get; }
     public IReadOnlyList<string> Continents { get; }
     public IReadOnlyList<INativeNameInfo>? NameTranslations { get; }
-    public IReadOnlyList<decimal> LatLong { get; }
+    public IGeoCoordinates GeoCoordinates { get; }
     public bool IsLandlocked { get; }
     public IReadOnlyList<string> BorderingCountries { get; }
     public decimal LandAreaInSquareKilometers { get; }

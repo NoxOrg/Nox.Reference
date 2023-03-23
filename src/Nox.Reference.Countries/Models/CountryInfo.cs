@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Countries;
 
@@ -29,7 +28,7 @@ internal class CountryInfo : ICountryInfo
     [JsonPropertyName("subRegion")] public string SubRegion_ { get; set; } = string.Empty;
     [JsonPropertyName("continents")] public IReadOnlyList<string> Continents_ { get; set; } = Array.Empty<string>();
     [JsonPropertyName("nameTranslations")]public IReadOnlyList<NativeNameInfo> NameTranslations_ { get; set; } = Array.Empty<NativeNameInfo>();
-    [JsonPropertyName("latLong")] public IReadOnlyList<decimal> LatLong_ { get; set; } = Array.Empty<decimal>();
+    [JsonPropertyName("geoCoordinates")] public GeoCoordinates GeoCoordinates_ { get; set; } = new GeoCoordinates();
     [JsonPropertyName("isLandlocked")]public bool IsLandlocked_ { get; set;}
     [JsonPropertyName("borderingCountries")] public IReadOnlyList<string> BorderingCountries_ { get; set; } = Array.Empty<string>();
     [JsonPropertyName("landAreaInSquareKilometers")]public decimal LandAreaInSquareKilometers_ { get; set;}
@@ -70,7 +69,7 @@ internal class CountryInfo : ICountryInfo
     [JsonIgnore]public string SubRegion => SubRegion_;
     [JsonIgnore]public IReadOnlyList<string> Continents => Continents_;
     [JsonIgnore]public IReadOnlyList<INativeNameInfo>? NameTranslations => NameTranslations_;
-    [JsonIgnore]public IReadOnlyList<decimal> LatLong => LatLong_;
+    [JsonIgnore]public IGeoCoordinates GeoCoordinates => GeoCoordinates_;
     [JsonIgnore]public bool IsLandlocked => IsLandlocked_;
     [JsonIgnore]public IReadOnlyList<string> BorderingCountries => BorderingCountries_;
     [JsonIgnore]public decimal LandAreaInSquareKilometers => LandAreaInSquareKilometers_;

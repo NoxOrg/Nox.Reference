@@ -2,6 +2,7 @@
 
 public interface ICapitalInfo
 {
-    public IReadOnlyList<decimal> LatLong { get; }
+    public IGeoCoordinates GeoCoordinates { get; }
+    
 }
 

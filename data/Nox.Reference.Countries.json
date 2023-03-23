@@ -48,10 +48,10 @@
       "Oranjestad"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.52,
-        -70.03
-      ]
+      "geoCoordinates": {
+        "latitude": 12.52,
+        "longitude": -70.03
+      }
     },
     "alternateSpellings": [
       "AW"
@@ -188,10 +188,10 @@
         "commonName": "\u963F\u9C81\u5DF4"
       }
     ],
-    "latLong": [
-      12.5,
-      -69.96666666
-    ],
+    "geoCoordinates": {
+      "latitude": 12.5,
+      "longitude": -69.96666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 180,
@@ -292,10 +292,10 @@
       "Kabul"
     ],
     "capitalInfo": {
-      "latLong": [
-        34.52,
-        69.18
-      ]
+      "geoCoordinates": {
+        "latitude": 34.52,
+        "longitude": 69.18
+      }
     },
     "alternateSpellings": [
       "AF",
@@ -433,10 +433,10 @@
         "commonName": "\u963F\u5BCC\u6C57"
       }
     ],
-    "latLong": [
-      33,
-      65
-    ],
+    "geoCoordinates": {
+      "latitude": 33,
+      "longitude": 65
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "IRN",
@@ -534,10 +534,10 @@
       "Luanda"
     ],
     "capitalInfo": {
-      "latLong": [
-        -8.83,
-        13.22
-      ]
+      "geoCoordinates": {
+        "latitude": -8.83,
+        "longitude": 13.22
+      }
     },
     "alternateSpellings": [
       "AO",
@@ -676,10 +676,10 @@
         "commonName": "\u5B89\u54E5\u62C9"
       }
     ],
-    "latLong": [
-      -12.5,
-      18.5
-    ],
+    "geoCoordinates": {
+      "latitude": -12.5,
+      "longitude": 18.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "COG",
@@ -777,10 +777,10 @@
       "The Valley"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.22,
-        -63.05
-      ]
+      "geoCoordinates": {
+        "latitude": 18.22,
+        "longitude": -63.05
+      }
     },
     "alternateSpellings": [
       "AI"
@@ -917,10 +917,10 @@
         "commonName": "\u5B89\u572D\u62C9"
       }
     ],
-    "latLong": [
-      18.25,
-      -63.16666666
-    ],
+    "geoCoordinates": {
+      "latitude": 18.25,
+      "longitude": -63.16666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 91,
@@ -1011,10 +1011,10 @@
       "Mariehamn"
     ],
     "capitalInfo": {
-      "latLong": [
-        60.12,
-        19.9
-      ]
+      "geoCoordinates": {
+        "latitude": 60.12,
+        "longitude": 19.9
+      }
     },
     "alternateSpellings": [
       "AX",
@@ -1154,10 +1154,10 @@
         "commonName": "\u5965\u5170\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      60.116667,
-      19.9
-    ],
+    "geoCoordinates": {
+      "latitude": 60.116667,
+      "longitude": 19.9
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 1580,
@@ -1248,10 +1248,10 @@
       "Tirana"
     ],
     "capitalInfo": {
-      "latLong": [
-        41.32,
-        19.82
-      ]
+      "geoCoordinates": {
+        "latitude": 41.32,
+        "longitude": 19.82
+      }
     },
     "alternateSpellings": [
       "AL",
@@ -1391,10 +1391,10 @@
         "commonName": "\u963F\u5C14\u5DF4\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      41,
-      20
-    ],
+    "geoCoordinates": {
+      "latitude": 41,
+      "longitude": 20
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MNE",
@@ -1492,10 +1492,10 @@
       "Andorra la Vella"
     ],
     "capitalInfo": {
-      "latLong": [
-        42.5,
-        1.52
-      ]
+      "geoCoordinates": {
+        "latitude": 42.5,
+        "longitude": 1.52
+      }
     },
     "alternateSpellings": [
       "AD",
@@ -1634,10 +1634,10 @@
         "commonName": "\u5B89\u9053\u5C14"
       }
     ],
-    "latLong": [
-      42.5,
-      1.5
-    ],
+    "geoCoordinates": {
+      "latitude": 42.5,
+      "longitude": 1.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "FRA",
@@ -1732,10 +1732,10 @@
       "Abu Dhabi"
     ],
     "capitalInfo": {
-      "latLong": [
-        24.47,
-        54.37
-      ]
+      "geoCoordinates": {
+        "latitude": 24.47,
+        "longitude": 54.37
+      }
     },
     "alternateSpellings": [
       "AE",
@@ -1874,10 +1874,10 @@
         "commonName": "\u963F\u62C9\u4F2F\u8054\u5408\u914B\u957F\u56FD"
       }
     ],
-    "latLong": [
-      24,
-      54
-    ],
+    "geoCoordinates": {
+      "latitude": 24,
+      "longitude": 54
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "OMN",
@@ -1979,10 +1979,10 @@
       "Buenos Aires"
     ],
     "capitalInfo": {
-      "latLong": [
-        -34.58,
-        -58.67
-      ]
+      "geoCoordinates": {
+        "latitude": -34.58,
+        "longitude": -58.67
+      }
     },
     "alternateSpellings": [
       "AR",
@@ -2121,10 +2121,10 @@
         "commonName": "\u963F\u6839\u5EF7"
       }
     ],
-    "latLong": [
-      -34,
-      -64
-    ],
+    "geoCoordinates": {
+      "latitude": -34,
+      "longitude": -64
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BOL",
@@ -2223,10 +2223,10 @@
       "Yerevan"
     ],
     "capitalInfo": {
-      "latLong": [
-        40.17,
-        44.5
-      ]
+      "geoCoordinates": {
+        "latitude": 40.17,
+        "longitude": 44.5
+      }
     },
     "alternateSpellings": [
       "AM",
@@ -2366,10 +2366,10 @@
         "commonName": "\u4E9A\u7F8E\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      40,
-      45
-    ],
+    "geoCoordinates": {
+      "latitude": 40,
+      "longitude": 45
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AZE",
@@ -2473,10 +2473,10 @@
       "Pago Pago"
     ],
     "capitalInfo": {
-      "latLong": [
-        -14.27,
-        -170.7
-      ]
+      "geoCoordinates": {
+        "latitude": -14.27,
+        "longitude": -170.7
+      }
     },
     "alternateSpellings": [
       "AS",
@@ -2616,10 +2616,10 @@
         "commonName": "\u7F8E\u5C5E\u8428\u6469\u4E9A"
       }
     ],
-    "latLong": [
-      -14.33333333,
-      -170
-    ],
+    "geoCoordinates": {
+      "latitude": -14.33333333,
+      "longitude": -170
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 199,
@@ -2696,7 +2696,10 @@
     },
     "capitals": [],
     "capitalInfo": {
-      "latLong": []
+      "geoCoordinates": {
+        "latitude": null,
+        "longitude": null
+      }
     },
     "alternateSpellings": [
       "AQ"
@@ -2833,10 +2836,10 @@
         "commonName": "\u5357\u6781\u6D32"
       }
     ],
-    "latLong": [
-      -90,
-      0
-    ],
+    "geoCoordinates": {
+      "latitude": -90,
+      "longitude": 0
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 14000000,
@@ -2934,10 +2937,10 @@
       "Port-aux-Fran\u00E7ais"
     ],
     "capitalInfo": {
-      "latLong": [
-        48.81,
-        -1.4
-      ]
+      "geoCoordinates": {
+        "latitude": 48.81,
+        "longitude": -1.4
+      }
     },
     "alternateSpellings": [
       "TF",
@@ -3075,10 +3078,10 @@
         "commonName": "\u6CD5\u56FD\u5357\u90E8\u548C\u5357\u6781\u571F\u5730"
       }
     ],
-    "latLong": [
-      -49.25,
-      69.167
-    ],
+    "geoCoordinates": {
+      "latitude": -49.25,
+      "longitude": 69.167
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 7747,
@@ -3169,10 +3172,10 @@
       "Saint John\u0027s"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.12,
-        -61.85
-      ]
+      "geoCoordinates": {
+        "latitude": 17.12,
+        "longitude": -61.85
+      }
     },
     "alternateSpellings": [
       "AG"
@@ -3309,10 +3312,10 @@
         "commonName": "\u5B89\u63D0\u74DC\u548C\u5DF4\u5E03\u8FBE"
       }
     ],
-    "latLong": [
-      17.05,
-      -61.8
-    ],
+    "geoCoordinates": {
+      "latitude": 17.05,
+      "longitude": -61.8
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 442,
@@ -3403,10 +3406,10 @@
       "Canberra"
     ],
     "capitalInfo": {
-      "latLong": [
-        -35.27,
-        149.13
-      ]
+      "geoCoordinates": {
+        "latitude": -35.27,
+        "longitude": 149.13
+      }
     },
     "alternateSpellings": [
       "AU"
@@ -3543,10 +3546,10 @@
         "commonName": "\u6FB3\u5927\u5229\u4E9A"
       }
     ],
-    "latLong": [
-      -27,
-      133
-    ],
+    "geoCoordinates": {
+      "latitude": -27,
+      "longitude": 133
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 7692024,
@@ -3646,10 +3649,10 @@
       "Vienna"
     ],
     "capitalInfo": {
-      "latLong": [
-        48.2,
-        16.37
-      ]
+      "geoCoordinates": {
+        "latitude": 48.2,
+        "longitude": 16.37
+      }
     },
     "alternateSpellings": [
       "AT",
@@ -3788,10 +3791,10 @@
         "commonName": "\u5965\u5730\u5229"
       }
     ],
-    "latLong": [
-      47.33333333,
-      13.33333333
-    ],
+    "geoCoordinates": {
+      "latitude": 47.33333333,
+      "longitude": 13.33333333
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CZE",
@@ -3899,10 +3902,10 @@
       "Baku"
     ],
     "capitalInfo": {
-      "latLong": [
-        40.38,
-        49.87
-      ]
+      "geoCoordinates": {
+        "latitude": 40.38,
+        "longitude": 49.87
+      }
     },
     "alternateSpellings": [
       "AZ",
@@ -4041,10 +4044,10 @@
         "commonName": "\u963F\u585E\u62DC\u7586"
       }
     ],
-    "latLong": [
-      40.5,
-      47.5
-    ],
+    "geoCoordinates": {
+      "latitude": 40.5,
+      "longitude": 47.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ARM",
@@ -4149,10 +4152,10 @@
       "Gitega"
     ],
     "capitalInfo": {
-      "latLong": [
-        -3.43,
-        29.93
-      ]
+      "geoCoordinates": {
+        "latitude": -3.43,
+        "longitude": 29.93
+      }
     },
     "alternateSpellings": [
       "BI",
@@ -4292,10 +4295,10 @@
         "commonName": "\u5E03\u9686\u8FEA"
       }
     ],
-    "latLong": [
-      -3.5,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": -3.5,
+      "longitude": 30
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "COD",
@@ -4404,10 +4407,10 @@
       "Brussels"
     ],
     "capitalInfo": {
-      "latLong": [
-        50.83,
-        4.33
-      ]
+      "geoCoordinates": {
+        "latitude": 50.83,
+        "longitude": 4.33
+      }
     },
     "alternateSpellings": [
       "BE",
@@ -4552,10 +4555,10 @@
         "commonName": "\u6BD4\u5229\u65F6"
       }
     ],
-    "latLong": [
-      50.83333333,
-      4
-    ],
+    "geoCoordinates": {
+      "latitude": 50.83333333,
+      "longitude": 4
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "FRA",
@@ -4653,10 +4656,10 @@
       "Porto-Novo"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.48,
-        2.62
-      ]
+      "geoCoordinates": {
+        "latitude": 6.48,
+        "longitude": 2.62
+      }
     },
     "alternateSpellings": [
       "BJ",
@@ -4795,10 +4798,10 @@
         "commonName": "\u8D1D\u5B81"
       }
     ],
-    "latLong": [
-      9.5,
-      2.25
-    ],
+    "geoCoordinates": {
+      "latitude": 9.5,
+      "longitude": 2.25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BFA",
@@ -4896,10 +4899,10 @@
       "Ouagadougou"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.37,
-        -1.52
-      ]
+      "geoCoordinates": {
+        "latitude": 12.37,
+        "longitude": -1.52
+      }
     },
     "alternateSpellings": [
       "BF"
@@ -5036,10 +5039,10 @@
         "commonName": "\u5E03\u57FA\u7EB3\u6CD5\u7D22"
       }
     ],
-    "latLong": [
-      13,
-      -2
-    ],
+    "geoCoordinates": {
+      "latitude": 13,
+      "longitude": -2
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "BEN",
@@ -5139,10 +5142,10 @@
       "Dhaka"
     ],
     "capitalInfo": {
-      "latLong": [
-        23.72,
-        90.4
-      ]
+      "geoCoordinates": {
+        "latitude": 23.72,
+        "longitude": 90.4
+      }
     },
     "alternateSpellings": [
       "BD",
@@ -5281,10 +5284,10 @@
         "commonName": "\u5B5F\u52A0\u62C9\u56FD"
       }
     ],
-    "latLong": [
-      24,
-      90
-    ],
+    "geoCoordinates": {
+      "latitude": 24,
+      "longitude": 90
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MMR",
@@ -5380,10 +5383,10 @@
       "Sofia"
     ],
     "capitalInfo": {
-      "latLong": [
-        42.68,
-        23.32
-      ]
+      "geoCoordinates": {
+        "latitude": 42.68,
+        "longitude": 23.32
+      }
     },
     "alternateSpellings": [
       "BG",
@@ -5522,10 +5525,10 @@
         "commonName": "\u4FDD\u52A0\u5229\u4E9A"
       }
     ],
-    "latLong": [
-      43,
-      25
-    ],
+    "geoCoordinates": {
+      "latitude": 43,
+      "longitude": 25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GRC",
@@ -5624,10 +5627,10 @@
       "Manama"
     ],
     "capitalInfo": {
-      "latLong": [
-        26.23,
-        50.57
-      ]
+      "geoCoordinates": {
+        "latitude": 26.23,
+        "longitude": 50.57
+      }
     },
     "alternateSpellings": [
       "BH",
@@ -5766,10 +5769,10 @@
         "commonName": "\u5DF4\u6797"
       }
     ],
-    "latLong": [
-      26,
-      50.55
-    ],
+    "geoCoordinates": {
+      "latitude": 26,
+      "longitude": 50.55
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 765,
@@ -5861,10 +5864,10 @@
       "Nassau"
     ],
     "capitalInfo": {
-      "latLong": [
-        25.08,
-        -77.35
-      ]
+      "geoCoordinates": {
+        "latitude": 25.08,
+        "longitude": -77.35
+      }
     },
     "alternateSpellings": [
       "BS",
@@ -6002,10 +6005,10 @@
         "commonName": "\u5DF4\u54C8\u9A6C"
       }
     ],
-    "latLong": [
-      25.0343,
-      77.3963
-    ],
+    "geoCoordinates": {
+      "latitude": 25.0343,
+      "longitude": 77.3963
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 13943,
@@ -6108,10 +6111,10 @@
       "Sarajevo"
     ],
     "capitalInfo": {
-      "latLong": [
-        43.87,
-        18.42
-      ]
+      "geoCoordinates": {
+        "latitude": 43.87,
+        "longitude": 18.42
+      }
     },
     "alternateSpellings": [
       "BA",
@@ -6250,10 +6253,10 @@
         "commonName": "\u6CE2\u65AF\u5C3C\u4E9A\u548C\u9ED1\u585E\u54E5\u7EF4\u90A3"
       }
     ],
-    "latLong": [
-      44,
-      18
-    ],
+    "geoCoordinates": {
+      "latitude": 44,
+      "longitude": 18
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "HRV",
@@ -6350,10 +6353,10 @@
       "Gustavia"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.88,
-        -62.85
-      ]
+      "geoCoordinates": {
+        "latitude": 17.88,
+        "longitude": -62.85
+      }
     },
     "alternateSpellings": [
       "BL",
@@ -6493,10 +6496,10 @@
         "commonName": "\u5723\u5DF4\u6CF0\u52D2\u7C73"
       }
     ],
-    "latLong": [
-      18.5,
-      -63.41666666
-    ],
+    "geoCoordinates": {
+      "latitude": 18.5,
+      "longitude": -63.41666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 21,
@@ -6590,10 +6593,10 @@
       "Jamestown"
     ],
     "capitalInfo": {
-      "latLong": [
-        -15.93,
-        -5.72
-      ]
+      "geoCoordinates": {
+        "latitude": -15.93,
+        "longitude": -5.72
+      }
     },
     "alternateSpellings": [
       "Saint Helena",
@@ -6731,10 +6734,10 @@
         "commonName": "\u5723\u8D6B\u52D2\u62FF\u3001\u963F\u68EE\u677E\u548C\u7279\u91CC\u65AF\u5766-\u8FBE\u5E93\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      -15.95,
-      -5.72
-    ],
+    "geoCoordinates": {
+      "latitude": -15.95,
+      "longitude": -5.72
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 394,
@@ -6831,10 +6834,10 @@
       "Minsk"
     ],
     "capitalInfo": {
-      "latLong": [
-        53.9,
-        27.57
-      ]
+      "geoCoordinates": {
+        "latitude": 53.9,
+        "longitude": 27.57
+      }
     },
     "alternateSpellings": [
       "BY",
@@ -6975,10 +6978,10 @@
         "commonName": "\u767D\u4FC4\u7F57\u65AF"
       }
     ],
-    "latLong": [
-      53,
-      28
-    ],
+    "geoCoordinates": {
+      "latitude": 53,
+      "longitude": 28
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "LVA",
@@ -7089,10 +7092,10 @@
       "Belmopan"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.25,
-        -88.77
-      ]
+      "geoCoordinates": {
+        "latitude": 17.25,
+        "longitude": -88.77
+      }
     },
     "alternateSpellings": [
       "BZ"
@@ -7229,10 +7232,10 @@
         "commonName": "\u4F2F\u5229\u5179"
       }
     ],
-    "latLong": [
-      17.25,
-      -88.75
-    ],
+    "geoCoordinates": {
+      "latitude": 17.25,
+      "longitude": -88.75
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GTM",
@@ -7328,10 +7331,10 @@
       "Hamilton"
     ],
     "capitalInfo": {
-      "latLong": [
-        32.28,
-        -64.78
-      ]
+      "geoCoordinates": {
+        "latitude": 32.28,
+        "longitude": -64.78
+      }
     },
     "alternateSpellings": [
       "BM",
@@ -7471,10 +7474,10 @@
         "commonName": "\u767E\u6155\u5927"
       }
     ],
-    "latLong": [
-      32.33333333,
-      -64.75
-    ],
+    "geoCoordinates": {
+      "latitude": 32.33333333,
+      "longitude": -64.75
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 54,
@@ -7583,10 +7586,10 @@
       "Sucre"
     ],
     "capitalInfo": {
-      "latLong": [
-        -19.02,
-        -65.26
-      ]
+      "geoCoordinates": {
+        "latitude": -19.02,
+        "longitude": -65.26
+      }
     },
     "alternateSpellings": [
       "BO",
@@ -7731,10 +7734,10 @@
         "commonName": "\u73BB\u5229\u7EF4\u4E9A"
       }
     ],
-    "latLong": [
-      -17,
-      -65
-    ],
+    "geoCoordinates": {
+      "latitude": -17,
+      "longitude": -65
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ARG",
@@ -7841,10 +7844,10 @@
       "Kralendijk"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.14,
-        -68.27
-      ]
+      "geoCoordinates": {
+        "latitude": 12.14,
+        "longitude": -68.27
+      }
     },
     "alternateSpellings": [
       "BES islands"
@@ -7981,10 +7984,10 @@
         "commonName": "\u8377\u862D\u52A0\u52D2\u6BD4\u5340"
       }
     ],
-    "latLong": [
-      12.18,
-      -68.25
-    ],
+    "geoCoordinates": {
+      "latitude": 12.18,
+      "longitude": -68.25
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 328,
@@ -8075,10 +8078,10 @@
       "Bras\u00EDlia"
     ],
     "capitalInfo": {
-      "latLong": [
-        -15.79,
-        -47.88
-      ]
+      "geoCoordinates": {
+        "latitude": -15.79,
+        "longitude": -47.88
+      }
     },
     "alternateSpellings": [
       "BR",
@@ -8218,10 +8221,10 @@
         "commonName": "\u5DF4\u897F"
       }
     ],
-    "latLong": [
-      -10,
-      -55
-    ],
+    "geoCoordinates": {
+      "latitude": -10,
+      "longitude": -55
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ARG",
@@ -8328,10 +8331,10 @@
       "Bridgetown"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.1,
-        -59.62
-      ]
+      "geoCoordinates": {
+        "latitude": 13.1,
+        "longitude": -59.62
+      }
     },
     "alternateSpellings": [
       "BB"
@@ -8468,10 +8471,10 @@
         "commonName": "\u5DF4\u5DF4\u591A\u65AF"
       }
     ],
-    "latLong": [
-      13.16666666,
-      -59.53333333
-    ],
+    "geoCoordinates": {
+      "latitude": 13.16666666,
+      "longitude": -59.53333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 430,
@@ -8563,10 +8566,10 @@
       "Bandar Seri Begawan"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.88,
-        114.93
-      ]
+      "geoCoordinates": {
+        "latitude": 4.88,
+        "longitude": 114.93
+      }
     },
     "alternateSpellings": [
       "BN",
@@ -8706,10 +8709,10 @@
         "commonName": "\u6587\u83B1"
       }
     ],
-    "latLong": [
-      4.5,
-      114.66666666
-    ],
+    "geoCoordinates": {
+      "latitude": 4.5,
+      "longitude": 114.66666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MYS"
@@ -8803,10 +8806,10 @@
       "Thimphu"
     ],
     "capitalInfo": {
-      "latLong": [
-        27.47,
-        89.63
-      ]
+      "geoCoordinates": {
+        "latitude": 27.47,
+        "longitude": 89.63
+      }
     },
     "alternateSpellings": [
       "BT",
@@ -8944,10 +8947,10 @@
         "commonName": "\u4E0D\u4E39"
       }
     ],
-    "latLong": [
-      27.5,
-      90.5
-    ],
+    "geoCoordinates": {
+      "latitude": 27.5,
+      "longitude": 90.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CHN",
@@ -9039,7 +9042,10 @@
     },
     "capitals": [],
     "capitalInfo": {
-      "latLong": []
+      "geoCoordinates": {
+        "latitude": null,
+        "longitude": null
+      }
     },
     "alternateSpellings": [
       "BV",
@@ -9178,10 +9184,10 @@
         "commonName": "\u5E03\u7EF4\u5C9B"
       }
     ],
-    "latLong": [
-      54.4208,
-      3.3464
-    ],
+    "geoCoordinates": {
+      "latitude": 54.4208,
+      "longitude": 3.3464
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 49,
@@ -9278,10 +9284,10 @@
       "Gaborone"
     ],
     "capitalInfo": {
-      "latLong": [
-        -24.63,
-        25.9
-      ]
+      "geoCoordinates": {
+        "latitude": -24.63,
+        "longitude": 25.9
+      }
     },
     "alternateSpellings": [
       "BW",
@@ -9420,10 +9426,10 @@
         "commonName": "\u535A\u8328\u74E6\u7EB3"
       }
     ],
-    "latLong": [
-      -22,
-      24
-    ],
+    "geoCoordinates": {
+      "latitude": -22,
+      "longitude": 24
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "NAM",
@@ -9527,10 +9533,10 @@
       "Bangui"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.37,
-        18.58
-      ]
+      "geoCoordinates": {
+        "latitude": 4.37,
+        "longitude": 18.58
+      }
     },
     "alternateSpellings": [
       "CF",
@@ -9669,10 +9675,10 @@
         "commonName": "\u4E2D\u975E\u5171\u548C\u56FD"
       }
     ],
-    "latLong": [
-      7,
-      21
-    ],
+    "geoCoordinates": {
+      "latitude": 7,
+      "longitude": 21
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CMR",
@@ -9778,10 +9784,10 @@
       "Ottawa"
     ],
     "capitalInfo": {
-      "latLong": [
-        45.42,
-        -75.7
-      ]
+      "geoCoordinates": {
+        "latitude": 45.42,
+        "longitude": -75.7
+      }
     },
     "alternateSpellings": [
       "CA"
@@ -9918,10 +9924,10 @@
         "commonName": "\u52A0\u62FF\u5927"
       }
     ],
-    "latLong": [
-      60,
-      -95
-    ],
+    "geoCoordinates": {
+      "latitude": 60,
+      "longitude": -95
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "USA"
@@ -10021,10 +10027,10 @@
       "West Island"
     ],
     "capitalInfo": {
-      "latLong": [
-        -12.17,
-        96.83
-      ]
+      "geoCoordinates": {
+        "latitude": -12.17,
+        "longitude": 96.83
+      }
     },
     "alternateSpellings": [
       "CC",
@@ -10163,10 +10169,10 @@
         "commonName": "\u79D1\u79D1\u65AF"
       }
     ],
-    "latLong": [
-      12.1642,
-      96.871
-    ],
+    "geoCoordinates": {
+      "latitude": 12.1642,
+      "longitude": 96.871
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 14,
@@ -10275,10 +10281,10 @@
       "Bern"
     ],
     "capitalInfo": {
-      "latLong": [
-        46.92,
-        7.47
-      ]
+      "geoCoordinates": {
+        "latitude": 46.92,
+        "longitude": 7.47
+      }
     },
     "alternateSpellings": [
       "CH",
@@ -10420,10 +10426,10 @@
         "commonName": "\u745E\u58EB"
       }
     ],
-    "latLong": [
-      47,
-      8
-    ],
+    "geoCoordinates": {
+      "latitude": 47,
+      "longitude": 8
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AUT",
@@ -10522,10 +10528,10 @@
       "Santiago"
     ],
     "capitalInfo": {
-      "latLong": [
-        -33.45,
-        -70.67
-      ]
+      "geoCoordinates": {
+        "latitude": -33.45,
+        "longitude": -70.67
+      }
     },
     "alternateSpellings": [
       "CL",
@@ -10664,10 +10670,10 @@
         "commonName": "\u667A\u5229"
       }
     ],
-    "latLong": [
-      -30,
-      -71
-    ],
+    "geoCoordinates": {
+      "latitude": -30,
+      "longitude": -71
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ARG",
@@ -10769,10 +10775,10 @@
       "Beijing"
     ],
     "capitalInfo": {
-      "latLong": [
-        39.92,
-        116.38
-      ]
+      "geoCoordinates": {
+        "latitude": 39.92,
+        "longitude": 116.38
+      }
     },
     "alternateSpellings": [
       "CN",
@@ -10910,10 +10916,10 @@
         "commonName": "\u0686\u06CC\u0646"
       }
     ],
-    "latLong": [
-      35,
-      105
-    ],
+    "geoCoordinates": {
+      "latitude": 35,
+      "longitude": 105
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AFG",
@@ -11023,10 +11029,10 @@
       "Yamoussoukro"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.82,
-        -5.27
-      ]
+      "geoCoordinates": {
+        "latitude": 6.82,
+        "longitude": -5.27
+      }
     },
     "alternateSpellings": [
       "CI",
@@ -11167,10 +11173,10 @@
         "commonName": "\u79D1\u7279\u8FEA\u74E6"
       }
     ],
-    "latLong": [
-      8,
-      -5
-    ],
+    "geoCoordinates": {
+      "latitude": 8,
+      "longitude": -5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BFA",
@@ -11275,10 +11281,10 @@
       "Yaound\u00E9"
     ],
     "capitalInfo": {
-      "latLong": [
-        3.85,
-        11.5
-      ]
+      "geoCoordinates": {
+        "latitude": 3.85,
+        "longitude": 11.5
+      }
     },
     "alternateSpellings": [
       "CM",
@@ -11417,10 +11423,10 @@
         "commonName": "\u5580\u9EA6\u9686"
       }
     ],
-    "latLong": [
-      6,
-      12
-    ],
+    "geoCoordinates": {
+      "latitude": 6,
+      "longitude": 12
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CAF",
@@ -11544,10 +11550,10 @@
       "Kinshasa"
     ],
     "capitalInfo": {
-      "latLong": [
-        -4.32,
-        15.3
-      ]
+      "geoCoordinates": {
+        "latitude": -4.32,
+        "longitude": 15.3
+      }
     },
     "alternateSpellings": [
       "CD",
@@ -11688,10 +11694,10 @@
         "commonName": "\u6C11\u4E3B\u521A\u679C"
       }
     ],
-    "latLong": [
-      0,
-      25
-    ],
+    "geoCoordinates": {
+      "latitude": 0,
+      "longitude": 25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AGO",
@@ -11807,10 +11813,10 @@
       "Brazzaville"
     ],
     "capitalInfo": {
-      "latLong": [
-        -4.25,
-        15.28
-      ]
+      "geoCoordinates": {
+        "latitude": -4.25,
+        "longitude": 15.28
+      }
     },
     "alternateSpellings": [
       "CG",
@@ -11949,10 +11955,10 @@
         "commonName": "\u521A\u679C"
       }
     ],
-    "latLong": [
-      -1,
-      15
-    ],
+    "geoCoordinates": {
+      "latitude": -1,
+      "longitude": 15
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AGO",
@@ -12058,10 +12064,10 @@
       "Avarua"
     ],
     "capitalInfo": {
-      "latLong": [
-        -21.2,
-        -159.77
-      ]
+      "geoCoordinates": {
+        "latitude": -21.2,
+        "longitude": -159.77
+      }
     },
     "alternateSpellings": [
       "CK",
@@ -12199,10 +12205,10 @@
         "commonName": "\u5E93\u514B\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      -21.23333333,
-      -159.76666666
-    ],
+    "geoCoordinates": {
+      "latitude": -21.23333333,
+      "longitude": -159.76666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 236,
@@ -12293,10 +12299,10 @@
       "Bogot\u00E1"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.71,
-        -74.07
-      ]
+      "geoCoordinates": {
+        "latitude": 4.71,
+        "longitude": -74.07
+      }
     },
     "alternateSpellings": [
       "CO",
@@ -12435,10 +12441,10 @@
         "commonName": "\u54E5\u4F26\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      4,
-      -72
-    ],
+    "geoCoordinates": {
+      "latitude": 4,
+      "longitude": -72
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRA",
@@ -12549,10 +12555,10 @@
       "Moroni"
     ],
     "capitalInfo": {
-      "latLong": [
-        -11.7,
-        43.23
-      ]
+      "geoCoordinates": {
+        "latitude": -11.7,
+        "longitude": 43.23
+      }
     },
     "alternateSpellings": [
       "KM",
@@ -12693,10 +12699,10 @@
         "commonName": "\u79D1\u6469\u7F57"
       }
     ],
-    "latLong": [
-      -12.16666666,
-      44.25
-    ],
+    "geoCoordinates": {
+      "latitude": -12.16666666,
+      "longitude": 44.25
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 1862,
@@ -12789,10 +12795,10 @@
       "Praia"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.92,
-        -23.52
-      ]
+      "geoCoordinates": {
+        "latitude": 14.92,
+        "longitude": -23.52
+      }
     },
     "alternateSpellings": [
       "CV",
@@ -12931,10 +12937,10 @@
         "commonName": "\u4F5B\u5F97\u89D2"
       }
     ],
-    "latLong": [
-      16.5388,
-      23.0418
-    ],
+    "geoCoordinates": {
+      "latitude": 16.5388,
+      "longitude": 23.0418
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 4033,
@@ -13027,10 +13033,10 @@
       "San Jos\u00E9"
     ],
     "capitalInfo": {
-      "latLong": [
-        9.93,
-        -84.09
-      ]
+      "geoCoordinates": {
+        "latitude": 9.93,
+        "longitude": -84.09
+      }
     },
     "alternateSpellings": [
       "CR",
@@ -13169,10 +13175,10 @@
         "commonName": "\u54E5\u65AF\u8FBE\u9ECE\u52A0"
       }
     ],
-    "latLong": [
-      10,
-      -84
-    ],
+    "geoCoordinates": {
+      "latitude": 10,
+      "longitude": -84
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "NIC",
@@ -13269,10 +13275,10 @@
       "Havana"
     ],
     "capitalInfo": {
-      "latLong": [
-        23.12,
-        -82.35
-      ]
+      "geoCoordinates": {
+        "latitude": 23.12,
+        "longitude": -82.35
+      }
     },
     "alternateSpellings": [
       "CU",
@@ -13411,10 +13417,10 @@
         "commonName": "\u53E4\u5DF4"
       }
     ],
-    "latLong": [
-      21.5,
-      -80
-    ],
+    "geoCoordinates": {
+      "latitude": 21.5,
+      "longitude": -80
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 109884,
@@ -13517,10 +13523,10 @@
       "Willemstad"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.1,
-        -68.92
-      ]
+      "geoCoordinates": {
+        "latitude": 12.1,
+        "longitude": -68.92
+      }
     },
     "alternateSpellings": [
       "CW",
@@ -13652,10 +13658,10 @@
         "commonName": "\u5E93\u62C9\u7D22"
       }
     ],
-    "latLong": [
-      12.116667,
-      -68.933333
-    ],
+    "geoCoordinates": {
+      "latitude": 12.116667,
+      "longitude": -68.933333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 444,
@@ -13746,10 +13752,10 @@
       "Flying Fish Cove"
     ],
     "capitalInfo": {
-      "latLong": [
-        -10.42,
-        105.68
-      ]
+      "geoCoordinates": {
+        "latitude": -10.42,
+        "longitude": 105.68
+      }
     },
     "alternateSpellings": [
       "CX",
@@ -13887,10 +13893,10 @@
         "commonName": "\u5723\u8BDE\u5C9B"
       }
     ],
-    "latLong": [
-      -10.5,
-      105.66666666
-    ],
+    "geoCoordinates": {
+      "latitude": -10.5,
+      "longitude": 105.66666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 135,
@@ -13981,10 +13987,10 @@
       "George Town"
     ],
     "capitalInfo": {
-      "latLong": [
-        19.3,
-        -81.38
-      ]
+      "geoCoordinates": {
+        "latitude": 19.3,
+        "longitude": -81.38
+      }
     },
     "alternateSpellings": [
       "KY"
@@ -14121,10 +14127,10 @@
         "commonName": "\u5F00\u66FC\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      19.3133,
-      81.2546
-    ],
+    "geoCoordinates": {
+      "latitude": 19.3133,
+      "longitude": 81.2546
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 264,
@@ -14221,10 +14227,10 @@
       "Nicosia"
     ],
     "capitalInfo": {
-      "latLong": [
-        35.17,
-        33.37
-      ]
+      "geoCoordinates": {
+        "latitude": 35.17,
+        "longitude": 33.37
+      }
     },
     "alternateSpellings": [
       "CY",
@@ -14366,10 +14372,10 @@
         "commonName": "\u585E\u6D66\u8DEF\u65AF"
       }
     ],
-    "latLong": [
-      35,
-      33
-    ],
+    "geoCoordinates": {
+      "latitude": 35,
+      "longitude": 33
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 9251,
@@ -14468,10 +14474,10 @@
       "Prague"
     ],
     "capitalInfo": {
-      "latLong": [
-        50.08,
-        14.47
-      ]
+      "geoCoordinates": {
+        "latitude": 50.08,
+        "longitude": 14.47
+      }
     },
     "alternateSpellings": [
       "CZ",
@@ -14610,10 +14616,10 @@
         "commonName": "\u6377\u514B"
       }
     ],
-    "latLong": [
-      49.75,
-      15.5
-    ],
+    "geoCoordinates": {
+      "latitude": 49.75,
+      "longitude": 15.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AUT",
@@ -14711,10 +14717,10 @@
       "Berlin"
     ],
     "capitalInfo": {
-      "latLong": [
-        52.52,
-        13.4
-      ]
+      "geoCoordinates": {
+        "latitude": 52.52,
+        "longitude": 13.4
+      }
     },
     "alternateSpellings": [
       "DE",
@@ -14853,10 +14859,10 @@
         "commonName": "\u5FB7\u56FD"
       }
     ],
-    "latLong": [
-      51,
-      9
-    ],
+    "geoCoordinates": {
+      "latitude": 51,
+      "longitude": 9
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AUT",
@@ -14965,10 +14971,10 @@
       "Djibouti"
     ],
     "capitalInfo": {
-      "latLong": [
-        11.58,
-        43.15
-      ]
+      "geoCoordinates": {
+        "latitude": 11.58,
+        "longitude": 43.15
+      }
     },
     "alternateSpellings": [
       "DJ",
@@ -15111,10 +15117,10 @@
         "commonName": "\u5409\u5E03\u63D0"
       }
     ],
-    "latLong": [
-      11.5,
-      43
-    ],
+    "geoCoordinates": {
+      "latitude": 11.5,
+      "longitude": 43
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ERI",
@@ -15211,10 +15217,10 @@
       "Roseau"
     ],
     "capitalInfo": {
-      "latLong": [
-        15.3,
-        -61.4
-      ]
+      "geoCoordinates": {
+        "latitude": 15.3,
+        "longitude": -61.4
+      }
     },
     "alternateSpellings": [
       "DM",
@@ -15354,10 +15360,10 @@
         "commonName": "\u591A\u7C73\u5C3C\u52A0"
       }
     ],
-    "latLong": [
-      15.41666666,
-      -61.33333333
-    ],
+    "geoCoordinates": {
+      "latitude": 15.41666666,
+      "longitude": -61.33333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 751,
@@ -15448,10 +15454,10 @@
       "Copenhagen"
     ],
     "capitalInfo": {
-      "latLong": [
-        55.67,
-        12.58
-      ]
+      "geoCoordinates": {
+        "latitude": 55.67,
+        "longitude": 12.58
+      }
     },
     "alternateSpellings": [
       "DK",
@@ -15591,10 +15597,10 @@
         "commonName": "\u4E39\u9EA6"
       }
     ],
-    "latLong": [
-      56,
-      10
-    ],
+    "geoCoordinates": {
+      "latitude": 56,
+      "longitude": 10
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DEU"
@@ -15695,10 +15701,10 @@
       "Santo Domingo"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.47,
-        -69.9
-      ]
+      "geoCoordinates": {
+        "latitude": 18.47,
+        "longitude": -69.9
+      }
     },
     "alternateSpellings": [
       "DO"
@@ -15835,10 +15841,10 @@
         "commonName": "\u591A\u660E\u5C3C\u52A0"
       }
     ],
-    "latLong": [
-      19,
-      -70.66666666
-    ],
+    "geoCoordinates": {
+      "latitude": 19,
+      "longitude": -70.66666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "HTI"
@@ -15934,10 +15940,10 @@
       "Algiers"
     ],
     "capitalInfo": {
-      "latLong": [
-        36.75,
-        3.05
-      ]
+      "geoCoordinates": {
+        "latitude": 36.75,
+        "longitude": 3.05
+      }
     },
     "alternateSpellings": [
       "DZ",
@@ -16076,10 +16082,10 @@
         "commonName": "\u963F\u5C14\u53CA\u5229\u4E9A"
       }
     ],
-    "latLong": [
-      28,
-      3
-    ],
+    "geoCoordinates": {
+      "latitude": 28,
+      "longitude": 3
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "TUN",
@@ -16180,10 +16186,10 @@
       "Quito"
     ],
     "capitalInfo": {
-      "latLong": [
-        -0.22,
-        -78.5
-      ]
+      "geoCoordinates": {
+        "latitude": -0.22,
+        "longitude": -78.5
+      }
     },
     "alternateSpellings": [
       "EC",
@@ -16322,10 +16328,10 @@
         "commonName": "\u5384\u74DC\u591A\u5C14"
       }
     ],
-    "latLong": [
-      -2,
-      -77.5
-    ],
+    "geoCoordinates": {
+      "latitude": -2,
+      "longitude": -77.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "COL",
@@ -16423,10 +16429,10 @@
       "Cairo"
     ],
     "capitalInfo": {
-      "latLong": [
-        30.05,
-        31.25
-      ]
+      "geoCoordinates": {
+        "latitude": 30.05,
+        "longitude": 31.25
+      }
     },
     "alternateSpellings": [
       "EG",
@@ -16564,10 +16570,10 @@
         "commonName": "\u57C3\u53CA"
       }
     ],
-    "latLong": [
-      27,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": 27,
+      "longitude": 30
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ISR",
@@ -16677,10 +16683,10 @@
       "Asmara"
     ],
     "capitalInfo": {
-      "latLong": [
-        15.33,
-        38.93
-      ]
+      "geoCoordinates": {
+        "latitude": 15.33,
+        "longitude": 38.93
+      }
     },
     "alternateSpellings": [
       "ER",
@@ -16822,10 +16828,10 @@
         "commonName": "\u5384\u7ACB\u7279\u91CC\u4E9A"
       }
     ],
-    "latLong": [
-      15,
-      39
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": 39
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DJI",
@@ -16935,10 +16941,10 @@
       "El Aai\u00FAn"
     ],
     "capitalInfo": {
-      "latLong": [
-        -13.28,
-        27.14
-      ]
+      "geoCoordinates": {
+        "latitude": -13.28,
+        "longitude": 27.14
+      }
     },
     "alternateSpellings": [
       "EH",
@@ -17076,10 +17082,10 @@
         "commonName": "\u897F\u6492\u54C8\u62C9"
       }
     ],
-    "latLong": [
-      24.5,
-      -13
-    ],
+    "geoCoordinates": {
+      "latitude": 24.5,
+      "longitude": -13
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DZA",
@@ -17174,10 +17180,10 @@
       "Madrid"
     ],
     "capitalInfo": {
-      "latLong": [
-        40.4,
-        -3.68
-      ]
+      "geoCoordinates": {
+        "latitude": 40.4,
+        "longitude": -3.68
+      }
     },
     "alternateSpellings": [
       "ES",
@@ -17316,10 +17322,10 @@
         "commonName": "\u897F\u73ED\u7259"
       }
     ],
-    "latLong": [
-      40,
-      -4
-    ],
+    "geoCoordinates": {
+      "latitude": 40,
+      "longitude": -4
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AND",
@@ -17419,10 +17425,10 @@
       "Tallinn"
     ],
     "capitalInfo": {
-      "latLong": [
-        59.43,
-        24.72
-      ]
+      "geoCoordinates": {
+        "latitude": 59.43,
+        "longitude": 24.72
+      }
     },
     "alternateSpellings": [
       "EE",
@@ -17562,10 +17568,10 @@
         "commonName": "\u7231\u6C99\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      59,
-      26
-    ],
+    "geoCoordinates": {
+      "latitude": 59,
+      "longitude": 26
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "LVA",
@@ -17661,10 +17667,10 @@
       "Addis Ababa"
     ],
     "capitalInfo": {
-      "latLong": [
-        9.03,
-        38.7
-      ]
+      "geoCoordinates": {
+        "latitude": 9.03,
+        "longitude": 38.7
+      }
     },
     "alternateSpellings": [
       "ET",
@@ -17804,10 +17810,10 @@
         "commonName": "\u57C3\u585E\u4FC4\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      8,
-      38
-    ],
+    "geoCoordinates": {
+      "latitude": 8,
+      "longitude": 38
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "DJI",
@@ -17913,10 +17919,10 @@
       "Helsinki"
     ],
     "capitalInfo": {
-      "latLong": [
-        60.17,
-        24.93
-      ]
+      "geoCoordinates": {
+        "latitude": 60.17,
+        "longitude": 24.93
+      }
     },
     "alternateSpellings": [
       "FI",
@@ -18057,10 +18063,10 @@
         "commonName": "\u82AC\u5170"
       }
     ],
-    "latLong": [
-      64,
-      26
-    ],
+    "geoCoordinates": {
+      "latitude": 64,
+      "longitude": 26
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "NOR",
@@ -18169,10 +18175,10 @@
       "Suva"
     ],
     "capitalInfo": {
-      "latLong": [
-        -18.13,
-        178.42
-      ]
+      "geoCoordinates": {
+        "latitude": -18.13,
+        "longitude": 178.42
+      }
     },
     "alternateSpellings": [
       "FJ",
@@ -18313,10 +18319,10 @@
         "commonName": "\u6590\u6D4E"
       }
     ],
-    "latLong": [
-      17.7134,
-      178.065
-    ],
+    "geoCoordinates": {
+      "latitude": 17.7134,
+      "longitude": 178.065
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 18272,
@@ -18409,10 +18415,10 @@
       "Stanley"
     ],
     "capitalInfo": {
-      "latLong": [
-        -51.7,
-        -57.85
-      ]
+      "geoCoordinates": {
+        "latitude": -51.7,
+        "longitude": -57.85
+      }
     },
     "alternateSpellings": [
       "FK",
@@ -18551,10 +18557,10 @@
         "commonName": "\u798F\u514B\u5170\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      -51.75,
-      -59
-    ],
+    "geoCoordinates": {
+      "latitude": -51.75,
+      "longitude": -59
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 12173,
@@ -18645,10 +18651,10 @@
       "Paris"
     ],
     "capitalInfo": {
-      "latLong": [
-        48.87,
-        2.33
-      ]
+      "geoCoordinates": {
+        "latitude": 48.87,
+        "longitude": 2.33
+      }
     },
     "alternateSpellings": [
       "FR",
@@ -18787,10 +18793,10 @@
         "commonName": "\u6CD5\u56FD"
       }
     ],
-    "latLong": [
-      46,
-      2
-    ],
+    "geoCoordinates": {
+      "latitude": 46,
+      "longitude": 2
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AND",
@@ -18912,10 +18918,10 @@
       "T\u00F3rshavn"
     ],
     "capitalInfo": {
-      "latLong": [
-        62.01,
-        -6.77
-      ]
+      "geoCoordinates": {
+        "latitude": 62.01,
+        "longitude": -6.77
+      }
     },
     "alternateSpellings": [
       "FO",
@@ -19054,10 +19060,10 @@
         "commonName": "\u6CD5\u7F57\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      62,
-      -7
-    ],
+    "geoCoordinates": {
+      "latitude": 62,
+      "longitude": -7
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 1393,
@@ -19148,10 +19154,10 @@
       "Palikir"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.92,
-        158.15
-      ]
+      "geoCoordinates": {
+        "latitude": 6.92,
+        "longitude": 158.15
+      }
     },
     "alternateSpellings": [
       "FM",
@@ -19290,10 +19296,10 @@
         "commonName": "\u5BC6\u514B\u7F57\u5C3C\u897F\u4E9A"
       }
     ],
-    "latLong": [
-      6.91666666,
-      158.25
-    ],
+    "geoCoordinates": {
+      "latitude": 6.91666666,
+      "longitude": 158.25
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 702,
@@ -19387,10 +19393,10 @@
       "Libreville"
     ],
     "capitalInfo": {
-      "latLong": [
-        0.38,
-        9.45
-      ]
+      "geoCoordinates": {
+        "latitude": 0.38,
+        "longitude": 9.45
+      }
     },
     "alternateSpellings": [
       "GA",
@@ -19529,10 +19535,10 @@
         "commonName": "\u52A0\u84EC"
       }
     ],
-    "latLong": [
-      -1,
-      11.75
-    ],
+    "geoCoordinates": {
+      "latitude": -1,
+      "longitude": 11.75
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CMR",
@@ -19629,10 +19635,10 @@
       "London"
     ],
     "capitalInfo": {
-      "latLong": [
-        51.5,
-        -0.08
-      ]
+      "geoCoordinates": {
+        "latitude": 51.5,
+        "longitude": -0.08
+      }
     },
     "alternateSpellings": [
       "GB",
@@ -19771,10 +19777,10 @@
         "commonName": "\u82F1\u56FD"
       }
     ],
-    "latLong": [
-      54,
-      -2
-    ],
+    "geoCoordinates": {
+      "latitude": 54,
+      "longitude": -2
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRL"
@@ -19877,10 +19883,10 @@
       "Tbilisi"
     ],
     "capitalInfo": {
-      "latLong": [
-        41.68,
-        44.83
-      ]
+      "geoCoordinates": {
+        "latitude": 41.68,
+        "longitude": 44.83
+      }
     },
     "alternateSpellings": [
       "GE",
@@ -20018,10 +20024,10 @@
         "commonName": "\u683C\u9C81\u5409\u4E9A"
       }
     ],
-    "latLong": [
-      42,
-      43.5
-    ],
+    "geoCoordinates": {
+      "latitude": 42,
+      "longitude": 43.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ARM",
@@ -20132,10 +20138,10 @@
       "St. Peter Port"
     ],
     "capitalInfo": {
-      "latLong": [
-        49.45,
-        -2.54
-      ]
+      "geoCoordinates": {
+        "latitude": 49.45,
+        "longitude": -2.54
+      }
     },
     "alternateSpellings": [
       "GG",
@@ -20274,10 +20280,10 @@
         "commonName": "\u6839\u897F\u5C9B"
       }
     ],
-    "latLong": [
-      49.46666666,
-      -2.58333333
-    ],
+    "geoCoordinates": {
+      "latitude": 49.46666666,
+      "longitude": -2.58333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 78,
@@ -20368,10 +20374,10 @@
       "Accra"
     ],
     "capitalInfo": {
-      "latLong": [
-        5.55,
-        -0.22
-      ]
+      "geoCoordinates": {
+        "latitude": 5.55,
+        "longitude": -0.22
+      }
     },
     "alternateSpellings": [
       "GH"
@@ -20508,10 +20514,10 @@
         "commonName": "\u52A0\u7EB3"
       }
     ],
-    "latLong": [
-      8,
-      -2
-    ],
+    "geoCoordinates": {
+      "latitude": 8,
+      "longitude": -2
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BFA",
@@ -20608,10 +20614,10 @@
       "Gibraltar"
     ],
     "capitalInfo": {
-      "latLong": [
-        36.13,
-        -5.35
-      ]
+      "geoCoordinates": {
+        "latitude": 36.13,
+        "longitude": -5.35
+      }
     },
     "alternateSpellings": [
       "GI"
@@ -20748,10 +20754,10 @@
         "commonName": "\u76F4\u5E03\u7F57\u9640"
       }
     ],
-    "latLong": [
-      36.13333333,
-      -5.35
-    ],
+    "geoCoordinates": {
+      "latitude": 36.13333333,
+      "longitude": -5.35
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ESP"
@@ -20844,10 +20850,10 @@
       "Conakry"
     ],
     "capitalInfo": {
-      "latLong": [
-        9.5,
-        -13.7
-      ]
+      "geoCoordinates": {
+        "latitude": 9.5,
+        "longitude": -13.7
+      }
     },
     "alternateSpellings": [
       "GN",
@@ -20986,10 +20992,10 @@
         "commonName": "\u51E0\u5185\u4E9A"
       }
     ],
-    "latLong": [
-      11,
-      -10
-    ],
+    "geoCoordinates": {
+      "latitude": 11,
+      "longitude": -10
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CIV",
@@ -21089,10 +21095,10 @@
       "Basse-Terre"
     ],
     "capitalInfo": {
-      "latLong": [
-        16.03,
-        -61.73
-      ]
+      "geoCoordinates": {
+        "latitude": 16.03,
+        "longitude": -61.73
+      }
     },
     "alternateSpellings": [
       "GP",
@@ -21230,10 +21236,10 @@
         "commonName": "\u74DC\u5FB7\u7F57\u666E\u5C9B"
       }
     ],
-    "latLong": [
-      16.25,
-      -61.583333
-    ],
+    "geoCoordinates": {
+      "latitude": 16.25,
+      "longitude": -61.583333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 1628,
@@ -21324,10 +21330,10 @@
       "Banjul"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.45,
-        -16.57
-      ]
+      "geoCoordinates": {
+        "latitude": 13.45,
+        "longitude": -16.57
+      }
     },
     "alternateSpellings": [
       "GM",
@@ -21465,10 +21471,10 @@
         "commonName": "\u5188\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      13.46666666,
-      -16.56666666
-    ],
+    "geoCoordinates": {
+      "latitude": 13.46666666,
+      "longitude": -16.56666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "SEN"
@@ -21569,10 +21575,10 @@
       "Bissau"
     ],
     "capitalInfo": {
-      "latLong": [
-        11.85,
-        -15.58
-      ]
+      "geoCoordinates": {
+        "latitude": 11.85,
+        "longitude": -15.58
+      }
     },
     "alternateSpellings": [
       "GW",
@@ -21711,10 +21717,10 @@
         "commonName": "\u51E0\u5185\u4E9A\u6BD4\u7ECD"
       }
     ],
-    "latLong": [
-      12,
-      -15
-    ],
+    "geoCoordinates": {
+      "latitude": 12,
+      "longitude": -15
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GIN",
@@ -21822,10 +21828,10 @@
       "Malabo"
     ],
     "capitalInfo": {
-      "latLong": [
-        3.75,
-        8.78
-      ]
+      "geoCoordinates": {
+        "latitude": 3.75,
+        "longitude": 8.78
+      }
     },
     "alternateSpellings": [
       "GQ",
@@ -21966,10 +21972,10 @@
         "commonName": "\u8D64\u9053\u51E0\u5185\u4E9A"
       }
     ],
-    "latLong": [
-      2,
-      10
-    ],
+    "geoCoordinates": {
+      "latitude": 2,
+      "longitude": 10
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CMR",
@@ -22063,10 +22069,10 @@
       "Athens"
     ],
     "capitalInfo": {
-      "latLong": [
-        37.98,
-        23.73
-      ]
+      "geoCoordinates": {
+        "latitude": 37.98,
+        "longitude": 23.73
+      }
     },
     "alternateSpellings": [
       "GR",
@@ -22206,10 +22212,10 @@
         "commonName": "\u5E0C\u814A"
       }
     ],
-    "latLong": [
-      39,
-      22
-    ],
+    "geoCoordinates": {
+      "latitude": 39,
+      "longitude": 22
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ALB",
@@ -22307,10 +22313,10 @@
       "St. George\u0027s"
     ],
     "capitalInfo": {
-      "latLong": [
-        32.38,
-        -64.68
-      ]
+      "geoCoordinates": {
+        "latitude": 32.38,
+        "longitude": -64.68
+      }
     },
     "alternateSpellings": [
       "GD"
@@ -22447,10 +22453,10 @@
         "commonName": "\u683C\u6797\u7EB3\u8FBE"
       }
     ],
-    "latLong": [
-      12.11666666,
-      -61.66666666
-    ],
+    "geoCoordinates": {
+      "latitude": 12.11666666,
+      "longitude": -61.66666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 344,
@@ -22541,10 +22547,10 @@
       "Nuuk"
     ],
     "capitalInfo": {
-      "latLong": [
-        64.18,
-        -51.75
-      ]
+      "geoCoordinates": {
+        "latitude": 64.18,
+        "longitude": -51.75
+      }
     },
     "alternateSpellings": [
       "GL",
@@ -22682,10 +22688,10 @@
         "commonName": "\u683C\u9675\u5170"
       }
     ],
-    "latLong": [
-      72,
-      -40
-    ],
+    "geoCoordinates": {
+      "latitude": 72,
+      "longitude": -40
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 2166086,
@@ -22779,10 +22785,10 @@
       "Guatemala City"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.62,
-        -90.52
-      ]
+      "geoCoordinates": {
+        "latitude": 14.62,
+        "longitude": -90.52
+      }
     },
     "alternateSpellings": [
       "GT"
@@ -22919,10 +22925,10 @@
         "commonName": "\u5371\u5730\u9A6C\u62C9"
       }
     ],
-    "latLong": [
-      15.5,
-      -90.25
-    ],
+    "geoCoordinates": {
+      "latitude": 15.5,
+      "longitude": -90.25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLZ",
@@ -23020,10 +23026,10 @@
       "Cayenne"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.94,
-        -52.33
-      ]
+      "geoCoordinates": {
+        "latitude": 4.94,
+        "longitude": -52.33
+      }
     },
     "alternateSpellings": [
       "GF",
@@ -23162,10 +23168,10 @@
         "commonName": "\u6CD5\u5C5E\u572D\u4E9A\u90A3"
       }
     ],
-    "latLong": [
-      4,
-      -53
-    ],
+    "geoCoordinates": {
+      "latitude": 4,
+      "longitude": -53
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRA",
@@ -23271,10 +23277,10 @@
       "Hag\u00E5t\u00F1a"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.48,
-        144.75
-      ]
+      "geoCoordinates": {
+        "latitude": 13.48,
+        "longitude": 144.75
+      }
     },
     "alternateSpellings": [
       "GU",
@@ -23412,10 +23418,10 @@
         "commonName": "\u5173\u5C9B"
       }
     ],
-    "latLong": [
-      13.46666666,
-      144.78333333
-    ],
+    "geoCoordinates": {
+      "latitude": 13.46666666,
+      "longitude": 144.78333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 549,
@@ -23506,10 +23512,10 @@
       "Georgetown"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.8,
-        -58.15
-      ]
+      "geoCoordinates": {
+        "latitude": 6.8,
+        "longitude": -58.15
+      }
     },
     "alternateSpellings": [
       "GY",
@@ -23647,10 +23653,10 @@
         "commonName": "\u572D\u4E9A\u90A3"
       }
     ],
-    "latLong": [
-      5,
-      -59
-    ],
+    "geoCoordinates": {
+      "latitude": 5,
+      "longitude": -59
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRA",
@@ -23754,10 +23760,10 @@
       "City of Victoria"
     ],
     "capitalInfo": {
-      "latLong": [
-        22.267,
-        114.188
-      ]
+      "geoCoordinates": {
+        "latitude": 22.267,
+        "longitude": 114.188
+      }
     },
     "alternateSpellings": [
       "HK"
@@ -23889,10 +23895,10 @@
         "commonName": "\u06C1\u0627\u0646\u06AF \u06A9\u0627\u0646\u06AF"
       }
     ],
-    "latLong": [
-      22.267,
-      114.188
-    ],
+    "geoCoordinates": {
+      "latitude": 22.267,
+      "longitude": 114.188
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CHN"
@@ -23980,7 +23986,10 @@
     },
     "capitals": [],
     "capitalInfo": {
-      "latLong": []
+      "geoCoordinates": {
+        "latitude": null,
+        "longitude": null
+      }
     },
     "alternateSpellings": [
       "HM",
@@ -24118,10 +24127,10 @@
         "commonName": "\u8D6B\u5FB7\u5C9B\u548C\u9EA6\u5F53\u52B3\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      53.0818,
-      73.5042
-    ],
+    "geoCoordinates": {
+      "latitude": 53.0818,
+      "longitude": 73.5042
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 412,
@@ -24212,10 +24221,10 @@
       "Tegucigalpa"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.1,
-        -87.22
-      ]
+      "geoCoordinates": {
+        "latitude": 14.1,
+        "longitude": -87.22
+      }
     },
     "alternateSpellings": [
       "HN",
@@ -24354,10 +24363,10 @@
         "commonName": "\u6D2A\u90FD\u62C9\u65AF"
       }
     ],
-    "latLong": [
-      15,
-      -86.5
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": -86.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GTM",
@@ -24454,10 +24463,10 @@
       "Zagreb"
     ],
     "capitalInfo": {
-      "latLong": [
-        45.8,
-        16
-      ]
+      "geoCoordinates": {
+        "latitude": 45.8,
+        "longitude": 16
+      }
     },
     "alternateSpellings": [
       "HR",
@@ -24597,10 +24606,10 @@
         "commonName": "\u514B\u7F57\u5730\u4E9A"
       }
     ],
-    "latLong": [
-      45.16666666,
-      15.5
-    ],
+    "geoCoordinates": {
+      "latitude": 45.16666666,
+      "longitude": 15.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BIH",
@@ -24705,10 +24714,10 @@
       "Port-au-Prince"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.53,
-        -72.33
-      ]
+      "geoCoordinates": {
+        "latitude": 18.53,
+        "longitude": -72.33
+      }
     },
     "alternateSpellings": [
       "HT",
@@ -24848,10 +24857,10 @@
         "commonName": "\u6D77\u5730"
       }
     ],
-    "latLong": [
-      19,
-      -72.41666666
-    ],
+    "geoCoordinates": {
+      "latitude": 19,
+      "longitude": -72.41666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DOM"
@@ -24946,10 +24955,10 @@
       "Budapest"
     ],
     "capitalInfo": {
-      "latLong": [
-        47.5,
-        19.08
-      ]
+      "geoCoordinates": {
+        "latitude": 47.5,
+        "longitude": 19.08
+      }
     },
     "alternateSpellings": [
       "HU"
@@ -25086,10 +25095,10 @@
         "commonName": "\u5308\u7259\u5229"
       }
     ],
-    "latLong": [
-      47,
-      20
-    ],
+    "geoCoordinates": {
+      "latitude": 47,
+      "longitude": 20
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AUT",
@@ -25190,10 +25199,10 @@
       "Jakarta"
     ],
     "capitalInfo": {
-      "latLong": [
-        -6.17,
-        106.82
-      ]
+      "geoCoordinates": {
+        "latitude": -6.17,
+        "longitude": 106.82
+      }
     },
     "alternateSpellings": [
       "ID",
@@ -25332,10 +25341,10 @@
         "commonName": "\u5370\u5EA6\u5C3C\u897F\u4E9A"
       }
     ],
-    "latLong": [
-      -5,
-      120
-    ],
+    "geoCoordinates": {
+      "latitude": -5,
+      "longitude": 120
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "TLS",
@@ -25441,10 +25450,10 @@
       "Douglas"
     ],
     "capitalInfo": {
-      "latLong": [
-        54.15,
-        -4.48
-      ]
+      "geoCoordinates": {
+        "latitude": 54.15,
+        "longitude": -4.48
+      }
     },
     "alternateSpellings": [
       "IM",
@@ -25584,10 +25593,10 @@
         "commonName": "\u9A6C\u6069\u5C9B"
       }
     ],
-    "latLong": [
-      54.25,
-      -4.5
-    ],
+    "geoCoordinates": {
+      "latitude": 54.25,
+      "longitude": -4.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 572,
@@ -25690,10 +25699,10 @@
       "New Delhi"
     ],
     "capitalInfo": {
-      "latLong": [
-        28.6,
-        77.2
-      ]
+      "geoCoordinates": {
+        "latitude": 28.6,
+        "longitude": 77.2
+      }
     },
     "alternateSpellings": [
       "IN",
@@ -25834,10 +25843,10 @@
         "commonName": "\u5370\u5EA6"
       }
     ],
-    "latLong": [
-      20,
-      77
-    ],
+    "geoCoordinates": {
+      "latitude": 20,
+      "longitude": 77
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BGD",
@@ -25937,10 +25946,10 @@
       "Diego Garcia"
     ],
     "capitalInfo": {
-      "latLong": [
-        -7.3,
-        72.4
-      ]
+      "geoCoordinates": {
+        "latitude": -7.3,
+        "longitude": 72.4
+      }
     },
     "alternateSpellings": [
       "IO"
@@ -26077,10 +26086,10 @@
         "commonName": "\u82F1\u5C5E\u5370\u5EA6\u6D0B\u9886\u5730"
       }
     ],
-    "latLong": [
-      -6,
-      71.5
-    ],
+    "geoCoordinates": {
+      "latitude": -6,
+      "longitude": 71.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 60,
@@ -26177,10 +26186,10 @@
       "Dublin"
     ],
     "capitalInfo": {
-      "latLong": [
-        53.32,
-        -6.23
-      ]
+      "geoCoordinates": {
+        "latitude": 53.32,
+        "longitude": -6.23
+      }
     },
     "alternateSpellings": [
       "IE",
@@ -26320,10 +26329,10 @@
         "commonName": "\u7231\u5C14\u5170"
       }
     ],
-    "latLong": [
-      53,
-      -8
-    ],
+    "geoCoordinates": {
+      "latitude": 53,
+      "longitude": -8
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GBR"
@@ -26419,10 +26428,10 @@
       "Tehran"
     ],
     "capitalInfo": {
-      "latLong": [
-        35.7,
-        51.42
-      ]
+      "geoCoordinates": {
+        "latitude": 35.7,
+        "longitude": 51.42
+      }
     },
     "alternateSpellings": [
       "IR",
@@ -26557,10 +26566,10 @@
         "commonName": "\u4F0A\u6717"
       }
     ],
-    "latLong": [
-      32,
-      53
-    ],
+    "geoCoordinates": {
+      "latitude": 32,
+      "longitude": 53
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AFG",
@@ -26673,10 +26682,10 @@
       "Baghdad"
     ],
     "capitalInfo": {
-      "latLong": [
-        33.33,
-        44.4
-      ]
+      "geoCoordinates": {
+        "latitude": 33.33,
+        "longitude": 44.4
+      }
     },
     "alternateSpellings": [
       "IQ",
@@ -26815,10 +26824,10 @@
         "commonName": "\u4F0A\u62C9\u514B"
       }
     ],
-    "latLong": [
-      33,
-      44
-    ],
+    "geoCoordinates": {
+      "latitude": 33,
+      "longitude": 44
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRN",
@@ -26918,10 +26927,10 @@
       "Reykjavik"
     ],
     "capitalInfo": {
-      "latLong": [
-        64.15,
-        -21.95
-      ]
+      "geoCoordinates": {
+        "latitude": 64.15,
+        "longitude": -21.95
+      }
     },
     "alternateSpellings": [
       "IS",
@@ -27061,10 +27070,10 @@
         "commonName": "\u51B0\u5C9B"
       }
     ],
-    "latLong": [
-      65,
-      -18
-    ],
+    "geoCoordinates": {
+      "latitude": 65,
+      "longitude": -18
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 103000,
@@ -27163,10 +27172,10 @@
       "Jerusalem"
     ],
     "capitalInfo": {
-      "latLong": [
-        31.77,
-        35.23
-      ]
+      "geoCoordinates": {
+        "latitude": 31.77,
+        "longitude": 35.23
+      }
     },
     "alternateSpellings": [
       "IL",
@@ -27305,10 +27314,10 @@
         "commonName": "\u4EE5\u8272\u5217"
       }
     ],
-    "latLong": [
-      31.47,
-      35.13
-    ],
+    "geoCoordinates": {
+      "latitude": 31.47,
+      "longitude": 35.13
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "EGY",
@@ -27407,10 +27416,10 @@
       "Rome"
     ],
     "capitalInfo": {
-      "latLong": [
-        41.9,
-        12.48
-      ]
+      "geoCoordinates": {
+        "latitude": 41.9,
+        "longitude": 12.48
+      }
     },
     "alternateSpellings": [
       "IT",
@@ -27549,10 +27558,10 @@
         "commonName": "\u610F\u5927\u5229"
       }
     ],
-    "latLong": [
-      42.83333333,
-      12.83333333
-    ],
+    "geoCoordinates": {
+      "latitude": 42.83333333,
+      "longitude": 12.83333333
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AUT",
@@ -27658,10 +27667,10 @@
       "Kingston"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.99702,
-        -76.79358
-      ]
+      "geoCoordinates": {
+        "latitude": 17.99702,
+        "longitude": -76.79358
+      }
     },
     "alternateSpellings": [
       "JM"
@@ -27798,10 +27807,10 @@
         "commonName": "\u7259\u4E70\u52A0"
       }
     ],
-    "latLong": [
-      18.25,
-      -77.5
-    ],
+    "geoCoordinates": {
+      "latitude": 18.25,
+      "longitude": -77.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 10991,
@@ -27907,10 +27916,10 @@
       "Saint Helier"
     ],
     "capitalInfo": {
-      "latLong": [
-        49.18,
-        -2.1
-      ]
+      "geoCoordinates": {
+        "latitude": 49.18,
+        "longitude": -2.1
+      }
     },
     "alternateSpellings": [
       "JE",
@@ -28050,10 +28059,10 @@
         "commonName": "\u6CFD\u897F\u5C9B"
       }
     ],
-    "latLong": [
-      49.25,
-      -2.16666666
-    ],
+    "geoCoordinates": {
+      "latitude": 49.25,
+      "longitude": -2.16666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 116,
@@ -28145,10 +28154,10 @@
       "Amman"
     ],
     "capitalInfo": {
-      "latLong": [
-        31.95,
-        35.93
-      ]
+      "geoCoordinates": {
+        "latitude": 31.95,
+        "longitude": 35.93
+      }
     },
     "alternateSpellings": [
       "JO",
@@ -28287,10 +28296,10 @@
         "commonName": "\u7EA6\u65E6"
       }
     ],
-    "latLong": [
-      31,
-      36
-    ],
+    "geoCoordinates": {
+      "latitude": 31,
+      "longitude": 36
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRQ",
@@ -28390,10 +28399,10 @@
       "Tokyo"
     ],
     "capitalInfo": {
-      "latLong": [
-        35.68,
-        139.75
-      ]
+      "geoCoordinates": {
+        "latitude": 35.68,
+        "longitude": 139.75
+      }
     },
     "alternateSpellings": [
       "JP",
@@ -28532,10 +28541,10 @@
         "commonName": "\u65E5\u672C"
       }
     ],
-    "latLong": [
-      36,
-      138
-    ],
+    "geoCoordinates": {
+      "latitude": 36,
+      "longitude": 138
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 377930,
@@ -28636,10 +28645,10 @@
       "Nur-Sultan"
     ],
     "capitalInfo": {
-      "latLong": [
-        51.16,
-        71.45
-      ]
+      "geoCoordinates": {
+        "latitude": 51.16,
+        "longitude": 71.45
+      }
     },
     "alternateSpellings": [
       "KZ",
@@ -28783,10 +28792,10 @@
         "commonName": "\u54C8\u8428\u514B\u65AF\u5766"
       }
     ],
-    "latLong": [
-      48.0196,
-      66.9237
-    ],
+    "geoCoordinates": {
+      "latitude": 48.0196,
+      "longitude": 66.9237
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CHN",
@@ -28892,10 +28901,10 @@
       "Nairobi"
     ],
     "capitalInfo": {
-      "latLong": [
-        -1.28,
-        36.82
-      ]
+      "geoCoordinates": {
+        "latitude": -1.28,
+        "longitude": 36.82
+      }
     },
     "alternateSpellings": [
       "KE",
@@ -29034,10 +29043,10 @@
         "commonName": "\u80AF\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      1,
-      38
-    ],
+    "geoCoordinates": {
+      "latitude": 1,
+      "longitude": 38
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ETH",
@@ -29142,10 +29151,10 @@
       "Bishkek"
     ],
     "capitalInfo": {
-      "latLong": [
-        42.87,
-        74.6
-      ]
+      "geoCoordinates": {
+        "latitude": 42.87,
+        "longitude": 74.6
+      }
     },
     "alternateSpellings": [
       "KG",
@@ -29286,10 +29295,10 @@
         "commonName": "\u5409\u5C14\u5409\u65AF\u65AF\u5766"
       }
     ],
-    "latLong": [
-      41,
-      75
-    ],
+    "geoCoordinates": {
+      "latitude": 41,
+      "longitude": 75
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CHN",
@@ -29388,10 +29397,10 @@
       "Phnom Penh"
     ],
     "capitalInfo": {
-      "latLong": [
-        11.55,
-        104.92
-      ]
+      "geoCoordinates": {
+        "latitude": 11.55,
+        "longitude": 104.92
+      }
     },
     "alternateSpellings": [
       "KH",
@@ -29529,10 +29538,10 @@
         "commonName": "\u67EC\u57D4\u5BE8"
       }
     ],
-    "latLong": [
-      13,
-      105
-    ],
+    "geoCoordinates": {
+      "latitude": 13,
+      "longitude": 105
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "LAO",
@@ -29634,10 +29643,10 @@
       "South Tarawa"
     ],
     "capitalInfo": {
-      "latLong": [
-        1.33,
-        172.98
-      ]
+      "geoCoordinates": {
+        "latitude": 1.33,
+        "longitude": 172.98
+      }
     },
     "alternateSpellings": [
       "KI",
@@ -29776,10 +29785,10 @@
         "commonName": "\u57FA\u91CC\u5DF4\u65AF"
       }
     ],
-    "latLong": [
-      1.41666666,
-      173
-    ],
+    "geoCoordinates": {
+      "latitude": 1.41666666,
+      "longitude": 173
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 811,
@@ -29874,10 +29883,10 @@
       "Basseterre"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.3,
-        -62.72
-      ]
+      "geoCoordinates": {
+        "latitude": 17.3,
+        "longitude": -62.72
+      }
     },
     "alternateSpellings": [
       "KN",
@@ -30015,10 +30024,10 @@
         "commonName": "\u5723\u57FA\u8328\u548C\u5C3C\u7EF4\u65AF"
       }
     ],
-    "latLong": [
-      17.33333333,
-      -62.75
-    ],
+    "geoCoordinates": {
+      "latitude": 17.33333333,
+      "longitude": -62.75
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 261,
@@ -30110,10 +30119,10 @@
       "Seoul"
     ],
     "capitalInfo": {
-      "latLong": [
-        37.55,
-        126.98
-      ]
+      "geoCoordinates": {
+        "latitude": 37.55,
+        "longitude": 126.98
+      }
     },
     "alternateSpellings": [
       "KR",
@@ -30254,10 +30263,10 @@
         "commonName": "\u97E9\u56FD"
       }
     ],
-    "latLong": [
-      37,
-      127.5
-    ],
+    "geoCoordinates": {
+      "latitude": 37,
+      "longitude": 127.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "PRK"
@@ -30352,10 +30361,10 @@
       "Kuwait City"
     ],
     "capitalInfo": {
-      "latLong": [
-        29.37,
-        47.97
-      ]
+      "geoCoordinates": {
+        "latitude": 29.37,
+        "longitude": 47.97
+      }
     },
     "alternateSpellings": [
       "KW",
@@ -30494,10 +30503,10 @@
         "commonName": "\u79D1\u5A01\u7279"
       }
     ],
-    "latLong": [
-      29.5,
-      45.75
-    ],
+    "geoCoordinates": {
+      "latitude": 29.5,
+      "longitude": 45.75
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRQ",
@@ -30591,10 +30600,10 @@
       "Vientiane"
     ],
     "capitalInfo": {
-      "latLong": [
-        17.97,
-        102.6
-      ]
+      "geoCoordinates": {
+        "latitude": 17.97,
+        "longitude": 102.6
+      }
     },
     "alternateSpellings": [
       "LA",
@@ -30734,10 +30743,10 @@
         "commonName": "\u8001\u631D"
       }
     ],
-    "latLong": [
-      18,
-      105
-    ],
+    "geoCoordinates": {
+      "latitude": 18,
+      "longitude": 105
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "MMR",
@@ -30842,10 +30851,10 @@
       "Beirut"
     ],
     "capitalInfo": {
-      "latLong": [
-        33.87,
-        35.5
-      ]
+      "geoCoordinates": {
+        "latitude": 33.87,
+        "longitude": 35.5
+      }
     },
     "alternateSpellings": [
       "LB",
@@ -30984,10 +30993,10 @@
         "commonName": "\u9ECE\u5DF4\u5AE9"
       }
     ],
-    "latLong": [
-      33.83333333,
-      35.83333333
-    ],
+    "geoCoordinates": {
+      "latitude": 33.83333333,
+      "longitude": 35.83333333
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ISR",
@@ -31083,10 +31092,10 @@
       "Monrovia"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.3,
-        -10.8
-      ]
+      "geoCoordinates": {
+        "latitude": 6.3,
+        "longitude": -10.8
+      }
     },
     "alternateSpellings": [
       "LR",
@@ -31224,10 +31233,10 @@
         "commonName": "\u5229\u6BD4\u91CC\u4E9A"
       }
     ],
-    "latLong": [
-      6.5,
-      -9.5
-    ],
+    "geoCoordinates": {
+      "latitude": 6.5,
+      "longitude": -9.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GIN",
@@ -31324,10 +31333,10 @@
       "Tripoli"
     ],
     "capitalInfo": {
-      "latLong": [
-        32.88,
-        13.17
-      ]
+      "geoCoordinates": {
+        "latitude": 32.88,
+        "longitude": 13.17
+      }
     },
     "alternateSpellings": [
       "LY",
@@ -31466,10 +31475,10 @@
         "commonName": "\u5229\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      25,
-      17
-    ],
+    "geoCoordinates": {
+      "latitude": 25,
+      "longitude": 17
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DZA",
@@ -31567,10 +31576,10 @@
       "Castries"
     ],
     "capitalInfo": {
-      "latLong": [
-        14,
-        -61
-      ]
+      "geoCoordinates": {
+        "latitude": 14,
+        "longitude": -61
+      }
     },
     "alternateSpellings": [
       "LC"
@@ -31707,10 +31716,10 @@
         "commonName": "\u5723\u5362\u897F\u4E9A"
       }
     ],
-    "latLong": [
-      13.88333333,
-      -60.96666666
-    ],
+    "geoCoordinates": {
+      "latitude": 13.88333333,
+      "longitude": -60.96666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 616,
@@ -31803,10 +31812,10 @@
       "Vaduz"
     ],
     "capitalInfo": {
-      "latLong": [
-        47.13,
-        9.52
-      ]
+      "geoCoordinates": {
+        "latitude": 47.13,
+        "longitude": 9.52
+      }
     },
     "alternateSpellings": [
       "LI",
@@ -31945,10 +31954,10 @@
         "commonName": "\u5217\u652F\u6566\u58EB\u767B"
       }
     ],
-    "latLong": [
-      47.26666666,
-      9.53333333
-    ],
+    "geoCoordinates": {
+      "latitude": 47.26666666,
+      "longitude": 9.53333333
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AUT",
@@ -32050,10 +32059,10 @@
       "Sri Jayawardenepura Kotte"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.89,
-        79.9
-      ]
+      "geoCoordinates": {
+        "latitude": 6.89,
+        "longitude": 79.9
+      }
     },
     "alternateSpellings": [
       "LK",
@@ -32192,10 +32201,10 @@
         "commonName": "\u65AF\u91CC\u5170\u5361"
       }
     ],
-    "latLong": [
-      7,
-      81
-    ],
+    "geoCoordinates": {
+      "latitude": 7,
+      "longitude": 81
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IND"
@@ -32297,10 +32306,10 @@
       "Maseru"
     ],
     "capitalInfo": {
-      "latLong": [
-        -29.32,
-        27.48
-      ]
+      "geoCoordinates": {
+        "latitude": -29.32,
+        "longitude": 27.48
+      }
     },
     "alternateSpellings": [
       "LS",
@@ -32439,10 +32448,10 @@
         "commonName": "\u83B1\u7D22\u6258"
       }
     ],
-    "latLong": [
-      -29.5,
-      28.5
-    ],
+    "geoCoordinates": {
+      "latitude": -29.5,
+      "longitude": 28.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ZAF"
@@ -32537,10 +32546,10 @@
       "Vilnius"
     ],
     "capitalInfo": {
-      "latLong": [
-        54.68,
-        25.32
-      ]
+      "geoCoordinates": {
+        "latitude": 54.68,
+        "longitude": 25.32
+      }
     },
     "alternateSpellings": [
       "LT",
@@ -32679,10 +32688,10 @@
         "commonName": "\u7ACB\u9676\u5B9B"
       }
     ],
-    "latLong": [
-      56,
-      24
-    ],
+    "geoCoordinates": {
+      "latitude": 56,
+      "longitude": 24
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLR",
@@ -32792,10 +32801,10 @@
       "Luxembourg"
     ],
     "capitalInfo": {
-      "latLong": [
-        49.6,
-        6.12
-      ]
+      "geoCoordinates": {
+        "latitude": 49.6,
+        "longitude": 6.12
+      }
     },
     "alternateSpellings": [
       "LU",
@@ -32936,10 +32945,10 @@
         "commonName": "\u5362\u68EE\u5821"
       }
     ],
-    "latLong": [
-      49.75,
-      6.16666666
-    ],
+    "geoCoordinates": {
+      "latitude": 49.75,
+      "longitude": 6.16666666
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "BEL",
@@ -33036,10 +33045,10 @@
       "Riga"
     ],
     "capitalInfo": {
-      "latLong": [
-        56.95,
-        24.1
-      ]
+      "geoCoordinates": {
+        "latitude": 56.95,
+        "longitude": 24.1
+      }
     },
     "alternateSpellings": [
       "LV",
@@ -33178,10 +33187,10 @@
         "commonName": "\u62C9\u8131\u7EF4\u4E9A"
       }
     ],
-    "latLong": [
-      57,
-      25
-    ],
+    "geoCoordinates": {
+      "latitude": 57,
+      "longitude": 25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLR",
@@ -33283,7 +33292,10 @@
     },
     "capitals": [],
     "capitalInfo": {
-      "latLong": []
+      "geoCoordinates": {
+        "latitude": null,
+        "longitude": null
+      }
     },
     "alternateSpellings": [
       "MO",
@@ -33420,10 +33432,10 @@
         "commonName": "\u0645\u06A9\u0627\u0624"
       }
     ],
-    "latLong": [
-      22.16666666,
-      113.55
-    ],
+    "geoCoordinates": {
+      "latitude": 22.16666666,
+      "longitude": 113.55
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CHN"
@@ -33517,10 +33529,10 @@
       "Marigot"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.07,
-        -63.08
-      ]
+      "geoCoordinates": {
+        "latitude": 18.07,
+        "longitude": -63.08
+      }
     },
     "alternateSpellings": [
       "MF",
@@ -33660,10 +33672,10 @@
         "commonName": "\u5723\u9A6C\u4E01"
       }
     ],
-    "latLong": [
-      18.0708,
-      63.0501
-    ],
+    "geoCoordinates": {
+      "latitude": 18.0708,
+      "longitude": 63.0501
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "SXM"
@@ -33763,10 +33775,10 @@
       "Rabat"
     ],
     "capitalInfo": {
-      "latLong": [
-        34.02,
-        -6.82
-      ]
+      "geoCoordinates": {
+        "latitude": 34.02,
+        "longitude": -6.82
+      }
     },
     "alternateSpellings": [
       "MA",
@@ -33905,10 +33917,10 @@
         "commonName": "\u6469\u6D1B\u54E5"
       }
     ],
-    "latLong": [
-      32,
-      -5
-    ],
+    "geoCoordinates": {
+      "latitude": 32,
+      "longitude": -5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DZA",
@@ -34005,10 +34017,10 @@
       "Monaco"
     ],
     "capitalInfo": {
-      "latLong": [
-        43.73,
-        7.42
-      ]
+      "geoCoordinates": {
+        "latitude": 43.73,
+        "longitude": 7.42
+      }
     },
     "alternateSpellings": [
       "MC",
@@ -34147,10 +34159,10 @@
         "commonName": "\u6469\u7EB3\u54E5"
       }
     ],
-    "latLong": [
-      43.73333333,
-      7.4
-    ],
+    "geoCoordinates": {
+      "latitude": 43.73333333,
+      "longitude": 7.4
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "FRA"
@@ -34243,10 +34255,10 @@
       "Chi\u0219in\u0103u"
     ],
     "capitalInfo": {
-      "latLong": [
-        47.01,
-        28.9
-      ]
+      "geoCoordinates": {
+        "latitude": 47.01,
+        "longitude": 28.9
+      }
     },
     "alternateSpellings": [
       "MD",
@@ -34386,10 +34398,10 @@
         "commonName": "\u6469\u5C14\u591A\u74E6"
       }
     ],
-    "latLong": [
-      47,
-      29
-    ],
+    "geoCoordinates": {
+      "latitude": 47,
+      "longitude": 29
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ROU",
@@ -34491,10 +34503,10 @@
       "Antananarivo"
     ],
     "capitalInfo": {
-      "latLong": [
-        -18.92,
-        47.52
-      ]
+      "geoCoordinates": {
+        "latitude": -18.92,
+        "longitude": 47.52
+      }
     },
     "alternateSpellings": [
       "MG",
@@ -34634,10 +34646,10 @@
         "commonName": "\u9A6C\u8FBE\u52A0\u65AF\u52A0"
       }
     ],
-    "latLong": [
-      -20,
-      47
-    ],
+    "geoCoordinates": {
+      "latitude": -20,
+      "longitude": 47
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 587041,
@@ -34730,10 +34742,10 @@
       "Mal\u00E9"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.17,
-        73.51
-      ]
+      "geoCoordinates": {
+        "latitude": 4.17,
+        "longitude": 73.51
+      }
     },
     "alternateSpellings": [
       "MV",
@@ -34873,10 +34885,10 @@
         "commonName": "\u9A6C\u5C14\u4EE3\u592B"
       }
     ],
-    "latLong": [
-      3.25,
-      73
-    ],
+    "geoCoordinates": {
+      "latitude": 3.25,
+      "longitude": 73
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 300,
@@ -34969,10 +34981,10 @@
       "Mexico City"
     ],
     "capitalInfo": {
-      "latLong": [
-        19.43,
-        -99.13
-      ]
+      "geoCoordinates": {
+        "latitude": 19.43,
+        "longitude": -99.13
+      }
     },
     "alternateSpellings": [
       "MX",
@@ -35112,10 +35124,10 @@
         "commonName": "\u58A8\u897F\u54E5"
       }
     ],
-    "latLong": [
-      23,
-      -102
-    ],
+    "geoCoordinates": {
+      "latitude": 23,
+      "longitude": -102
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLZ",
@@ -35220,10 +35232,10 @@
       "Majuro"
     ],
     "capitalInfo": {
-      "latLong": [
-        7.1,
-        171.38
-      ]
+      "geoCoordinates": {
+        "latitude": 7.1,
+        "longitude": 171.38
+      }
     },
     "alternateSpellings": [
       "MH",
@@ -35362,10 +35374,10 @@
         "commonName": "\u9A6C\u7ECD\u5C14\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      9,
-      168
-    ],
+    "geoCoordinates": {
+      "latitude": 9,
+      "longitude": 168
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 181,
@@ -35456,10 +35468,10 @@
       "Skopje"
     ],
     "capitalInfo": {
-      "latLong": [
-        42,
-        21.43
-      ]
+      "geoCoordinates": {
+        "latitude": 42,
+        "longitude": 21.43
+      }
     },
     "alternateSpellings": [
       "MK",
@@ -35600,10 +35612,10 @@
         "commonName": "\u5317\u99AC\u5176\u9813"
       }
     ],
-    "latLong": [
-      41.83333333,
-      22
-    ],
+    "geoCoordinates": {
+      "latitude": 41.83333333,
+      "longitude": 22
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ALB",
@@ -35702,10 +35714,10 @@
       "Bamako"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.65,
-        -8
-      ]
+      "geoCoordinates": {
+        "latitude": 12.65,
+        "longitude": -8
+      }
     },
     "alternateSpellings": [
       "ML",
@@ -35844,10 +35856,10 @@
         "commonName": "\u9A6C\u91CC"
       }
     ],
-    "latLong": [
-      17,
-      -4
-    ],
+    "geoCoordinates": {
+      "latitude": 17,
+      "longitude": -4
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "DZA",
@@ -35954,10 +35966,10 @@
       "Valletta"
     ],
     "capitalInfo": {
-      "latLong": [
-        35.88,
-        14.5
-      ]
+      "geoCoordinates": {
+        "latitude": 35.88,
+        "longitude": 14.5
+      }
     },
     "alternateSpellings": [
       "MT",
@@ -36096,10 +36108,10 @@
         "commonName": "\u9A6C\u8033\u4ED6"
       }
     ],
-    "latLong": [
-      35.9375,
-      14.3754
-    ],
+    "geoCoordinates": {
+      "latitude": 35.9375,
+      "longitude": 14.3754
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 316,
@@ -36192,10 +36204,10 @@
       "Naypyidaw"
     ],
     "capitalInfo": {
-      "latLong": [
-        19.76,
-        96.07
-      ]
+      "geoCoordinates": {
+        "latitude": 19.76,
+        "longitude": 96.07
+      }
     },
     "alternateSpellings": [
       "MM",
@@ -36335,10 +36347,10 @@
         "commonName": "\u7F05\u7538"
       }
     ],
-    "latLong": [
-      22,
-      98
-    ],
+    "geoCoordinates": {
+      "latitude": 22,
+      "longitude": 98
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BGD",
@@ -36437,10 +36449,10 @@
       "Podgorica"
     ],
     "capitalInfo": {
-      "latLong": [
-        42.43,
-        19.27
-      ]
+      "geoCoordinates": {
+        "latitude": 42.43,
+        "longitude": 19.27
+      }
     },
     "alternateSpellings": [
       "ME",
@@ -36578,10 +36590,10 @@
         "commonName": "\u9ED1\u5C71"
       }
     ],
-    "latLong": [
-      42.5,
-      19.3
-    ],
+    "geoCoordinates": {
+      "latitude": 42.5,
+      "longitude": 19.3
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ALB",
@@ -36680,10 +36692,10 @@
       "Ulan Bator"
     ],
     "capitalInfo": {
-      "latLong": [
-        47.92,
-        106.91
-      ]
+      "geoCoordinates": {
+        "latitude": 47.92,
+        "longitude": 106.91
+      }
     },
     "alternateSpellings": [
       "MN"
@@ -36820,10 +36832,10 @@
         "commonName": "\u8499\u53E4"
       }
     ],
-    "latLong": [
-      46,
-      105
-    ],
+    "geoCoordinates": {
+      "latitude": 46,
+      "longitude": 105
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CHN",
@@ -36932,10 +36944,10 @@
       "Saipan"
     ],
     "capitalInfo": {
-      "latLong": [
-        15.2,
-        145.75
-      ]
+      "geoCoordinates": {
+        "latitude": 15.2,
+        "longitude": 145.75
+      }
     },
     "alternateSpellings": [
       "MP",
@@ -37074,10 +37086,10 @@
         "commonName": "\u5317\u9A6C\u91CC\u4E9A\u7EB3\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      15.2,
-      145.75
-    ],
+    "geoCoordinates": {
+      "latitude": 15.2,
+      "longitude": 145.75
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 464,
@@ -37168,10 +37180,10 @@
       "Maputo"
     ],
     "capitalInfo": {
-      "latLong": [
-        -25.95,
-        32.58
-      ]
+      "geoCoordinates": {
+        "latitude": -25.95,
+        "longitude": 32.58
+      }
     },
     "alternateSpellings": [
       "MZ",
@@ -37310,10 +37322,10 @@
         "commonName": "\u83AB\u6851\u6BD4\u514B"
       }
     ],
-    "latLong": [
-      -18.25,
-      35
-    ],
+    "geoCoordinates": {
+      "latitude": -18.25,
+      "longitude": 35
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MWI",
@@ -37413,10 +37425,10 @@
       "Nouakchott"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.07,
-        -15.97
-      ]
+      "geoCoordinates": {
+        "latitude": 18.07,
+        "longitude": -15.97
+      }
     },
     "alternateSpellings": [
       "MR",
@@ -37555,10 +37567,10 @@
         "commonName": "\u6BDB\u91CC\u5854\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      20,
-      -12
-    ],
+    "geoCoordinates": {
+      "latitude": 20,
+      "longitude": -12
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DZA",
@@ -37656,10 +37668,10 @@
       "Plymouth"
     ],
     "capitalInfo": {
-      "latLong": [
-        16.7,
-        -62.22
-      ]
+      "geoCoordinates": {
+        "latitude": 16.7,
+        "longitude": -62.22
+      }
     },
     "alternateSpellings": [
       "MS"
@@ -37796,10 +37808,10 @@
         "commonName": "\u8499\u7279\u585E\u62C9\u7279"
       }
     ],
-    "latLong": [
-      16.75,
-      -62.2
-    ],
+    "geoCoordinates": {
+      "latitude": 16.75,
+      "longitude": -62.2
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 102,
@@ -37890,10 +37902,10 @@
       "Fort-de-France"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.6,
-        -61.08
-      ]
+      "geoCoordinates": {
+        "latitude": 14.6,
+        "longitude": -61.08
+      }
     },
     "alternateSpellings": [
       "MQ"
@@ -38030,10 +38042,10 @@
         "commonName": "\u9A6C\u63D0\u5C3C\u514B"
       }
     ],
-    "latLong": [
-      14.666667,
-      -61
-    ],
+    "geoCoordinates": {
+      "latitude": 14.666667,
+      "longitude": -61
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 1128,
@@ -38136,10 +38148,10 @@
       "Port Louis"
     ],
     "capitalInfo": {
-      "latLong": [
-        -20.15,
-        57.48
-      ]
+      "geoCoordinates": {
+        "latitude": -20.15,
+        "longitude": 57.48
+      }
     },
     "alternateSpellings": [
       "MU",
@@ -38278,10 +38290,10 @@
         "commonName": "\u6BDB\u91CC\u6C42\u65AF"
       }
     ],
-    "latLong": [
-      -20.28333333,
-      57.55
-    ],
+    "geoCoordinates": {
+      "latitude": -20.28333333,
+      "longitude": 57.55
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 2040,
@@ -38380,10 +38392,10 @@
       "Lilongwe"
     ],
     "capitalInfo": {
-      "latLong": [
-        -13.97,
-        33.78
-      ]
+      "geoCoordinates": {
+        "latitude": -13.97,
+        "longitude": 33.78
+      }
     },
     "alternateSpellings": [
       "MW",
@@ -38521,10 +38533,10 @@
         "commonName": "\u9A6C\u62C9\u7EF4"
       }
     ],
-    "latLong": [
-      -13.5,
-      34
-    ],
+    "geoCoordinates": {
+      "latitude": -13.5,
+      "longitude": 34
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "MOZ",
@@ -38627,10 +38639,10 @@
       "Kuala Lumpur"
     ],
     "capitalInfo": {
-      "latLong": [
-        3.17,
-        101.7
-      ]
+      "geoCoordinates": {
+        "latitude": 3.17,
+        "longitude": 101.7
+      }
     },
     "alternateSpellings": [
       "MY"
@@ -38767,10 +38779,10 @@
         "commonName": "\u9A6C\u6765\u897F\u4E9A"
       }
     ],
-    "latLong": [
-      2.5,
-      112.5
-    ],
+    "geoCoordinates": {
+      "latitude": 2.5,
+      "longitude": 112.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRN",
@@ -38867,10 +38879,10 @@
       "Mamoudzou"
     ],
     "capitalInfo": {
-      "latLong": [
-        -12.78,
-        45.22
-      ]
+      "geoCoordinates": {
+        "latitude": -12.78,
+        "longitude": 45.22
+      }
     },
     "alternateSpellings": [
       "YT",
@@ -39009,10 +39021,10 @@
         "commonName": "\u9A6C\u7EA6\u7279"
       }
     ],
-    "latLong": [
-      -12.83333333,
-      45.16666666
-    ],
+    "geoCoordinates": {
+      "latitude": -12.83333333,
+      "longitude": 45.16666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 374,
@@ -39152,10 +39164,10 @@
       "Windhoek"
     ],
     "capitalInfo": {
-      "latLong": [
-        -22.57,
-        17.08
-      ]
+      "geoCoordinates": {
+        "latitude": -22.57,
+        "longitude": 17.08
+      }
     },
     "alternateSpellings": [
       "NA",
@@ -39294,10 +39306,10 @@
         "commonName": "\u7EB3\u7C73\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      -22,
-      17
-    ],
+    "geoCoordinates": {
+      "latitude": -22,
+      "longitude": 17
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AGO",
@@ -39395,10 +39407,10 @@
       "Noum\u00E9a"
     ],
     "capitalInfo": {
-      "latLong": [
-        -22.27,
-        166.45
-      ]
+      "geoCoordinates": {
+        "latitude": -22.27,
+        "longitude": 166.45
+      }
     },
     "alternateSpellings": [
       "NC"
@@ -39535,10 +39547,10 @@
         "commonName": "\u65B0\u5580\u91CC\u591A\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      -21.5,
-      165.5
-    ],
+    "geoCoordinates": {
+      "latitude": -21.5,
+      "longitude": 165.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 18575,
@@ -39629,10 +39641,10 @@
       "Niamey"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.52,
-        2.12
-      ]
+      "geoCoordinates": {
+        "latitude": 13.52,
+        "longitude": 2.12
+      }
     },
     "alternateSpellings": [
       "NE",
@@ -39770,10 +39782,10 @@
         "commonName": "\u5C3C\u65E5\u5C14"
       }
     ],
-    "latLong": [
-      16,
-      8
-    ],
+    "geoCoordinates": {
+      "latitude": 16,
+      "longitude": 8
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "DZA",
@@ -39880,10 +39892,10 @@
       "Kingston"
     ],
     "capitalInfo": {
-      "latLong": [
-        -29.05,
-        167.97
-      ]
+      "geoCoordinates": {
+        "latitude": -29.05,
+        "longitude": 167.97
+      }
     },
     "alternateSpellings": [
       "NF",
@@ -40022,10 +40034,10 @@
         "commonName": "\u8BFA\u798F\u514B\u5C9B"
       }
     ],
-    "latLong": [
-      -29.03333333,
-      167.95
-    ],
+    "geoCoordinates": {
+      "latitude": -29.03333333,
+      "longitude": 167.95
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 36,
@@ -40116,10 +40128,10 @@
       "Abuja"
     ],
     "capitalInfo": {
-      "latLong": [
-        9.08,
-        7.53
-      ]
+      "geoCoordinates": {
+        "latitude": 9.08,
+        "longitude": 7.53
+      }
     },
     "alternateSpellings": [
       "NG",
@@ -40259,10 +40271,10 @@
         "commonName": "\u5C3C\u65E5\u5229\u4E9A"
       }
     ],
-    "latLong": [
-      10,
-      8
-    ],
+    "geoCoordinates": {
+      "latitude": 10,
+      "longitude": 8
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BEN",
@@ -40360,10 +40372,10 @@
       "Managua"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.13,
-        -86.25
-      ]
+      "geoCoordinates": {
+        "latitude": 12.13,
+        "longitude": -86.25
+      }
     },
     "alternateSpellings": [
       "NI",
@@ -40502,10 +40514,10 @@
         "commonName": "\u5C3C\u52A0\u62C9\u74DC"
       }
     ],
-    "latLong": [
-      13,
-      -85
-    ],
+    "geoCoordinates": {
+      "latitude": 13,
+      "longitude": -85
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CRI",
@@ -40607,10 +40619,10 @@
       "Alofi"
     ],
     "capitalInfo": {
-      "latLong": [
-        -19.02,
-        -169.92
-      ]
+      "geoCoordinates": {
+        "latitude": -19.02,
+        "longitude": -169.92
+      }
     },
     "alternateSpellings": [
       "NU"
@@ -40747,10 +40759,10 @@
         "commonName": "\u7EBD\u57C3"
       }
     ],
-    "latLong": [
-      -19.03333333,
-      -169.86666666
-    ],
+    "geoCoordinates": {
+      "latitude": -19.03333333,
+      "longitude": -169.86666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 260,
@@ -40841,10 +40853,10 @@
       "Amsterdam"
     ],
     "capitalInfo": {
-      "latLong": [
-        52.35,
-        4.92
-      ]
+      "geoCoordinates": {
+        "latitude": 52.35,
+        "longitude": 4.92
+      }
     },
     "alternateSpellings": [
       "NL",
@@ -40984,10 +40996,10 @@
         "commonName": "\u8377\u5170"
       }
     ],
-    "latLong": [
-      52.5,
-      5.75
-    ],
+    "geoCoordinates": {
+      "latitude": 52.5,
+      "longitude": 5.75
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BEL",
@@ -41096,10 +41108,10 @@
       "Oslo"
     ],
     "capitalInfo": {
-      "latLong": [
-        59.92,
-        10.75
-      ]
+      "geoCoordinates": {
+        "latitude": 59.92,
+        "longitude": 10.75
+      }
     },
     "alternateSpellings": [
       "NO",
@@ -41241,10 +41253,10 @@
         "commonName": "\u632A\u5A01"
       }
     ],
-    "latLong": [
-      62,
-      10
-    ],
+    "geoCoordinates": {
+      "latitude": 62,
+      "longitude": 10
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "FIN",
@@ -41341,10 +41353,10 @@
       "Kathmandu"
     ],
     "capitalInfo": {
-      "latLong": [
-        27.72,
-        85.32
-      ]
+      "geoCoordinates": {
+        "latitude": 27.72,
+        "longitude": 85.32
+      }
     },
     "alternateSpellings": [
       "NP",
@@ -41483,10 +41495,10 @@
         "commonName": "\u5C3C\u6CCA\u5C14"
       }
     ],
-    "latLong": [
-      28,
-      84
-    ],
+    "geoCoordinates": {
+      "latitude": 28,
+      "longitude": 84
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CHN",
@@ -41588,10 +41600,10 @@
       "Yaren"
     ],
     "capitalInfo": {
-      "latLong": [
-        -0.55,
-        166.92
-      ]
+      "geoCoordinates": {
+        "latitude": -0.55,
+        "longitude": 166.92
+      }
     },
     "alternateSpellings": [
       "NR",
@@ -41732,10 +41744,10 @@
         "commonName": "\u7459\u9C81"
       }
     ],
-    "latLong": [
-      -0.53333333,
-      166.91666666
-    ],
+    "geoCoordinates": {
+      "latitude": -0.53333333,
+      "longitude": 166.91666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 21,
@@ -41840,10 +41852,10 @@
       "Wellington"
     ],
     "capitalInfo": {
-      "latLong": [
-        -41.3,
-        174.78
-      ]
+      "geoCoordinates": {
+        "latitude": -41.3,
+        "longitude": 174.78
+      }
     },
     "alternateSpellings": [
       "NZ",
@@ -41981,10 +41993,10 @@
         "commonName": "\u65B0\u897F\u5170"
       }
     ],
-    "latLong": [
-      -41,
-      174
-    ],
+    "geoCoordinates": {
+      "latitude": -41,
+      "longitude": 174
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 270467,
@@ -42079,10 +42091,10 @@
       "Muscat"
     ],
     "capitalInfo": {
-      "latLong": [
-        23.62,
-        58.58
-      ]
+      "geoCoordinates": {
+        "latitude": 23.62,
+        "longitude": 58.58
+      }
     },
     "alternateSpellings": [
       "OM",
@@ -42221,10 +42233,10 @@
         "commonName": "\u963F\u66FC"
       }
     ],
-    "latLong": [
-      21,
-      57
-    ],
+    "geoCoordinates": {
+      "latitude": 21,
+      "longitude": 57
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "SAU",
@@ -42325,10 +42337,10 @@
       "Islamabad"
     ],
     "capitalInfo": {
-      "latLong": [
-        33.68,
-        73.05
-      ]
+      "geoCoordinates": {
+        "latitude": 33.68,
+        "longitude": 73.05
+      }
     },
     "alternateSpellings": [
       "PK",
@@ -42468,10 +42480,10 @@
         "commonName": "\u5DF4\u57FA\u65AF\u5766"
       }
     ],
-    "latLong": [
-      30,
-      70
-    ],
+    "geoCoordinates": {
+      "latitude": 30,
+      "longitude": 70
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AFG",
@@ -42570,10 +42582,10 @@
       "Panama City"
     ],
     "capitalInfo": {
-      "latLong": [
-        8.97,
-        -79.53
-      ]
+      "geoCoordinates": {
+        "latitude": 8.97,
+        "longitude": -79.53
+      }
     },
     "alternateSpellings": [
       "PA",
@@ -42712,10 +42724,10 @@
         "commonName": "\u5DF4\u62FF\u9A6C"
       }
     ],
-    "latLong": [
-      9,
-      -80
-    ],
+    "geoCoordinates": {
+      "latitude": 9,
+      "longitude": -80
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "COL",
@@ -42811,10 +42823,10 @@
       "Adamstown"
     ],
     "capitalInfo": {
-      "latLong": [
-        -25.07,
-        -130.08
-      ]
+      "geoCoordinates": {
+        "latitude": -25.07,
+        "longitude": -130.08
+      }
     },
     "alternateSpellings": [
       "PN",
@@ -42953,10 +42965,10 @@
         "commonName": "\u76AE\u7279\u51EF\u6069\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      -25.06666666,
-      -130.1
-    ],
+    "geoCoordinates": {
+      "latitude": -25.06666666,
+      "longitude": -130.1
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 47,
@@ -43059,10 +43071,10 @@
       "Lima"
     ],
     "capitalInfo": {
-      "latLong": [
-        -12.05,
-        -77.05
-      ]
+      "geoCoordinates": {
+        "latitude": -12.05,
+        "longitude": -77.05
+      }
     },
     "alternateSpellings": [
       "PE",
@@ -43201,10 +43213,10 @@
         "commonName": "\u79D8\u9C81"
       }
     ],
-    "latLong": [
-      -10,
-      -76
-    ],
+    "geoCoordinates": {
+      "latitude": -10,
+      "longitude": -76
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BOL",
@@ -43309,10 +43321,10 @@
       "Manila"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.6,
-        120.97
-      ]
+      "geoCoordinates": {
+        "latitude": 14.6,
+        "longitude": 120.97
+      }
     },
     "alternateSpellings": [
       "PH",
@@ -43451,10 +43463,10 @@
         "commonName": "\u83F2\u5F8B\u5BBE"
       }
     ],
-    "latLong": [
-      13,
-      122
-    ],
+    "geoCoordinates": {
+      "latitude": 13,
+      "longitude": 122
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 342353,
@@ -43553,10 +43565,10 @@
       "Ngerulmud"
     ],
     "capitalInfo": {
-      "latLong": [
-        7.5,
-        134.62
-      ]
+      "geoCoordinates": {
+        "latitude": 7.5,
+        "longitude": 134.62
+      }
     },
     "alternateSpellings": [
       "PW",
@@ -43695,10 +43707,10 @@
         "commonName": "\u5E15\u52B3"
       }
     ],
-    "latLong": [
-      7.5,
-      134.5
-    ],
+    "geoCoordinates": {
+      "latitude": 7.5,
+      "longitude": 134.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 459,
@@ -43801,10 +43813,10 @@
       "Port Moresby"
     ],
     "capitalInfo": {
-      "latLong": [
-        -9.45,
-        147.18
-      ]
+      "geoCoordinates": {
+        "latitude": -9.45,
+        "longitude": 147.18
+      }
     },
     "alternateSpellings": [
       "PG",
@@ -43943,10 +43955,10 @@
         "commonName": "\u5DF4\u5E03\u4E9A\u65B0\u51E0\u5185\u4E9A"
       }
     ],
-    "latLong": [
-      -6,
-      147
-    ],
+    "geoCoordinates": {
+      "latitude": -6,
+      "longitude": 147
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IDN"
@@ -44041,10 +44053,10 @@
       "Warsaw"
     ],
     "capitalInfo": {
-      "latLong": [
-        52.25,
-        21
-      ]
+      "geoCoordinates": {
+        "latitude": 52.25,
+        "longitude": 21
+      }
     },
     "alternateSpellings": [
       "PL",
@@ -44183,10 +44195,10 @@
         "commonName": "\u6CE2\u5170"
       }
     ],
-    "latLong": [
-      52,
-      20
-    ],
+    "geoCoordinates": {
+      "latitude": 52,
+      "longitude": 20
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLR",
@@ -44294,10 +44306,10 @@
       "San Juan"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.47,
-        -66.12
-      ]
+      "geoCoordinates": {
+        "latitude": 18.47,
+        "longitude": -66.12
+      }
     },
     "alternateSpellings": [
       "PR",
@@ -44436,10 +44448,10 @@
         "commonName": "\u6CE2\u591A\u9ECE\u5404"
       }
     ],
-    "latLong": [
-      18.25,
-      -66.5
-    ],
+    "geoCoordinates": {
+      "latitude": 18.25,
+      "longitude": -66.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 8870,
@@ -44530,10 +44542,10 @@
       "Pyongyang"
     ],
     "capitalInfo": {
-      "latLong": [
-        39.02,
-        125.75
-      ]
+      "geoCoordinates": {
+        "latitude": 39.02,
+        "longitude": 125.75
+      }
     },
     "alternateSpellings": [
       "KP",
@@ -44677,10 +44689,10 @@
         "commonName": "\u671D\u9C9C"
       }
     ],
-    "latLong": [
-      40,
-      127
-    ],
+    "geoCoordinates": {
+      "latitude": 40,
+      "longitude": 127
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CHN",
@@ -44775,10 +44787,10 @@
       "Lisbon"
     ],
     "capitalInfo": {
-      "latLong": [
-        38.72,
-        -9.13
-      ]
+      "geoCoordinates": {
+        "latitude": 38.72,
+        "longitude": -9.13
+      }
     },
     "alternateSpellings": [
       "PT",
@@ -44918,10 +44930,10 @@
         "commonName": "\u8461\u8404\u7259"
       }
     ],
-    "latLong": [
-      39.5,
-      -8
-    ],
+    "geoCoordinates": {
+      "latitude": 39.5,
+      "longitude": -8
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ESP"
@@ -45023,10 +45035,10 @@
       "Asunci\u00F3n"
     ],
     "capitalInfo": {
-      "latLong": [
-        -25.28,
-        -57.57
-      ]
+      "geoCoordinates": {
+        "latitude": -25.28,
+        "longitude": -57.57
+      }
     },
     "alternateSpellings": [
       "PY",
@@ -45166,10 +45178,10 @@
         "commonName": "\u5DF4\u62C9\u572D"
       }
     ],
-    "latLong": [
-      -23,
-      -58
-    ],
+    "geoCoordinates": {
+      "latitude": -23,
+      "longitude": -58
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ARG",
@@ -45270,10 +45282,10 @@
       "Jerusalem"
     ],
     "capitalInfo": {
-      "latLong": [
-        31.9,
-        35.2
-      ]
+      "geoCoordinates": {
+        "latitude": 31.9,
+        "longitude": 35.2
+      }
     },
     "alternateSpellings": [
       "PS",
@@ -45413,10 +45425,10 @@
         "commonName": "\u5DF4\u52D2\u65AF\u5766"
       }
     ],
-    "latLong": [
-      31.9,
-      35.2
-    ],
+    "geoCoordinates": {
+      "latitude": 31.9,
+      "longitude": 35.2
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ISR",
@@ -45513,10 +45525,10 @@
       "Papeet\u0113"
     ],
     "capitalInfo": {
-      "latLong": [
-        -17.53,
-        -149.56
-      ]
+      "geoCoordinates": {
+        "latitude": -17.53,
+        "longitude": -149.56
+      }
     },
     "alternateSpellings": [
       "PF",
@@ -45656,10 +45668,10 @@
         "commonName": "\u6CD5\u5C5E\u6CE2\u5229\u5C3C\u897F\u4E9A"
       }
     ],
-    "latLong": [
-      17.6797,
-      149.4068
-    ],
+    "geoCoordinates": {
+      "latitude": 17.6797,
+      "longitude": 149.4068
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 4167,
@@ -45753,10 +45765,10 @@
       "Doha"
     ],
     "capitalInfo": {
-      "latLong": [
-        25.28,
-        51.53
-      ]
+      "geoCoordinates": {
+        "latitude": 25.28,
+        "longitude": 51.53
+      }
     },
     "alternateSpellings": [
       "QA",
@@ -45895,10 +45907,10 @@
         "commonName": "\u5361\u5854\u5C14"
       }
     ],
-    "latLong": [
-      25.5,
-      51.25
-    ],
+    "geoCoordinates": {
+      "latitude": 25.5,
+      "longitude": 51.25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "SAU"
@@ -45991,10 +46003,10 @@
       "Saint-Denis"
     ],
     "capitalInfo": {
-      "latLong": [
-        -20.88,
-        55.45
-      ]
+      "geoCoordinates": {
+        "latitude": -20.88,
+        "longitude": 55.45
+      }
     },
     "alternateSpellings": [
       "RE",
@@ -46132,10 +46144,10 @@
         "commonName": "\u7559\u5C3C\u65FA\u5C9B"
       }
     ],
-    "latLong": [
-      -21.15,
-      55.5
-    ],
+    "geoCoordinates": {
+      "latitude": -21.15,
+      "longitude": 55.5
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 2511,
@@ -46226,10 +46238,10 @@
       "Bucharest"
     ],
     "capitalInfo": {
-      "latLong": [
-        44.43,
-        26.1
-      ]
+      "geoCoordinates": {
+        "latitude": 44.43,
+        "longitude": 26.1
+      }
     },
     "alternateSpellings": [
       "RO",
@@ -46369,10 +46381,10 @@
         "commonName": "\u7F57\u9A6C\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      46,
-      25
-    ],
+    "geoCoordinates": {
+      "latitude": 46,
+      "longitude": 25
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BGR",
@@ -46477,10 +46489,10 @@
       "Moscow"
     ],
     "capitalInfo": {
-      "latLong": [
-        55.75,
-        37.6
-      ]
+      "geoCoordinates": {
+        "latitude": 55.75,
+        "longitude": 37.6
+      }
     },
     "alternateSpellings": [
       "RU",
@@ -46619,10 +46631,10 @@
         "commonName": "\u4FC4\u7F57\u65AF"
       }
     ],
-    "latLong": [
-      60,
-      100
-    ],
+    "geoCoordinates": {
+      "latitude": 60,
+      "longitude": 100
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AZE",
@@ -46750,10 +46762,10 @@
       "Kigali"
     ],
     "capitalInfo": {
-      "latLong": [
-        -1.95,
-        30.05
-      ]
+      "geoCoordinates": {
+        "latitude": -1.95,
+        "longitude": 30.05
+      }
     },
     "alternateSpellings": [
       "RW",
@@ -46893,10 +46905,10 @@
         "commonName": "\u5362\u65FA\u8FBE"
       }
     ],
-    "latLong": [
-      -2,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": -2,
+      "longitude": 30
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "BDI",
@@ -46995,10 +47007,10 @@
       "Riyadh"
     ],
     "capitalInfo": {
-      "latLong": [
-        24.65,
-        46.7
-      ]
+      "geoCoordinates": {
+        "latitude": 24.65,
+        "longitude": 46.7
+      }
     },
     "alternateSpellings": [
       "Saudi",
@@ -47138,10 +47150,10 @@
         "commonName": "\u6C99\u7279\u963F\u62C9\u4F2F"
       }
     ],
-    "latLong": [
-      25,
-      45
-    ],
+    "geoCoordinates": {
+      "latitude": 25,
+      "longitude": 45
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRQ",
@@ -47246,10 +47258,10 @@
       "Khartoum"
     ],
     "capitalInfo": {
-      "latLong": [
-        15.6,
-        32.53
-      ]
+      "geoCoordinates": {
+        "latitude": 15.6,
+        "longitude": 32.53
+      }
     },
     "alternateSpellings": [
       "SD",
@@ -47388,10 +47400,10 @@
         "commonName": "\u82CF\u4E39"
       }
     ],
-    "latLong": [
-      15,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": 30
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CAF",
@@ -47492,10 +47504,10 @@
       "Dakar"
     ],
     "capitalInfo": {
-      "latLong": [
-        14.73,
-        -17.63
-      ]
+      "geoCoordinates": {
+        "latitude": 14.73,
+        "longitude": -17.63
+      }
     },
     "alternateSpellings": [
       "SN",
@@ -47634,10 +47646,10 @@
         "commonName": "\u585E\u5185\u52A0\u5C14"
       }
     ],
-    "latLong": [
-      14,
-      -14
-    ],
+    "geoCoordinates": {
+      "latitude": 14,
+      "longitude": -14
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GMB",
@@ -47756,10 +47768,10 @@
       "Singapore"
     ],
     "capitalInfo": {
-      "latLong": [
-        1.28,
-        103.85
-      ]
+      "geoCoordinates": {
+        "latitude": 1.28,
+        "longitude": 103.85
+      }
     },
     "alternateSpellings": [
       "SG",
@@ -47894,10 +47906,10 @@
         "commonName": "\u0633\u0646\u06AF\u0627\u067E\u0648\u0631"
       }
     ],
-    "latLong": [
-      1.36666666,
-      103.8
-    ],
+    "geoCoordinates": {
+      "latitude": 1.36666666,
+      "longitude": 103.8
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 710,
@@ -47988,10 +48000,10 @@
       "King Edward Point"
     ],
     "capitalInfo": {
-      "latLong": [
-        -54.28,
-        -36.5
-      ]
+      "geoCoordinates": {
+        "latitude": -54.28,
+        "longitude": -36.5
+      }
     },
     "alternateSpellings": [
       "GS",
@@ -48129,10 +48141,10 @@
         "commonName": "\u5357\u4E54\u6CBB\u4E9A"
       }
     ],
-    "latLong": [
-      -54.5,
-      -37
-    ],
+    "geoCoordinates": {
+      "latitude": -54.5,
+      "longitude": -37
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 3903,
@@ -48223,10 +48235,10 @@
       "Longyearbyen"
     ],
     "capitalInfo": {
-      "latLong": [
-        78.22,
-        15.63
-      ]
+      "geoCoordinates": {
+        "latitude": 78.22,
+        "longitude": 15.63
+      }
     },
     "alternateSpellings": [
       "SJ",
@@ -48364,10 +48376,10 @@
         "commonName": "\u65AF\u74E6\u5C14\u5DF4\u7279"
       }
     ],
-    "latLong": [
-      78,
-      20
-    ],
+    "geoCoordinates": {
+      "latitude": 78,
+      "longitude": 20
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": -1,
@@ -48458,10 +48470,10 @@
       "Honiara"
     ],
     "capitalInfo": {
-      "latLong": [
-        -9.43,
-        159.95
-      ]
+      "geoCoordinates": {
+        "latitude": -9.43,
+        "longitude": 159.95
+      }
     },
     "alternateSpellings": [
       "SB"
@@ -48598,10 +48610,10 @@
         "commonName": "\u6240\u7F57\u95E8\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      -8,
-      159
-    ],
+    "geoCoordinates": {
+      "latitude": -8,
+      "longitude": 159
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 28896,
@@ -48694,10 +48706,10 @@
       "Freetown"
     ],
     "capitalInfo": {
-      "latLong": [
-        8.48,
-        -13.23
-      ]
+      "geoCoordinates": {
+        "latitude": 8.48,
+        "longitude": -13.23
+      }
     },
     "alternateSpellings": [
       "SL",
@@ -48835,10 +48847,10 @@
         "commonName": "\u585E\u62C9\u5229\u6602"
       }
     ],
-    "latLong": [
-      8.5,
-      -11.5
-    ],
+    "geoCoordinates": {
+      "latitude": 8.5,
+      "longitude": -11.5
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GIN",
@@ -48934,10 +48946,10 @@
       "San Salvador"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.7,
-        -89.2
-      ]
+      "geoCoordinates": {
+        "latitude": 13.7,
+        "longitude": -89.2
+      }
     },
     "alternateSpellings": [
       "SV",
@@ -49076,10 +49088,10 @@
         "commonName": "\u8428\u5C14\u74E6\u591A"
       }
     ],
-    "latLong": [
-      13.83333333,
-      -88.91666666
-    ],
+    "geoCoordinates": {
+      "latitude": 13.83333333,
+      "longitude": -88.91666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "GTM",
@@ -49175,10 +49187,10 @@
       "City of San Marino"
     ],
     "capitalInfo": {
-      "latLong": [
-        43.94,
-        12.45
-      ]
+      "geoCoordinates": {
+        "latitude": 43.94,
+        "longitude": 12.45
+      }
     },
     "alternateSpellings": [
       "SM",
@@ -49317,10 +49329,10 @@
         "commonName": "\u5723\u9A6C\u529B\u8BFA"
       }
     ],
-    "latLong": [
-      43.76666666,
-      12.41666666
-    ],
+    "geoCoordinates": {
+      "latitude": 43.76666666,
+      "longitude": 12.41666666
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ITA"
@@ -49419,10 +49431,10 @@
       "Mogadishu"
     ],
     "capitalInfo": {
-      "latLong": [
-        2.07,
-        45.33
-      ]
+      "geoCoordinates": {
+        "latitude": 2.07,
+        "longitude": 45.33
+      }
     },
     "alternateSpellings": [
       "SO",
@@ -49563,10 +49575,10 @@
         "commonName": "\u7D22\u9A6C\u91CC"
       }
     ],
-    "latLong": [
-      10,
-      49
-    ],
+    "geoCoordinates": {
+      "latitude": 10,
+      "longitude": 49
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DJI",
@@ -49663,10 +49675,10 @@
       "Saint-Pierre"
     ],
     "capitalInfo": {
-      "latLong": [
-        46.77,
-        -56.18
-      ]
+      "geoCoordinates": {
+        "latitude": 46.77,
+        "longitude": -56.18
+      }
     },
     "alternateSpellings": [
       "PM",
@@ -49804,10 +49816,10 @@
         "commonName": "\u5723\u76AE\u57C3\u5C14\u548C\u5BC6\u514B\u9686"
       }
     ],
-    "latLong": [
-      46.83333333,
-      -56.33333333
-    ],
+    "geoCoordinates": {
+      "latitude": 46.83333333,
+      "longitude": -56.33333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 242,
@@ -49899,10 +49911,10 @@
       "Belgrade"
     ],
     "capitalInfo": {
-      "latLong": [
-        44.83,
-        20.5
-      ]
+      "geoCoordinates": {
+        "latitude": 44.83,
+        "longitude": 20.5
+      }
     },
     "alternateSpellings": [
       "RS",
@@ -50043,10 +50055,10 @@
         "commonName": "\u585E\u5C14\u7EF4\u4E9A"
       }
     ],
-    "latLong": [
-      44,
-      21
-    ],
+    "geoCoordinates": {
+      "latitude": 44,
+      "longitude": 21
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "BIH",
@@ -50148,10 +50160,10 @@
       "Juba"
     ],
     "capitalInfo": {
-      "latLong": [
-        4.85,
-        31.62
-      ]
+      "geoCoordinates": {
+        "latitude": 4.85,
+        "longitude": 31.62
+      }
     },
     "alternateSpellings": [
       "SS"
@@ -50288,10 +50300,10 @@
         "commonName": "\u5357\u82CF\u4E39"
       }
     ],
-    "latLong": [
-      7,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": 7,
+      "longitude": 30
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CAF",
@@ -50391,10 +50403,10 @@
       "S\u00E3o Tom\u00E9"
     ],
     "capitalInfo": {
-      "latLong": [
-        0.34,
-        6.73
-      ]
+      "geoCoordinates": {
+        "latitude": 0.34,
+        "longitude": 6.73
+      }
     },
     "alternateSpellings": [
       "ST",
@@ -50534,10 +50546,10 @@
         "commonName": "\u5723\u591A\u7F8E\u548C\u666E\u6797\u897F\u6BD4"
       }
     ],
-    "latLong": [
-      1,
-      7
-    ],
+    "geoCoordinates": {
+      "latitude": 1,
+      "longitude": 7
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 964,
@@ -50630,10 +50642,10 @@
       "Paramaribo"
     ],
     "capitalInfo": {
-      "latLong": [
-        5.83,
-        -55.17
-      ]
+      "geoCoordinates": {
+        "latitude": 5.83,
+        "longitude": -55.17
+      }
     },
     "alternateSpellings": [
       "SR",
@@ -50774,10 +50786,10 @@
         "commonName": "\u82CF\u91CC\u5357"
       }
     ],
-    "latLong": [
-      4,
-      -56
-    ],
+    "geoCoordinates": {
+      "latitude": 4,
+      "longitude": -56
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRA",
@@ -50874,10 +50886,10 @@
       "Bratislava"
     ],
     "capitalInfo": {
-      "latLong": [
-        48.15,
-        17.12
-      ]
+      "geoCoordinates": {
+        "latitude": 48.15,
+        "longitude": 17.12
+      }
     },
     "alternateSpellings": [
       "SK",
@@ -51016,10 +51028,10 @@
         "commonName": "\u65AF\u6D1B\u4F10\u514B"
       }
     ],
-    "latLong": [
-      48.66666666,
-      19.5
-    ],
+    "geoCoordinates": {
+      "latitude": 48.66666666,
+      "longitude": 19.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AUT",
@@ -51118,10 +51130,10 @@
       "Ljubljana"
     ],
     "capitalInfo": {
-      "latLong": [
-        46.05,
-        14.52
-      ]
+      "geoCoordinates": {
+        "latitude": 46.05,
+        "longitude": 14.52
+      }
     },
     "alternateSpellings": [
       "SI",
@@ -51260,10 +51272,10 @@
         "commonName": "\u65AF\u6D1B\u6587\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      46.11666666,
-      14.81666666
-    ],
+    "geoCoordinates": {
+      "latitude": 46.11666666,
+      "longitude": 14.81666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "AUT",
@@ -51361,10 +51373,10 @@
       "Stockholm"
     ],
     "capitalInfo": {
-      "latLong": [
-        59.33,
-        18.05
-      ]
+      "geoCoordinates": {
+        "latitude": 59.33,
+        "longitude": 18.05
+      }
     },
     "alternateSpellings": [
       "SE",
@@ -51503,10 +51515,10 @@
         "commonName": "\u745E\u5178"
       }
     ],
-    "latLong": [
-      62,
-      15
-    ],
+    "geoCoordinates": {
+      "latitude": 62,
+      "longitude": 15
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "FIN",
@@ -51609,10 +51621,10 @@
       "Mbabane"
     ],
     "capitalInfo": {
-      "latLong": [
-        -26.32,
-        31.13
-      ]
+      "geoCoordinates": {
+        "latitude": -26.32,
+        "longitude": 31.13
+      }
     },
     "alternateSpellings": [
       "SZ",
@@ -51755,10 +51767,10 @@
         "commonName": "\u65AF\u5A01\u58EB\u5170"
       }
     ],
-    "latLong": [
-      -26.5,
-      31.5
-    ],
+    "geoCoordinates": {
+      "latitude": -26.5,
+      "longitude": 31.5
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "MOZ",
@@ -51866,10 +51878,10 @@
       "Philipsburg"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.02,
-        -63.03
-      ]
+      "geoCoordinates": {
+        "latitude": 18.02,
+        "longitude": -63.03
+      }
     },
     "alternateSpellings": [
       "SX",
@@ -52007,10 +52019,10 @@
         "commonName": "\u5723\u9A6C\u4E01\u5C9B"
       }
     ],
-    "latLong": [
-      18.033333,
-      -63.05
-    ],
+    "geoCoordinates": {
+      "latitude": 18.033333,
+      "longitude": -63.05
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MAF"
@@ -52115,10 +52127,10 @@
       "Victoria"
     ],
     "capitalInfo": {
-      "latLong": [
-        -4.62,
-        55.45
-      ]
+      "geoCoordinates": {
+        "latitude": -4.62,
+        "longitude": 55.45
+      }
     },
     "alternateSpellings": [
       "SC",
@@ -52258,10 +52270,10 @@
         "commonName": "\u585E\u820C\u5C14"
       }
     ],
-    "latLong": [
-      -4.58333333,
-      55.66666666
-    ],
+    "geoCoordinates": {
+      "latitude": -4.58333333,
+      "longitude": 55.66666666
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 452,
@@ -52355,10 +52367,10 @@
       "Damascus"
     ],
     "capitalInfo": {
-      "latLong": [
-        33.5,
-        36.3
-      ]
+      "geoCoordinates": {
+        "latitude": 33.5,
+        "longitude": 36.3
+      }
     },
     "alternateSpellings": [
       "SY",
@@ -52497,10 +52509,10 @@
         "commonName": "\u53D9\u5229\u4E9A"
       }
     ],
-    "latLong": [
-      35,
-      38
-    ],
+    "geoCoordinates": {
+      "latitude": 35,
+      "longitude": 38
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IRQ",
@@ -52599,10 +52611,10 @@
       "Cockburn Town"
     ],
     "capitalInfo": {
-      "latLong": [
-        21.46,
-        -71.14
-      ]
+      "geoCoordinates": {
+        "latitude": 21.46,
+        "longitude": -71.14
+      }
     },
     "alternateSpellings": [
       "TC"
@@ -52739,10 +52751,10 @@
         "commonName": "\u7279\u514B\u65AF\u548C\u51EF\u79D1\u65AF\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      21.75,
-      -71.58333333
-    ],
+    "geoCoordinates": {
+      "latitude": 21.75,
+      "longitude": -71.58333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 948,
@@ -52839,10 +52851,10 @@
       "N\u0027Djamena"
     ],
     "capitalInfo": {
-      "latLong": [
-        12.1,
-        15.03
-      ]
+      "geoCoordinates": {
+        "latitude": 12.1,
+        "longitude": 15.03
+      }
     },
     "alternateSpellings": [
       "TD",
@@ -52982,10 +52994,10 @@
         "commonName": "\u4E4D\u5F97"
       }
     ],
-    "latLong": [
-      15,
-      19
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": 19
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "CMR",
@@ -53086,10 +53098,10 @@
       "Lom\u00E9"
     ],
     "capitalInfo": {
-      "latLong": [
-        6.14,
-        1.21
-      ]
+      "geoCoordinates": {
+        "latitude": 6.14,
+        "longitude": 1.21
+      }
     },
     "alternateSpellings": [
       "TG",
@@ -53229,10 +53241,10 @@
         "commonName": "\u591A\u54E5"
       }
     ],
-    "latLong": [
-      8,
-      1.16666666
-    ],
+    "geoCoordinates": {
+      "latitude": 8,
+      "longitude": 1.16666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BEN",
@@ -53330,10 +53342,10 @@
       "Bangkok"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.75,
-        100.52
-      ]
+      "geoCoordinates": {
+        "latitude": 13.75,
+        "longitude": 100.52
+      }
     },
     "alternateSpellings": [
       "TH",
@@ -53475,10 +53487,10 @@
         "commonName": "\u6CF0\u56FD"
       }
     ],
-    "latLong": [
-      15,
-      100
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": 100
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "MMR",
@@ -53582,10 +53594,10 @@
       "Dushanbe"
     ],
     "capitalInfo": {
-      "latLong": [
-        38.55,
-        68.77
-      ]
+      "geoCoordinates": {
+        "latitude": 38.55,
+        "longitude": 68.77
+      }
     },
     "alternateSpellings": [
       "TJ",
@@ -53726,10 +53738,10 @@
         "commonName": "\u5854\u5409\u514B\u65AF\u5766"
       }
     ],
-    "latLong": [
-      39,
-      71
-    ],
+    "geoCoordinates": {
+      "latitude": 39,
+      "longitude": 71
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AFG",
@@ -53839,10 +53851,10 @@
       "Fakaofo"
     ],
     "capitalInfo": {
-      "latLong": [
-        -9.38,
-        -171.22
-      ]
+      "geoCoordinates": {
+        "latitude": -9.38,
+        "longitude": -171.22
+      }
     },
     "alternateSpellings": [
       "TK"
@@ -53979,10 +53991,10 @@
         "commonName": "\u6258\u514B\u52B3"
       }
     ],
-    "latLong": [
-      -9,
-      -172
-    ],
+    "geoCoordinates": {
+      "latitude": -9,
+      "longitude": -172
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 12,
@@ -54079,10 +54091,10 @@
       "Ashgabat"
     ],
     "capitalInfo": {
-      "latLong": [
-        37.95,
-        58.38
-      ]
+      "geoCoordinates": {
+        "latitude": 37.95,
+        "longitude": 58.38
+      }
     },
     "alternateSpellings": [
       "TM"
@@ -54219,10 +54231,10 @@
         "commonName": "\u571F\u5E93\u66FC\u65AF\u5766"
       }
     ],
-    "latLong": [
-      40,
-      60
-    ],
+    "geoCoordinates": {
+      "latitude": 40,
+      "longitude": 60
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AFG",
@@ -54326,10 +54338,10 @@
       "Dili"
     ],
     "capitalInfo": {
-      "latLong": [
-        -8.58,
-        125.6
-      ]
+      "geoCoordinates": {
+        "latitude": -8.58,
+        "longitude": 125.6
+      }
     },
     "alternateSpellings": [
       "TL",
@@ -54472,10 +54484,10 @@
         "commonName": "\u4E1C\u5E1D\u6C76"
       }
     ],
-    "latLong": [
-      -8.83333333,
-      125.91666666
-    ],
+    "geoCoordinates": {
+      "latitude": -8.83333333,
+      "longitude": 125.91666666
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "IDN"
@@ -54576,10 +54588,10 @@
       "Nuku\u0027alofa"
     ],
     "capitalInfo": {
-      "latLong": [
-        -21.13,
-        -175.2
-      ]
+      "geoCoordinates": {
+        "latitude": -21.13,
+        "longitude": -175.2
+      }
     },
     "alternateSpellings": [
       "TO"
@@ -54716,10 +54728,10 @@
         "commonName": "\u6C64\u52A0"
       }
     ],
-    "latLong": [
-      -20,
-      -175
-    ],
+    "geoCoordinates": {
+      "latitude": -20,
+      "longitude": -175
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 747,
@@ -54812,10 +54824,10 @@
       "Port of Spain"
     ],
     "capitalInfo": {
-      "latLong": [
-        10.65,
-        -61.52
-      ]
+      "geoCoordinates": {
+        "latitude": 10.65,
+        "longitude": -61.52
+      }
     },
     "alternateSpellings": [
       "TT",
@@ -54953,10 +54965,10 @@
         "commonName": "\u7279\u7ACB\u5C3C\u8FBE\u548C\u591A\u5DF4\u54E5"
       }
     ],
-    "latLong": [
-      10.6918,
-      61.2225
-    ],
+    "geoCoordinates": {
+      "latitude": 10.6918,
+      "longitude": 61.2225
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 5130,
@@ -55049,10 +55061,10 @@
       "Tunis"
     ],
     "capitalInfo": {
-      "latLong": [
-        36.8,
-        10.18
-      ]
+      "geoCoordinates": {
+        "latitude": 36.8,
+        "longitude": 10.18
+      }
     },
     "alternateSpellings": [
       "TN",
@@ -55191,10 +55203,10 @@
         "commonName": "\u7A81\u5C3C\u65AF"
       }
     ],
-    "latLong": [
-      34,
-      9
-    ],
+    "geoCoordinates": {
+      "latitude": 34,
+      "longitude": 9
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "DZA",
@@ -55290,10 +55302,10 @@
       "Ankara"
     ],
     "capitalInfo": {
-      "latLong": [
-        39.93,
-        32.87
-      ]
+      "geoCoordinates": {
+        "latitude": 39.93,
+        "longitude": 32.87
+      }
     },
     "alternateSpellings": [
       "TR",
@@ -55433,10 +55445,10 @@
         "commonName": "\u571F\u8033\u5176"
       }
     ],
-    "latLong": [
-      39,
-      35
-    ],
+    "geoCoordinates": {
+      "latitude": 39,
+      "longitude": 35
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ARM",
@@ -55545,10 +55557,10 @@
       "Funafuti"
     ],
     "capitalInfo": {
-      "latLong": [
-        -8.52,
-        179.22
-      ]
+      "geoCoordinates": {
+        "latitude": -8.52,
+        "longitude": 179.22
+      }
     },
     "alternateSpellings": [
       "TV"
@@ -55685,10 +55697,10 @@
         "commonName": "\u56FE\u74E6\u5362"
       }
     ],
-    "latLong": [
-      -8,
-      178
-    ],
+    "geoCoordinates": {
+      "latitude": -8,
+      "longitude": 178
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 26,
@@ -55783,10 +55795,10 @@
       "Taipei"
     ],
     "capitalInfo": {
-      "latLong": [
-        25.03,
-        121.52
-      ]
+      "geoCoordinates": {
+        "latitude": 25.03,
+        "longitude": 121.52
+      }
     },
     "alternateSpellings": [
       "TW",
@@ -55923,10 +55935,10 @@
         "commonName": "\u062A\u0627\u0626\u06CC\u0648\u0627\u0646"
       }
     ],
-    "latLong": [
-      23.5,
-      121
-    ],
+    "geoCoordinates": {
+      "latitude": 23.5,
+      "longitude": 121
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 36193,
@@ -56023,10 +56035,10 @@
       "Dodoma"
     ],
     "capitalInfo": {
-      "latLong": [
-        -6.16,
-        35.75
-      ]
+      "geoCoordinates": {
+        "latitude": -6.16,
+        "longitude": 35.75
+      }
     },
     "alternateSpellings": [
       "TZ",
@@ -56166,10 +56178,10 @@
         "commonName": "\u5766\u6851\u5C3C\u4E9A"
       }
     ],
-    "latLong": [
-      -6,
-      35
-    ],
+    "geoCoordinates": {
+      "latitude": -6,
+      "longitude": 35
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BDI",
@@ -56277,10 +56289,10 @@
       "Kampala"
     ],
     "capitalInfo": {
-      "latLong": [
-        0.32,
-        32.55
-      ]
+      "geoCoordinates": {
+        "latitude": 0.32,
+        "longitude": 32.55
+      }
     },
     "alternateSpellings": [
       "UG",
@@ -56419,10 +56431,10 @@
         "commonName": "\u4E4C\u5E72\u8FBE"
       }
     ],
-    "latLong": [
-      1,
-      32
-    ],
+    "geoCoordinates": {
+      "latitude": 1,
+      "longitude": 32
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "COD",
@@ -56522,10 +56534,10 @@
       "Kyiv"
     ],
     "capitalInfo": {
-      "latLong": [
-        50.43,
-        30.52
-      ]
+      "geoCoordinates": {
+        "latitude": 50.43,
+        "longitude": 30.52
+      }
     },
     "alternateSpellings": [
       "UA",
@@ -56663,10 +56675,10 @@
         "commonName": "\u4E4C\u514B\u5170"
       }
     ],
-    "latLong": [
-      49,
-      32
-    ],
+    "geoCoordinates": {
+      "latitude": 49,
+      "longitude": 32
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BLR",
@@ -56767,7 +56779,10 @@
       "Washington DC"
     ],
     "capitalInfo": {
-      "latLong": []
+      "geoCoordinates": {
+        "latitude": null,
+        "longitude": null
+      }
     },
     "alternateSpellings": [
       "UM"
@@ -56904,10 +56919,10 @@
         "commonName": "\u7F8E\u56FD\u672C\u571F\u5916\u5C0F\u5C9B\u5C7F"
       }
     ],
-    "latLong": [
-      19.3,
-      166.633333
-    ],
+    "geoCoordinates": {
+      "latitude": 19.3,
+      "longitude": 166.633333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 34.2,
@@ -57000,10 +57015,10 @@
       "Montevideo"
     ],
     "capitalInfo": {
-      "latLong": [
-        -34.85,
-        -56.17
-      ]
+      "geoCoordinates": {
+        "latitude": -34.85,
+        "longitude": -56.17
+      }
     },
     "alternateSpellings": [
       "UY",
@@ -57142,10 +57157,10 @@
         "commonName": "\u4E4C\u62C9\u572D"
       }
     ],
-    "latLong": [
-      -33,
-      -56
-    ],
+    "geoCoordinates": {
+      "latitude": -33,
+      "longitude": -56
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "ARG",
@@ -57557,10 +57572,10 @@
       "Washington, D.C."
     ],
     "capitalInfo": {
-      "latLong": [
-        38.89,
-        -77.05
-      ]
+      "geoCoordinates": {
+        "latitude": 38.89,
+        "longitude": -77.05
+      }
     },
     "alternateSpellings": [
       "US",
@@ -57699,10 +57714,10 @@
         "commonName": "\u7F8E\u56FD"
       }
     ],
-    "latLong": [
-      38,
-      -97
-    ],
+    "geoCoordinates": {
+      "latitude": 38,
+      "longitude": -97
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "CAN",
@@ -57814,10 +57829,10 @@
       "Tashkent"
     ],
     "capitalInfo": {
-      "latLong": [
-        41.32,
-        69.25
-      ]
+      "geoCoordinates": {
+        "latitude": 41.32,
+        "longitude": 69.25
+      }
     },
     "alternateSpellings": [
       "UZ",
@@ -57957,10 +57972,10 @@
         "commonName": "\u4E4C\u5179\u522B\u514B\u65AF\u5766"
       }
     ],
-    "latLong": [
-      41,
-      64
-    ],
+    "geoCoordinates": {
+      "latitude": 41,
+      "longitude": 64
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AFG",
@@ -58066,10 +58081,10 @@
       "Vatican City"
     ],
     "capitalInfo": {
-      "latLong": [
-        41.9,
-        12.45
-      ]
+      "geoCoordinates": {
+        "latitude": 41.9,
+        "longitude": 12.45
+      }
     },
     "alternateSpellings": [
       "VA",
@@ -58209,10 +58224,10 @@
         "commonName": "\u68B5\u8482\u5188"
       }
     ],
-    "latLong": [
-      41.9,
-      12.45
-    ],
+    "geoCoordinates": {
+      "latitude": 41.9,
+      "longitude": 12.45
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "ITA"
@@ -58305,10 +58320,10 @@
       "Kingstown"
     ],
     "capitalInfo": {
-      "latLong": [
-        13.13,
-        -61.22
-      ]
+      "geoCoordinates": {
+        "latitude": 13.13,
+        "longitude": -61.22
+      }
     },
     "alternateSpellings": [
       "VC"
@@ -58445,10 +58460,10 @@
         "commonName": "\u5723\u6587\u68EE\u7279\u548C\u683C\u6797\u7EB3\u4E01\u65AF"
       }
     ],
-    "latLong": [
-      13.25,
-      -61.2
-    ],
+    "geoCoordinates": {
+      "latitude": 13.25,
+      "longitude": -61.2
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 389,
@@ -58539,10 +58554,10 @@
       "Caracas"
     ],
     "capitalInfo": {
-      "latLong": [
-        10.48,
-        -66.87
-      ]
+      "geoCoordinates": {
+        "latitude": 10.48,
+        "longitude": -66.87
+      }
     },
     "alternateSpellings": [
       "VE",
@@ -58682,10 +58697,10 @@
         "commonName": "\u59D4\u5185\u745E\u62C9"
       }
     ],
-    "latLong": [
-      8,
-      -66
-    ],
+    "geoCoordinates": {
+      "latitude": 8,
+      "longitude": -66
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BRA",
@@ -58782,10 +58797,10 @@
       "Road Town"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.42,
-        -64.62
-      ]
+      "geoCoordinates": {
+        "latitude": 18.42,
+        "longitude": -64.62
+      }
     },
     "alternateSpellings": [
       "VG",
@@ -58923,10 +58938,10 @@
         "commonName": "\u82F1\u5C5E\u7EF4\u5C14\u4EAC\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      18.431383,
-      -64.62305
-    ],
+    "geoCoordinates": {
+      "latitude": 18.431383,
+      "longitude": -64.62305
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 151,
@@ -59017,10 +59032,10 @@
       "Charlotte Amalie"
     ],
     "capitalInfo": {
-      "latLong": [
-        18.35,
-        -64.93
-      ]
+      "geoCoordinates": {
+        "latitude": 18.35,
+        "longitude": -64.93
+      }
     },
     "alternateSpellings": [
       "VI",
@@ -59158,10 +59173,10 @@
         "commonName": "\u7F8E\u5C5E\u7EF4\u5C14\u4EAC\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      18.35,
-      -64.933333
-    ],
+    "geoCoordinates": {
+      "latitude": 18.35,
+      "longitude": -64.933333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 347,
@@ -59252,10 +59267,10 @@
       "Hanoi"
     ],
     "capitalInfo": {
-      "latLong": [
-        21.03,
-        105.85
-      ]
+      "geoCoordinates": {
+        "latitude": 21.03,
+        "longitude": 105.85
+      }
     },
     "alternateSpellings": [
       "VN",
@@ -59395,10 +59410,10 @@
         "commonName": "\u8D8A\u5357"
       }
     ],
-    "latLong": [
-      16.16666666,
-      107.83333333
-    ],
+    "geoCoordinates": {
+      "latitude": 16.16666666,
+      "longitude": 107.83333333
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "KHM",
@@ -59507,10 +59522,10 @@
       "Port Vila"
     ],
     "capitalInfo": {
-      "latLong": [
-        -17.73,
-        168.32
-      ]
+      "geoCoordinates": {
+        "latitude": -17.73,
+        "longitude": 168.32
+      }
     },
     "alternateSpellings": [
       "VU",
@@ -59650,10 +59665,10 @@
         "commonName": "\u74E6\u52AA\u963F\u56FE"
       }
     ],
-    "latLong": [
-      -16,
-      167
-    ],
+    "geoCoordinates": {
+      "latitude": -16,
+      "longitude": 167
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 12189,
@@ -59746,10 +59761,10 @@
       "Mata-Utu"
     ],
     "capitalInfo": {
-      "latLong": [
-        -13.95,
-        -171.93
-      ]
+      "geoCoordinates": {
+        "latitude": -13.95,
+        "longitude": -171.93
+      }
     },
     "alternateSpellings": [
       "WF",
@@ -59888,10 +59903,10 @@
         "commonName": "\u74E6\u5229\u65AF\u548C\u5BCC\u56FE\u7EB3\u7FA4\u5C9B"
       }
     ],
-    "latLong": [
-      -13.3,
-      -176.2
-    ],
+    "geoCoordinates": {
+      "latitude": -13.3,
+      "longitude": -176.2
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 142,
@@ -59988,10 +60003,10 @@
       "Apia"
     ],
     "capitalInfo": {
-      "latLong": [
-        -13.82,
-        -171.77
-      ]
+      "geoCoordinates": {
+        "latitude": -13.82,
+        "longitude": -171.77
+      }
     },
     "alternateSpellings": [
       "WS",
@@ -60130,10 +60145,10 @@
         "commonName": "\u8428\u6469\u4E9A"
       }
     ],
-    "latLong": [
-      -13.58333333,
-      -172.33333333
-    ],
+    "geoCoordinates": {
+      "latitude": -13.58333333,
+      "longitude": -172.33333333
+    },
     "isLandlocked": false,
     "borderingCountries": [],
     "landAreaInSquareKilometers": 2842,
@@ -60226,10 +60241,10 @@
       "Sana\u0027a"
     ],
     "capitalInfo": {
-      "latLong": [
-        15.37,
-        44.19
-      ]
+      "geoCoordinates": {
+        "latitude": 15.37,
+        "longitude": 44.19
+      }
     },
     "alternateSpellings": [
       "YE",
@@ -60368,10 +60383,10 @@
         "commonName": "\u4E5F\u95E8"
       }
     ],
-    "latLong": [
-      15,
-      48
-    ],
+    "geoCoordinates": {
+      "latitude": 15,
+      "longitude": 48
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "OMN",
@@ -60529,10 +60544,10 @@
       "Cape Town"
     ],
     "capitalInfo": {
-      "latLong": [
-        -25.7,
-        28.22
-      ]
+      "geoCoordinates": {
+        "latitude": -25.7,
+        "longitude": 28.22
+      }
     },
     "alternateSpellings": [
       "ZA",
@@ -60672,10 +60687,10 @@
         "commonName": "\u5357\u975E"
       }
     ],
-    "latLong": [
-      -29,
-      24
-    ],
+    "geoCoordinates": {
+      "latitude": -29,
+      "longitude": 24
+    },
     "isLandlocked": false,
     "borderingCountries": [
       "BWA",
@@ -60775,10 +60790,10 @@
       "Lusaka"
     ],
     "capitalInfo": {
-      "latLong": [
-        -15.42,
-        28.28
-      ]
+      "geoCoordinates": {
+        "latitude": -15.42,
+        "longitude": 28.28
+      }
     },
     "alternateSpellings": [
       "ZM",
@@ -60916,10 +60931,10 @@
         "commonName": "\u8D5E\u6BD4\u4E9A"
       }
     ],
-    "latLong": [
-      -15,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": -15,
+      "longitude": 30
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "AGO",
@@ -61105,10 +61120,10 @@
       "Harare"
     ],
     "capitalInfo": {
-      "latLong": [
-        -17.82,
-        31.03
-      ]
+      "geoCoordinates": {
+        "latitude": -17.82,
+        "longitude": 31.03
+      }
     },
     "alternateSpellings": [
       "ZW",
@@ -61246,10 +61261,10 @@
         "commonName": "\u6D25\u5DF4\u5E03\u97E6"
       }
     ],
-    "latLong": [
-      -20,
-      30
-    ],
+    "geoCoordinates": {
+      "latitude": -20,
+      "longitude": 30
+    },
     "isLandlocked": true,
     "borderingCountries": [
       "BWA",
