@@ -27,10 +27,10 @@ public class CurrencyTests
     {
         var exception = Assert.Throws<ArgumentException>(() =>
         {
-            var currencyInfoService = new HolidaysService(1999);
+            new HolidaysService(1999);
         });
 
-        Trace.WriteLine($"An exception was thrown: {exception.Message}");
+        Trace.WriteLine($"An exception was thrown: {exception!.Message}");
     }
 
     #endregion

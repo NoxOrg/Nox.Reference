@@ -6,10 +6,10 @@ namespace Nox.Reference.Holidays.Models
     public class HolidayData : IHolidayData
     {
 
-        [JsonPropertyName("name")] public string Name_ { get; set; } = null;
-        [JsonPropertyName("type")] public string Type_ { get; set; } = null;
-        [JsonPropertyName("date")] public string Date_ { get; set; } = null;
-        [JsonPropertyName("localNames")] public List<LocalHolidayName> LocalNames_ { get; set; } = null;
+        [JsonPropertyName("name")] public string Name_ { get; set; } = "";
+        [JsonPropertyName("type")] public string Type_ { get; set; } = "";
+        [JsonPropertyName("date")] public string Date_ { get; set; } = "";
+        [JsonPropertyName("localNames")] public List<LocalHolidayName> LocalNames_ { get; set; } = new List<LocalHolidayName>();
 
         [JsonIgnore] public string Name => Name_;
         [JsonIgnore] public string Type => Type_;

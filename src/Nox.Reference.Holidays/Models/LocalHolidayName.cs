@@ -5,8 +5,8 @@ namespace Nox.Reference.Holidays.Models
 {
     public class LocalHolidayName : ILocalHolidayName
     {
-        [JsonPropertyName("name")] public string Name_ { get; set; } = null;
-        [JsonPropertyName("language")] public string Language_ { get; set; } = null;
+        [JsonPropertyName("name")] public string Name_ { get; set; } = "";
+        [JsonPropertyName("language")] public string Language_ { get; set; } = "";
 
         [JsonIgnore] public string Name => Name_;
         [JsonIgnore] public string Language => Language_;

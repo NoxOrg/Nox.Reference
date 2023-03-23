@@ -5,11 +5,11 @@ namespace Nox.Reference.Holidays.Models
 {
     public class CountryHolidayInfo : ICountryHolidayInfo
     {
-        [JsonPropertyName("country")] public string Country_ { get; set; } = null;
-        [JsonPropertyName("countryName")] public string CountryName_ { get; set; } = null;
-        [JsonPropertyName("dayOff")] public string DayOff_ { get; set; } = null;
-        [JsonPropertyName("holidays")] public List<HolidayData> Holidays_ { get; set; } = null;
-        [JsonPropertyName("states")] public List<StateHolidayInfo> States_ { get; set; } = null;
+        [JsonPropertyName("country")] public string Country_ { get; set; } = "";
+        [JsonPropertyName("countryName")] public string CountryName_ { get; set; } = "";
+        [JsonPropertyName("dayOff")] public string DayOff_ { get; set; } = "";
+        [JsonPropertyName("holidays")] public List<HolidayData> Holidays_ { get; set; } = new List<HolidayData>();
+        [JsonPropertyName("states")] public List<StateHolidayInfo> States_ { get; set; } = new List<StateHolidayInfo>();
 
         [JsonIgnore] public string Country => Country_;
         [JsonIgnore] public string CountryName => CountryName_;

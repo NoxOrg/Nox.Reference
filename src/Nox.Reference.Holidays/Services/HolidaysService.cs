@@ -9,7 +9,7 @@ namespace Nox.Reference.Holidays;
 
 public class HolidaysService : IHolidaysService
 {
-    private readonly IHolidayInfo _holidays = null;
+    private readonly IHolidayInfo _holidays = new HolidayInfo();
     private readonly Dictionary<string, ICountryHolidayInfo> _holidayInfoByCountryIsoCode = new Dictionary<string, ICountryHolidayInfo>();
     private readonly Dictionary<string, ICountryHolidayInfo> _holidayInfoCountryName = new Dictionary<string, ICountryHolidayInfo>();
     private readonly IReadOnlySet<int> _availableYears = new HashSet<int> { 2023, 2024 };
