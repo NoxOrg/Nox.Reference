@@ -4,14 +4,16 @@ using System.Text.Json;
 
 internal class CurrencyDataExtractor
 {
-    private static string uriRestWorldCurrencies = @"https://raw.githubusercontent.com/wiredmax/world-currencies/master/src/";
-    private static string uriRestCurrencyFormatterCurrencies = @"https://raw.githubusercontent.com/smirzaei/currency-formatter/master/currencies.json";
+#pragma warning disable S1075 // URIs should not be hardcoded
+    private const string uriRestWorldCurrencies = @"https://raw.githubusercontent.com/wiredmax/world-currencies/master/src/";
+    private const string uriRestCurrencyFormatterCurrencies = @"https://raw.githubusercontent.com/smirzaei/currency-formatter/master/currencies.json";
+#pragma warning restore S1075 // URIs should not be hardcoded
 
     internal static void GetRestCurrencyData(string sourceOutputPath, string targetOutputPath)
     {
         try
         {
-            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies).Content;
+            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies).Content!;
 
             var sourceFilePath = Path.Combine(sourceOutputPath, "Currencies");
             Directory.CreateDirectory(sourceFilePath);
@@ -40,7 +42,7 @@ internal class CurrencyDataExtractor
                     {
                         throw new Exception("Can't find file in worldCurrency repo.");
                     }
-                    var worldCurrencyRestData = worldCurrencyRestDataResponse.Content;
+                    var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
 
                     // Fix Ni-Vanuatu Vatu
                     if (currency.Key.Equals("VUV"))

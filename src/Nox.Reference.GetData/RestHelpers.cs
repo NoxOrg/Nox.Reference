@@ -2,7 +2,7 @@
 
 internal class RestHelper
 {
-    internal static RestResponse? GetInternetContent(string uri, string accept = "application/json")
+    internal static RestResponse GetInternetContent(string uri, string accept = "application/json")
     {
         var client = new RestClient(uri);
 
@@ -12,7 +12,7 @@ internal class RestHelper
 
         var data = client.Execute(request);
 
-        if (string.IsNullOrEmpty(data.Content))
+        if (string.IsNullOrEmpty(data?.Content))
         {
             throw new Exception($"Error retreiving data from {uri}. No data was returned.");
         }

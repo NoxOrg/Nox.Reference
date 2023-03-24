@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Countries;
 
@@ -18,7 +17,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public ICountryNames Names => Names1; 
 
     [JsonPropertyName("tld")]
-    public string[] TopLevelDomains { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> TopLevelDomains { get; set; } = new List<string>();
 
     [JsonPropertyName("cca2")]
     public string AlphaCode2 { get; set; } = string.Empty;
@@ -62,7 +61,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public IDialingInfo? DialingInfo => DialingInfo1;
 
     [JsonPropertyName("capital")]
-    public string[] Capitals { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> Capitals { get; set; } = new List<string>();
 
     [JsonPropertyName("capitalInfo")]
     public RestcountryCapitalInfo? CapitalInfo1 { get; set; }
@@ -71,7 +70,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public ICapitalInfo? CapitalInfo => CapitalInfo1;
 
     [JsonPropertyName("altSpellings")]
-    public string[] AlternateSpellings { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> AlternateSpellings { get; set; } = new List<string>();
 
     [JsonPropertyName("region")]
     public string Region { get; set; } = string.Empty;
@@ -80,7 +79,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public string SubRegion { get; set; } = string.Empty;
 
     [JsonPropertyName("continents")]
-    public string[] Continents { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> Continents { get; set; } = new List<string>();
 
     [JsonPropertyName("languages")]
     public Dictionary<string, string> Languages1 { get; set; } = null!;
@@ -99,13 +98,16 @@ public class RestcountryCountryInfo : ICountryInfo
         }).ToList();
 
     [JsonPropertyName("latlng")]
-    public decimal[] LatLong { get; set; } = null!;
+    public IReadOnlyList<decimal> LatLong { get; set; } = null!;
+
+    [JsonPropertyName("geoCoordinates")]
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
 
     [JsonPropertyName("landlocked")]
     public bool IsLandlocked { get; set; }
 
     [JsonPropertyName("borders")]
-    public string[] BorderingCountries { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> BorderingCountries { get; set; } = new List<string>();
 
     [JsonPropertyName("area")]
     public decimal LandAreaInSquareKilometers { get; set; }
@@ -172,5 +174,5 @@ public class RestcountryCountryInfo : ICountryInfo
     public DayOfWeek StartDayOfWeek => (DayOfWeek)Enum.Parse(typeof(DayOfWeek), StartOfWeek, true);
 
     [JsonPropertyName("timezones")]
-    public string[] TimeZones { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> TimeZones { get; set; } = new List<string>();
 }

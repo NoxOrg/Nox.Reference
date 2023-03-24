@@ -1,12 +1,12 @@
 {
   "name": "nox.reference.getdata.node",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Script to get holidays data for a selected year from 'date-holidays' library",
+  "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
-    "cli-2023": "node dist/index.js --year 2023 --file ../../data/Nox.Reference.Holidays-2023.json",
-    "cli-2024": "node dist/index.js --year 2024 --file ../../data/Nox.Reference.Holidays-2024.json"
+    "holidays-2023": "ts-node Holidays/index.ts --year 2023 --file ../../data/Nox.Reference.Holidays-2023.json",
+    "holidays-2024": "ts-node Holidays/index.ts --year 2024 --file ../../data/Nox.Reference.Holidays-2024.json"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +18,9 @@
   },
   "dependencies": {
     "commander": "^10.0.0",
-    "countries-and-timezones": "^3.4.1",
     "date-holidays": "^3.19.0",
-    "luxon": "^3.3.0"
+    "luxon": "^3.3.0",
+    "ts-node": "^10.9.1",
+    "zlib": "^1.0.5"
   }
 }

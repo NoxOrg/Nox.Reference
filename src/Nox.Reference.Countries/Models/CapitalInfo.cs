@@ -1,7 +1,9 @@
-﻿
+﻿using System.Text.Json.Serialization;
+
 namespace Nox.Reference.Countries;
 
 public class CapitalInfo : ICapitalInfo
 {
-    public decimal[] LatLong { get; set; } = null!;
+    [JsonPropertyName("geoCoordinates")] public GeoCoordinates GeoCoordinates_ { get; set; } = new GeoCoordinates();
+    [JsonIgnore] public IGeoCoordinates GeoCoordinates => GeoCoordinates_;
 }

@@ -1,10 +1,16 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Countries;
 
+/// <summary>
+/// This class is used as a rest model and serialization model
+/// for capital info from country data source
+/// </summary>
 public class RestcountryCapitalInfo : ICapitalInfo
 {
     [JsonPropertyName("latlng")]
-    public decimal[] LatLong { get; set; } = null!;
+    public IReadOnlyList<decimal> LatLong { get; set; } = null!;
+
+    [JsonPropertyName("getCoordinates")]
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
 }

@@ -5,7 +5,7 @@ namespace Nox.Reference.Countries
     public interface ICurrenciesService
     {
         IReadOnlyList<ICurrencyInfo> GetCurrencies();
-        ICurrencyInfo? GetCurrencyByIsoCode(string isoCode);
-        ICurrencyInfo? GetCurrencyByIsoNumber(string isoNumber);
+        ICurrencyInfo? GetCurrencyByIsoCode(string countryIsoCode);
+        ICurrencyInfo? GetCurrencyByIsoNumber(string countryName);
     }
 }

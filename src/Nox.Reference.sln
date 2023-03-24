@@ -15,9 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Countries", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Countries.Tests", "..\tests\Nox.Reference.Countries.Tests\Nox.Reference.Countries.Tests.csproj", "{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Currencies", "Nox.Reference.Currencies\Nox.Reference.Currencies.csproj", "{99EACA9E-E72B-465F-BB41-F283A29EE995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Currencies", "Nox.Reference.Currencies\Nox.Reference.Currencies.csproj", "{99EACA9E-E72B-465F-BB41-F283A29EE995}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Currencies.Tests", "Nox.Reference.Currencies.Tests\Nox.Reference.Currencies.Tests.csproj", "{57F28EBB-B06C-461D-AA28-2FC34D205B1D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30573BE2-24E0-491F-AC22-01B487A90806}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Currencies.Tests", "..\tests\Nox.Reference.Currencies.Tests\Nox.Reference.Currencies.Tests.csproj", "{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Holidays", "Nox.Reference.Holidays\Nox.Reference.Holidays.csproj", "{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Holidays.Tests", "..\tests\Nox.Reference.Holidays.Tests\Nox.Reference.Holidays.Tests.csproj", "{DFB022E9-12A0-470F-8171-015725970140}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,13 +59,27 @@ Global
 		{99EACA9E-E72B-465F-BB41-F283A29EE995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99EACA9E-E72B-465F-BB41-F283A29EE995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99EACA9E-E72B-465F-BB41-F283A29EE995}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57F28EBB-B06C-461D-AA28-2FC34D205B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57F28EBB-B06C-461D-AA28-2FC34D205B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57F28EBB-B06C-461D-AA28-2FC34D205B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57F28EBB-B06C-461D-AA28-2FC34D205B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB022E9-12A0-470F-8171-015725970140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB022E9-12A0-470F-8171-015725970140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F} = {30573BE2-24E0-491F-AC22-01B487A90806}
+		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3} = {30573BE2-24E0-491F-AC22-01B487A90806}
+		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61} = {30573BE2-24E0-491F-AC22-01B487A90806}
+		{DFB022E9-12A0-470F-8171-015725970140} = {30573BE2-24E0-491F-AC22-01B487A90806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CAE0589-FF10-4A9A-949C-4BB11AB1397C}

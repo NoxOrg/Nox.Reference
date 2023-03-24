@@ -4,6 +4,6 @@ public interface IDialingInfo
 {
     public string Prefix { get; }
 
-    public string[] Suffixes { get; }
+    public IReadOnlyList<string> Suffixes { get; }
 }
 

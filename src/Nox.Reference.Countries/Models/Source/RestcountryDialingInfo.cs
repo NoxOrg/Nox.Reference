@@ -9,5 +9,5 @@ public class RestcountryDialingInfo : IDialingInfo
     public string Prefix { get; set; } = string.Empty;
 
     [JsonPropertyName("suffixes")]
-    public string[] Suffixes { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> Suffixes { get; set; } = new List<string>();
 }

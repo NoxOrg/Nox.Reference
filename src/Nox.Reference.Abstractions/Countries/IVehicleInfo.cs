@@ -3,6 +3,6 @@
 public interface IVehicleInfo
 {
     string DrivingSide { get; }
-    string[] InternationalRegistrationCodes { get; }
+    IReadOnlyList<string> InternationalRegistrationCodes { get; }
 }
 

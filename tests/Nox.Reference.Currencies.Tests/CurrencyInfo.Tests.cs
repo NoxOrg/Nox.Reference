@@ -56,7 +56,7 @@ public class CurrencyTests
     }
 
     [Test]
-    public void GetCurrencyByIsoCode_WitUnknownCode_ReturnsValidInfo()
+    public void GetCurrencyByIsoCode_WitUnknownCode_ReturnsNull()
     {
         var currencyInfoService = new CurrenciesService();
         var info = currencyInfoService.GetCurrencyByIsoCode("SomeCode");
