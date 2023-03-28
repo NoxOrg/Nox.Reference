@@ -38,11 +38,28 @@ public class MacAddressesTests
     }
 
     [Test]
+    public void FindMacAddressesByVendor_NoAnyMatches_ReturnsEmpty()
+    {
+        var addresses = _macAddressService.FindMacAddressByVendor("1xerox1");
+
+        Assert.That(addresses, Is.Empty);
+        Assert.That(addresses.Count(), Is.EqualTo(0));
+    }
+
+    [Test]
     public void GetVendorMacAddress_CertainVendor_ReturnsValidInfo()
     {
         var info = _macAddressService.GetVendorMacAddress("Cisco");
 
         Assert.That(info, Is.Not.Null);
         Assert.That(info.Address, Is.EqualTo("00000C"));
+    }
+
+    [Test]
+    public void GetVendorMacAddress_VendorNotExist_ReturnsEmpty()
+    {
+        var info = _macAddressService.GetVendorMacAddress("1Cisco1");
+
+        Assert.That(info, Is.Null);
     }
 }
