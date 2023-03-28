@@ -1,5 +1,4 @@
-﻿
-using Nox.Reference.Abstractions.Currencies;
+﻿using Nox.Reference.Abstractions.Currencies;
 using System.Reflection;
 using System.Text.Json;
 

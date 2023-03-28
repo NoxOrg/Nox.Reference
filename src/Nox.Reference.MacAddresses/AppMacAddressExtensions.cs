@@ -13,7 +13,8 @@ public static class AppMacAddressExtensions
 
     private static IMacAddressService CreateMacAddressService()
     {
-        var macAddresses = MacAddressInitializer.GetMacAddresses();
+        var macAddressInitializer = new MacAddressInitializer();
+        var macAddresses = macAddressInitializer.GetDataFromAssemblyResource();
 
         var macAddressService = new MacAddressService(macAddresses);
 

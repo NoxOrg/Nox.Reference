@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.MacAddresses"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.MacAddresses.Tests", "Nox.Reference.MacAddresses.Tests\Nox.Reference.MacAddresses.Tests.csproj", "{8023C0C6-409C-4BD4-84AF-9656B203C1E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Common", "Nox.Reference.Common\Nox.Reference.Common.csproj", "{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{8023C0C6-409C-4BD4-84AF-9656B203C1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8023C0C6-409C-4BD4-84AF-9656B203C1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8023C0C6-409C-4BD4-84AF-9656B203C1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

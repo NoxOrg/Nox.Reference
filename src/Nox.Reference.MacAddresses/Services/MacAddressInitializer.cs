@@ -1,31 +1,16 @@
 ﻿using Newtonsoft.Json;
-using Nox.Reference.Abstractions.MacAddresses;
+using Nox.Reference.Common;
 using Nox.Reference.MacAddresses.Models;
-using System.Reflection;
 
 namespace Nox.Reference.MacAddresses;
 
-internal static class MacAddressInitializer
+internal class MacAddressInitializer : AssemblyDataInitializer<MacAddressInfo>
 {
-    private const string ResourceName = "Nox.Reference.MacAddresses.json";
+    protected override string ResourceName => "Nox.Reference.MacAddresses.json";
 
-    public static IEnumerable<IMacAddressInfo> GetMacAddresses()
+    protected override IEnumerable<MacAddressInfo> CreateCollectionDataFromContent(string content)
     {
-        var assembly = Assembly.GetExecutingAssembly();
-
-        if (assembly == null)
-        {
-            throw new InvalidOperationException("ExecutingAssembly was not found");
-        }
-
-        using var stream = assembly.GetManifestResourceStream(ResourceName);
-        if (stream == null)
-        {
-            throw new InvalidOperationException("Assemly stream is null or empty");
-        }
-
-        using var reader = new StreamReader(stream);
-        var addressInfos = JsonConvert.DeserializeObject<IReadOnlyList<MacAddressInfo>>(reader.ReadToEnd());
+        var addressInfos = JsonConvert.DeserializeObject<MacAddressInfo[]>(content);
 
         if (addressInfos == null || !addressInfos.Any())
         {

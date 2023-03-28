@@ -21,6 +21,7 @@
 	
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
+    <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
   </ItemGroup>
 
 	<ItemGroup>
