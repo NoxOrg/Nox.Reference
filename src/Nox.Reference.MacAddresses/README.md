@@ -7,17 +7,28 @@ MacAddresses list and info
 using System.Text.Json;
 using Nox.Reference.MacAddresses;
 
-var macAddressesService = new MacAddressesService();
-
-var info = macAddressesService.GetMacAddresses(); 
-
-var options = new JsonSerializerOptions
+public class TestClass
 {
-    WriteIndented = true,
-    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-};
+    private readonly IMacAddressesService _macAddressesService;
 
-Console.WriteLine(JsonSerializer.Serialize(info,options));
+    public TestClass(IMacAddressesService macAddressesService)
+    {
+        _macAddressesService = macAddressesService;
+    }
+
+    public void Test()
+    {
+        var info = _macAddressesService.GetMacAddresses(); 
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        };
+
+        Console.WriteLine(JsonSerializer.Serialize(info,options));
+    }
+}
 ```
 
 <details>

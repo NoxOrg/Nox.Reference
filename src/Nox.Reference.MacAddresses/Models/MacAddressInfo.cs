@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.MacAddresses.Models
 {
-    public class MacAddressInfo : IMacAddressInfo
+    internal class MacAddressInfo : IMacAddressInfo
     {
         public MacAddressInfo(string address, string vendor)
         {

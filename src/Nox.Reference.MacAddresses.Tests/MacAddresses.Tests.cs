@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Nox.Reference.MacAddresses.Tests;
 
@@ -9,7 +10,13 @@ public class MacAddressesTests
     [SetUp]
     public void Setup()
     {
-        _macAddressService = new MacAddressService();
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddMacAddresses();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        _macAddressService = serviceProvider.GetRequiredService<IMacAddressService>();
+
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 

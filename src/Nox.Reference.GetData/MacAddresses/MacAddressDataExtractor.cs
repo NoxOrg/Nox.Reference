@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Nox.Reference.Abstractions.MacAddresses;
-using Nox.Reference.MacAddresses.Models;
 
 internal static class MacAddressDataExtractor
 {
@@ -32,5 +31,17 @@ internal static class MacAddressDataExtractor
 
         using var sw = new StreamWriter(Path.Combine(outputPath, OutputFilePath));
         sw.WriteLine(jsonString);
+    }
+
+    record MacAddressInfo : IMacAddressInfo
+    {
+        public MacAddressInfo(string address, string vendor)
+        {
+            Address = address;
+            Vendor = vendor;
+        }
+
+        public string Address { get; }
+        public string Vendor { get; }
     }
 }

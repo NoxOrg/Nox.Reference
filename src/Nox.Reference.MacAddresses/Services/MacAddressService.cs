@@ -1,33 +1,14 @@
-﻿using Newtonsoft.Json;
-using Nox.Reference.Abstractions.MacAddresses;
-using Nox.Reference.MacAddresses.Models;
-using System.Reflection;
+﻿using Nox.Reference.Abstractions.MacAddresses;
 
 namespace Nox.Reference.MacAddresses;
 
-public class MacAddressService : IMacAddressService
+internal class MacAddressService : IMacAddressService
 {
-    private readonly IReadOnlyList<IMacAddressInfo> _macAddresses = new List<IMacAddressInfo>();
+    private readonly IReadOnlyList<IMacAddressInfo> _macAddresses;
 
-    public MacAddressService()
+    public MacAddressService(IEnumerable<IMacAddressInfo> macAddresses)
     {
-        var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = "Nox.Reference.MacAddresses.json";
-        if (assembly == null)
-        {
-            return;
-        }
-
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        if (stream == null)
-        {
-            return;
-        }
-
-        using var reader = new StreamReader(stream);
-        var addressInfos = JsonConvert.DeserializeObject<IReadOnlyList<MacAddressInfo>>(reader.ReadToEnd());
-
-        _macAddresses = addressInfos != null ? addressInfos : new List<IMacAddressInfo>();
+        _macAddresses = new List<IMacAddressInfo>(macAddresses);
     }
 
     public IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string searchKey)
