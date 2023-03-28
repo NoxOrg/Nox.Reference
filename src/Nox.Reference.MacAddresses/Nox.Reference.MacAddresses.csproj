@@ -18,7 +18,9 @@
 		<PackageIcon>nox.png</PackageIcon>
 		<Description>MacAddresses and their Vendors info</Description>
 	</PropertyGroup>
-	
+  <ItemGroup>
+	<None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />

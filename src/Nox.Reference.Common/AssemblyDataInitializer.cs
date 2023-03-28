@@ -1,10 +1,11 @@
 ﻿using System.Reflection;
+using Newtonsoft.Json;
 
 namespace Nox.Reference.Common;
 
-public abstract class AssemblyDataInitializer<TType>
+public static class AssemblyDataInitializer
 {
-    public IEnumerable<TType> GetDataFromAssemblyResource()
+    public static IEnumerable<TType> GetDataFromAssemblyResource<TType>(string resourceName)
     {
         var assembly = Assembly.GetCallingAssembly();
 
@@ -13,7 +14,7 @@ public abstract class AssemblyDataInitializer<TType>
             throw new InvalidOperationException("ExecutingAssembly was not found");
         }
 
-        using var stream = assembly.GetManifestResourceStream(ResourceName);
+        using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)
         {
             throw new InvalidOperationException("Assembly stream is null or empty");
@@ -21,12 +22,15 @@ public abstract class AssemblyDataInitializer<TType>
 
         using var reader = new StreamReader(stream);
 
-        var content = reader.ReadToEnd();
+        var jsonContent = reader.ReadToEnd();
 
-        return CreateCollectionDataFromContent(content);
+        var data = JsonConvert.DeserializeObject<TType[]>(jsonContent);
+
+        if (data == null || !data.Any())
+        {
+            throw new InvalidOperationException("Deserialized collection is null or empty.");
+        }
+
+        return data;
     }
-
-    protected abstract string ResourceName { get; }
-
-    protected abstract IEnumerable<TType> CreateCollectionDataFromContent(string content);
 }
