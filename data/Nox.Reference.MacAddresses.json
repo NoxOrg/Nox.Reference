@@ -133,7 +133,7 @@
   },
   {
     "Address": "000021",
-    "Vendor": "SC&C"
+    "Vendor": "SC\u0026C"
   },
   {
     "Address": "000022",
@@ -177,7 +177,7 @@
   },
   {
     "Address": "00002C",
-    "Vendor": "NRC - Network Resources Corporation - MultiGate Hub1+, Hub2, etc"
+    "Vendor": "NRC - Network Resources Corporation - MultiGate Hub1\u002B, Hub2, etc"
   },
   {
     "Address": "00002D",
@@ -245,7 +245,7 @@
   },
   {
     "Address": "00003D",
-    "Vendor": "AT&T"
+    "Vendor": "AT\u0026T"
   },
   {
     "Address": "00003E",
@@ -277,7 +277,7 @@
   },
   {
     "Address": "000045",
-    "Vendor": "FORD AEROSPACE & COMM. CORP."
+    "Vendor": "FORD AEROSPACE \u0026 COMM. CORP."
   },
   {
     "Address": "000046",
@@ -325,7 +325,7 @@
   },
   {
     "Address": "000051",
-    "Vendor": "Hob Electronic Gmbh & Co. KG"
+    "Vendor": "Hob Electronic Gmbh \u0026 Co. KG"
   },
   {
     "Address": "000052",
@@ -341,7 +341,7 @@
   },
   {
     "Address": "000055",
-    "Vendor": "AT&T"
+    "Vendor": "AT\u0026T"
   },
   {
     "Address": "000056",
@@ -361,7 +361,7 @@
   },
   {
     "Address": "00005A",
-    "Vendor": "SK (Schneider & Koch in Europe and Syskonnect outside of Europe)"
+    "Vendor": "SK (Schneider \u0026 Koch in Europe and Syskonnect outside of Europe)"
   },
   {
     "Address": "00005B",
@@ -513,7 +513,7 @@
   },
   {
     "Address": "000080",
-    "Vendor": "Cray Communications (formerly Dowty Network Services) [Also shows as \"Harris (3M) (new)\" and/or \"Imagen(?)\" elsewhere]"
+    "Vendor": "Cray Communications (formerly Dowty Network Services) [Also shows as \u0022Harris (3M) (new)\u0022 and/or \u0022Imagen(?)\u0022 elsewhere]"
   },
   {
     "Address": "000081",
@@ -537,7 +537,7 @@
   },
   {
     "Address": "000086",
-    "Vendor": "Gateway Communications Inc. (then Megahertz & now 3com)"
+    "Vendor": "Gateway Communications Inc. (then Megahertz \u0026 now 3com)"
   },
   {
     "Address": "000087",
@@ -569,7 +569,7 @@
   },
   {
     "Address": "00008E",
-    "Vendor": "Solbourne(?), Jupiter(?) (I've had confirming mail on Solbourne)"
+    "Vendor": "Solbourne(?), Jupiter(?) (I\u0027ve had confirming mail on Solbourne)"
   },
   {
     "Address": "00008F",
@@ -837,7 +837,7 @@
   },
   {
     "Address": "0000D1",
-    "Vendor": "Adaptec, Inc.   \"Nodem\" product"
+    "Vendor": "Adaptec, Inc.   \u0022Nodem\u0022 product"
   },
   {
     "Address": "0000D2",
@@ -865,11 +865,11 @@
   },
   {
     "Address": "0000D8",
-    "Vendor": "old Novell NE1000's (before about 1987?) (also 3Com)"
+    "Vendor": "old Novell NE1000\u0027s (before about 1987?) (also 3Com)"
   },
   {
     "Address": "0000D9",
-    "Vendor": "NIPPON TELEGRAPH & TELEPHONE"
+    "Vendor": "NIPPON TELEGRAPH \u0026 TELEPHONE"
   },
   {
     "Address": "0000DA",
@@ -893,7 +893,7 @@
   },
   {
     "Address": "0000DF",
-    "Vendor": "BELL & HOWELL PUB SYS DIV"
+    "Vendor": "BELL \u0026 HOWELL PUB SYS DIV"
   },
   {
     "Address": "0000E0",
@@ -1025,7 +1025,7 @@
   },
   {
     "Address": "000100",
-    "Vendor": "EQUIP'TRANS"
+    "Vendor": "EQUIP\u0027TRANS"
   },
   {
     "Address": "000101",
@@ -1117,7 +1117,7 @@
   },
   {
     "Address": "000117",
-    "Vendor": "Canal+                 # Canal +"
+    "Vendor": "Canal\u002B                 # Canal \u002B"
   },
   {
     "Address": "000118",
@@ -1441,7 +1441,7 @@
   },
   {
     "Address": "000168",
-    "Vendor": "W&G (Wandel & Goltermann) [incorrect according to W&G]"
+    "Vendor": "W\u0026G (Wandel \u0026 Goltermann) [incorrect according to W\u0026G]"
   },
   {
     "Address": "000169",
@@ -1473,7 +1473,7 @@
   },
   {
     "Address": "000170",
-    "Vendor": "ESE Embedded System Engineer'g"
+    "Vendor": "ESE Embedded System Engineer\u0027g"
   },
   {
     "Address": "000171",
@@ -1553,7 +1553,7 @@
   },
   {
     "Address": "000184",
-    "Vendor": "SIEB & MEYER AG"
+    "Vendor": "SIEB \u0026 MEYER AG"
   },
   {
     "Address": "000185",
@@ -1753,7 +1753,7 @@
   },
   {
     "Address": "0001B6",
-    "Vendor": "SaejinT&               # SAEJIN T&M Co., Ltd."
+    "Vendor": "SaejinT\u0026               # SAEJIN T\u0026M Co., Ltd."
   },
   {
     "Address": "0001B7",
@@ -1877,7 +1877,7 @@
   },
   {
     "Address": "0001D5",
-    "Vendor": "HAEDONG INFO & COMM CO., LTD"
+    "Vendor": "HAEDONG INFO \u0026 COMM CO., LTD"
   },
   {
     "Address": "0001D6",
@@ -2049,7 +2049,7 @@
   },
   {
     "Address": "000200",
-    "Vendor": "Net & Sys Co., Ltd."
+    "Vendor": "Net \u0026 Sys Co., Ltd."
   },
   {
     "Address": "000201",
@@ -2073,7 +2073,7 @@
   },
   {
     "Address": "000206",
-    "Vendor": "Telital R&D Denmark A/S"
+    "Vendor": "Telital R\u0026D Denmark A/S"
   },
   {
     "Address": "000207",
@@ -2233,7 +2233,7 @@
   },
   {
     "Address": "00022E",
-    "Vendor": "TEAC Corp. R& D"
+    "Vendor": "TEAC Corp. R\u0026 D"
   },
   {
     "Address": "00022F",
@@ -2337,7 +2337,7 @@
   },
   {
     "Address": "000248",
-    "Vendor": "Pilz GmbH & Co."
+    "Vendor": "Pilz GmbH \u0026 Co."
   },
   {
     "Address": "000249",
@@ -2505,7 +2505,7 @@
   },
   {
     "Address": "000272",
-    "Vendor": "CC&C Technologies, Inc."
+    "Vendor": "CC\u0026C Technologies, Inc."
   },
   {
     "Address": "000273",
@@ -2577,7 +2577,7 @@
   },
   {
     "Address": "000284",
-    "Vendor": "AREVA T&D"
+    "Vendor": "AREVA T\u0026D"
   },
   {
     "Address": "000285",
@@ -2753,7 +2753,7 @@
   },
   {
     "Address": "0002B0",
-    "Vendor": "Hokubu Communication & Industrial Co., Ltd."
+    "Vendor": "Hokubu Communication \u0026 Industrial Co., Ltd."
   },
   {
     "Address": "0002B1",
@@ -2973,11 +2973,11 @@
   },
   {
     "Address": "0002E7",
-    "Vendor": "CAB GmbH & Co KG"
+    "Vendor": "CAB GmbH \u0026 Co KG"
   },
   {
     "Address": "0002E8",
-    "Vendor": "E.D.&A."
+    "Vendor": "E.D.\u0026A."
   },
   {
     "Address": "0002E9",
@@ -3229,7 +3229,7 @@
   },
   {
     "Address": "000327",
-    "Vendor": "ACT'L"
+    "Vendor": "ACT\u0027L"
   },
   {
     "Address": "000328",
@@ -3453,7 +3453,7 @@
   },
   {
     "Address": "00035F",
-    "Vendor": "Prüftechnik Condition Monitoring GmbH & Co. KG"
+    "Vendor": "Pr\u00FCftechnik Condition Monitoring GmbH \u0026 Co. KG"
   },
   {
     "Address": "000360",
@@ -3477,7 +3477,7 @@
   },
   {
     "Address": "000365",
-    "Vendor": "Kira Information & Communications, Ltd."
+    "Vendor": "Kira Information \u0026 Communications, Ltd."
   },
   {
     "Address": "000366",
@@ -3629,7 +3629,7 @@
   },
   {
     "Address": "00038B",
-    "Vendor": "PLUS-ONE I&T, Inc."
+    "Vendor": "PLUS-ONE I\u0026T, Inc."
   },
   {
     "Address": "00038C",
@@ -3685,7 +3685,7 @@
   },
   {
     "Address": "000399",
-    "Vendor": "Dongju Informations & Communications Co., Ltd."
+    "Vendor": "Dongju Informations \u0026 Communications Co., Ltd."
   },
   {
     "Address": "00039A",
@@ -3717,7 +3717,7 @@
   },
   {
     "Address": "0003A1",
-    "Vendor": "HIPER Information & Communication, Inc."
+    "Vendor": "HIPER Information \u0026 Communication, Inc."
   },
   {
     "Address": "0003A2",
@@ -4201,7 +4201,7 @@
   },
   {
     "Address": "00041A",
-    "Vendor": "Ines Test and Measurement GmbH & CoKG"
+    "Vendor": "Ines Test and Measurement GmbH \u0026 CoKG"
   },
   {
     "Address": "00041B",
@@ -4489,7 +4489,7 @@
   },
   {
     "Address": "000462",
-    "Vendor": "DAKOS Data & Communication Co., Ltd."
+    "Vendor": "DAKOS Data \u0026 Communication Co., Ltd."
   },
   {
     "Address": "000463",
@@ -4605,7 +4605,7 @@
   },
   {
     "Address": "00047F",
-    "Vendor": "Chr. Mayr GmbH & Co. KG"
+    "Vendor": "Chr. Mayr GmbH \u0026 Co. KG"
   },
   {
     "Address": "000480",
@@ -4881,7 +4881,7 @@
   },
   {
     "Address": "0004C4",
-    "Vendor": "Allen & Heath Limited"
+    "Vendor": "Allen \u0026 Heath Limited"
   },
   {
     "Address": "0004C5",
@@ -4949,7 +4949,7 @@
   },
   {
     "Address": "0004D5",
-    "Vendor": "Hitachi Information & Communication Engineering, Ltd."
+    "Vendor": "Hitachi Information \u0026 Communication Engineering, Ltd."
   },
   {
     "Address": "0004D6",
@@ -5137,7 +5137,7 @@
   },
   {
     "Address": "000504",
-    "Vendor": "Naray Information & Communication Enterprise"
+    "Vendor": "Naray Information \u0026 Communication Enterprise"
   },
   {
     "Address": "000505",
@@ -5401,7 +5401,7 @@
   },
   {
     "Address": "000546",
-    "Vendor": "KDDI Network & Solultions Inc."
+    "Vendor": "KDDI Network \u0026 Solultions Inc."
   },
   {
     "Address": "000547",
@@ -5445,7 +5445,7 @@
   },
   {
     "Address": "000551",
-    "Vendor": "F & S Elektronik Systeme GmbH"
+    "Vendor": "F \u0026 S Elektronik Systeme GmbH"
   },
   {
     "Address": "000552",
@@ -5597,7 +5597,7 @@
   },
   {
     "Address": "000577",
-    "Vendor": "SM Information & Communication"
+    "Vendor": "SM Information \u0026 Communication"
   },
   {
     "Address": "000578",
@@ -5689,7 +5689,7 @@
   },
   {
     "Address": "00058E",
-    "Vendor": "Flextronics International GmbH & Co. Nfg. KG"
+    "Vendor": "Flextronics International GmbH \u0026 Co. Nfg. KG"
   },
   {
     "Address": "00058F",
@@ -5745,7 +5745,7 @@
   },
   {
     "Address": "00059C",
-    "Vendor": "Kleinknecht GmbH, Ing. Büro"
+    "Vendor": "Kleinknecht GmbH, Ing. B\u00FCro"
   },
   {
     "Address": "00059D",
@@ -5941,7 +5941,7 @@
   },
   {
     "Address": "0005CD",
-    "Vendor": "D&M Holdings Inc."
+    "Vendor": "D\u0026M Holdings Inc."
   },
   {
     "Address": "0005CE",
@@ -6369,7 +6369,7 @@
   },
   {
     "Address": "000638",
-    "Vendor": "Sungjin C&C Co., Ltd."
+    "Vendor": "Sungjin C\u0026C Co., Ltd."
   },
   {
     "Address": "000639",
@@ -6497,7 +6497,7 @@
   },
   {
     "Address": "000658",
-    "Vendor": "Helmut Fischer GmbH Institut für Elektronik und Messtechnik"
+    "Vendor": "Helmut Fischer GmbH Institut f\u00FCr Elektronik und Messtechnik"
   },
   {
     "Address": "000659",
@@ -6625,7 +6625,7 @@
   },
   {
     "Address": "000678",
-    "Vendor": "D&M Holdings Inc."
+    "Vendor": "D\u0026M Holdings Inc."
   },
   {
     "Address": "000679",
@@ -6637,7 +6637,7 @@
   },
   {
     "Address": "00067B",
-    "Vendor": "Toplink C&C Corporation"
+    "Vendor": "Toplink C\u0026C Corporation"
   },
   {
     "Address": "00067C",
@@ -6697,7 +6697,7 @@
   },
   {
     "Address": "00068A",
-    "Vendor": "NeuronNet Co. Ltd. R&D Center"
+    "Vendor": "NeuronNet Co. Ltd. R\u0026D Center"
   },
   {
     "Address": "00068B",
@@ -6749,7 +6749,7 @@
   },
   {
     "Address": "000697",
-    "Vendor": "R & D Center"
+    "Vendor": "R \u0026 D Center"
   },
   {
     "Address": "000698",
@@ -6761,7 +6761,7 @@
   },
   {
     "Address": "00069A",
-    "Vendor": "e & Tel"
+    "Vendor": "e \u0026 Tel"
   },
   {
     "Address": "00069B",
@@ -6953,7 +6953,7 @@
   },
   {
     "Address": "0006CA",
-    "Vendor": "American Computer & Digital Components, Inc. (ACDC)"
+    "Vendor": "American Computer \u0026 Digital Components, Inc. (ACDC)"
   },
   {
     "Address": "0006CB",
@@ -7029,7 +7029,7 @@
   },
   {
     "Address": "0006DD",
-    "Vendor": "AT & T Laboratories - Cambridge Ltd"
+    "Vendor": "AT \u0026 T Laboratories - Cambridge Ltd"
   },
   {
     "Address": "0006DE",
@@ -7081,7 +7081,7 @@
   },
   {
     "Address": "0006EA",
-    "Vendor": "ELZET80 Mikrocomputer GmbH&Co. KG"
+    "Vendor": "ELZET80 Mikrocomputer GmbH\u0026Co. KG"
   },
   {
     "Address": "0006EB",
@@ -7097,7 +7097,7 @@
   },
   {
     "Address": "0006EE",
-    "Vendor": "Shenyang Neu-era Information & Technology Stock Co., Ltd"
+    "Vendor": "Shenyang Neu-era Information \u0026 Technology Stock Co., Ltd"
   },
   {
     "Address": "0006EF",
@@ -7121,7 +7121,7 @@
   },
   {
     "Address": "0006F4",
-    "Vendor": "Prime Electronics & Satellitics Inc."
+    "Vendor": "Prime Electronics \u0026 Satellitics Inc."
   },
   {
     "Address": "0006F5",
@@ -7189,7 +7189,7 @@
   },
   {
     "Address": "000705",
-    "Vendor": "Endress & Hauser GmbH & Co"
+    "Vendor": "Endress \u0026 Hauser GmbH \u0026 Co"
   },
   {
     "Address": "000706",
@@ -7257,7 +7257,7 @@
   },
   {
     "Address": "000716",
-    "Vendor": "J & S Marine Ltd."
+    "Vendor": "J \u0026 S Marine Ltd."
   },
   {
     "Address": "000717",
@@ -7281,7 +7281,7 @@
   },
   {
     "Address": "00071C",
-    "Vendor": "At&T"
+    "Vendor": "At\u0026T"
   },
   {
     "Address": "00071D",
@@ -7297,7 +7297,7 @@
   },
   {
     "Address": "000720",
-    "Vendor": "Trutzschler GmbH & Co. KG"
+    "Vendor": "Trutzschler GmbH \u0026 Co. KG"
   },
   {
     "Address": "000721",
@@ -7405,7 +7405,7 @@
   },
   {
     "Address": "00073B",
-    "Vendor": "Tenovis GmbH & Co KG"
+    "Vendor": "Tenovis GmbH \u0026 Co KG"
   },
   {
     "Address": "00073C",
@@ -7553,7 +7553,7 @@
   },
   {
     "Address": "000760",
-    "Vendor": "TOMIS Information & Telecom Corp."
+    "Vendor": "TOMIS Information \u0026 Telecom Corp."
   },
   {
     "Address": "000761",
@@ -7649,7 +7649,7 @@
   },
   {
     "Address": "000778",
-    "Vendor": "GERSTEL GmbH & Co. KG"
+    "Vendor": "GERSTEL GmbH \u0026 Co. KG"
   },
   {
     "Address": "000779",
@@ -7737,7 +7737,7 @@
   },
   {
     "Address": "00078E",
-    "Vendor": "Garz & Friche GmbH"
+    "Vendor": "Garz \u0026 Friche GmbH"
   },
   {
     "Address": "00078F",
@@ -7753,7 +7753,7 @@
   },
   {
     "Address": "000792",
-    "Vendor": "Sütron Electronic GmbH"
+    "Vendor": "S\u00FCtron Electronic GmbH"
   },
   {
     "Address": "000793",
@@ -8001,7 +8001,7 @@
   },
   {
     "Address": "0007D0",
-    "Vendor": "Automat Engenharia de Automação Ltda."
+    "Vendor": "Automat Engenharia de Automa\u00E7\u00E3o Ltda."
   },
   {
     "Address": "0007D1",
@@ -8009,7 +8009,7 @@
   },
   {
     "Address": "0007D2",
-    "Vendor": "Logopak Systeme GmbH & Co. KG"
+    "Vendor": "Logopak Systeme GmbH \u0026 Co. KG"
   },
   {
     "Address": "0007D3",
@@ -8417,7 +8417,7 @@
   },
   {
     "Address": "000853",
-    "Vendor": "Schleicher GmbH & Co. Relaiswerke KG"
+    "Vendor": "Schleicher GmbH \u0026 Co. Relaiswerke KG"
   },
   {
     "Address": "000854",
@@ -8593,7 +8593,7 @@
   },
   {
     "Address": "00087F",
-    "Vendor": "SPAUN electronic GmbH & Co. KG"
+    "Vendor": "SPAUN electronic GmbH \u0026 Co. KG"
   },
   {
     "Address": "000880",
@@ -8617,7 +8617,7 @@
   },
   {
     "Address": "000885",
-    "Vendor": "EMS Dr. Thomas Wünsche"
+    "Vendor": "EMS Dr. Thomas W\u00FCnsche"
   },
   {
     "Address": "000886",
@@ -8681,7 +8681,7 @@
   },
   {
     "Address": "000895",
-    "Vendor": "DIRC Technologie GmbH & Co.KG"
+    "Vendor": "DIRC Technologie GmbH \u0026 Co.KG"
   },
   {
     "Address": "000896",
@@ -8749,7 +8749,7 @@
   },
   {
     "Address": "0008A6",
-    "Vendor": "Multiware & Image Co., Ltd."
+    "Vendor": "Multiware \u0026 Image Co., Ltd."
   },
   {
     "Address": "0008A7",
@@ -9033,7 +9033,7 @@
   },
   {
     "Address": "0008ED",
-    "Vendor": "ST&T Instrument Corp."
+    "Vendor": "ST\u0026T Instrument Corp."
   },
   {
     "Address": "0008EE",
@@ -9053,7 +9053,7 @@
   },
   {
     "Address": "0008F2",
-    "Vendor": "C&S Technology"
+    "Vendor": "C\u0026S Technology"
   },
   {
     "Address": "0008F3",
@@ -9073,7 +9073,7 @@
   },
   {
     "Address": "0008F7",
-    "Vendor": "Hitachi Ltd, Semiconductor & Integrated Circuits Gr"
+    "Vendor": "Hitachi Ltd, Semiconductor \u0026 Integrated Circuits Gr"
   },
   {
     "Address": "0008F8",
@@ -9101,7 +9101,7 @@
   },
   {
     "Address": "0008FE",
-    "Vendor": "UNIK C&C Co.,Ltd."
+    "Vendor": "UNIK C\u0026C Co.,Ltd."
   },
   {
     "Address": "0008FF",
@@ -9113,7 +9113,7 @@
   },
   {
     "Address": "000901",
-    "Vendor": "Shenzhen Shixuntong Information & Technoligy Co"
+    "Vendor": "Shenzhen Shixuntong Information \u0026 Technoligy Co"
   },
   {
     "Address": "000902",
@@ -9213,7 +9213,7 @@
   },
   {
     "Address": "00091A",
-    "Vendor": "Macat Optics & Electronics Co., Ltd."
+    "Vendor": "Macat Optics \u0026 Electronics Co., Ltd."
   },
   {
     "Address": "00091B",
@@ -9233,7 +9233,7 @@
   },
   {
     "Address": "00091F",
-    "Vendor": "A&D Co., Ltd."
+    "Vendor": "A\u0026D Co., Ltd."
   },
   {
     "Address": "000920",
@@ -9293,7 +9293,7 @@
   },
   {
     "Address": "00092E",
-    "Vendor": "B&Tech System Inc."
+    "Vendor": "B\u0026Tech System Inc."
   },
   {
     "Address": "00092F",
@@ -9325,7 +9325,7 @@
   },
   {
     "Address": "000936",
-    "Vendor": "Ipetronik GmbH & Co. KG"
+    "Vendor": "Ipetronik GmbH \u0026 Co. KG"
   },
   {
     "Address": "000937",
@@ -9357,7 +9357,7 @@
   },
   {
     "Address": "00093E",
-    "Vendor": "C&I Technologies"
+    "Vendor": "C\u0026I Technologies"
   },
   {
     "Address": "00093F",
@@ -9365,11 +9365,11 @@
   },
   {
     "Address": "000940",
-    "Vendor": "AGFEO GmbH & Co. KG"
+    "Vendor": "AGFEO GmbH \u0026 Co. KG"
   },
   {
     "Address": "000941",
-    "Vendor": "Allied Telesis R&D Center K.K."
+    "Vendor": "Allied Telesis R\u0026D Center K.K."
   },
   {
     "Address": "000942",
@@ -9425,7 +9425,7 @@
   },
   {
     "Address": "00094F",
-    "Vendor": "elmegt GmbH & Co. KG"
+    "Vendor": "elmegt GmbH \u0026 Co. KG"
   },
   {
     "Address": "000950",
@@ -9437,7 +9437,7 @@
   },
   {
     "Address": "000952",
-    "Vendor": "Auerswald GmbH & Co. KG"
+    "Vendor": "Auerswald GmbH \u0026 Co. KG"
   },
   {
     "Address": "000953",
@@ -9649,7 +9649,7 @@
   },
   {
     "Address": "000987",
-    "Vendor": "NISHI NIPPON ELECTRIC WIRE & CABLE CO.,LTD."
+    "Vendor": "NISHI NIPPON ELECTRIC WIRE \u0026 CABLE CO.,LTD."
   },
   {
     "Address": "000988",
@@ -9685,7 +9685,7 @@
   },
   {
     "Address": "000990",
-    "Vendor": "ACKSYS Communications & systems"
+    "Vendor": "ACKSYS Communications \u0026 systems"
   },
   {
     "Address": "000991",
@@ -9777,7 +9777,7 @@
   },
   {
     "Address": "0009A7",
-    "Vendor": "Bang & Olufsen A/S"
+    "Vendor": "Bang \u0026 Olufsen A/S"
   },
   {
     "Address": "0009A8",
@@ -9821,7 +9821,7 @@
   },
   {
     "Address": "0009B2",
-    "Vendor": "L&F Inc."
+    "Vendor": "L\u0026F Inc."
   },
   {
     "Address": "0009B3",
@@ -9973,7 +9973,7 @@
   },
   {
     "Address": "0009D8",
-    "Vendor": "Fält Communications AB"
+    "Vendor": "F\u00E4lt Communications AB"
   },
   {
     "Address": "0009D9",
@@ -9997,7 +9997,7 @@
   },
   {
     "Address": "0009DE",
-    "Vendor": "Samjin Information & Communications Co., Ltd."
+    "Vendor": "Samjin Information \u0026 Communications Co., Ltd."
   },
   {
     "Address": "0009DF",
@@ -10481,7 +10481,7 @@
   },
   {
     "Address": "000A58",
-    "Vendor": "Freyer & Siegel Elektronik GmbH & Co. KG"
+    "Vendor": "Freyer \u0026 Siegel Elektronik GmbH \u0026 Co. KG"
   },
   {
     "Address": "000A59",
@@ -10537,7 +10537,7 @@
   },
   {
     "Address": "000A66",
-    "Vendor": "MITSUBISHI ELECTRIC SYSTEM & SERVICE CO.,LTD."
+    "Vendor": "MITSUBISHI ELECTRIC SYSTEM \u0026 SERVICE CO.,LTD."
   },
   {
     "Address": "000A67",
@@ -10661,7 +10661,7 @@
   },
   {
     "Address": "000A85",
-    "Vendor": "PLAT'C2,Inc"
+    "Vendor": "PLAT\u0027C2,Inc"
   },
   {
     "Address": "000A86",
@@ -10737,7 +10737,7 @@
   },
   {
     "Address": "000A98",
-    "Vendor": "M+F Gwinner GmbH & Co"
+    "Vendor": "M\u002BF Gwinner GmbH \u0026 Co"
   },
   {
     "Address": "000A99",
@@ -10885,7 +10885,7 @@
   },
   {
     "Address": "000ABD",
-    "Vendor": "Rupprecht & Patashnick Co."
+    "Vendor": "Rupprecht \u0026 Patashnick Co."
   },
   {
     "Address": "000ABE",
@@ -10929,7 +10929,7 @@
   },
   {
     "Address": "000AC8",
-    "Vendor": "ZPSYS CO.,LTD. (Planning&Management)"
+    "Vendor": "ZPSYS CO.,LTD. (Planning\u0026Management)"
   },
   {
     "Address": "000AC9",
@@ -11065,7 +11065,7 @@
   },
   {
     "Address": "000AEA",
-    "Vendor": "ADAM ELEKTRONIK LTD. ŞTI"
+    "Vendor": "ADAM ELEKTRONIK LTD. \u015ETI"
   },
   {
     "Address": "000AEB",
@@ -11081,7 +11081,7 @@
   },
   {
     "Address": "000AEE",
-    "Vendor": "GcdHard-               # GCD Hard- & Software GmbH"
+    "Vendor": "GcdHard-               # GCD Hard- \u0026 Software GmbH"
   },
   {
     "Address": "000AEF",
@@ -11089,7 +11089,7 @@
   },
   {
     "Address": "000AF0",
-    "Vendor": "SHIN-OH ELECTRONICS CO., LTD. R&D"
+    "Vendor": "SHIN-OH ELECTRONICS CO., LTD. R\u0026D"
   },
   {
     "Address": "000AF1",
@@ -11337,7 +11337,7 @@
   },
   {
     "Address": "000B2E",
-    "Vendor": "Cal-Comp Electronics & Communications Company Ltd."
+    "Vendor": "Cal-Comp Electronics \u0026 Communications Company Ltd."
   },
   {
     "Address": "000B2F",
@@ -11345,7 +11345,7 @@
   },
   {
     "Address": "000B30",
-    "Vendor": "Beijing Gongye Science & Technology Co.,Ltd"
+    "Vendor": "Beijing Gongye Science \u0026 Technology Co.,Ltd"
   },
   {
     "Address": "000B31",
@@ -11377,7 +11377,7 @@
   },
   {
     "Address": "000B38",
-    "Vendor": "Knürr GmbH"
+    "Vendor": "Kn\u00FCrr GmbH"
   },
   {
     "Address": "000B39",
@@ -11413,7 +11413,7 @@
   },
   {
     "Address": "000B41",
-    "Vendor": "Ing. Büro Dr. Beutlhauser"
+    "Vendor": "Ing. B\u00FCro Dr. Beutlhauser"
   },
   {
     "Address": "000B42",
@@ -11541,7 +11541,7 @@
   },
   {
     "Address": "000B61",
-    "Vendor": "Friedrich Lütze GmbH & Co. KG"
+    "Vendor": "Friedrich L\u00FCtze GmbH \u0026 Co. KG"
   },
   {
     "Address": "000B62",
@@ -11553,7 +11553,7 @@
   },
   {
     "Address": "000B64",
-    "Vendor": "Kieback & Peter GmbH & Co KG"
+    "Vendor": "Kieback \u0026 Peter GmbH \u0026 Co KG"
   },
   {
     "Address": "000B65",
@@ -11625,7 +11625,7 @@
   },
   {
     "Address": "000B76",
-    "Vendor": "ET&T Technology Co. Ltd."
+    "Vendor": "ET\u0026T Technology Co. Ltd."
   },
   {
     "Address": "000B77",
@@ -11733,7 +11733,7 @@
   },
   {
     "Address": "000B91",
-    "Vendor": "Aglaia Gesellschaft für Bildverarbeitung und Kommunikation mbH"
+    "Vendor": "Aglaia Gesellschaft f\u00FCr Bildverarbeitung und Kommunikation mbH"
   },
   {
     "Address": "000B92",
@@ -11793,7 +11793,7 @@
   },
   {
     "Address": "000BA0",
-    "Vendor": "T&L Information Inc."
+    "Vendor": "T\u0026L Information Inc."
   },
   {
     "Address": "000BA1",
@@ -11805,7 +11805,7 @@
   },
   {
     "Address": "000BA3",
-    "Vendor": "Siemens AG, I&S"
+    "Vendor": "Siemens AG, I\u0026S"
   },
   {
     "Address": "000BA4",
@@ -11937,7 +11937,7 @@
   },
   {
     "Address": "000BC4",
-    "Vendor": "BIOTRONIK GmbH & Co"
+    "Vendor": "BIOTRONIK GmbH \u0026 Co"
   },
   {
     "Address": "000BC5",
@@ -12001,7 +12001,7 @@
   },
   {
     "Address": "000BD4",
-    "Vendor": "Beijing Wise Technology & Science Development Co.Ltd"
+    "Vendor": "Beijing Wise Technology \u0026 Science Development Co.Ltd"
   },
   {
     "Address": "000BD5",
@@ -12013,7 +12013,7 @@
   },
   {
     "Address": "000BD7",
-    "Vendor": "DORMA Time + Access GmbH"
+    "Vendor": "DORMA Time \u002B Access GmbH"
   },
   {
     "Address": "000BD8",
@@ -12229,7 +12229,7 @@
   },
   {
     "Address": "000C0D",
-    "Vendor": "Communications & Power Industries / Satcom Division"
+    "Vendor": "Communications \u0026 Power Industries / Satcom Division"
   },
   {
     "Address": "000C0E",
@@ -12293,7 +12293,7 @@
   },
   {
     "Address": "000C1D",
-    "Vendor": "Mettler & Fuchs AG"
+    "Vendor": "Mettler \u0026 Fuchs AG"
   },
   {
     "Address": "000C1E",
@@ -12389,7 +12389,7 @@
   },
   {
     "Address": "000C35",
-    "Vendor": "KaVo Dental GmbH & Co. KG"
+    "Vendor": "KaVo Dental GmbH \u0026 Co. KG"
   },
   {
     "Address": "000C36",
@@ -12429,7 +12429,7 @@
   },
   {
     "Address": "000C3F",
-    "Vendor": "Cogent Defence & Security Networks,"
+    "Vendor": "Cogent Defence \u0026 Security Networks,"
   },
   {
     "Address": "000C40",
@@ -12461,7 +12461,7 @@
   },
   {
     "Address": "000C47",
-    "Vendor": "SK Teletech(R&D Planning Team)"
+    "Vendor": "SK Teletech(R\u0026D Planning Team)"
   },
   {
     "Address": "000C48",
@@ -12481,11 +12481,11 @@
   },
   {
     "Address": "000C4C",
-    "Vendor": "ArcorAg&               # Arcor AG&Co."
+    "Vendor": "ArcorAg\u0026               # Arcor AG\u0026Co."
   },
   {
     "Address": "000C4D",
-    "Vendor": "Curtiss-               # Curtiss-Wright Controls Avionics & Electronics"
+    "Vendor": "Curtiss-               # Curtiss-Wright Controls Avionics \u0026 Electronics"
   },
   {
     "Address": "000C4E",
@@ -12529,7 +12529,7 @@
   },
   {
     "Address": "000C58",
-    "Vendor": "M&S Systems"
+    "Vendor": "M\u0026S Systems"
   },
   {
     "Address": "000C59",
@@ -12801,7 +12801,7 @@
   },
   {
     "Address": "000C9C",
-    "Vendor": "Chongho information & communications"
+    "Vendor": "Chongho information \u0026 communications"
   },
   {
     "Address": "000C9D",
@@ -12905,7 +12905,7 @@
   },
   {
     "Address": "000CB6",
-    "Vendor": "NANJING SEU MOBILE & INTERNET TECHNOLOGY CO.,LTD"
+    "Vendor": "NANJING SEU MOBILE \u0026 INTERNET TECHNOLOGY CO.,LTD"
   },
   {
     "Address": "000CB7",
@@ -12977,11 +12977,11 @@
   },
   {
     "Address": "000CC8",
-    "Vendor": "Xytronix Research & Design, Inc."
+    "Vendor": "Xytronix Research \u0026 Design, Inc."
   },
   {
     "Address": "000CC9",
-    "Vendor": "ILWOO DATA & TECHNOLOGY CO.,LTD"
+    "Vendor": "ILWOO DATA \u0026 TECHNOLOGY CO.,LTD"
   },
   {
     "Address": "000CCA",
@@ -13041,7 +13041,7 @@
   },
   {
     "Address": "000CD8",
-    "Vendor": "M. K. Juchheim GmbH & Co"
+    "Vendor": "M. K. Juchheim GmbH \u0026 Co"
   },
   {
     "Address": "000CD9",
@@ -13137,7 +13137,7 @@
   },
   {
     "Address": "000CF0",
-    "Vendor": "M & N GmbH"
+    "Vendor": "M \u0026 N GmbH"
   },
   {
     "Address": "000CF1",
@@ -13145,7 +13145,7 @@
   },
   {
     "Address": "000CF2",
-    "Vendor": "GAMESA Eólica"
+    "Vendor": "GAMESA E\u00F3lica"
   },
   {
     "Address": "000CF3",
@@ -13205,7 +13205,7 @@
   },
   {
     "Address": "000D01",
-    "Vendor": "P&E Microcomputer Systems, Inc."
+    "Vendor": "P\u0026E Microcomputer Systems, Inc."
   },
   {
     "Address": "000D02",
@@ -13277,7 +13277,7 @@
   },
   {
     "Address": "000D13",
-    "Vendor": "Wilhelm Rutenbeck GmbH&Co.KG"
+    "Vendor": "Wilhelm Rutenbeck GmbH\u0026Co.KG"
   },
   {
     "Address": "000D14",
@@ -13345,7 +13345,7 @@
   },
   {
     "Address": "000D24",
-    "Vendor": "SentecE&               # SENTEC E&E CO., LTD."
+    "Vendor": "SentecE\u0026               # SENTEC E\u0026E CO., LTD."
   },
   {
     "Address": "000D25",
@@ -13621,7 +13621,7 @@
   },
   {
     "Address": "000D69",
-    "Vendor": "TMT&D Corporation"
+    "Vendor": "TMT\u0026D Corporation"
   },
   {
     "Address": "000D6A",
@@ -13681,7 +13681,7 @@
   },
   {
     "Address": "000D78",
-    "Vendor": "Engineering & Security"
+    "Vendor": "Engineering \u0026 Security"
   },
   {
     "Address": "000D79",
@@ -13717,7 +13717,7 @@
   },
   {
     "Address": "000D81",
-    "Vendor": "Pepperl+               # Pepperl+Fuchs GmbH"
+    "Vendor": "Pepperl\u002B               # Pepperl\u002BFuchs GmbH"
   },
   {
     "Address": "000D82",
@@ -13737,7 +13737,7 @@
   },
   {
     "Address": "000D86",
-    "Vendor": "Huber + Suhner AG"
+    "Vendor": "Huber \u002B Suhner AG"
   },
   {
     "Address": "000D87",
@@ -13757,7 +13757,7 @@
   },
   {
     "Address": "000D8B",
-    "Vendor": "T&D Corporation"
+    "Vendor": "T\u0026D Corporation"
   },
   {
     "Address": "000D8C",
@@ -13825,7 +13825,7 @@
   },
   {
     "Address": "000D9C",
-    "Vendor": "Elan GmbH & Co KG"
+    "Vendor": "Elan GmbH \u0026 Co KG"
   },
   {
     "Address": "000D9D",
@@ -13857,7 +13857,7 @@
   },
   {
     "Address": "000DA4",
-    "Vendor": "DOSCH & AMAND SYSTEMS AG"
+    "Vendor": "DOSCH \u0026 AMAND SYSTEMS AG"
   },
   {
     "Address": "000DA5",
@@ -13945,7 +13945,7 @@
   },
   {
     "Address": "000DBA",
-    "Vendor": "Océ Document Technologies GmbH"
+    "Vendor": "Oc\u00E9 Document Technologies GmbH"
   },
   {
     "Address": "000DBB",
@@ -13965,7 +13965,7 @@
   },
   {
     "Address": "000DBF",
-    "Vendor": "TekTone Sound & Signal Mfg., Inc."
+    "Vendor": "TekTone Sound \u0026 Signal Mfg., Inc."
   },
   {
     "Address": "000DC0",
@@ -14053,7 +14053,7 @@
   },
   {
     "Address": "000DD5",
-    "Vendor": "O'RITE TECHNOLOGY CO.,LTD"
+    "Vendor": "O\u0027RITE TECHNOLOGY CO.,LTD"
   },
   {
     "Address": "000DD6",
@@ -14085,7 +14085,7 @@
   },
   {
     "Address": "000DDD",
-    "Vendor": "Profilo Telra Elektronik Sanayi ve Ticaret. A.Ş"
+    "Vendor": "Profilo Telra Elektronik Sanayi ve Ticaret. A.\u015E"
   },
   {
     "Address": "000DDE",
@@ -14093,7 +14093,7 @@
   },
   {
     "Address": "000DDF",
-    "Vendor": "Japan Image & Network Inc."
+    "Vendor": "Japan Image \u0026 Network Inc."
   },
   {
     "Address": "000DE0",
@@ -14277,7 +14277,7 @@
   },
   {
     "Address": "000E0D",
-    "Vendor": "Hesch Schröder GmbH"
+    "Vendor": "Hesch Schr\u00F6der GmbH"
   },
   {
     "Address": "000E0E",
@@ -14293,7 +14293,7 @@
   },
   {
     "Address": "000E11",
-    "Vendor": "BDT Büro und Datentechnik GmbH & Co.KG"
+    "Vendor": "BDT B\u00FCro und Datentechnik GmbH \u0026 Co.KG"
   },
   {
     "Address": "000E12",
@@ -14445,7 +14445,7 @@
   },
   {
     "Address": "000E37",
-    "Vendor": "Harms & Wende GmbH & Co.KG"
+    "Vendor": "Harms \u0026 Wende GmbH \u0026 Co.KG"
   },
   {
     "Address": "000E38",
@@ -14569,7 +14569,7 @@
   },
   {
     "Address": "000E56",
-    "Vendor": "4G Systems GmbH & Co. KG"
+    "Vendor": "4G Systems GmbH \u0026 Co. KG"
   },
   {
     "Address": "000E57",
@@ -14605,7 +14605,7 @@
   },
   {
     "Address": "000E5F",
-    "Vendor": "activ-net GmbH & Co. KG"
+    "Vendor": "activ-net GmbH \u0026 Co. KG"
   },
   {
     "Address": "000E60",
@@ -14633,7 +14633,7 @@
   },
   {
     "Address": "000E66",
-    "Vendor": "Hitachi Industry & Control Solutions, Ltd."
+    "Vendor": "Hitachi Industry \u0026 Control Solutions, Ltd."
   },
   {
     "Address": "000E67",
@@ -14785,7 +14785,7 @@
   },
   {
     "Address": "000E8C",
-    "Vendor": "Siemens AG A&D ET"
+    "Vendor": "Siemens AG A\u0026D ET"
   },
   {
     "Address": "000E8D",
@@ -14813,7 +14813,7 @@
   },
   {
     "Address": "000E93",
-    "Vendor": "Milénio 3 Sistemas Electrónicos, Lda."
+    "Vendor": "Mil\u00E9nio 3 Sistemas Electr\u00F3nicos, Lda."
   },
   {
     "Address": "000E94",
@@ -14985,7 +14985,7 @@
   },
   {
     "Address": "000EBE",
-    "Vendor": "B&B Electronics Manufacturing Co."
+    "Vendor": "B\u0026B Electronics Manufacturing Co."
   },
   {
     "Address": "000EBF",
@@ -15185,7 +15185,7 @@
   },
   {
     "Address": "000EF0",
-    "Vendor": "Festo AG & Co. KG"
+    "Vendor": "Festo AG \u0026 Co. KG"
   },
   {
     "Address": "000EF1",
@@ -15261,7 +15261,7 @@
   },
   {
     "Address": "000F03",
-    "Vendor": "COM&C CO., LTD"
+    "Vendor": "COM\u0026C CO., LTD"
   },
   {
     "Address": "000F04",
@@ -15369,7 +15369,7 @@
   },
   {
     "Address": "000F1E",
-    "Vendor": "Chengdu KT Electric Co.of High & New Technology"
+    "Vendor": "Chengdu KT Electric Co.of High \u0026 New Technology"
   },
   {
     "Address": "000F1F",
@@ -15429,7 +15429,7 @@
   },
   {
     "Address": "000F2D",
-    "Vendor": "CHUNG-HSIN ELECTRIC & MACHINERY MFG.CORP."
+    "Vendor": "CHUNG-HSIN ELECTRIC \u0026 MACHINERY MFG.CORP."
   },
   {
     "Address": "000F2E",
@@ -15577,7 +15577,7 @@
   },
   {
     "Address": "000F52",
-    "Vendor": "YORK Refrigeration, Marine & Controls"
+    "Vendor": "YORK Refrigeration, Marine \u0026 Controls"
   },
   {
     "Address": "000F53",
@@ -15649,7 +15649,7 @@
   },
   {
     "Address": "000F64",
-    "Vendor": "D&R Electronica Weesp BV"
+    "Vendor": "D\u0026R Electronica Weesp BV"
   },
   {
     "Address": "000F65",
@@ -15669,7 +15669,7 @@
   },
   {
     "Address": "000F69",
-    "Vendor": "SEW Eurodrive GmbH & Co. KG"
+    "Vendor": "SEW Eurodrive GmbH \u0026 Co. KG"
   },
   {
     "Address": "000F6A",
@@ -15837,7 +15837,7 @@
   },
   {
     "Address": "000F93",
-    "Vendor": "Landis+Gyr Ltd."
+    "Vendor": "Landis\u002BGyr Ltd."
   },
   {
     "Address": "000F94",
@@ -15997,7 +15997,7 @@
   },
   {
     "Address": "000FBB",
-    "Vendor": "Nokia Siemens Networks GmbH & Co. KG."
+    "Vendor": "Nokia Siemens Networks GmbH \u0026 Co. KG."
   },
   {
     "Address": "000FBC",
@@ -16045,7 +16045,7 @@
   },
   {
     "Address": "000FC7",
-    "Vendor": "Dionica R&D Ltd."
+    "Vendor": "Dionica R\u0026D Ltd."
   },
   {
     "Address": "000FC8",
@@ -16221,15 +16221,15 @@
   },
   {
     "Address": "000FF3",
-    "Vendor": "Jung Myoung Communications&Technology"
+    "Vendor": "Jung Myoung Communications\u0026Technology"
   },
   {
     "Address": "000FF4",
-    "Vendor": "Guntermann & Drunck GmbH"
+    "Vendor": "Guntermann \u0026 Drunck GmbH"
   },
   {
     "Address": "000FF5",
-    "Vendor": "GN&S company"
+    "Vendor": "GN\u0026S company"
   },
   {
     "Address": "000FF6",
@@ -16373,7 +16373,7 @@
   },
   {
     "Address": "001019",
-    "Vendor": "SIRONA DENTAL SYSTEMS GmbH & Co. KG"
+    "Vendor": "SIRONA DENTAL SYSTEMS GmbH \u0026 Co. KG"
   },
   {
     "Address": "00101A",
@@ -16457,7 +16457,7 @@
   },
   {
     "Address": "00102E",
-    "Vendor": "NETWORK SYSTEMS & TECHNOLOGIES PVT. LTD."
+    "Vendor": "NETWORK SYSTEMS \u0026 TECHNOLOGIES PVT. LTD."
   },
   {
     "Address": "00102F",
@@ -16493,7 +16493,7 @@
   },
   {
     "Address": "001037",
-    "Vendor": "CYQ've Technology Co., Ltd."
+    "Vendor": "CYQ\u0027ve Technology Co., Ltd."
   },
   {
     "Address": "001038",
@@ -17021,7 +17021,7 @@
   },
   {
     "Address": "0010BB",
-    "Vendor": "DATA & INFORMATION TECHNOLOGY"
+    "Vendor": "DATA \u0026 INFORMATION TECHNOLOGY"
   },
   {
     "Address": "0010BC",
@@ -17141,7 +17141,7 @@
   },
   {
     "Address": "0010D9",
-    "Vendor": "IBM JAPAN, FUJISAWA MT+D"
+    "Vendor": "IBM JAPAN, FUJISAWA MT\u002BD"
   },
   {
     "Address": "0010DA",
@@ -17233,7 +17233,7 @@
   },
   {
     "Address": "0010F0",
-    "Vendor": "RITTAL-WERK RUDOLF LOH GmbH & Co."
+    "Vendor": "RITTAL-WERK RUDOLF LOH GmbH \u0026 Co."
   },
   {
     "Address": "0010F1",
@@ -17525,7 +17525,7 @@
   },
   {
     "Address": "001139",
-    "Vendor": "STOEBER ANTRIEBSTECHNIK GmbH + Co. KG."
+    "Vendor": "STOEBER ANTRIEBSTECHNIK GmbH \u002B Co. KG."
   },
   {
     "Address": "00113A",
@@ -17789,7 +17789,7 @@
   },
   {
     "Address": "00117B",
-    "Vendor": "Büchi  Labortechnik AG"
+    "Vendor": "B\u00FCchi  Labortechnik AG"
   },
   {
     "Address": "00117C",
@@ -17921,7 +17921,7 @@
   },
   {
     "Address": "00119C",
-    "Vendor": "EP&T Energy"
+    "Vendor": "EP\u0026T Energy"
   },
   {
     "Address": "00119D",
@@ -18125,7 +18125,7 @@
   },
   {
     "Address": "0011CF",
-    "Vendor": "Thrane & Thrane A/S"
+    "Vendor": "Thrane \u0026 Thrane A/S"
   },
   {
     "Address": "0011D0",
@@ -18177,7 +18177,7 @@
   },
   {
     "Address": "0011DC",
-    "Vendor": "Glunz & Jensen"
+    "Vendor": "Glunz \u0026 Jensen"
   },
   {
     "Address": "0011DD",
@@ -18389,7 +18389,7 @@
   },
   {
     "Address": "001211",
-    "Vendor": "Protechna Herbst GmbH & Co. KG"
+    "Vendor": "Protechna Herbst GmbH \u0026 Co. KG"
   },
   {
     "Address": "001212",
@@ -18401,7 +18401,7 @@
   },
   {
     "Address": "001214",
-    "Vendor": "Koenig & Bauer AG"
+    "Vendor": "Koenig \u0026 Bauer AG"
   },
   {
     "Address": "001215",
@@ -18665,7 +18665,7 @@
   },
   {
     "Address": "001256",
-    "Vendor": "LG INFORMATION & COMM."
+    "Vendor": "LG INFORMATION \u0026 COMM."
   },
   {
     "Address": "001257",
@@ -18897,7 +18897,7 @@
   },
   {
     "Address": "001290",
-    "Vendor": "KYOWA Electric & Machinery Corp."
+    "Vendor": "KYOWA Electric \u0026 Machinery Corp."
   },
   {
     "Address": "001291",
@@ -19197,7 +19197,7 @@
   },
   {
     "Address": "0012DB",
-    "Vendor": "ZIEHL industrie-elektronik GmbH + Co KG"
+    "Vendor": "ZIEHL industrie-elektronik GmbH \u002B Co KG"
   },
   {
     "Address": "0012DC",
@@ -19233,7 +19233,7 @@
   },
   {
     "Address": "0012E4",
-    "Vendor": "ZIEHL industrie-electronik GmbH + Co KG"
+    "Vendor": "ZIEHL industrie-electronik GmbH \u002B Co KG"
   },
   {
     "Address": "0012E5",
@@ -19421,7 +19421,7 @@
   },
   {
     "Address": "001313",
-    "Vendor": "GuangZhou Post & Telecom Equipment ltd"
+    "Vendor": "GuangZhou Post \u0026 Telecom Equipment ltd"
   },
   {
     "Address": "001314",
@@ -19465,11 +19465,11 @@
   },
   {
     "Address": "00131E",
-    "Vendor": "Peiker acustic GmbH & Co. KG"
+    "Vendor": "Peiker acustic GmbH \u0026 Co. KG"
   },
   {
     "Address": "00131F",
-    "Vendor": "NxtPhase T&D, Corp."
+    "Vendor": "NxtPhase T\u0026D, Corp."
   },
   {
     "Address": "001320",
@@ -19705,7 +19705,7 @@
   },
   {
     "Address": "00135A",
-    "Vendor": "Project T&E Limited"
+    "Vendor": "Project T\u0026E Limited"
   },
   {
     "Address": "00135B",
@@ -19861,7 +19861,7 @@
   },
   {
     "Address": "001381",
-    "Vendor": "CHIPS & Systems, Inc."
+    "Vendor": "CHIPS \u0026 Systems, Inc."
   },
   {
     "Address": "001382",
@@ -19893,7 +19893,7 @@
   },
   {
     "Address": "001389",
-    "Vendor": "Redes de Telefonía Móvil S.A."
+    "Vendor": "Redes de Telefon\u00EDa M\u00F3vil S.A."
   },
   {
     "Address": "00138A",
@@ -20025,7 +20025,7 @@
   },
   {
     "Address": "0013AA",
-    "Vendor": "ALS  & TEC Ltd."
+    "Vendor": "ALS  \u0026 TEC Ltd."
   },
   {
     "Address": "0013AB",
@@ -20177,7 +20177,7 @@
   },
   {
     "Address": "0013D0",
-    "Vendor": "t+ Medical Ltd"
+    "Vendor": "t\u002B Medical Ltd"
   },
   {
     "Address": "0013D1",
@@ -20429,7 +20429,7 @@
   },
   {
     "Address": "00140F",
-    "Vendor": "Federal State Unitary Enterprise Leningrad R&D Institute of"
+    "Vendor": "Federal State Unitary Enterprise Leningrad R\u0026D Institute of"
   },
   {
     "Address": "001410",
@@ -20437,7 +20437,7 @@
   },
   {
     "Address": "001411",
-    "Vendor": "Deutschmann Automation GmbH & Co. KG"
+    "Vendor": "Deutschmann Automation GmbH \u0026 Co. KG"
   },
   {
     "Address": "001412",
@@ -20445,7 +20445,7 @@
   },
   {
     "Address": "001413",
-    "Vendor": "Trebing & Himstedt Prozeßautomation GmbH & Co. KG"
+    "Vendor": "Trebing \u0026 Himstedt Proze\u00DFautomation GmbH \u0026 Co. KG"
   },
   {
     "Address": "001414",
@@ -20657,7 +20657,7 @@
   },
   {
     "Address": "001448",
-    "Vendor": "Inventec Multimedia & Telecom Corporation"
+    "Vendor": "Inventec Multimedia \u0026 Telecom Corporation"
   },
   {
     "Address": "001449",
@@ -20809,7 +20809,7 @@
   },
   {
     "Address": "00146E",
-    "Vendor": "H. Stoll GmbH & Co. KG"
+    "Vendor": "H. Stoll GmbH \u0026 Co. KG"
   },
   {
     "Address": "00146F",
@@ -20925,7 +20925,7 @@
   },
   {
     "Address": "00148B",
-    "Vendor": "Globo Electronic GmbH & Co. KG"
+    "Vendor": "Globo Electronic GmbH \u0026 Co. KG"
   },
   {
     "Address": "00148C",
@@ -21061,7 +21061,7 @@
   },
   {
     "Address": "0014AD",
-    "Vendor": "Gassner Wiege- und Meßtechnik GmbH"
+    "Vendor": "Gassner Wiege- und Me\u00DFtechnik GmbH"
   },
   {
     "Address": "0014AE",
@@ -21249,7 +21249,7 @@
   },
   {
     "Address": "0014DC",
-    "Vendor": "Communication System Design & Manufacturing (CSDM)"
+    "Vendor": "Communication System Design \u0026 Manufacturing (CSDM)"
   },
   {
     "Address": "0014DD",
@@ -21265,7 +21265,7 @@
   },
   {
     "Address": "0014E0",
-    "Vendor": "LET'S Corporation"
+    "Vendor": "LET\u0027S Corporation"
   },
   {
     "Address": "0014E1",
@@ -21473,11 +21473,11 @@
   },
   {
     "Address": "001514",
-    "Vendor": "Hu Zhou NAVA Networks&Electronics Ltd."
+    "Vendor": "Hu Zhou NAVA Networks\u0026Electronics Ltd."
   },
   {
     "Address": "001515",
-    "Vendor": "Leipold+               # Leipold+Co.GmbH"
+    "Vendor": "Leipold\u002B               # Leipold\u002BCo.GmbH"
   },
   {
     "Address": "001516",
@@ -21601,7 +21601,7 @@
   },
   {
     "Address": "001534",
-    "Vendor": "A Beltrónica-Companhia de Comunicações, Lda"
+    "Vendor": "A Beltr\u00F3nica-Companhia de Comunica\u00E7\u00F5es, Lda"
   },
   {
     "Address": "001535",
@@ -21629,7 +21629,7 @@
   },
   {
     "Address": "00153B",
-    "Vendor": "EMH metering GmbH & Co. KG"
+    "Vendor": "EMH metering GmbH \u0026 Co. KG"
   },
   {
     "Address": "00153C",
@@ -21885,7 +21885,7 @@
   },
   {
     "Address": "00157B",
-    "Vendor": "Leuze electronic GmbH + Co. KG"
+    "Vendor": "Leuze electronic GmbH \u002B Co. KG"
   },
   {
     "Address": "00157C",
@@ -21897,7 +21897,7 @@
   },
   {
     "Address": "00157E",
-    "Vendor": "Weidmüller Interface GmbH & Co. KG"
+    "Vendor": "Weidm\u00FCller Interface GmbH \u0026 Co. KG"
   },
   {
     "Address": "00157F",
@@ -22069,7 +22069,7 @@
   },
   {
     "Address": "0015A9",
-    "Vendor": "KWANG WOO I&C CO.,LTD"
+    "Vendor": "KWANG WOO I\u0026C CO.,LTD"
   },
   {
     "Address": "0015AA",
@@ -22237,7 +22237,7 @@
   },
   {
     "Address": "0015D3",
-    "Vendor": "Pantech&               # Pantech&Curitel Communications, Inc."
+    "Vendor": "Pantech\u0026               # Pantech\u0026Curitel Communications, Inc."
   },
   {
     "Address": "0015D4",
@@ -22273,7 +22273,7 @@
   },
   {
     "Address": "0015DC",
-    "Vendor": "KT&C Co., Ltd."
+    "Vendor": "KT\u0026C Co., Ltd."
   },
   {
     "Address": "0015DD",
@@ -22585,7 +22585,7 @@
   },
   {
     "Address": "00162A",
-    "Vendor": "Antik computers & communications s.r.o."
+    "Vendor": "Antik computers \u0026 communications s.r.o."
   },
   {
     "Address": "00162B",
@@ -22605,7 +22605,7 @@
   },
   {
     "Address": "00162F",
-    "Vendor": "Geutebrück GmbH"
+    "Vendor": "Geutebr\u00FCck GmbH"
   },
   {
     "Address": "001630",
@@ -22877,7 +22877,7 @@
   },
   {
     "Address": "001673",
-    "Vendor": "Bury GmbH & Co. KG"
+    "Vendor": "Bury GmbH \u0026 Co. KG"
   },
   {
     "Address": "001674",
@@ -22893,7 +22893,7 @@
   },
   {
     "Address": "001677",
-    "Vendor": "Bihl + Wiedemann GmbH"
+    "Vendor": "Bihl \u002B Wiedemann GmbH"
   },
   {
     "Address": "001678",
@@ -22909,7 +22909,7 @@
   },
   {
     "Address": "00167B",
-    "Vendor": "Haver&Boecker"
+    "Vendor": "Haver\u0026Boecker"
   },
   {
     "Address": "00167C",
@@ -22929,7 +22929,7 @@
   },
   {
     "Address": "001680",
-    "Vendor": "Bally Gaming + Systems"
+    "Vendor": "Bally Gaming \u002B Systems"
   },
   {
     "Address": "001681",
@@ -23025,7 +23025,7 @@
   },
   {
     "Address": "001698",
-    "Vendor": "T&A Mobile Phones"
+    "Vendor": "T\u0026A Mobile Phones"
   },
   {
     "Address": "001699",
@@ -23069,7 +23069,7 @@
   },
   {
     "Address": "0016A3",
-    "Vendor": "Ingeteam Transmission&Distribution, S.A."
+    "Vendor": "Ingeteam Transmission\u0026Distribution, S.A."
   },
   {
     "Address": "0016A4",
@@ -23085,7 +23085,7 @@
   },
   {
     "Address": "0016A7",
-    "Vendor": "AWETA G&P"
+    "Vendor": "AWETA G\u0026P"
   },
   {
     "Address": "0016A8",
@@ -23561,7 +23561,7 @@
   },
   {
     "Address": "00171E",
-    "Vendor": "Theo Benning GmbH & Co. KG"
+    "Vendor": "Theo Benning GmbH \u0026 Co. KG"
   },
   {
     "Address": "00171F",
@@ -23981,7 +23981,7 @@
   },
   {
     "Address": "001787",
-    "Vendor": "Brother, Brother & Sons ApS"
+    "Vendor": "Brother, Brother \u0026 Sons ApS"
   },
   {
     "Address": "001788",
@@ -24129,7 +24129,7 @@
   },
   {
     "Address": "0017AC",
-    "Vendor": "O'Neil Product Development Inc."
+    "Vendor": "O\u0027Neil Product Development Inc."
   },
   {
     "Address": "0017AD",
@@ -24261,7 +24261,7 @@
   },
   {
     "Address": "0017CD",
-    "Vendor": "CEC Wireless R&D Ltd."
+    "Vendor": "CEC Wireless R\u0026D Ltd."
   },
   {
     "Address": "0017CE",
@@ -24633,7 +24633,7 @@
   },
   {
     "Address": "00182A",
-    "Vendor": "Taiwan Video & Monitor"
+    "Vendor": "Taiwan Video \u0026 Monitor"
   },
   {
     "Address": "00182B",
@@ -24813,7 +24813,7 @@
   },
   {
     "Address": "001857",
-    "Vendor": "Unilever R&D"
+    "Vendor": "Unilever R\u0026D"
   },
   {
     "Address": "001858",
@@ -25077,7 +25077,7 @@
   },
   {
     "Address": "001899",
-    "Vendor": "ShenZhen jieshun Science&Technology Industry CO,LTD."
+    "Vendor": "ShenZhen jieshun Science\u0026Technology Industry CO,LTD."
   },
   {
     "Address": "00189A",
@@ -25237,7 +25237,7 @@
   },
   {
     "Address": "0018C1",
-    "Vendor": "Almitec Informática e Comércio"
+    "Vendor": "Almitec Inform\u00E1tica e Com\u00E9rcio"
   },
   {
     "Address": "0018C2",
@@ -25301,7 +25301,7 @@
   },
   {
     "Address": "0018D1",
-    "Vendor": "Siemens Home & Office Comm. Devices"
+    "Vendor": "Siemens Home \u0026 Office Comm. Devices"
   },
   {
     "Address": "0018D2",
@@ -25553,7 +25553,7 @@
   },
   {
     "Address": "001910",
-    "Vendor": "Knick Elektronische Messgeraete GmbH & Co. KG"
+    "Vendor": "Knick Elektronische Messgeraete GmbH \u0026 Co. KG"
   },
   {
     "Address": "001911",
@@ -25793,7 +25793,7 @@
   },
   {
     "Address": "00194C",
-    "Vendor": "Fujian Stelcom information & Technology CO.,Ltd"
+    "Vendor": "Fujian Stelcom information \u0026 Technology CO.,Ltd"
   },
   {
     "Address": "00194D",
@@ -26013,7 +26013,7 @@
   },
   {
     "Address": "001983",
-    "Vendor": "CCT R&D Limited"
+    "Vendor": "CCT R\u0026D Limited"
   },
   {
     "Address": "001984",
@@ -26133,7 +26133,7 @@
   },
   {
     "Address": "0019A1",
-    "Vendor": "LG INFORMATION & COMM."
+    "Vendor": "LG INFORMATION \u0026 COMM."
   },
   {
     "Address": "0019A2",
@@ -26293,7 +26293,7 @@
   },
   {
     "Address": "0019C9",
-    "Vendor": "S&C ELECTRIC COMPANY"
+    "Vendor": "S\u0026C ELECTRIC COMPANY"
   },
   {
     "Address": "0019CA",
@@ -26361,7 +26361,7 @@
   },
   {
     "Address": "0019DA",
-    "Vendor": "Welltrans O&E Technology Co. , Ltd."
+    "Vendor": "Welltrans O\u0026E Technology Co. , Ltd."
   },
   {
     "Address": "0019DB",
@@ -26625,7 +26625,7 @@
   },
   {
     "Address": "001A1C",
-    "Vendor": "GT&T Engineering Pte Ltd"
+    "Vendor": "GT\u0026T Engineering Pte Ltd"
   },
   {
     "Address": "001A1D",
@@ -26729,7 +26729,7 @@
   },
   {
     "Address": "001A36",
-    "Vendor": "Aipermon GmbH & Co. KG"
+    "Vendor": "Aipermon GmbH \u0026 Co. KG"
   },
   {
     "Address": "001A37",
@@ -26741,7 +26741,7 @@
   },
   {
     "Address": "001A39",
-    "Vendor": "Merten GmbH&CoKG"
+    "Vendor": "Merten GmbH\u0026CoKG"
   },
   {
     "Address": "001A3A",
@@ -26881,7 +26881,7 @@
   },
   {
     "Address": "001A5C",
-    "Vendor": "Euchner GmbH+Co. KG"
+    "Vendor": "Euchner GmbH\u002BCo. KG"
   },
   {
     "Address": "001A5D",
@@ -27021,7 +27021,7 @@
   },
   {
     "Address": "001A7F",
-    "Vendor": "GCI Science & Technology Co.,LTD"
+    "Vendor": "GCI Science \u0026 Technology Co.,LTD"
   },
   {
     "Address": "001A80",
@@ -27089,7 +27089,7 @@
   },
   {
     "Address": "001A90",
-    "Vendor": "Trópico Sistemas e Telecomunicações da Amazônia LTDA."
+    "Vendor": "Tr\u00F3pico Sistemas e Telecomunica\u00E7\u00F5es da Amaz\u00F4nia LTDA."
   },
   {
     "Address": "001A91",
@@ -27133,7 +27133,7 @@
   },
   {
     "Address": "001A9B",
-    "Vendor": "ADEC & Parter AG"
+    "Vendor": "ADEC \u0026 Parter AG"
   },
   {
     "Address": "001A9C",
@@ -27177,7 +27177,7 @@
   },
   {
     "Address": "001AA6",
-    "Vendor": "Telefunken Radio Communication Systems GmbH &CO.KG"
+    "Vendor": "Telefunken Radio Communication Systems GmbH \u0026CO.KG"
   },
   {
     "Address": "001AA7",
@@ -27441,7 +27441,7 @@
   },
   {
     "Address": "001AE8",
-    "Vendor": "Unify Software and Solutions GmbH & Co. KG"
+    "Vendor": "Unify Software and Solutions GmbH \u0026 Co. KG"
   },
   {
     "Address": "001AE9",
@@ -27453,7 +27453,7 @@
   },
   {
     "Address": "001AEB",
-    "Vendor": "Allied Telesis R&D Center K.K."
+    "Vendor": "Allied Telesis R\u0026D Center K.K."
   },
   {
     "Address": "001AEC",
@@ -27501,7 +27501,7 @@
   },
   {
     "Address": "001AF7",
-    "Vendor": "dataschalt e+a GmbH"
+    "Vendor": "dataschalt e\u002Ba GmbH"
   },
   {
     "Address": "001AF8",
@@ -27637,7 +27637,7 @@
   },
   {
     "Address": "001B19",
-    "Vendor": "IEEE I&M Society TC9"
+    "Vendor": "IEEE I\u0026M Society TC9"
   },
   {
     "Address": "001B1A",
@@ -27661,7 +27661,7 @@
   },
   {
     "Address": "001B1F",
-    "Vendor": "DELTA - Danish Electronics, Light & Acoustics"
+    "Vendor": "DELTA - Danish Electronics, Light \u0026 Acoustics"
   },
   {
     "Address": "001B20",
@@ -27749,7 +27749,7 @@
   },
   {
     "Address": "001B35",
-    "Vendor": "ChongQing JINOU Science & Technology Development CO.,Ltd"
+    "Vendor": "ChongQing JINOU Science \u0026 Technology Development CO.,Ltd"
   },
   {
     "Address": "001B36",
@@ -27801,7 +27801,7 @@
   },
   {
     "Address": "001B42",
-    "Vendor": "Wise & Blue"
+    "Vendor": "Wise \u0026 Blue"
   },
   {
     "Address": "001B43",
@@ -27833,7 +27833,7 @@
   },
   {
     "Address": "001B4A",
-    "Vendor": "W&W Communications, Inc."
+    "Vendor": "W\u0026W Communications, Inc."
   },
   {
     "Address": "001B4B",
@@ -27945,7 +27945,7 @@
   },
   {
     "Address": "001B66",
-    "Vendor": "Sennheiser electronic GmbH & Co. KG"
+    "Vendor": "Sennheiser electronic GmbH \u0026 Co. KG"
   },
   {
     "Address": "001B67",
@@ -28033,7 +28033,7 @@
   },
   {
     "Address": "001B7C",
-    "Vendor": "A & R Cambridge"
+    "Vendor": "A \u0026 R Cambridge"
   },
   {
     "Address": "001B7D",
@@ -28181,7 +28181,7 @@
   },
   {
     "Address": "001BA1",
-    "Vendor": "Åmic AB"
+    "Vendor": "\u00C5mic AB"
   },
   {
     "Address": "001BA2",
@@ -28209,7 +28209,7 @@
   },
   {
     "Address": "001BA8",
-    "Vendor": "UBI&MOBI,.Inc"
+    "Vendor": "UBI\u0026MOBI,.Inc"
   },
   {
     "Address": "001BA9",
@@ -28517,7 +28517,7 @@
   },
   {
     "Address": "001BF5",
-    "Vendor": "Tellink Sistemas de Telecomunicación S.L."
+    "Vendor": "Tellink Sistemas de Telecomunicaci\u00F3n S.L."
   },
   {
     "Address": "001BF6",
@@ -28961,7 +28961,7 @@
   },
   {
     "Address": "001C64",
-    "Vendor": "Landis+Gyr"
+    "Vendor": "Landis\u002BGyr"
   },
   {
     "Address": "001C65",
@@ -29017,7 +29017,7 @@
   },
   {
     "Address": "001C72",
-    "Vendor": "Mayer & Cie GmbH & Co KG"
+    "Vendor": "Mayer \u0026 Cie GmbH \u0026 Co KG"
   },
   {
     "Address": "001C73",
@@ -29361,7 +29361,7 @@
   },
   {
     "Address": "001CC8",
-    "Vendor": "INDUSTRONIC Industrie-Electronic GmbH & Co. KG"
+    "Vendor": "INDUSTRONIC Industrie-Electronic GmbH \u0026 Co. KG"
   },
   {
     "Address": "001CC9",
@@ -29369,7 +29369,7 @@
   },
   {
     "Address": "001CCA",
-    "Vendor": "Shanghai Gaozhi Science & Technology Development Co."
+    "Vendor": "Shanghai Gaozhi Science \u0026 Technology Development Co."
   },
   {
     "Address": "001CCB",
@@ -29653,7 +29653,7 @@
   },
   {
     "Address": "001D11",
-    "Vendor": "Analogue & Micro Ltd"
+    "Vendor": "Analogue \u0026 Micro Ltd"
   },
   {
     "Address": "001D12",
@@ -29781,11 +29781,11 @@
   },
   {
     "Address": "001D31",
-    "Vendor": "HIGHPRO INTERNATIONAL R&D CO,.LTD."
+    "Vendor": "HIGHPRO INTERNATIONAL R\u0026D CO,.LTD."
   },
   {
     "Address": "001D32",
-    "Vendor": "Longkay Communication & Technology (Shanghai) Co. Ltd"
+    "Vendor": "Longkay Communication \u0026 Technology (Shanghai) Co. Ltd"
   },
   {
     "Address": "001D33",
@@ -29841,7 +29841,7 @@
   },
   {
     "Address": "001D40",
-    "Vendor": "Intel – GE Care Innovations LLC"
+    "Vendor": "Intel \u2013 GE Care Innovations LLC"
   },
   {
     "Address": "001D41",
@@ -29869,7 +29869,7 @@
   },
   {
     "Address": "001D47",
-    "Vendor": "Covote GmbH & Co KG"
+    "Vendor": "Covote GmbH \u0026 Co KG"
   },
   {
     "Address": "001D48",
@@ -29909,7 +29909,7 @@
   },
   {
     "Address": "001D51",
-    "Vendor": "Babcock & Wilcox Power Generation Group, Inc"
+    "Vendor": "Babcock \u0026 Wilcox Power Generation Group, Inc"
   },
   {
     "Address": "001D52",
@@ -29917,11 +29917,11 @@
   },
   {
     "Address": "001D53",
-    "Vendor": "S&O Electronics (Malaysia) Sdn. Bhd."
+    "Vendor": "S\u0026O Electronics (Malaysia) Sdn. Bhd."
   },
   {
     "Address": "001D54",
-    "Vendor": "Sunnic Technology & Merchandise INC."
+    "Vendor": "Sunnic Technology \u0026 Merchandise INC."
   },
   {
     "Address": "001D55",
@@ -29941,7 +29941,7 @@
   },
   {
     "Address": "001D59",
-    "Vendor": "Mitra Energy & Infrastructure"
+    "Vendor": "Mitra Energy \u0026 Infrastructure"
   },
   {
     "Address": "001D5A",
@@ -29949,7 +29949,7 @@
   },
   {
     "Address": "001D5B",
-    "Vendor": "Tecvan Informática Ltda"
+    "Vendor": "Tecvan Inform\u00E1tica Ltda"
   },
   {
     "Address": "001D5C",
@@ -29981,7 +29981,7 @@
   },
   {
     "Address": "001D63",
-    "Vendor": "Miele & Cie. KG"
+    "Vendor": "Miele \u0026 Cie. KG"
   },
   {
     "Address": "001D64",
@@ -30169,7 +30169,7 @@
   },
   {
     "Address": "001D92",
-    "Vendor": "MICRO-STAR INT'L CO.,LTD."
+    "Vendor": "MICRO-STAR INT\u0027L CO.,LTD."
   },
   {
     "Address": "001D93",
@@ -30397,7 +30397,7 @@
   },
   {
     "Address": "001DCB",
-    "Vendor": "Exéns Development Oy"
+    "Vendor": "Ex\u00E9ns Development Oy"
   },
   {
     "Address": "001DCC",
@@ -30465,7 +30465,7 @@
   },
   {
     "Address": "001DDC",
-    "Vendor": "HangZhou DeChangLong Tech&Info Co.,Ltd"
+    "Vendor": "HangZhou DeChangLong Tech\u0026Info Co.,Ltd"
   },
   {
     "Address": "001DDD",
@@ -30473,7 +30473,7 @@
   },
   {
     "Address": "001DDE",
-    "Vendor": "Zhejiang Broadcast&Television Technology Co.,Ltd."
+    "Vendor": "Zhejiang Broadcast\u0026Television Technology Co.,Ltd."
   },
   {
     "Address": "001DDF",
@@ -30537,7 +30537,7 @@
   },
   {
     "Address": "001DEE",
-    "Vendor": "NEXTVISION SISTEMAS DIGITAIS DE TELEVISÃO LTDA."
+    "Vendor": "NEXTVISION SISTEMAS DIGITAIS DE TELEVIS\u00C3O LTDA."
   },
   {
     "Address": "001DEF",
@@ -30557,7 +30557,7 @@
   },
   {
     "Address": "001DF3",
-    "Vendor": "SBS Science & Technology Co., Ltd"
+    "Vendor": "SBS Science \u0026 Technology Co., Ltd"
   },
   {
     "Address": "001DF4",
@@ -30573,7 +30573,7 @@
   },
   {
     "Address": "001DF7",
-    "Vendor": "R. STAHL Schaltgeräte GmbH"
+    "Vendor": "R. STAHL Schaltger\u00E4te GmbH"
   },
   {
     "Address": "001DF8",
@@ -30629,7 +30629,7 @@
   },
   {
     "Address": "001E05",
-    "Vendor": "Xseed Technologies & Computing"
+    "Vendor": "Xseed Technologies \u0026 Computing"
   },
   {
     "Address": "001E06",
@@ -30869,7 +30869,7 @@
   },
   {
     "Address": "001E41",
-    "Vendor": "Microwave Communication & Component, Inc."
+    "Vendor": "Microwave Communication \u0026 Component, Inc."
   },
   {
     "Address": "001E42",
@@ -31045,7 +31045,7 @@
   },
   {
     "Address": "001E6D",
-    "Vendor": "IT R&D Center"
+    "Vendor": "IT R\u0026D Center"
   },
   {
     "Address": "001E6E",
@@ -31241,7 +31241,7 @@
   },
   {
     "Address": "001E9E",
-    "Vendor": "DdmHopt+               # ddm hopt + schuler Gmbh + Co. KG"
+    "Vendor": "DdmHopt\u002B               # ddm hopt \u002B schuler Gmbh \u002B Co. KG"
   },
   {
     "Address": "001E9F",
@@ -31453,7 +31453,7 @@
   },
   {
     "Address": "001ED3",
-    "Vendor": "Dot Technology Int'l Co., Ltd."
+    "Vendor": "Dot Technology Int\u0027l Co., Ltd."
   },
   {
     "Address": "001ED4",
@@ -31465,7 +31465,7 @@
   },
   {
     "Address": "001ED6",
-    "Vendor": "Alentec & Orion AB"
+    "Vendor": "Alentec \u0026 Orion AB"
   },
   {
     "Address": "001ED7",
@@ -31517,7 +31517,7 @@
   },
   {
     "Address": "001EE3",
-    "Vendor": "T&W Electronics (ShenZhen) Co.,Ltd"
+    "Vendor": "T\u0026W Electronics (ShenZhen) Co.,Ltd"
   },
   {
     "Address": "001EE4",
@@ -31629,7 +31629,7 @@
   },
   {
     "Address": "001EFF",
-    "Vendor": "Mueller-               # Mueller-Elektronik GmbH & Co. KG"
+    "Vendor": "Mueller-               # Mueller-Elektronik GmbH \u0026 Co. KG"
   },
   {
     "Address": "001F00",
@@ -31709,7 +31709,7 @@
   },
   {
     "Address": "001F13",
-    "Vendor": "S.& A.S. Ltd."
+    "Vendor": "S.\u0026 A.S. Ltd."
   },
   {
     "Address": "001F14",
@@ -31765,7 +31765,7 @@
   },
   {
     "Address": "001F21",
-    "Vendor": "Inner Mongolia Yin An Science & Technology Development Co.,L"
+    "Vendor": "Inner Mongolia Yin An Science \u0026 Technology Development Co.,L"
   },
   {
     "Address": "001F22",
@@ -31817,11 +31817,11 @@
   },
   {
     "Address": "001F2E",
-    "Vendor": "Triangle Research Int'l Pte Ltd"
+    "Vendor": "Triangle Research Int\u0027l Pte Ltd"
   },
   {
     "Address": "001F2F",
-    "Vendor": "Berker GmbH & Co. KG"
+    "Vendor": "Berker GmbH \u0026 Co. KG"
   },
   {
     "Address": "001F30",
@@ -31853,7 +31853,7 @@
   },
   {
     "Address": "001F37",
-    "Vendor": "Genesis I&C"
+    "Vendor": "Genesis I\u0026C"
   },
   {
     "Address": "001F38",
@@ -31965,7 +31965,7 @@
   },
   {
     "Address": "001F53",
-    "Vendor": "GEMAC Gesellschaft für Mikroelektronikanwendung Chemnitz mbH"
+    "Vendor": "GEMAC Gesellschaft f\u00FCr Mikroelektronikanwendung Chemnitz mbH"
   },
   {
     "Address": "001F54",
@@ -32153,7 +32153,7 @@
   },
   {
     "Address": "001F82",
-    "Vendor": "Cal-Comp Electronics & Communications Company Ltd."
+    "Vendor": "Cal-Comp Electronics \u0026 Communications Company Ltd."
   },
   {
     "Address": "001F83",
@@ -32285,7 +32285,7 @@
   },
   {
     "Address": "001FA3",
-    "Vendor": "T&W Electronics(Shenzhen)Co.,Ltd."
+    "Vendor": "T\u0026W Electronics(Shenzhen)Co.,Ltd."
   },
   {
     "Address": "001FA4",
@@ -32577,7 +32577,7 @@
   },
   {
     "Address": "001FEC",
-    "Vendor": "Synapse Électronique"
+    "Vendor": "Synapse \u00C9lectronique"
   },
   {
     "Address": "001FED",
@@ -32613,7 +32613,7 @@
   },
   {
     "Address": "001FF5",
-    "Vendor": "Kongsberg Defence & Aerospace"
+    "Vendor": "Kongsberg Defence \u0026 Aerospace"
   },
   {
     "Address": "001FF6",
@@ -32641,7 +32641,7 @@
   },
   {
     "Address": "001FFC",
-    "Vendor": "Riccius+               # Riccius+Sohn GmbH"
+    "Vendor": "Riccius\u002B               # Riccius\u002BSohn GmbH"
   },
   {
     "Address": "001FFD",
@@ -32689,7 +32689,7 @@
   },
   {
     "Address": "002008",
-    "Vendor": "Cable & Computer Technology"
+    "Vendor": "Cable \u0026 Computer Technology"
   },
   {
     "Address": "002009",
@@ -32745,7 +32745,7 @@
   },
   {
     "Address": "002016",
-    "Vendor": "SHOWA ELECTRIC WIRE & CABLE CO"
+    "Vendor": "SHOWA ELECTRIC WIRE \u0026 CABLE CO"
   },
   {
     "Address": "002017",
@@ -32849,7 +32849,7 @@
   },
   {
     "Address": "002030",
-    "Vendor": "ANALOG & DIGITAL SYSTEMS"
+    "Vendor": "ANALOG \u0026 DIGITAL SYSTEMS"
   },
   {
     "Address": "002031",
@@ -33289,7 +33289,7 @@
   },
   {
     "Address": "00209E",
-    "Vendor": "BROWN'S OPERATING SYSTEM SERVICES, LTD."
+    "Vendor": "BROWN\u0027S OPERATING SYSTEM SERVICES, LTD."
   },
   {
     "Address": "00209F",
@@ -33413,7 +33413,7 @@
   },
   {
     "Address": "0020BD",
-    "Vendor": "NIOBRARA R & D CORPORATION"
+    "Vendor": "NIOBRARA R \u0026 D CORPORATION"
   },
   {
     "Address": "0020BE",
@@ -33485,11 +33485,11 @@
   },
   {
     "Address": "0020CF",
-    "Vendor": "TEST & MEASUREMENT SYSTEMS INC"
+    "Vendor": "TEST \u0026 MEASUREMENT SYSTEMS INC"
   },
   {
     "Address": "0020D0",
-    "Vendor": "Versalynx Corp.   \"The One Port\" terminal server"
+    "Vendor": "Versalynx Corp.   \u0022The One Port\u0022 terminal server"
   },
   {
     "Address": "0020D1",
@@ -33545,7 +33545,7 @@
   },
   {
     "Address": "0020DE",
-    "Vendor": "JAPAN DIGITAL LABORAT'Y CO.LTD"
+    "Vendor": "JAPAN DIGITAL LABORAT\u0027Y CO.LTD"
   },
   {
     "Address": "0020DF",
@@ -33581,7 +33581,7 @@
   },
   {
     "Address": "0020E7",
-    "Vendor": "B&W NUCLEAR SERVICE COMPANY"
+    "Vendor": "B\u0026W NUCLEAR SERVICE COMPANY"
   },
   {
     "Address": "0020E8",
@@ -33641,7 +33641,7 @@
   },
   {
     "Address": "0020F6",
-    "Vendor": "Net Tek & Karlnet Inc"
+    "Vendor": "Net Tek \u0026 Karlnet Inc"
   },
   {
     "Address": "0020F7",
@@ -33765,7 +33765,7 @@
   },
   {
     "Address": "002115",
-    "Vendor": "PHYWE Systeme GmbH & Co. KG"
+    "Vendor": "PHYWE Systeme GmbH \u0026 Co. KG"
   },
   {
     "Address": "002116",
@@ -33981,7 +33981,7 @@
   },
   {
     "Address": "00214B",
-    "Vendor": "Shenzhen HAMP Science & Technology Co.,Ltd"
+    "Vendor": "Shenzhen HAMP Science \u0026 Technology Co.,Ltd"
   },
   {
     "Address": "00214C",
@@ -34009,7 +34009,7 @@
   },
   {
     "Address": "002152",
-    "Vendor": "General Satellite Research & Development Limited"
+    "Vendor": "General Satellite Research \u0026 Development Limited"
   },
   {
     "Address": "002153",
@@ -34093,7 +34093,7 @@
   },
   {
     "Address": "002167",
-    "Vendor": "HwaJinT&               # HWA JIN T&I Corp."
+    "Vendor": "HwaJinT\u0026               # HWA JIN T\u0026I Corp."
   },
   {
     "Address": "002168",
@@ -34157,7 +34157,7 @@
   },
   {
     "Address": "002177",
-    "Vendor": "W. L. Gore & Associates"
+    "Vendor": "W. L. Gore \u0026 Associates"
   },
   {
     "Address": "002178",
@@ -34213,7 +34213,7 @@
   },
   {
     "Address": "002185",
-    "Vendor": "MICRO-STAR INT'L CO.,LTD."
+    "Vendor": "MICRO-STAR INT\u0027L CO.,LTD."
   },
   {
     "Address": "002186",
@@ -34585,7 +34585,7 @@
   },
   {
     "Address": "0021E2",
-    "Vendor": "visago Systems & Controls GmbH & Co. KG"
+    "Vendor": "visago Systems \u0026 Controls GmbH \u0026 Co. KG"
   },
   {
     "Address": "0021E3",
@@ -34713,7 +34713,7 @@
   },
   {
     "Address": "002202",
-    "Vendor": "Excito Elektronik i Skåne AB"
+    "Vendor": "Excito Elektronik i Sk\u00E5ne AB"
   },
   {
     "Address": "002203",
@@ -34901,7 +34901,7 @@
   },
   {
     "Address": "002231",
-    "Vendor": "SMT&C Co., Ltd."
+    "Vendor": "SMT\u0026C Co., Ltd."
   },
   {
     "Address": "002232",
@@ -34981,7 +34981,7 @@
   },
   {
     "Address": "002245",
-    "Vendor": "Leine & Linde AB"
+    "Vendor": "Leine \u0026 Linde AB"
   },
   {
     "Address": "002246",
@@ -35073,7 +35073,7 @@
   },
   {
     "Address": "00225C",
-    "Vendor": "Multimedia & Communication Technology"
+    "Vendor": "Multimedia \u0026 Communication Technology"
   },
   {
     "Address": "00225D",
@@ -35157,7 +35157,7 @@
   },
   {
     "Address": "002271",
-    "Vendor": "Jäger Computergesteuerte Meßtechnik GmbH."
+    "Vendor": "J\u00E4ger Computergesteuerte Me\u00DFtechnik GmbH."
   },
   {
     "Address": "002272",
@@ -35233,7 +35233,7 @@
   },
   {
     "Address": "002284",
-    "Vendor": "DESAY A&V SCIENCE AND TECHNOLOGY CO.,LTD"
+    "Vendor": "DESAY A\u0026V SCIENCE AND TECHNOLOGY CO.,LTD"
   },
   {
     "Address": "002285",
@@ -35453,7 +35453,7 @@
   },
   {
     "Address": "0022BB",
-    "Vendor": "beyerdynamic GmbH & Co. KG"
+    "Vendor": "beyerdynamic GmbH \u0026 Co. KG"
   },
   {
     "Address": "0022BC",
@@ -35481,7 +35481,7 @@
   },
   {
     "Address": "0022C2",
-    "Vendor": "Proview Eletrônica do Brasil LTDA"
+    "Vendor": "Proview Eletr\u00F4nica do Brasil LTDA"
   },
   {
     "Address": "0022C3",
@@ -35501,7 +35501,7 @@
   },
   {
     "Address": "0022C7",
-    "Vendor": "SEGGER Microcontroller GmbH & Co. KG"
+    "Vendor": "SEGGER Microcontroller GmbH \u0026 Co. KG"
   },
   {
     "Address": "0022C8",
@@ -35509,7 +35509,7 @@
   },
   {
     "Address": "0022C9",
-    "Vendor": "Lenord, Bauer & Co GmbH"
+    "Vendor": "Lenord, Bauer \u0026 Co GmbH"
   },
   {
     "Address": "0022CA",
@@ -35541,11 +35541,11 @@
   },
   {
     "Address": "0022D1",
-    "Vendor": "Albrecht Jung GmbH & Co. KG"
+    "Vendor": "Albrecht Jung GmbH \u0026 Co. KG"
   },
   {
     "Address": "0022D2",
-    "Vendor": "All Earth Comércio de Eletrônicos LTDA."
+    "Vendor": "All Earth Com\u00E9rcio de Eletr\u00F4nicos LTDA."
   },
   {
     "Address": "0022D3",
@@ -35769,7 +35769,7 @@
   },
   {
     "Address": "00230A",
-    "Vendor": "ARBURG GmbH & Co KG"
+    "Vendor": "ARBURG GmbH \u0026 Co KG"
   },
   {
     "Address": "00230B",
@@ -35853,7 +35853,7 @@
   },
   {
     "Address": "00231F",
-    "Vendor": "Guangda Electronic & Telecommunication Technology Development Co., Ltd."
+    "Vendor": "Guangda Electronic \u0026 Telecommunication Technology Development Co., Ltd."
   },
   {
     "Address": "002320",
@@ -36169,7 +36169,7 @@
   },
   {
     "Address": "00236E",
-    "Vendor": "Burster GmbH & Co KG"
+    "Vendor": "Burster GmbH \u0026 Co KG"
   },
   {
     "Address": "00236F",
@@ -36265,7 +36265,7 @@
   },
   {
     "Address": "002386",
-    "Vendor": "Tour & Andersson AB"
+    "Vendor": "Tour \u0026 Andersson AB"
   },
   {
     "Address": "002387",
@@ -36365,7 +36365,7 @@
   },
   {
     "Address": "00239F",
-    "Vendor": "Institut für Prüftechnik"
+    "Vendor": "Institut f\u00FCr Pr\u00FCftechnik"
   },
   {
     "Address": "0023A0",
@@ -36533,7 +36533,7 @@
   },
   {
     "Address": "0023C9",
-    "Vendor": "Sichuan Tianyi Information Science & Technology Stock CO.,LTD"
+    "Vendor": "Sichuan Tianyi Information Science \u0026 Technology Stock CO.,LTD"
   },
   {
     "Address": "0023CA",
@@ -36813,7 +36813,7 @@
   },
   {
     "Address": "00240F",
-    "Vendor": "Ishii Tool & Engineering Corporation"
+    "Vendor": "Ishii Tool \u0026 Engineering Corporation"
   },
   {
     "Address": "002410",
@@ -36885,7 +36885,7 @@
   },
   {
     "Address": "002421",
-    "Vendor": "MICRO-STAR INT'L CO., LTD."
+    "Vendor": "MICRO-STAR INT\u0027L CO., LTD."
   },
   {
     "Address": "002422",
@@ -37433,7 +37433,7 @@
   },
   {
     "Address": "0024AD",
-    "Vendor": "Adolf Thies Gmbh & Co. KG"
+    "Vendor": "Adolf Thies Gmbh \u0026 Co. KG"
   },
   {
     "Address": "0024AE",
@@ -37457,7 +37457,7 @@
   },
   {
     "Address": "0024B3",
-    "Vendor": "Graf-Syteco GmbH & Co. KG"
+    "Vendor": "Graf-Syteco GmbH \u0026 Co. KG"
   },
   {
     "Address": "0024B4",
@@ -37677,7 +37677,7 @@
   },
   {
     "Address": "0024EA",
-    "Vendor": "iris-GmbH infrared & intelligent sensors"
+    "Vendor": "iris-GmbH infrared \u0026 intelligent sensors"
   },
   {
     "Address": "0024EB",
@@ -37785,7 +37785,7 @@
   },
   {
     "Address": "002505",
-    "Vendor": "eks Engel GmbH & Co. KG"
+    "Vendor": "eks Engel GmbH \u0026 Co. KG"
   },
   {
     "Address": "002506",
@@ -37845,7 +37845,7 @@
   },
   {
     "Address": "002514",
-    "Vendor": "PC Worth Int'l Co., Ltd."
+    "Vendor": "PC Worth Int\u0027l Co., Ltd."
   },
   {
     "Address": "002515",
@@ -37973,7 +37973,7 @@
   },
   {
     "Address": "002535",
-    "Vendor": "Minimax GmbH & Co KG"
+    "Vendor": "Minimax GmbH \u0026 Co KG"
   },
   {
     "Address": "002536",
@@ -38141,7 +38141,7 @@
   },
   {
     "Address": "002560",
-    "Vendor": "Ibridge Networks & Communications Ltd."
+    "Vendor": "Ibridge Networks \u0026 Communications Ltd."
   },
   {
     "Address": "002561",
@@ -38241,11 +38241,11 @@
   },
   {
     "Address": "002579",
-    "Vendor": "J & F Labs"
+    "Vendor": "J \u0026 F Labs"
   },
   {
     "Address": "00257A",
-    "Vendor": "CAMCO Produktions- und Vertriebs-GmbH für  Beschallungs- und Beleuchtungsanlagen"
+    "Vendor": "CAMCO Produktions- und Vertriebs-GmbH f\u00FCr  Beschallungs- und Beleuchtungsanlagen"
   },
   {
     "Address": "00257B",
@@ -38289,7 +38289,7 @@
   },
   {
     "Address": "002585",
-    "Vendor": "KokuyoS&               # KOKUYO S&T Co., Ltd."
+    "Vendor": "KokuyoS\u0026               # KOKUYO S\u0026T Co., Ltd."
   },
   {
     "Address": "002586",
@@ -38513,7 +38513,7 @@
   },
   {
     "Address": "0025BD",
-    "Vendor": "Italdata Ingegneria dell'Idea S.p.A."
+    "Vendor": "Italdata Ingegneria dell\u0027Idea S.p.A."
   },
   {
     "Address": "0025BE",
@@ -38657,7 +38657,7 @@
   },
   {
     "Address": "0025E1",
-    "Vendor": "SHANGHAI SEEYOO ELECTRONIC & TECHNOLOGY CO., LTD"
+    "Vendor": "SHANGHAI SEEYOO ELECTRONIC \u0026 TECHNOLOGY CO., LTD"
   },
   {
     "Address": "0025E2",
@@ -38729,7 +38729,7 @@
   },
   {
     "Address": "0025F3",
-    "Vendor": "Nordwestdeutsche Zählerrevision"
+    "Vendor": "Nordwestdeutsche Z\u00E4hlerrevision"
   },
   {
     "Address": "0025F4",
@@ -38753,7 +38753,7 @@
   },
   {
     "Address": "0025FA",
-    "Vendor": "J&M Analytik AG"
+    "Vendor": "J\u0026M Analytik AG"
   },
   {
     "Address": "0025FB",
@@ -38937,7 +38937,7 @@
   },
   {
     "Address": "002628",
-    "Vendor": "companytec automação e controle ltda."
+    "Vendor": "companytec automa\u00E7\u00E3o e controle ltda."
   },
   {
     "Address": "002629",
@@ -39017,7 +39017,7 @@
   },
   {
     "Address": "00263C",
-    "Vendor": "Bachmann Technology GmbH & Co. KG"
+    "Vendor": "Bachmann Technology GmbH \u0026 Co. KG"
   },
   {
     "Address": "00263D",
@@ -39081,11 +39081,11 @@
   },
   {
     "Address": "00264E",
-    "Vendor": "Rail & Road Protec GmbH"
+    "Vendor": "Rail \u0026 Road Protec GmbH"
   },
   {
     "Address": "00264F",
-    "Vendor": "Krüger &Gothe GmbH"
+    "Vendor": "Kr\u00FCger \u0026Gothe GmbH"
   },
   {
     "Address": "002650",
@@ -39261,11 +39261,11 @@
   },
   {
     "Address": "00267B",
-    "Vendor": "GSI Helmholtzzentrum für Schwerionenforschung GmbH"
+    "Vendor": "GSI Helmholtzzentrum f\u00FCr Schwerionenforschung GmbH"
   },
   {
     "Address": "00267C",
-    "Vendor": "Metz-Werke GmbH & Co KG"
+    "Vendor": "Metz-Werke GmbH \u0026 Co KG"
   },
   {
     "Address": "00267D",
@@ -39365,7 +39365,7 @@
   },
   {
     "Address": "002695",
-    "Vendor": "ZT Group Int'l Inc"
+    "Vendor": "ZT Group Int\u0027l Inc"
   },
   {
     "Address": "002696",
@@ -39525,7 +39525,7 @@
   },
   {
     "Address": "0026BD",
-    "Vendor": "JTEC Card & Communication Co., Ltd."
+    "Vendor": "JTEC Card \u0026 Communication Co., Ltd."
   },
   {
     "Address": "0026BE",
@@ -39533,7 +39533,7 @@
   },
   {
     "Address": "0026BF",
-    "Vendor": "ShenZhen Temobi Science&Tech Development Co.,Ltd"
+    "Vendor": "ShenZhen Temobi Science\u0026Tech Development Co.,Ltd"
   },
   {
     "Address": "0026C0",
@@ -39597,7 +39597,7 @@
   },
   {
     "Address": "0026CF",
-    "Vendor": "DEKA R&D"
+    "Vendor": "DEKA R\u0026D"
   },
   {
     "Address": "0026D0",
@@ -39653,7 +39653,7 @@
   },
   {
     "Address": "0026DD",
-    "Vendor": "Fival Science & Technology Co.,Ltd."
+    "Vendor": "Fival Science \u0026 Technology Co.,Ltd."
   },
   {
     "Address": "0026DE",
@@ -39681,7 +39681,7 @@
   },
   {
     "Address": "0026E4",
-    "Vendor": "Canal+                 # Canal +"
+    "Vendor": "Canal\u002B                 # Canal \u002B"
   },
   {
     "Address": "0026E5",
@@ -40149,7 +40149,7 @@
   },
   {
     "Address": "00302E",
-    "Vendor": "Hoft & Wessel AG"
+    "Vendor": "Hoft \u0026 Wessel AG"
   },
   {
     "Address": "00302F",
@@ -40225,7 +40225,7 @@
   },
   {
     "Address": "003041",
-    "Vendor": "SAEJIN T & M CO., LTD."
+    "Vendor": "SAEJIN T \u0026 M CO., LTD."
   },
   {
     "Address": "003042",
@@ -40289,7 +40289,7 @@
   },
   {
     "Address": "003051",
-    "Vendor": "ORBIT AVIONIC & COMMUNICATION"
+    "Vendor": "ORBIT AVIONIC \u0026 COMMUNICATION"
   },
   {
     "Address": "003052",
@@ -40377,7 +40377,7 @@
   },
   {
     "Address": "003067",
-    "Vendor": "BIOSTAR Microtech Int'l Corp."
+    "Vendor": "BIOSTAR Microtech Int\u0027l Corp."
   },
   {
     "Address": "003068",
@@ -40453,7 +40453,7 @@
   },
   {
     "Address": "00307A",
-    "Vendor": "Advanced Technology & Systems"
+    "Vendor": "Advanced Technology \u0026 Systems"
   },
   {
     "Address": "00307B",
@@ -40481,7 +40481,7 @@
   },
   {
     "Address": "003081",
-    "Vendor": "ALTOS C&C"
+    "Vendor": "ALTOS C\u0026C"
   },
   {
     "Address": "003082",
@@ -40637,7 +40637,7 @@
   },
   {
     "Address": "0030A8",
-    "Vendor": "OL'E COMMUNICATIONS, INC."
+    "Vendor": "OL\u0027E COMMUNICATIONS, INC."
   },
   {
     "Address": "0030A9",
@@ -40653,7 +40653,7 @@
   },
   {
     "Address": "0030AC",
-    "Vendor": "Systeme Lauer GmbH & Co., Ltd."
+    "Vendor": "Systeme Lauer GmbH \u0026 Co., Ltd."
   },
   {
     "Address": "0030AD",
@@ -40709,7 +40709,7 @@
   },
   {
     "Address": "0030BA",
-    "Vendor": "AC&T SYSTEM CO., LTD."
+    "Vendor": "AC\u0026T SYSTEM CO., LTD."
   },
   {
     "Address": "0030BB",
@@ -40897,7 +40897,7 @@
   },
   {
     "Address": "0030E9",
-    "Vendor": "GMA COMMUNICATION MANUFACT'G"
+    "Vendor": "GMA COMMUNICATION MANUFACT\u0027G"
   },
   {
     "Address": "0030EA",
@@ -41105,7 +41105,7 @@
   },
   {
     "Address": "004003",
-    "Vendor": "Emerson Process Management Power & Water Solutions, Inc."
+    "Vendor": "Emerson Process Management Power \u0026 Water Solutions, Inc."
   },
   {
     "Address": "004004",
@@ -41249,7 +41249,7 @@
   },
   {
     "Address": "004027",
-    "Vendor": "SMC Massachusetts  [HadSigma (?), maybe the \"S\"?]"
+    "Vendor": "SMC Massachusetts  [HadSigma (?), maybe the \u0022S\u0022?]"
   },
   {
     "Address": "004028",
@@ -41409,7 +41409,7 @@
   },
   {
     "Address": "00404F",
-    "Vendor": "Space & Naval Warfare Systems"
+    "Vendor": "Space \u0026 Naval Warfare Systems"
   },
   {
     "Address": "004050",
@@ -41453,7 +41453,7 @@
   },
   {
     "Address": "00405A",
-    "Vendor": "GOLDSTAR INFORMATION & COMM."
+    "Vendor": "GOLDSTAR INFORMATION \u0026 COMM."
   },
   {
     "Address": "00405B",
@@ -41581,7 +41581,7 @@
   },
   {
     "Address": "00407A",
-    "Vendor": "SOCIETE D'EXPLOITATION DU CNIT"
+    "Vendor": "SOCIETE D\u0027EXPLOITATION DU CNIT"
   },
   {
     "Address": "00407B",
@@ -41629,7 +41629,7 @@
   },
   {
     "Address": "004086",
-    "Vendor": "Michels & Kleberhoff Computer"
+    "Vendor": "Michels \u0026 Kleberhoff Computer"
   },
   {
     "Address": "004087",
@@ -41657,7 +41657,7 @@
   },
   {
     "Address": "00408D",
-    "Vendor": "THE GOODYEAR TIRE & RUBBER CO."
+    "Vendor": "THE GOODYEAR TIRE \u0026 RUBBER CO."
   },
   {
     "Address": "00408E",
@@ -41701,7 +41701,7 @@
   },
   {
     "Address": "004098",
-    "Vendor": "DRESSLER GMBH & CO."
+    "Vendor": "DRESSLER GMBH \u0026 CO."
   },
   {
     "Address": "004099",
@@ -41853,11 +41853,11 @@
   },
   {
     "Address": "0040BE",
-    "Vendor": "BOEING DEFENSE & SPACE"
+    "Vendor": "BOEING DEFENSE \u0026 SPACE"
   },
   {
     "Address": "0040BF",
-    "Vendor": "CHANNEL SYSTEMS INTERN'L INC."
+    "Vendor": "CHANNEL SYSTEMS INTERN\u0027L INC."
   },
   {
     "Address": "0040C0",
@@ -41901,7 +41901,7 @@
   },
   {
     "Address": "0040CA",
-    "Vendor": "FIRST INTERNAT'L COMPUTER, INC"
+    "Vendor": "FIRST INTERNAT\u0027L COMPUTER, INC"
   },
   {
     "Address": "0040CB",
@@ -41945,7 +41945,7 @@
   },
   {
     "Address": "0040D5",
-    "Vendor": "Sartorius Mechatronics T&H GmbH"
+    "Vendor": "Sartorius Mechatronics T\u0026H GmbH"
   },
   {
     "Address": "0040D6",
@@ -42017,7 +42017,7 @@
   },
   {
     "Address": "0040E7",
-    "Vendor": "Arnos Instruments & Computer"
+    "Vendor": "Arnos Instruments \u0026 Computer"
   },
   {
     "Address": "0040E8",
@@ -42061,7 +42061,7 @@
   },
   {
     "Address": "0040F2",
-    "Vendor": "JANICH & KLASS COMPUTERTECHNIK"
+    "Vendor": "JANICH \u0026 KLASS COMPUTERTECHNIK"
   },
   {
     "Address": "0040F3",
@@ -42701,7 +42701,7 @@
   },
   {
     "Address": "00508F",
-    "Vendor": "ASITA TECHNOLOGIES INT'L LTD."
+    "Vendor": "ASITA TECHNOLOGIES INT\u0027L LTD."
   },
   {
     "Address": "005090",
@@ -42837,7 +42837,7 @@
   },
   {
     "Address": "0050B1",
-    "Vendor": "GIDDINGS & LEWIS"
+    "Vendor": "GIDDINGS \u0026 LEWIS"
   },
   {
     "Address": "0050B2",
@@ -42865,7 +42865,7 @@
   },
   {
     "Address": "0050B8",
-    "Vendor": "INOVA COMPUTERS GMBH & CO. KG"
+    "Vendor": "INOVA COMPUTERS GMBH \u0026 CO. KG"
   },
   {
     "Address": "0050B9",
@@ -42973,7 +42973,7 @@
   },
   {
     "Address": "0050D4",
-    "Vendor": "JOOHONG INFORMATION &"
+    "Vendor": "JOOHONG INFORMATION \u0026"
   },
   {
     "Address": "0050D5",
@@ -43005,7 +43005,7 @@
   },
   {
     "Address": "0050DC",
-    "Vendor": "TAS TELEFONBAU A. SCHWABE GMBH & CO. KG"
+    "Vendor": "TAS TELEFONBAU A. SCHWABE GMBH \u0026 CO. KG"
   },
   {
     "Address": "0050DD",
@@ -43089,7 +43089,7 @@
   },
   {
     "Address": "0050F4",
-    "Vendor": "SIGMATEK GMBH & CO. KG"
+    "Vendor": "SIGMATEK GMBH \u0026 CO. KG"
   },
   {
     "Address": "0050F6",
@@ -43509,7 +43509,7 @@
   },
   {
     "Address": "00604B",
-    "Vendor": "Safe-com GmbH & Co. KG"
+    "Vendor": "Safe-com GmbH \u0026 Co. KG"
   },
   {
     "Address": "00604C",
@@ -43613,7 +43613,7 @@
   },
   {
     "Address": "006065",
-    "Vendor": "BERNECKER & RAINER INDUSTRIE-ELEKTRONIC GmbH"
+    "Vendor": "BERNECKER \u0026 RAINER INDUSTRIE-ELEKTRONIC GmbH"
   },
   {
     "Address": "006066",
@@ -43777,7 +43777,7 @@
   },
   {
     "Address": "00608E",
-    "Vendor": "HE ELECTRONICS, TECHNOLOGIE & SYSTEMTECHNIK GmbH"
+    "Vendor": "HE ELECTRONICS, TECHNOLOGIE \u0026 SYSTEMTECHNIK GmbH"
   },
   {
     "Address": "00608F",
@@ -43877,7 +43877,7 @@
   },
   {
     "Address": "0060A7",
-    "Vendor": "MICROSENS GmbH & CO. KG"
+    "Vendor": "MICROSENS GmbH \u0026 CO. KG"
   },
   {
     "Address": "0060A8",
@@ -43929,7 +43929,7 @@
   },
   {
     "Address": "0060B4",
-    "Vendor": "GLENAYRE R&D INC."
+    "Vendor": "GLENAYRE R\u0026D INC."
   },
   {
     "Address": "0060B5",
@@ -43961,7 +43961,7 @@
   },
   {
     "Address": "0060BC",
-    "Vendor": "KeunYoung Electronics & Communication Co., Ltd."
+    "Vendor": "KeunYoung Electronics \u0026 Communication Co., Ltd."
   },
   {
     "Address": "0060BD",
@@ -44009,7 +44009,7 @@
   },
   {
     "Address": "0060C8",
-    "Vendor": "KUKA WELDING SYSTEMS & ROBOTS"
+    "Vendor": "KUKA WELDING SYSTEMS \u0026 ROBOTS"
   },
   {
     "Address": "0060C9",
@@ -44053,7 +44053,7 @@
   },
   {
     "Address": "0060D3",
-    "Vendor": "At&T"
+    "Vendor": "At\u0026T"
   },
   {
     "Address": "0060D4",
@@ -44113,7 +44113,7 @@
   },
   {
     "Address": "0060E2",
-    "Vendor": "QUEST ENGINEERING & DEVELOPMENT"
+    "Vendor": "QUEST ENGINEERING \u0026 DEVELOPMENT"
   },
   {
     "Address": "0060E3",
@@ -44169,7 +44169,7 @@
   },
   {
     "Address": "0060F0",
-    "Vendor": "JOHNSON & JOHNSON MEDICAL, INC"
+    "Vendor": "JOHNSON \u0026 JOHNSON MEDICAL, INC"
   },
   {
     "Address": "0060F1",
@@ -44425,7 +44425,7 @@
   },
   {
     "Address": "008011",
-    "Vendor": "DIGITAL SYSTEMS INT'L. INC."
+    "Vendor": "DIGITAL SYSTEMS INT\u0027L. INC."
   },
   {
     "Address": "008012",
@@ -44445,7 +44445,7 @@
   },
   {
     "Address": "008016",
-    "Vendor": "Wandel & Goltermann"
+    "Vendor": "Wandel \u0026 Goltermann"
   },
   {
     "Address": "008017",
@@ -44457,7 +44457,7 @@
   },
   {
     "Address": "008019",
-    "Vendor": "Dayna Communications  \"Etherprint\" product"
+    "Vendor": "Dayna Communications  \u0022Etherprint\u0022 product"
   },
   {
     "Address": "00801A",
@@ -44525,7 +44525,7 @@
   },
   {
     "Address": "00802A",
-    "Vendor": "Test Systems & Simulations Inc"
+    "Vendor": "Test Systems \u0026 Simulations Inc"
   },
   {
     "Address": "00802B",
@@ -44581,7 +44581,7 @@
   },
   {
     "Address": "008038",
-    "Vendor": "Data Research & Applications"
+    "Vendor": "Data Research \u0026 Applications"
   },
   {
     "Address": "008039",
@@ -44701,7 +44701,7 @@
   },
   {
     "Address": "008056",
-    "Vendor": "SPHINX Electronics GmbH & Co KG"
+    "Vendor": "SPHINX Electronics GmbH \u0026 Co KG"
   },
   {
     "Address": "008057",
@@ -44753,7 +44753,7 @@
   },
   {
     "Address": "008063",
-    "Vendor": "Richard Hirschmann Gmbh & Co"
+    "Vendor": "Richard Hirschmann Gmbh \u0026 Co"
   },
   {
     "Address": "008064",
@@ -44985,7 +44985,7 @@
   },
   {
     "Address": "00809D",
-    "Vendor": "Datacraft Manufactur'g Pty Ltd"
+    "Vendor": "Datacraft Manufactur\u0027g Pty Ltd"
   },
   {
     "Address": "00809E",
@@ -45137,7 +45137,7 @@
   },
   {
     "Address": "0080C3",
-    "Vendor": "BICC INFORMATION SYSTEMS & SVC"
+    "Vendor": "BICC INFORMATION SYSTEMS \u0026 SVC"
   },
   {
     "Address": "0080C4",
@@ -45225,11 +45225,11 @@
   },
   {
     "Address": "0080D9",
-    "Vendor": "EMK Elektronik GmbH & Co. KG"
+    "Vendor": "EMK Elektronik GmbH \u0026 Co. KG"
   },
   {
     "Address": "0080DA",
-    "Vendor": "Bruel & Kjaer"
+    "Vendor": "Bruel \u0026 Kjaer"
   },
   {
     "Address": "0080DB",
@@ -45617,7 +45617,7 @@
   },
   {
     "Address": "00902C",
-    "Vendor": "DATA & CONTROL EQUIPMENT LTD."
+    "Vendor": "DATA \u0026 CONTROL EQUIPMENT LTD."
   },
   {
     "Address": "00902D",
@@ -45757,7 +45757,7 @@
   },
   {
     "Address": "00904F",
-    "Vendor": "ABB POWER T&D COMPANY, INC."
+    "Vendor": "ABB POWER T\u0026D COMPANY, INC."
   },
   {
     "Address": "009050",
@@ -45793,7 +45793,7 @@
   },
   {
     "Address": "009058",
-    "Vendor": "Ultra Electronics Command & Control Systems"
+    "Vendor": "Ultra Electronics Command \u0026 Control Systems"
   },
   {
     "Address": "009059",
@@ -45829,7 +45829,7 @@
   },
   {
     "Address": "009061",
-    "Vendor": "PACIFIC RESEARCH & ENGINEERING CORPORATION"
+    "Vendor": "PACIFIC RESEARCH \u0026 ENGINEERING CORPORATION"
   },
   {
     "Address": "009062",
@@ -46177,7 +46177,7 @@
   },
   {
     "Address": "0090B8",
-    "Vendor": "ROHDE & SCHWARZ GMBH & CO. KG"
+    "Vendor": "ROHDE \u0026 SCHWARZ GMBH \u0026 CO. KG"
   },
   {
     "Address": "0090B9",
@@ -46285,7 +46285,7 @@
   },
   {
     "Address": "0090D3",
-    "Vendor": "GIESECKE & DEVRIENT GmbH"
+    "Vendor": "GIESECKE \u0026 DEVRIENT GmbH"
   },
   {
     "Address": "0090D4",
@@ -46517,7 +46517,7 @@
   },
   {
     "Address": "00A002",
-    "Vendor": "LEEDS & NORTHRUP AUSTRALIA PTY LTD"
+    "Vendor": "LEEDS \u0026 NORTHRUP AUSTRALIA PTY LTD"
   },
   {
     "Address": "00A003",
@@ -46749,7 +46749,7 @@
   },
   {
     "Address": "00A03C",
-    "Vendor": "EG&G NUCLEAR INSTRUMENTS"
+    "Vendor": "EG\u0026G NUCLEAR INSTRUMENTS"
   },
   {
     "Address": "00A03D",
@@ -46761,7 +46761,7 @@
   },
   {
     "Address": "00A03F",
-    "Vendor": "COMPUTER SOCIETY MICROPROCESSOR & MICROPROCESSOR STANDARDS C"
+    "Vendor": "COMPUTER SOCIETY MICROPROCESSOR \u0026 MICROPROCESSOR STANDARDS C"
   },
   {
     "Address": "00A040",
@@ -46813,7 +46813,7 @@
   },
   {
     "Address": "00A04C",
-    "Vendor": "INNOVATIVE SYSTEMS & TECHNOLOGIES, INC."
+    "Vendor": "INNOVATIVE SYSTEMS \u0026 TECHNOLOGIES, INC."
   },
   {
     "Address": "00A04D",
@@ -47313,7 +47313,7 @@
   },
   {
     "Address": "00A0C9",
-    "Vendor": "Intel (PRO100B and PRO100+) [used on Cisco PIX firewall among others]"
+    "Vendor": "Intel (PRO100B and PRO100\u002B) [used on Cisco PIX firewall among others]"
   },
   {
     "Address": "00A0CA",
@@ -47385,7 +47385,7 @@
   },
   {
     "Address": "00A0DB",
-    "Vendor": "FISHER & PAYKEL PRODUCTION"
+    "Vendor": "FISHER \u0026 PAYKEL PRODUCTION"
   },
   {
     "Address": "00A0DC",
@@ -48065,7 +48065,7 @@
   },
   {
     "Address": "00C03D",
-    "Vendor": "Wiesemann & Theis Gmbh"
+    "Vendor": "Wiesemann \u0026 Theis Gmbh"
   },
   {
     "Address": "00C03E",
@@ -48193,7 +48193,7 @@
   },
   {
     "Address": "00C05D",
-    "Vendor": "L&N Technologies"
+    "Vendor": "L\u0026N Technologies"
   },
   {
     "Address": "00C05E",
@@ -48245,7 +48245,7 @@
   },
   {
     "Address": "00C06A",
-    "Vendor": "Zahner-Elektrik Gmbh & Co KG"
+    "Vendor": "Zahner-Elektrik Gmbh \u0026 Co KG"
   },
   {
     "Address": "00C06B",
@@ -48449,7 +48449,7 @@
   },
   {
     "Address": "00C09D",
-    "Vendor": "Distributed Systems Int'l, Inc."
+    "Vendor": "Distributed Systems Int\u0027l, Inc."
   },
   {
     "Address": "00C09E",
@@ -48557,7 +48557,7 @@
   },
   {
     "Address": "00C0B8",
-    "Vendor": "Fraser's Hill Ltd."
+    "Vendor": "Fraser\u0027s Hill Ltd."
   },
   {
     "Address": "00C0B9",
@@ -48645,7 +48645,7 @@
   },
   {
     "Address": "00C0CE",
-    "Vendor": "CEI SYSTEMS & ENGINEERING PTE"
+    "Vendor": "CEI SYSTEMS \u0026 ENGINEERING PTE"
   },
   {
     "Address": "00C0CF",
@@ -48733,7 +48733,7 @@
   },
   {
     "Address": "00C0E4",
-    "Vendor": "Landis & Gyr Powers Inc"
+    "Vendor": "Landis \u0026 Gyr Powers Inc"
   },
   {
     "Address": "00C0E5",
@@ -49165,7 +49165,7 @@
   },
   {
     "Address": "00D042",
-    "Vendor": "MAHLO GMBH & CO. UG"
+    "Vendor": "MAHLO GMBH \u0026 CO. UG"
   },
   {
     "Address": "00D043",
@@ -49209,7 +49209,7 @@
   },
   {
     "Address": "00D04D",
-    "Vendor": "DIV OF RESEARCH & STATISTICS"
+    "Vendor": "DIV OF RESEARCH \u0026 STATISTICS"
   },
   {
     "Address": "00D04E",
@@ -49409,7 +49409,7 @@
   },
   {
     "Address": "00D07F",
-    "Vendor": "STRATEGY & TECHNOLOGY, LIMITED"
+    "Vendor": "STRATEGY \u0026 TECHNOLOGY, LIMITED"
   },
   {
     "Address": "00D080",
@@ -49545,7 +49545,7 @@
   },
   {
     "Address": "00D0A1",
-    "Vendor": "OSKAR VIERLING GMBH + CO. KG"
+    "Vendor": "OSKAR VIERLING GMBH \u002B CO. KG"
   },
   {
     "Address": "00D0A2",
@@ -49693,7 +49693,7 @@
   },
   {
     "Address": "00D0C6",
-    "Vendor": "THOMAS & BETTS CORP."
+    "Vendor": "THOMAS \u0026 BETTS CORP."
   },
   {
     "Address": "00D0C7",
@@ -50209,7 +50209,7 @@
   },
   {
     "Address": "00E02C",
-    "Vendor": "AST - built into 5166M PC motherboard (win95 id's as Intel)"
+    "Vendor": "AST - built into 5166M PC motherboard (win95 id\u0027s as Intel)"
   },
   {
     "Address": "00E02D",
@@ -50461,11 +50461,11 @@
   },
   {
     "Address": "00E06B",
-    "Vendor": "W&G SPECIAL PRODUCTS"
+    "Vendor": "W\u0026G SPECIAL PRODUCTS"
   },
   {
     "Address": "00E06C",
-    "Vendor": "Ultra Electronics Command & Control Systems"
+    "Vendor": "Ultra Electronics Command \u0026 Control Systems"
   },
   {
     "Address": "00E06D",
@@ -50561,7 +50561,7 @@
   },
   {
     "Address": "00E084",
-    "Vendor": "COMPULITE R&D"
+    "Vendor": "COMPULITE R\u0026D"
   },
   {
     "Address": "00E085",
@@ -50705,7 +50705,7 @@
   },
   {
     "Address": "00E0A8",
-    "Vendor": "SAT GmbH & Co."
+    "Vendor": "SAT GmbH \u0026 Co."
   },
   {
     "Address": "00E0A9",
@@ -50889,7 +50889,7 @@
   },
   {
     "Address": "00E0D6",
-    "Vendor": "COMPUTER & COMMUNICATION RESEARCH LAB."
+    "Vendor": "COMPUTER \u0026 COMMUNICATION RESEARCH LAB."
   },
   {
     "Address": "00E0D7",
@@ -51341,7 +51341,7 @@
   },
   {
     "Address": "042605",
-    "Vendor": "GFR Gesellschaft für Regelungstechnik und Energieeinsparung mbH"
+    "Vendor": "GFR Gesellschaft f\u00FCr Regelungstechnik und Energieeinsparung mbH"
   },
   {
     "Address": "042665",
@@ -51381,7 +51381,7 @@
   },
   {
     "Address": "043604",
-    "Vendor": "Gyeyoung I&T"
+    "Vendor": "Gyeyoung I\u0026T"
   },
   {
     "Address": "043D98",
@@ -51781,7 +51781,7 @@
   },
   {
     "Address": "04D783",
-    "Vendor": "Y&H E&C Co.,LTD."
+    "Vendor": "Y\u0026H E\u0026C Co.,LTD."
   },
   {
     "Address": "04DAD2",
@@ -51817,7 +51817,7 @@
   },
   {
     "Address": "04E1C8",
-    "Vendor": "IMS Soluções em Energia Ltda."
+    "Vendor": "IMS Solu\u00E7\u00F5es em Energia Ltda."
   },
   {
     "Address": "04E2F8",
@@ -51953,7 +51953,7 @@
   },
   {
     "Address": "08000E",
-    "Vendor": "Ncr/At&T"
+    "Vendor": "Ncr/At\u0026T"
   },
   {
     "Address": "08000F",
@@ -51961,7 +51961,7 @@
   },
   {
     "Address": "080010",
-    "Vendor": "AT&T [misrepresentation of 800010?]"
+    "Vendor": "AT\u0026T [misrepresentation of 800010?]"
   },
   {
     "Address": "080011",
@@ -52101,7 +52101,7 @@
   },
   {
     "Address": "080033",
-    "Vendor": "BAUSCH & LOMB"
+    "Vendor": "BAUSCH \u0026 LOMB"
   },
   {
     "Address": "080034",
@@ -52241,7 +52241,7 @@
   },
   {
     "Address": "080057",
-    "Vendor": "Evans & Sutherland (?)"
+    "Vendor": "Evans \u0026 Sutherland (?)"
   },
   {
     "Address": "080058",
@@ -52325,7 +52325,7 @@
   },
   {
     "Address": "08006C",
-    "Vendor": "SUNTEK TECHNOLOGY INT'L"
+    "Vendor": "SUNTEK TECHNOLOGY INT\u0027L"
   },
   {
     "Address": "08006D",
@@ -52501,7 +52501,7 @@
   },
   {
     "Address": "080A4E",
-    "Vendor": "Planet Bingo® — 3rd Rock Gaming®"
+    "Vendor": "Planet Bingo\u00AE \u2014 3rd Rock Gaming\u00AE"
   },
   {
     "Address": "080C0B",
@@ -52829,7 +52829,7 @@
   },
   {
     "Address": "088F2C",
-    "Vendor": "Hills Sound Vision & Lighting"
+    "Vendor": "Hills Sound Vision \u0026 Lighting"
   },
   {
     "Address": "0894EF",
@@ -52945,7 +52945,7 @@
   },
   {
     "Address": "08CD9B",
-    "Vendor": "samtec automotive electronics & software GmbH"
+    "Vendor": "samtec automotive electronics \u0026 software GmbH"
   },
   {
     "Address": "08D09F",
@@ -52997,7 +52997,7 @@
   },
   {
     "Address": "08EA40",
-    "Vendor": "SHENZHEN BILIAN ELECTRONIC CO.，LTD"
+    "Vendor": "SHENZHEN BILIAN ELECTRONIC CO.\uFF0CLTD"
   },
   {
     "Address": "08EA44",
@@ -53073,7 +53073,7 @@
   },
   {
     "Address": "09006A",
-    "Vendor": "AT&T"
+    "Vendor": "AT\u0026T"
   },
   {
     "Address": "0C0227",
@@ -53989,7 +53989,7 @@
   },
   {
     "Address": "1062C9",
-    "Vendor": "Adatis GmbH & Co. KG"
+    "Vendor": "Adatis GmbH \u0026 Co. KG"
   },
   {
     "Address": "1062EB",
@@ -54061,7 +54061,7 @@
   },
   {
     "Address": "107A86",
-    "Vendor": "U&U ENGINEERING INC."
+    "Vendor": "U\u0026U ENGINEERING INC."
   },
   {
     "Address": "107BEF",
@@ -54081,7 +54081,7 @@
   },
   {
     "Address": "10880F",
-    "Vendor": "Daruma Telecomunicações e Informática S.A."
+    "Vendor": "Daruma Telecomunica\u00E7\u00F5es e Inform\u00E1tica S.A."
   },
   {
     "Address": "1088CE",
@@ -54173,7 +54173,7 @@
   },
   {
     "Address": "10BAA5",
-    "Vendor": "GANA I&C CO., LTD"
+    "Vendor": "GANA I\u0026C CO., LTD"
   },
   {
     "Address": "10BD18",
@@ -54557,7 +54557,7 @@
   },
   {
     "Address": "144319",
-    "Vendor": "Creative&Link Technology Limited"
+    "Vendor": "Creative\u0026Link Technology Limited"
   },
   {
     "Address": "1446E4",
@@ -54757,7 +54757,7 @@
   },
   {
     "Address": "14A86B",
-    "Vendor": "ShenZhen Telacom Science&Technology Co., Ltd"
+    "Vendor": "ShenZhen Telacom Science\u0026Technology Co., Ltd"
   },
   {
     "Address": "14A9E3",
@@ -54837,7 +54837,7 @@
   },
   {
     "Address": "14C3C2",
-    "Vendor": "K.A. Schmersal GmbH & Co. KG"
+    "Vendor": "K.A. Schmersal GmbH \u0026 Co. KG"
   },
   {
     "Address": "14C913",
@@ -54909,7 +54909,7 @@
   },
   {
     "Address": "14EDA5",
-    "Vendor": "Wächter GmbH Sicherheitssysteme"
+    "Vendor": "Wa\u0308chter GmbH Sicherheitssysteme"
   },
   {
     "Address": "14EDBB",
@@ -55249,7 +55249,7 @@
   },
   {
     "Address": "186882",
-    "Vendor": "BewardR&               # Beward R&D Co., Ltd."
+    "Vendor": "BewardR\u0026               # Beward R\u0026D Co., Ltd."
   },
   {
     "Address": "1868CB",
@@ -55413,7 +55413,7 @@
   },
   {
     "Address": "18AEBB",
-    "Vendor": "Siemens Convergence Creators GmbH&Co.KG"
+    "Vendor": "Siemens Convergence Creators GmbH\u0026Co.KG"
   },
   {
     "Address": "18AF61",
@@ -55753,7 +55753,7 @@
   },
   {
     "Address": "1C40E8",
-    "Vendor": "SHENZHEN PROGRESS&WIN TECHNOLOGY CO.,LTD"
+    "Vendor": "SHENZHEN PROGRESS\u0026WIN TECHNOLOGY CO.,LTD"
   },
   {
     "Address": "1C4158",
@@ -55897,7 +55897,7 @@
   },
   {
     "Address": "1C6E4C",
-    "Vendor": "Logistic Service & Engineering Co.,Ltd"
+    "Vendor": "Logistic Service \u0026 Engineering Co.,Ltd"
   },
   {
     "Address": "1C6E76",
@@ -55989,7 +55989,7 @@
   },
   {
     "Address": "1C8E8E",
-    "Vendor": "DB Communication & Systems Co., ltd."
+    "Vendor": "DB Communication \u0026 Systems Co., ltd."
   },
   {
     "Address": "1C8F8A",
@@ -56297,7 +56297,7 @@
   },
   {
     "Address": "200E95",
-    "Vendor": "IEC – TC9 WG43"
+    "Vendor": "IEC \u2013 TC9 WG43"
   },
   {
     "Address": "20107A",
@@ -56353,7 +56353,7 @@
   },
   {
     "Address": "202CB7",
-    "Vendor": "Kong Yue Electronics & Information Industry (Xinhui) Ltd."
+    "Vendor": "Kong Yue Electronics \u0026 Information Industry (Xinhui) Ltd."
   },
   {
     "Address": "202D07",
@@ -56433,7 +56433,7 @@
   },
   {
     "Address": "204C6D",
-    "Vendor": "Hugo Brennenstuhl Gmbh & Co. KG."
+    "Vendor": "Hugo Brennenstuhl Gmbh \u0026 Co. KG."
   },
   {
     "Address": "204C9E",
@@ -56629,7 +56629,7 @@
   },
   {
     "Address": "2091D9",
-    "Vendor": "I'M SPA"
+    "Vendor": "I\u0027M SPA"
   },
   {
     "Address": "20934D",
@@ -56849,7 +56849,7 @@
   },
   {
     "Address": "20EEC6",
-    "Vendor": "Elefirst Science & Tech Co ., ltd"
+    "Vendor": "Elefirst Science \u0026 Tech Co ., ltd"
   },
   {
     "Address": "20F002",
@@ -57345,7 +57345,7 @@
   },
   {
     "Address": "24C1BD",
-    "Vendor": "CRRC DALIAN R&D CO.,LTD."
+    "Vendor": "CRRC DALIAN R\u0026D CO.,LTD."
   },
   {
     "Address": "24C3F9",
@@ -57409,7 +57409,7 @@
   },
   {
     "Address": "24DAB6",
-    "Vendor": "Sistemas de Gestión Energética S.A. de C.V"
+    "Vendor": "Sistemas de Gesti\u00F3n Energ\u00E9tica S.A. de C.V"
   },
   {
     "Address": "24DBAC",
@@ -57457,7 +57457,7 @@
   },
   {
     "Address": "24EA40",
-    "Vendor": "Helmholz GmbH & Co. KG"
+    "Vendor": "Helmholz GmbH \u0026 Co. KG"
   },
   {
     "Address": "24EB65",
@@ -57469,7 +57469,7 @@
   },
   {
     "Address": "24ECD6",
-    "Vendor": "CSG Science & Technology Co.,Ltd.Hefei"
+    "Vendor": "CSG Science \u0026 Technology Co.,Ltd.Hefei"
   },
   {
     "Address": "24EE3A",
@@ -57701,7 +57701,7 @@
   },
   {
     "Address": "2852E0",
-    "Vendor": "Layon international Electronic & Telecom Co.,Ltd"
+    "Vendor": "Layon international Electronic \u0026 Telecom Co.,Ltd"
   },
   {
     "Address": "28565A",
@@ -57825,7 +57825,7 @@
   },
   {
     "Address": "2891D0",
-    "Vendor": "Stage Tec Entwicklungsgesellschaft für professionelle Audiotechnik mbH"
+    "Vendor": "Stage Tec Entwicklungsgesellschaft f\u00FCr professionelle Audiotechnik mbH"
   },
   {
     "Address": "28924A",
@@ -58141,7 +58141,7 @@
   },
   {
     "Address": "28F358",
-    "Vendor": "2C - Trifonov & Co"
+    "Vendor": "2C - Trifonov \u0026 Co"
   },
   {
     "Address": "28F366",
@@ -58345,7 +58345,7 @@
   },
   {
     "Address": "2C3427",
-    "Vendor": "ERCO & GENER"
+    "Vendor": "ERCO \u0026 GENER"
   },
   {
     "Address": "2C3557",
@@ -58377,7 +58377,7 @@
   },
   {
     "Address": "2C3A28",
-    "Vendor": "Fagor Electrónica"
+    "Vendor": "Fagor Electr\u00F3nica"
   },
   {
     "Address": "2C3BFD",
@@ -58789,7 +58789,7 @@
   },
   {
     "Address": "2CDD95",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "2CDDA3",
@@ -58941,7 +58941,7 @@
   },
   {
     "Address": "303294",
-    "Vendor": "W-Ie-Ne-               # W-IE-NE-R Plein & Baus GmbH"
+    "Vendor": "W-Ie-Ne-               # W-IE-NE-R Plein \u0026 Baus GmbH"
   },
   {
     "Address": "3032D4",
@@ -58993,7 +58993,7 @@
   },
   {
     "Address": "304225",
-    "Vendor": "BURG-WÄCHTER KG"
+    "Vendor": "BURG-W\u00C4CHTER KG"
   },
   {
     "Address": "304449",
@@ -59241,7 +59241,7 @@
   },
   {
     "Address": "30B3A2",
-    "Vendor": "Shenzhen Heguang Measurement & Control Technology Co.,Ltd"
+    "Vendor": "Shenzhen Heguang Measurement \u0026 Control Technology Co.,Ltd"
   },
   {
     "Address": "30B49E",
@@ -59349,7 +59349,7 @@
   },
   {
     "Address": "30F33A",
-    "Vendor": "+plugg srl"
+    "Vendor": "\u002Bplugg srl"
   },
   {
     "Address": "30F42F",
@@ -59585,7 +59585,7 @@
   },
   {
     "Address": "344F5C",
-    "Vendor": "R&amp;M AG"
+    "Vendor": "R\u0026amp;M AG"
   },
   {
     "Address": "344F69",
@@ -59729,7 +59729,7 @@
   },
   {
     "Address": "34862A",
-    "Vendor": "Heinz Lackmann GmbH & Co KG"
+    "Vendor": "Heinz Lackmann GmbH \u0026 Co KG"
   },
   {
     "Address": "34873D",
@@ -59785,7 +59785,7 @@
   },
   {
     "Address": "349D90",
-    "Vendor": "Heinzmann GmbH & CO. KG"
+    "Vendor": "Heinzmann GmbH \u0026 CO. KG"
   },
   {
     "Address": "349E34",
@@ -60605,7 +60605,7 @@
   },
   {
     "Address": "38E3C5",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "38E595",
@@ -60617,7 +60617,7 @@
   },
   {
     "Address": "38E8DF",
-    "Vendor": "BMedien+               # b gmbh medien + datenbanken"
+    "Vendor": "BMedien\u002B               # b gmbh medien \u002B datenbanken"
   },
   {
     "Address": "38E98C",
@@ -60825,7 +60825,7 @@
   },
   {
     "Address": "3C2763",
-    "Vendor": "SLE quality engineering GmbH & Co. KG"
+    "Vendor": "SLE quality engineering GmbH \u0026 Co. KG"
   },
   {
     "Address": "3C2AF4",
@@ -60833,7 +60833,7 @@
   },
   {
     "Address": "3C2C94",
-    "Vendor": "杭州德澜科技有限公司（HangZhou Delan Technology Co.,Ltd）"
+    "Vendor": "\u676D\u5DDE\u5FB7\u6F9C\u79D1\u6280\u6709\u9650\u516C\u53F8\uFF08HangZhou Delan Technology Co.,Ltd\uFF09"
   },
   {
     "Address": "3C2DB7",
@@ -61157,7 +61157,7 @@
   },
   {
     "Address": "3CA315",
-    "Vendor": "Bless Information & Communications Co., Ltd"
+    "Vendor": "Bless Information \u0026 Communications Co., Ltd"
   },
   {
     "Address": "3CA31A",
@@ -61241,7 +61241,7 @@
   },
   {
     "Address": "3CC0C6",
-    "Vendor": "d&b audiotechnik GmbH"
+    "Vendor": "d\u0026b audiotechnik GmbH"
   },
   {
     "Address": "3CC12C",
@@ -61321,7 +61321,7 @@
   },
   {
     "Address": "3CDD89",
-    "Vendor": "SOMO HOLDINGS & TECH. CO.,LTD."
+    "Vendor": "SOMO HOLDINGS \u0026 TECH. CO.,LTD."
   },
   {
     "Address": "3CDF1E",
@@ -61417,7 +61417,7 @@
   },
   {
     "Address": "40040C",
-    "Vendor": "A&T"
+    "Vendor": "A\u0026T"
   },
   {
     "Address": "4007C0",
@@ -61525,7 +61525,7 @@
   },
   {
     "Address": "40336C",
-    "Vendor": "Godrej & Boyce Mfg. co. ltd"
+    "Vendor": "Godrej \u0026 Boyce Mfg. co. ltd"
   },
   {
     "Address": "4037AD",
@@ -61637,7 +61637,7 @@
   },
   {
     "Address": "405EE1",
-    "Vendor": "Shenzhen H&T Intelligent Control Co.,Ltd."
+    "Vendor": "Shenzhen H\u0026T Intelligent Control Co.,Ltd."
   },
   {
     "Address": "405FBE",
@@ -61653,7 +61653,7 @@
   },
   {
     "Address": "406186",
-    "Vendor": "MICRO-STAR INT'L CO.,LTD"
+    "Vendor": "MICRO-STAR INT\u0027L CO.,LTD"
   },
   {
     "Address": "40618E",
@@ -61813,7 +61813,7 @@
   },
   {
     "Address": "409FC7",
-    "Vendor": "BAEKCHUN I&C Co., Ltd."
+    "Vendor": "BAEKCHUN I\u0026C Co., Ltd."
   },
   {
     "Address": "40A5EF",
@@ -62293,7 +62293,7 @@
   },
   {
     "Address": "445F7A",
-    "Vendor": "Shihlin Electric & Engineering Corp."
+    "Vendor": "Shihlin Electric \u0026 Engineering Corp."
   },
   {
     "Address": "445F8C",
@@ -62413,7 +62413,7 @@
   },
   {
     "Address": "4486C1",
-    "Vendor": "Siemens Low Voltage & Products"
+    "Vendor": "Siemens Low Voltage \u0026 Products"
   },
   {
     "Address": "448723",
@@ -62429,7 +62429,7 @@
   },
   {
     "Address": "448A5B",
-    "Vendor": "Micro-Star INT'L CO., LTD."
+    "Vendor": "Micro-Star INT\u0027L CO., LTD."
   },
   {
     "Address": "448C52",
@@ -62509,7 +62509,7 @@
   },
   {
     "Address": "44AAE8",
-    "Vendor": "Nanotec Electronic GmbH & Co. KG"
+    "Vendor": "Nanotec Electronic GmbH \u0026 Co. KG"
   },
   {
     "Address": "44AAF5",
@@ -62805,7 +62805,7 @@
   },
   {
     "Address": "483D32",
-    "Vendor": "Syscor Controls &amp; Automation"
+    "Vendor": "Syscor Controls \u0026amp; Automation"
   },
   {
     "Address": "48435A",
@@ -62933,7 +62933,7 @@
   },
   {
     "Address": "486DBB",
-    "Vendor": "Vestel Elektronik San ve Tic. A.Ş."
+    "Vendor": "Vestel Elektronik San ve Tic. A.\u015E."
   },
   {
     "Address": "486E73",
@@ -63005,7 +63005,7 @@
   },
   {
     "Address": "489153",
-    "Vendor": "Weinmann Geräte für Medizin GmbH + Co. KG"
+    "Vendor": "Weinmann Ger\u00E4te f\u00FCr Medizin GmbH \u002B Co. KG"
   },
   {
     "Address": "4891F6",
@@ -63425,7 +63425,7 @@
   },
   {
     "Address": "4C3909",
-    "Vendor": "HPL Electric & Power Private Limited"
+    "Vendor": "HPL Electric \u0026 Power Private Limited"
   },
   {
     "Address": "4C3910",
@@ -63585,7 +63585,7 @@
   },
   {
     "Address": "4C8120",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "4C82CF",
@@ -64021,7 +64021,7 @@
   },
   {
     "Address": "503A7D",
-    "Vendor": "AlphaTech PLC Int’l Co., Ltd."
+    "Vendor": "AlphaTech PLC Int\u2019l Co., Ltd."
   },
   {
     "Address": "503AA0",
@@ -64253,7 +64253,7 @@
   },
   {
     "Address": "508C77",
-    "Vendor": "DIRMEIER Schanktechnik GmbH &Co KG"
+    "Vendor": "DIRMEIER Schanktechnik GmbH \u0026Co KG"
   },
   {
     "Address": "508CB1",
@@ -64409,7 +64409,7 @@
   },
   {
     "Address": "50CD32",
-    "Vendor": "NanJing Chaoran Science & Technology Co.,Ltd."
+    "Vendor": "NanJing Chaoran Science \u0026 Technology Co.,Ltd."
   },
   {
     "Address": "50CE75",
@@ -64605,7 +64605,7 @@
   },
   {
     "Address": "541473",
-    "Vendor": "Wingtech Group (HongKong）Limited"
+    "Vendor": "Wingtech Group (HongKong\uFF09Limited"
   },
   {
     "Address": "5414FD",
@@ -64973,11 +64973,11 @@
   },
   {
     "Address": "54B56C",
-    "Vendor": "Xi'an NovaStar Tech Co., Ltd"
+    "Vendor": "Xi\u0027an NovaStar Tech Co., Ltd"
   },
   {
     "Address": "54B620",
-    "Vendor": "SuhdolE&               # SUHDOL E&C Co.Ltd."
+    "Vendor": "SuhdolE\u0026               # SUHDOL E\u0026C Co.Ltd."
   },
   {
     "Address": "54B753",
@@ -65157,7 +65157,7 @@
   },
   {
     "Address": "54FDBF",
-    "Vendor": "Scheidt & Bachmann GmbH"
+    "Vendor": "Scheidt \u0026 Bachmann GmbH"
   },
   {
     "Address": "54FF82",
@@ -65189,7 +65189,7 @@
   },
   {
     "Address": "5808FA",
-    "Vendor": "Fiber Optic & telecommunication INC."
+    "Vendor": "Fiber Optic \u0026 telecommunication INC."
   },
   {
     "Address": "580943",
@@ -65401,7 +65401,7 @@
   },
   {
     "Address": "58671A",
-    "Vendor": "Barnes&Noble"
+    "Vendor": "Barnes\u0026Noble"
   },
   {
     "Address": "58677F",
@@ -65445,7 +65445,7 @@
   },
   {
     "Address": "5876C5",
-    "Vendor": "DIGI I'S LTD"
+    "Vendor": "DIGI I\u0027S LTD"
   },
   {
     "Address": "587A4D",
@@ -65477,7 +65477,7 @@
   },
   {
     "Address": "58821D",
-    "Vendor": "H. Schomäcker GmbH"
+    "Vendor": "H. Schom\u00E4cker GmbH"
   },
   {
     "Address": "5882A8",
@@ -66289,7 +66289,7 @@
   },
   {
     "Address": "5CF370",
-    "Vendor": "CC&C Technologies, Inc"
+    "Vendor": "CC\u0026C Technologies, Inc"
   },
   {
     "Address": "5CF3FC",
@@ -66697,7 +66697,7 @@
   },
   {
     "Address": "6089B7",
-    "Vendor": "KAEL MÜHENDİSLİK ELEKTRONİK TİCARET SANAYİ LİMİTED ŞİRKETİ"
+    "Vendor": "KAEL M\u00DCHEND\u0130SL\u0130K ELEKTRON\u0130K T\u0130CARET SANAY\u0130 L\u0130M\u0130TED \u015E\u0130RKET\u0130"
   },
   {
     "Address": "608C2B",
@@ -67037,7 +67037,7 @@
   },
   {
     "Address": "60FEF9",
-    "Vendor": "Thomas & Betts"
+    "Vendor": "Thomas \u0026 Betts"
   },
   {
     "Address": "60FFDD",
@@ -67549,7 +67549,7 @@
   },
   {
     "Address": "64C667",
-    "Vendor": "Barnes&Noble"
+    "Vendor": "Barnes\u0026Noble"
   },
   {
     "Address": "64C6AF",
@@ -67577,7 +67577,7 @@
   },
   {
     "Address": "64D241",
-    "Vendor": "Keith & Koep GmbH"
+    "Vendor": "Keith \u0026 Koep GmbH"
   },
   {
     "Address": "64D4BD",
@@ -67597,7 +67597,7 @@
   },
   {
     "Address": "64D954",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "64D989",
@@ -67749,7 +67749,7 @@
   },
   {
     "Address": "6815D3",
-    "Vendor": "Zaklady Elektroniki i Mechaniki Precyzyjnej R&G S.A."
+    "Vendor": "Zaklady Elektroniki i Mechaniki Precyzyjnej R\u0026G S.A."
   },
   {
     "Address": "681605",
@@ -67865,7 +67865,7 @@
   },
   {
     "Address": "685388",
-    "Vendor": "P&S Technology"
+    "Vendor": "P\u0026S Technology"
   },
   {
     "Address": "6854C1",
@@ -67957,7 +67957,7 @@
   },
   {
     "Address": "687924",
-    "Vendor": "ELS-GmbH & Co. KG"
+    "Vendor": "ELS-GmbH \u0026 Co. KG"
   },
   {
     "Address": "6879ED",
@@ -68049,7 +68049,7 @@
   },
   {
     "Address": "6897E8",
-    "Vendor": "Society of Motion Picture &amp; Television Engineers"
+    "Vendor": "Society of Motion Picture \u0026amp; Television Engineers"
   },
   {
     "Address": "6899CD",
@@ -68097,7 +68097,7 @@
   },
   {
     "Address": "68A40E",
-    "Vendor": "BSH Hausgeräte GmbH"
+    "Vendor": "BSH Hausger\u00E4te GmbH"
   },
   {
     "Address": "68A828",
@@ -68285,7 +68285,7 @@
   },
   {
     "Address": "68F956",
-    "Vendor": "Objetivos y Servicio de Valor Añadido"
+    "Vendor": "Objetivos y Servicio de Valor A\u00F1adido"
   },
   {
     "Address": "68FB7E",
@@ -68329,7 +68329,7 @@
   },
   {
     "Address": "6C14F7",
-    "Vendor": "Erhardt+               # Erhardt+Leimer GmbH"
+    "Vendor": "Erhardt\u002B               # Erhardt\u002BLeimer GmbH"
   },
   {
     "Address": "6C15F9",
@@ -68397,7 +68397,7 @@
   },
   {
     "Address": "6C2E72",
-    "Vendor": "B&B EXPORTING LIMITED"
+    "Vendor": "B\u0026B EXPORTING LIMITED"
   },
   {
     "Address": "6C2E85",
@@ -68529,7 +68529,7 @@
   },
   {
     "Address": "6C626D",
-    "Vendor": "Micro-Star INT'L CO., LTD"
+    "Vendor": "Micro-Star INT\u0027L CO., LTD"
   },
   {
     "Address": "6C641A",
@@ -68665,7 +68665,7 @@
   },
   {
     "Address": "6CA682",
-    "Vendor": "EDAM information & communications"
+    "Vendor": "EDAM information \u0026 communications"
   },
   {
     "Address": "6CA75F",
@@ -69361,7 +69361,7 @@
   },
   {
     "Address": "709BA5",
-    "Vendor": "Shenzhen Y&D Electronics Co.,LTD."
+    "Vendor": "Shenzhen Y\u0026D Electronics Co.,LTD."
   },
   {
     "Address": "709BFC",
@@ -69541,7 +69541,7 @@
   },
   {
     "Address": "70E24C",
-    "Vendor": "SAE IT-systems GmbH & Co. KG"
+    "Vendor": "SAE IT-systems GmbH \u0026 Co. KG"
   },
   {
     "Address": "70E284",
@@ -69557,7 +69557,7 @@
   },
   {
     "Address": "70E843",
-    "Vendor": "Beijing C&W Optical Communication Technology Co.,Ltd."
+    "Vendor": "Beijing C\u0026W Optical Communication Technology Co.,Ltd."
   },
   {
     "Address": "70ECE4",
@@ -69773,7 +69773,7 @@
   },
   {
     "Address": "745798",
-    "Vendor": "TRUMPF Laser GmbH + Co. KG"
+    "Vendor": "TRUMPF Laser GmbH \u002B Co. KG"
   },
   {
     "Address": "745AAA",
@@ -70477,7 +70477,7 @@
   },
   {
     "Address": "78593E",
-    "Vendor": "RAFI GmbH & Co.KG"
+    "Vendor": "RAFI GmbH \u0026 Co.KG"
   },
   {
     "Address": "78595E",
@@ -70673,7 +70673,7 @@
   },
   {
     "Address": "78A6BD",
-    "Vendor": "DAEYEON Control&Instrument Co,.Ltd"
+    "Vendor": "DAEYEON Control\u0026Instrument Co,.Ltd"
   },
   {
     "Address": "78A714",
@@ -70765,7 +70765,7 @@
   },
   {
     "Address": "78C40E",
-    "Vendor": "H&D Wireless"
+    "Vendor": "H\u0026D Wireless"
   },
   {
     "Address": "78C4AB",
@@ -70897,7 +70897,7 @@
   },
   {
     "Address": "78EB39",
-    "Vendor": "Instituto Nacional de Tecnología Industrial"
+    "Vendor": "Instituto Nacional de Tecnolog\u00EDa Industrial"
   },
   {
     "Address": "78EC22",
@@ -71341,7 +71341,7 @@
   },
   {
     "Address": "7C7BE4",
-    "Vendor": "Z'SEDAI KENKYUSHO CORPORATION"
+    "Vendor": "Z\u0027SEDAI KENKYUSHO CORPORATION"
   },
   {
     "Address": "7C7D3D",
@@ -71409,7 +71409,7 @@
   },
   {
     "Address": "7CA29B",
-    "Vendor": "D.SignT GmbH & Co. KG"
+    "Vendor": "D.SignT GmbH \u0026 Co. KG"
   },
   {
     "Address": "7CA61D",
@@ -71585,7 +71585,7 @@
   },
   {
     "Address": "7CDD11",
-    "Vendor": "Chongqing MAS SCI&TECH.Co.,Ltd"
+    "Vendor": "Chongqing MAS SCI\u0026TECH.Co.,Ltd"
   },
   {
     "Address": "7CDD20",
@@ -71705,7 +71705,7 @@
   },
   {
     "Address": "800010",
-    "Vendor": "AT&T [misrepresented as 080010? One source claims this is correct]"
+    "Vendor": "AT\u0026T [misrepresented as 080010? One source claims this is correct]"
   },
   {
     "Address": "80006E",
@@ -71889,7 +71889,7 @@
   },
   {
     "Address": "80427C",
-    "Vendor": "Adolf Tedsen GmbH & Co. KG"
+    "Vendor": "Adolf Tedsen GmbH \u0026 Co. KG"
   },
   {
     "Address": "804731",
@@ -71921,7 +71921,7 @@
   },
   {
     "Address": "805067",
-    "Vendor": "W & D TECHNOLOGY CORPORATION"
+    "Vendor": "W \u0026 D TECHNOLOGY CORPORATION"
   },
   {
     "Address": "8056F2",
@@ -72005,7 +72005,7 @@
   },
   {
     "Address": "807459",
-    "Vendor": "K's Co.,Ltd."
+    "Vendor": "K\u0027s Co.,Ltd."
   },
   {
     "Address": "807693",
@@ -72225,7 +72225,7 @@
   },
   {
     "Address": "80D18B",
-    "Vendor": "Hangzhou I'converge Technology Co.,Ltd"
+    "Vendor": "Hangzhou I\u0027converge Technology Co.,Ltd"
   },
   {
     "Address": "80D21D",
@@ -72301,7 +72301,7 @@
   },
   {
     "Address": "80F593",
-    "Vendor": "IRCO Sistemas de Telecomunicación S.A."
+    "Vendor": "IRCO Sistemas de Telecomunicaci\u00F3n S.A."
   },
   {
     "Address": "80F62E",
@@ -72441,7 +72441,7 @@
   },
   {
     "Address": "842914",
-    "Vendor": "EMPORIA TELECOM Produktions- und VertriebsgesmbH & Co KG"
+    "Vendor": "EMPORIA TELECOM Produktions- und VertriebsgesmbH \u0026 Co KG"
   },
   {
     "Address": "842999",
@@ -72473,7 +72473,7 @@
   },
   {
     "Address": "8432EA",
-    "Vendor": "ANHUI WANZTEN P&T CO., LTD"
+    "Vendor": "ANHUI WANZTEN P\u0026T CO., LTD"
   },
   {
     "Address": "843497",
@@ -72549,7 +72549,7 @@
   },
   {
     "Address": "845787",
-    "Vendor": "DVR C&C Co., Ltd."
+    "Vendor": "DVR C\u0026C Co., Ltd."
   },
   {
     "Address": "845A81",
@@ -72597,7 +72597,7 @@
   },
   {
     "Address": "847207",
-    "Vendor": "I&C Technology"
+    "Vendor": "I\u0026C Technology"
   },
   {
     "Address": "847303",
@@ -72713,7 +72713,7 @@
   },
   {
     "Address": "849000",
-    "Vendor": "Arnold & Richter Cine Technik"
+    "Vendor": "Arnold \u0026 Richter Cine Technik"
   },
   {
     "Address": "84930C",
@@ -73105,7 +73105,7 @@
   },
   {
     "Address": "882BD7",
-    "Vendor": "ADDÉNERGIE  TECHNOLOGIES"
+    "Vendor": "ADD\u00C9NERGIE  TECHNOLOGIES"
   },
   {
     "Address": "882E5A",
@@ -73253,7 +73253,7 @@
   },
   {
     "Address": "88685C",
-    "Vendor": "Shenzhen ChuangDao & Perpetual Eternal Technology Co.,Ltd"
+    "Vendor": "Shenzhen ChuangDao \u0026 Perpetual Eternal Technology Co.,Ltd"
   },
   {
     "Address": "886AB1",
@@ -73689,7 +73689,7 @@
   },
   {
     "Address": "8C11CB",
-    "Vendor": "ABUS Security-Center GmbH & Co. KG"
+    "Vendor": "ABUS Security-Center GmbH \u0026 Co. KG"
   },
   {
     "Address": "8C18D9",
@@ -73773,7 +73773,7 @@
   },
   {
     "Address": "8C4B59",
-    "Vendor": "3D Imaging & Simulations Corp"
+    "Vendor": "3D Imaging \u0026 Simulations Corp"
   },
   {
     "Address": "8C4CDC",
@@ -73793,7 +73793,7 @@
   },
   {
     "Address": "8C53F7",
-    "Vendor": "A&D ENGINEERING CO., LTD."
+    "Vendor": "A\u0026D ENGINEERING CO., LTD."
   },
   {
     "Address": "8C541D",
@@ -73949,7 +73949,7 @@
   },
   {
     "Address": "8C89A5",
-    "Vendor": "Micro-Star INT'L CO., LTD"
+    "Vendor": "Micro-Star INT\u0027L CO., LTD"
   },
   {
     "Address": "8C8A6E",
@@ -74009,7 +74009,7 @@
   },
   {
     "Address": "8CA5A1",
-    "Vendor": "Oregano-               # Oregano Systems - Design & Consulting GmbH"
+    "Vendor": "Oregano-               # Oregano Systems - Design \u0026 Consulting GmbH"
   },
   {
     "Address": "8CA6DF",
@@ -74033,7 +74033,7 @@
   },
   {
     "Address": "8CB094",
-    "Vendor": "Airtech I&C Co., Ltd"
+    "Vendor": "Airtech I\u0026C Co., Ltd"
   },
   {
     "Address": "8CB64F",
@@ -74041,7 +74041,7 @@
   },
   {
     "Address": "8CB7F7",
-    "Vendor": "Shenzhen UniStrong Science & Technology Co., Ltd"
+    "Vendor": "Shenzhen UniStrong Science \u0026 Technology Co., Ltd"
   },
   {
     "Address": "8CB82C",
@@ -74109,7 +74109,7 @@
   },
   {
     "Address": "8CD2E9",
-    "Vendor": "NIPPON SMT Co.Ltｄ"
+    "Vendor": "NIPPON SMT Co.Lt\uFF44"
   },
   {
     "Address": "8CD3A2",
@@ -74285,7 +74285,7 @@
   },
   {
     "Address": "90185E",
-    "Vendor": "Apex Tool Group GmbH & Co OHG"
+    "Vendor": "Apex Tool Group GmbH \u0026 Co OHG"
   },
   {
     "Address": "90187C",
@@ -74453,7 +74453,7 @@
   },
   {
     "Address": "90507B",
-    "Vendor": "Advanced PANMOBIL Systems GmbH & Co. KG"
+    "Vendor": "Advanced PANMOBIL Systems GmbH \u0026 Co. KG"
   },
   {
     "Address": "90513F",
@@ -74525,7 +74525,7 @@
   },
   {
     "Address": "906DC8",
-    "Vendor": "DLG Automação Industrial Ltda"
+    "Vendor": "DLG Automa\u00E7\u00E3o Industrial Ltda"
   },
   {
     "Address": "906EBB",
@@ -74561,7 +74561,7 @@
   },
   {
     "Address": "907A0A",
-    "Vendor": "Gebr. Bode GmbH & Co KG"
+    "Vendor": "Gebr. Bode GmbH \u0026 Co KG"
   },
   {
     "Address": "907A28",
@@ -74585,7 +74585,7 @@
   },
   {
     "Address": "90837A",
-    "Vendor": "General Electric Water & Process Technologies"
+    "Vendor": "General Electric Water \u0026 Process Technologies"
   },
   {
     "Address": "90840D",
@@ -74641,7 +74641,7 @@
   },
   {
     "Address": "9092B4",
-    "Vendor": "Diehl BGT Defence GmbH & Co. KG"
+    "Vendor": "Diehl BGT Defence GmbH \u0026 Co. KG"
   },
   {
     "Address": "9094E4",
@@ -74653,7 +74653,7 @@
   },
   {
     "Address": "909864",
-    "Vendor": "Impex-Sat GmbH&amp;Co KG"
+    "Vendor": "Impex-Sat GmbH\u0026amp;Co KG"
   },
   {
     "Address": "909916",
@@ -74661,7 +74661,7 @@
   },
   {
     "Address": "909DE0",
-    "Vendor": "Newland Design + Assoc. Inc."
+    "Vendor": "Newland Design \u002B Assoc. Inc."
   },
   {
     "Address": "909F33",
@@ -74821,7 +74821,7 @@
   },
   {
     "Address": "90DA6A",
-    "Vendor": "FOCUS H&S Co., Ltd."
+    "Vendor": "FOCUS H\u0026S Co., Ltd."
   },
   {
     "Address": "90DB46",
@@ -74857,7 +74857,7 @@
   },
   {
     "Address": "90EED9",
-    "Vendor": "UNIVERSAL DE DESARROLLOS ELECTRÓNICOS, SA"
+    "Vendor": "UNIVERSAL DE DESARROLLOS ELECTR\u00D3NICOS, SA"
   },
   {
     "Address": "90EF68",
@@ -74873,7 +74873,7 @@
   },
   {
     "Address": "90F1B0",
-    "Vendor": "Hangzhou Anheng Info&Tech CO.,LTD"
+    "Vendor": "Hangzhou Anheng Info\u0026Tech CO.,LTD"
   },
   {
     "Address": "90F278",
@@ -74897,7 +74897,7 @@
   },
   {
     "Address": "90F72F",
-    "Vendor": "Phillips Machine & Welding Co., Inc."
+    "Vendor": "Phillips Machine \u0026 Welding Co., Inc."
   },
   {
     "Address": "90FB5B",
@@ -74933,7 +74933,7 @@
   },
   {
     "Address": "9405B6",
-    "Vendor": "Liling FullRiver Electronics & Technology Ltd"
+    "Vendor": "Liling FullRiver Electronics \u0026 Technology Ltd"
   },
   {
     "Address": "940937",
@@ -74957,7 +74957,7 @@
   },
   {
     "Address": "9411DA",
-    "Vendor": "ITF Fröschl GmbH"
+    "Vendor": "ITF Fr\u00F6schl GmbH"
   },
   {
     "Address": "941673",
@@ -74993,7 +74993,7 @@
   },
   {
     "Address": "942E63",
-    "Vendor": "Finsécur"
+    "Vendor": "Fins\u00E9cur"
   },
   {
     "Address": "94319B",
@@ -75009,7 +75009,7 @@
   },
   {
     "Address": "9436E0",
-    "Vendor": "Sichuan Bihong Broadcast &amp; Television New Technologies Co.,Ltd"
+    "Vendor": "Sichuan Bihong Broadcast \u0026amp; Television New Technologies Co.,Ltd"
   },
   {
     "Address": "9439E5",
@@ -75157,7 +75157,7 @@
   },
   {
     "Address": "9486CD",
-    "Vendor": "SEOUL ELECTRONICS&TELECOM"
+    "Vendor": "SEOUL ELECTRONICS\u0026TELECOM"
   },
   {
     "Address": "9486D4",
@@ -75305,7 +75305,7 @@
   },
   {
     "Address": "94BA31",
-    "Vendor": "Visiontec da Amazônia Ltda."
+    "Vendor": "Visiontec da Amaz\u00F4nia Ltda."
   },
   {
     "Address": "94BA56",
@@ -75337,7 +75337,7 @@
   },
   {
     "Address": "94C3E4",
-    "Vendor": "SCA Schucker Gmbh & Co KG"
+    "Vendor": "SCA Schucker Gmbh \u0026 Co KG"
   },
   {
     "Address": "94C4E9",
@@ -75353,7 +75353,7 @@
   },
   {
     "Address": "94C960",
-    "Vendor": "Zhongshan B&T technology.co.,ltd"
+    "Vendor": "Zhongshan B\u0026T technology.co.,ltd"
   },
   {
     "Address": "94C962",
@@ -75425,7 +75425,7 @@
   },
   {
     "Address": "94DD3F",
-    "Vendor": "A+V Link Technologies, Corp."
+    "Vendor": "A\u002BV Link Technologies, Corp."
   },
   {
     "Address": "94DE0E",
@@ -75453,7 +75453,7 @@
   },
   {
     "Address": "94E2FD",
-    "Vendor": "Boge Kompressoren OTTO Boge GmbH & Co. KG"
+    "Vendor": "Boge Kompressoren OTTO Boge GmbH \u0026 Co. KG"
   },
   {
     "Address": "94E711",
@@ -75985,7 +75985,7 @@
   },
   {
     "Address": "98D3D2",
-    "Vendor": "MEKRA Lang GmbH & Co. KG"
+    "Vendor": "MEKRA Lang GmbH \u0026 Co. KG"
   },
   {
     "Address": "98D686",
@@ -76169,7 +76169,7 @@
   },
   {
     "Address": "9C1465",
-    "Vendor": "Edata Elektronik San. ve Tic. A.Ş."
+    "Vendor": "Edata Elektronik San. ve Tic. A.\u015E."
   },
   {
     "Address": "9C1874",
@@ -76353,7 +76353,7 @@
   },
   {
     "Address": "9C5C8D",
-    "Vendor": "FIREMAX INDÚSTRIA E COMÉRCIO DE PRODUTOS ELETRÔNICOS  LTDA"
+    "Vendor": "FIREMAX IND\u00DASTRIA E COM\u00C9RCIO DE PRODUTOS ELETR\u00D4NICOS  LTDA"
   },
   {
     "Address": "9C5C8E",
@@ -76793,7 +76793,7 @@
   },
   {
     "Address": "9CFBF1",
-    "Vendor": "MESOMATIC GmbH & Co.KG"
+    "Vendor": "MESOMATIC GmbH \u0026 Co.KG"
   },
   {
     "Address": "9CFC01",
@@ -76817,7 +76817,7 @@
   },
   {
     "Address": "A0043E",
-    "Vendor": "Parker Hannifin Manufacturing Germany GmbH & Co. KG"
+    "Vendor": "Parker Hannifin Manufacturing Germany GmbH \u0026 Co. KG"
   },
   {
     "Address": "A00460",
@@ -76925,7 +76925,7 @@
   },
   {
     "Address": "A0231B",
-    "Vendor": "TeleComp R&D Corp."
+    "Vendor": "TeleComp R\u0026D Corp."
   },
   {
     "Address": "A02BB8",
@@ -77389,7 +77389,7 @@
   },
   {
     "Address": "A0D385",
-    "Vendor": "AUMA Riester GmbH & Co. KG"
+    "Vendor": "AUMA Riester GmbH \u0026 Co. KG"
   },
   {
     "Address": "A0D3C1",
@@ -77477,7 +77477,7 @@
   },
   {
     "Address": "A0EF84",
-    "Vendor": "Seine Image Int'l Co., Ltd"
+    "Vendor": "Seine Image Int\u0027l Co., Ltd"
   },
   {
     "Address": "A0F217",
@@ -77553,7 +77553,7 @@
   },
   {
     "Address": "A409CB",
-    "Vendor": "Alfred Kaercher GmbH &amp; Co KG"
+    "Vendor": "Alfred Kaercher GmbH \u0026amp; Co KG"
   },
   {
     "Address": "A40BED",
@@ -77689,7 +77689,7 @@
   },
   {
     "Address": "A444D1",
-    "Vendor": "Wingtech Group (HongKong）Limited"
+    "Vendor": "Wingtech Group (HongKong\uFF09Limited"
   },
   {
     "Address": "A4466B",
@@ -77985,7 +77985,7 @@
   },
   {
     "Address": "A4B1EE",
-    "Vendor": "H. ZANDER GmbH & Co. KG"
+    "Vendor": "H. ZANDER GmbH \u0026 Co. KG"
   },
   {
     "Address": "A4B2A7",
@@ -78001,7 +78001,7 @@
   },
   {
     "Address": "A4B818",
-    "Vendor": "PENTA Gesellschaft für elektronische Industriedatenverarbeitung mbH"
+    "Vendor": "PENTA Gesellschaft f\u00FCr elektronische Industriedatenverarbeitung mbH"
   },
   {
     "Address": "A4B980",
@@ -78041,7 +78041,7 @@
   },
   {
     "Address": "A4C2AB",
-    "Vendor": "Hangzhou LEAD-IT Information & Technology Co.,Ltd"
+    "Vendor": "Hangzhou LEAD-IT Information \u0026 Technology Co.,Ltd"
   },
   {
     "Address": "A4C361",
@@ -78137,7 +78137,7 @@
   },
   {
     "Address": "A4E32E",
-    "Vendor": "Silicon & Software Systems Ltd."
+    "Vendor": "Silicon \u0026 Software Systems Ltd."
   },
   {
     "Address": "A4E391",
@@ -78253,7 +78253,7 @@
   },
   {
     "Address": "A81758",
-    "Vendor": "Elektronik System i Umeå AB"
+    "Vendor": "Elektronik System i Ume\u00E5 AB"
   },
   {
     "Address": "A81B18",
@@ -78561,7 +78561,7 @@
   },
   {
     "Address": "A8A5E2",
-    "Vendor": "MSF-Vathauer Antriebstechnik GmbH & Co KG"
+    "Vendor": "MSF-Vathauer Antriebstechnik GmbH \u0026 Co KG"
   },
   {
     "Address": "A8A648",
@@ -78657,7 +78657,7 @@
   },
   {
     "Address": "A8D3C8",
-    "Vendor": "Wachendorff Elektronik  GmbH & Co. KG"
+    "Vendor": "Wachendorff Elektronik  GmbH \u0026 Co. KG"
   },
   {
     "Address": "A8D3F7",
@@ -78913,7 +78913,7 @@
   },
   {
     "Address": "AC40EA",
-    "Vendor": "C&T Solution Inc."
+    "Vendor": "C\u0026T Solution Inc."
   },
   {
     "Address": "AC4122",
@@ -79253,7 +79253,7 @@
   },
   {
     "Address": "ACC2EC",
-    "Vendor": "CLT INT'L IND. CORP."
+    "Vendor": "CLT INT\u0027L IND. CORP."
   },
   {
     "Address": "ACC33A",
@@ -79353,7 +79353,7 @@
   },
   {
     "Address": "ACDCE5",
-    "Vendor": "Procter & Gamble Company"
+    "Vendor": "Procter \u0026 Gamble Company"
   },
   {
     "Address": "ACDE48",
@@ -79817,7 +79817,7 @@
   },
   {
     "Address": "B0A37E",
-    "Vendor": "Qingdao Haier Telecom Co.，Ltd"
+    "Vendor": "Qingdao Haier Telecom Co.\uFF0CLtd"
   },
   {
     "Address": "B0A72A",
@@ -79969,7 +79969,7 @@
   },
   {
     "Address": "B0D7CC",
-    "Vendor": "Tridonic GmbH & Co KG"
+    "Vendor": "Tridonic GmbH \u0026 Co KG"
   },
   {
     "Address": "B0DA00",
@@ -80069,7 +80069,7 @@
   },
   {
     "Address": "B40142",
-    "Vendor": "GCI Science & Technology Co.,LTD"
+    "Vendor": "GCI Science \u0026 Technology Co.,LTD"
   },
   {
     "Address": "B40418",
@@ -80181,7 +80181,7 @@
   },
   {
     "Address": "B43564",
-    "Vendor": "Fujian Tian Cheng Electron Science & Technical Development Co.,Ltd."
+    "Vendor": "Fujian Tian Cheng Electron Science \u0026 Technical Development Co.,Ltd."
   },
   {
     "Address": "B435F7",
@@ -80409,7 +80409,7 @@
   },
   {
     "Address": "B49EAC",
-    "Vendor": "Imagik Int'l Corp"
+    "Vendor": "Imagik Int\u0027l Corp"
   },
   {
     "Address": "B49EE6",
@@ -80477,7 +80477,7 @@
   },
   {
     "Address": "B4B265",
-    "Vendor": "DAEHO I&T"
+    "Vendor": "DAEHO I\u0026T"
   },
   {
     "Address": "B4B362",
@@ -80713,7 +80713,7 @@
   },
   {
     "Address": "B820E7",
-    "Vendor": "Guangzhou Horizontal Information & Network Integration Co. Ltd"
+    "Vendor": "Guangzhou Horizontal Information \u0026 Network Integration Co. Ltd"
   },
   {
     "Address": "B8224F",
@@ -80737,7 +80737,7 @@
   },
   {
     "Address": "B826D4",
-    "Vendor": "Furukawa Industrial S.A. Produtos Elétricos"
+    "Vendor": "Furukawa Industrial S.A. Produtos El\u00E9tricos"
   },
   {
     "Address": "B827EB",
@@ -80757,7 +80757,7 @@
   },
   {
     "Address": "B82ADC",
-    "Vendor": "EFR Europäische Funk-Rundsteuerung GmbH"
+    "Vendor": "EFR Europ\u00E4ische Funk-Rundsteuerung GmbH"
   },
   {
     "Address": "B82CA0",
@@ -81001,7 +81001,7 @@
   },
   {
     "Address": "B8921D",
-    "Vendor": "BG T&A"
+    "Vendor": "BG T\u0026A"
   },
   {
     "Address": "B894D2",
@@ -81009,11 +81009,11 @@
   },
   {
     "Address": "B89674",
-    "Vendor": "AllDSP GmbH & Co. KG"
+    "Vendor": "AllDSP GmbH \u0026 Co. KG"
   },
   {
     "Address": "B8975A",
-    "Vendor": "BIOSTAR Microtech Int'l Corp."
+    "Vendor": "BIOSTAR Microtech Int\u0027l Corp."
   },
   {
     "Address": "B898B0",
@@ -81085,7 +81085,7 @@
   },
   {
     "Address": "B8B1C7",
-    "Vendor": "BT&COM CO.,LTD"
+    "Vendor": "BT\u0026COM CO.,LTD"
   },
   {
     "Address": "B8B2EB",
@@ -81113,7 +81113,7 @@
   },
   {
     "Address": "B8BA68",
-    "Vendor": "Xi'an Jizhong Digital Communication Co.,Ltd"
+    "Vendor": "Xi\u0027an Jizhong Digital Communication Co.,Ltd"
   },
   {
     "Address": "B8BA72",
@@ -81153,7 +81153,7 @@
   },
   {
     "Address": "B8C3BF",
-    "Vendor": "Henan Chengshi NetWork Technology Co.，Ltd"
+    "Vendor": "Henan Chengshi NetWork Technology Co.\uFF0CLtd"
   },
   {
     "Address": "B8C46F",
@@ -81273,7 +81273,7 @@
   },
   {
     "Address": "B8F4D0",
-    "Vendor": "Herrmann Ultraschalltechnik GmbH & Co. Kg"
+    "Vendor": "Herrmann Ultraschalltechnik GmbH \u0026 Co. Kg"
   },
   {
     "Address": "B8F5E7",
@@ -81725,7 +81725,7 @@
   },
   {
     "Address": "BC8B55",
-    "Vendor": "NPP ELIKS America Inc. DBA T&M Atlantic"
+    "Vendor": "NPP ELIKS America Inc. DBA T\u0026M Atlantic"
   },
   {
     "Address": "BC8CCD",
@@ -82041,7 +82041,7 @@
   },
   {
     "Address": "C027B9",
-    "Vendor": "Beijing National Railway Research & Design Institute  of Signal & Communication Co., Ltd."
+    "Vendor": "Beijing National Railway Research \u0026 Design Institute  of Signal \u0026 Communication Co., Ltd."
   },
   {
     "Address": "C0288D",
@@ -82081,7 +82081,7 @@
   },
   {
     "Address": "C03580",
-    "Vendor": "A&R TECH"
+    "Vendor": "A\u0026R TECH"
   },
   {
     "Address": "C035BD",
@@ -82257,7 +82257,7 @@
   },
   {
     "Address": "C08B6F",
-    "Vendor": "S I Sistemas Inteligentes Eletrônicos Ltda"
+    "Vendor": "S I Sistemas Inteligentes Eletr\u00F4nicos Ltda"
   },
   {
     "Address": "C08C60",
@@ -82425,7 +82425,7 @@
   },
   {
     "Address": "C0CFA3",
-    "Vendor": "Creative Electronics & Software, Inc."
+    "Vendor": "Creative Electronics \u0026 Software, Inc."
   },
   {
     "Address": "C0D012",
@@ -82449,7 +82449,7 @@
   },
   {
     "Address": "C0D9F7",
-    "Vendor": "ShanDong Domor Intelligent S&T CO.,Ltd"
+    "Vendor": "ShanDong Domor Intelligent S\u0026T CO.,Ltd"
   },
   {
     "Address": "C0DA74",
@@ -83029,7 +83029,7 @@
   },
   {
     "Address": "C4BA99",
-    "Vendor": "I+ME Actia Informatik und Mikro-Elektronik GmbH"
+    "Vendor": "I\u002BME Actia Informatik und Mikro-Elektronik GmbH"
   },
   {
     "Address": "C4BAA3",
@@ -83729,7 +83729,7 @@
   },
   {
     "Address": "C8D779",
-    "Vendor": "Qingdao Haier Telecom Co.，Ltd"
+    "Vendor": "Qingdao Haier Telecom Co.\uFF0CLtd"
   },
   {
     "Address": "C8DDC9",
@@ -83921,7 +83921,7 @@
   },
   {
     "Address": "CC19A8",
-    "Vendor": "PT Inovação e Sistemas SA"
+    "Vendor": "PT Inova\u00E7\u00E3o e Sistemas SA"
   },
   {
     "Address": "CC1AFA",
@@ -84401,7 +84401,7 @@
   },
   {
     "Address": "CCD29B",
-    "Vendor": "Shenzhen Bopengfa Elec&Technology CO.,Ltd"
+    "Vendor": "Shenzhen Bopengfa Elec\u0026Technology CO.,Ltd"
   },
   {
     "Address": "CCD31E",
@@ -84485,7 +84485,7 @@
   },
   {
     "Address": "CCF8F0",
-    "Vendor": "Xi'an HISU Multimedia Technology Co.,Ltd."
+    "Vendor": "Xi\u0027an HISU Multimedia Technology Co.,Ltd."
   },
   {
     "Address": "CCF954",
@@ -84545,11 +84545,11 @@
   },
   {
     "Address": "D00ED9",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "D00F6D",
-    "Vendor": "T&W Electronics Company"
+    "Vendor": "T\u0026W Electronics Company"
   },
   {
     "Address": "D01242",
@@ -84717,7 +84717,7 @@
   },
   {
     "Address": "D057A1",
-    "Vendor": "Werma Signaltechnik GmbH & Co. KG"
+    "Vendor": "Werma Signaltechnik GmbH \u0026 Co. KG"
   },
   {
     "Address": "D05875",
@@ -84769,7 +84769,7 @@
   },
   {
     "Address": "D0634D",
-    "Vendor": "Meiko Maschinenbau GmbH &amp; Co. KG"
+    "Vendor": "Meiko Maschinenbau GmbH \u0026amp; Co. KG"
   },
   {
     "Address": "D063B4",
@@ -84829,7 +84829,7 @@
   },
   {
     "Address": "D075BE",
-    "Vendor": "Reno A&E"
+    "Vendor": "Reno A\u0026E"
   },
   {
     "Address": "D07650",
@@ -84929,7 +84929,7 @@
   },
   {
     "Address": "D0A311",
-    "Vendor": "Neuberger Gebäudeautomation GmbH"
+    "Vendor": "Neuberger Geb\u00E4udeautomation GmbH"
   },
   {
     "Address": "D0A4B1",
@@ -85325,7 +85325,7 @@
   },
   {
     "Address": "D43D7E",
-    "Vendor": "Micro-Star Int'l Co, Ltd"
+    "Vendor": "Micro-Star Int\u0027l Co, Ltd"
   },
   {
     "Address": "D440F0",
@@ -85357,7 +85357,7 @@
   },
   {
     "Address": "D44CA7",
-    "Vendor": "Informtekhnika & Communication, LLC"
+    "Vendor": "Informtekhnika \u0026 Communication, LLC"
   },
   {
     "Address": "D44F80",
@@ -85509,7 +85509,7 @@
   },
   {
     "Address": "D479C3",
-    "Vendor": "Cameronet GmbH & Co. KG"
+    "Vendor": "Cameronet GmbH \u0026 Co. KG"
   },
   {
     "Address": "D47AE2",
@@ -85581,7 +85581,7 @@
   },
   {
     "Address": "D490E0",
-    "Vendor": "Wachendorff Automation GmbH & Co KG"
+    "Vendor": "Wachendorff Automation GmbH \u0026 Co KG"
   },
   {
     "Address": "D491AF",
@@ -85613,7 +85613,7 @@
   },
   {
     "Address": "D496DF",
-    "Vendor": "SUNGJIN C&T CO.,LTD"
+    "Vendor": "SUNGJIN C\u0026T CO.,LTD"
   },
   {
     "Address": "D4970B",
@@ -85637,7 +85637,7 @@
   },
   {
     "Address": "D49E6D",
-    "Vendor": "Wuhan Zhongyuan Huadian Science & Technology Co.,"
+    "Vendor": "Wuhan Zhongyuan Huadian Science \u0026 Technology Co.,"
   },
   {
     "Address": "D4A02A",
@@ -85721,7 +85721,7 @@
   },
   {
     "Address": "D4C8B0",
-    "Vendor": "Prime Electronics & Satellitics Inc."
+    "Vendor": "Prime Electronics \u0026 Satellitics Inc."
   },
   {
     "Address": "D4C9B2",
@@ -85797,7 +85797,7 @@
   },
   {
     "Address": "D4E32C",
-    "Vendor": "S. Siedle & Sohne"
+    "Vendor": "S. Siedle \u0026 Sohne"
   },
   {
     "Address": "D4E33F",
@@ -85937,7 +85937,7 @@
   },
   {
     "Address": "D81EDE",
-    "Vendor": "B&W Group Ltd"
+    "Vendor": "B\u0026W Group Ltd"
   },
   {
     "Address": "D81FCC",
@@ -85961,7 +85961,7 @@
   },
   {
     "Address": "D826B9",
-    "Vendor": "Guangdong Coagent Electronics S&amp;T Co.,Ltd."
+    "Vendor": "Guangdong Coagent Electronics S\u0026amp;T Co.,Ltd."
   },
   {
     "Address": "D8270C",
@@ -86125,15 +86125,15 @@
   },
   {
     "Address": "D860B0",
-    "Vendor": "bioMérieux Italia S.p.A."
+    "Vendor": "bioM\u00E9rieux Italia S.p.A."
   },
   {
     "Address": "D860B3",
-    "Vendor": "Guangdong Global Electronic Technology CO.，LTD"
+    "Vendor": "Guangdong Global Electronic Technology CO.\uFF0CLTD"
   },
   {
     "Address": "D86194",
-    "Vendor": "Objetivos y Sevicios de Valor Añadido"
+    "Vendor": "Objetivos y Sevicios de Valor An\u0303adido"
   },
   {
     "Address": "D862DB",
@@ -86141,7 +86141,7 @@
   },
   {
     "Address": "D86595",
-    "Vendor": "Toy's Myth Inc."
+    "Vendor": "Toy\u0027s Myth Inc."
   },
   {
     "Address": "D866C6",
@@ -86637,7 +86637,7 @@
   },
   {
     "Address": "DC1D9F",
-    "Vendor": "U & B tech"
+    "Vendor": "U \u0026 B tech"
   },
   {
     "Address": "DC1DD4",
@@ -86697,7 +86697,7 @@
   },
   {
     "Address": "DC330D",
-    "Vendor": "Qingdao Haier Telecom Co.，Ltd"
+    "Vendor": "Qingdao Haier Telecom Co.\uFF0CLtd"
   },
   {
     "Address": "DC3350",
@@ -86705,7 +86705,7 @@
   },
   {
     "Address": "DC35F1",
-    "Vendor": "Positivo Informática SA."
+    "Vendor": "Positivo Inform\u00E1tica SA."
   },
   {
     "Address": "DC3714",
@@ -86745,7 +86745,7 @@
   },
   {
     "Address": "DC3E51",
-    "Vendor": "Solberg & Andersen AS"
+    "Vendor": "Solberg \u0026 Andersen AS"
   },
   {
     "Address": "DC3EF8",
@@ -86945,11 +86945,11 @@
   },
   {
     "Address": "DCB058",
-    "Vendor": "Bürkert Werke GmbH"
+    "Vendor": "B\u00FCrkert Werke GmbH"
   },
   {
     "Address": "DCB3B4",
-    "Vendor": "Honeywell Environmental & Combustion Controls (Tianjin) Co., Ltd."
+    "Vendor": "Honeywell Environmental \u0026 Combustion Controls (Tianjin) Co., Ltd."
   },
   {
     "Address": "DCB4C4",
@@ -86965,7 +86965,7 @@
   },
   {
     "Address": "DCC0EB",
-    "Vendor": "ASSA ABLOY CÔTE PICARDE"
+    "Vendor": "ASSA ABLOY C\u00D4TE PICARDE"
   },
   {
     "Address": "DCC101",
@@ -87381,7 +87381,7 @@
   },
   {
     "Address": "E05DA6",
-    "Vendor": "Detlef Fink Elektronik & Softwareentwicklung"
+    "Vendor": "Detlef Fink Elektronik \u0026 Softwareentwicklung"
   },
   {
     "Address": "E05F45",
@@ -87401,7 +87401,7 @@
   },
   {
     "Address": "E06290",
-    "Vendor": "Jinan Jovision Science & Technology Co., Ltd."
+    "Vendor": "Jinan Jovision Science \u0026 Technology Co., Ltd."
   },
   {
     "Address": "E063E5",
@@ -87581,7 +87581,7 @@
   },
   {
     "Address": "E0AEB2",
-    "Vendor": "Bender GmbH &amp; Co.KG"
+    "Vendor": "Bender GmbH \u0026amp; Co.KG"
   },
   {
     "Address": "E0AEED",
@@ -87613,7 +87613,7 @@
   },
   {
     "Address": "E0B94D",
-    "Vendor": "SHENZHEN BILIAN ELECTRONIC CO.，LTD"
+    "Vendor": "SHENZHEN BILIAN ELECTRONIC CO.\uFF0CLTD"
   },
   {
     "Address": "E0B9A5",
@@ -87969,7 +87969,7 @@
   },
   {
     "Address": "E446BD",
-    "Vendor": "C&C TECHNIC TAIWAN CO., LTD."
+    "Vendor": "C\u0026C TECHNIC TAIWAN CO., LTD."
   },
   {
     "Address": "E44790",
@@ -88245,7 +88245,7 @@
   },
   {
     "Address": "E4B005",
-    "Vendor": "Beijing IQIYI Science & Technology Co., Ltd."
+    "Vendor": "Beijing IQIYI Science \u0026 Technology Co., Ltd."
   },
   {
     "Address": "E4B021",
@@ -88305,7 +88305,7 @@
   },
   {
     "Address": "E4CE70",
-    "Vendor": "Health & Life co., Ltd."
+    "Vendor": "Health \u0026 Life co., Ltd."
   },
   {
     "Address": "E4CE8F",
@@ -88349,7 +88349,7 @@
   },
   {
     "Address": "E4EEFD",
-    "Vendor": "MR&D Manufacturing"
+    "Vendor": "MR\u0026D Manufacturing"
   },
   {
     "Address": "E4F365",
@@ -88833,7 +88833,7 @@
   },
   {
     "Address": "E8B4AE",
-    "Vendor": "Shenzhen C&D Electronics Co.,Ltd"
+    "Vendor": "Shenzhen C\u0026D Electronics Co.,Ltd"
   },
   {
     "Address": "E8B4C8",
@@ -89205,7 +89205,7 @@
   },
   {
     "Address": "EC3F05",
-    "Vendor": "Institute 706, The Second Academy China Aerospace Science & Industry Corp"
+    "Vendor": "Institute 706, The Second Academy China Aerospace Science \u0026 Industry Corp"
   },
   {
     "Address": "EC42F0",
@@ -89233,7 +89233,7 @@
   },
   {
     "Address": "EC4670",
-    "Vendor": "Meinberg Funkuhren GmbH & Co. KG"
+    "Vendor": "Meinberg Funkuhren GmbH \u0026 Co. KG"
   },
   {
     "Address": "EC473C",
@@ -89301,7 +89301,7 @@
   },
   {
     "Address": "EC66D1",
-    "Vendor": "B&W Group LTD"
+    "Vendor": "B\u0026W Group LTD"
   },
   {
     "Address": "EC6881",
@@ -89377,7 +89377,7 @@
   },
   {
     "Address": "EC9327",
-    "Vendor": "Memmert+               # MEMMERT GmbH + Co. KG"
+    "Vendor": "Memmert\u002B               # MEMMERT GmbH \u002B Co. KG"
   },
   {
     "Address": "EC93ED",
@@ -89597,7 +89597,7 @@
   },
   {
     "Address": "ECFC55",
-    "Vendor": "A. Eberle GmbH & Co. KG"
+    "Vendor": "A. Eberle GmbH \u0026 Co. KG"
   },
   {
     "Address": "ECFE7E",
@@ -89673,7 +89673,7 @@
   },
   {
     "Address": "F0219D",
-    "Vendor": "Cal-Comp Electronics & Communications Company Ltd."
+    "Vendor": "Cal-Comp Electronics \u0026 Communications Company Ltd."
   },
   {
     "Address": "F0224E",
@@ -89921,7 +89921,7 @@
   },
   {
     "Address": "F07F0C",
-    "Vendor": "Leopold Kostal GmbH &Co. KG"
+    "Vendor": "Leopold Kostal GmbH \u0026Co. KG"
   },
   {
     "Address": "F081AF",
@@ -90161,7 +90161,7 @@
   },
   {
     "Address": "F0DEB9",
-    "Vendor": "ShangHai Y&Y Electronics Co., Ltd"
+    "Vendor": "ShangHai Y\u0026Y Electronics Co., Ltd"
   },
   {
     "Address": "F0DEF1",
@@ -90169,7 +90169,7 @@
   },
   {
     "Address": "F0E5C3",
-    "Vendor": "Drägerwerk AG & Co. KG aA"
+    "Vendor": "Dr\u00E4gerwerk AG \u0026 Co. KG aA"
   },
   {
     "Address": "F0E77E",
@@ -90225,7 +90225,7 @@
   },
   {
     "Address": "F0F644",
-    "Vendor": "Whitesky Science & Technology Co.,Ltd."
+    "Vendor": "Whitesky Science \u0026 Technology Co.,Ltd."
   },
   {
     "Address": "F0F669",
@@ -90245,7 +90245,7 @@
   },
   {
     "Address": "F0F9F7",
-    "Vendor": "IES GmbH & Co. KG"
+    "Vendor": "IES GmbH \u0026 Co. KG"
   },
   {
     "Address": "F0FDA0",
@@ -90409,7 +90409,7 @@
   },
   {
     "Address": "F44227",
-    "Vendor": "S & S Research Inc."
+    "Vendor": "S \u0026 S Research Inc."
   },
   {
     "Address": "F4428F",
@@ -90565,7 +90565,7 @@
   },
   {
     "Address": "F47A4E",
-    "Vendor": "Woojeon&               # Woojeon&Handan"
+    "Vendor": "Woojeon\u0026               # Woojeon\u0026Handan"
   },
   {
     "Address": "F47ACC",
@@ -90653,7 +90653,7 @@
   },
   {
     "Address": "F49EEF",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "F49F54",
@@ -90773,7 +90773,7 @@
   },
   {
     "Address": "F4D032",
-    "Vendor": "Yunnan Ideal Information&Technology.,Ltd"
+    "Vendor": "Yunnan Ideal Information\u0026Technology.,Ltd"
   },
   {
     "Address": "F4D261",
@@ -90853,7 +90853,7 @@
   },
   {
     "Address": "F4EF9E",
-    "Vendor": "SGSG SCIENCE & TECHNOLOGY CO. LTD"
+    "Vendor": "SGSG SCIENCE \u0026 TECHNOLOGY CO. LTD"
   },
   {
     "Address": "F4F15A",
@@ -91025,7 +91025,7 @@
   },
   {
     "Address": "F82EDB",
-    "Vendor": "RTW GmbH & Co. KG"
+    "Vendor": "RTW GmbH \u0026 Co. KG"
   },
   {
     "Address": "F82F08",
@@ -91241,7 +91241,7 @@
   },
   {
     "Address": "F88096",
-    "Vendor": "Elsys Equipamentos Eletrônicos Ltda"
+    "Vendor": "Elsys Equipamentos Eletr\u00F4nicos Ltda"
   },
   {
     "Address": "F8811A",
@@ -91329,7 +91329,7 @@
   },
   {
     "Address": "F8A2B4",
-    "Vendor": "RHEWA-WAAGENFABRIK August Freudewald GmbH &amp;Co. KG"
+    "Vendor": "RHEWA-WAAGENFABRIK August Freudewald GmbH \u0026amp;Co. KG"
   },
   {
     "Address": "F8A34F",
@@ -91521,7 +91521,7 @@
   },
   {
     "Address": "F8E7B5",
-    "Vendor": "µTech Tecnologia LTDA"
+    "Vendor": "\u00B5Tech Tecnologia LTDA"
   },
   {
     "Address": "F8E811",
@@ -91649,7 +91649,7 @@
   },
   {
     "Address": "FC10C6",
-    "Vendor": "Taicang T&W Electronics"
+    "Vendor": "Taicang T\u0026W Electronics"
   },
   {
     "Address": "FC1186",
@@ -92129,7 +92129,7 @@
   },
   {
     "Address": "FCE192",
-    "Vendor": "Sichuan Jinwangtong Electronic Science&Technology Co,.Ltd"
+    "Vendor": "Sichuan Jinwangtong Electronic Science\u0026Technology Co,.Ltd"
   },
   {
     "Address": "FCE1D9",

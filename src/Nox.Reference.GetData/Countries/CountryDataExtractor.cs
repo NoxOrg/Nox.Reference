@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Nox.Reference.Countries;
+﻿using Nox.Reference.Countries;
 using System.Text.Json;
 
 internal class CountryDataExtractor
@@ -26,7 +25,7 @@ internal class CountryDataExtractor
             // save content
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
-            var countries = System.Text.Json.JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+            var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
             // Edit germany
             var germany = countries.First(c => c.Code.Equals("DEU"));
@@ -37,7 +36,7 @@ internal class CountryDataExtractor
             }
 
             // Add fips codes
-            var isoAlpha2ToFipsMapping = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(
+            var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(
                 File.ReadAllText(Path.Combine(sourceFilePath, "static-iso2fips.json"))
             );
 

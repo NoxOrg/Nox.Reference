@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Nox.Reference.Common;
 
@@ -17,14 +17,14 @@ public static class AssemblyDataInitializer
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)
         {
-            throw new InvalidOperationException("Assembly stream is null or empty");
+            throw new InvalidOperationException($"Resource {resourceName} stream is null or empty");
         }
 
         using var reader = new StreamReader(stream);
 
         var jsonContent = reader.ReadToEnd();
 
-        var data = JsonConvert.DeserializeObject<TType[]>(jsonContent);
+        var data = JsonSerializer.Deserialize<TType[]>(jsonContent);
 
         if (data == null || !data.Any())
         {

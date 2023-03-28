@@ -7,21 +7,21 @@ namespace Nox.Reference.MacAddresses
         /// <summary>
         /// Get all mac addresses with vendors.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Collection of IMacAddressInfo</returns>
         IReadOnlyList<IMacAddressInfo> GetMacAddresses();
 
         /// <summary>
         /// Get mac address info for particular vendor.
         /// </summary>
-        /// <param name="vendorName"></param>
-        /// <returns></returns>
+        /// <param name="vendorName">Vendor name</param>
+        /// <returns>IMacAddressInfo</returns>
         IMacAddressInfo? GetVendorMacAddress(string vendorName);
 
         /// <summary>
-        /// Search Mac address by vendor matches.
+        /// Search Mac Address by matches in vendor name.
         /// </summary>
-        /// <param name="searchKey"></param>
-        /// <returns></returns>
+        /// <param name="searchKey">Find any occurrences in a vendor name.</param>
+        /// <returns>Collection of IMacAddressInfo</returns>
         IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string searchKey);
     }
 }

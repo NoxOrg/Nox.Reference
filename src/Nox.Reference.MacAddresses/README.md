@@ -5,13 +5,6 @@ MacAddresses list and info
 
 ```csharp
 
-Startup.cs
-
-ConfigureServices(IServiceCollection services)
-{
-    services.AddMacAddresses();
-}
-
 using System.Text.Json;
 using Nox.Reference.MacAddresses;
 
@@ -35,6 +28,15 @@ public class TestClass
         };
 
         Console.WriteLine(JsonSerializer.Serialize(info,options));
+    }
+}
+
+
+public class Startup
+{
+    ConfigureServices(IServiceCollection services)
+    {
+        services.AddMacAddresses();
     }
 }
 ```
@@ -66,5 +68,3 @@ public class TestClass
 ```powershell
 dotnet add package Nox.Reference.MacAddresses
 ```
-
-### Dependencies

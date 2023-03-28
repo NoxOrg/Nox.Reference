@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json;
 using Nox.Reference.Abstractions.MacAddresses;
 
 internal static class MacAddressDataExtractor
@@ -26,22 +26,14 @@ internal static class MacAddressDataExtractor
 
             arr.Add(new MacAddressInfo(address, vendor));
         }
+        var serializedOptions = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
 
-        var jsonString = JsonConvert.SerializeObject(arr, Formatting.Indented);
+        var jsonString = JsonSerializer.Serialize(arr, serializedOptions);
 
         using var sw = new StreamWriter(Path.Combine(outputPath, OutputFilePath));
         sw.WriteLine(jsonString);
-    }
-
-    record MacAddressInfo : IMacAddressInfo
-    {
-        public MacAddressInfo(string address, string vendor)
-        {
-            Address = address;
-            Vendor = vendor;
-        }
-
-        public string Address { get; }
-        public string Vendor { get; }
     }
 }

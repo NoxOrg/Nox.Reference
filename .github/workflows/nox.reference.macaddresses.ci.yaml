@@ -5,16 +5,17 @@ on:
     branches: [ main ]
     paths:
       - src/Nox.Reference.Abstractions/**
-      - src/Nox.Reference.PhoneNumbers/**
-      - tests/Nox.Reference.PhoneNumbers.Tests/**
-      - .github/workflows/nox.reference.phonenumbers.ci.yaml
+	- src/Nox.Reference.Common/**
+      - src/Nox.Reference.MacAddresses/**
+      - tests/Nox.Reference.MacAddresses.Tests/**
+      - .github/workflows/nox.reference.macaddresses.ci.yaml
   push:
     branches: [ main ]
     paths:
       - src/Nox.Reference.Abstractions/**
-      - src/Nox.Reference.PhoneNumbers/**
-      - tests/Nox.Reference.PhoneNumbers.Tests/**
-      - .github/workflows/nox.reference.phonenumbers.ci.yaml
+      - src/Nox.Reference.MacAddresses/**
+      - tests/Nox.Reference.MacAddresses.Tests/**
+      - .github/workflows/nox.reference.macaddresses.ci.yaml
 
 jobs:
   build:
@@ -30,8 +31,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Restore
-        run: dotnet restore ./src/Nox.Reference.PhoneNumbers/Nox.Reference.PhoneNumbers.csproj
+        run: dotnet restore ./src/Nox.Reference.MacAddresses/Nox.Reference.MacAddresses.csproj
       - name: Build
-        run: dotnet build ./src/Nox.Reference.PhoneNumbers/Nox.Reference.PhoneNumbers.csproj --warnaserror --configuration Release --no-restore      
+        run: dotnet build ./src/Nox.Reference.MacAddresses/Nox.Reference.MacAddresses.csproj --warnaserror --configuration Release --no-restore      
       - name: Tests
-        run: dotnet test ./tests/Nox.Reference.PhoneNumbers.Tests/Nox.Reference.PhoneNumbers.Tests.csproj --no-restore --verbosity minimal --configuration Release
+        run: dotnet test ./tests/Nox.Reference.MacAddresses.Tests/Nox.Reference.MacAddresses.Tests.csproj --no-restore --verbosity minimal --configuration Release
