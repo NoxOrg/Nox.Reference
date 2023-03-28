@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="109.0.1" />
   </ItemGroup>
 
@@ -15,6 +16,7 @@
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Countries\Nox.Reference.Countries.csproj" />
     <ProjectReference Include="..\Nox.Reference.Currencies\Nox.Reference.Currencies.csproj" />
+    <ProjectReference Include="..\Nox.Reference.MacAddresses\Nox.Reference.MacAddresses.csproj" />
   </ItemGroup>
 
 </Project>

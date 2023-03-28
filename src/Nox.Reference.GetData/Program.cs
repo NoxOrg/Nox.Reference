@@ -3,7 +3,7 @@ Console.WriteLine();
 
 var path = new DirectoryInfo(Directory.GetCurrentDirectory());
 
-while (!Directory.Exists(Path.Combine(path.FullName,".git")))
+while (!Directory.Exists(Path.Combine(path.FullName, ".git")))
 {
     // not found, in root
     if (path == null || path.Parent == null)
@@ -25,6 +25,9 @@ CountryDataExtractor.GetRestCountryData(sourceOutputPath, targetOutputPath);
 
 Console.WriteLine("Getting currency data...");
 CurrencyDataExtractor.GetRestCurrencyData(sourceOutputPath, targetOutputPath);
+
+Console.WriteLine("Getting mac adresses with vendor data...");
+MacAddressDataExtractor.ExtractMacAddresses(sourceOutputPath, targetOutputPath);
 
 Console.WriteLine();
 Console.WriteLine("Completed.");

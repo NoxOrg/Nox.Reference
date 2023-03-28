@@ -1,5 +1,4 @@
-﻿
-using LibPhoneNumber = PhoneNumbers;
+﻿using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;
 
