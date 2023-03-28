@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths:
       - src/Nox.Reference.Abstractions/**
-	- src/Nox.Reference.Common/**
+      - src/Nox.Reference.Common/**
       - src/Nox.Reference.MacAddresses/**
       - tests/Nox.Reference.MacAddresses.Tests/**
       - .github/workflows/nox.reference.macaddresses.ci.yaml
