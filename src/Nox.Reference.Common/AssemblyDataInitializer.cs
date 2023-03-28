@@ -28,7 +28,7 @@ public static class AssemblyDataInitializer
 
         if (data == null || !data.Any())
         {
-            throw new InvalidOperationException($"Deserialized in {resourceName} collection is null or empty.");
+            throw new InvalidOperationException($"Deserialized collection from {resourceName} is null or empty.");
         }
 
         return data;

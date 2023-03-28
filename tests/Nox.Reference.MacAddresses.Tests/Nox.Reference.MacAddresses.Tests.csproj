@@ -18,7 +18,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Nox.Reference.MacAddresses\Nox.Reference.MacAddresses.csproj" />
+	  <ProjectReference Include="..\..\src\Nox.Reference.MacAddresses\Nox.Reference.MacAddresses.csproj" />
 	</ItemGroup>
 
 </Project>
