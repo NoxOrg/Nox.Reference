@@ -26,8 +26,22 @@ public class MacAddressService : IMacAddressService
 
         using var reader = new StreamReader(stream);
 
-        _macAddresses = (IReadOnlySet<IMacAddressInfo>)JsonConvert.DeserializeObject<HashSet<MacAddressInfo>>(reader.ReadToEnd());
+        _macAddresses = JsonConvert.DeserializeObject<MacAddressInfo[]>(reader.ReadToEnd())
+            .ToHashSet<IMacAddressInfo>();
     }
 
-    public IReadOnlySet<IMacAddressInfo> GetMacAddresses() => _macAddresses;
+    public IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string pattern)
+    {
+        return _macAddresses.Where(x => x.Vendor.Contains(pattern, StringComparison.OrdinalIgnoreCase));
+    }
+
+    public IReadOnlySet<IMacAddressInfo> GetMacAddresses()
+    {
+        return _macAddresses;
+    }
+
+    public IMacAddressInfo GetVendorMacAddress(string vendorName)
+    {
+        return _macAddresses.FirstOrDefault(x => x.Vendor.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
+    }
 }
