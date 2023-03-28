@@ -42,6 +42,7 @@ public class MacAddressesTests
     {
         var info = _macAddressService.GetVendorMacAddress("Cisco");
 
+        Assert.That(info, Is.Not.Null);
         Assert.That(info.Address, Is.EqualTo("00000C"));
     }
 }
