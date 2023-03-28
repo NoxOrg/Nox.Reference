@@ -11,10 +11,15 @@ internal static class MacAddressDataExtractor
     {
         using var sr = new StreamReader(Path.Combine(sourcePath, SourceFilePath));
 
-        string line;
         var arr = new List<IMacAddressInfo>();
-        while ((line = sr.ReadLine()) != null)
+        while (!sr.EndOfStream)
         {
+            var line = sr.ReadLine();
+            if (string.IsNullOrWhiteSpace(line))
+            {
+                continue;
+            }
+
             var data = line.Split('\t');
 
             var address = data[0].Trim();

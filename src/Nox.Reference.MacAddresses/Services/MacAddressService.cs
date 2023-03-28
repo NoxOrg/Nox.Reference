@@ -7,7 +7,7 @@ namespace Nox.Reference.MacAddresses;
 
 public class MacAddressService : IMacAddressService
 {
-    private readonly IReadOnlySet<IMacAddressInfo> _macAddresses;
+    private readonly IReadOnlyList<IMacAddressInfo> _macAddresses = new List<IMacAddressInfo>();
 
     public MacAddressService()
     {
@@ -25,22 +25,22 @@ public class MacAddressService : IMacAddressService
         }
 
         using var reader = new StreamReader(stream);
+        var addressInfos = JsonConvert.DeserializeObject<IReadOnlyList<MacAddressInfo>>(reader.ReadToEnd());
 
-        _macAddresses = JsonConvert.DeserializeObject<MacAddressInfo[]>(reader.ReadToEnd())
-            .ToHashSet<IMacAddressInfo>();
+        _macAddresses = addressInfos != null ? addressInfos : new List<IMacAddressInfo>();
     }
 
-    public IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string pattern)
+    public IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string searchKey)
     {
-        return _macAddresses.Where(x => x.Vendor.Contains(pattern, StringComparison.OrdinalIgnoreCase));
+        return _macAddresses.Where(x => x.Vendor.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
     }
 
-    public IReadOnlySet<IMacAddressInfo> GetMacAddresses()
+    public IReadOnlyList<IMacAddressInfo> GetMacAddresses()
     {
         return _macAddresses;
     }
 
-    public IMacAddressInfo GetVendorMacAddress(string vendorName)
+    public IMacAddressInfo? GetVendorMacAddress(string vendorName)
     {
         return _macAddresses.FirstOrDefault(x => x.Vendor.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
     }
