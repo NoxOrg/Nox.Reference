@@ -4,6 +4,14 @@ MacAddresses list and info
 ## Usage example
 
 ```csharp
+
+Startup.cs
+
+ConfigureServices(IServiceCollection services)
+{
+    services.AddMacAddresses();
+}
+
 using System.Text.Json;
 using Nox.Reference.MacAddresses;
 
