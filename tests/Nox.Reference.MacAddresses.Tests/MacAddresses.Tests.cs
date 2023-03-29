@@ -11,7 +11,7 @@ public class MacAddressesTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddMacAddresses();
+        serviceCollection.AddNoxMacAddresses();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
@@ -21,7 +21,7 @@ public class MacAddressesTests
     }
 
     [Test]
-    public void GetMacAddresses_AllVendors_ReturnsValidInfo()
+    public void GetMacAddresses_AllOrganiztion_ReturnsValidInfo()
     {
         var addresses = _macAddressService.GetMacAddresses();
 
@@ -29,9 +29,9 @@ public class MacAddressesTests
     }
 
     [Test]
-    public void FindMacAddressesByVendor_VendorPart_ReturnsValidInfo()
+    public void FindMacAddressesByVendor_OrganiztionPart_ReturnsValidInfo()
     {
-        var addresses = _macAddressService.FindMacAddressByVendor("xerox");
+        var addresses = _macAddressService.FindMacAddressInfoByOrganiztion("xerox");
 
         Assert.That(addresses, Is.Not.Empty);
         Assert.That(addresses.Count(), Is.GreaterThan(1));
@@ -40,25 +40,25 @@ public class MacAddressesTests
     [Test]
     public void FindMacAddressesByVendor_NoAnyMatches_ReturnsEmpty()
     {
-        var addresses = _macAddressService.FindMacAddressByVendor("1xerox1");
+        var addresses = _macAddressService.FindMacAddressInfoByOrganiztion("1xerox1");
 
         Assert.That(addresses, Is.Empty);
         Assert.That(addresses.Count(), Is.EqualTo(0));
     }
 
     [Test]
-    public void GetVendorMacAddress_CertainVendor_ReturnsValidInfo()
+    public void GetVendorMacAddress_CertainOrganization_ReturnsValidInfo()
     {
-        var info = _macAddressService.GetVendorMacAddress("Cisco");
+        var info = _macAddressService.GetMacAddressInfo("Nevion");
 
         Assert.That(info, Is.Not.Null);
-        Assert.That(info.Address, Is.EqualTo("00000C"));
+        Assert.That(info.Assignment, Is.EqualTo("0016F6"));
     }
 
     [Test]
-    public void GetVendorMacAddress_VendorNotExist_ReturnsEmpty()
+    public void GetVendorMacAddress_OrganizationNotExist_ReturnsEmpty()
     {
-        var info = _macAddressService.GetVendorMacAddress("1Cisco1");
+        var info = _macAddressService.GetMacAddressInfo("1Cisco1");
 
         Assert.That(info, Is.Null);
     }

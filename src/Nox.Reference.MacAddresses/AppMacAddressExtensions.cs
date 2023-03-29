@@ -8,7 +8,7 @@ public static class AppMacAddressExtensions
 {
     private const string ResourceName = "Nox.Reference.MacAddresses.json";
 
-    public static IServiceCollection AddMacAddresses(this IServiceCollection services)
+    public static IServiceCollection AddNoxMacAddresses(this IServiceCollection services)
     {
         services.AddSingleton(_ => CreateMacAddressService());
 

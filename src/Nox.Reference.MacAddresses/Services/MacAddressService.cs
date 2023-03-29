@@ -11,9 +11,9 @@ internal class MacAddressService : IMacAddressService
         _macAddresses = new List<IMacAddressInfo>(macAddresses);
     }
 
-    public IEnumerable<IMacAddressInfo> FindMacAddressByVendor(string searchKey)
+    public IEnumerable<IMacAddressInfo> FindMacAddressInfoByOrganiztion(string searchKey)
     {
-        return _macAddresses.Where(x => x.Vendor.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
+        return _macAddresses.Where(x => x.OrganizationName.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
     }
 
     public IReadOnlyList<IMacAddressInfo> GetMacAddresses()
@@ -21,8 +21,8 @@ internal class MacAddressService : IMacAddressService
         return _macAddresses;
     }
 
-    public IMacAddressInfo? GetVendorMacAddress(string vendorName)
+    public IMacAddressInfo? GetMacAddressInfo(string organizationName)
     {
-        return _macAddresses.FirstOrDefault(x => x.Vendor.Equals(vendorName, StringComparison.OrdinalIgnoreCase));
+        return _macAddresses.FirstOrDefault(x => x.OrganizationName.Equals(organizationName, StringComparison.OrdinalIgnoreCase));
     }
 }

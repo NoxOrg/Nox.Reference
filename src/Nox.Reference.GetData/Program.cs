@@ -1,35 +1,30 @@
-﻿Console.WriteLine("Starting Nox.Reference Data collection...");
-Console.WriteLine();
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Nox.Reference.GetData.CliCommands;
+using Nox.Reference.MacAddresses;
 
-var path = new DirectoryInfo(Directory.GetCurrentDirectory());
-
-while (!Directory.Exists(Path.Combine(path.FullName, ".git")))
-{
-    // not found, in root
-    if (path == null || path.Parent == null)
+var host = Host.CreateDefaultBuilder()
+    .ConfigureAppConfiguration(configurationBuilder =>
     {
-        path = new DirectoryInfo(Directory.GetCurrentDirectory());
-        break;
-    }
-    path = path.Parent;
-}
+        configurationBuilder.AddJsonFile("appSettings.json");
+    })
+    .ConfigureServices(services =>
+    {
+        services.AddLogging();
 
-var targetOutputPath = Path.Combine(path.FullName, @"data");
-Directory.CreateDirectory(targetOutputPath);
+        services.AddNoxMacAddresses();
+        services.AddSingleton<ICliCommandExecutor, CliCommandExecutor>();
 
-var sourceOutputPath = Path.Combine(path.FullName, @"data\source");
-Directory.CreateDirectory(sourceOutputPath);
+        services.AddScoped<EnviromentSetupCommand>();
+        services.AddScoped<CountryDataExtractCommand>();
+        services.AddScoped<CurrencyDataExtractCommand>();
+        services.AddScoped<MacAddressDataExtractCommand>();
+    })
+    .Build();
 
-Console.WriteLine("Getting country data...");
-CountryDataExtractor.GetRestCountryData(sourceOutputPath, targetOutputPath);
+var commandExecutor = host
+    .Services
+    .GetRequiredService<ICliCommandExecutor>();
 
-Console.WriteLine("Getting currency data...");
-CurrencyDataExtractor.GetRestCurrencyData(sourceOutputPath, targetOutputPath);
-
-Console.WriteLine("Getting mac adresses with vendor data...");
-MacAddressDataExtractor.ExtractMacAddresses(sourceOutputPath, targetOutputPath);
-
-Console.WriteLine();
-Console.WriteLine("Completed.");
-
-return 0;
+commandExecutor.Run();

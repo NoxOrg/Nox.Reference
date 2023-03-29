@@ -2,6 +2,8 @@
 
 public interface IMacAddressInfo
 {
-    string Address { get; }
-    string Vendor { get; }
+    string Registry { get; }
+    string Assignment { get; }
+    string OrganizationName { get; }
+    string OrganizationAddress { get; }
 }
