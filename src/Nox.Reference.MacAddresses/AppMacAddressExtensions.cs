@@ -10,17 +10,17 @@ public static class AppMacAddressExtensions
 
     public static IServiceCollection AddNoxMacAddresses(this IServiceCollection services)
     {
-        services.AddSingleton(_ => CreateMacAddressService());
-        services.AddTransient(typeof(LookupHandler<>));
+        InitMacAddressService();
+
+        services.AddScoped(typeof(LookupHandler<>));
+        services.AddScoped<IMacAddressService, MacAddressService>();
 
         return services;
     }
 
-    private static IMacAddressService CreateMacAddressService()
+    private static void InitMacAddressService()
     {
         var macAddresses = AssemblyDataInitializer.GetDataFromAssemblyResource<MacAddressInfo>(ResourceName);
-        var macAddressService = new MacAddressService(macAddresses);
-
-        return macAddressService;
+        MacAddressService.Init(macAddresses);
     }
 }

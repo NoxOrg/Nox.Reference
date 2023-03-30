@@ -1,20 +1,26 @@
 ﻿using Nox.Reference.Abstractions.MacAddresses;
+using Nox.Reference.Common;
 
 namespace Nox.Reference.MacAddresses;
 
 internal class MacAddressService : IMacAddressService
 {
-    private readonly IReadOnlyList<IMacAddressInfo> _macAddresses;
+    private static IReadOnlyList<IMacAddressInfo> _macAddresses = new List<IMacAddressInfo>();
+    private readonly LookupHandler<IMacAddressInfo> _lookupHandler;
 
-    public MacAddressService(
-        IEnumerable<IMacAddressInfo> macAddresses)
+    public MacAddressService(LookupHandler<IMacAddressInfo> lookupHandler)
+    {
+        _lookupHandler = lookupHandler;
+    }
+
+    public static void Init(IEnumerable<IMacAddressInfo> macAddresses)
     {
         _macAddresses = new List<IMacAddressInfo>(macAddresses);
     }
 
     public IEnumerable<IMacAddressInfo> LookupMacAddressInfoByOrganiztion(string searchKey)
     {
-        return _macAddresses.Where(x => x.OrganizationName.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
+        return _lookupHandler.Lookup(_macAddresses, x => x.OrganizationName.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
     }
 
     public IReadOnlyList<IMacAddressInfo> GetMacAddresses()
