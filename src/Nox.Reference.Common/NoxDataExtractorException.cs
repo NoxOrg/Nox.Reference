@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.Serialization;
 
 namespace Nox.Reference.Common;
 
@@ -20,11 +21,7 @@ public class NoxDataExtractorException : Exception
 
     public string? ResourceName { get; }
 
-    public override string? HelpLink
-    {
-        get => HelpLinkUri;
-        set => base.HelpLink = value;
-    }
+    public override string? HelpLink { get; set; } = HelpLinkUri;
 
     public override string Message => $"{base.Message}. See {HelpLinkUri} for more info.";
 }
