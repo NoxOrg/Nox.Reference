@@ -2,6 +2,8 @@
 
 namespace Nox.Reference.MacAddresses.Models
 {
+#nullable disable warnings
+
     internal class MacAddressInfo : IMacAddressInfo
     {
         public string Registry { get; init; }
@@ -9,4 +11,6 @@ namespace Nox.Reference.MacAddresses.Models
         public string OrganizationName { get; init; }
         public string OrganizationAddress { get; init; }
     }
+
+#nullable enable warnings
 }
