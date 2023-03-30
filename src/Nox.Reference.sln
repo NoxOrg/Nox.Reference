@@ -21,9 +21,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30573BE2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Currencies.Tests", "..\tests\Nox.Reference.Currencies.Tests\Nox.Reference.Currencies.Tests.csproj", "{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Holidays", "Nox.Reference.Holidays\Nox.Reference.Holidays.csproj", "{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays", "Nox.Reference.Holidays\Nox.Reference.Holidays.csproj", "{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Holidays.Tests", "..\tests\Nox.Reference.Holidays.Tests\Nox.Reference.Holidays.Tests.csproj", "{DFB022E9-12A0-470F-8171-015725970140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays.Tests", "..\tests\Nox.Reference.Holidays.Tests\Nox.Reference.Holidays.Tests.csproj", "{DFB022E9-12A0-470F-8171-015725970140}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.VatNumbers", "Nox.Reference.VatNumbers\Nox.Reference.VatNumbers.csproj", "{08F59ABF-1996-4B27-978B-D9025E6610A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.VatNumbers.Tests", "..\tests\Nox.Reference.VatNumbers.Tests\Nox.Reference.VatNumbers.Tests.csproj", "{51F980CC-3DB9-4298-A0EF-CF059E74596E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +75,14 @@ Global
 		{DFB022E9-12A0-470F-8171-015725970140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +92,7 @@ Global
 		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{5AA30CAB-4604-4EB5-B6B9-E82EF7B29F61} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{DFB022E9-12A0-470F-8171-015725970140} = {30573BE2-24E0-491F-AC22-01B487A90806}
+		{51F980CC-3DB9-4298-A0EF-CF059E74596E} = {30573BE2-24E0-491F-AC22-01B487A90806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CAE0589-FF10-4A9A-949C-4BB11AB1397C}
