@@ -15,7 +15,7 @@ namespace Nox.Reference.VatNumbers.Services
         public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
-            // Can have or not have 'DE' prefix
+            // Can have or not have 'NL' prefix
             var number = vatNumber.NormalizeVatNumber();
 
             if (string.IsNullOrWhiteSpace(number))

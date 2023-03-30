@@ -1,7 +1,6 @@
 ﻿using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
 using Nox.Reference.VatNumbers.Models;
-using System.Text.RegularExpressions;
 
 namespace Nox.Reference.VatNumbers.Services
 {
@@ -10,14 +9,18 @@ namespace Nox.Reference.VatNumbers.Services
     internal class MexicoValidationService : IVatValidationService
     {
         // TODO: review
-        private const string _validationPattern = @"^[1-9]\d{8}$";
-        private const string _validationPatternDescription = "VAT should have 9 numeric characters first of which is not 0.";
+        private const string _validationPattern = "^[A-Z&Ñ]{3}[0-9]{6}[0-9A-Z]{3}$";
+        private const string _validationPatternDescription = "VAT should have 3 letters and after that 6 numbers and after that 3 numbers or letters.";
+
+        private const string _validationPattern2 = @"^[1-9A-V][1-9A-Z][0-9A]$";
+        private const string _validationPatternDescription2 = "VAT should consist of three parts. First is number from 1 to 9 or letters from A to V. Second is numbers from 1 to 9 or letters from A to Z. And third is a 'A' letter or a number.";
 
         public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
-            // Can have or not have 'DE' prefix
+            // Can have or not have 'MX' prefix
             var number = vatNumber.NormalizeVatNumber();
+            number = number.ToUpper();
 
             if (string.IsNullOrWhiteSpace(number))
             {
@@ -26,75 +29,68 @@ namespace Nox.Reference.VatNumbers.Services
 
             var result = new ValidationResult();
 
+            var minimumLengthRequirement = 12;
+            if (number.Length < minimumLengthRequirement)
+            {
+                result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
+                return result;
+            }
+
             // Code should match the pattern
             IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
 
-            var exactLengthRequirement = 9;
-            if (number.Length != exactLengthRequirement)
+            if (!HasValidDate(number.Substring(3)))
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.LengthShouldEqualError, exactLengthRequirement));
+                result.ValidationErrors.Add(ValidationErrors.MX_InvalidDate);
             }
-            else
+
+            // Code should match the pattern
+            IVatValidationService.ValidateRegex(result, number.Substring(number.Length - 3), _validationPattern2, vatNumber.Number, _validationPatternDescription2);
+
+            // Should be consisting of numbers to check checksum
+
+            // Checksum should be valid
+            bool isValid = CalculateChecksum(number.Substring(0, number.Length - 1), number[number.Length - 1]);
+            if (!isValid)
             {
-                // Should be consisting of numbers to check checksum
-                number.ValidateCustomChecksum(result, CalculateChecksum);
+                result.ValidationErrors.Add(ValidationErrors.ChecksumError);
             }
 
             return result;
-
-
-            rfc = rfc.RemoveSpecialCharacthers();
-
-            if (rfc.Length == 12) //# number assigned to company
-            {
-                if (!Regex.IsMatch(rfc, "^[A-Z&Ñ]{3}[0-9]{6}[0-9A-Z]{3}$"))
-                {
-                    return ValidationResult.Invalid("Invalid format");
-                }
-                else if (!HasValidDate(rfc))
-                {
-                    return ValidationResult.InvalidDate();
-                }
-            }
-            else
-            {
-                return ValidationResult.InvalidLength();
-            }
-
-            if (rfc.Length >= 12)
-            {
-                if (!Regex.IsMatch(rfc.Substring(rfc.Length - 3), @"^[1-9A-V][1-9A-Z][0-9A]$"))
-                {
-                    return ValidationResult.Invalid("Invalid");
-                }
-                else if (rfc[rfc.Length - 1] != CalculateChecksum(rfc.Substring(0, rfc.Length - 1)))
-                {
-                    return ValidationResult.InvalidChecksum();
-                }
-            }
-            return ValidationResult.Success();
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static bool CalculateChecksum(string number, char originalCheckDigit)
         {
-            var product = 10;
-            for (var index = 0; index < 8; index++)
-            {
-                var sum = (int.Parse(number[index].ToString()) + product) % 10;
-                if (sum == 0)
-                {
-                    sum = 10;
-                }
+            string alphabet = "0123456789ABCDEFGHIJKLMN&OPQRSTUVWXYZ Ñ";
+            number = ("   " + number);
+            number = number.Substring(number.Length - 12);
 
-                product = 2 * sum % 11;
+
+            int sum = 0;
+            for (int i = 0; i < number.Length; i++)
+            {
+                sum += alphabet.IndexOf(number[i]) * (13 - i);
             }
 
-            var val = 11 - product;
-            var checkDigit = val == 10
-                ? 0
-                : val;
+            var checkDigit = alphabet[(11 - sum).Mod(11)];
 
-            return checkDigit == int.Parse(number[8].ToString());
+            return originalCheckDigit == checkDigit;
+        }
+
+        private bool HasValidDate(string number)
+        {
+            try
+            {
+                var year = int.Parse(number.Substring(0, 2));
+                var month = int.Parse(number.Substring(2, 2));
+                var day = int.Parse(number.Substring(4, 2));
+                var date = new DateTime(1900 + year, month, day);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
