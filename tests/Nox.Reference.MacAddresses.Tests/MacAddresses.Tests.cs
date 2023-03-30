@@ -31,7 +31,7 @@ public class MacAddressesTests
     [Test]
     public void FindMacAddressesByVendor_OrganiztionPart_ReturnsValidInfo()
     {
-        var addresses = _macAddressService.FindMacAddressInfoByOrganiztion("xerox");
+        var addresses = _macAddressService.LookupMacAddressInfoByOrganiztion("xerox");
 
         Assert.That(addresses, Is.Not.Empty);
         Assert.That(addresses.Count(), Is.GreaterThan(1));
@@ -40,7 +40,7 @@ public class MacAddressesTests
     [Test]
     public void FindMacAddressesByVendor_NoAnyMatches_ReturnsEmpty()
     {
-        var addresses = _macAddressService.FindMacAddressInfoByOrganiztion("1xerox1");
+        var addresses = _macAddressService.LookupMacAddressInfoByOrganiztion("1xerox1");
 
         Assert.That(addresses, Is.Empty);
         Assert.That(addresses.Count(), Is.EqualTo(0));

@@ -6,12 +6,13 @@ internal class MacAddressService : IMacAddressService
 {
     private readonly IReadOnlyList<IMacAddressInfo> _macAddresses;
 
-    public MacAddressService(IEnumerable<IMacAddressInfo> macAddresses)
+    public MacAddressService(
+        IEnumerable<IMacAddressInfo> macAddresses)
     {
         _macAddresses = new List<IMacAddressInfo>(macAddresses);
     }
 
-    public IEnumerable<IMacAddressInfo> FindMacAddressInfoByOrganiztion(string searchKey)
+    public IEnumerable<IMacAddressInfo> LookupMacAddressInfoByOrganiztion(string searchKey)
     {
         return _macAddresses.Where(x => x.OrganizationName.Contains(searchKey, StringComparison.OrdinalIgnoreCase));
     }

@@ -5,7 +5,7 @@ namespace Nox.Reference.MacAddresses
     public interface IMacAddressService
     {
         /// <summary>
-        /// Get all mac addresses with vendors.
+        /// Get all Mac Addresses info.
         /// </summary>
         /// <returns>Collection of IMacAddressInfo</returns>
         IReadOnlyList<IMacAddressInfo> GetMacAddresses();
@@ -22,6 +22,6 @@ namespace Nox.Reference.MacAddresses
         /// </summary>
         /// <param name="searchKey">Find any occurrences in a vendor name.</param>
         /// <returns>Collection of IMacAddressInfo</returns>
-        IEnumerable<IMacAddressInfo> FindMacAddressInfoByOrganiztion(string searchKey);
+        IEnumerable<IMacAddressInfo> LookupMacAddressInfoByOrganiztion(string searchKey);
     }
 }

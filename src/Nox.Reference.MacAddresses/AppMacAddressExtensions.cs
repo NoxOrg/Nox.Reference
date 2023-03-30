@@ -11,6 +11,7 @@ public static class AppMacAddressExtensions
     public static IServiceCollection AddNoxMacAddresses(this IServiceCollection services)
     {
         services.AddSingleton(_ => CreateMacAddressService());
+        services.AddTransient(typeof(LookupHandler<>));
 
         return services;
     }
