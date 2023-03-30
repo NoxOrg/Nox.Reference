@@ -11,24 +11,23 @@ public static class AssemblyDataInitializer
 
         if (assembly == null)
         {
-            throw new InvalidOperationException("ExecutingAssembly was not found");
+            throw new NoxDataExtractorException($"CallingAssembly was not found");
         }
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)
         {
-            throw new InvalidOperationException($"Resource {resourceName} stream is null or empty");
+            throw new NoxDataExtractorException($"Resource {resourceName} was not found in assesmbly {assembly.FullName}");
         }
 
         using var reader = new StreamReader(stream);
-
         var jsonContent = reader.ReadToEnd();
 
         var data = JsonSerializer.Deserialize<TType[]>(jsonContent);
 
         if (data == null || !data.Any())
         {
-            throw new InvalidOperationException($"Deserialized collection from {resourceName} is null or empty.");
+            throw new NoxDataExtractorException($"Reference data for {resourceName} is unexpectedly missing from assembly {assembly.FullName}.");
         }
 
         return data;
