@@ -20,46 +20,26 @@ public class MacAddressesTests
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
-    [Test]
-    public void GetMacAddresses_AllOrganiztion_ReturnsValidInfo()
+    [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]
+    [TestCase("00-16-F6-11-22-33", "0016F6", "Nevion")]
+    public void GetVendorMacAddress_ValidMacAddressString_ReturnsValidInfo(
+        string input,
+        string expectedPrefix,
+        string expectedOrganizationName)
     {
-        var addresses = _macAddressService.GetMacAddresses();
-
-        Assert.That(addresses, Is.Not.Empty);
-    }
-
-    [Test]
-    public void FindMacAddressesByVendor_OrganiztionPart_ReturnsValidInfo()
-    {
-        var addresses = _macAddressService.LookupMacAddressInfoByOrganiztion("xerox");
-
-        Assert.That(addresses, Is.Not.Empty);
-        Assert.That(addresses.Count(), Is.GreaterThan(1));
-    }
-
-    [Test]
-    public void FindMacAddressesByVendor_NoAnyMatches_ReturnsEmpty()
-    {
-        var addresses = _macAddressService.LookupMacAddressInfoByOrganiztion("1xerox1");
-
-        Assert.That(addresses, Is.Empty);
-        Assert.That(addresses.Count(), Is.EqualTo(0));
-    }
-
-    [Test]
-    public void GetVendorMacAddress_CertainOrganization_ReturnsValidInfo()
-    {
-        var info = _macAddressService.GetMacAddressInfo("Nevion");
+        var info = _macAddressService.GetMacAddressInfo(input);
 
         Assert.That(info, Is.Not.Null);
-        Assert.That(info.Id, Is.EqualTo("0016F6"));
+        Assert.That(info.MacPrefix, Is.EqualTo(expectedPrefix));
+        Assert.That(info.OrganizationName, Is.EqualTo(expectedOrganizationName));
     }
 
-    [Test]
-    public void GetVendorMacAddress_OrganizationNotExist_ReturnsEmpty()
+    [TestCase("V0:16:F6:11:22:33")]
+    [TestCase("0016-F6-11-22-33")]
+    [TestCase("")]
+    [TestCase(null)]
+    public void GetVendorMacAddress_InvalidMacAddressString_ShouldThrow(string input)
     {
-        var info = _macAddressService.GetMacAddressInfo("1Cisco1");
-
-        Assert.That(info, Is.Null);
+        Assert.Throws<ArgumentException>(() => _macAddressService.GetMacAddressInfo(input));
     }
 }

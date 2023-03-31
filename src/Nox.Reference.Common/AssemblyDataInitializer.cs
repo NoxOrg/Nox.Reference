@@ -7,12 +7,7 @@ public static class AssemblyDataInitializer
 {
     public static IEnumerable<TType> GetDataFromAssemblyResource<TType>(string resourceName)
     {
-        var assembly = Assembly.GetCallingAssembly();
-
-        if (assembly == null)
-        {
-            throw new NoxDataExtractorException($"CallingAssembly was not found");
-        }
+        var assembly = Assembly.GetCallingAssembly()!;
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)

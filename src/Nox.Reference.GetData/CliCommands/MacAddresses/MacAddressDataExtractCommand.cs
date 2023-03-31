@@ -60,12 +60,7 @@ public class MacAddressDataExtractCommand : ICliCommand
 
         var jsonString = JsonSerializer.Serialize(dataRecords, serializedOptions);
 
-        var writeStreamOptions = new FileStreamOptions
-        {
-            Mode = FileMode.Create,
-            Access = FileAccess.Write
-        };
-        using var sw = new StreamWriter(Path.Combine(targetOutputPath, OutputFilePath), writeStreamOptions);
+        using var sw = new StreamWriter(Path.Combine(targetOutputPath, OutputFilePath));
 
         sw.WriteLine(jsonString);
 

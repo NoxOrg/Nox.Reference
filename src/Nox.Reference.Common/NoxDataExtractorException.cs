@@ -19,6 +19,11 @@ public class NoxDataExtractorException : Exception
     public NoxDataExtractorException(string message, Exception inner)
         : base(message, inner) { }
 
+    public NoxDataExtractorException(SerializationInfo info, StreamingContext context)
+       : base(info, context)
+    {
+    }
+
     public NoxDataExtractorException(string message, string resourceName)
        : base(message)
     {

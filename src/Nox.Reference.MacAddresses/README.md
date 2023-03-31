@@ -19,7 +19,7 @@ public class TestClass
 
     public void Test()
     {
-        var info = _macAddressesService.GetMacAddresses(); 
+        var info = _macAddressesService.GetMacAddressInfo("FC:59:C0:FF:EF:57"); 
 
         var options = new JsonSerializerOptions
         {
@@ -36,7 +36,7 @@ public class Startup
 {
     ConfigureServices(IServiceCollection services)
     {
-        services.AddMacAddresses();
+        services.AddNoxMacAddresses();
     }
 }
 ```
@@ -46,20 +46,13 @@ public class Startup
 
 ```csharp
 /* Outputs:
-[
   {
-    "address": "000000",
-    "vendor": "Officially Xerox"
-  },
-  {
-    "address": "000001",
-    "vendor": "SuperLAN-2U"
-  },
-  {
-    "address": "000002",
-    "vendor": "BBN (was internal usage only, no longer used)"
-  }...
-]
+    "IEEERegistry": "MA-L",
+    "Id": "FC59C0",
+    "MacPrefix": "FC59C0",
+    "OrganizationName": "Arista Networks",
+    "OrganizationAddress": "5453 Great America Parkway Santa Clara CA US 95054 "
+  }
 */
 ```
 </details>

@@ -14,7 +14,6 @@ public static class AppMacAddressExtensions
     {
         InitMacAddressService();
 
-        services.AddScoped(typeof(LookupHandler<>));
         services.AddScoped<IMacAddressService, MacAddressService>();
 
         return services;
@@ -22,13 +21,13 @@ public static class AppMacAddressExtensions
 
     private static void InitMacAddressService()
     {
-        if (_initialized)
-        {
-            return;
-        }
-
         lock (_syncObj)
         {
+            if (_initialized)
+            {
+                return;
+            }
+
             var macAddresses = AssemblyDataInitializer.GetDataFromAssemblyResource<MacAddressInfo>(ResourceName);
             MacAddressService.Init(macAddresses);
 
