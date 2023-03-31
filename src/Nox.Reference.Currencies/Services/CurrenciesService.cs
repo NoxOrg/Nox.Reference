@@ -1,20 +1,16 @@
 ﻿using Nox.Reference.Abstractions.Currencies;
-using Nox.Reference.Common;
-using System.Reflection;
 
-namespace Nox.Reference.Countries;
+namespace Nox.Reference.Currencies;
 
-public class CurrenciesService : ICurrenciesService
+internal class CurrenciesService : ICurrenciesService
 {
-    private readonly IReadOnlyList<ICurrencyInfo> _currencies;
-    private readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoCode = new Dictionary<string, ICurrencyInfo>();
-    private readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoNumber = new Dictionary<string, ICurrencyInfo>();
+    private static IReadOnlyList<ICurrencyInfo> _currencies = new List<ICurrencyInfo>();
+    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoCode = new Dictionary<string, ICurrencyInfo>();
+    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoNumber = new Dictionary<string, ICurrencyInfo>();
 
-    public CurrenciesService()
+    public static void Init(IEnumerable<ICurrencyInfo> currencies)
     {
-        var resourceName = "Nox.Reference.Currencies.json";
-
-        _currencies = new List<CurrencyInfo>(AssemblyDataInitializer.GetDataFromAssemblyResource<CurrencyInfo>(resourceName));
+        _currencies = new List<ICurrencyInfo>(currencies);
 
         foreach (var currency in _currencies)
         {

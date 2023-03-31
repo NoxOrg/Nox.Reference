@@ -8,7 +8,7 @@
 	<AssemblyVersion>1.0.4.0</AssemblyVersion>
 	<FileVersion>1.0.4.0</FileVersion>
 	<PackageVersion>1.0.4</PackageVersion>
-	<Authors>Andre Sharpe, Jan Schutte</Authors>
+	<Authors>Andre Sharpe, Andrii Dehtiarov</Authors>
 	<Company>The Nox Factory</Company>
 	<Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
 	<PackageProjectUrl>https://github.com/NoxOrg/Nox.Reference</PackageProjectUrl>
@@ -16,7 +16,7 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<RepositoryType>git</RepositoryType>
 	<PackageIcon>nox.png</PackageIcon>
-	<Description>MacAddresses and their Vendors info</Description>
+	<Description>All necessary information about Mac Addresses</Description>
 </PropertyGroup>
 <ItemGroup>
 	<None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
