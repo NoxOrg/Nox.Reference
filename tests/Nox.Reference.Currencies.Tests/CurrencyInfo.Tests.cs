@@ -13,7 +13,7 @@ public class CurrencyTests
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         Trace.Listeners.Add(new ConsoleTraceListener());

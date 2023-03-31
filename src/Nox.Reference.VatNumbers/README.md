@@ -20,7 +20,7 @@ Console.WriteLine(validationResult);
 
 /* Outputs:
 {
-      "validationStatus": 0,
+      "validationStatus": "Invalid",
       "validationErrors": [
         "Validation of given value '123Test456' has failed. Please, use the following format: 'VAT should have from 8 to 10 numeric characters'."
       ]

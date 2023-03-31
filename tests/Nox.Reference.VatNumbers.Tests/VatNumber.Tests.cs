@@ -3,24 +3,27 @@ using Nox.Reference.VatNumbers.Services;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Nox.Reference.VatNumbers.Tests;
 
 public class Tests
 {
-    private string _testFilePath = "../../../../../data/VatNumbers/";
-
-    [SetUp]
-    public void Setup()
-    {
-        Trace.Listeners.Add(new ConsoleTraceListener());
-    }
+    private string _testFilePath = "../../../../../data/tests/VatNumbers/";
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
         WriteIndented = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
+
+
+    [OneTimeSetUp]
+    public void Setup()
+    {
+        Trace.Listeners.Add(new ConsoleTraceListener());
+        _jsonOptions.Converters.Add(new JsonStringEnumConverter());
+    }
 
     #region ValidateVatNumber
 
