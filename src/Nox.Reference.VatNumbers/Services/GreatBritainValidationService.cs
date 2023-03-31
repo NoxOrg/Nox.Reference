@@ -27,6 +27,7 @@ namespace Nox.Reference.VatNumbers.Services
                 return result;
             }
 
+            // Government department
             if (number.Substring(0, 2) == "GD")
             {
                 if (!int.TryParse(number.Substring(2, 3), out var vatAsNumber) ||
@@ -37,6 +38,7 @@ namespace Nox.Reference.VatNumbers.Services
 
                 return result;
             }
+            // Health authority
             else if (number.Substring(0, 2) == "HA")
             {
                 if (!int.TryParse(number.Substring(2, 3), out var vatAsNumber) ||

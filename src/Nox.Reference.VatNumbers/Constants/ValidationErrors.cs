@@ -12,8 +12,8 @@
         public const string UnknownFormat = "Provided VAT number format is unknown.";
 
         // GB
-        public const string GB_InvalidGDVat = "Invalid GD value was provided. First 3 digits should be less than 500.";
-        public const string GB_InvalidHAVat = "Invalid GD value was provided. First 3 digits should be more or equal 500.";
+        public const string GB_InvalidGDVat = "Invalid government department value was provided. First 3 digits should be less than 500.";
+        public const string GB_InvalidHAVat = "Invalid health authority value was provided. First 3 digits should be more or equal 500.";
 
         // MX
         public const string MX_InvalidDate = "Vat has invalid date.";
