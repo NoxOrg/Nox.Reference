@@ -4,6 +4,7 @@ using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.MacAddresses;
+using Nox.Reference.Common;
 
 namespace Nox.Reference.GetData.CliCommands;
 
@@ -35,7 +36,7 @@ public class MacAddressDataExtractCommand : ICliCommand
         if (!File.Exists(sourceFilePath))
         {
             DownloadSourceFileAsync()
-                .RunSynchronously();
+                .Wait();
         }
 
         using var sr = new StreamReader(sourceFilePath);
@@ -45,6 +46,10 @@ public class MacAddressDataExtractCommand : ICliCommand
         while (csvReader.Read())
         {
             var data = csvReader.GetRecord<MacAddressInfo>();
+            if (data == null)
+            {
+                throw new NoxDataExtractorException($"Unable parse data obtained from {sourceFilePath}", sourceFilePath);
+            }
             dataRecords.Add(data);
         }
 

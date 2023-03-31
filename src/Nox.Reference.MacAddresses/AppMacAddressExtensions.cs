@@ -7,6 +7,8 @@ namespace Nox.Reference.MacAddresses;
 public static class AppMacAddressExtensions
 {
     private const string ResourceName = "Nox.Reference.MacAddresses.json";
+    private static readonly object _syncObj = new();
+    private static bool _initialized = false;
 
     public static IServiceCollection AddNoxMacAddresses(this IServiceCollection services)
     {
@@ -20,7 +22,17 @@ public static class AppMacAddressExtensions
 
     private static void InitMacAddressService()
     {
-        var macAddresses = AssemblyDataInitializer.GetDataFromAssemblyResource<MacAddressInfo>(ResourceName);
-        MacAddressService.Init(macAddresses);
+        if (_initialized)
+        {
+            return;
+        }
+
+        lock (_syncObj)
+        {
+            var macAddresses = AssemblyDataInitializer.GetDataFromAssemblyResource<MacAddressInfo>(ResourceName);
+            MacAddressService.Init(macAddresses);
+
+            _initialized = true;
+        }
     }
 }

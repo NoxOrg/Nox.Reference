@@ -19,6 +19,12 @@ public class NoxDataExtractorException : Exception
     public NoxDataExtractorException(string message, Exception inner)
         : base(message, inner) { }
 
+    public NoxDataExtractorException(string message, string resourceName)
+       : base(message)
+    {
+        ResourceName = resourceName;
+    }
+
     public string? ResourceName { get; }
 
     public override string? HelpLink { get; set; } = HelpLinkUri;

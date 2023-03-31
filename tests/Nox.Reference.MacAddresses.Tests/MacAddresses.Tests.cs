@@ -52,7 +52,7 @@ public class MacAddressesTests
         var info = _macAddressService.GetMacAddressInfo("Nevion");
 
         Assert.That(info, Is.Not.Null);
-        Assert.That(info.Assignment, Is.EqualTo("0016F6"));
+        Assert.That(info.Id, Is.EqualTo("0016F6"));
     }
 
     [Test]

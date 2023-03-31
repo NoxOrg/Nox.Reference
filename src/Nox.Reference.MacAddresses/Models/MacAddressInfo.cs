@@ -6,8 +6,9 @@ namespace Nox.Reference.MacAddresses.Models
 
     internal class MacAddressInfo : IMacAddressInfo
     {
-        public string Registry { get; init; }
-        public string Assignment { get; init; }
+        public string Id { get; init; }
+        public string IEEERegistry { get; init; }
+        public string MacPrefix { get; init; }
         public string OrganizationName { get; init; }
         public string OrganizationAddress { get; init; }
     }
