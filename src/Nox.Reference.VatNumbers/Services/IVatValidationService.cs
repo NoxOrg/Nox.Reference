@@ -4,21 +4,24 @@ using System.Text.RegularExpressions;
 
 namespace Nox.Reference.VatNumbers.Services
 {
-    internal interface IVatValidationService
+    public abstract class VatValidationServiceBase
     {
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber);
+        public abstract ValidationResult ValidateVatNumber(IVatNumber vatNumber);
 
-        public static void ValidateRegex(
-            ValidationResult result,
+        public static List<string> ValidateRegex(
             string vatNumber,
             string pattern,
             string orinialVatNumber,
             string validationPatternDescription)
         {
+            var errorMessages = new List<string>();
+
             if (!Regex.IsMatch(vatNumber, pattern))
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, orinialVatNumber, validationPatternDescription));
+                errorMessages.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, orinialVatNumber, validationPatternDescription));
             }
+
+            return errorMessages;
         }
     }
 }

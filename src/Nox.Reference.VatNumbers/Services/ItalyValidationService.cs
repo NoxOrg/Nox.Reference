@@ -6,12 +6,12 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class ItalyValidationService : IVatValidationService
+    internal class ItalyValidationService : VatValidationServiceBase
     {
         private const string _validationPattern = @"^\d{11}$";
         private const string _validationPatternDescription = "VAT should consist of 11 numeric characters.";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'it' prefix
@@ -25,21 +25,23 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
 
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             // Should be consisting of numbers to check checksum
-            number.ValidateCustomChecksum(result, CalculateChecksum);
+            result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
 
             return result;
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessage = new List<string>();
+
             var minimumLengthRequirement = 11;
             if (number.Length != minimumLengthRequirement)
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
-                return false;
+                errorMessage.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
+                return errorMessage;
             }
             
             int[] Multipliers = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
@@ -47,15 +49,16 @@ namespace Nox.Reference.VatNumbers.Services
             var res = long.Parse(number);
             if (res == 0)
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, number, "Cannot have 7 zeroes as first 7 digits."));
-                return false;
+                errorMessage.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, number, "Cannot have 7 zeroes as first 7 digits."));
+                return errorMessage;
             }
 
             var temp = int.Parse(number.Substring(7, 3));
 
             if ((temp < 1 || temp > 201) && temp != 999 && temp != 888)
             {
-                return false;
+                errorMessage.Add(ValidationErrors.ChecksumError);
+                return errorMessage;
             }
 
             var index = 0;
@@ -75,7 +78,13 @@ namespace Nox.Reference.VatNumbers.Services
                 checkDigit = 0;
             }
 
-            return checkDigit == int.Parse(number[10].ToString());
+            var isValid = checkDigit == int.Parse(number[10].ToString());
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
         }
     }
 }

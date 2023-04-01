@@ -37,7 +37,7 @@ public class Tests
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.ValidationStatus, Is.EqualTo(ValidationStatus.Valid));
+            Assert.That(validationResult.IsValid, Is.EqualTo(true));
         });
     }
 
@@ -51,7 +51,7 @@ public class Tests
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.ValidationStatus, Is.EqualTo(ValidationStatus.Valid));
+            Assert.That(validationResult.IsValid, Is.EqualTo(true));
         });
     }
 
@@ -65,7 +65,7 @@ public class Tests
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.ValidationStatus, Is.EqualTo(ValidationStatus.Invalid));
+            Assert.That(validationResult.IsValid, Is.EqualTo(false));
             Assert.That(validationResult.ValidationErrors, Has.Count.EqualTo(1));
         });
     }
@@ -80,7 +80,7 @@ public class Tests
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.ValidationStatus, Is.EqualTo(ValidationStatus.Invalid));
+            Assert.That(validationResult.IsValid, Is.EqualTo(false));
             Assert.That(validationResult.ValidationErrors[0], Is.EqualTo("Cannot find validator for a particular error."));
         });
     }
@@ -112,10 +112,10 @@ public class Tests
         var failedVat = new System.Collections.Generic.List<string>();
         foreach (var vatNumber in testData!)
         {
-            var validationResult = service.ValidateVatNumber(new VatNumbers.Models.VatNumber(vatNumber, countryCode));
-            if (validationResult.ValidationStatus == ValidationStatus.Invalid)
+            var validationResult = service.ValidateVatNumber(new VatNumber(vatNumber, countryCode));
+            if (!validationResult.IsValid)
             {
-                failedVat.Add(vatNumber);
+                failedVat.Add($"{vatNumber}:{string.Join(';', validationResult.ValidationErrors)}");
             }
         }
 

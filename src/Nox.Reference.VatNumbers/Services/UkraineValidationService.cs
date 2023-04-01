@@ -6,12 +6,12 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class UkraineValidationService : IVatValidationService
+    internal class UkraineValidationService : VatValidationServiceBase
     {
         private const string _validationPattern = @"^\d{8,12}$";
         private const string _validationPatternDescription = "VAT should have from 8 to 10 numeric characters";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'ua' prefix
@@ -23,9 +23,9 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             var result = new ValidationResult();
-            
+
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             return result;
         }

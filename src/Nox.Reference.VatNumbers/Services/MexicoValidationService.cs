@@ -6,7 +6,7 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class MexicoValidationService : IVatValidationService
+    internal class MexicoValidationService : VatValidationServiceBase
     {
         // TODO: review
         private const string _validationPattern = "^[A-Z&Ñ]{3}[0-9]{6}[0-9A-Z]{3}$";
@@ -15,12 +15,11 @@ namespace Nox.Reference.VatNumbers.Services
         private const string _validationPattern2 = @"^[1-9A-V][1-9A-Z][0-9A]$";
         private const string _validationPatternDescription2 = "VAT should consist of three parts. First is number from 1 to 9 or letters from A to V. Second is numbers from 1 to 9 or letters from A to Z. And third is a 'A' letter or a number.";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'MX' prefix
             var number = vatNumber.NormalizeVatNumber();
-            number = number.ToUpper();
 
             if (string.IsNullOrWhiteSpace(number))
             {
@@ -37,7 +36,7 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             if (!HasValidDate(number.Substring(3)))
             {
@@ -45,7 +44,7 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number.Substring(number.Length - 3), _validationPattern2, vatNumber.Number, _validationPatternDescription2);
+            result.ValidationErrors.AddRange(ValidateRegex(number.Substring(number.Length - 3), _validationPattern2, vatNumber.Number, _validationPatternDescription2));
 
             // Should be consisting of numbers to check checksum
 

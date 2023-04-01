@@ -3,10 +3,12 @@
     // TODO maybe make record?
     public class ValidationResult
     {
-        public ValidationStatus ValidationStatus => ValidationErrors?.Count == 0 ? ValidationStatus.Valid : ValidationStatus.Invalid;
+        public bool IsValid => ValidationErrors?.Count == 0;
         public List<string?> ValidationErrors { get; } = new List<string?>();
 
-        public ValidationResult(string? validationError = null)
+        public ValidationResult() { }
+
+        public ValidationResult(string? validationError)
         {
             if (!string.IsNullOrWhiteSpace(validationError))
             {

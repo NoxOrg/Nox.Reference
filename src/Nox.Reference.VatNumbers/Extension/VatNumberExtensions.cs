@@ -8,7 +8,7 @@ namespace Nox.Reference.VatNumbers.Extension
         {
             var number = vatNumber.Number.RemoveSpecialCharacthers();
 
-            return number.ToLower().Replace(vatNumber.CountryAlphaCode2.ToLower(), string.Empty);
+            return number.ToUpper().TrimStart(vatNumber.CountryAlphaCode2.ToCharArray());
         }
     }
 }

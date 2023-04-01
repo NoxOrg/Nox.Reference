@@ -8,8 +8,10 @@
         public const string ChecksumError = "Checksum validation has failed.";
         public const string NumberShouldConsistOfDigits = "VAT number should consist of digits.";
         public const string MinimumNumbericLengthError = "VAT number should have at least '{0}' numeric symbols";
+        public const string MaximumNumbericLengthError = "VAT number should be no longer than '{0}' numeric symbols";
         public const string LengthShouldEqualError = "VAT number should have exactly '{0}' numeric symbols";
         public const string UnknownFormat = "Provided VAT number format is unknown.";
+        public const string LuhnDigitChecksumValidationError = "Luhn digit checksum validation failed.";
 
         // GB
         public const string GB_InvalidGDVat = "Invalid government department value was provided. First 3 digits should be less than 500.";

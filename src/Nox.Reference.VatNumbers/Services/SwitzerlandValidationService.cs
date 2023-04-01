@@ -6,12 +6,12 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class SwitzerlandValidationService : IVatValidationService
+    internal class SwitzerlandValidationService : VatValidationServiceBase
     {
-        private const string _validationPattern = @"^e?[0-9]{9}(mwst|iva|tva)?$";
-        private const string _validationPatternDescription = "VAT should have an optional E letter in front, 9 numeric characters and (mwst|iva|tva) after them.";
+        private const string _validationPattern = @"^E?[0-9]{9}(MWST|IVA|TVA)?$";
+        private const string _validationPatternDescription = "VAT should have an optional E letter in front, 9 numeric characters and (MWST|IVA|TVA) after them.";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'ua' prefix
@@ -26,22 +26,24 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
             
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
             number = number.RemoveCharacters();
 
             // Should be consisting of numbers to check checksum
-            number.ValidateCustomChecksum(result, CalculateChecksum);
+            result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
 
             return result;
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessage = new List<string>();
+
             var minimumLengthRequirement = 9;
             if (number.Length < minimumLengthRequirement)
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
-                return false;
+                errorMessage.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
+                return errorMessage;
             }
 
             var sum = 0;
@@ -54,14 +56,22 @@ namespace Nox.Reference.VatNumbers.Services
             sum = 11 - sum % 11;
             if (sum == 10)
             {
-                result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                errorMessage.Add(ValidationErrors.ChecksumError);
+                return errorMessage;
             }
+
             if (sum == 11)
             {
                 sum = 0;
             }
 
-            return sum.ToString() == number.Substring(8, 1);
+            var isValid = sum.ToString() == number.Substring(8, 1);
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
         }
     }
 }

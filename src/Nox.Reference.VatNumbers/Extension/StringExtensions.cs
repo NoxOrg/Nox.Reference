@@ -1,31 +1,36 @@
 ﻿using Nox.Reference.VatNumbers.Constants;
-using Nox.Reference.VatNumbers.Models;
 using System.Text;
 
 namespace Nox.Reference.VatNumbers.Extension
 {
     internal static class StringExtensions
     {
-        public static void ValidateCustomChecksum(this string vatNumber, ValidationResult result, Func<string, ValidationResult, bool> checksumFunc)
+        public static List<string> ValidateCustomChecksum(this string vatNumber, Func<string, List<string>> checksumFunc)
         {
+            var errorMessages = new List<string>();
+
             if (!vatNumber.All(x => char.IsDigit(x)))
             {
-                result.ValidationErrors.Add(ValidationErrors.NumberShouldConsistOfDigits);
+                errorMessages.Add(ValidationErrors.NumberShouldConsistOfDigits);
             }
             else
             {
                 // Checksum should be valid
-                bool isValid = checksumFunc(vatNumber, result);
-                if (!isValid)
+                errorMessages.AddRange(checksumFunc(vatNumber));
+                bool isValid = errorMessages.Count == 0;
+                if (!isValid &&
+                    !errorMessages.Contains(ValidationErrors.ChecksumError))
                 {
-                    result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                    errorMessages.Add(ValidationErrors.ChecksumError);
                 }
             }
+
+            return errorMessages;
         }
 
-        public static void ValidateLuhnDigitForVatNumber(this string vatNumber, ValidationResult result)
+        public static List<string> ValidateLuhnDigitForVatNumber(this string vatNumber)
         {
-            vatNumber.ValidateCustomChecksum(result, (vatNumber, result) => vatNumber.CheckLuhnDigit());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckLuhnDigit());
         }
 
         public static string RemoveSpecialCharacthers(this string vatNumber)
@@ -56,15 +61,24 @@ namespace Nox.Reference.VatNumbers.Extension
             return sb.ToString();
         }
 
-        public static bool CheckLuhnDigit(this string stringDigits)
+        public static List<string> CheckLuhnDigit(this string stringDigits)
         {
+            var errorMessage = new List<string>();
+
             var lastDigit = (int)char.GetNumericValue(stringDigits[stringDigits.Length - 1]);
             stringDigits = stringDigits.Substring(0, stringDigits.Length - 1);
             var digits = stringDigits.Select(c => (int)char.GetNumericValue(c)).ToList();
             int[] results = { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
             var i = 0;
             var lengthMod = digits.Count % 2;
-            return lastDigit == (digits.Sum(d => i++ % 2 == lengthMod ? d : results[d]) * 9) % 10;
+            var isValid = lastDigit == (digits.Sum(d => i++ % 2 == lengthMod ? d : results[d]) * 9) % 10;
+            
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.LuhnDigitChecksumValidationError);
+            }
+
+            return errorMessage;
         }
 
         public static int GetSumOfDigitsMulipliedByMultipliers(this string input, int[] multipliers, int start = 0)

@@ -3,23 +3,23 @@ using Nox.Reference.VatNumbers.Models;
 
 namespace Nox.Reference.VatNumbers.Services
 {
-    public class VatValidationService : IVatValidationService
+    public class VatValidationService : VatValidationServiceBase
     {
         // TODO: auto-detect by name via reflection
-        private readonly IVatValidationService _colombiaValidationService = new ColumbiaValidatorService();
-        private readonly IVatValidationService _southAfricaValidationService = new SouthAfricaValidationService();
-        private readonly IVatValidationService _ukraineValidationService = new UkraineValidationService(); 
-        private readonly IVatValidationService _switzerlandValidationService = new SwitzerlandValidationService();
-        private readonly IVatValidationService _brazilValidationService = new BrazilValidationService();
-        private readonly IVatValidationService _greatBritainValidationService = new GreatBritainValidationService();
-        private readonly IVatValidationService _italyValidationService = new ItalyValidationService();
-        private readonly IVatValidationService _franceValidationService = new FranceValidationService();
-        private readonly IVatValidationService _germanyValidationService = new GermanyValidationService();
-        private readonly IVatValidationService _spainValidationService = new SpainValidationService();
-        private readonly IVatValidationService _neitherlandsValidationService = new NeitherlandsValidationService();
-        private readonly IVatValidationService _mexicoValidationService = new MexicoValidationService();
+        private readonly VatValidationServiceBase _colombiaValidationService = new ColombiaValidatorService();
+        private readonly VatValidationServiceBase _southAfricaValidationService = new SouthAfricaValidationService();
+        private readonly VatValidationServiceBase _ukraineValidationService = new UkraineValidationService(); 
+        private readonly VatValidationServiceBase _switzerlandValidationService = new SwitzerlandValidationService();
+        private readonly VatValidationServiceBase _brazilValidationService = new BrazilValidationService();
+        private readonly VatValidationServiceBase _greatBritainValidationService = new GreatBritainValidationService();
+        private readonly VatValidationServiceBase _italyValidationService = new ItalyValidationService();
+        private readonly VatValidationServiceBase _franceValidationService = new FranceValidationService();
+        private readonly VatValidationServiceBase _germanyValidationService = new GermanyValidationService();
+        private readonly VatValidationServiceBase _spainValidationService = new SpainValidationService();
+        private readonly VatValidationServiceBase _neitherlandsValidationService = new NeitherlandsValidationService();
+        private readonly VatValidationServiceBase _mexicoValidationService = new MexicoValidationService();
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             if (vatNumber == null)
             {
@@ -28,17 +28,7 @@ namespace Nox.Reference.VatNumbers.Services
 
             var result = ValidateVatNumberInternal(vatNumber);
 
-            if (result.ValidationStatus == ValidationStatus.Invalid &&
-                vatNumber.Number.Length > 1 &&
-                vatNumber.Number.Substring(0, 2) != vatNumber.CountryAlphaCode2)
-            {
-                var attemptToGuessDifferentCountryResult = ValidateVatNumberInternal(new VatNumber(vatNumber.Number, vatNumber.Number.Substring(0, 2)));
-                if (attemptToGuessDifferentCountryResult.ValidationStatus == ValidationStatus.Valid)
-                {
-                    // TODO: should we handle this 'Validated for different country' case?
-                    return attemptToGuessDifferentCountryResult;
-                }
-            }
+            // TODO: Issue #12: We could optionally auto-detect and validate country here in case original validation failed
 
             return result;
         }

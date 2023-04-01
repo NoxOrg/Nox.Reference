@@ -6,9 +6,9 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class GreatBritainValidationService : IVatValidationService
+    internal class GreatBritainValidationService : VatValidationServiceBase
     {
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'GB' prefix
@@ -51,28 +51,30 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             // Should be consisting of numbers to check checksum
-            number.ValidateCustomChecksum(result, CalculateChecksum);
+            result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
 
             return result;
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessage = new List<string>();
+
             var total = 0;
             if (number[0] == '0')
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, number, "First character cannot be 0"));
+                errorMessage.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, number, "First character cannot be 0"));
             }
 
             var exactLengthRequirement = 9;
             if (number.Length != exactLengthRequirement)
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.LengthShouldEqualError, exactLengthRequirement));
+                errorMessage.Add(string.Format(ValidationErrors.LengthShouldEqualError, exactLengthRequirement));
             }
 
-            if (result.ValidationErrors.Count > 0)
+            if (errorMessage.Count > 0)
             {
-                return false;
+                return errorMessage;
             }
 
             var multipliers = new int[] { 8, 7, 6, 5, 4, 3, 2 };
@@ -91,16 +93,23 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             cd = Math.Abs(cd);
-            if (cd == int.Parse(number.Substring(7, 2)) && no < 9990001 && (no < 100000 || no > 999999) && (no < 9490001 || no > 9700000))
+            if (cd == int.Parse(number.Substring(7, 2)) &&
+                no < 9990001 &&
+                (no < 100000 || no > 999999) &&
+                (no < 9490001 || no > 9700000))
             {
-                return true;
+                return errorMessage;
             }
 
             cd = cd >= 55 ? cd - 55 : cd + 42;
 
             bool isValid = cd == int.Parse(number.Substring(7, 2)) && no > 1000000;
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
 
-            return isValid;
+            return errorMessage;
         }
     }
 }

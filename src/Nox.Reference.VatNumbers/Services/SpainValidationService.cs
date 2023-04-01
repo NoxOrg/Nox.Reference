@@ -7,9 +7,9 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class SpainValidationService : IVatValidationService
+    internal class SpainValidationService : VatValidationServiceBase
     {
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'ES' prefix
@@ -31,14 +31,15 @@ namespace Nox.Reference.VatNumbers.Services
             else
             {
                 // Should be consisting of numbers to check checksum
-                CalculateChecksum(number, result);
+                result.ValidationErrors.AddRange(CalculateChecksum(number));
             }
 
             return result;
         }
 
-        private static void CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessages = new List<string>();
             var total = 0;
             var multipliers = new int[] { 2, 1, 2, 1, 2, 1, 2 };
 
@@ -63,7 +64,7 @@ namespace Nox.Reference.VatNumbers.Services
                 bool isValid = total == int.Parse(number.Substring(8, 1));
                 if (!isValid)
                 {
-                    result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                    errorMessages.Add(ValidationErrors.ChecksumError);
                 }
             }
             else if (Regex.IsMatch(number, @"^[A-H|N-S|W]\d{7}[A-J]$"))
@@ -87,7 +88,7 @@ namespace Nox.Reference.VatNumbers.Services
                 bool isValid = totalChar == number[8];
                 if (!isValid)
                 {
-                    result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                    errorMessages.Add(ValidationErrors.ChecksumError);
                 }
             }
             else if (Regex.IsMatch(number, @"^[0-9|Y|Z]\d{7}[A-Z]$"))
@@ -105,7 +106,7 @@ namespace Nox.Reference.VatNumbers.Services
                 bool isValid = tempnumber[8] == "TRWAGMYFPDXBNJZSQVHLCKE"[int.Parse(tempnumber.Substring(0, 8)) % 23];
                 if (!isValid)
                 {
-                    result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                    errorMessages.Add(ValidationErrors.ChecksumError);
                 }
             }
             else if (Regex.IsMatch(number, @"^[K|L|M|X]\d{7}[A-Z]$"))
@@ -113,13 +114,15 @@ namespace Nox.Reference.VatNumbers.Services
                 bool isValid = number[8] == "TRWAGMYFPDXBNJZSQVHLCKE"[int.Parse(number.Substring(1, 7)) % 23];
                 if (!isValid)
                 {
-                    result.ValidationErrors.Add(ValidationErrors.ChecksumError);
+                    errorMessages.Add(ValidationErrors.ChecksumError);
                 }
             }
             else
             {
-                result.ValidationErrors.Add(ValidationErrors.UnknownFormat);
+                errorMessages.Add(ValidationErrors.UnknownFormat);
             }
+
+            return errorMessages;
         }
     }
 }

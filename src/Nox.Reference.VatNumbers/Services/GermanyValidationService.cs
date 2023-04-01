@@ -6,13 +6,13 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class GermanyValidationService : IVatValidationService
+    internal class GermanyValidationService : VatValidationServiceBase
     {
         // TODO: review
         private const string _validationPattern = @"^[1-9]\d{8}$";
         private const string _validationPatternDescription = "VAT should have 9 numeric characters first of which is not 0.";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'DE' prefix
@@ -26,7 +26,7 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
 
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             var exactLengthRequirement = 9;
             if (number.Length != exactLengthRequirement)
@@ -36,14 +36,16 @@ namespace Nox.Reference.VatNumbers.Services
             else
             {
                 // Should be consisting of numbers to check checksum
-                number.ValidateCustomChecksum(result, CalculateChecksum);
+                result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
             }
 
             return result;
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessage = new List<string>();
+
             var product = 10;
             for (var index = 0; index < 8; index++)
             {
@@ -61,7 +63,13 @@ namespace Nox.Reference.VatNumbers.Services
                 ? 0
                 : val;
 
-            return checkDigit == int.Parse(number[8].ToString());
+            var isValid = checkDigit == int.Parse(number[8].ToString());
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
         }
     }
 }

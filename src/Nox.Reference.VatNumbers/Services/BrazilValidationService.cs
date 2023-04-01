@@ -6,13 +6,13 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class BrazilValidationService : IVatValidationService
+    internal class BrazilValidationService : VatValidationServiceBase
     {
         // TODO: review
         private const string _validationPattern = @"^\d{14}$";
         private const string _validationPatternDescription = "VAT should have 14 numeric characters";
 
-        public ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
             // Can have or not have 'BR' prefix
@@ -26,29 +26,36 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
 
             // Code should match the pattern
-            IVatValidationService.ValidateRegex(result, number, _validationPattern, vatNumber.Number, _validationPatternDescription);
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             // Should be consisting of numbers to check checksum
-            number.ValidateCustomChecksum(result, CalculateChecksum);
+            result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
 
             return result;
         }
 
-        private static bool CalculateChecksum(string number, ValidationResult result)
+        private static List<string> CalculateChecksum(string number)
         {
+            var errorMessage = new List<string>();
+
             var minimumLengthRequirement = 14;
             if (number.Length < minimumLengthRequirement)
             {
-                result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
-                return false;
+                errorMessage.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
+                return errorMessage;
             }
 
             var registration = number.Substring(0, 12);
             registration += DigitChecksum(registration);
             registration += DigitChecksum(registration);
 
+            var isValid = registration.Substring(registration.Length - 2) == number.Substring(registration.Length - 2);
+            if (!isValid)
+            {
+                errorMessage.Add("Custom checksum validation has failed.");
+            }
 
-            return registration.Substring(registration.Length - 2) == number.Substring(registration.Length - 2);
+            return errorMessage;
         }
 
         private static int DigitChecksum(string numbers)
