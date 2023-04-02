@@ -102,6 +102,12 @@ public class Tests
     [TestCase("ES")]
     [TestCase("NL")]
     [TestCase("MX")]
+    [TestCase("IN")]
+    [TestCase("CA")]
+    [TestCase("BE")]
+    [TestCase("AU")]
+    [TestCase("PL")]
+    [TestCase("PT")]
     [Parallelizable(ParallelScope.All)]
     public void VatNumber_TestNumberOfFailingVATPerCountry(string countryCode)
     {

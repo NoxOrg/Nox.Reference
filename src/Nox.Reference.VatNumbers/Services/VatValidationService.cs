@@ -18,6 +18,12 @@ namespace Nox.Reference.VatNumbers.Services
         private readonly VatValidationServiceBase _spainValidationService = new SpainValidationService();
         private readonly VatValidationServiceBase _neitherlandsValidationService = new NeitherlandsValidationService();
         private readonly VatValidationServiceBase _mexicoValidationService = new MexicoValidationService();
+        private readonly VatValidationServiceBase _indiaValidationService = new IndiaValidationService();
+        private readonly VatValidationServiceBase _canadaValidationService = new CanadaValidationService();
+        private readonly VatValidationServiceBase _belgiumValidationService = new BelgiumValidationService();
+        private readonly VatValidationServiceBase _australiaValidationService = new AustraliaValidationService();
+        private readonly VatValidationServiceBase _polandValidationService = new PolandValidationService();
+        private readonly VatValidationServiceBase _portugalValidationService = new PortugalValidationService();
 
         public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
@@ -66,6 +72,18 @@ namespace Nox.Reference.VatNumbers.Services
                     return _neitherlandsValidationService.ValidateVatNumber(vatNumber);
                 case "MX":
                     return _mexicoValidationService.ValidateVatNumber(vatNumber);
+                case "IN":
+                    return _indiaValidationService.ValidateVatNumber(vatNumber);
+                case "CA":
+                    return _canadaValidationService.ValidateVatNumber(vatNumber);
+                case "BE":
+                    return _belgiumValidationService.ValidateVatNumber(vatNumber);
+                case "AU":
+                    return _australiaValidationService.ValidateVatNumber(vatNumber);
+                case "PL":
+                    return _polandValidationService.ValidateVatNumber(vatNumber);
+                case "PT":
+                    return _portugalValidationService.ValidateVatNumber(vatNumber);
                 default:
                     return ValidationResults.CountryNotFoundValidationResult;
             }

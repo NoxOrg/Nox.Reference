@@ -6,17 +6,21 @@ namespace Nox.Reference.VatNumbers.Services
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class BrazilValidationService : VatValidationServiceBase
+    internal class BelgiumValidationService : VatValidationServiceBase
     {
         // TODO: review
-        private const string _validationPattern = @"^\d{14}$";
-        private const string _validationPatternDescription = "VAT should have 14 numeric characters";
+        private const string _validationPattern = @"^0?\d{9}$";
+        private const string _validationPatternDescription = "VAT should have 10 numeric characters";
 
         public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
         {
             // Cannot have special characters
-            // Can have or not have 'BR' prefix
+            // Can have or not have 'BE' prefix
             var number = vatNumber.NormalizeVatNumber();
+            if (number.Length == 9)
+            {
+                number = number.PadLeft(10, '0');
+            }
 
             if (string.IsNullOrWhiteSpace(number))
             {
@@ -38,46 +42,20 @@ namespace Nox.Reference.VatNumbers.Services
         {
             var errorMessage = new List<string>();
 
-            var minimumLengthRequirement = 14;
+            var minimumLengthRequirement = 9;
             if (number.Length < minimumLengthRequirement)
             {
                 errorMessage.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
                 return errorMessage;
             }
 
-            var registration = number.Substring(0, 12);
-            registration += DigitChecksum(registration);
-            registration += DigitChecksum(registration);
-
-            var isValid = registration.Substring(registration.Length - 2) == number.Substring(registration.Length - 2);
+            var isValid = 97 - int.Parse(number.Substring(0, 8)) % 97 == int.Parse(number.Substring(8, 2));
             if (!isValid)
             {
                 errorMessage.Add(ValidationErrors.ChecksumError);
             }
 
             return errorMessage;
-        }
-
-        private static int DigitChecksum(string numbers)
-        {
-            int index = 2;
-
-            char[] charArray = numbers.ToCharArray();
-            Array.Reverse(charArray);
-            numbers = new string(charArray);
-
-            int sum = 0;
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                sum += int.Parse(numbers[i].ToString()) * index;
-
-                index = index == 9 ? 2 : index + 1;
-            }
-
-            var mod = sum % 11;
-
-            return mod < 2 ? 0 : 11 - mod;
         }
     }
 }

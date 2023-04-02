@@ -30,7 +30,7 @@ namespace Nox.Reference.VatNumbers.Services
             result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
 
             // Remove special letters
-            number = number.Trim('j').Trim('c');
+            number = number.Trim('J').Trim('C');
 
             var minimumLengthRequirement = 9;
             var maximimLengthRequirement = _weights.Length;

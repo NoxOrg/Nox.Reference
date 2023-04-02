@@ -12,6 +12,7 @@
         public const string LengthShouldEqualError = "VAT number should have exactly '{0}' numeric symbols";
         public const string UnknownFormat = "Provided VAT number format is unknown.";
         public const string LuhnDigitChecksumValidationError = "Luhn digit checksum validation failed.";
+        public const string SymbolShouldEqualError = "Symbol on index '{0}' has wrong value. Expected: '{1}'. Actual: '{2}'.";
 
         // GB
         public const string GB_InvalidGDVat = "Invalid government department value was provided. First 3 digits should be less than 500.";
