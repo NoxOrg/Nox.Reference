@@ -1,6 +1,8 @@
 ﻿using RestSharp;
 
-internal class RestHelper
+namespace Nox.Reference.GetData;
+
+internal static class RestHelper
 {
     internal static RestResponse GetInternetContent(string uri, string accept = "application/json")
     {
