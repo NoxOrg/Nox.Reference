@@ -1,39 +1,16 @@
-﻿
-using Nox.Reference.Abstractions.Currencies;
-using System.Reflection;
-using System.Text.Json;
+﻿using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Countries;
+namespace Nox.Reference.Currencies;
 
-public class CurrenciesService : ICurrenciesService
+internal class CurrenciesService : ICurrenciesService
 {
-    private readonly IReadOnlyList<ICurrencyInfo> _currencies = new List<ICurrencyInfo>();
-    private readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoCode = new Dictionary<string, ICurrencyInfo>();
-    private readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoNumber = new Dictionary<string, ICurrencyInfo>();
+    private static IReadOnlyList<ICurrencyInfo> _currencies = new List<ICurrencyInfo>();
+    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoCode = new Dictionary<string, ICurrencyInfo>();
+    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoNumber = new Dictionary<string, ICurrencyInfo>();
 
-    public CurrenciesService()
+    public static void Init(IEnumerable<ICurrencyInfo> currencies)
     {
-        var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = "Nox.Reference.Currencies.json";
-        if (assembly == null)
-        {
-            return;
-        }
-
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        if (stream == null)
-        {
-            return;
-        }
-
-        using var reader = new StreamReader(stream);
-
-        _currencies = JsonSerializer.Deserialize<List<CurrencyInfo>>(
-            reader.ReadToEnd(),
-            new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            }) ?? new List<CurrencyInfo>();
+        _currencies = new List<ICurrencyInfo>(currencies);
 
         foreach (var currency in _currencies)
         {

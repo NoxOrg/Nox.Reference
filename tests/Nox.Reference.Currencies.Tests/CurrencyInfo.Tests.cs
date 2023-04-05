@@ -1,4 +1,5 @@
-using Nox.Reference.Countries;
+using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Currencies;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
@@ -7,6 +8,8 @@ namespace Nox.Reference.Currency.Tests;
 
 public class CurrencyTests
 {
+    private ICurrenciesService _currenciesService;
+
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
         WriteIndented = true,
@@ -16,6 +19,13 @@ public class CurrencyTests
     [OneTimeSetUp]
     public void Setup()
     {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddNoxCurrencies();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        _currenciesService = serviceProvider.GetRequiredService<ICurrenciesService>();
+
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
@@ -24,8 +34,8 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var currencyInfoService = new CurrenciesService();
-        var info = currencyInfoService.GetCurrencies().First(x => x.IsoCode.Equals("UAH", System.StringComparison.InvariantCultureIgnoreCase));
+        var info = _currenciesService.GetCurrencies()
+            .First(x => x.IsoCode.Equals("UAH", System.StringComparison.InvariantCultureIgnoreCase));
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -36,15 +46,14 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetCurrencies
 
     #region GetCurrencyByIsoCode
 
     [Test]
     public void GetCurrencyByIsoCode_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var currencyInfoService = new CurrenciesService();
-        var info = currencyInfoService.GetCurrencyByIsoCode("UAH");
+        var info = _currenciesService.GetCurrencyByIsoCode("UAH");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -58,8 +67,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoCode_WitUnknownCode_ReturnsNull()
     {
-        var currencyInfoService = new CurrenciesService();
-        var info = currencyInfoService.GetCurrencyByIsoCode("SomeCode");
+        var info = _currenciesService.GetCurrencyByIsoCode("SomeCode");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -69,15 +77,14 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetCurrencyByIsoCode
 
     #region GetCurrencyByIsoNumber
 
     [Test]
     public void GetCurrencyByIsoNumber_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var currencyInfoService = new CurrenciesService();
-        var info = currencyInfoService.GetCurrencyByIsoNumber("980");
+        var info = _currenciesService.GetCurrencyByIsoNumber("980");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -91,8 +98,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoNumber_WitUnknownCode_ReturnsNull()
     {
-        var currencyInfoService = new CurrenciesService();
-        var info = currencyInfoService.GetCurrencyByIsoNumber("SomeCode");
+        var info = _currenciesService.GetCurrencyByIsoNumber("SomeCode");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -102,7 +108,7 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetCurrencyByIsoNumber
 
     [TearDown]
     public void EndTest()

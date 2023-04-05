@@ -1,32 +1,26 @@
-﻿Console.WriteLine("Starting Nox.Reference Data collection...");
-Console.WriteLine();
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Nox.Reference.GetData.CliCommands;
 
-var path = new DirectoryInfo(Directory.GetCurrentDirectory());
-
-while (!Directory.Exists(Path.Combine(path.FullName, ".git")))
-{
-    // not found, in root
-    if (path == null || path.Parent == null)
+var host = Host.CreateDefaultBuilder()
+    .ConfigureAppConfiguration(configurationBuilder =>
     {
-        path = new DirectoryInfo(Directory.GetCurrentDirectory());
-        break;
-    }
-    path = path.Parent;
-}
+        configurationBuilder.AddJsonFile("appSettings.json");
+    })
+    .ConfigureServices(services =>
+    {
+        services.AddLogging();
+        services.AddSingleton<ICliCommandExecutor, CliCommandExecutor>();
 
-var targetOutputPath = Path.Combine(path.FullName, @"data");
-Directory.CreateDirectory(targetOutputPath);
+        services.AddScoped<CountryDataExtractCommand>();
+        services.AddScoped<CurrencyDataExtractCommand>();
+        services.AddScoped<MacAddressDataExtractCommand>();
+    })
+    .Build();
 
-var sourceOutputPath = Path.Combine(path.FullName, @"data\source");
-Directory.CreateDirectory(sourceOutputPath);
+var commandExecutor = host
+    .Services
+    .GetRequiredService<ICliCommandExecutor>();
 
-Console.WriteLine("Getting country data...");
-CountryDataExtractor.GetRestCountryData(sourceOutputPath, targetOutputPath);
-
-Console.WriteLine("Getting currency data...");
-CurrencyDataExtractor.GetRestCurrencyData(sourceOutputPath, targetOutputPath);
-
-Console.WriteLine();
-Console.WriteLine("Completed.");
-
-return 0;
+commandExecutor.Run();
