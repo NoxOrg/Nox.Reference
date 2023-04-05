@@ -1,10 +1,13 @@
-﻿namespace Nox.Reference.VatNumbers.Models
+﻿namespace Nox.Reference.Shared
 {
     // TODO maybe make record?
-    public class ValidationResult
+    // TODO: think about visibility of pre-implemented classes that we want to provide
+    // Should they be public or internal?
+    public class ValidationResult : IValidationResult
     {
         public bool IsValid => ValidationErrors?.Count == 0;
         public List<string?> ValidationErrors { get; } = new List<string?>();
+        IList<string?> IValidationResult.ValidationErrors => ValidationErrors;
 
         public ValidationResult() { }
 

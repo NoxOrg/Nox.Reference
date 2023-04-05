@@ -20,9 +20,6 @@ Directory.CreateDirectory(targetOutputPath);
 var sourceOutputPath = Path.Combine(path.FullName, @"data\source");
 Directory.CreateDirectory(sourceOutputPath);
 
-Console.WriteLine("Formatting VAT Number data...");
-VatNumberFormatter.FormatVatNumberDataIntoFiles(sourceOutputPath, Path.Combine(targetOutputPath, @"tests"));
-
 Console.WriteLine("Getting country data...");
 CountryDataExtractor.GetRestCountryData(sourceOutputPath, targetOutputPath);
 

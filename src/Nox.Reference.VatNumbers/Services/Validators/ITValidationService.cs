@@ -1,20 +1,20 @@
-﻿using Nox.Reference.VatNumbers.Constants;
+﻿using Nox.Reference.Abstractions.VatNumbers;
+using Nox.Reference.Shared;
+using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
-using Nox.Reference.VatNumbers.Models;
 
-namespace Nox.Reference.VatNumbers.Services
+namespace Nox.Reference.VatNumbers.Services.Validators
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class ItalyValidationService : VatValidationServiceBase
+    internal class ITValidationService : VatValidationServiceBase
     {
         private const string _validationPattern = @"^\d{11}$";
         private const string _validationPatternDescription = "VAT should consist of 11 numeric characters.";
 
-        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
         {
-            // Cannot have special characters
-            // Can have or not have 'it' prefix
+            // Cannot have special characters and remove optional prefix
             var number = vatNumber.NormalizeVatNumber();
 
             if (string.IsNullOrWhiteSpace(number))
@@ -25,7 +25,7 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
 
             // Code should match the pattern
-            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.FormattedVatNumber, _validationPatternDescription));
 
             // Should be consisting of numbers to check checksum
             result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
@@ -43,7 +43,7 @@ namespace Nox.Reference.VatNumbers.Services
                 errorMessage.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLengthRequirement));
                 return errorMessage;
             }
-            
+
             int[] Multipliers = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
 
             var res = long.Parse(number);

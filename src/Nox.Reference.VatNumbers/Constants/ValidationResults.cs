@@ -1,4 +1,4 @@
-﻿using Nox.Reference.VatNumbers.Models;
+﻿using Nox.Reference.Shared;
 
 namespace Nox.Reference.VatNumbers.Constants
 {

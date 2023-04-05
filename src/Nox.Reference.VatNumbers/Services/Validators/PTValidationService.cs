@@ -1,24 +1,18 @@
-﻿using Nox.Reference.VatNumbers.Constants;
+﻿using Nox.Reference.Abstractions.VatNumbers;
+using Nox.Reference.Shared;
+using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
-using Nox.Reference.VatNumbers.Models;
 
-namespace Nox.Reference.VatNumbers.Services
+namespace Nox.Reference.VatNumbers.Services.Validators
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class PortugalValidationService : VatValidationServiceBase
+    internal class PTValidationService : VatValidationServiceBase
     {
-        // TODO: review
-        private const string _validationPattern = @"^\d{9}$";
-        private const string _validationPatternDescription = "VAT should have 9 numeric characters";
-
-        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
         {
-            // Cannot have special characters
-            // Can have or not have 'PT' prefix
-            var number = vatNumber.NormalizeVatNumber();
-
-            if (string.IsNullOrWhiteSpace(number))
+            // Cannot have special characters and remove optional prefix
+            if (string.IsNullOrWhiteSpace(vatNumber.FormattedVatNumber))
             {
                 return ValidationResults.NullValidationResult;
             }
@@ -26,10 +20,10 @@ namespace Nox.Reference.VatNumbers.Services
             var result = new ValidationResult();
 
             // Code should match the pattern
-            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
+            result.ValidationErrors.AddRange(ValidateRegex(vatNumber.FormattedVatNumber, vatNumber.ValidationRegex, vatNumber.OriginalVatNumber, vatNumber.ValidationFormatDescription));
 
             // Should be consisting of numbers to check checksum
-            result.ValidationErrors.AddRange(number.ValidateCustomChecksum(CalculateChecksum));
+            result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(2).ValidateCustomChecksum(CalculateChecksum));
 
             return result;
         }

@@ -1,17 +1,17 @@
-﻿using Nox.Reference.VatNumbers.Constants;
+﻿using Nox.Reference.Abstractions.VatNumbers;
+using Nox.Reference.Shared;
+using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
-using Nox.Reference.VatNumbers.Models;
 
-namespace Nox.Reference.VatNumbers.Services
+namespace Nox.Reference.VatNumbers.Services.Validators
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class GreatBritainValidationService : VatValidationServiceBase
+    internal class GBValidationService : VatValidationServiceBase
     {
-        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
         {
-            // Cannot have special characters
-            // Can have or not have 'GB' prefix
+            // Cannot have special characters and remove optional prefix
             var number = vatNumber.NormalizeVatNumber();
 
             if (string.IsNullOrWhiteSpace(number))

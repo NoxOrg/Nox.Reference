@@ -20,10 +20,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\docs\images\nox.png" Link="nox.png">
-      <PackagePath></PackagePath>
-      <Pack>true</Pack>
-    </None>
+    <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\data\Nox.Reference.VatNumbers.json" LogicalName="Nox.Reference.VatNumbers.json" />
   </ItemGroup>
 
 </Project>

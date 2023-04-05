@@ -1,24 +1,24 @@
-﻿using Nox.Reference.VatNumbers.Constants;
+﻿using Nox.Reference.Abstractions.VatNumbers;
+using Nox.Reference.Shared;
+using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
-using Nox.Reference.VatNumbers.Models;
 
-namespace Nox.Reference.VatNumbers.Services
+namespace Nox.Reference.VatNumbers.Services.Validators
 {
     // Verifiend manually: FALSE
     // Personal data cleaned: TRUE
-    internal class MexicoValidationService : VatValidationServiceBase
+    internal class MXValidationService : VatValidationServiceBase
     {
         // TODO: review
-        private const string _validationPattern = "^[A-Z&Ñ]{3}[0-9]{6}[0-9A-Z]{3}$";
+        private const string _validationPattern = "^MX[A-Z&Ñ]{3}[0-9]{6}[0-9A-Z]{3}$";
         private const string _validationPatternDescription = "VAT should have 3 letters and after that 6 numbers and after that 3 numbers or letters.";
 
         private const string _validationPattern2 = @"^[1-9A-V][1-9A-Z][0-9A]$";
         private const string _validationPatternDescription2 = "VAT should consist of three parts. First is number from 1 to 9 or letters from A to V. Second is numbers from 1 to 9 or letters from A to Z. And third is a 'A' letter or a number.";
 
-        public override ValidationResult ValidateVatNumber(IVatNumber vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
         {
-            // Cannot have special characters
-            // Can have or not have 'MX' prefix
+            // Cannot have special characters and remove optional prefix
             var number = vatNumber.NormalizeVatNumber();
 
             if (string.IsNullOrWhiteSpace(number))
@@ -36,7 +36,7 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             // Code should match the pattern
-            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.Number, _validationPatternDescription));
+            result.ValidationErrors.AddRange(ValidateRegex(number, _validationPattern, vatNumber.FormattedVatNumber, _validationPatternDescription));
 
             if (!HasValidDate(number.Substring(3)))
             {
@@ -44,7 +44,7 @@ namespace Nox.Reference.VatNumbers.Services
             }
 
             // Code should match the pattern
-            result.ValidationErrors.AddRange(ValidateRegex(number.Substring(number.Length - 3), _validationPattern2, vatNumber.Number, _validationPatternDescription2));
+            result.ValidationErrors.AddRange(ValidateRegex(number.Substring(number.Length - 3), _validationPattern2, vatNumber.FormattedVatNumber, _validationPatternDescription2));
 
             // Should be consisting of numbers to check checksum
 
@@ -61,7 +61,7 @@ namespace Nox.Reference.VatNumbers.Services
         private static bool CalculateChecksum(string number, char originalCheckDigit)
         {
             string alphabet = "0123456789ABCDEFGHIJKLMN&OPQRSTUVWXYZ Ñ";
-            number = ("   " + number);
+            number = "   " + number;
             number = number.Substring(number.Length - 12);
 
 
