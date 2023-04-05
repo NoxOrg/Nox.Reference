@@ -1,5 +1,5 @@
+using Nox.Reference.Holidays;
 using Nox.Reference.VatNumbers.Models;
-using Nox.Reference.VatNumbers.Services;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
@@ -9,7 +9,7 @@ namespace Nox.Reference.VatNumbers.Tests;
 
 public class Tests
 {
-    private string _testFilePath = "../../../../../data/tests/VatNumbers/";
+    private string _testFilePath = string.Empty;
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -21,6 +21,20 @@ public class Tests
     [OneTimeSetUp]
     public void Setup()
     {
+        var path = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+        while (!Directory.Exists(Path.Combine(path.FullName, ".git")))
+        {
+            // not found, in root
+            if (path == null || path.Parent == null)
+            {
+                path = new DirectoryInfo(Directory.GetCurrentDirectory());
+                break;
+            }
+            path = path.Parent;
+        }
+
+        _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
         Trace.Listeners.Add(new ConsoleTraceListener());
         _jsonOptions.Converters.Add(new JsonStringEnumConverter());
     }
@@ -30,58 +44,60 @@ public class Tests
     [Test]
     public void VatNumber_WithValidUkraineNumber_ReturnsSuccess()
     {
-        var service = new VatValidationService();
-        var validationResult = service.ValidateVatNumber(new VatNumbers.Models.VatNumber("0203654090", "UA"));
+        IVatNumberService service = new VatNumberService();
+        var validationResult = service.ValidateVatNumber(new VatNumberInfo("UA", "0203654090"));
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.IsValid, Is.EqualTo(true));
+            Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(true));
+            Assert.That(validationResult.IsVerified, Is.EqualTo(true));
         });
     }
 
     [Test]
     public void VatNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var service = new VatValidationService();
-        var validationResult = service.ValidateVatNumber(new VatNumbers.Models.VatNumber("UA0203654090", "UA"));
+        IVatNumberService service = new VatNumberService();
+        var validationResult = service.ValidateVatNumber(new VatNumberInfo("UA", "UA0203654090"));
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.IsValid, Is.EqualTo(true));
+            Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(true));
+            Assert.That(validationResult.IsVerified, Is.EqualTo(true));
         });
     }
 
     [Test]
     public void VatNumber_WithInvalidUkraineValue_ReturnsFail()
     {
-        var service = new VatValidationService();
-        var validationResult = service.ValidateVatNumber(new VatNumbers.Models.VatNumber("123Test456", "UA"));
+        IVatNumberService service = new VatNumberService();
+        var validationResult = service.ValidateVatNumber(new VatNumberInfo("UA", "123Test456"));
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.IsValid, Is.EqualTo(false));
-            Assert.That(validationResult.ValidationErrors, Has.Count.EqualTo(1));
+            Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(false));
+            Assert.That(validationResult.ValidationResult.ValidationErrors, Has.Count.EqualTo(1));
         });
     }
 
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var service = new VatValidationService();
-        var validationResult = service.ValidateVatNumber(new VatNumbers.Models.VatNumber("123456", "SM"));
+        IVatNumberService service = new VatNumberService();
+        var validationResult = service.ValidateVatNumber(new VatNumberInfo("SM", "123456"));
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.IsValid, Is.EqualTo(false));
-            Assert.That(validationResult.ValidationErrors[0], Is.EqualTo("Cannot find validator for a particular error."));
+            Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(true));
+            Assert.That(validationResult.IsVerified, Is.EqualTo(false));
         });
     }
 
@@ -111,17 +127,18 @@ public class Tests
     [Parallelizable(ParallelScope.All)]
     public void VatNumber_TestNumberOfFailingVATPerCountry(string countryCode)
     {
-        var service = new VatValidationService();
-        using var sr = new StreamReader($"{_testFilePath}{countryCode}-VatNumbers.json");
+        IVatNumberService service = new VatNumberService();
+        using var sr = new StreamReader($"{_testFilePath}/{countryCode}-VatNumbers.json");
         var testData = JsonSerializer.Deserialize<string[]>(sr.ReadToEnd());
 
         var failedVat = new System.Collections.Generic.List<string>();
         foreach (var vatNumber in testData!)
         {
-            var validationResult = service.ValidateVatNumber(new VatNumber(vatNumber, countryCode));
-            if (!validationResult.IsValid)
+            var vatNumberInfo = service.ValidateVatNumber(new VatNumberInfo(countryCode, vatNumber));
+            if (!vatNumberInfo.ValidationResult.IsValid &&
+                vatNumberInfo.IsVerified)
             {
-                failedVat.Add($"{vatNumber}:{string.Join(';', validationResult.ValidationErrors)}");
+                failedVat.Add($"{vatNumber}:{string.Join(';', vatNumberInfo.ValidationResult.ValidationErrors)}");
             }
         }
 
