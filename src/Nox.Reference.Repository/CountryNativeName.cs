@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Nox.Reference.Repository;
-
 public partial class CountryNativeName
 {
     public short CountryId { get; set; }

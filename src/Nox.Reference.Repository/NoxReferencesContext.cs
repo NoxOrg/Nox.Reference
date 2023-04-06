@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Nox.Reference.Repository;
 
-public partial class NoxContext : DbContext
+public partial class NoxReferencesContext : DbContext
 {
-    public NoxContext()
+    public string DbPath { get; }
+
+    public NoxReferencesContext()
     {
+        var folder = Environment.SpecialFolder.LocalApplicationData;
+        var path = Environment.GetFolderPath(folder);
+        DbPath = System.IO.Path.Join(path, "noxreferences.db");
+    
     }
 
-    public NoxContext(DbContextOptions<NoxContext> options)
-        : base(options)
-    {
-    }
+    // public NoxReferencesContext(DbContextOptions<NoxReferencesContext> options)
+    //     : base(options)
+    // {
+    // }
 
     public virtual DbSet<Continent> Continents { get; set; }
 
@@ -41,9 +46,8 @@ public partial class NoxContext : DbContext
 
     public virtual DbSet<Language> Languages { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=localhost;Database=nox;User Id=sa;Password=P@ssw0rd123!;Persist Security Info=False;Encrypt=False");
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        => options.UseSqlite($"Data Source={DbPath}");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

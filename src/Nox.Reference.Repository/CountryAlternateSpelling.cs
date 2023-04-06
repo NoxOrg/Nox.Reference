@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Nox.Reference.Repository;
-
 public partial class CountryAlternateSpelling
 {
     public short Id { get; set; }
