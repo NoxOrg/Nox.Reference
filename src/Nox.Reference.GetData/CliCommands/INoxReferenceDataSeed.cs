@@ -1,6 +1,6 @@
 ﻿namespace Nox.Reference.GetData.CliCommands;
 
-public interface ICliCommand
+public interface INoxReferenceDataSeed
 {
     void Execute();
 }

@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Nox.Reference.GetData.CliCommands;
 
-public class CurrencyDataExtractCommand : ICliCommand
+public class CurrencyDataExtractCommand : INoxReferenceDataSeed
 {
     private readonly IConfiguration _configuration;
     private readonly ILogger<CountryDataExtractCommand> _logger;

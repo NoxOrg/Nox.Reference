@@ -1,28 +1,22 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace Nox.Reference.GetData.CliCommands;
 
-public class CliCommandExecutor : ICliCommandExecutor
+internal class CliCommandExecutor : ICliCommandExecutor
 {
     private readonly ILogger<CliCommandExecutor> _logger;
     private readonly IConfiguration _configuration;
-    private readonly CountryDataExtractCommand _countryDataExtractCommand;
-    private readonly CurrencyDataExtractCommand _currencyDataExtractCommand;
-    private readonly MacAddressDataExtractCommand _macAddressDataExtractCommand;
 
     public CliCommandExecutor(
         ILogger<CliCommandExecutor> logger,
-        IConfiguration configuration,
-        CountryDataExtractCommand countryDataExtractCommand,
-        CurrencyDataExtractCommand currencyDataExtractCommand,
-        MacAddressDataExtractCommand macAddressDataExtractCommand)
+        IConfiguration configuration)
     {
         _logger = logger;
         _configuration = configuration;
-        _countryDataExtractCommand = countryDataExtractCommand;
-        _currencyDataExtractCommand = currencyDataExtractCommand;
-        _macAddressDataExtractCommand = macAddressDataExtractCommand;
     }
 
     public void Run(string? commandName = null)
@@ -33,9 +27,16 @@ public class CliCommandExecutor : ICliCommandExecutor
 
         _logger.LogInformation("Start extracting data...");
 
-        _countryDataExtractCommand.Execute();
-        _currencyDataExtractCommand.Execute();
-        _macAddressDataExtractCommand.Execute();
+        var dataSeeders = Assembly.GetExecutingAssembly()
+            .GetTypes()
+            .Where(x => x.IsAssignableFrom(typeof(ICliCommandExecutor)))
+            .Cast<INoxReferenceDataSeed>()
+            .ToArray();
+
+        foreach (var dataSeeder in dataSeeders)
+        {
+            dataSeeder.Execute();
+        }
 
         _logger.LogInformation("Completed.");
     }

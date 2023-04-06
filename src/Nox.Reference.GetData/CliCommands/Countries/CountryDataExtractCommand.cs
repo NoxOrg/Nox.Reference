@@ -1,20 +1,24 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.Common;
 using Nox.Reference.Countries;
 using System.Text.Json;
 
 namespace Nox.Reference.GetData.CliCommands;
 
-public class CountryDataExtractCommand : ICliCommand
+public class CountryDataExtractCommand : INoxReferenceDataSeed
 {
     private readonly IConfiguration _configuration;
+    private readonly INoxReferenceSeed<ICountryInfo> _dataSeed;
     private readonly ILogger<CountryDataExtractCommand> _logger;
 
     public CountryDataExtractCommand(
         IConfiguration configuration,
+        INoxReferenceSeed<ICountryInfo> dataSeed,
         ILogger<CountryDataExtractCommand> logger)
     {
         _configuration = configuration;
+        _dataSeed = dataSeed;
         _logger = logger;
     }
 
@@ -65,6 +69,8 @@ public class CountryDataExtractCommand : ICliCommand
 
                 MapLatLongIntoGeoCoordinates(country);
             }
+
+            _dataSeed.Seed(countries);
 
             // Store output
             var options = new JsonSerializerOptions()

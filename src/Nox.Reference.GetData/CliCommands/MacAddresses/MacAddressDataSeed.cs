@@ -1,25 +1,26 @@
 ﻿using System.Globalization;
-using System.Text.Json;
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Common;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.CliCommands.MacAddresses;
 
-public class MacAddressDataExtractCommand : ICliCommand
+public class MacAddressDataSeed : INoxReferenceDataSeed
 {
     private const string SourceFilePath = @"MacAddresses\mac-vendor.csv";
-    private const string OutputFilePath = "Nox.Reference.MacAddresses.json";
 
+    private readonly INoxReferenceSeed<IMacAddressInfo> _dataSeed;
     private readonly IConfiguration _configuration;
-    private readonly ILogger<MacAddressDataExtractCommand> _logger;
+    private readonly ILogger<MacAddressDataSeed> _logger;
 
-    public MacAddressDataExtractCommand(
+    public MacAddressDataSeed(
+        INoxReferenceSeed<IMacAddressInfo> dataSeed,
         IConfiguration configuration,
-        ILogger<MacAddressDataExtractCommand> logger)
+        ILogger<MacAddressDataSeed> logger)
     {
+        _dataSeed = dataSeed;
         _configuration = configuration;
         _logger = logger;
     }
@@ -29,7 +30,6 @@ public class MacAddressDataExtractCommand : ICliCommand
         _logger.LogInformation("Getting MAC Address data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
-        var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
 
         var sourceFilePath = Path.Combine(sourceOutputPath, SourceFilePath);
 
@@ -53,16 +53,7 @@ public class MacAddressDataExtractCommand : ICliCommand
             dataRecords.Add(data);
         }
 
-        var serializedOptions = new JsonSerializerOptions
-        {
-            WriteIndented = true
-        };
-
-        var jsonString = JsonSerializer.Serialize(dataRecords, serializedOptions);
-
-        using var sw = new StreamWriter(Path.Combine(targetOutputPath, OutputFilePath));
-
-        sw.WriteLine(jsonString);
+        _dataSeed.Seed(dataRecords);
 
         _logger.LogInformation("Getting MAC Address data successfuly completed...");
     }

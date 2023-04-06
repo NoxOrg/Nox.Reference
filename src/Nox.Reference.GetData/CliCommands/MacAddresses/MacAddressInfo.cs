@@ -3,9 +3,10 @@ using Nox.Reference.Abstractions.MacAddresses;
 
 namespace Nox.Reference.GetData.CliCommands;
 
-internal record MacAddressInfo : IMacAddressInfo
+public class MacAddressInfo : IMacAddressInfo
 {
 #nullable disable warnings
+
     [Name("Assignment")]
     public string Id { get; init; }
 
@@ -20,5 +21,6 @@ internal record MacAddressInfo : IMacAddressInfo
 
     [Name("Organization Address")]
     public string OrganizationAddress { get; init; }
+
 #nullable enable warnings
 }

@@ -27,9 +27,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.MacAddresses", "Nox.Reference.MacAddresses\Nox.Reference.MacAddresses.csproj", "{7687AE68-C16D-43C8-8256-D77B8DCC05A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Common", "Nox.Reference.Common\Nox.Reference.Common.csproj", "{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Common", "Nox.Reference.Common\Nox.Reference.Common.csproj", "{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.MacAddresses.Tests", "..\tests\Nox.Reference.MacAddresses.Tests\Nox.Reference.MacAddresses.Tests.csproj", "{656FB6E1-4FCC-40AB-8A1E-785B651BA1F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Data", "Nox.Reference.Data\Nox.Reference.Data.csproj", "{73D9F37F-98D9-46B9-A0FE-45FA05377FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Entity", "Nox.Reference.Entity\Nox.Reference.Entity.csproj", "{913EF21C-7ED0-45B5-A3C0-33414461C290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +93,14 @@ Global
 		{656FB6E1-4FCC-40AB-8A1E-785B651BA1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{656FB6E1-4FCC-40AB-8A1E-785B651BA1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{656FB6E1-4FCC-40AB-8A1E-785B651BA1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D9F37F-98D9-46B9-A0FE-45FA05377FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D9F37F-98D9-46B9-A0FE-45FA05377FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D9F37F-98D9-46B9-A0FE-45FA05377FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D9F37F-98D9-46B9-A0FE-45FA05377FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{913EF21C-7ED0-45B5-A3C0-33414461C290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{913EF21C-7ED0-45B5-A3C0-33414461C290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{913EF21C-7ED0-45B5-A3C0-33414461C290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{913EF21C-7ED0-45B5-A3C0-33414461C290}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
