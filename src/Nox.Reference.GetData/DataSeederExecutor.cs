@@ -1,20 +1,21 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.GetData.DataSeeds;
 using Nox.Reference.GetData.DataSeeds.MacAddresses;
 
-namespace Nox.Reference.GetData.DataSeeds;
+namespace Nox.Reference.GetData;
 
-internal class CliCommandExecutor : ICliCommandExecutor
+internal class DataSeederExecutor : IDataSeederExecutor
 {
-    private readonly ILogger<CliCommandExecutor> _logger;
+    private readonly ILogger<DataSeederExecutor> _logger;
     private readonly IConfiguration _configuration;
-    private readonly List<INoxReferenceDataSeed> _dataSeeds = new List<INoxReferenceDataSeed>();
+    private readonly List<INoxReferenceDataSeeder> _dataSeeds = new List<INoxReferenceDataSeeder>();
 
-    public CliCommandExecutor(
-        ILogger<CliCommandExecutor> logger,
+    public DataSeederExecutor(
+        ILogger<DataSeederExecutor> logger,
         IConfiguration configuration,
-        MacAddressDataSeed macAddressDataSeed)
+        MacAddressDataSeeder macAddressDataSeed)
     {
         _logger = logger;
         _configuration = configuration;

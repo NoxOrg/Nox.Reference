@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nox.Reference.Entity;
+using Nox.Reference.Data.Entities;
 
 namespace Nox.Reference.Data.Configurations;
 
-public abstract class NoxReferenceEntityConfigurationBase<TEntity> : IEntityTypeConfiguration<TEntity>
+internal abstract class NoxReferenceEntityConfigurationBase<TEntity> : IEntityTypeConfiguration<TEntity>
     where TEntity : class, INoxReferenceEntity
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)

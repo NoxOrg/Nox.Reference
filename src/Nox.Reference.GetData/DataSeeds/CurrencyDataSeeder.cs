@@ -1,22 +1,27 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Currencies;
 using Nox.Reference.Currencies.Models.Rest;
+using Nox.Reference.GetData.Helpers;
 using System.Text.Json;
 
 namespace Nox.Reference.GetData.DataSeeds;
 
-public class CurrencyDataExtractCommand : INoxReferenceDataSeed
+public class CurrencyDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<CountrySeed> _logger;
+    private readonly ILogger<CountryDataSeeder> _logger;
+    private readonly INoxReferenceSeed<ICurrencyInfo> _dataSeed;
 
-    public CurrencyDataExtractCommand(
+    public CurrencyDataSeeder(
         IConfiguration configuration,
-        ILogger<CountrySeed> logger)
+        ILogger<CountryDataSeeder> logger,
+        INoxReferenceSeed<ICurrencyInfo> dataSeed)
     {
         _configuration = configuration;
         _logger = logger;
+        _dataSeed = dataSeed;
     }
 
     public void Execute()
@@ -83,18 +88,11 @@ public class CurrencyDataExtractCommand : INoxReferenceDataSeed
                 }
             }
 
-            // Store output
-            var serializationOptions = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
+            var currencies = currencyData
+                .Select(x => x.Value)
+                .Cast<ICurrencyInfo>();
 
-            var outputContent = JsonSerializer.Serialize(
-                currencyData.Select(x => x.Value).Cast<ICurrencyInfo>(),
-                serializationOptions);
-
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Currencies.json"), outputContent);
+            _dataSeed.Seed(currencies);
         }
         catch (Exception ex)
         {

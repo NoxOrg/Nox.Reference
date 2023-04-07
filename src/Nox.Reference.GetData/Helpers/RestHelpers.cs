@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace Nox.Reference.GetData;
+namespace Nox.Reference.GetData.Helpers;
 
 internal static class RestHelper
 {

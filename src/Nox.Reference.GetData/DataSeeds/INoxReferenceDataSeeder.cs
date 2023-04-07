@@ -1,6 +1,6 @@
 ﻿namespace Nox.Reference.GetData.DataSeeds;
 
-public interface INoxReferenceDataSeed
+public interface INoxReferenceDataSeeder
 {
     void Execute();
 }

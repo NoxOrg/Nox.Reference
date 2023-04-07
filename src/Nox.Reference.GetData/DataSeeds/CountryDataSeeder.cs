@@ -1,21 +1,23 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Countries;
+using Nox.Reference.GetData.Helpers;
 using System.Text.Json;
 
 namespace Nox.Reference.GetData.DataSeeds;
 
-public class CountrySeed : INoxReferenceDataSeed
+public class CountryDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
     private readonly INoxReferenceSeed<ICountryInfo> _dataSeed;
-    private readonly ILogger<CountrySeed> _logger;
+    private readonly ILogger<CountryDataSeeder> _logger;
 
-    public CountrySeed(
+    public CountryDataSeeder(
         IConfiguration configuration,
         INoxReferenceSeed<ICountryInfo> dataSeed,
-        ILogger<CountrySeed> logger)
+        ILogger<CountryDataSeeder> logger)
     {
         _configuration = configuration;
         _dataSeed = dataSeed;
@@ -69,22 +71,11 @@ public class CountrySeed : INoxReferenceDataSeed
 
                 MapLatLongIntoGeoCoordinates(country);
             }
-
-            _dataSeed.Seed(countries);
-
-            // Store output
-            var options = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
-
-            var outputContent = System.Text.Json.JsonSerializer.Serialize(countries
+            var filteredCountries = countries
                 .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>(),
-                options);
+                .Cast<ICountryInfo>();
 
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
+            _dataSeed.Seed(filteredCountries);
         }
         catch (Exception ex)
         {

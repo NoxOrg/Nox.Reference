@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Nox.Reference.Entity;
+using Nox.Reference.Data.Entities;
 
 namespace Nox.Reference.Data.Configurations;
 
-public class MacAddressConfiguration : NoxReferenceEntityConfigurationBase<MacAddress>
+internal class MacAddressConfiguration : NoxReferenceEntityConfigurationBase<MacAddress>
 {
     protected override void DoConfigure(EntityTypeBuilder<MacAddress> builder)
     {

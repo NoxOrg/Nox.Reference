@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Common;
+using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.GetData.DataSeeds;
 
