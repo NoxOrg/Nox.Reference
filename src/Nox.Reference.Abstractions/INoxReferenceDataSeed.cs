@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Common;
+﻿namespace Nox.Reference;
 
 public interface INoxReferenceSeed<TType>
 {

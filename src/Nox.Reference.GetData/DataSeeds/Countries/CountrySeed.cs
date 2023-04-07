@@ -4,18 +4,18 @@ using Nox.Reference.Common;
 using Nox.Reference.Countries;
 using System.Text.Json;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.DataSeeds;
 
-public class CountryDataExtractCommand : INoxReferenceDataSeed
+public class CountrySeed : INoxReferenceDataSeed
 {
     private readonly IConfiguration _configuration;
     private readonly INoxReferenceSeed<ICountryInfo> _dataSeed;
-    private readonly ILogger<CountryDataExtractCommand> _logger;
+    private readonly ILogger<CountrySeed> _logger;
 
-    public CountryDataExtractCommand(
+    public CountrySeed(
         IConfiguration configuration,
         INoxReferenceSeed<ICountryInfo> dataSeed,
-        ILogger<CountryDataExtractCommand> logger)
+        ILogger<CountrySeed> logger)
     {
         _configuration = configuration;
         _dataSeed = dataSeed;

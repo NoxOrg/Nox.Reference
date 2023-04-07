@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.GetData.CliCommands;
+﻿namespace Nox.Reference.GetData.DataSeeds;
 
 public interface INoxReferenceDataSeed
 {

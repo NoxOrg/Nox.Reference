@@ -4,16 +4,16 @@ using Nox.Reference.Abstractions.Currencies;
 using Nox.Reference.Currencies.Models.Rest;
 using System.Text.Json;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.DataSeeds;
 
 public class CurrencyDataExtractCommand : INoxReferenceDataSeed
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<CountryDataExtractCommand> _logger;
+    private readonly ILogger<CountrySeed> _logger;
 
     public CurrencyDataExtractCommand(
         IConfiguration configuration,
-        ILogger<CountryDataExtractCommand> logger)
+        ILogger<CountrySeed> logger)
     {
         _configuration = configuration;
         _logger = logger;

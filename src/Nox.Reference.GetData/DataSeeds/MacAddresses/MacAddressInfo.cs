@@ -1,7 +1,7 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using Nox.Reference.Abstractions.MacAddresses;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.DataSeeds;
 
 public class MacAddressInfo : IMacAddressInfo
 {

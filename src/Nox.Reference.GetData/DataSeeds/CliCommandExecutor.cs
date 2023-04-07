@@ -1,22 +1,24 @@
 ﻿using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.GetData.DataSeeds.MacAddresses;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.DataSeeds;
 
 internal class CliCommandExecutor : ICliCommandExecutor
 {
     private readonly ILogger<CliCommandExecutor> _logger;
     private readonly IConfiguration _configuration;
+    private readonly List<INoxReferenceDataSeed> _dataSeeds = new List<INoxReferenceDataSeed>();
 
     public CliCommandExecutor(
         ILogger<CliCommandExecutor> logger,
-        IConfiguration configuration)
+        IConfiguration configuration,
+        MacAddressDataSeed macAddressDataSeed)
     {
         _logger = logger;
         _configuration = configuration;
+        _dataSeeds.Add(macAddressDataSeed);
     }
 
     public void Run(string? commandName = null)
@@ -27,15 +29,9 @@ internal class CliCommandExecutor : ICliCommandExecutor
 
         _logger.LogInformation("Start extracting data...");
 
-        var dataSeeders = Assembly.GetExecutingAssembly()
-            .GetTypes()
-            .Where(x => x.IsAssignableFrom(typeof(ICliCommandExecutor)))
-            .Cast<INoxReferenceDataSeed>()
-            .ToArray();
-
-        foreach (var dataSeeder in dataSeeders)
+        foreach (var dataSeed in _dataSeeds)
         {
-            dataSeeder.Execute();
+            dataSeed.Execute();
         }
 
         _logger.LogInformation("Completed.");

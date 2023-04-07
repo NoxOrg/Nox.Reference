@@ -1,26 +1,18 @@
 ﻿using System.Text.Json;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Common;
 
-namespace Nox.Reference.GetData.CliCommands;
+namespace Nox.Reference.GetData.DataSeeds;
 
-public class MacAddressFileSeed : JsonFileDataSeed<IMacAddressInfo>
-{
-    private const string OutputFilePath = "Nox.Reference.MacAddresses.json";
-
-    public MacAddressFileSeed(IConfiguration configuration) : base(configuration, OutputFilePath)
-    {
-    }
-}
-
-public abstract class JsonFileDataSeed<TType> : INoxReferenceSeed<TType>
+public abstract class JsonFileDataSeedBase<TType> : INoxReferenceSeed<TType>
 {
     private readonly IConfiguration _configuration;
+    private readonly string _outputFilePath;
 
-    protected JsonFileDataSeed(IConfiguration configuration, string outputFilePath)
+    protected JsonFileDataSeedBase(IConfiguration configuration, string outputFilePath)
     {
         _configuration = configuration;
+        _outputFilePath = outputFilePath;
     }
 
     public void Seed(IEnumerable<TType> data)
@@ -34,7 +26,7 @@ public abstract class JsonFileDataSeed<TType> : INoxReferenceSeed<TType>
         };
 
         var jsonString = JsonSerializer.Serialize(data, serializedOptions);
-        using var sw = new StreamWriter(Path.Combine(targetOutputPath, OutputFilePath));
+        using var sw = new StreamWriter(Path.Combine(targetOutputPath, _outputFilePath));
 
         sw.WriteLine(jsonString);
     }

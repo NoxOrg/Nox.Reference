@@ -1,28 +1,33 @@
 ﻿using System.Globalization;
+using AutoMapper;
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Common;
+using Nox.Reference.Entity;
 
-namespace Nox.Reference.GetData.CliCommands.MacAddresses;
+namespace Nox.Reference.GetData.DataSeeds.MacAddresses;
 
 public class MacAddressDataSeed : INoxReferenceDataSeed
 {
     private const string SourceFilePath = @"MacAddresses\mac-vendor.csv";
 
-    private readonly INoxReferenceSeed<IMacAddressInfo> _dataSeed;
+    private readonly INoxReferenceSeed<MacAddress> _dataSeed;
     private readonly IConfiguration _configuration;
     private readonly ILogger<MacAddressDataSeed> _logger;
+    private readonly IMapper _mapper;
 
     public MacAddressDataSeed(
-        INoxReferenceSeed<IMacAddressInfo> dataSeed,
+        INoxReferenceSeed<MacAddress> dataSeed,
         IConfiguration configuration,
-        ILogger<MacAddressDataSeed> logger)
+        ILogger<MacAddressDataSeed> logger,
+        IMapper mapper)
     {
         _dataSeed = dataSeed;
         _configuration = configuration;
         _logger = logger;
+        _mapper = mapper;
     }
 
     public void Execute()
@@ -53,7 +58,8 @@ public class MacAddressDataSeed : INoxReferenceDataSeed
             dataRecords.Add(data);
         }
 
-        _dataSeed.Seed(dataRecords);
+        var entities = _mapper.Map<IEnumerable<MacAddress>>(dataRecords);
+        _dataSeed.Seed(entities);
 
         _logger.LogInformation("Getting MAC Address data successfuly completed...");
     }

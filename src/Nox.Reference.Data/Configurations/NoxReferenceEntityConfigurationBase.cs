@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nox.Reference.Entity;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Data.Configurations;
 
 public abstract class NoxReferenceEntityConfigurationBase<TEntity> : IEntityTypeConfiguration<TEntity>
     where TEntity : class, INoxReferenceEntity
