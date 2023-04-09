@@ -25,6 +25,8 @@ Nox.Reference consists of following modules:
 
 - Nox.Reference.VatNumbers: VAT numbers validation
 
+- Nox.Reference.MacAddresses: Mac address list and info
+
 
 TODO:
 - Nox.Reference.Astronomy

@@ -3,48 +3,28 @@ using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
 using Nox.Reference.VatNumbers.Models;
 using Nox.Reference.VatNumbers.Services.Validators;
-using System.Reflection;
-using System.Text.Json;
+using System.Collections.Concurrent;
 
 namespace Nox.Reference.Holidays;
 
 public class VatNumberService : IVatNumberService
 {
-    private readonly Dictionary<string, VatNumberInfo> _vatNumberFormatsByCountry = new Dictionary<string, VatNumberInfo>();
+    private static readonly ConcurrentDictionary<string, VatNumberInfo> _vatNumberFormatsByCountry = new ConcurrentDictionary<string, VatNumberInfo>();
 
-    public VatNumberService()
+    public static void Init(IEnumerable<VatNumberInfo> vatNumberInfos)
     {
-        var assembly = Assembly.GetExecutingAssembly();
-        var resourceName = $"Nox.Reference.VatNumbers.json";
-        if (assembly == null)
+        foreach (var vatNumberInfo in vatNumberInfos)
         {
-            return;
-        }
-
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        if (stream == null)
-        {
-            return;
-        }
-
-        using var reader = new StreamReader(stream);
-        var countryInfo = JsonSerializer.Deserialize<List<VatNumberInfo>>(
-            reader.ReadToEnd(),
-            new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-            }) ?? new List<VatNumberInfo>();
-
-        foreach (var country in countryInfo)
-        {
-            _vatNumberFormatsByCountry[country.CountryIso2Code] = country;
+            _vatNumberFormatsByCountry[vatNumberInfo.Country] = vatNumberInfo;
         }
     }
+
+    public VatNumberService() {  }
 
     public IVatNumberInfo GetCountryVatInfo(IVatNumberInfo vatNumberInfo)
     {
         // Ensure that even in null case non-null value with an error is returned
-        if (string.IsNullOrWhiteSpace(vatNumberInfo.CountryIso2Code))
+        if (string.IsNullOrWhiteSpace(vatNumberInfo.Country))
         {
             var result = new VatNumberInfo(vatNumberInfo);
             result.ValidationResult.ValidationErrors.Add(ValidationErrors.EmptyCountryError);
@@ -54,11 +34,11 @@ public class VatNumberService : IVatNumberService
         var enrichedVatInfo = new VatNumberInfo(vatNumberInfo);
 
         // Copy country data from list if possible
-        if (_vatNumberFormatsByCountry.TryGetValue(vatNumberInfo.CountryIso2Code, out var countryVatInfo))
+        if (_vatNumberFormatsByCountry.TryGetValue(vatNumberInfo.Country, out var countryVatInfo))
         {
             enrichedVatInfo = new VatNumberInfo(countryVatInfo);
             enrichedVatInfo.OriginalVatNumber = vatNumberInfo.OriginalVatNumber;
-            enrichedVatInfo.CountryIso2Code = vatNumberInfo.CountryIso2Code;
+            enrichedVatInfo.Country = vatNumberInfo.Country;
         }
 
         return enrichedVatInfo;
@@ -78,10 +58,10 @@ public class VatNumberService : IVatNumberService
             return enrichedVatInfo;
         }
 
-        enrichedVatInfo.FormattedVatNumber = enrichedVatInfo.NormalizeVatNumber();
-        // TODO: improve horrible piece
-        if (_vatNumberFormatsByCountry.ContainsKey(enrichedVatInfo.CountryIso2Code) ||
-            VatValidationService.IsSupportingCountryValidation(enrichedVatInfo.CountryIso2Code))
+        enrichedVatInfo.FormattedVatNumber = enrichedVatInfo.OriginalVatNumber.NormalizeVatNumber(enrichedVatInfo.Country);
+
+        if (_vatNumberFormatsByCountry.ContainsKey(enrichedVatInfo.Country) ||
+            VatValidationService.IsSupportingCountryValidation(enrichedVatInfo.Country))
         {
             enrichedVatInfo.IsVerified = true;
             enrichedVatInfo.ValidationResult = VatValidationService.ValidateVatNumber(enrichedVatInfo);

@@ -1,0 +1,347 @@
+[
+    {
+        "country": "UA",
+        "localName": "Податковий номер платника податку",
+        "validations": [
+            {
+                "regex": "^UA\\d{8,12}$",
+                "validationFormatDescription": "Ukrainian VAT number should have from 8 to 12 numeric characters.",
+                "inputMask": "\\U\\A000000009999",
+                "minimumLength": 10,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "ZA",
+        "localName": "Value Added Tax Registration Number",
+        "validations": [
+            {
+                "regex": "^ZA4\\d{9}$",
+                "validationFormatDescription": "South african VAT number should have 10 numeric characters and start with 4.",
+                "inputMask": "\\Z\\A\\4000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "Luhn"
+                }
+            }
+        ]
+    },
+    {
+        "country": "PT",
+        "localName": "Número de Identificação Fiscal",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^PT\\d{9}$",
+                "validationFormatDescription": "A Portugese VAT number and be followed by 9 numeric characters, the last being a checksum.",
+                "inputMask": "\\P\\T000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "ModAndSubstract",
+                    "modulus": 11,
+                    "weights": [ 9, 8, 7, 6, 5, 4, 3, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "PL",
+        "localName": "Numer Identyfikacji Podatkowej",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^PL\\d{10}$",
+                "validationFormatDescription": "A Polish VAT number and be followed by 9 numeric characters, the last being a checksum.",
+                "inputMask": "\\P\\L0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "Mod",
+                    "modulus": 11,
+                    "weights": [ 6, 5, 7, 2, 3, 4, 5, 6, 7 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "IT",
+        "localName": "Partita Individuale di Identificazione Fiscale",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^IT\\d{11}$",
+                "validationFormatDescription": "An Italian VAT number and be followed by 11 numeric characters, the last being a checksum.",
+                "inputMask": "\\I\\T00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "ModAndSubstractItaly",
+                    "modulus": 10,
+                    "weights": [ 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "NL",
+        "localName": "Belasting Toegevoegde Waarde",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^NL\\d{9}B\\d{2}$",
+                "validationFormatDescription": "An Dutch VAT number should consist of 9 numbers, letter 'B' and 2 numbers after it.",
+                "inputMask": "\\N\\L000000000\\B00",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "Mod",
+                    "modulus": 11,
+                    "checksumDigit": "10",
+                    "weights": [ 9, 8, 7, 6, 5, 4, 3, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "MX",
+        "localName": "Impuesto al Valor Agregado",
+        "validations": [
+            {
+                "regex": "^MX[A-Z&Ñ]{3}[0-9]{6}[1-9A-V][1-9A-Z][0-9A]$",
+                "validationFormatDescription": "A Mexican VAT number should consist of 3 letters, 6 numbers, a number or letter A-V, a number or letter A-Z, a number or letter A.",
+                "inputMask": "\\M\\XAAA000000AAA",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "MexicanAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "DE",
+        "localName": "Umsatzsteuer-Identifikationsnummer",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^DE[1-9]\\d{8}$",
+                "validationFormatDescription": "A German VAT number should consist of 9 numbers.",
+                "inputMask": "\\D\\E000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "GermanAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "FR",
+        "localName": "Numéro d'Identification Fiscale",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^FR\\d{11}$",
+                "validationFormatDescription": "A French VAT number should consist of 11 numbers.",
+                "inputMask": "\\F\\R00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "FrenchAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "IN",
+        "localName": "Goods and Services Tax Identification Number",
+        "verificationApi": "GSTIN",
+        "validations": [
+            {
+                "regex": "^IN\\d{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{3}$",
+                "validationFormatDescription": "GSTIN should have 2 numeric characters, then 5 charaters, then 4 numbers, then 1 character, then 3 numbers or characters.",
+                "inputMask": "\\I\\N00LLLLL0000LAAA",
+                "minimumLength": 17,
+                "maximumLength": 17
+            }
+        ]
+    },
+    {
+        "country": "CO",
+        "localName": "Impuesto sobre el Valor Agregado",
+        "validations": [
+            {
+                "regex": "^CO[CJ]{0,1}[0-9]{9,10}[CJ]{0,1}$",
+                "validationFormatDescription": "A Colombian VAT should have 9 or 10 numeric characters optionally with a letter C or J before or after the numeric code.",
+                "inputMask": "\\C\\O?0000000009?",
+                "minimumLength": 11,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "ColombianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "AU",
+        "localName": "Australian Business Number",
+        "validations": [
+            {
+                "regex": "^AU([a-zA-Z]{2})?\\d{11}$",
+                "validationFormatDescription": "An Australian VAT should have 11 digits with optional state code of 2 letters before them.",
+                "inputMask": "\\A\\U??00000000000",
+                "minimumLength": 13,
+                "maximumLength": 15,
+                "checksum": {
+                    "algorithm": "AustralianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "BE",
+        "localName": "Belasting over de Toegevoegde Waarde",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^BE0?\\d{9}$",
+                "validationFormatDescription": "A Belgian VAT should have 9 digits with optional zero in front of them.",
+                "inputMask": "\\B\\E9000000000",
+                "minimumLength": 11,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "BelgianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "BR",
+        "localName": "Imposto sobre Circulação de Mercadorias e Serviços",
+        "validations": [
+            {
+                "regex": "^BR\\d{14}$",
+                "validationFormatDescription": "A Brazil VAT should have 14 digits.",
+                "inputMask": "\\B\\R00000000000000",
+                "minimumLength": 16,
+                "maximumLength": 16,
+                "checksum": {
+                    "algorithm": "BrazilianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "CA",
+        "localName": "Business Number",
+        "validations": [
+            {
+                "regex": "^CA\\d{9}$",
+                "validationFormatDescription": "A Canadian VAT should have 9 digits.",
+                "inputMask": "\\C\\A000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "CanadianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "CH",
+        "localName": "Mehrwertsteuer",
+        "validations": [
+            {
+                "regex": "^(CH(E-)?)?E?[0-9]{9}(MWST|IVA|TVA)?$",
+                "validationFormatDescription": "A Swiss VAT should have an optional E letter in front, 9 numeric characters and (MWST|IVA|TVA) after them.",
+                "inputMask": "\\C\\H?000000000????",
+                "minimumLength": 11,
+                "maximumLength": 18,
+                "checksum": {
+                    "algorithm": "SwissAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "GB",
+        "localName": "Value Added Tax",
+        "validations": [
+            {
+                "regex": "^GBGA[5-9]\\d{2}$",
+                "validationFormatDescription": "A British Government authority should have prefix and 3 numbers bigger or equal than 500.",
+                "inputMask": "\\G\\B\\G\\A000",
+                "minimumLength": 7,
+                "maximumLength": 7
+            },
+            {
+                "regex": "^GBHA[0-4]\\d{2}$",
+                "validationFormatDescription": "A British Health authority should have prefix and 3 numbers less 500.",
+                "inputMask": "\\G\\B\\H\\A000",
+                "minimumLength": 7,
+                "maximumLength": 7
+            },
+            {
+                "regex": "^GB\\d{9}$",
+                "validationFormatDescription": "A British VAT should have 9 digits with optional zero in front of them.",
+                "inputMask": "\\G\\B9000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "BritishAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "ES",
+        "localName": "Número de Identificación Fiscal",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^ES[K|L|M|X]\\d{7}[A-Z]$",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after it.",
+                "inputMask": "ESL0000000L",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Spanish3Algorithm"
+                }
+            },
+            {
+                "regex": "^ES[0-9|Y|Z]\\d{7}[A-Z]$",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter after it and 1 letter or number before it.",
+                "inputMask": "ESL0000000L",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Spanish3Algorithm"
+                }
+            },
+            {
+                "regex": "^ES[A-H|J|U|V]\\d{8}$",
+                "validationFormatDescription": "A Spanish VAT number should consist of 1 letter and 8 numbers.",
+                "inputMask": "ESL0000000L",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Spanish2Algorithm"
+                }
+            },
+            {
+                "regex": "^ES[A-H|N-S|W]\\d{7}[A-J]$",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after after it.",
+                "inputMask": "ESL0000000L",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Spanish1Algorithm"
+                }
+            }
+        ]
+    }
+]

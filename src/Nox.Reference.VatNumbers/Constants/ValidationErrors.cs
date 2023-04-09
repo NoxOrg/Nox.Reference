@@ -16,6 +16,11 @@
         public const string UnknownFormat = "Provided VAT number format is unknown.";
         public const string LuhnDigitChecksumValidationError = "Luhn digit checksum validation failed.";
         public const string SymbolShouldEqualError = "Symbol on index '{0}' has wrong value. Expected: '{1}'. Actual: '{2}'.";
+        public const string CantMatchValidationPatternError = "Can't match any validation pattern for the provided value.";
+        public const string NotEnoughParametersProvidedToChecksum = "Not enough parameters were provided to calculate checksum. Please, check that these mandatory parameters are provided: {0}.";
+        public const string WeidghtsTooShortError = "Weigths array is longer than provided string.";
+        public const string ChecksumShoulBeBiggerThanZero = "Checksum number should be bigger than zero.";
+        public const string ChecksumDigitPositionNotNumeric = "Checksum digit position should be a number.";
 
         // GB
         public const string GB_InvalidGDVat = "Invalid government department value was provided. First 3 digits should be less than 500.";

@@ -10,47 +10,80 @@ namespace Nox.Reference.VatNumbers.Models
 
         public VatNumberInfo(string countryIso2Code)
         {
-            CountryIso2Code = countryIso2Code;
+            Country = countryIso2Code;
             OriginalVatNumber = string.Empty;
         }
 
         public VatNumberInfo(string countryIso2Code, string vatNumber)
         {
-            CountryIso2Code = countryIso2Code;
+            Country = countryIso2Code;
             OriginalVatNumber = vatNumber;
         }
 
         public VatNumberInfo(IVatNumberInfo vatNumberInfo)
         {
-            CountryIso2Code = vatNumberInfo?.CountryIso2Code ?? string.Empty;
+            Country = vatNumberInfo?.Country ?? string.Empty;
             OriginalVatNumber = vatNumberInfo?.OriginalVatNumber ?? string.Empty;
-            ValidationRegex = vatNumberInfo?.ValidationRegex ?? string.Empty;
-            InputMask = vatNumberInfo?.InputMask ?? string.Empty;
+            LocalName = vatNumberInfo?.LocalName ?? string.Empty;
+            Validations = vatNumberInfo?.Validations;
             FormattedVatNumber = vatNumberInfo?.FormattedVatNumber ?? string.Empty;
             ValidationResult = vatNumberInfo?.ValidationResult ?? new ValidationResult();
             IsVerified = vatNumberInfo?.IsVerified ?? false;
-            ValidationFormatDescription = vatNumberInfo?.ValidationFormatDescription ?? string.Empty;
-            //IsUsingCustomValidation = vatNumberInfo?.IsUsingCustomValidation ?? false;
-            //IsUsingNullCheck = vatNumberInfo?.IsUsingNullCheck ?? false;
-            //IsUsingRegexValidation = vatNumberInfo?.IsUsingRegexValidation ?? false;
-            //IsUsingChecksumValidation = vatNumberInfo?.IsUsingChecksumValidation ?? false;
-            //ChecksumAlgorithm = vatNumberInfo?.ChecksumAlgorithm ?? string.Empty;
+            VerificationApi = vatNumberInfo?.VerificationApi ?? string.Empty;
         }
 
         // Taken from constructor
-        [JsonPropertyName("alphaCode2")] public string CountryIso2Code { get; set; } = string.Empty;
+        [JsonPropertyName("country")] public string Country { get; set; } = string.Empty;
         public string OriginalVatNumber { get; set; } = string.Empty;
 
         // Enriched from database
 
-        [JsonPropertyName("validationRegex")] public string ValidationRegex { get; set; } = string.Empty;
-        [JsonPropertyName("validationFormatDescription")] public string ValidationFormatDescription { get; set; } = string.Empty;
-        [JsonPropertyName("inputMask")] public string InputMask { get; set; } = string.Empty;
+        [JsonPropertyName("localName")] public string LocalName { get; set; } = string.Empty;
+        [JsonPropertyName("validations")] public List<ValidationInfo>? Validations_ { get; set; }
+
+        // TODO: improve this
+        [JsonIgnore] public List<IValidationInfo>? Validations
+        { 
+            get
+            { 
+                return Validations_?
+                    .Select(x => (IValidationInfo)x)
+                    .ToList();
+            }
+            set
+            {
+                if (value == null)
+                {
+                    Validations_ = null;
+                    return;
+                }
+
+                Validations_ = value!
+                    .OfType<ValidationInfo>()
+                    .Select(x => x)
+                    .ToList();
+            }
+        }
+        [JsonPropertyName("verificationApi")] public string VerificationApi { get; set; } = string.Empty;
 
         // Optionally set on runtime
         public string FormattedVatNumber { get; set; } = string.Empty;
-        public IValidationResult ValidationResult { get; set; } = new ValidationResult();
+        public ValidationResult ValidationResult_ { get; set; } = new ValidationResult();
+        public IValidationResult ValidationResult
+        {
+            get => ValidationResult_;
+            set
+            {
+                // TODO: should we replace base class IValidationResult with ValidationResult?
+                if (value is ValidationResult result)
+                {
+                    ValidationResult_ = result;
+                    return;
+                }
+
+                throw new NotSupportedException("Only ValidationResult type is supported, please implement a custom VatNumber info class for a different implementation.");
+            }
+        }
         public bool IsVerified { get; set; } = false;
-        public IValidationInfo ValidationInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

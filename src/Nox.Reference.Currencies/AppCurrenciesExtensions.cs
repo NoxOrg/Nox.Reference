@@ -12,14 +12,14 @@ public static class AppCurrenciesExtensions
 
     public static IServiceCollection AddNoxCurrencies(this IServiceCollection services)
     {
-        InitMacAddressService();
+        InitCurrenciesService();
 
         services.AddScoped<ICurrenciesService, CurrenciesService>();
 
         return services;
     }
 
-    private static void InitMacAddressService()
+    private static void InitCurrenciesService()
     {
         lock (_syncObj)
         {

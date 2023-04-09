@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
+    <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\data\Nox.Reference.VatNumbers.json" LogicalName="Nox.Reference.VatNumbers.json" />
