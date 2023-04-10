@@ -294,7 +294,6 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                     result.ValidationErrors.AddRange(digitPart.ValidateBritishAlgorithm());
                     break;
 
-                // TODO: debug Spain
                 case ChecksumAlgorithm.Spanish1Algorithm:
                     minimumLength = 10;
                     if (vatNumber.FormattedVatNumber.Length < minimumLength)

@@ -27,5 +27,3 @@ Console.WriteLine();
 Console.WriteLine("Completed.");
 
 return 0;
-
-// TODO: double-check
