@@ -12,7 +12,8 @@
 //        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
 //        {
 //            // Cannot have special characters and remove optional prefix
-//            var number = vatNumber.NormalizeVatNumber();
+//            var number = vatNumber.OriginalVatNumber.NormalizeVatNumber(vatNumber.Country);
+//            number = number.Substring(2);
 
 //            if (string.IsNullOrWhiteSpace(number))
 //            {

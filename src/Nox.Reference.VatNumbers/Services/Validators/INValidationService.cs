@@ -11,7 +11,7 @@
 //    {
 //        // TODO: review
 //        private const string _validationPattern = @"^\d{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{3}$";
-//        private const string _validationPatternDescription = "VAT should have 2 numeric characters, then 5 charaters, then 4 numbers, then 1 character, then 3 numbers or characters.";
+//        private const string _validationPatternDescription = "GST should consist of 15 numbers, old VAT should have 2 numeric characters, then 5 charaters, then 4 numbers, then 1 character, then 3 numbers or characters.";
 
 //        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
 //        {

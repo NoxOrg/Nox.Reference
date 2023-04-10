@@ -19,7 +19,10 @@
 //            var result = new ValidationResult();
 
 //            // Code should match the pattern
-//            result.ValidationErrors.AddRange(ValidateRegex(vatNumber.FormattedVatNumber, vatNumber.ValidationRegex, vatNumber.OriginalVatNumber, vatNumber.ValidationFormatDescription));
+//            if (vatNumber.Validations?.Count > 0)
+//            {
+//                result.ValidationErrors.AddRange(ValidateRegex(vatNumber.FormattedVatNumber, vatNumber.Validations[0].Regex, vatNumber.OriginalVatNumber, vatNumber.ValidationFormatDescription));
+//            }
 
 //            return result;
 //        }

@@ -10,13 +10,14 @@
 //    internal class NLValidationService : VatValidationServiceBase
 //    {
 //        // TODO: review
-//        private const string _validationPattern = @"^NL\d{9}B\d{2}$";
+//        private const string _validationPattern = @"^\d{9}B\d{2}$";
 //        private const string _validationPatternDescription = "VAT should have 9 numeric characters first, then B letter and 2 numbers after it.";
 
 //        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
 //        {
 //            // Cannot have special characters and remove optional prefix
-//            var number = vatNumber.NormalizeVatNumber();
+//            var number = vatNumber.OriginalVatNumber.NormalizeVatNumber(vatNumber.Country);
+//            number = number.Substring(2);
 
 //            if (string.IsNullOrWhiteSpace(number))
 //            {
@@ -47,7 +48,7 @@
 //            var errorMessage = new List<string>();
 
 //            int[] multipliers = { 9, 8, 7, 6, 5, 4, 3, 2 };
-//            var sum = number.GetSumOfDigitsMulipliedByMultipliers(multipliers);
+//            var sum = GetSumOfDigitsMulipliedByMultipliers(number, multipliers);
 
 //            var checkDigit = sum % 11;
 
@@ -63,6 +64,19 @@
 //            }
 
 //            return errorMessage;
+//        }
+
+//        public static int GetSumOfDigitsMulipliedByMultipliers(string input, int[] multipliers, int start = 0)
+//        {
+//            var sum = 0;
+
+//            for (var index = start; index < multipliers.Length; index++)
+//            {
+//                var digit = multipliers[index];
+//                sum += int.Parse(input[index].ToString()) * digit;
+//            }
+
+//            return sum;
 //        }
 //    }
 //}
