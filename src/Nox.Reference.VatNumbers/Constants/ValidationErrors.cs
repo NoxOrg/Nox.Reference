@@ -6,7 +6,7 @@
         public const string EmptyCountryError = "Empty country value was provided.";
         public const string UnknownChecksumAlgorithm = "Unknown checksum algorithm.";
         public const string EmptyVatNumberError = "Empty vat number was provided.";
-        public const string ValidatorNotFoundError = "Cannot find validator for a particular error.";
+        public const string ValidatorNotFoundError = "Cannot find validator for a provided Vat number.";
         public const string WrongFormatErrorTemplate = "Validation of given value '{0}' has failed. Please, use the following format: '{1}'.";
         public const string ChecksumError = "Checksum validation has failed.";
         public const string NumberShouldConsistOfDigits = "VAT number should consist of digits.";

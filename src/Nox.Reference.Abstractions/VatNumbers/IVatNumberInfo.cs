@@ -13,6 +13,6 @@ namespace Nox.Reference.Abstractions.VatNumbers
         public bool IsVerified { get; set; }
         public IValidationResult ValidationResult { get; set; }
 
-        public List<IValidationInfo>? Validations { get; set; }
+        public IValidationInfo[]? Validations { get; set; }
     }
 }

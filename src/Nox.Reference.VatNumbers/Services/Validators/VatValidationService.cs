@@ -49,7 +49,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
             {
                 return _validationServicesByCountry[countryCode].ValidateVatNumber(vatNumber);
             }
-            else if (vatNumber.Validations?.Count > 0)
+            else if (vatNumber.Validations?.Length > 0)
             {
                 return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber);
             }

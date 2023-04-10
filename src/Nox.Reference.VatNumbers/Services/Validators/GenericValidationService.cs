@@ -122,7 +122,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
         {
             IValidationInfo? validationInfoByPattern = null;
 
-            if (vatNumber.Validations!.Count == 1)
+            if (vatNumber.Validations!.Length == 1)
             {
                 validationInfoByPattern = vatNumber.Validations[0];
             }

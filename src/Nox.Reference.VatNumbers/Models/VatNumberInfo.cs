@@ -39,51 +39,29 @@ namespace Nox.Reference.VatNumbers.Models
         // Enriched from database
 
         [JsonPropertyName("localName")] public string LocalName { get; set; } = string.Empty;
-        [JsonPropertyName("validations")] public List<ValidationInfo>? Validations_ { get; set; }
-
-        // TODO: improve this
-        [JsonIgnore] public List<IValidationInfo>? Validations
-        { 
+        [JsonPropertyName("validations")] public ValidationInfo[]? Validations_ { get; set; }
+        [JsonIgnore] public IValidationInfo[]? ValidationsOverride_ { get; set; }
+        [JsonIgnore] public IValidationInfo[]? Validations
+        {
             get
-            { 
-                return Validations_?
-                    .Select(x => (IValidationInfo)x)
-                    .ToList();
+            {
+                if (ValidationsOverride_ != null)
+                {
+                    return ValidationsOverride_;
+                }
+
+                return Validations_;
             }
             set
             {
-                if (value == null)
-                {
-                    Validations_ = null;
-                    return;
-                }
-
-                Validations_ = value!
-                    .OfType<ValidationInfo>()
-                    .Select(x => x)
-                    .ToList();
+                ValidationsOverride_ = value;
             }
         }
         [JsonPropertyName("verificationApi")] public string VerificationApi { get; set; } = string.Empty;
 
         // Optionally set on runtime
         public string FormattedVatNumber { get; set; } = string.Empty;
-        public ValidationResult ValidationResult_ { get; set; } = new ValidationResult();
-        public IValidationResult ValidationResult
-        {
-            get => ValidationResult_;
-            set
-            {
-                // TODO: should we replace base class IValidationResult with ValidationResult?
-                if (value is ValidationResult result)
-                {
-                    ValidationResult_ = result;
-                    return;
-                }
-
-                throw new NotSupportedException("Only ValidationResult type is supported, please implement a custom VatNumber info class for a different implementation.");
-            }
-        }
+        public IValidationResult ValidationResult { get; set; } = new ValidationResult();
         public bool IsVerified { get; set; } = false;
     }
 }
