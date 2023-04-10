@@ -12,14 +12,14 @@ namespace Nox.Reference.VatNumbers.Services.Validators
         public static List<string> ValidateRegex(
             string vatNumber,
             string pattern,
-            string orinialVatNumber,
+            string originalVatNumber,
             string validationPatternDescription)
         {
             var errorMessages = new List<string>();
 
             if (!Regex.IsMatch(vatNumber, pattern))
             {
-                errorMessages.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, orinialVatNumber, validationPatternDescription));
+                errorMessages.Add(string.Format(ValidationErrors.WrongFormatErrorTemplate, originalVatNumber, validationPatternDescription));
             }
 
             return errorMessages;

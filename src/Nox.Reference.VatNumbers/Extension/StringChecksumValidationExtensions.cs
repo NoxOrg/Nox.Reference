@@ -42,7 +42,7 @@ namespace Nox.Reference.VatNumbers.Extension
 
         public static List<string> ValidateMexicanAlgorithm(this string vatNumber)
         {
-            return vatNumber.CheckMexicanAlgorithm();
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMexicanAlgorithm());
         }
 
         public static List<string> ValidateGermanAlgorithm(this string vatNumber)
@@ -92,7 +92,7 @@ namespace Nox.Reference.VatNumbers.Extension
 
         public static List<string> ValidateSpanish1Algorithm(this string vatNumber)
         {
-            return vatNumber.CheckSpanish1Algorithm();
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSpanish1Algorithm());
         }
 
         public static List<string> ValidateSpanish2Algorithm(this string vatNumber)
@@ -582,7 +582,7 @@ namespace Nox.Reference.VatNumbers.Extension
             int temp;
             for (int i = 0; i < multipliers.Length; i++)
             {
-                temp = int.Parse(stringDigits[i + 3].ToString()) * multipliers[i];
+                temp = int.Parse(stringDigits[i].ToString()) * multipliers[i];
                 if (temp > 9)
                 {
                     total += (int)Math.Floor((decimal)temp / 10) + temp % 10;
@@ -614,7 +614,7 @@ namespace Nox.Reference.VatNumbers.Extension
             int temp;
             for (int i = 0; i < multipliers.Length; i++)
             {
-                temp = int.Parse(stringDigits[i + 1].ToString()) * multipliers[i];
+                temp = int.Parse(stringDigits[i].ToString()) * multipliers[i];
                 if (temp > 9)
                 {
                     total += (int)Math.Floor((decimal)temp / 10) + temp % 10;
@@ -647,6 +647,10 @@ namespace Nox.Reference.VatNumbers.Extension
             else if (stringDigits[0] == 'Z')
             {
                 stringDigits = stringDigits.Replace("Z", "2");
+            }
+            else if (!char.IsDigit(stringDigits[0]))
+            {
+                stringDigits = stringDigits.Substring(1);
             }
 
             bool isValid = stringDigits.Last() == "TRWAGMYFPDXBNJZSQVHLCKE"[int.Parse(stringDigits.Substring(0, stringDigits.Length - 1)) % 23];

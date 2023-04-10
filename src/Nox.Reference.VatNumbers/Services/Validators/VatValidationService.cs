@@ -7,7 +7,7 @@ using System.Reflection;
 namespace Nox.Reference.VatNumbers.Services.Validators
 {
     // TODO: Issue #12: We could optionally auto-detect and validate country here in case original validation failed
-    public class VatValidationService
+    public static class VatValidationService
     {
         private static readonly ConcurrentDictionary<string, VatValidationServiceBase> _validationServicesByCountry = new ConcurrentDictionary<string, VatValidationServiceBase>();
         private static readonly VatValidationServiceBase _genericVatValidationServiceBase = new GenericValidationService();
@@ -44,22 +44,14 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
         private static ValidationResult ValidateVatNumberInternal(IVatNumberInfo vatNumber)
         {
-            //if (vatNumber.IsUsingCustomValidation)
-            //{
-            //    return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber);
-            //}
-
-            var countryCode = vatNumber.CountryIso2Code.ToUpper();
-
-            if (_validationServicesByCountry.ContainsKey(countryCode))
+            var countryCode = vatNumber.Country.ToUpper();
+            if (IsSupportingCountryValidation(countryCode))
             {
                 return _validationServicesByCountry[countryCode].ValidateVatNumber(vatNumber);
             }
-
-            var validationService = GetCountryValidationServiceType(countryCode);
-            if (validationService != null)
+            else if (vatNumber.Validations?.Count > 0)
             {
-                return validationService.ValidateVatNumber(vatNumber);
+                return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber);
             }
 
             return ValidationResults.CountryNotFoundValidationResult;

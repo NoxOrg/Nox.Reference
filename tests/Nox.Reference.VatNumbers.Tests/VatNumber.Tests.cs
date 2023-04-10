@@ -89,7 +89,7 @@ public class Tests
         Assert.Multiple(() =>
         {
             Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(false));
-            Assert.That(validationResult.ValidationResult.ValidationErrors, Has.Count.EqualTo(2));
+            Assert.That(validationResult.ValidationResult.ValidationErrors, Has.Count.EqualTo(1));
         });
     }
 
