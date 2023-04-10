@@ -6,7 +6,7 @@ namespace Nox.Reference.Abstractions.VatNumbers
     {
         public string Country { get; set; }
         public string LocalName { get; set; }
-        public string VerificationApi { get; set; }
+        public VerificationApi VerificationApi { get; set; }
         public string OriginalVatNumber { get; set; }
         public string FormattedVatNumber { get; set; }
 
@@ -14,5 +14,6 @@ namespace Nox.Reference.Abstractions.VatNumbers
         public IValidationResult ValidationResult { get; set; }
 
         public IValidationInfo[]? Validations { get; set; }
+        public object? ApiVerificationData { get; set; }
     }
 }

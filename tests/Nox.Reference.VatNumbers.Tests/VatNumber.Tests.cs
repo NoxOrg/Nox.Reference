@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 
 namespace Nox.Reference.VatNumbers.Tests;
 
+//TODO: transform into a command-like structure similarly to get data project
 public class Tests
 {
     private string _testFilePath = string.Empty;

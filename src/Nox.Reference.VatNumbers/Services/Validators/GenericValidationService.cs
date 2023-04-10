@@ -2,12 +2,16 @@
 using Nox.Reference.Shared;
 using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace Nox.Reference.VatNumbers.Services.Validators
 {
     public class GenericValidationService : VatValidationServiceBase
     {
+        public static HttpClient _httpClient { get; set; } = new HttpClient();
+
         public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
         {
             var result = new ValidationResult();
@@ -31,7 +35,37 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
             ValidateChecksum(vatNumber, result, validationInfoByPattern, digitPart);
 
+            ValidateWithOnlineService(vatNumber, result);
+
             return result;
+        }
+
+        //TODO: not do for tests?
+        private void ValidateWithOnlineService(IVatNumberInfo vatNumber, ValidationResult result)
+        {
+            HttpResponseMessage? apiResult;
+            switch (vatNumber.VerificationApi)
+            {
+                case VerificationApi.EuropeVies:
+                    apiResult = _httpClient.Send(new HttpRequestMessage
+                    {
+                        RequestUri = new Uri($"https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vatNumber.Country}/vat/{vatNumber.FormattedVatNumber.Substring(2)}"),
+                        Method = HttpMethod.Get
+                    });
+                    var viesResult = JsonSerializer.Deserialize<ViesVerificationResponse>(apiResult.Content.ReadAsStringAsync().Result)!;
+                    vatNumber.ApiVerificationData = viesResult;
+
+                    if (!viesResult.isValid)
+                    {
+                        result.ValidationErrors.Add(ValidationErrors.ApiValidationError);
+                    }
+
+                    break;
+                case VerificationApi.None:
+                case VerificationApi.GSTIN:
+                default:
+                    break;
+            }
         }
 
         private void ValidateChecksum(IVatNumberInfo vatNumber, ValidationResult result, IValidationInfo validationInfoByPattern, string digitPart)
