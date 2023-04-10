@@ -18,7 +18,7 @@ internal class MacAddressService : IMacAddressService
     {
         var macAddressPrefix = MacAddressHelper.GetMacAddressPrefix(id);
 
-        var info = _repository.Get(macAddressPrefix);
+        var info = _repository.Get(0);
 
         return info;
     }

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Nox.Reference.Abstractions.MacAddresses;
-using Nox.Reference.Data.Entities;
 
 namespace Nox.Reference.Data.Seeds;
 

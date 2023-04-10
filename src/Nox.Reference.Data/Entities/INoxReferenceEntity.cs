@@ -1,6 +1,6 @@
-﻿namespace Nox.Reference.Data.Entities;
+﻿namespace Nox.Reference.Data;
 
 public interface INoxReferenceEntity
 {
-    string Id { get; }
+    int Id { get; }
 }

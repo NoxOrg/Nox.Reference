@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions;
+﻿namespace Nox.Reference.Data;
 
 public interface INoxReferenceSeed<TType>
 {

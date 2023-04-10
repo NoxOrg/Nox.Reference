@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions;
-using Nox.Reference.Data.Entities;
 
 namespace Nox.Reference.Data.Seeds;
 
@@ -23,7 +21,8 @@ public abstract class NoxReferenceDatabaseSeedBase<TType, TEnity> : INoxReferenc
     {
         var entites = _mapper.Map<TEnity>(data);
 
-        _dbContext.Set<TEnity>().AddRangeAsync(entites);
+        _dbContext.Set<TEnity>()
+            .AddRange(entites);
 
         _dbContext.SaveChanges();
     }

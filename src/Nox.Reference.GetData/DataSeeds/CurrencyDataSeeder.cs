@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Currencies;
 using Nox.Reference.Currencies.Models.Rest;
+using Nox.Reference.Data;
 using Nox.Reference.GetData.Helpers;
 using System.Text.Json;
 

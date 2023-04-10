@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
 using Nox.Reference.Countries;
+using Nox.Reference.Data;
 using Nox.Reference.GetData.Helpers;
 using System.Text.Json;
 

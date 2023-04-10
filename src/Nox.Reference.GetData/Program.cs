@@ -17,13 +17,13 @@ var host = Host.CreateDefaultBuilder()
     .ConfigureServices(services =>
     {
         services.AddLogging();
-        services.AddScoped<IDataSeederExecutor, DataSeederExecutor>();
+        // services.AddScoped<IDataSeederExecutor, DataSeederExecutor>();
 
         services.AddNoxReferenceData();
 
-        services.AddScoped<CountryDataSeeder>();
-        services.AddScoped<CurrencyDataSeeder>();
-        services.AddScoped<MacAddressDataSeeder>();
+        //services.AddScoped<CountryDataSeeder>();
+        //services.AddScoped<CurrencyDataSeeder>();
+        //services.AddScoped<MacAddressDataSeeder>();
     })
     .Build();
 

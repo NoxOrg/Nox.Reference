@@ -2,9 +2,9 @@
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Common;
+using Nox.Reference.Data;
 using Nox.Reference.GetData.Models;
 
 namespace Nox.Reference.GetData.DataSeeds.MacAddresses;

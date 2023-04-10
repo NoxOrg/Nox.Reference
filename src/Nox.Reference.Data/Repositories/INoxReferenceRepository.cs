@@ -2,5 +2,5 @@
 
 public interface INoxReferenceRepository<TType> where TType : class
 {
-    TType? Get(string id);
+    TType? Get(int id);
 }

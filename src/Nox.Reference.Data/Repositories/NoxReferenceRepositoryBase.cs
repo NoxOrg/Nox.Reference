@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Nox.Reference.Data.Entities;
 
 namespace Nox.Reference.Data.Repositories;
 
@@ -18,7 +17,7 @@ public abstract class NoxReferenceRepositoryBase<TEntity, TType> : INoxReference
         _mapper = mapper;
     }
 
-    public TType? Get(string id)
+    public TType? Get(int id)
     {
         var entity = _dataContext
             .Set<TEntity>()
