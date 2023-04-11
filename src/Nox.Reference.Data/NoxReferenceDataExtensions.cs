@@ -22,7 +22,7 @@ public static class NoxReferenceDataExtensions
 
         services.AddScoped<INoxReferenceSeed<IMacAddressInfo>, NoxReferenceDatabaseSeed<IMacAddressInfo, MacAddress>>();
         services.AddScoped<INoxReferenceSeed<ICurrencyInfo>, NoxReferenceDatabaseSeed<ICurrencyInfo, Currency>>();
-        services.AddScoped<INoxReferenceRepository<IMacAddressInfo>, NoxReferenceRepository<MacAddress, IMacAddressInfo>>();
+        services.AddScoped<INoxReferenceKeyRepository<IMacAddressInfo>, MacAddressRepository>();
 
         return services;
     }

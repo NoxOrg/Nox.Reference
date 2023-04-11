@@ -11,8 +11,10 @@ namespace Nox.Reference.Data.Mappings
             CreateMap<IMacAddressInfo, MacAddress>()
                 .ForMember(x => x.Id, x => x.Ignore());
 
-            CreateMap<MacAddress, MacAddressInfo>();
-            CreateMap<MacAddress, IMacAddressInfo>().As<MacAddressInfo>();
+            CreateMap<MacAddress, MacAddressInfo>()
+                .ForMember(x => x.Id, x => x.MapFrom(t => t.MacPrefix));
+            CreateMap<MacAddress, IMacAddressInfo>()
+                .As<MacAddressInfo>();
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Nox.Reference.MacAddresses;
 
 internal class MacAddressService : IMacAddressService
 {
-    private readonly INoxReferenceRepository<IMacAddressInfo> _repository;
+    private readonly INoxReferenceKeyRepository<IMacAddressInfo> _repository;
 
-    public MacAddressService(INoxReferenceRepository<IMacAddressInfo> repository)
+    public MacAddressService(INoxReferenceKeyRepository<IMacAddressInfo> repository)
     {
         _repository = repository;
     }
@@ -17,7 +17,7 @@ internal class MacAddressService : IMacAddressService
     {
         var macAddressPrefix = MacAddressHelper.GetMacAddressPrefix(id);
 
-        var info = _repository.Get(1);
+        var info = _repository.Get(macAddressPrefix);
 
         return info;
     }

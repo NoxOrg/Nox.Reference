@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nox.Reference.Abstractions.MacAddresses;
+﻿using Nox.Reference.Abstractions.MacAddresses;
 
 namespace Nox.Reference.Data.Models
 {
-    internal class MacAddressInfo : IMacAddressInfo, INoxReferenceInfo
+    internal class MacAddressInfo : IMacAddressInfo
     {
         public string IEEERegistry { get; private set; }
         public string Id { get; private set; }
