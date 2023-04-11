@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Nox.Reference.Common;
 

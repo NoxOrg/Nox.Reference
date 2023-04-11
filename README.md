@@ -15,20 +15,24 @@ Examples of usage can be found in Readme inside each of modules.
 ## Modules
 Nox.Reference consists of following modules:
 
-- Nox.Reference.Countries
-Countries list and info
+- Nox.Reference.Countries: Countries list and info
 
-- Nox.Reference.PhoneNumbers
-Validate and format phone numbers
+- Nox.Reference.PhoneNumbers: Validate and format phone numbers
+
+- Nox.Reference.Currencies: Currencies list and info
+
+- Nox.Reference.Holidays: Holidays info per country
+
+- Nox.Reference.VatNumbers: VAT numbers validation
+
+- Nox.Reference.MacAddresses: Mac address list and info
 
 
 TODO:
 - Nox.Reference.Astronomy
 - Nox.Reference.TimeZones
-- Nox.Reference.Holidays
 - Nox.Reference.Languages
 - Nox.Reference.Translations
-- Nox.Reference.Currencies
 - Nox.Reference.CitiesAndTowns
 - Nox.Reference.PostCodes
 - Nox.Reference.EmailAddresses
@@ -36,6 +40,6 @@ TODO:
 - Nox.Reference.Companies
 - Nox.Reference.Individuals
 - Nox.Reference.RegistrationNumbers
-- Nox.Reference.VatNumbers
 - Nox.Reference.TaxNumbers
 - Nox.Reference.StockCodes
+- Nox.Reference.Culture

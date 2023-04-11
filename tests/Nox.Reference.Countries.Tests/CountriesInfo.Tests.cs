@@ -11,7 +11,7 @@ public class CountryInfoTests
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         Trace.Listeners.Add(new ConsoleTraceListener());
