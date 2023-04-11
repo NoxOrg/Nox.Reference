@@ -11,7 +11,7 @@ namespace Nox.Reference.Data;
 
 public static class NoxReferenceDataExtensions
 {
-    public static IServiceCollection AddNoxReferenceData(this IServiceCollection services, IConfigurationRoot configuration)
+    public static IServiceCollection AddNoxReferenceData(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddDbContext<NoxReferenceDbContext>(options =>
@@ -22,7 +22,7 @@ public static class NoxReferenceDataExtensions
 
         services.AddScoped<INoxReferenceSeed<IMacAddressInfo>, NoxReferenceDatabaseSeed<IMacAddressInfo, MacAddress>>();
         services.AddScoped<INoxReferenceSeed<ICurrencyInfo>, NoxReferenceDatabaseSeed<ICurrencyInfo, Currency>>();
-        services.AddScoped<INoxReferenceRepository<IMacAddressInfo>, MacAddressRepository>();
+        services.AddScoped<INoxReferenceRepository<IMacAddressInfo>, NoxReferenceRepository<MacAddress, IMacAddressInfo>>();
 
         return services;
     }

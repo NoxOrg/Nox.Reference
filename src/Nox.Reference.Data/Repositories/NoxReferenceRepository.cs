@@ -2,14 +2,14 @@
 
 namespace Nox.Reference.Data.Repositories;
 
-public abstract class NoxReferenceRepositoryBase<TEntity, TType> : INoxReferenceRepository<TType>
+internal class NoxReferenceRepository<TEntity, TType> : INoxReferenceRepository<TType>
     where TType : class
     where TEntity : class, INoxReferenceEntity
 {
     private readonly NoxReferenceDbContext _dataContext;
     private readonly IMapper _mapper;
 
-    protected NoxReferenceRepositoryBase(
+    public NoxReferenceRepository(
         NoxReferenceDbContext dataContext,
         IMapper mapper)
     {

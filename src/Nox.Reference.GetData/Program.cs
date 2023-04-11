@@ -4,12 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nox.Reference.Data;
-using Nox.Reference.Data.Seeds;
 using Nox.Reference.GetData;
 using Nox.Reference.GetData.DataSeeds;
 using Nox.Reference.GetData.DataSeeds.MacAddresses;
 
-var configuration = new ConfigurationBuilder()
+IConfiguration configuration = new ConfigurationBuilder()
         .AddEnvironmentVariables()
         .AddCommandLine(args)
         .AddJsonFile("appsettings.json")

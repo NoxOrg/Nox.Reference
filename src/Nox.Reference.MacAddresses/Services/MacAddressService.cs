@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Nox.Reference.Abstractions.MacAddresses;
+﻿using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Data.Repositories;
 using Nox.Reference.MacAddresses.Helpers;
 
@@ -18,7 +17,7 @@ internal class MacAddressService : IMacAddressService
     {
         var macAddressPrefix = MacAddressHelper.GetMacAddressPrefix(id);
 
-        var info = _repository.Get(0);
+        var info = _repository.Get(1);
 
         return info;
     }

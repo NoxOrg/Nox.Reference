@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Nox.Reference.MacAddresses.Tests;
@@ -10,8 +11,15 @@ public class MacAddressesTests
     [SetUp]
     public void Setup()
     {
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new List<KeyValuePair<string, string?>>()
+            {
+                new KeyValuePair<string, string?>( "ConnectionStrings:noxreferencesConnection", @"Data Source=..\..\..\..\..\data\noxreferences.db")
+            })
+            .Build();
+
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddNoxMacAddresses();
+        serviceCollection.AddNoxMacAddresses(configuration);
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
