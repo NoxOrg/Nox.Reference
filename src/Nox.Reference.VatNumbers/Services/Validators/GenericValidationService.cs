@@ -42,7 +42,6 @@ namespace Nox.Reference.VatNumbers.Services.Validators
             return result;
         }
 
-        //TODO: not do for tests?
         private void ValidateWithOnlineService(IVatNumberInfo vatNumber, ValidationResult result)
         {
             HttpResponseMessage? apiResult;
