@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Abstractions.VatNumbers;
 using Nox.Reference.Holidays;
 using Nox.Reference.VatNumbers.Models;
 using System.Diagnostics;
@@ -55,7 +56,7 @@ public class Tests
     [Test]
     public void VatNumber_WithValidUkraineNumber_ReturnsSuccess()
     {
-        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "0203654090"));
+        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "0203654090"), false);
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
@@ -69,7 +70,7 @@ public class Tests
     [Test]
     public void VatNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "UA0203654090"));
+        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "UA0203654090"), false);
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
@@ -83,7 +84,7 @@ public class Tests
     [Test]
     public void VatNumber_WithInvalidUkraineValue_ReturnsFail()
     {
-        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "123Test456"));
+        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("UA", "123Test456"), false);
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
@@ -97,7 +98,7 @@ public class Tests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("SM", "123456"));
+        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo("SM", "123456"), false);
 
         Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
 
@@ -140,7 +141,7 @@ public class Tests
         var failedVat = new System.Collections.Generic.List<string>();
         foreach (var vatNumber in testData!)
         {
-            var vatNumberInfo = _vatNumberService.ValidateVatNumber(new VatNumberInfo(countryCode, vatNumber));
+            var vatNumberInfo = _vatNumberService.ValidateVatNumber(new VatNumberInfo(countryCode, vatNumber), false);
             if (!vatNumberInfo.ValidationResult.IsValid ||
                 !vatNumberInfo.IsVerified)
             {
@@ -151,6 +152,24 @@ public class Tests
         Trace.WriteLine($"Failed VAT count: {failedVat.Count}/{testData.Length}");
         Trace.WriteLine("Failed VAT:");
         Trace.WriteLine(JsonSerializer.Serialize(failedVat, _jsonOptions));
+    }
+
+    [TestCase("44403198682", "FR", true)]
+    [TestCase("157050817", "DE", true)]
+    [TestCase("00386730462", "DE", false)]
+    [TestCase("4410268272", "FR", false)]
+    public void VatNumber_TestApiValidation_ViesApi(string vatNumber, string countryCode, bool isValid)
+    {
+        var validationResult = _vatNumberService.ValidateVatNumber(new VatNumberInfo(countryCode, vatNumber));
+
+        Trace.WriteLine(JsonSerializer.Serialize(validationResult, _jsonOptions));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(validationResult.ValidationResult.IsValid, Is.EqualTo(isValid));
+            Assert.That(((ViesVerificationResponse)validationResult.ApiVerificationData!).isValid, Is.EqualTo(isValid));
+            Assert.That(validationResult.IsVerified, Is.EqualTo(true));
+        });
     }
 
     #endregion

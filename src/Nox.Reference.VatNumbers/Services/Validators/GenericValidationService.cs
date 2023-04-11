@@ -3,7 +3,6 @@ using Nox.Reference.Shared;
 using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
 namespace Nox.Reference.VatNumbers.Services.Validators
@@ -12,7 +11,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
     {
         public static HttpClient _httpClient { get; set; } = new HttpClient();
 
-        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber, bool shouldValidateViaApi)
         {
             var result = new ValidationResult();
 
@@ -35,7 +34,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
             ValidateChecksum(vatNumber, result, validationInfoByPattern, digitPart);
 
-            ValidateWithOnlineService(vatNumber, result);
+            if (shouldValidateViaApi)
+            {
+                ValidateWithOnlineService(vatNumber, result);
+            }
 
             return result;
         }
