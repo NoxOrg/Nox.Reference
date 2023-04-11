@@ -10,16 +10,21 @@ internal class DataSeederExecutor : IDataSeederExecutor
 {
     private readonly ILogger<DataSeederExecutor> _logger;
     private readonly IConfiguration _configuration;
-    private readonly List<INoxReferenceDataSeeder> _dataSeeds = new List<INoxReferenceDataSeeder>();
+    private readonly IReadOnlyList<INoxReferenceDataSeeder> _dataSeeds;
 
     public DataSeederExecutor(
         ILogger<DataSeederExecutor> logger,
         IConfiguration configuration,
-        MacAddressDataSeeder macAddressDataSeed)
+        MacAddressDataSeeder macAddressDataSeeder,
+        CurrencyDataSeeder currencyDataSeeder)
     {
         _logger = logger;
         _configuration = configuration;
-        _dataSeeds.Add(macAddressDataSeed);
+        _dataSeeds = new List<INoxReferenceDataSeeder>
+        {
+            //macAddressDataSeeder,
+            currencyDataSeeder
+        };
     }
 
     public void Run(string? commandName = null)

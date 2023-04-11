@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Abstractions.Currencies;
 using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Data.Repositories;
 using Nox.Reference.Data.Seeds;
@@ -10,15 +11,17 @@ namespace Nox.Reference.Data;
 
 public static class NoxReferenceDataExtensions
 {
-    public static IServiceCollection AddNoxReferenceData(this IServiceCollection services)
+    public static IServiceCollection AddNoxReferenceData(this IServiceCollection services, IConfigurationRoot configuration)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddDbContext<NoxReferenceDbContext>(options =>
         {
-            options.UseSqlite("Data Source=noxreferences.db;Version=3;");
+            var connectionString = configuration.GetConnectionString("noxreferencesConnection");
+            options.UseSqlite(connectionString);
         });
 
-        services.AddScoped<INoxReferenceSeed<IMacAddressInfo>, MacAddressDataSeed>();
+        services.AddScoped<INoxReferenceSeed<IMacAddressInfo>, NoxReferenceDatabaseSeed<IMacAddressInfo, MacAddress>>();
+        services.AddScoped<INoxReferenceSeed<ICurrencyInfo>, NoxReferenceDatabaseSeed<ICurrencyInfo, Currency>>();
         services.AddScoped<INoxReferenceRepository<IMacAddressInfo>, MacAddressRepository>();
 
         return services;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Common;
 using Nox.Reference.Currencies.Models.Rest;
 using Nox.Reference.Data;
 using Nox.Reference.GetData.Helpers;
@@ -11,12 +12,12 @@ namespace Nox.Reference.GetData.DataSeeds;
 public class CurrencyDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<CountryDataSeeder> _logger;
+    private readonly ILogger<CurrencyDataSeeder> _logger;
     private readonly INoxReferenceSeed<ICurrencyInfo> _dataSeed;
 
     public CurrencyDataSeeder(
         IConfiguration configuration,
-        ILogger<CountryDataSeeder> logger,
+        ILogger<CurrencyDataSeeder> logger,
         INoxReferenceSeed<ICurrencyInfo> dataSeed)
     {
         _configuration = configuration;
@@ -62,7 +63,7 @@ public class CurrencyDataSeeder : INoxReferenceDataSeeder
 
                     if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        throw new Exception("Can't find file in worldCurrency repo.");
+                        throw new NoxDataExtractorException("Can't find file in worldCurrency repo.");
                     }
                     var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
 
@@ -89,8 +90,7 @@ public class CurrencyDataSeeder : INoxReferenceDataSeeder
             }
 
             var currencies = currencyData
-                .Select(x => x.Value)
-                .Cast<ICurrencyInfo>();
+                .Select(x => x.Value);
 
             _dataSeed.Seed(currencies);
         }

@@ -9,21 +9,28 @@ using Nox.Reference.GetData;
 using Nox.Reference.GetData.DataSeeds;
 using Nox.Reference.GetData.DataSeeds.MacAddresses;
 
+var configuration = new ConfigurationBuilder()
+        .AddEnvironmentVariables()
+        .AddCommandLine(args)
+        .AddJsonFile("appsettings.json")
+        .Build();
+
 var host = Host.CreateDefaultBuilder()
-    .ConfigureAppConfiguration(configurationBuilder =>
+    .ConfigureAppConfiguration(builder =>
     {
-        configurationBuilder.AddJsonFile("appSettings.json");
+        builder.Sources.Clear();
+        builder.AddConfiguration(configuration);
     })
     .ConfigureServices(services =>
     {
         services.AddLogging();
-        // services.AddScoped<IDataSeederExecutor, DataSeederExecutor>();
+        services.AddScoped<IDataSeederExecutor, DataSeederExecutor>();
 
-        services.AddNoxReferenceData();
+        services.AddNoxReferenceData(configuration);
 
         //services.AddScoped<CountryDataSeeder>();
-        //services.AddScoped<CurrencyDataSeeder>();
-        //services.AddScoped<MacAddressDataSeeder>();
+        services.AddScoped<CurrencyDataSeeder>();
+        services.AddScoped<MacAddressDataSeeder>();
     })
     .Build();
 
@@ -32,6 +39,7 @@ var commandExecutor = host
     .GetRequiredService<IDataSeederExecutor>();
 
 var context = host.Services.GetRequiredService<NoxReferenceDbContext>();
-//context.Database.Migrate();
+
+context.Database.Migrate();
 
 commandExecutor.Run();

@@ -2,14 +2,14 @@
 
 namespace Nox.Reference.Data.Seeds;
 
-public abstract class NoxReferenceDatabaseSeedBase<TType, TEnity> : INoxReferenceSeed<TType>
+public class NoxReferenceDatabaseSeed<TType, TEnity> : INoxReferenceSeed<TType>
     where TEnity : class, INoxReferenceEntity
     where TType : class
 {
     private readonly NoxReferenceDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    protected NoxReferenceDatabaseSeedBase(
+    public NoxReferenceDatabaseSeed(
         NoxReferenceDbContext dbContext,
         IMapper mapper)
     {
@@ -19,10 +19,15 @@ public abstract class NoxReferenceDatabaseSeedBase<TType, TEnity> : INoxReferenc
 
     public void Seed(IEnumerable<TType> data)
     {
-        var entites = _mapper.Map<TEnity>(data);
+        var dataSet = _dbContext.Set<TEnity>();
 
-        _dbContext.Set<TEnity>()
-            .AddRange(entites);
+        if (dataSet.Any())
+        {
+            return;
+        }
+
+        var entites = _mapper.Map<IEnumerable<TEnity>>(data);
+        dataSet.AddRange(entites);
 
         _dbContext.SaveChanges();
     }

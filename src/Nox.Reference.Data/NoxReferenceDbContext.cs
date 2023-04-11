@@ -14,6 +14,7 @@ public class NoxReferenceDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //var configurations = Assembly.GetExecutingAssembly();
+
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
         //modelBuilder.ApplyConfiguration(new CountryConfiguration());
         //modelBuilder.ApplyConfiguration(new CountryLocalizationConfiguration());
@@ -27,9 +28,13 @@ public class NoxReferenceDbContext : DbContext
         //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
 
         //modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
-        //modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+
+        modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyUnitConfiguration());
 
         modelBuilder.ApplyConfiguration(new MacAddressConfiguration());
+
         base.OnModelCreating(modelBuilder);
     }
 }

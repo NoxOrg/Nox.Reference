@@ -1,7 +1,8 @@
 ﻿namespace Nox.Reference.Data;
 
-internal class CurrencyUsage
+internal class CurrencyUsage : INoxReferenceEntity
 {
-    public string Frequent { get; set; }
-    public string Rare { get; set; }
+    public int Id { get; private set; }
+    public string? Frequent { get; set; }
+    public string? Rare { get; set; }
 }
