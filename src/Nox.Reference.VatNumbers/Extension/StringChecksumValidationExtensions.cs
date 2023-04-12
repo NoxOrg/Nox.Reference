@@ -105,13 +105,68 @@ namespace Nox.Reference.VatNumbers.Extension
             return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSpanish3Algorithm());
         }
 
+        public static List<string> ValidateDenmarkAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDenmarkAlgorithm());
+        }
+
+        public static List<string> ValidateAustrianAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckAustrianAlgorithm());
+        }
+
+        public static List<string> ValidateJapaneseAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckJapeneseAlgorithm());
+        }
+
+        public static List<string> ValidateChineseAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckChineseAlgorithm());
+        }
+
+        public static List<string> ValidateTurkishAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckTurkishAlgorithm());
+        }
+
+        public static List<string> ValidateSwedenAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSwedenAlgorithm());
+        }
+
+        public static List<string> ValidateIsraeliAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIsraeliAlgorithm());
+        }
+
+        public static List<string> ValidateNorwegianAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNorwegianAlgorithm());
+        }
+
+        public static List<string> ValidateRussianAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckRussianAlgorithm());
+        }
+
+        public static List<string> ValidateNewZealandAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNewZealandAlgorithm());
+        }
+
+        public static List<string> ValidateIndonesianAlgorithm(this string vatNumber)
+        {
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIndonesianAlgorithm());
+        }
+
         private static List<string> CheckLuhnDigit(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
             var lastDigit = (int)char.GetNumericValue(stringDigits[stringDigits.Length - 1]);
-            stringDigits = stringDigits.Substring(0, stringDigits.Length - 1);
-            var digits = stringDigits.Select(c => (int)char.GetNumericValue(c)).ToList();
+            var vatNumber = stringDigits.Substring(0, stringDigits.Length - 1);
+            var digits = vatNumber.Select(c => (int)char.GetNumericValue(c)).ToList();
             int[] results = { 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
             var i = 0;
             var lengthMod = digits.Count % 2;
@@ -355,19 +410,19 @@ namespace Nox.Reference.VatNumbers.Extension
             var weights = new int[] { 3, 7, 13, 17, 19, 23, 29, 37, 41, 43, 47, 53, 59, 67, 71 };
             
             var lastDigit = stringDigits[stringDigits.Length - 1];
-            stringDigits = stringDigits.Substring(0, stringDigits.Length - 1);
+            var vatNumber = stringDigits.Substring(0, stringDigits.Length - 1);
 
             var errorMessage = new List<string>();
 
             var s = 0;
 
-            var charArray = stringDigits.ToCharArray();
+            var charArray = vatNumber.ToCharArray();
             Array.Reverse(charArray);
-            stringDigits = new string(charArray);
+            vatNumber = new string(charArray);
 
-            for (var i = 0; i < stringDigits.Length; i++)
+            for (var i = 0; i < vatNumber.Length; i++)
             {
-                s += weights[i] * (int)char.GetNumericValue(stringDigits[i]);
+                s += weights[i] * (int)char.GetNumericValue(vatNumber[i]);
             }
 
             s %= 11;
@@ -413,13 +468,14 @@ namespace Nox.Reference.VatNumbers.Extension
         {
             var errorMessage = new List<string>();
 
+            var vatNumber = stringDigits;
             if (stringDigits.Length == 9)
             {
-                stringDigits = stringDigits.PadLeft(10, '0');
+                vatNumber = vatNumber.PadLeft(10, '0');
             }
 
-            var checkPart = int.Parse(stringDigits.Substring(0, 8));
-            var checkDigits = int.Parse(stringDigits.Substring(8, 2));
+            var checkPart = int.Parse(vatNumber.Substring(0, 8));
+            var checkDigits = int.Parse(vatNumber.Substring(8, 2));
             var isValid = 97 - checkPart % 97 == checkDigits;
             if (!isValid)
             {
@@ -640,26 +696,366 @@ namespace Nox.Reference.VatNumbers.Extension
         {
             var errorMessage = new List<string>();
 
-            if (stringDigits[0] == 'Y')
+            var vatNumber = stringDigits;
+            if (vatNumber[0] == 'Y')
             {
-                stringDigits = stringDigits.Replace("Y", "1");
+                vatNumber = vatNumber.Replace("Y", "1");
             }
-            else if (stringDigits[0] == 'Z')
+            else if (vatNumber[0] == 'Z')
             {
-                stringDigits = stringDigits.Replace("Z", "2");
+                vatNumber = vatNumber.Replace("Z", "2");
             }
-            else if (!char.IsDigit(stringDigits[0]))
+            else if (!char.IsDigit(vatNumber[0]))
             {
-                stringDigits = stringDigits.Substring(1);
+                vatNumber = vatNumber.Substring(1);
             }
 
-            bool isValid = stringDigits.Last() == "TRWAGMYFPDXBNJZSQVHLCKE"[int.Parse(stringDigits.Substring(0, stringDigits.Length - 1)) % 23];
+            bool isValid = vatNumber.Last() == "TRWAGMYFPDXBNJZSQVHLCKE"[int.Parse(vatNumber.Substring(0, vatNumber.Length - 1)) % 23];
             if (!isValid)
             {
                 errorMessage.Add(ValidationErrors.ChecksumError);
             }
 
             return errorMessage;
+        }
+
+        // TODO: join with MOD
+        private static List<string> CheckDenmarkAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var multipliers = new int[] { 2, 7, 6, 5, 4, 3, 2, 1 };
+            var sum = 0;
+
+            // TODO: think about proper handling cases of different length
+            // TODO: possibly change way to operate with checksum digit position
+            for (var index = 0; index < multipliers.Length; index++)
+            {
+                if (stringDigits.Length <= index)
+                {
+                    errorMessage.Add(ValidationErrors.ChecksumError);
+                    break;
+                }
+
+                var digit = int.Parse(stringDigits[index].ToString());
+                sum += int.Parse(multipliers[index].ToString()) * digit;
+            }
+            var checksum = sum % 11;
+            bool isValid = checksum == 0;
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        // TODO: join with other, possibly with Luhn
+        private static List<string> CheckAustrianAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var sum = 0;
+            int[] multipliers = { 1, 2, 1, 2, 1, 2, 1 };
+
+            for (var i = 0; i < multipliers.Length; i++)
+            {
+                var temp = int.Parse(stringDigits[i].ToString()) * multipliers[i];
+                sum += temp > 9 ? (int)Math.Floor(temp / 10D) + temp % 10 : temp;
+            }
+
+            var checksum = 10 - (sum + 4) % 10;
+            if (checksum == 10)
+            {
+                checksum = 0;
+            }
+
+            var checkDigit = int.Parse(stringDigits[7].ToString());
+            bool isValid = checksum == checkDigit;
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckJapeneseAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            // TODO: implement
+
+            return errorMessage;
+        }
+
+        // TODO: join with ModAndSubstract
+        private static List<string> CheckChineseAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var tempSum = 0;
+            var weights = new int[]  { 1, 3, 9, 27, 19, 26, 16, 17, 20, 29, 25, 13, 8, 24, 10, 30, 28 };
+
+            for (var i = 0; i < weights.Length; i++)
+            {
+                var t = int.Parse(stringDigits[i].ToString());
+                tempSum += weights[i] * t;
+            }
+            var checksum = 31 - tempSum % 31;
+            if (checksum == 31)
+                checksum = 0;
+
+            var isValid = checksum.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckTurkishAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            int s = 0;
+            char[] charArray = stringDigits.Substring(0, stringDigits.Length - 1).ToCharArray();
+            Array.Reverse(charArray);
+            var vatToCheck = new string(charArray);
+            for (int i = 1; i <= vatToCheck.Length; i++)
+            {
+                int c1 = ((int)char.GetNumericValue(vatToCheck[i - 1]) + i) % 10;
+                if (c1 != 0)
+                {
+                    int c2 = (c1 * (int)Math.Pow(2, i)) % 9;
+                    if (c2 == 0)
+                    {
+                        c2 = 9;
+                    }
+                    s += c2;
+                }
+            }
+
+            var checksum = (10 - s).Mod(10);
+            var isValid = checksum.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckSwedenAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            int[] Multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+
+            var index = 0;
+            var sum = 0;
+            foreach (var m in Multipliers)
+            {
+                var temp = int.Parse(stringDigits[index++].ToString()) * m;
+                sum += temp > 9 ? (int)Math.Floor(temp / 10D) + temp % 10 : temp;
+            }
+
+            var checkDigit = 10 - sum % 10;
+
+            if (checkDigit == 10)
+            {
+                checkDigit = 0;
+            }
+
+            var isValid = checkDigit.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckIsraeliAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            int[] Multipliers = { 2, 1, 2, 1, 2, 1, 2, 1, 2 };
+
+            var index = 0;
+            var sum = 0;
+            foreach (var m in Multipliers)
+            {
+                var temp = int.Parse(stringDigits[index++].ToString()) * m;
+                sum += temp > 9 ? (int)Math.Floor(temp / 10D) + temp % 10 : temp;
+            }
+
+            var checkDigit = 10 - sum % 10;
+
+            if (checkDigit == 10)
+            {
+                checkDigit = 0;
+            }
+
+            var isValid = checkDigit.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckNorwegianAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var total = 0;
+            int[] multipliers = new int[] { 3, 2, 7, 6, 5, 4, 3, 2 };
+
+            for (var i = 0; i < multipliers.Length; i++)
+            {
+                total += int.Parse(stringDigits[i].ToString()) * multipliers[i];
+            }
+
+            total = 11 - total % 11;
+            if (total == 11)
+            {
+                total = 0;
+            }
+
+            if (total > 10)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+                return errorMessage;
+            }
+
+            var isValid = total.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckRussianAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var total = 0;
+            int[] multipliers;
+            bool isValid;
+
+            if (stringDigits.Length == 10)
+            {
+                multipliers = new int[] { 2, 4, 10, 3, 5, 9, 4, 6, 8 };
+
+                for (var i = 0; i < multipliers.Length; i++)
+                {
+                    total += int.Parse(stringDigits[i].ToString()) * multipliers[i];
+                }
+
+                total = total % 11 % 10;
+                isValid = total.ToString() == stringDigits.Last().ToString();
+                if (!isValid)
+                {
+                    errorMessage.Add(ValidationErrors.ChecksumError);
+                }
+
+                return errorMessage;
+            }
+
+            if (stringDigits.Length != 12)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+                return errorMessage;
+            }
+
+            multipliers = new int[] { 7, 2, 4, 10, 3, 5, 9, 4, 6, 8 };
+            var secondDigitMultipliers = new int[] { 3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8 };
+            var total2 = 0;
+
+            for (var i = 0; i < multipliers.Length; i++)
+            {
+                total += int.Parse(stringDigits[i].ToString()) * multipliers[i];
+                total2 += int.Parse(stringDigits[i].ToString()) * secondDigitMultipliers[i];
+            }
+
+            total2 += int.Parse(stringDigits[10].ToString()) * secondDigitMultipliers[10];
+
+            var calculatedDigit10 = total % 11 % 10;
+            var calculatedDigit11 = total2 % 11 % 10;
+
+            int checkDigit10 = int.Parse(stringDigits[10].ToString());
+            int checkDigit11 = int.Parse(stringDigits[11].ToString());
+            isValid = checkDigit10 == calculatedDigit10 && checkDigit11 == calculatedDigit11;
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckNewZealandAlgorithm(this string stringDigits)
+        {
+            var errorMessage = new List<string>();
+
+            var numericVat = long.Parse(stringDigits);
+            if (!(10000000 < numericVat && numericVat < 150000000))
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+                return errorMessage;
+            }
+
+            int[] primary_weights = new int[] { 3, 2, 7, 6, 5, 4, 3, 2 };
+            int[] secondary_weights = new int[] { 7, 4, 3, 2, 5, 2, 7, 6 };
+
+            var number = stringDigits.Substring(0, stringDigits.Length - 1).PadLeft(8, '0');
+            int s = 0;
+            for (int i = 0; i < primary_weights.Length; i++)
+            {
+                s = s + (primary_weights[i] * (int)char.GetNumericValue(number[i]));
+            }
+            s = (-s).Mod(11);
+
+
+            int checkDigit;
+            if (s != 10)
+            {
+                checkDigit = s;
+            }
+            else
+            {
+                s = 0;
+                for (int i = 0; i < secondary_weights.Length; i++)
+                {
+                    s = s + (secondary_weights[i] * (int)char.GetNumericValue(number[i]));
+                }
+
+                checkDigit = (-s).Mod(11);
+            }
+
+            var isValid = checkDigit.ToString() == stringDigits.Last().ToString();
+            if (!isValid)
+            {
+                errorMessage.Add(ValidationErrors.ChecksumError);
+            }
+
+            return errorMessage;
+        }
+
+        private static List<string> CheckIndonesianAlgorithm(this string stringDigits)
+        {
+            var vatNumber = stringDigits;
+            if (vatNumber.Length == 12)
+            {
+                vatNumber += "000";
+            }
+
+            return vatNumber.Substring(0, 10).CheckLuhnDigit();
         }
     }
 }

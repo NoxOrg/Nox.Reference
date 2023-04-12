@@ -11,7 +11,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
     {
         public static HttpClient _httpClient { get; set; } = new HttpClient();
 
-        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber, bool shouldValidateViaApi)
+        public override ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber, bool shouldValidateViaApi = true)
         {
             var result = new ValidationResult();
 
@@ -131,7 +131,8 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                 return false;
             }
 
-            if (decimal.Parse(digitPart) <= 0)
+            if (!decimal.TryParse(digitPart, out var parsedNumber) ||
+                parsedNumber <= 0)
             {
                 result.ValidationErrors.Add(ValidationErrors.ChecksumShoulBeBiggerThanZero);
                 return false;
@@ -182,7 +183,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
             switch (validationInfoByPattern.Checksum!.Algorithm)
             {
                 case ChecksumAlgorithm.Luhn:
-                    minimumLength = 10;
+                    minimumLength = 6;
                     if (digitPart.Length < minimumLength)
                     {
                         result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
@@ -378,6 +379,118 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                     }
 
                     result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(2).ValidateSpanish3Algorithm());
+                    break;
+
+                case ChecksumAlgorithm.DenmarkAlgorithm:
+                    minimumLength = 8;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateDenmarkAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.AustrianAlgorithm:
+                    minimumLength = 8;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateAustrianAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.JapaneseAlgorithm:
+                    minimumLength = 12;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateJapaneseAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.ChineseAlgorithm:
+                    minimumLength = 18;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateChineseAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.TurkishAlgorithm:
+                    minimumLength = 10;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateTurkishAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.SwedishAlgorithm:
+                    minimumLength = 10;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateSwedenAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.NorwegianAlgorithm:
+                    minimumLength = 9;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateNorwegianAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.RussianAlgorithm:
+                    var firstTypeLength = 10;
+                    var secondTypeLength = 12;
+                    if (digitPart.Length != firstTypeLength &&
+                        digitPart.Length != secondTypeLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.LengthShouldEqualError, firstTypeLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateRussianAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.NewZealandAlgorithm:
+                    minimumLength = 8;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateNewZealandAlgorithm());
+                    break;
+
+                case ChecksumAlgorithm.IndonesianAlgorithm:
+                    minimumLength = 12;
+                    if (digitPart.Length < minimumLength)
+                    {
+                        result.ValidationErrors.Add(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                        return;
+                    }
+
+                    result.ValidationErrors.AddRange(digitPart.ValidateIndonesianAlgorithm());
                     break;
 
                 case ChecksumAlgorithm.None:

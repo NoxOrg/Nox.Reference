@@ -22,6 +22,16 @@ namespace Nox.Reference.Abstractions.VatNumbers
         BritishAlgorithm,
         Spanish1Algorithm,
         Spanish2Algorithm,
-        Spanish3Algorithm
+        Spanish3Algorithm,
+        DenmarkAlgorithm,
+        AustrianAlgorithm,
+        JapaneseAlgorithm,
+        ChineseAlgorithm,
+        TurkishAlgorithm,
+        SwedishAlgorithm,
+        NorwegianAlgorithm,
+        RussianAlgorithm,
+        NewZealandAlgorithm,
+        IndonesianAlgorithm
     }
 }

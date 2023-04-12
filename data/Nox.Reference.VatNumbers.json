@@ -93,7 +93,7 @@
         "validations": [
             {
                 "regex": "^NL\\d{9}B\\d{2}$",
-                "validationFormatDescription": "An Dutch VAT number should consist of 9 numbers, letter 'B' and 2 numbers after it.",
+                "validationFormatDescription": "An Dutch VAT number should consist of 9 digits, letter 'B' and 2 digits after it.",
                 "inputMask": "\\N\\L000000000\\B00",
                 "minimumLength": 14,
                 "maximumLength": 14,
@@ -112,7 +112,7 @@
         "validations": [
             {
                 "regex": "^MX[A-Z&Ñ]{3}[0-9]{6}[1-9A-V][1-9A-Z][0-9A]$",
-                "validationFormatDescription": "A Mexican VAT number should consist of 3 letters, 6 numbers, a number or letter A-V, a number or letter A-Z, a number or letter A.",
+                "validationFormatDescription": "A Mexican VAT number should consist of 3 letters, 6 digits, a number or letter A-V, a number or letter A-Z, a number or letter A.",
                 "inputMask": "\\M\\XAAA000000AAA",
                 "minimumLength": 14,
                 "maximumLength": 14,
@@ -129,7 +129,7 @@
         "validations": [
             {
                 "regex": "^DE[1-9]\\d{8}$",
-                "validationFormatDescription": "A German VAT number should consist of 9 numbers.",
+                "validationFormatDescription": "A German VAT number should consist of 9 digits.",
                 "inputMask": "\\D\\E000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,
@@ -146,7 +146,7 @@
         "validations": [
             {
                 "regex": "^FR\\d{11}$",
-                "validationFormatDescription": "A French VAT number should consist of 11 numbers.",
+                "validationFormatDescription": "A French VAT number should consist of 11 digits.",
                 "inputMask": "\\F\\R00000000000",
                 "minimumLength": 13,
                 "maximumLength": 13,
@@ -163,7 +163,7 @@
         "validations": [
             {
                 "regex": "^IN\\d{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{3}$",
-                "validationFormatDescription": "GSTIN should have 2 numeric characters, then 5 charaters, then 4 numbers, then 1 character, then 3 numbers or characters.",
+                "validationFormatDescription": "GSTIN should have 2 numeric characters, then 5 charaters, then 4 digits, then 1 character, then 3 digits or characters.",
                 "inputMask": "\\I\\N00LLLLL0000LAAA",
                 "minimumLength": 17,
                 "maximumLength": 17
@@ -273,14 +273,14 @@
         "validations": [
             {
                 "regex": "^GBGA[5-9]\\d{2}$",
-                "validationFormatDescription": "A British Government authority should have prefix and 3 numbers bigger or equal than 500.",
+                "validationFormatDescription": "A British Government authority should have prefix and 3 digits bigger or equal than 500.",
                 "inputMask": "\\G\\B\\G\\A000",
                 "minimumLength": 7,
                 "maximumLength": 7
             },
             {
                 "regex": "^GBHA[0-4]\\d{2}$",
-                "validationFormatDescription": "A British Health authority should have prefix and 3 numbers less 500.",
+                "validationFormatDescription": "A British Health authority should have prefix and 3 digits less 500.",
                 "inputMask": "\\G\\B\\H\\A000",
                 "minimumLength": 7,
                 "maximumLength": 7
@@ -304,7 +304,7 @@
         "validations": [
             {
                 "regex": "^ES[K|L|M|X]\\d{7}[A-Z]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after it.",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter before and 1 letter after it.",
                 "inputMask": "ESL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
@@ -314,7 +314,7 @@
             },
             {
                 "regex": "^ES[0-9|Y|Z]\\d{7}[A-Z]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter after it and 1 letter or number before it.",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter after it and 1 letter or number before it.",
                 "inputMask": "ESL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
@@ -324,7 +324,7 @@
             },
             {
                 "regex": "^ES[A-H|J|U|V]\\d{8}$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 1 letter and 8 numbers.",
+                "validationFormatDescription": "A Spanish VAT number should consist of 1 letter and 8 digits.",
                 "inputMask": "ESL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
@@ -334,13 +334,309 @@
             },
             {
                 "regex": "^ES[A-H|N-S|W]\\d{7}[A-J]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after after it.",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter before and 1 letter after after it.",
                 "inputMask": "ESL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
                     "algorithm": "Spanish1Algorithm"
                 }
+            }
+        ]
+    },
+    {
+        "country": "DK",
+        "localName": "CPR-nummer Virksomhed",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^DK[1-9]\\d{7}$",
+                "validationFormatDescription": "A Danish VAT number should consist of 8 digits.",
+                "inputMask": "\\D\\K00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "DenmarkAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "AT",
+        "localName": "Umsatzsteuer-Identifikationsnummer",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "regex": "^ATU\\d{8}$",
+                "validationFormatDescription": "An Austrian VAT number should consist of U followed by 8 digits.",
+                "inputMask": "\\A\\T\\U00000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "AustrianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "JP",
+        "localName": "My Number",
+        "validations": [
+            {
+                "regex": "^JP\\d{12}$",
+                "validationFormatDescription": "A Japanese VAT number should consist of 12 digits.",
+                "inputMask": "\\J\\P000000000000",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "CN",
+        "localName": "增值税",
+        "validations": [
+            {
+                "regex": "^CN[159Y]{1}[1239]{1}[0-9]{6}[^_IOZSVa-z\\W]{10}$",
+                "validationFormatDescription": "A Chinese VAT number should consist of 18 digits.",
+                "inputMask": "\\C\\N000000000000000000",
+                "minimumLength": 20,
+                "maximumLength": 20,
+                "checksum": {
+                    "algorithm": "ChineseAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "TR",
+        "localName": "Vergi Kimlik Numarası",
+        "validations": [
+            {
+                "regex": "^TR\\d{10}$",
+                "validationFormatDescription": "A Turkish VAT number should consist of 10 digits.",
+                "inputMask": "\\T\\R0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "TurkishAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "SE",
+        "verificationApi": "EuropeVies",
+        "localName": "Mervärdesskattenummer",
+        "validations": [
+            {
+                "regex": "^SE\\d{10}$",
+                "validationFormatDescription": "A Swedish VAT number should consist of 10 digits.",
+                "inputMask": "\\S\\E0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "SwedishAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "IL",
+        "localName": "Mispar Osek Moreshe",
+        "validations": [
+            {
+                "regex": "^IL\\d{9}$",
+                "validationFormatDescription": "An Israel VAT number should consist of 9 digits.",
+                "inputMask": "\\I\\L000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Luhn"
+                }
+            }
+        ]
+    },
+    {
+        "country": "TH",
+        "localName": "Lek Ti Pracham Dtua Phusi Phasaa",
+        "validations": [
+            {
+                "regex": "^TH\\d{13}$",
+                "validationFormatDescription": "A Thai VAT number should consist of 13 digits.",
+                "inputMask": "\\T\\H0000000000000",
+                "minimumLength": 15,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "AE",
+        "localName": "Tax Registration Number",
+        "validations": [
+            {
+                "regex": "^AE\\d{15}$",
+                "validationFormatDescription": "An UAE VAT number should consist of 15 digits.",
+                "inputMask": "\\A\\E000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "MY",
+        "localName": "Goods and Services Tax",
+        "validations": [
+            {
+                "regex": "^MY(CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|TJ|LE)?\\d{10}$",
+                "validationFormatDescription": "A Malayan VAT number should consist of 10 digits and optional up to 2 letters in front of them.",
+                "inputMask": "\\M\\Y??0000000000",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "FI",
+        "verificationApi": "EuropeVies",
+        "localName": "Arvonlisäverotunniste",
+        "validations": [
+            {
+                "regex": "^FI\\d{8}$",
+                "validationFormatDescription": "A Finnish VAT number should consist of 8 digits.",
+                "inputMask": "\\F\\I00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "ModAndSubstract",
+                    "modulus": 11,
+                    "weights": [ 7, 9, 10, 5, 8, 4, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "SG",
+        "verificationApi": "EuropeVies",
+        "localName": "GST Registration Number",
+        "validations": [
+            {
+                "regex": "^SG\\d{9}M$",
+                "validationFormatDescription": "A Singapore VAT number should consist of 9 digits and 'M' letter after them.",
+                "inputMask": "\\S\\G000000000\\M",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "NO",
+        "verificationApi": "EuropeVies",
+        "localName": "Merverdiavgiftsnummer",
+        "validations": [
+            {
+                "regex": "^NO\\d{9}$",
+                "validationFormatDescription": "A Norwegian VAT number should consist of 9 digits.",
+                "inputMask": "\\N\\O000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "NorwegianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "RU",
+        "localName": "Идентификационный номер налогоплательщика",
+        "validations": [
+            {
+                "regex": "^RU(\\d{10}|\\d{12})$",
+                "validationFormatDescription": "A Russian VAT number should consist of 10 or 12 digits.",
+                "inputMask": "\\R\\U000000000099",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "RussianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "NZ",
+        "localName": "Goods and Services Tax",
+        "validations": [
+            {
+                "regex": "^NZ\\d{8}$",
+                "validationFormatDescription": "A New Zealand VAT number should consist of 8 digits.",
+                "inputMask": "\\N\\Z00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "NewZealandAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "SA",
+        "localName": "VAT Registration Number",
+        "validations": [
+            {
+                "regex": "^SA3\\d{14}$",
+                "validationFormatDescription": "A Saudi Arabia VAT number should consist of 15 digits starting from 3.",
+                "inputMask": "\\S\\A\\300000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "PH",
+        "localName": "Tax Identification Number",
+        "validations": [
+            {
+                "regex": "^PH\\d{12}V?$",
+                "validationFormatDescription": "A Philippines VAT number should consist of 12 digits and optional V in the end.",
+                "inputMask": "\\P\\H\\000000000000\\V",
+                "minimumLength": 14,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "ID",
+        "localName": "Nomor Pokok Wajib Pajak",
+        "validations": [
+            {
+                "regex": "^ID\\d{15}$",
+                "validationFormatDescription": "A Indonesian VAT number should consist of 15 digits.",
+                "inputMask": "\\I\\D\\000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": {
+                    "algorithm": "IndonesianAlgorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "HK",
+        "localName": "Goods and Services Tax Identification Number",
+        "validations": [
+            {
+                "regex": "^HK[a-zA-Z]\\d{6}[a-zA-Z]$",
+                "validationFormatDescription": "A Hong Kong VAT number should consist of 6 digits and a letter in front and after them.",
+                "inputMask": "\\H\\K\\L000000L",
+                "minimumLength": 8,
+                "maximumLength": 8,
+                "checksum": null
             }
         ]
     }
