@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.Seeds;
 
-public class NoxReferenceDatabaseSeed<TType, TEnity> : INoxReferenceSeed<TType>
+internal class NoxReferenceDatabaseSeed<TType, TEnity> : INoxReferenceSeed<TType>
     where TEnity : class, INoxReferenceEntity
     where TType : class
 {

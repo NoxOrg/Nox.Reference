@@ -4,7 +4,12 @@ using Nox.Reference.Data.Configurations;
 
 namespace Nox.Reference.Data;
 
-public class NoxReferenceDbContext : DbContext
+public interface INoxReferenceContext
+{
+    IQueryable<TSet> GetSet<TSet>();
+}
+
+internal class NoxReferenceDbContext : DbContext
 {
     public NoxReferenceDbContext(DbContextOptions<NoxReferenceDbContext> options)
         : base(options)

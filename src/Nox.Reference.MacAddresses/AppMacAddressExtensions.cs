@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data;
+using Nox.Reference.Data.Extensions;
 using Nox.Reference.Data.Repositories;
 
 namespace Nox.Reference.MacAddresses;

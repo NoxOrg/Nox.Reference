@@ -1,9 +1,8 @@
-﻿using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nox.Reference.Data;
+using Nox.Reference.Data.Extensions;
 using Nox.Reference.GetData;
 using Nox.Reference.GetData.DataSeeds;
 using Nox.Reference.GetData.DataSeeds.MacAddresses;
@@ -37,8 +36,7 @@ var commandExecutor = host
     .Services
     .GetRequiredService<IDataSeederExecutor>();
 
-var context = host.Services.GetRequiredService<NoxReferenceDbContext>();
-
-context.Database.Migrate();
+var databaseMigrator = host.Services.GetRequiredService<INoxReferenceDatabaseMigrator>();
+databaseMigrator.Migrate();
 
 commandExecutor.Run();

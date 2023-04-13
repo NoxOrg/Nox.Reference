@@ -1,39 +1,29 @@
 ﻿using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Data.Repositories;
 
 namespace Nox.Reference.Currencies;
 
 internal class CurrenciesService : ICurrenciesService
 {
-    private static IReadOnlyList<ICurrencyInfo> _currencies = new List<ICurrencyInfo>();
-    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoCode = new Dictionary<string, ICurrencyInfo>();
-    private static readonly Dictionary<string, ICurrencyInfo> _currenciesByIsoNumber = new Dictionary<string, ICurrencyInfo>();
+    private readonly INoxReferenceContext<ICurrencyInfo> _repository;
 
-    public static void Init(IEnumerable<ICurrencyInfo> currencies)
+    public CurrenciesService(INoxReferenceContext<ICurrencyInfo> repository)
     {
-        _currencies = new List<ICurrencyInfo>(currencies);
-
-        foreach (var currency in _currencies)
-        {
-            _currenciesByIsoCode[currency.IsoCode] = currency;
-
-            if (!string.IsNullOrWhiteSpace(currency.IsoNumber))
-            {
-                _currenciesByIsoNumber[currency.IsoNumber] = currency;
-            }
-        }
+        _repository = repository;
     }
 
-    public IReadOnlyList<ICurrencyInfo> GetCurrencies() => _currencies;
+    public IReadOnlyList<ICurrencyInfo> GetCurrencies()
+    {
+        return _repository.Set.ToList(); ;
+    }
 
     public ICurrencyInfo? GetCurrencyByIsoCode(string isoCode)
     {
-        _currenciesByIsoCode.TryGetValue(isoCode, out ICurrencyInfo? currency);
-        return currency;
+        return _repository.Set.FirstOrDefault(x => x.IsoCode == isoCode);
     }
 
     public ICurrencyInfo? GetCurrencyByIsoNumber(string isoNumber)
     {
-        _currenciesByIsoNumber.TryGetValue(isoNumber, out ICurrencyInfo? currency);
-        return currency;
+        return _repository.Set.FirstOrDefault(x => x.IsoNumber == isoNumber);
     }
 }

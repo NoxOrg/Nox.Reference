@@ -2,9 +2,10 @@
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.Currencies;
 using Nox.Reference.Common;
-using Nox.Reference.Currencies.Models.Rest;
 using Nox.Reference.Data;
 using Nox.Reference.GetData.Helpers;
+using Nox.Reference.GetData.Models;
+using Nox.Reference.GetData.Models.Rest;
 using System.Text.Json;
 
 namespace Nox.Reference.GetData.DataSeeds;

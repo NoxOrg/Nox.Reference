@@ -7,7 +7,7 @@ using Nox.Reference.Abstractions.MacAddresses;
 using Nox.Reference.Data.Repositories;
 using Nox.Reference.Data.Seeds;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Data.Extensions;
 
 public static class NoxReferenceDataExtensions
 {
@@ -22,7 +22,10 @@ public static class NoxReferenceDataExtensions
 
         services.AddScoped<INoxReferenceSeed<IMacAddressInfo>, NoxReferenceDatabaseSeed<IMacAddressInfo, MacAddress>>();
         services.AddScoped<INoxReferenceSeed<ICurrencyInfo>, NoxReferenceDatabaseSeed<ICurrencyInfo, Currency>>();
-        services.AddScoped<INoxReferenceKeyRepository<IMacAddressInfo>, MacAddressRepository>();
+
+        services.AddScoped<INoxReferenceContext<IMacAddressInfo>, NoxReferenceContext<MacAddress, IMacAddressInfo>>();
+
+        services.AddSingleton<INoxReferenceDatabaseMigrator, DatabaseMigrator>();
 
         return services;
     }

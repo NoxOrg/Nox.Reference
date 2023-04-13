@@ -25,9 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="..\..\data\Nox.Reference.Currencies.json" LogicalName="Nox.Reference.Currencies.json" />
+    <ProjectReference Include="..\Nox.Reference.Data\Nox.Reference.Data.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />

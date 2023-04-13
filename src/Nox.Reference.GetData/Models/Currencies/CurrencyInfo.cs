@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
+using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Abstractions.Currencies;
+namespace Nox.Reference.GetData.Models;
 
 public class CurrencyInfo : ICurrencyInfo
 {
