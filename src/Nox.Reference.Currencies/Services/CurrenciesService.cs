@@ -14,16 +14,16 @@ internal class CurrenciesService : ICurrenciesService
 
     public IReadOnlyList<ICurrencyInfo> GetCurrencies()
     {
-        return _repository.Set.ToList(); ;
+        return _repository.Query.ToList(); ;
     }
 
     public ICurrencyInfo? GetCurrencyByIsoCode(string isoCode)
     {
-        return _repository.Set.FirstOrDefault(x => x.IsoCode == isoCode);
+        return _repository.Query.FirstOrDefault(x => x.IsoCode == isoCode);
     }
 
     public ICurrencyInfo? GetCurrencyByIsoNumber(string isoNumber)
     {
-        return _repository.Set.FirstOrDefault(x => x.IsoNumber == isoNumber);
+        return _repository.Query.FirstOrDefault(x => x.IsoNumber == isoNumber);
     }
 }

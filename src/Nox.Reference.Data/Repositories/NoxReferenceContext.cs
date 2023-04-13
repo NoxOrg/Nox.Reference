@@ -18,19 +18,9 @@ internal class NoxReferenceContext<TEntity, TType> : INoxReferenceContext<TType>
         _mapper = mapper;
     }
 
-    public IQueryable<TType> Set
-    {
-        get
-        {
-            var pp = _dataContext
-            .Set<TEntity>()
-            .AsQueryable()
-            .Take(10).ToList();
-
-            return _dataContext
+    public IQueryable<TType> Query
+        => _dataContext
             .Set<TEntity>()
             .AsQueryable()
             .ProjectTo<TType>(_mapper.ConfigurationProvider);
-        }
-    }
 }

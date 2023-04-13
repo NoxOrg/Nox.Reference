@@ -2,5 +2,5 @@
 
 public interface INoxReferenceContext<TType> where TType : class
 {
-    IQueryable<TType> Set { get; }
+    IQueryable<TType> Query { get; }
 }

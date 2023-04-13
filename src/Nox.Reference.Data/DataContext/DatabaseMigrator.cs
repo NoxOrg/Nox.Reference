@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Nox.Reference.Data.Migrations;
 
 namespace Nox.Reference.Data;
 

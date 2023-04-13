@@ -30,6 +30,7 @@ var host = Host.CreateDefaultBuilder()
         services.AddScoped<CurrencyDataSeeder>();
         services.AddScoped<MacAddressDataSeeder>();
     })
+
     .Build();
 
 var commandExecutor = host
