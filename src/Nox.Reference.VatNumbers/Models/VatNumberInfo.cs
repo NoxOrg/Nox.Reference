@@ -26,10 +26,11 @@ namespace Nox.Reference.VatNumbers.Models
             OriginalVatNumber = vatNumberInfo?.OriginalVatNumber ?? string.Empty;
             LocalName = vatNumberInfo?.LocalName ?? string.Empty;
             Validations = vatNumberInfo?.Validations;
+            VerificationApi = vatNumberInfo?.VerificationApi ?? VerificationApi.None;
             FormattedVatNumber = vatNumberInfo?.FormattedVatNumber ?? string.Empty;
             ValidationResult = vatNumberInfo?.ValidationResult ?? new ValidationResult();
             IsVerified = vatNumberInfo?.IsVerified ?? false;
-            VerificationApi = vatNumberInfo?.VerificationApi ?? string.Empty;
+            ApiVerificationData = vatNumberInfo?.ApiVerificationData;
         }
 
         // Taken from constructor
@@ -57,11 +58,12 @@ namespace Nox.Reference.VatNumbers.Models
                 ValidationsOverride_ = value;
             }
         }
-        [JsonPropertyName("verificationApi")] public string VerificationApi { get; set; } = string.Empty;
+        [JsonPropertyName("verificationApi")] public VerificationApi VerificationApi { get; set; } = VerificationApi.None;
 
         // Optionally set on runtime
         public string FormattedVatNumber { get; set; } = string.Empty;
         public IValidationResult ValidationResult { get; set; } = new ValidationResult();
         public bool IsVerified { get; set; } = false;
+        public object? ApiVerificationData { get; set; } = null;
     }
 }

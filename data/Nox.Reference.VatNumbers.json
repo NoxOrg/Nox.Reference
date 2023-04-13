@@ -4,6 +4,7 @@
         "localName": "Податковий номер платника податку",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_UA_1",
                 "regex": "^UA\\d{8,12}$",
                 "validationFormatDescription": "Ukrainian VAT number should have from 8 to 12 numeric characters.",
                 "inputMask": "\\U\\A000000009999",
@@ -18,6 +19,7 @@
         "localName": "Value Added Tax Registration Number",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ZA_1",
                 "regex": "^ZA4\\d{9}$",
                 "validationFormatDescription": "South african VAT number should have 10 numeric characters and start with 4.",
                 "inputMask": "\\Z\\A\\4000000000",
@@ -35,6 +37,7 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_PT_1",
                 "regex": "^PT\\d{9}$",
                 "validationFormatDescription": "A Portugese VAT number and be followed by 9 numeric characters, the last being a checksum.",
                 "inputMask": "\\P\\T000000000",
@@ -54,6 +57,7 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_PL_1",
                 "regex": "^PL\\d{10}$",
                 "validationFormatDescription": "A Polish VAT number and be followed by 9 numeric characters, the last being a checksum.",
                 "inputMask": "\\P\\L0000000000",
@@ -73,13 +77,14 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_IT_1",
                 "regex": "^IT\\d{11}$",
                 "validationFormatDescription": "An Italian VAT number and be followed by 11 numeric characters, the last being a checksum.",
                 "inputMask": "\\I\\T00000000000",
                 "minimumLength": 13,
                 "maximumLength": 13,
                 "checksum": {
-                    "algorithm": "ModAndSubstractItaly",
+                    "algorithm": "ModAndSubstract_IT",
                     "modulus": 10,
                     "weights": [ 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 ]
                 }
@@ -92,8 +97,9 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_NL_1",
                 "regex": "^NL\\d{9}B\\d{2}$",
-                "validationFormatDescription": "An Dutch VAT number should consist of 9 numbers, letter 'B' and 2 numbers after it.",
+                "validationFormatDescription": "An Dutch VAT number should consist of 9 digits, letter 'B' and 2 digits after it.",
                 "inputMask": "\\N\\L000000000\\B00",
                 "minimumLength": 14,
                 "maximumLength": 14,
@@ -111,13 +117,14 @@
         "localName": "Impuesto al Valor Agregado",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_MX_1",
                 "regex": "^MX[A-Z&Ñ]{3}[0-9]{6}[1-9A-V][1-9A-Z][0-9A]$",
-                "validationFormatDescription": "A Mexican VAT number should consist of 3 letters, 6 numbers, a number or letter A-V, a number or letter A-Z, a number or letter A.",
+                "validationFormatDescription": "A Mexican VAT number should consist of 3 letters, 6 digits, a number or letter A-V, a number or letter A-Z, a number or letter A.",
                 "inputMask": "\\M\\XAAA000000AAA",
                 "minimumLength": 14,
                 "maximumLength": 14,
                 "checksum": {
-                    "algorithm": "MexicanAlgorithm"
+                    "algorithm": "MX_Algorithm"
                 }
             }
         ]
@@ -128,13 +135,14 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_DE_1",
                 "regex": "^DE[1-9]\\d{8}$",
-                "validationFormatDescription": "A German VAT number should consist of 9 numbers.",
+                "validationFormatDescription": "A German VAT number should consist of 9 digits.",
                 "inputMask": "\\D\\E000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "GermanAlgorithm"
+                    "algorithm": "DE_Algorithm"
                 }
             }
         ]
@@ -145,13 +153,14 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_FR_1",
                 "regex": "^FR\\d{11}$",
-                "validationFormatDescription": "A French VAT number should consist of 11 numbers.",
+                "validationFormatDescription": "A French VAT number should consist of 11 digits.",
                 "inputMask": "\\F\\R00000000000",
                 "minimumLength": 13,
                 "maximumLength": 13,
                 "checksum": {
-                    "algorithm": "FrenchAlgorithm"
+                    "algorithm": "FR_Algorithm"
                 }
             }
         ]
@@ -162,8 +171,9 @@
         "verificationApi": "GSTIN",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_IN_1",
                 "regex": "^IN\\d{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{3}$",
-                "validationFormatDescription": "GSTIN should have 2 numeric characters, then 5 charaters, then 4 numbers, then 1 character, then 3 numbers or characters.",
+                "validationFormatDescription": "GSTIN should have 2 numeric characters, then 5 charaters, then 4 digits, then 1 character, then 3 digits or characters.",
                 "inputMask": "\\I\\N00LLLLL0000LAAA",
                 "minimumLength": 17,
                 "maximumLength": 17
@@ -175,13 +185,14 @@
         "localName": "Impuesto sobre el Valor Agregado",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_CO_1",
                 "regex": "^CO[CJ]{0,1}[0-9]{9,10}[CJ]{0,1}$",
                 "validationFormatDescription": "A Colombian VAT should have 9 or 10 numeric characters optionally with a letter C or J before or after the numeric code.",
                 "inputMask": "\\C\\O?0000000009?",
                 "minimumLength": 11,
                 "maximumLength": 14,
                 "checksum": {
-                    "algorithm": "ColombianAlgorithm"
+                    "algorithm": "CO_Algorithm"
                 }
             }
         ]
@@ -191,13 +202,14 @@
         "localName": "Australian Business Number",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_AU_1",
                 "regex": "^AU([a-zA-Z]{2})?\\d{11}$",
                 "validationFormatDescription": "An Australian VAT should have 11 digits with optional state code of 2 letters before them.",
                 "inputMask": "\\A\\U??00000000000",
                 "minimumLength": 13,
                 "maximumLength": 15,
                 "checksum": {
-                    "algorithm": "AustralianAlgorithm"
+                    "algorithm": "AU_Algorithm"
                 }
             }
         ]
@@ -208,13 +220,14 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_BE_1",
                 "regex": "^BE0?\\d{9}$",
                 "validationFormatDescription": "A Belgian VAT should have 9 digits with optional zero in front of them.",
                 "inputMask": "\\B\\E9000000000",
                 "minimumLength": 11,
                 "maximumLength": 12,
                 "checksum": {
-                    "algorithm": "BelgianAlgorithm"
+                    "algorithm": "BE_Algorithm"
                 }
             }
         ]
@@ -224,13 +237,14 @@
         "localName": "Imposto sobre Circulação de Mercadorias e Serviços",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_BR_1",
                 "regex": "^BR\\d{14}$",
                 "validationFormatDescription": "A Brazil VAT should have 14 digits.",
                 "inputMask": "\\B\\R00000000000000",
                 "minimumLength": 16,
                 "maximumLength": 16,
                 "checksum": {
-                    "algorithm": "BrazilianAlgorithm"
+                    "algorithm": "BR_Algorithm"
                 }
             }
         ]
@@ -240,13 +254,14 @@
         "localName": "Business Number",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_CA_1",
                 "regex": "^CA\\d{9}$",
                 "validationFormatDescription": "A Canadian VAT should have 9 digits.",
                 "inputMask": "\\C\\A000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "CanadianAlgorithm"
+                    "algorithm": "CA_Algorithm"
                 }
             }
         ]
@@ -256,13 +271,14 @@
         "localName": "Mehrwertsteuer",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_CH_1",
                 "regex": "^(CH(E-)?)?E?[0-9]{9}(MWST|IVA|TVA)?$",
                 "validationFormatDescription": "A Swiss VAT should have an optional E letter in front, 9 numeric characters and (MWST|IVA|TVA) after them.",
                 "inputMask": "\\C\\H?000000000????",
                 "minimumLength": 11,
                 "maximumLength": 18,
                 "checksum": {
-                    "algorithm": "SwissAlgorithm"
+                    "algorithm": "CH_Algorithm"
                 }
             }
         ]
@@ -272,27 +288,30 @@
         "localName": "Value Added Tax",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_GB_1",
                 "regex": "^GBGA[5-9]\\d{2}$",
-                "validationFormatDescription": "A British Government authority should have prefix and 3 numbers bigger or equal than 500.",
+                "validationFormatDescription": "A British Government authority should have prefix and 3 digits bigger or equal than 500.",
                 "inputMask": "\\G\\B\\G\\A000",
                 "minimumLength": 7,
                 "maximumLength": 7
             },
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_GB_1",
                 "regex": "^GBHA[0-4]\\d{2}$",
-                "validationFormatDescription": "A British Health authority should have prefix and 3 numbers less 500.",
+                "validationFormatDescription": "A British Health authority should have prefix and 3 digits less 500.",
                 "inputMask": "\\G\\B\\H\\A000",
                 "minimumLength": 7,
                 "maximumLength": 7
             },
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_GB_1",
                 "regex": "^GB\\d{9}$",
                 "validationFormatDescription": "A British VAT should have 9 digits with optional zero in front of them.",
                 "inputMask": "\\G\\B9000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "BritishAlgorithm"
+                    "algorithm": "GB_Algorithm"
                 }
             }
         ]
@@ -303,44 +322,363 @@
         "verificationApi": "EuropeVies",
         "validations": [
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ES_1",
                 "regex": "^ES[K|L|M|X]\\d{7}[A-Z]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after it.",
-                "inputMask": "ESL0000000L",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter before and 1 letter after it.",
+                "inputMask": "\\E\\SL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "Spanish3Algorithm"
+                    "algorithm": "ES_Algorithm3"
                 }
             },
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ES_1",
                 "regex": "^ES[0-9|Y|Z]\\d{7}[A-Z]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter after it and 1 letter or number before it.",
-                "inputMask": "ESL0000000L",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter after it and 1 letter or number before it.",
+                "inputMask": "\\E\\SL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "Spanish3Algorithm"
+                    "algorithm": "ES_Algorithm3"
                 }
             },
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ES_1",
                 "regex": "^ES[A-H|J|U|V]\\d{8}$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 1 letter and 8 numbers.",
-                "inputMask": "ESL0000000L",
+                "validationFormatDescription": "A Spanish VAT number should consist of 1 letter and 8 digits.",
+                "inputMask": "\\E\\SL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "Spanish2Algorithm"
+                    "algorithm": "ES_Algorithm2"
                 }
             },
             {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ES_1",
                 "regex": "^ES[A-H|N-S|W]\\d{7}[A-J]$",
-                "validationFormatDescription": "A Spanish VAT number should consist of 7 numbers and 1 letter before and 1 letter after after it.",
-                "inputMask": "ESL0000000L",
+                "validationFormatDescription": "A Spanish VAT number should consist of 7 digits and 1 letter before and 1 letter after after it.",
+                "inputMask": "\\E\\SL0000000L",
                 "minimumLength": 11,
                 "maximumLength": 11,
                 "checksum": {
-                    "algorithm": "Spanish1Algorithm"
+                    "algorithm": "ES_Algorithm1"
                 }
+            }
+        ]
+    },
+    {
+        "country": "DK",
+        "localName": "CPR-nummer Virksomhed",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_DK_1",
+                "regex": "^DK[1-9]\\d{7}$",
+                "validationFormatDescription": "A Danish VAT number should consist of 8 digits.",
+                "inputMask": "\\D\\K00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "DK_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "AT",
+        "localName": "Umsatzsteuer-Identifikationsnummer",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_AT_1",
+                "regex": "^ATU\\d{8}$",
+                "validationFormatDescription": "An Austrian VAT number should consist of U followed by 8 digits.",
+                "inputMask": "\\A\\T\\U00000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "AT_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "JP",
+        "localName": "My Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_JP_1",
+                "regex": "^JP\\d{12}$",
+                "validationFormatDescription": "A Japanese VAT number should consist of 12 digits.",
+                "inputMask": "\\J\\P000000000000",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "CN",
+        "localName": "增值税",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_CN_1",
+                "regex": "^CN[159Y]{1}[1239]{1}[0-9]{6}[^_IOZSVa-z\\W]{10}$",
+                "validationFormatDescription": "A Chinese VAT number should consist of 18 digits.",
+                "inputMask": "\\C\\N000000000000000000",
+                "minimumLength": 20,
+                "maximumLength": 20,
+                "checksum": {
+                    "algorithm": "CN_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "TR",
+        "localName": "Vergi Kimlik Numarası",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_TR_1",
+                "regex": "^TR\\d{10}$",
+                "validationFormatDescription": "A Turkish VAT number should consist of 10 digits.",
+                "inputMask": "\\T\\R0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "TR_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "SE",
+        "verificationApi": "EuropeVies",
+        "localName": "Mervärdesskattenummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_SE_1",
+                "regex": "^SE\\d{10}$",
+                "validationFormatDescription": "A Swedish VAT number should consist of 10 digits.",
+                "inputMask": "\\S\\E0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "SE_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "IL",
+        "localName": "Mispar Osek Moreshe",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_IL_1",
+                "regex": "^IL\\d{9}$",
+                "validationFormatDescription": "An Israel VAT number should consist of 9 digits.",
+                "inputMask": "\\I\\L000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "Luhn"
+                }
+            }
+        ]
+    },
+    {
+        "country": "TH",
+        "localName": "Lek Ti Pracham Dtua Phusi Phasaa",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_TH_1",
+                "regex": "^TH\\d{13}$",
+                "validationFormatDescription": "A Thai VAT number should consist of 13 digits.",
+                "inputMask": "\\T\\H0000000000000",
+                "minimumLength": 15,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "AE",
+        "localName": "Tax Registration Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_AE_1",
+                "regex": "^AE\\d{15}$",
+                "validationFormatDescription": "An UAE VAT number should consist of 15 digits.",
+                "inputMask": "\\A\\E000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "MY",
+        "localName": "Goods and Services Tax",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_MY_1",
+                "regex": "^MY(CS|D|E|F|FA|PT|TA|TC|TN|TR|TP|TJ|LE)?\\d{10}$",
+                "validationFormatDescription": "A Malayan VAT number should consist of 10 digits and optional up to 2 letters in front of them.",
+                "inputMask": "\\M\\Y??0000000000",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "FI",
+        "verificationApi": "EuropeVies",
+        "localName": "Arvonlisäverotunniste",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_FI_1",
+                "regex": "^FI\\d{8}$",
+                "validationFormatDescription": "A Finnish VAT number should consist of 8 digits.",
+                "inputMask": "\\F\\I00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "ModAndSubstract",
+                    "modulus": 11,
+                    "weights": [ 7, 9, 10, 5, 8, 4, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "SG",
+        "verificationApi": "EuropeVies",
+        "localName": "GST Registration Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_SG_1",
+                "regex": "^SG\\d{9}M$",
+                "validationFormatDescription": "A Singapore VAT number should consist of 9 digits and 'M' letter after them.",
+                "inputMask": "\\S\\G000000000\\M",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "NO",
+        "verificationApi": "EuropeVies",
+        "localName": "Merverdiavgiftsnummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_NO_1",
+                "regex": "^NO\\d{9}$",
+                "validationFormatDescription": "A Norwegian VAT number should consist of 9 digits.",
+                "inputMask": "\\N\\O000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "NO_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "RU",
+        "localName": "Идентификационный номер налогоплательщика",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_RU_1",
+                "regex": "^RU(\\d{10}|\\d{12})$",
+                "validationFormatDescription": "A Russian VAT number should consist of 10 or 12 digits.",
+                "inputMask": "\\R\\U000000000099",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "RU_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "NZ",
+        "localName": "Goods and Services Tax",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_NZ_1",
+                "regex": "^NZ\\d{8}$",
+                "validationFormatDescription": "A New Zealand VAT number should consist of 8 digits.",
+                "inputMask": "\\N\\Z00000000",
+                "minimumLength": 10,
+                "maximumLength": 10,
+                "checksum": {
+                    "algorithm": "NZ_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "SA",
+        "localName": "VAT Registration Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_SA_1",
+                "regex": "^SA3\\d{14}$",
+                "validationFormatDescription": "A Saudi Arabia VAT number should consist of 15 digits starting from 3.",
+                "inputMask": "\\S\\A\\300000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "PH",
+        "localName": "Tax Identification Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_PH_1",
+                "regex": "^PH\\d{12}V?$",
+                "validationFormatDescription": "A Philippines VAT number should consist of 12 digits and optional V in the end.",
+                "inputMask": "\\P\\H\\000000000000\\V",
+                "minimumLength": 14,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "ID",
+        "localName": "Nomor Pokok Wajib Pajak",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_ID_1",
+                "regex": "^ID\\d{15}$",
+                "validationFormatDescription": "A Indonesian VAT number should consist of 15 digits.",
+                "inputMask": "\\I\\D\\000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": {
+                    "algorithm": "ID_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "HK",
+        "localName": "Goods and Services Tax Identification Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_HK_1",
+                "regex": "^HK[a-zA-Z]\\d{6}[a-zA-Z]$",
+                "validationFormatDescription": "A Hong Kong VAT number should consist of 6 digits and a letter in front and after them.",
+                "inputMask": "\\H\\K\\L000000L",
+                "minimumLength": 8,
+                "maximumLength": 8,
+                "checksum": null
             }
         ]
     }

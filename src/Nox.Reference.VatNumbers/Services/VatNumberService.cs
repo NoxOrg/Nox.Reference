@@ -44,7 +44,7 @@ public class VatNumberService : IVatNumberService
         return enrichedVatInfo;
     }
 
-    public IVatNumberInfo ValidateVatNumber(IVatNumberInfo vatNumberInfo)
+    public IVatNumberInfo ValidateVatNumber(IVatNumberInfo vatNumberInfo, bool shouldValidateViaApi = true)
     {
         var enrichedVatInfo = GetCountryVatInfo(vatNumberInfo);
 
@@ -64,7 +64,7 @@ public class VatNumberService : IVatNumberService
             VatValidationService.IsSupportingCountryValidation(enrichedVatInfo.Country))
         {
             enrichedVatInfo.IsVerified = true;
-            enrichedVatInfo.ValidationResult = VatValidationService.ValidateVatNumber(enrichedVatInfo);
+            enrichedVatInfo.ValidationResult = VatValidationService.ValidateVatNumber(enrichedVatInfo, shouldValidateViaApi);
         }
 
         return enrichedVatInfo;

@@ -5,6 +5,7 @@ namespace Nox.Reference.VatNumbers.Models
 {
     public class ValidationInfo : IValidationInfo
     {
+        [JsonPropertyName("translationId")] public string TranslationId { get; set; } = string.Empty;
         [JsonPropertyName("regex")] public string Regex { get; set; } = string.Empty;
         [JsonPropertyName("validationFormatDescription")] public string ValidationFormatDescription { get; set; } = string.Empty;
         [JsonPropertyName("inputMask")] public string InputMask { get; set; } = string.Empty;

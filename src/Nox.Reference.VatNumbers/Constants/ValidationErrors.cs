@@ -21,6 +21,7 @@
         public const string WeidghtsTooShortError = "Weigths array is longer than provided string.";
         public const string ChecksumShoulBeBiggerThanZero = "Checksum number should be bigger than zero.";
         public const string ChecksumDigitPositionNotNumeric = "Checksum digit position should be a number.";
+        public const string ApiValidationError = "API validation has failed.";
 
         // GB
         public const string GB_InvalidGDVat = "Invalid government department value was provided. First 3 digits should be less than 500.";

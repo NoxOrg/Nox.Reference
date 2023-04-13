@@ -12,14 +12,14 @@ namespace Nox.Reference.VatNumbers.Services.Validators
         private static readonly ConcurrentDictionary<string, VatValidationServiceBase> _validationServicesByCountry = new ConcurrentDictionary<string, VatValidationServiceBase>();
         private static readonly VatValidationServiceBase _genericVatValidationServiceBase = new GenericValidationService();
 
-        public static ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber)
+        public static ValidationResult ValidateVatNumber(IVatNumberInfo vatNumber, bool shouldValidateViaApi)
         {
             if (vatNumber == null)
             {
                 return ValidationResults.NullValidationResult;
             }
 
-            var result = ValidateVatNumberInternal(vatNumber);
+            var result = ValidateVatNumberInternal(vatNumber, shouldValidateViaApi);
 
             return result;
         }
@@ -42,16 +42,16 @@ namespace Nox.Reference.VatNumbers.Services.Validators
             return false;
         }
 
-        private static ValidationResult ValidateVatNumberInternal(IVatNumberInfo vatNumber)
+        private static ValidationResult ValidateVatNumberInternal(IVatNumberInfo vatNumber, bool shouldValidateViaApi)
         {
             var countryCode = vatNumber.Country.ToUpper();
             if (IsSupportingCountryValidation(countryCode))
             {
-                return _validationServicesByCountry[countryCode].ValidateVatNumber(vatNumber);
+                return _validationServicesByCountry[countryCode].ValidateVatNumber(vatNumber, shouldValidateViaApi);
             }
             else if (vatNumber.Validations?.Length > 0)
             {
-                return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber);
+                return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber, shouldValidateViaApi);
             }
 
             return ValidationResults.CountryNotFoundValidationResult;
