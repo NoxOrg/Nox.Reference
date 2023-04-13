@@ -8,18 +8,43 @@ namespace Nox.Reference.Data.Mappings
         public CurrencyMapping()
         {
             CreateMap<ICurrencyInfo, Currency>()
-                .ReverseMap();
+                .ForMember(x => x.MinorUnit, x => x.MapFrom(t => t.Units.MinorCurrencyUnit))
+                .ForMember(x => x.MajorUnit, x => x.MapFrom(t => t.Units.MajorCurrencyUnit));
 
             CreateMap<ICurrencyUsage, CurrencyUsage>()
-                .ForMember(x => x.Frequent, x => x.MapFrom(t => string.Join(",", t.Frequent)))
-                .ForMember(x => x.Rare, x => x.MapFrom(t => string.Join(",", t.Rare)));
+                .ForMember(x => x.Frequent, x => x.MapFrom(t => t.Frequent.Select(u => new CurrencyFrequentUsage
+                {
+                    Name = u
+                }).ToList()))
+                .ForMember(x => x.Rare, x => x.MapFrom(t => t.Rare.Select(u => new CurrencyRareUsage
+                {
+                    Name = u
+                }).ToList())
+                );
 
-            CreateMap<ICurrencyUnit, CurrencyUnit>()
-               .ForMember(x => x.MajorValue, x => x.MapFrom(t => t.MinorCurrencyUnit.MajorValue))
-               .ForMember(x => x.MinorName, x => x.MapFrom(t => t.MinorCurrencyUnit.Name))
-               .ForMember(x => x.MajorName, x => x.MapFrom(t => t.MajorCurrencyUnit.Name))
-               .ForMember(x => x.MinorSymbol, x => x.MapFrom(t => t.MinorCurrencyUnit.Symbol))
-               .ForMember(x => x.MajorSymbol, x => x.MapFrom(t => t.MajorCurrencyUnit.Symbol));
+            CreateMap<CurrencyUsage, ICurrencyUsage>()
+                .ForMember(x => x.Frequent, x => x.MapFrom(t => t.Frequent.Select(x => x.Name).ToList()))
+                .ForMember(x => x.Rare, x => x.MapFrom(t => t.Rare.Select(x => x.Name).ToList()))
+                .As<CurrencyUsageInfo>();
+
+            CreateMap<IMinorCurrencyUnit, MinorCurrencyUnit>();
+            CreateMap<IMajorCurrencyUnit, MajorCurrencyUnit>();
+
+            CreateMap<Currency, CurrencyInfo>();
+
+            CreateMap<Currency, ICurrencyInfo>()
+                .As<CurrencyInfo>();
+
+            CreateMap<MajorCurrencyUnit, MajorCurrencyUnitInfo>();
+            CreateMap<MinorCurrencyUnit, MinorCurrencyUnitInfo>();
+
+            CreateMap<MajorCurrencyUnit, IMajorCurrencyUnit>()
+                .As<MajorCurrencyUnitInfo>();
+
+            CreateMap<MinorCurrencyUnit, IMinorCurrencyUnit>()
+                .As<MinorCurrencyUnitInfo>();
+
+            CreateMap<CurrencyUsage, CurrencyUsageInfo>();
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿namespace Nox.Reference.Data;
 
-internal class MinorCurrencyUnit
+public class MinorCurrencyUnit : INoxReferenceEntity
 {
-    public string Name { get; set; }
-    public string Symbol { get; set; }
+    public int Id { get; private set; }
+    public string? Name { get; set; }
+    public string? Symbol { get; set; }
     public decimal MajorValue { get; set; }
 }

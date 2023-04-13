@@ -1,7 +1,8 @@
 ﻿namespace Nox.Reference.Data;
 
-internal class MajorCurrencyUnit
+public class MajorCurrencyUnit : INoxReferenceEntity
 {
-    public string Name { get; set; }
-    public string Symbol { get; set; }
+    public int Id { get; private set; }
+    public string? Name { get; set; }
+    public string? Symbol { get; set; }
 }

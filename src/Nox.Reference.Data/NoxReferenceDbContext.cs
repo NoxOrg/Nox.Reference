@@ -31,7 +31,10 @@ public class NoxReferenceDbContext : DbContext
 
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyUnitConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyFrequentUsageConfiguration());
+        modelBuilder.ApplyConfiguration(new CurrencyRareUsageConfiguration());
+        modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
+        modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
 
         modelBuilder.ApplyConfiguration(new MacAddressConfiguration());
 

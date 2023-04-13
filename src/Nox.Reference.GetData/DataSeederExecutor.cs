@@ -22,7 +22,7 @@ internal class DataSeederExecutor : IDataSeederExecutor
         _configuration = configuration;
         _dataSeeds = new List<INoxReferenceDataSeeder>
         {
-            macAddressDataSeeder,
+            //macAddressDataSeeder,
             currencyDataSeeder
         };
     }
