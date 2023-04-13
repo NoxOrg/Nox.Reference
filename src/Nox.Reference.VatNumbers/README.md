@@ -33,5 +33,12 @@ Console.WriteLine(validationResult);
 dotnet add package Nox.Reference.VatNumbers
 ```
 
+### Points to improve:
+1. More algorithms can be generalized and be given a common name, not country name 
+2. Flow should be validated per country
+3. More countries can be implemented 
+4. More check APIs should be implemented per request
+5. Code refactoring 
+
 ### Dependencies
 Uses [CountryValidator](https://github.com/anghelvalentin/CountryValidator) as a partial source of VAT number validation rules.

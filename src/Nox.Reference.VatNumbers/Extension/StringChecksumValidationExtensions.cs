@@ -40,124 +40,124 @@ namespace Nox.Reference.VatNumbers.Extension
             return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMod(modulus, weights, checksumDigitPosition));
         }
 
-        public static List<string> ValidateMexicanAlgorithm(this string vatNumber)
+        public static List<string> ValidateMXAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMexicanAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMXAlgorithm());
         }
 
-        public static List<string> ValidateGermanAlgorithm(this string vatNumber)
+        public static List<string> ValidateDEAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckGermanAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDEAlgorithm());
         }
 
-        public static List<string> ValidateFrenchAlgorithm(this string vatNumber)
+        public static List<string> ValidateFRAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckFrenchAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckFRAlgorithm());
         }
 
-        public static List<string> ValidateColombianAlgorithm(this string vatNumber)
+        public static List<string> ValidateCOAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckColombianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCOAlgorithm());
         }
 
-        public static List<string> ValidateAustralianAlgorithm(this string vatNumber)
+        public static List<string> ValidateAUAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckAustralianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckAUAlgorithm());
         }
 
-        public static List<string> ValidateBelgianAlgorithm(this string vatNumber)
+        public static List<string> ValidateBEAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBelgianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBEAlgorithm());
         }
 
-        public static List<string> ValidateBralizianAlgorithm(this string vatNumber)
+        public static List<string> ValidateBRAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBrazilianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBRAlgorithm());
         }
 
-        public static List<string> ValidateCanadianAlgorithm(this string vatNumber)
+        public static List<string> ValidateCAAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCanadianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCAAlgorithm());
         }
 
-        public static List<string> ValidateSwissAlgorithm(this string vatNumber)
+        public static List<string> ValidateCHAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSwissAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCHAlgorithm());
         }
 
-        public static List<string> ValidateBritishAlgorithm(this string vatNumber)
+        public static List<string> ValidateGBAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBritishAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckGBAlgorithm());
         }
 
-        public static List<string> ValidateSpanish1Algorithm(this string vatNumber)
+        public static List<string> ValidateES1Algorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSpanish1Algorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES1Algorithm());
         }
 
-        public static List<string> ValidateSpanish2Algorithm(this string vatNumber)
+        public static List<string> ValidateES2Algorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSpanish2Algorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES2Algorithm());
         }
 
-        public static List<string> ValidateSpanish3Algorithm(this string vatNumber)
+        public static List<string> ValidateES3Algorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSpanish3Algorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES3Algorithm());
         }
 
-        public static List<string> ValidateDenmarkAlgorithm(this string vatNumber)
+        public static List<string> ValidateDKAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDenmarkAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDKAlgorithm());
         }
 
-        public static List<string> ValidateAustrianAlgorithm(this string vatNumber)
+        public static List<string> ValidateATAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckAustrianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckATAlgorithm());
         }
 
-        public static List<string> ValidateJapaneseAlgorithm(this string vatNumber)
+        public static List<string> ValidateJPAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckJapeneseAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckJPAlgorithm());
         }
 
-        public static List<string> ValidateChineseAlgorithm(this string vatNumber)
+        public static List<string> ValidateCNAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckChineseAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCNAlgorithm());
         }
 
-        public static List<string> ValidateTurkishAlgorithm(this string vatNumber)
+        public static List<string> ValidateTRAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckTurkishAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckTRAlgorithm());
         }
 
-        public static List<string> ValidateSwedenAlgorithm(this string vatNumber)
+        public static List<string> ValidateSEAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSwedenAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSEAlgorithm());
         }
 
-        public static List<string> ValidateIsraeliAlgorithm(this string vatNumber)
+        public static List<string> ValidateILAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIsraeliAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckILAlgorithm());
         }
 
-        public static List<string> ValidateNorwegianAlgorithm(this string vatNumber)
+        public static List<string> ValidateNOAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNorwegianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNOAlgorithm());
         }
 
-        public static List<string> ValidateRussianAlgorithm(this string vatNumber)
+        public static List<string> ValidateRUAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckRussianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckRUAlgorithm());
         }
 
-        public static List<string> ValidateNewZealandAlgorithm(this string vatNumber)
+        public static List<string> ValidateNZAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNewZealandAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNZAlgorithm());
         }
 
-        public static List<string> ValidateIndonesianAlgorithm(this string vatNumber)
+        public static List<string> ValidateIDAlgorithm(this string vatNumber)
         {
-            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIndonesianAlgorithm());
+            return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIDAlgorithm());
         }
 
         private static List<string> CheckLuhnDigit(this string stringDigits)
@@ -303,7 +303,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckMexicanAlgorithm(this string stringDigits)
+        private static List<string> CheckMXAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
             var originalCheckDigit = stringDigits.Last();
@@ -359,7 +359,7 @@ namespace Nox.Reference.VatNumbers.Extension
             }
         }
 
-        private static List<string> CheckGermanAlgorithm(this string stringDigits)
+        private static List<string> CheckDEAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -389,7 +389,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckFrenchAlgorithm(this string stringDigits)
+        private static List<string> CheckFRAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -405,7 +405,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckColombianAlgorithm(this string stringDigits)
+        private static List<string> CheckCOAlgorithm(this string stringDigits)
         {
             var weights = new int[] { 3, 7, 13, 17, 19, 23, 29, 37, 41, 43, 47, 53, 59, 67, 71 };
             
@@ -437,7 +437,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckAustralianAlgorithm(this string stringDigits)
+        private static List<string> CheckAUAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -464,7 +464,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckBelgianAlgorithm(this string stringDigits)
+        private static List<string> CheckBEAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -485,7 +485,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckBrazilianAlgorithm(this string stringDigits)
+        private static List<string> CheckBRAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -526,7 +526,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return Convert.ToInt32(mod < 2 ? 0 : 11 - mod);
         }
 
-        private static List<string> CheckCanadianAlgorithm(this string stringDigits)
+        private static List<string> CheckCAAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -545,7 +545,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckSwissAlgorithm(this string stringDigits)
+        private static List<string> CheckCHAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -579,7 +579,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckBritishAlgorithm(this string stringDigits)
+        private static List<string> CheckGBAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -629,7 +629,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckSpanish1Algorithm(this string stringDigits)
+        private static List<string> CheckES1Algorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
             var total = 0;
@@ -661,7 +661,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckSpanish2Algorithm(this string stringDigits)
+        private static List<string> CheckES2Algorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
             var total = 0;
@@ -692,7 +692,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckSpanish3Algorithm(this string stringDigits)
+        private static List<string> CheckES3Algorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -720,7 +720,7 @@ namespace Nox.Reference.VatNumbers.Extension
         }
 
         // TODO: join with MOD
-        private static List<string> CheckDenmarkAlgorithm(this string stringDigits)
+        private static List<string> CheckDKAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -751,7 +751,7 @@ namespace Nox.Reference.VatNumbers.Extension
         }
 
         // TODO: join with other, possibly with Luhn
-        private static List<string> CheckAustrianAlgorithm(this string stringDigits)
+        private static List<string> CheckATAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -780,7 +780,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckJapeneseAlgorithm(this string stringDigits)
+        private static List<string> CheckJPAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -790,7 +790,7 @@ namespace Nox.Reference.VatNumbers.Extension
         }
 
         // TODO: join with ModAndSubstract
-        private static List<string> CheckChineseAlgorithm(this string stringDigits)
+        private static List<string> CheckCNAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -815,7 +815,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckTurkishAlgorithm(this string stringDigits)
+        private static List<string> CheckTRAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -847,7 +847,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckSwedenAlgorithm(this string stringDigits)
+        private static List<string> CheckSEAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -877,7 +877,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckIsraeliAlgorithm(this string stringDigits)
+        private static List<string> CheckILAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -907,7 +907,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckNorwegianAlgorithm(this string stringDigits)
+        private static List<string> CheckNOAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -940,7 +940,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckRussianAlgorithm(this string stringDigits)
+        private static List<string> CheckRUAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -999,7 +999,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckNewZealandAlgorithm(this string stringDigits)
+        private static List<string> CheckNZAlgorithm(this string stringDigits)
         {
             var errorMessage = new List<string>();
 
@@ -1047,7 +1047,7 @@ namespace Nox.Reference.VatNumbers.Extension
             return errorMessage;
         }
 
-        private static List<string> CheckIndonesianAlgorithm(this string stringDigits)
+        private static List<string> CheckIDAlgorithm(this string stringDigits)
         {
             var vatNumber = stringDigits;
             if (vatNumber.Length == 12)

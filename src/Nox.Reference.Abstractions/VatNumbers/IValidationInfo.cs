@@ -2,6 +2,7 @@
 {
     public interface IValidationInfo
     {
+        public string TranslationId { get; }
         public string Regex { get; }
         public string ValidationFormatDescription { get; set; }
         public string InputMask { get; }

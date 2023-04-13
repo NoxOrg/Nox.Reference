@@ -7,7 +7,7 @@ internal class VatNumberFormatter
     {
         try
         {
-            var sourcePath = Path.Combine(inputPath, "VatNumbers", "VatNumbersRaw.csv");
+            var sourcePath = Path.Combine(inputPath, "VatNumbers", "VatNumbersTestDataRaw.csv");
             if (!File.Exists(sourcePath))
             {
                 Console.WriteLine($"Error! Source file not found by path: {sourcePath}. Finishing.");

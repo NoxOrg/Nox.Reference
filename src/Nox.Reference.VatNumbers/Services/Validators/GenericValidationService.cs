@@ -205,7 +205,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateModAndSubstract(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
                     break;
-                case ChecksumAlgorithm.ModAndSubstractItaly:
+                case ChecksumAlgorithm.ModAndSubstract_IT:
                     if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
                         !(validationInfoByPattern.Checksum.Weights?.Count > 0))
                     {
@@ -231,12 +231,12 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateMod(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
                     break;
-                case ChecksumAlgorithm.MexicanAlgorithm:
+                case ChecksumAlgorithm.MX_Algorithm:
                     // length is checked inside 
 
-                    result.ValidationErrors.AddRange(vatNumber.OriginalVatNumber.ValidateMexicanAlgorithm());
+                    result.ValidationErrors.AddRange(vatNumber.OriginalVatNumber.ValidateMXAlgorithm());
                     break;
-                case ChecksumAlgorithm.GermanAlgorithm:
+                case ChecksumAlgorithm.DE_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
                     {
@@ -244,9 +244,9 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateGermanAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateDEAlgorithm());
                     break;
-                case ChecksumAlgorithm.FrenchAlgorithm:
+                case ChecksumAlgorithm.FR_Algorithm:
                     minimumLength = 2;
                     if (digitPart.Length < minimumLength)
                     {
@@ -254,9 +254,9 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateFrenchAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateFRAlgorithm());
                     break;
-                case ChecksumAlgorithm.ColombianAlgorithm:
+                case ChecksumAlgorithm.CO_Algorithm:
                     minimumLength = 1;
                     if (digitPart.Length < minimumLength)
                     {
@@ -264,9 +264,9 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateColombianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateCOAlgorithm());
                     break;
-                case ChecksumAlgorithm.AustralianAlgorithm:
+                case ChecksumAlgorithm.AU_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
                     {
@@ -274,9 +274,9 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateAustralianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateAUAlgorithm());
                     break;
-                case ChecksumAlgorithm.BelgianAlgorithm:
+                case ChecksumAlgorithm.BE_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
                     {
@@ -284,9 +284,9 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateBelgianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateBEAlgorithm());
                     break;
-                case ChecksumAlgorithm.BrazilianAlgorithm:
+                case ChecksumAlgorithm.BR_Algorithm:
                     minimumLength = 14;
                     if (digitPart.Length != minimumLength)
                     {
@@ -294,10 +294,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateBralizianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateBRAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.CanadianAlgorithm:
+                case ChecksumAlgorithm.CA_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length != minimumLength)
                     {
@@ -305,10 +305,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateCanadianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateCAAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.SwissAlgorithm:
+                case ChecksumAlgorithm.CH_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length != minimumLength)
                     {
@@ -316,10 +316,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateSwissAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateCHAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.BritishAlgorithm:
+                case ChecksumAlgorithm.GB_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length != minimumLength)
                     {
@@ -327,10 +327,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateBritishAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateGBAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.Spanish1Algorithm:
+                case ChecksumAlgorithm.ES_Algorithm1:
                     minimumLength = 10;
                     if (vatNumber.FormattedVatNumber.Length < minimumLength)
                     {
@@ -344,10 +344,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(3).ValidateSpanish1Algorithm());
+                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(3).ValidateES1Algorithm());
                     break;
 
-                case ChecksumAlgorithm.Spanish2Algorithm:
+                case ChecksumAlgorithm.ES_Algorithm2:
                     minimumLength = 10;
                     if (vatNumber.FormattedVatNumber.Length < minimumLength)
                     {
@@ -361,10 +361,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(3).ValidateSpanish2Algorithm());
+                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(3).ValidateES2Algorithm());
                     break;
 
-                case ChecksumAlgorithm.Spanish3Algorithm:
+                case ChecksumAlgorithm.ES_Algorithm3:
                     minimumLength = 9;
                     if (vatNumber.FormattedVatNumber.Length < minimumLength)
                     {
@@ -378,10 +378,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(2).ValidateSpanish3Algorithm());
+                    result.ValidationErrors.AddRange(vatNumber.FormattedVatNumber.Substring(2).ValidateES3Algorithm());
                     break;
 
-                case ChecksumAlgorithm.DenmarkAlgorithm:
+                case ChecksumAlgorithm.DK_Algorithm:
                     minimumLength = 8;
                     if (digitPart.Length < minimumLength)
                     {
@@ -389,10 +389,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateDenmarkAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateDKAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.AustrianAlgorithm:
+                case ChecksumAlgorithm.AT_Algorithm:
                     minimumLength = 8;
                     if (digitPart.Length < minimumLength)
                     {
@@ -400,10 +400,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateAustrianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateATAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.JapaneseAlgorithm:
+                case ChecksumAlgorithm.JP_Algorithm:
                     minimumLength = 12;
                     if (digitPart.Length < minimumLength)
                     {
@@ -411,10 +411,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateJapaneseAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateJPAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.ChineseAlgorithm:
+                case ChecksumAlgorithm.CN_Algorithm:
                     minimumLength = 18;
                     if (digitPart.Length < minimumLength)
                     {
@@ -422,10 +422,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateChineseAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateCNAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.TurkishAlgorithm:
+                case ChecksumAlgorithm.TR_Algorithm:
                     minimumLength = 10;
                     if (digitPart.Length < minimumLength)
                     {
@@ -433,10 +433,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateTurkishAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateTRAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.SwedishAlgorithm:
+                case ChecksumAlgorithm.SE_Algorithm:
                     minimumLength = 10;
                     if (digitPart.Length < minimumLength)
                     {
@@ -444,10 +444,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateSwedenAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateSEAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.NorwegianAlgorithm:
+                case ChecksumAlgorithm.NO_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
                     {
@@ -455,10 +455,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateNorwegianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateNOAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.RussianAlgorithm:
+                case ChecksumAlgorithm.RU_Algorithm:
                     var firstTypeLength = 10;
                     var secondTypeLength = 12;
                     if (digitPart.Length != firstTypeLength &&
@@ -468,10 +468,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateRussianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateRUAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.NewZealandAlgorithm:
+                case ChecksumAlgorithm.NZ_Algorithm:
                     minimumLength = 8;
                     if (digitPart.Length < minimumLength)
                     {
@@ -479,10 +479,10 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateNewZealandAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateNZAlgorithm());
                     break;
 
-                case ChecksumAlgorithm.IndonesianAlgorithm:
+                case ChecksumAlgorithm.ID_Algorithm:
                     minimumLength = 12;
                     if (digitPart.Length < minimumLength)
                     {
@@ -490,7 +490,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                         return;
                     }
 
-                    result.ValidationErrors.AddRange(digitPart.ValidateIndonesianAlgorithm());
+                    result.ValidationErrors.AddRange(digitPart.ValidateIDAlgorithm());
                     break;
 
                 case ChecksumAlgorithm.None:
