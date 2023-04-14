@@ -14,7 +14,8 @@ internal class CurrenciesService : ICurrenciesService
 
     public IReadOnlyList<ICurrencyInfo> GetCurrencies()
     {
-        return _currencyContext.Query().ToList();
+        var p = _currencyContext.Query().Where(x => x.Banknotes.Frequent.Count() > 2).ToList();
+        return p;
     }
 
     public ICurrencyInfo? GetCurrencyByIsoCode(string isoCode)

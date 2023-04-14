@@ -4,12 +4,7 @@ using Nox.Reference.Data.Configurations;
 
 namespace Nox.Reference.Data;
 
-public interface INoxReferenceContext
-{
-    IQueryable<TSet> GetSet<TSet>();
-}
-
-internal class NoxReferenceDbContext : DbContext
+internal partial class NoxReferenceDbContext : DbContext
 {
     public NoxReferenceDbContext(DbContextOptions<NoxReferenceDbContext> options)
         : base(options)
@@ -18,6 +13,7 @@ internal class NoxReferenceDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        //IMPORTANT: Only the following line should be used to add configurations when all structure will be done.
         //var configurations = Assembly.GetExecutingAssembly();
 
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
