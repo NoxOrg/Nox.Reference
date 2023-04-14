@@ -4,7 +4,7 @@ namespace Nox.Reference.Data;
 
 internal class CurrencyInfo : ICurrencyInfo
 {
-    public string IsoCode { get; }
+    public string IsoCode { get; private set; }
     public string IsoNumber { get; }
     public string Symbol { get; }
     public string ThousandsSeparator { get; }

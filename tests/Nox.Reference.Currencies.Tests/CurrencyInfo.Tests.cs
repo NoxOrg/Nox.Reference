@@ -1,5 +1,7 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Currencies;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
@@ -19,8 +21,15 @@ public class CurrencyTests
     [SetUp]
     public void Setup()
     {
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new List<KeyValuePair<string, string?>>()
+            {
+                    new KeyValuePair<string, string?>( "ConnectionStrings:noxreferencesConnection", @"Data Source=..\..\..\..\..\data\noxreferences.db")
+            })
+          .Build();
+
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddNoxCurrencies();
+        serviceCollection.AddNoxCurrencies(configuration);
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 

@@ -16,7 +16,7 @@ internal class MacAddressService : IMacAddressService
     public IMacAddressInfo? GetMacAddressInfo(string id)
     {
         var macAddressPrefix = MacAddressHelper.GetMacAddressPrefix(id);
-        var info = _context.Query.FirstOrDefault(x => x.MacPrefix == macAddressPrefix);
+        var info = _context.Query().FirstOrDefault(x => x.MacPrefix == macAddressPrefix);
 
         return info;
     }

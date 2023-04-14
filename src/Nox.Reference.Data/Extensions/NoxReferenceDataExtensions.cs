@@ -20,6 +20,9 @@ public static class NoxReferenceDataExtensions
 
         services.AddScoped<INoxReferenceContext<IMacAddressInfo>, NoxReferenceContext<MacAddress, IMacAddressInfo>>();
 
+        services.AddScoped<INoxReferenceContext<ICurrencyInfo>, NoxReferenceContext<Currency, ICurrencyInfo>>();
+        services.AddScoped<INoxReferenceContext<ICurrencyUsage>, NoxReferenceContext<CurrencyUsage, ICurrencyUsage>>();
+
         services.AddScoped<INoxReferenceDatabaseMigrator, DatabaseMigrator>();
         services.AddSqlite<NoxReferenceDbContext>(configuration.GetConnectionString("noxreferencesConnection"));
         return services;

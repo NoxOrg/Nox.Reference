@@ -26,20 +26,24 @@ namespace Nox.Reference.Data.Mappings
             CreateMap<IMajorCurrencyUnit, MajorCurrencyUnit>();
 
             CreateProjection<Currency, CurrencyInfo>();
-
-            CreateProjection<Currency, ICurrencyInfo>();
-
             CreateProjection<MajorCurrencyUnit, MajorCurrencyUnitInfo>();
             CreateProjection<MinorCurrencyUnit, MinorCurrencyUnitInfo>();
 
-            CreateProjection<MajorCurrencyUnit, IMajorCurrencyUnit>();
-            CreateProjection<MinorCurrencyUnit, IMinorCurrencyUnit>();
-
-            CreateProjection<CurrencyUsage, CurrencyUsageInfo>();
-
-            CreateProjection<CurrencyUsage, ICurrencyUsage>()
+            CreateProjection<CurrencyUsage, CurrencyUsageInfo>()
                 .ForMember(x => x.Frequent, x => x.MapFrom(t => t.Frequent.Select(x => x.Name).ToList()))
                 .ForMember(x => x.Rare, x => x.MapFrom(t => t.Rare.Select(x => x.Name).ToList()));
+
+            CreateMap<Currency, ICurrencyInfo>()
+                .As<CurrencyInfo>();
+
+            CreateMap<CurrencyUsage, ICurrencyUsage>()
+                .As<CurrencyUsageInfo>();
+
+            CreateMap<MajorCurrencyUnit, IMajorCurrencyUnit>()
+                .As<MajorCurrencyUnitInfo>();
+
+            CreateMap<MinorCurrencyUnit, IMinorCurrencyUnit>()
+                .As<MinorCurrencyUnitInfo>();
         }
     }
 }
