@@ -10,7 +10,8 @@ namespace Nox.Reference.Currency.Tests;
 
 public class CurrencyTests
 {
-    private ICurrenciesService _currenciesService;
+    // set during mamndatory init
+    private ICurrenciesService _currenciesService = null!;
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -18,7 +19,7 @@ public class CurrencyTests
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         IConfiguration configuration = new ConfigurationBuilder()

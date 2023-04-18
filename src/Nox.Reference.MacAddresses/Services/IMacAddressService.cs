@@ -8,7 +8,7 @@ namespace Nox.Reference.MacAddresses
         /// Get mac address info by mac address.
         /// </summary>
         /// <param name="id">Mac Address identifier</param>
-        /// <returns>IMacAddressInfo</returns>
+        /// <returns>Mac address info</returns>
         IMacAddressInfo? GetMacAddressInfo(string id);
     }
 }

@@ -11,7 +11,7 @@ public class PhoneNumberInfoTests
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         Trace.Listeners.Add(new ConsoleTraceListener());

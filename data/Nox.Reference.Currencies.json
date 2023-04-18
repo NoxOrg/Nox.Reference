@@ -942,17 +942,33 @@
   },
   {
     "isoCode": "BTC",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u0243",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 8,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "BTN",
@@ -1046,17 +1062,33 @@
   },
   {
     "isoCode": "BYR",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u0440.",
     "thousandsSeparator": "\u00A0",
     "decimalSeparator": ",",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": true,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "BYN",
@@ -1204,17 +1236,33 @@
   },
   {
     "isoCode": "CDF",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "FC",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "CHF",
@@ -4135,17 +4183,33 @@
   },
   {
     "isoCode": "MTL",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u20A4",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "MUR",
@@ -5403,17 +5467,33 @@
   },
   {
     "isoCode": "SDD",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "LSd",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "SDG",
@@ -5553,17 +5633,33 @@
   },
   {
     "isoCode": "SHP",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u00A3",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "SLL",
@@ -5699,31 +5795,63 @@
   },
   {
     "isoCode": "STD",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "Db",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "SVC",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u20A1",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "SYP",
@@ -6143,17 +6271,33 @@
   },
   {
     "isoCode": "TVD",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "$",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "TWD",
@@ -6471,17 +6615,33 @@
   },
   {
     "isoCode": "VEB",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "Bs.",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "VEF",
@@ -6616,7 +6776,7 @@
       "minorCurrencyUnit": {
         "name": "",
         "symbol": "",
-        "majorValue": 0
+        "majorValue": 1
       }
     }
   },
@@ -6665,17 +6825,33 @@
   },
   {
     "isoCode": "XAF",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "F",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "XCD",
@@ -6723,17 +6899,33 @@
   },
   {
     "isoCode": "XBT",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u0243",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": false,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   },
   {
     "isoCode": "XOF",
@@ -6954,16 +7146,32 @@
   },
   {
     "isoCode": "WON",
-    "isoNumber": null,
+    "isoNumber": "",
     "symbol": "\u20A9",
     "thousandsSeparator": ",",
     "decimalSeparator": ".",
     "symbolOnLeft": true,
     "spaceBetweenAmountAndSymbol": false,
     "decimalDigits": 2,
-    "name": null,
-    "banknotes": null,
-    "coins": null,
-    "units": null
+    "name": "",
+    "banknotes": {
+      "frequent": [],
+      "rare": []
+    },
+    "coins": {
+      "frequent": [],
+      "rare": []
+    },
+    "units": {
+      "majorCurrencyUnit": {
+        "name": "",
+        "symbol": ""
+      },
+      "minorCurrencyUnit": {
+        "name": "",
+        "symbol": "",
+        "majorValue": 0
+      }
+    }
   }
 ]
