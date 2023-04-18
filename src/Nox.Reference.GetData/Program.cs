@@ -16,6 +16,7 @@ var host = Host.CreateDefaultBuilder()
         services.AddScoped<CountryDataExtractCommand>();
         services.AddScoped<CurrencyDataExtractCommand>();
         services.AddScoped<MacAddressDataExtractCommand>();
+        services.AddScoped<LanguageDataExtractCommand>();
     })
     .Build();
 

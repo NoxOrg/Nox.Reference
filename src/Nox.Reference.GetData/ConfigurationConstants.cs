@@ -8,4 +8,6 @@ public static class ConfigurationConstants
     public const string UriRestCurrencyFormatterCurrenciesSettingName = "UriRestCurrencyFormatterCurrencies";
     public const string UriMacAddressesSettingName = "UriMacAddresses";
     public const string UriRestCountriesSettingName = "UriRestCountries";
+    public const string UriLanguagesISO639 = "UriLanguagesISO639";
+    public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
 }
