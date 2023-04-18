@@ -1,9 +1,13 @@
-﻿using Nox.Reference.Abstractions.Currencies;
+﻿using System.Text.Json.Serialization;
+using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Country.DataContext;
 
-internal class CurrencyUsageInfo : ICurrencyUsage
+public class CurrencyUsageInfo : ICurrencyUsage
 {
-    public IReadOnlyList<string> Frequent { get; set; }
-    public IReadOnlyList<string> Rare { get; set; }
+    [JsonPropertyName("frequent")] public IReadOnlyList<string> Frequent_ { get; set; } = new List<string>();
+    [JsonPropertyName("rare")] public IReadOnlyList<string> Rare_ { get; set; } = new List<string>();
+
+    [JsonIgnore] public IReadOnlyList<string> Frequent => Frequent_;
+    [JsonIgnore] public IReadOnlyList<string> Rare => Rare_;
 }

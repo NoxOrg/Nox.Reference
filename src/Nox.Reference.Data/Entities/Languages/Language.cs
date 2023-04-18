@@ -1,8 +1,9 @@
-﻿namespace Nox.Reference.Data
+﻿using Nox.Reference.Data.Common;
+
+namespace Nox.Reference.Country.DataContext;
+
+internal class Language : INoxReferenceEntity
 {
-    internal class Language : INoxReferenceEntity
-    {
-        public int Id { get; private set; }
-        public string Name { get; set; }
-    }
+    public int Id { get; private set; }
+    public string Name { get; set; } = string.Empty;
 }

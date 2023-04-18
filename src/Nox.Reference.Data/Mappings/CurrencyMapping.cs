@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Data.Mappings
+namespace Nox.Reference.Country.DataContext.Mappings
 {
     internal class CurrencyMapping : Profile
     {

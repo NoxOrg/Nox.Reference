@@ -16,8 +16,4 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\Nox.Reference.Currencies\Nox.Reference.Currencies.csproj" />
-  </ItemGroup>
-
 </Project>

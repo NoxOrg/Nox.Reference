@@ -1,9 +1,13 @@
-﻿using Nox.Reference.Abstractions.Currencies;
+﻿using System.Text.Json.Serialization;
+using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Country.DataContext;
 
-internal class MajorCurrencyUnitInfo : IMajorCurrencyUnit
+public class MajorCurrencyUnitInfo : IMajorCurrencyUnit
 {
-    public string Name { get; set; }
-    public string Symbol { get; set; }
+    [JsonPropertyName("name")] public string Name_ { get; set; } = "";
+    [JsonPropertyName("symbol")] public string Symbol_ { get; set; } = "";
+
+    [JsonIgnore] public string Name => Name_;
+    [JsonIgnore] public string Symbol => Symbol_;
 }

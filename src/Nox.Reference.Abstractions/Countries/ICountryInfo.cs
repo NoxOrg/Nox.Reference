@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions.Countries;
 
 public interface ICountryInfo
 {
@@ -43,4 +43,3 @@ public interface ICountryInfo
     public DayOfWeek StartDayOfWeek { get; }
     public IReadOnlyList<string> TimeZones { get; }
 }
-

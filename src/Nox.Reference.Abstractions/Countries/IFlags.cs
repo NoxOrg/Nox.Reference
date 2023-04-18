@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions.Countries;
 
 public interface IFlags
 {
@@ -6,4 +6,3 @@ public interface IFlags
     public string Png { get; }
     public string AlternateText { get; }
 }
-

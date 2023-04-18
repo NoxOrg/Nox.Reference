@@ -1,12 +1,13 @@
-﻿namespace Nox.Reference.Data;
+﻿using Nox.Reference.Data.Common;
 
-internal class Country : LocalizableEntityBase<CountryLocalization>, INoxReferenceEntity
+namespace Nox.Reference.Country.DataContext;
+
+internal class Country : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public string Name { get; set; }
     public string Code { get; set; }
     public IReadOnlyList<Language> Languages { get; set; }
-    public CountryLocalization Localization { get; private set; }
     public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; set; }
     public string AlphaCode2 { get; set; }
     public string NumericCode { get; set; }

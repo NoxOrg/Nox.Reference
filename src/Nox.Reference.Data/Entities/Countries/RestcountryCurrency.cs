@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data;
+﻿namespace Nox.Reference.Country.DataContext;
 
 internal class RestcountryCurrency
 {

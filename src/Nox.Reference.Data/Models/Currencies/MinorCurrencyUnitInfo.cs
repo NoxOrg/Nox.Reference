@@ -1,10 +1,15 @@
-﻿using Nox.Reference.Abstractions.Currencies;
+﻿using System.Text.Json.Serialization;
+using Nox.Reference.Abstractions.Currencies;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Country.DataContext;
 
-internal class MinorCurrencyUnitInfo : IMinorCurrencyUnit
+public class MinorCurrencyUnitInfo : IMinorCurrencyUnit
 {
-    public string Name { get; set; }
-    public string Symbol { get; set; }
-    public decimal MajorValue { get; set; }
+    [JsonPropertyName("name")] public string Name_ { get; set; } = "";
+    [JsonPropertyName("symbol")] public string Symbol_ { get; set; } = "";
+    [JsonPropertyName("majorValue")] public decimal MajorValue_ { get; set; } = 0;
+
+    [JsonIgnore] public string Name => Name_;
+    [JsonIgnore] public string Symbol => Symbol_;
+    [JsonIgnore] public decimal MajorValue => MajorValue_;
 }

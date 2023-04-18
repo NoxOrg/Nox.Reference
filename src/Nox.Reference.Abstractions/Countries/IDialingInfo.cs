@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions.Countries;
 
 public interface IDialingInfo
 {
@@ -6,4 +6,3 @@ public interface IDialingInfo
 
     public IReadOnlyList<string> Suffixes { get; }
 }
-

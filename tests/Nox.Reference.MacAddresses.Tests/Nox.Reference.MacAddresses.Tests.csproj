@@ -19,7 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\Nox.Reference.MacAddresses\Nox.Reference.MacAddresses.csproj" />
+	  <ProjectReference Include="..\..\src\Nox.Reference.MacAddresses\Nox.Reference.MacAddress.DataContext.csproj" />
 	</ItemGroup>
 
 </Project>

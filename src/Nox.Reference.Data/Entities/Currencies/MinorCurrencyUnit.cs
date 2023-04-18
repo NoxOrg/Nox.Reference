@@ -1,4 +1,6 @@
-﻿namespace Nox.Reference.Data;
+﻿using Nox.Reference.Data.Common;
+
+namespace Nox.Reference.Country.DataContext;
 
 public class MinorCurrencyUnit : INoxReferenceEntity
 {

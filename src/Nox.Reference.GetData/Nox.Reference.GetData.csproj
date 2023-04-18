@@ -20,8 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
-    <ProjectReference Include="..\Nox.Reference.Countries\Nox.Reference.Countries.csproj" />
-    <ProjectReference Include="..\Nox.Reference.Data\Nox.Reference.Data.csproj" />
+    <ProjectReference Include="..\Nox.Reference.Data\Nox.Reference.Country.DbContext.csproj" />
   </ItemGroup>
 
   <ItemGroup>

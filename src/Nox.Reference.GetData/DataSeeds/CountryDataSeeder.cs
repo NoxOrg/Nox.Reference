@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Countries;
-using Nox.Reference.Data;
-using Nox.Reference.GetData.Helpers;
+using Nox.Reference.Common;
 using System.Text.Json;
 
 namespace Nox.Reference.GetData.DataSeeds;
@@ -10,16 +8,13 @@ namespace Nox.Reference.GetData.DataSeeds;
 public class CountryDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
-    private readonly INoxReferenceSeed<ICountryInfo> _dataSeed;
     private readonly ILogger<CountryDataSeeder> _logger;
 
     public CountryDataSeeder(
         IConfiguration configuration,
-        INoxReferenceSeed<ICountryInfo> dataSeed,
         ILogger<CountryDataSeeder> logger)
     {
         _configuration = configuration;
-        _dataSeed = dataSeed;
         _logger = logger;
     }
 

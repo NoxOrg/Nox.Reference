@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.Configurations;
+namespace Nox.Reference.Country.DataContext.Configurations;
 
-internal class CountryConfiguration : LocalizableEntityConfigurationBase<Country, CountryLocalization>
+internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Country>
 {
     protected override void DoConfigure(EntityTypeBuilder<Country> builder)
     {
-        base.DoConfigure(builder);
-
         builder
             .HasMany(x => x.Languages)
             .WithOne()
