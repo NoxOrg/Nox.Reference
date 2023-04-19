@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Country.DataC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.MacAddress.DataContext", "Nox.Reference.MacAddresses.DataContext\Nox.Reference.MacAddress.DataContext.csproj", "{38A0414D-55F5-48EB-B0FA-18B7382CF3FD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Refeence.DataLoaders", "Nox.Refeence.DataLoaders\Nox.Refeence.DataLoaders.csproj", "{17EDB539-210C-4C8F-8C31-4FCF64190348}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{38A0414D-55F5-48EB-B0FA-18B7382CF3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38A0414D-55F5-48EB-B0FA-18B7382CF3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38A0414D-55F5-48EB-B0FA-18B7382CF3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17EDB539-210C-4C8F-8C31-4FCF64190348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17EDB539-210C-4C8F-8C31-4FCF64190348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17EDB539-210C-4C8F-8C31-4FCF64190348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17EDB539-210C-4C8F-8C31-4FCF64190348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

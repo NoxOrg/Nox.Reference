@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using AutoMapper;
 using CsvHelper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.MacAddresses;
@@ -14,25 +15,35 @@ internal class MacAddressDataSeeder : INoxReferenceDataSeeder
     private const string SourceFilePath = @"MacAddresses\mac-vendor.csv";
 
     private readonly IConfiguration _configuration;
-    private readonly Mapper _mapper;
-    private readonly ILogger<MacAddressDataSeeder> _logger;
+    private readonly IMapper _mapper;
     private readonly MacAddressDbContext _dbContext;
+
+    //private readonly ILogger<MacAddressDataSeeder> _logger;
 
     public MacAddressDataSeeder(
         IConfiguration configuration,
-        Mapper mapper,
-        ILogger<MacAddressDataSeeder> logger,
-        MacAddressDbContext dbContext)
+        IMapper mapper,
+        MacAddressDbContext dbContext
+       //ILogger<MacAddressDataSeeder> logger
+       )
     {
         _configuration = configuration;
         _mapper = mapper;
-        _logger = logger;
         _dbContext = dbContext;
+        // _logger = logger;
     }
 
     public void Seed()
     {
-        _logger.LogInformation("Getting MAC Address data...");
+        var dataSet = _dbContext
+            .Set<MacAddress>();
+
+        if (dataSet.Any())
+        {
+            return;
+        }
+
+        //_logger.LogInformation("Getting MAC Address data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
 
@@ -60,13 +71,10 @@ internal class MacAddressDataSeeder : INoxReferenceDataSeeder
             dataRecords.Add(data);
         }
         var entities = _mapper.Map<IEnumerable<MacAddress>>(dataRecords);
-        _dbContext
-            .Set<MacAddress>()
-            .AddRange(entities);
+        dataSet.AddRange(entities);
 
         _dbContext.SaveChanges();
-
-        _logger.LogInformation("Getting MAC Address data successfuly completed...");
+        // _logger.LogInformation("Getting MAC Address data successfuly completed...");
     }
 
     private async Task DownloadSourceFileAsync()

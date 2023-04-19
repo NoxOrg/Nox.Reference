@@ -1,12 +1,15 @@
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Nox.Reference.Data.Extensions;
+using Nox.Reference.MacAddresses.DataContext;
 
 namespace Nox.Reference.MacAddresses.Tests;
 
 public class MacAddressesTests
 {
-    private IMacAddressService _macAddressService;
+    private IMacAddressContext _macAddressContext;
 
     [SetUp]
     public void Setup()
@@ -19,11 +22,14 @@ public class MacAddressesTests
             .Build();
 
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddNoxMacAddresses(configuration);
+        serviceCollection.AddScoped(x => configuration);
+
+        serviceCollection.AddMacAddressDbContext();
+        serviceCollection.AddScoped(typeof(ILogger<>), typeof(Logger<>));
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        _macAddressService = serviceProvider.GetRequiredService<IMacAddressService>();
+        _macAddressContext = serviceProvider.GetRequiredService<IMacAddressContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -35,7 +41,7 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = _macAddressService.GetMacAddressInfo(input);
+        var info = _macAddressContext.MacAddresses.FirstOrDefault(x => x.MacPrefix == input);
 
         Assert.That(info, Is.Not.Null);
         Assert.That(info.Id, Is.EqualTo(expectedPrefix));
@@ -49,6 +55,6 @@ public class MacAddressesTests
     [TestCase(null)]
     public void GetVendorMacAddress_InvalidMacAddressString_ShouldThrow(string input)
     {
-        Assert.Throws<ArgumentException>(() => _macAddressService.GetMacAddressInfo(input));
+        Assert.Throws<ArgumentException>(() => _macAddressContext.MacAddresses.FirstOrDefault(x => x.MacPrefix == input));
     }
 }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsumerTest": {
+      "commandName": "Project",
+      "commandLineArgs": "dotnet ef database update --connection \"Data Source=..\\\\..\\\\data\\\\noxreferences.db\""
+    }
+  }
+}

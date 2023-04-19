@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.Countries;
@@ -11,19 +12,19 @@ namespace Nox.Reference.Country.DataContext;
 internal class CountryDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
-    private readonly CountryDbContext _dbContext;
     private readonly Mapper _mapper;
+    private readonly CountryDbContext _dbContext;
     private readonly ILogger<CountryDataSeeder> _logger;
 
     public CountryDataSeeder(
         IConfiguration configuration,
-        CountryDbContext dbContext,
         Mapper mapper,
+        CountryDbContext dbContext,
         ILogger<CountryDataSeeder> logger)
     {
         _configuration = configuration;
-        _dbContext = dbContext;
         _mapper = mapper;
+        _dbContext = dbContext;
         _logger = logger;
     }
 
