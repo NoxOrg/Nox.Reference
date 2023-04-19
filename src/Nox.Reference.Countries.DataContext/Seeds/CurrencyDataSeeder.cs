@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
@@ -11,13 +10,13 @@ namespace Nox.Reference.Country.DataContext;
 internal class CurrencyDataSeeder : INoxReferenceDataSeeder
 {
     private readonly IConfiguration _configuration;
-    private readonly Mapper _mapper;
+    private readonly IMapper _mapper;
     private readonly CountryDbContext _dbContext;
     private readonly ILogger<CurrencyDataSeeder> _logger;
 
     public CurrencyDataSeeder(
         IConfiguration configuration,
-        Mapper mapper,
+        IMapper mapper,
         CountryDbContext dbContext,
         ILogger<CurrencyDataSeeder> logger)
     {

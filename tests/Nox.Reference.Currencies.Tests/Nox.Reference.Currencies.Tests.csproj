@@ -16,4 +16,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Nox.Reference.Countries.DataContext\Nox.Reference.Country.DataContext.csproj" />
+  </ItemGroup>
+
 </Project>

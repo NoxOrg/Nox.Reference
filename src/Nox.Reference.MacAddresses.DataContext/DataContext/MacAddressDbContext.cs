@@ -27,7 +27,7 @@ internal class MacAddressDbContext : DbContext, IMacAddressContext
         _configuration = configuration;
     }
 
-    IQueryable<IMacAddressInfo> IMacAddressContext.MacAddresses
+    public IQueryable<IMacAddressInfo> MacAddresses
          => Set<MacAddress>()
             .AsQueryable()
             .ProjectTo<IMacAddressInfo>(_mapper.ConfigurationProvider);

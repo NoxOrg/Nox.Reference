@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Nox.Reference.Countries.DataContext\Nox.Reference.Country.DataContext.csproj" />
     <ProjectReference Include="..\Nox.Reference.MacAddresses.DataContext\Nox.Reference.MacAddress.DataContext.csproj" />
   </ItemGroup>
 

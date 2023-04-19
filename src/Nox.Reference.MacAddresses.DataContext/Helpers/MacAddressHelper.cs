@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Nox.Reference.Common.Helpers;
+namespace Nox.Reference.MacAddress.DataContext;
 
 internal static class MacAddressHelper
 {

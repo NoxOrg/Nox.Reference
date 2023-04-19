@@ -1,13 +1,44 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Common;
 using Nox.Reference.Country.DataContext.Configurations;
 
 namespace Nox.Reference.Country.DataContext;
 
-internal class CountryDbContext : DbContext
+internal class CountryDbContext : DbContext, ICountryContext
 {
-    public CountryDbContext(DbContextOptions<CountryDbContext> options)
+    private readonly IMapper _mapper;
+    private readonly IConfiguration _configuration;
+
+    // DON'T remove default constructor. It is used for migrations purposes.
+    public CountryDbContext()
+    {
+    }
+
+    public CountryDbContext(
+        DbContextOptions<CountryDbContext> options,
+        IMapper mapper,
+        IConfiguration configuration)
         : base(options)
     {
+        _mapper = mapper;
+        _configuration = configuration;
+    }
+
+    public IQueryable<ICurrencyInfo> Currencies
+      => Set<Currency>()
+         .AsQueryable()
+         .ProjectTo<ICurrencyInfo>(_mapper.ConfigurationProvider);
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        var connectionString = _configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
+        optionsBuilder.UseSqlite(connectionString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

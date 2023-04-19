@@ -3,14 +3,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
-using Nox.Reference.MacAddresses.DataContext;
 
-namespace Nox.Reference.MacAddress.DataContext;
+namespace Nox.Reference.Country.DataContext;
 
-public static class MacAddressDataExtensions
+public static class NoxReferenceDataExtensions
 {
-    public static IServiceCollection AddMacAddressDbContext(this IServiceCollection services)
+    public static IServiceCollection AddCountryDbContext(this IServiceCollection services)
     {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
         IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsetings.json")
             .Build();
@@ -19,10 +20,10 @@ public static class MacAddressDataExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         var connectionString = configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
-        services.AddSqlite<MacAddressDbContext>(connectionString);
+        services.AddSqlite<CountryDbContext>(connectionString);
 
-        services.AddScoped<INoxReferenceDataSeeder, MacAddressDataSeeder>();
-        services.AddScoped<IMacAddressContext, MacAddressDbContext>();
+        services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
+        services.AddScoped<ICountryContext, CountryDbContext>();
         return services;
     }
 }

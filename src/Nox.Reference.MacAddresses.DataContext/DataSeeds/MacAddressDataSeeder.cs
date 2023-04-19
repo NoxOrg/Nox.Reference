@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using AutoMapper;
 using CsvHelper;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions.MacAddresses;
@@ -18,19 +17,19 @@ internal class MacAddressDataSeeder : INoxReferenceDataSeeder
     private readonly IMapper _mapper;
     private readonly MacAddressDbContext _dbContext;
 
-    //private readonly ILogger<MacAddressDataSeeder> _logger;
+    private readonly ILogger<MacAddressDataSeeder> _logger;
 
     public MacAddressDataSeeder(
         IConfiguration configuration,
         IMapper mapper,
-        MacAddressDbContext dbContext
-       //ILogger<MacAddressDataSeeder> logger
+        MacAddressDbContext dbContext,
+        ILogger<MacAddressDataSeeder> logger
        )
     {
         _configuration = configuration;
         _mapper = mapper;
         _dbContext = dbContext;
-        // _logger = logger;
+        _logger = logger;
     }
 
     public void Seed()
@@ -43,7 +42,7 @@ internal class MacAddressDataSeeder : INoxReferenceDataSeeder
             return;
         }
 
-        //_logger.LogInformation("Getting MAC Address data...");
+        _logger.LogInformation("Getting MAC Address data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
 
@@ -74,7 +73,7 @@ internal class MacAddressDataSeeder : INoxReferenceDataSeeder
         dataSet.AddRange(entities);
 
         _dbContext.SaveChanges();
-        // _logger.LogInformation("Getting MAC Address data successfuly completed...");
+        _logger.LogInformation("Getting MAC Address data successfuly completed...");
     }
 
     private async Task DownloadSourceFileAsync()

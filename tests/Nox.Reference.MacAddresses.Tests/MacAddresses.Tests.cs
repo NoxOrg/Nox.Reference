@@ -1,8 +1,7 @@
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Nox.Reference.Data.Extensions;
+using Nox.Reference.MacAddress.DataContext;
 using Nox.Reference.MacAddresses.DataContext;
 
 namespace Nox.Reference.MacAddresses.Tests;
@@ -14,18 +13,9 @@ public class MacAddressesTests
     [SetUp]
     public void Setup()
     {
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddInMemoryCollection(new List<KeyValuePair<string, string?>>()
-            {
-                new KeyValuePair<string, string?>( "ConnectionStrings:noxreferencesConnection", @"Data Source=..\..\..\..\..\data\noxreferences.db")
-            })
-            .Build();
-
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddScoped(x => configuration);
 
         serviceCollection.AddMacAddressDbContext();
-        serviceCollection.AddScoped(typeof(ILogger<>), typeof(Logger<>));
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
@@ -41,7 +31,7 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = _macAddressContext.MacAddresses.FirstOrDefault(x => x.MacPrefix == input);
+        var info = _macAddressContext.MacAddresses.Get(input);
 
         Assert.That(info, Is.Not.Null);
         Assert.That(info.Id, Is.EqualTo(expectedPrefix));
