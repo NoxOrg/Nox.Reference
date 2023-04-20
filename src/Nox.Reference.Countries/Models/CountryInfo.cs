@@ -4,7 +4,7 @@ namespace Nox.Reference.Countries;
 
 internal class CountryInfo : ICountryInfo
 {
-    [JsonPropertyName("id")]public int Id_ { get; set;}
+    [JsonPropertyName("id")]public string Id_ { get; set; } = string.Empty;
     [JsonPropertyName("name")]public string Name_ { get; set;} = string.Empty;
     [JsonPropertyName("code")]public string Code_ { get; set; } = string.Empty;
     [JsonPropertyName("languages")] public IReadOnlyList<string> Languages_ { get; set; } = Array.Empty<string>();
@@ -45,7 +45,7 @@ internal class CountryInfo : ICountryInfo
     [JsonPropertyName("startDayOfWeek")]public DayOfWeek StartDayOfWeek_ { get; set;}
     [JsonPropertyName("timeZones")] public IReadOnlyList<string> TimeZones_ { get; set; } = Array.Empty<string>();
 
-    [JsonIgnore]public int Id => Id_;
+    [JsonIgnore]public string Id => Id_;
     [JsonIgnore]public string Name => Name_;
     [JsonIgnore]public string Code => Code_;
     [JsonIgnore]public IReadOnlyList<string> Languages => Languages_;

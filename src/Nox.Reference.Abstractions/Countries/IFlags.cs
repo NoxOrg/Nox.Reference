@@ -6,4 +6,3 @@ public interface IFlags
     public string Png { get; }
     public string AlternateText { get; }
 }
-

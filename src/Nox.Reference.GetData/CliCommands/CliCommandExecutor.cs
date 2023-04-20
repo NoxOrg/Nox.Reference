@@ -10,12 +10,14 @@ public class CliCommandExecutor : ICliCommandExecutor
     private readonly CountryDataExtractCommand _countryDataExtractCommand;
     private readonly CurrencyDataExtractCommand _currencyDataExtractCommand;
     private readonly MacAddressDataExtractCommand _macAddressDataExtractCommand;
+    private readonly LanguageDataExtractCommand _languageDataExtractCommand;
 
     public CliCommandExecutor(
         ILogger<CliCommandExecutor> logger,
         IConfiguration configuration,
         CountryDataExtractCommand countryDataExtractCommand,
         CurrencyDataExtractCommand currencyDataExtractCommand,
+        LanguageDataExtractCommand languageDataExtractCommand,
         MacAddressDataExtractCommand macAddressDataExtractCommand)
     {
         _logger = logger;
@@ -23,6 +25,7 @@ public class CliCommandExecutor : ICliCommandExecutor
         _countryDataExtractCommand = countryDataExtractCommand;
         _currencyDataExtractCommand = currencyDataExtractCommand;
         _macAddressDataExtractCommand = macAddressDataExtractCommand;
+        _languageDataExtractCommand = languageDataExtractCommand;
     }
 
     public void Run(string? commandName = null)
@@ -36,6 +39,7 @@ public class CliCommandExecutor : ICliCommandExecutor
         _countryDataExtractCommand.Execute();
         _currencyDataExtractCommand.Execute();
         _macAddressDataExtractCommand.Execute();
+        _languageDataExtractCommand.Execute();
 
         _logger.LogInformation("Completed.");
     }

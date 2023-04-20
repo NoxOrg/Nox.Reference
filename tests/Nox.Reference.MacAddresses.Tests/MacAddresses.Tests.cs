@@ -7,7 +7,7 @@ public class MacAddressesTests
 {
     private IMacAddressService _macAddressService;
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();

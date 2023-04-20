@@ -25,11 +25,12 @@ public class CurrencyDataExtractCommand : ICliCommand
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
-        var uriRestWorldCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestCurrencyFormatterCurrenciesSettingName)!;
+        var uriRestCurrencyFormatterCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestCurrencyFormatterCurrenciesSettingName)!;
+        var uriRestWorldCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestWorldCurrenciesSettingName)!;
 
         try
         {
-            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestWorldCurrencies).Content!;
+            var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies).Content!;
 
             var sourceFilePath = Path.Combine(sourceOutputPath, "Currencies");
             Directory.CreateDirectory(sourceFilePath);
@@ -48,39 +49,36 @@ public class CurrencyDataExtractCommand : ICliCommand
 
             var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData, deserializationOptions) ?? new();
 
+            var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies);
+            if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new Exception("Can't find file in worldCurrency repo.");
+            }
+            var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
+
+            // Save content
+            File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency.json"), worldCurrencyRestData);
+
+            // Fix Ni-Vanuatu Vatu
+            worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
+
+            var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
+
             foreach (var currency in currencyData)
             {
-                try
+                currency.Value.IsoCode_ = currency.Key;
+
+                if (!worldCurrencyData.TryGetValue(currency.Value.IsoCode.ToUpper(), out var worldCurrencyInfo))
                 {
-                    currency.Value.IsoCode_ = currency.Key;
-                    var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies + currency.Value.IsoCode.ToLower() + ".json5");
-
-                    if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        throw new Exception("Can't find file in worldCurrency repo.");
-                    }
-                    var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
-
-                    // Fix Ni-Vanuatu Vatu
-                    if (currency.Key.Equals("VUV"))
-                    {
-                        worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
-                    }
-
-                    // Save content
-                    File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency_{currency.Value.IsoCode}.json"), worldCurrencyRestData);
-                    var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
-
-                    currency.Value.IsoNumber_ = worldCurrencyData.First().Value.Iso.Number;
-                    currency.Value.Banknotes_ = worldCurrencyData.First().Value.Banknotes;
-                    currency.Value.Coins_ = worldCurrencyData.First().Value.Coins;
-                    currency.Value.Units_ = worldCurrencyData.First().Value.Units;
-                    currency.Value.Name_ = worldCurrencyData.First().Value.Name;
+                    _logger.LogWarning("Warning! WorldData doesn't have key for currency '{Key}' from CurrencyFormatter.", currency.Key);
+                    continue;
                 }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning("Warning! WorldData doesn't have key for currency '{Key}' from CurrencyFormatter. Error message: {Message}", currency.Key, ex.Message);
-                }
+
+                currency.Value.IsoNumber_ = worldCurrencyInfo.Iso.Number;
+                currency.Value.Banknotes_ = worldCurrencyInfo.Banknotes;
+                currency.Value.Coins_ = worldCurrencyInfo.Coins;
+                currency.Value.Units_ = worldCurrencyInfo.Units;
+                currency.Value.Name_ = worldCurrencyInfo.Name;
             }
 
             // Store output
