@@ -11,7 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230420102450_InitDatabase")]
+    [Migration("20230420130715_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />
@@ -20,7 +20,7 @@ namespace Nox.Reference.Data.World.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.Currency", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,10 +47,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("MajorUnitId")
+                    b.Property<int>("MajorUnitId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("MinorUnitId")
+                    b.Property<int>("MinorUnitId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -84,7 +84,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("Currency");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyFrequentUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyFrequentUsage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,7 +104,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("CurrencyFrequentUsage");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyRareUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyRareUsage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -124,7 +124,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("CurrencyRareUsage");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,16 +135,18 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("CurrencyUsage");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.MajorCurrencyUnit", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Symbol")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -152,7 +154,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("MajorCurrencyUnit");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.MinorCurrencyUnit", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.MinorCurrencyUnit", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,9 +164,11 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Symbol")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -172,29 +176,31 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("MinorCurrencyUnit");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.Currency", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
                 {
-                    b.HasOne("Nox.Reference.Country.DataContext.CurrencyUsage", "Banknotes")
+                    b.HasOne("Nox.Reference.Data.World.CurrencyUsage", "Banknotes")
                         .WithMany()
                         .HasForeignKey("BanknotesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Nox.Reference.Country.DataContext.CurrencyUsage", "Coins")
+                    b.HasOne("Nox.Reference.Data.World.CurrencyUsage", "Coins")
                         .WithMany()
                         .HasForeignKey("CoinsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Nox.Reference.Country.DataContext.MajorCurrencyUnit", "MajorUnit")
+                    b.HasOne("Nox.Reference.Data.World.MajorCurrencyUnit", "MajorUnit")
                         .WithMany()
                         .HasForeignKey("MajorUnitId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Nox.Reference.Country.DataContext.MinorCurrencyUnit", "MinorUnit")
+                    b.HasOne("Nox.Reference.Data.World.MinorCurrencyUnit", "MinorUnit")
                         .WithMany()
                         .HasForeignKey("MinorUnitId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Banknotes");
 
@@ -205,23 +211,23 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("MinorUnit");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyFrequentUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyFrequentUsage", b =>
                 {
-                    b.HasOne("Nox.Reference.Country.DataContext.CurrencyUsage", null)
+                    b.HasOne("Nox.Reference.Data.World.CurrencyUsage", null)
                         .WithMany("Frequent")
                         .HasForeignKey("CurrencyUsageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyRareUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyRareUsage", b =>
                 {
-                    b.HasOne("Nox.Reference.Country.DataContext.CurrencyUsage", null)
+                    b.HasOne("Nox.Reference.Data.World.CurrencyUsage", null)
                         .WithMany("Rare")
                         .HasForeignKey("CurrencyUsageId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Nox.Reference.Country.DataContext.CurrencyUsage", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
                     b.Navigation("Frequent");
 

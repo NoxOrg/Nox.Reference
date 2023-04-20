@@ -28,8 +28,8 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Symbol = table.Column<string>(type: "TEXT", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Symbol = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,8 +42,8 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Symbol = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Symbol = table.Column<string>(type: "TEXT", nullable: false),
                     MajorValue = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -108,8 +108,8 @@ namespace Nox.Reference.Data.World.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     BanknotesId = table.Column<int>(type: "INTEGER", nullable: false),
                     CoinsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MajorUnitId = table.Column<int>(type: "INTEGER", nullable: true),
-                    MinorUnitId = table.Column<int>(type: "INTEGER", nullable: true)
+                    MajorUnitId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MinorUnitId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -52,18 +52,11 @@ public class CurrencyTests
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
         ICurrencyInfo uaCurrency = WorldInfo.Currencies.Get("UAH")!;
-
-        //var countries = Nox.Reference.Data.WorldInfo.Country.Get("CH");
-
-        /// DbContext items:
-        /// World Info
-        /// Machine Info
-        /// Ip Info
-
-        //Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+        ICurrencyUnit currencyUnit = WorldInfo.Currencies.Get("USD").Units;
 
         Assert.Multiple(() =>
         {
+            Assert.That(currencyUnit.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
             Assert.That(uaCurrency, Is.Not.Null);
             Assert.That(uaCurrency?.IsoCode, Is.EqualTo("UAH"));
         });

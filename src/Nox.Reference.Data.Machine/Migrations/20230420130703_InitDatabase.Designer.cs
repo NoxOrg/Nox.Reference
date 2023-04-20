@@ -10,7 +10,7 @@ using Nox.Reference.Data.Machine;
 namespace Nox.Reference.Data.Machine.Migrations
 {
     [DbContext(typeof(MachineDbContext))]
-    [Migration("20230420102317_InitDatabase")]
+    [Migration("20230420130703_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />

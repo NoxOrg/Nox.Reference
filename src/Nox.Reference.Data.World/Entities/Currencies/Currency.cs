@@ -16,6 +16,6 @@ internal class Currency : INoxReferenceEntity
     public string Name { get; set; }
     public CurrencyUsage Banknotes { get; set; }
     public CurrencyUsage Coins { get; set; }
-    public MajorCurrencyUnit? MajorUnit { get; set; }
-    public MinorCurrencyUnit? MinorUnit { get; set; }
+    public MajorCurrencyUnit MajorUnit { get; set; } = new MajorCurrencyUnit();
+    public MinorCurrencyUnit MinorUnit { get; set; } = new MinorCurrencyUnit();
 }

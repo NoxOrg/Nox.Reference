@@ -30,9 +30,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     }
 
     public IQueryable<ICurrencyInfo> Currencies
-      => Set<Currency>()
-         .AsQueryable()
-         .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
+        => Set<Currency>()
+             .AsQueryable()
+             .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

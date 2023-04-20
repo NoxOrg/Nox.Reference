@@ -25,7 +25,22 @@ namespace Nox.Reference.Data.World.Mappings
             CreateMap<IMinorCurrencyUnit, MinorCurrencyUnit>();
             CreateMap<IMajorCurrencyUnit, MajorCurrencyUnit>();
 
-            CreateProjection<Currency, CurrencyInfo>();
+            CreateProjection<Currency, CurrencyInfo>()
+                .ForMember(x => x.Units, x => x.MapFrom(t => new CurrencyUnitInfo
+                {
+                    MinorCurrencyUnit = new MinorCurrencyUnitInfo
+                    {
+                        MajorValue = t.MinorUnit.MajorValue,
+                        Name = t.MinorUnit.Name,
+                        Symbol = t.MinorUnit.Symbol
+                    },
+                    MajorCurrencyUnit = new MajorCurrencyUnitInfo
+                    {
+                        Name = t.MajorUnit.Name,
+                        Symbol = t.MajorUnit.Symbol
+                    },
+                }));
+
             CreateProjection<MajorCurrencyUnit, MajorCurrencyUnitInfo>();
             CreateProjection<MinorCurrencyUnit, MinorCurrencyUnitInfo>();
 
