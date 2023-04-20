@@ -3,13 +3,9 @@ using Nox.Reference.Abstractions.Currencies;
 
 namespace Nox.Reference.Country.DataContext;
 
-public class MinorCurrencyUnitInfo : IMinorCurrencyUnit
+internal class MinorCurrencyUnitInfo : IMinorCurrencyUnit
 {
-    [JsonPropertyName("name")] public string Name_ { get; set; } = "";
-    [JsonPropertyName("symbol")] public string Symbol_ { get; set; } = "";
-    [JsonPropertyName("majorValue")] public decimal MajorValue_ { get; set; } = 0;
-
-    [JsonIgnore] public string Name => Name_;
-    [JsonIgnore] public string Symbol => Symbol_;
-    [JsonIgnore] public decimal MajorValue => MajorValue_;
+    [JsonPropertyName("name")] public string Name { get; set; } = "";
+    [JsonPropertyName("symbol")] public string Symbol { get; set; } = "";
+    [JsonPropertyName("majorValue")] public decimal MajorValue { get; set; } = 0;
 }

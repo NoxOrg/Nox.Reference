@@ -3,11 +3,11 @@ using Nox.Reference.Abstractions.Currencies;
 
 namespace Nox.Reference.Country.DataContext;
 
-public class CurrencyUnitInfo : ICurrencyUnit
+internal class CurrencyUnitInfo : ICurrencyUnit
 {
-    [JsonPropertyName("major")] public MajorCurrencyUnitInfo MajorCurrencyUnit_ { get; set; } = new MajorCurrencyUnitInfo();
-    [JsonPropertyName("minor")] public MinorCurrencyUnitInfo MinorCurrencyUnit_ { get; set; } = new MinorCurrencyUnitInfo();
+    [JsonPropertyName("major")]
+    public IMajorCurrencyUnit MajorCurrencyUnit { get; set; } = new MajorCurrencyUnitInfo();
 
-    [JsonIgnore] public IMajorCurrencyUnit MajorCurrencyUnit => MajorCurrencyUnit_;
-    [JsonIgnore] public IMinorCurrencyUnit MinorCurrencyUnit => MinorCurrencyUnit_;
+    [JsonPropertyName("minor")]
+    public IMinorCurrencyUnit MinorCurrencyUnit { get; set; } = new MinorCurrencyUnitInfo();
 }

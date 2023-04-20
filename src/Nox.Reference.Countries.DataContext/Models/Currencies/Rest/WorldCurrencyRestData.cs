@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Country.DataContext;
 
-public class WorldCurrencyRestData
+internal class WorldCurrencyRestData
 {
     [JsonPropertyName("name")] public string Name { get; set; } = "";
     [JsonPropertyName("iso")] public RestIsoData Iso { get; set; } = new RestIsoData();

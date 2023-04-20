@@ -28,6 +28,14 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
 
     public void Seed()
     {
+        var dataSet = _dbContext
+           .Set<Currency>();
+
+        if (dataSet.Any())
+        {
+            return;
+        }
+
         _logger.LogInformation("Getting currency data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
@@ -59,7 +67,7 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
             {
                 try
                 {
-                    currency.Value.IsoCode_ = currency.Key;
+                    currency.Value.IsoCode = currency.Key;
                     var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies + currency.Value.IsoCode.ToLower() + ".json5");
 
                     if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -78,11 +86,11 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
                     File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency_{currency.Value.IsoCode}.json"), worldCurrencyRestData);
                     var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
 
-                    currency.Value.IsoNumber_ = worldCurrencyData.First().Value.Iso.Number;
-                    currency.Value.Banknotes_ = worldCurrencyData.First().Value.Banknotes;
-                    currency.Value.Coins_ = worldCurrencyData.First().Value.Coins;
-                    currency.Value.Units_ = worldCurrencyData.First().Value.Units;
-                    currency.Value.Name_ = worldCurrencyData.First().Value.Name;
+                    currency.Value.IsoNumber = worldCurrencyData.First().Value.Iso.Number;
+                    currency.Value.Banknotes = worldCurrencyData.First().Value.Banknotes;
+                    currency.Value.Coins = worldCurrencyData.First().Value.Coins;
+                    currency.Value.Units = worldCurrencyData.First().Value.Units;
+                    currency.Value.Name = worldCurrencyData.First().Value.Name;
                 }
                 catch (Exception ex)
                 {
@@ -94,7 +102,7 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
                 .Select(x => x.Value);
 
             var entities = _mapper.Map<IEnumerable<Currency>>(currencies);
-            _dbContext.AddRange(entities);
+            dataSet.AddRange(entities);
 
             _dbContext.SaveChanges();
         }
