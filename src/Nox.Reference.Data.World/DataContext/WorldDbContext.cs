@@ -15,7 +15,10 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     private readonly IConfiguration _configuration;
 
     // DON'T remove default constructor. It is used for migrations purposes.
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
     public WorldDbContext()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
     }
 

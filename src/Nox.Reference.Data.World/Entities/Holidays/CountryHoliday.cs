@@ -6,8 +6,8 @@ internal class CountryHoliday : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public int Year { get; private set; }
-    public Country Country { get; set; }
-    public string DayOff { get; set; }
-    public IReadOnlyList<HolidayData> Holidays { get; set; }
-    public IReadOnlyList<StateHoliday> States { get; set; }
+    public Country Country { get; set; } = new Country();
+    public string DayOff { get; set; } = string.Empty;
+    public IReadOnlyList<HolidayData> Holidays { get; set; } = new List<HolidayData>();
+    public IReadOnlyList<StateHoliday> States { get; set; } = new List<StateHoliday>();
 }

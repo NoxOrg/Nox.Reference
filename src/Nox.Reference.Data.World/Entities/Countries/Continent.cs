@@ -5,5 +5,5 @@ namespace Nox.Reference.Data.World;
 internal class Continent : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 }

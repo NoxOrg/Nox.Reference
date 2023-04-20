@@ -15,7 +15,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public RestcountryCountryNames Names_ { get; set; } = null!;
 
     [JsonIgnore]
-    public ICountryNames Names => Names_; 
+    public ICountryNames Names => Names_;
 
     [JsonPropertyName("tld")]
     public IReadOnlyList<string> TopLevelDomains { get; set; } = new List<string>();
@@ -84,6 +84,7 @@ public class RestcountryCountryInfo : ICountryInfo
 
     [JsonPropertyName("languages")]
     public Dictionary<string, string> Languages_ { get; set; } = new Dictionary<string, string>();
+
     public IReadOnlyList<string> Languages => Languages_.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("translations")]
@@ -102,7 +103,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public IReadOnlyList<decimal> LatLong { get; set; } = null!;
 
     [JsonPropertyName("geoCoordinates")]
-    public IGeoCoordinates GeoCoordinates { get; set; }
+    public IGeoCoordinates GeoCoordinates { get; set; } = null!;
 
     [JsonPropertyName("landlocked")]
     public bool IsLandlocked { get; set; }
@@ -132,7 +133,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public RestcountryFlags Flags_ { get; set; } = null!;
 
     [JsonIgnore]
-    public IFlags Flags  => Flags_;
+    public IFlags Flags => Flags_;
 
     [JsonPropertyName("coatOfArms")]
     public RestcountryCoatOfArms CoatOfArms_ { get; set; } = null!;

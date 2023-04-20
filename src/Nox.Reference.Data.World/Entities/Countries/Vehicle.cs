@@ -2,6 +2,6 @@
 
 internal class Vehicle
 {
-    public string DrivingSide { get; set; }
-    public string InternationalRegistrationCodes { get; set; }
+    public string DrivingSide { get; set; } = string.Empty;
+    public string InternationalRegistrationCodes { get; set; } = string.Empty;
 }

@@ -13,5 +13,5 @@ public class RestcountryCapitalInfo : ICapitalInfo
     public IReadOnlyList<decimal> LatLong { get; set; } = null!;
 
     [JsonPropertyName("getCoordinates")]
-    public IGeoCoordinates GeoCoordinates { get; set; }
+    public IGeoCoordinates GeoCoordinates { get; set; } = null!;
 }

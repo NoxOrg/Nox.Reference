@@ -2,6 +2,6 @@
 
 internal class Maps
 {
-    public string GoogleMaps { get; set; }
-    public string OpenStreetMaps { get; set; }
+    public string GoogleMaps { get; set; } = string.Empty;
+    public string OpenStreetMaps { get; set; } = string.Empty;
 }

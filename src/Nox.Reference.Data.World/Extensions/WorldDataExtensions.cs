@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World;
 using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World;
 
 namespace Nox.Reference.Data;
 

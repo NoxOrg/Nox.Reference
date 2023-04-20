@@ -2,7 +2,7 @@
 
 internal class Dialing
 {
-    public string Prefix { get; set; }
+    public string Prefix { get; set; } = string.Empty;
 
-    public string Suffix { get; set; }
+    public string Suffix { get; set; } = string.Empty;
 }
