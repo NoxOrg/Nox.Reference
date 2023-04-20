@@ -2,7 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions.MacAddresses;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.Machine;

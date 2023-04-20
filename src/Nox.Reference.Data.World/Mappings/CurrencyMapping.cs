@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Country.DataContext.Mappings
 {

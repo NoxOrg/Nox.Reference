@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions.Countries;
+using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Country.DataContext;
 

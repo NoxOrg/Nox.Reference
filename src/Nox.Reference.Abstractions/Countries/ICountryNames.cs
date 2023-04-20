@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Abstractions.Countries;
+namespace Nox.Reference.Abstractions;
 
 public interface ICountryNames
 {

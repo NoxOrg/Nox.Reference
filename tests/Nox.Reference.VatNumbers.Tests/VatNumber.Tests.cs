@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Abstractions.VatNumbers;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Holidays;
 using Nox.Reference.VatNumbers.Models;
 using System.Diagnostics;
@@ -13,6 +13,7 @@ namespace Nox.Reference.VatNumbers.Tests;
 public class Tests
 {
     private string _testFilePath = string.Empty;
+
     // set during mamndatory init
     private static IVatNumberService _vatNumberService = null!;
 
@@ -21,7 +22,6 @@ public class Tests
         WriteIndented = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
     };
-
 
     [OneTimeSetUp]
     public void Setup()
@@ -109,7 +109,7 @@ public class Tests
         });
     }
 
-    #endregion
+    #endregion ValidateVatNumber
 
     #region PerCountry
 
@@ -191,7 +191,7 @@ public class Tests
         });
     }
 
-    #endregion
+    #endregion PerCountry
 
     [TearDown]
     public void EndTest()

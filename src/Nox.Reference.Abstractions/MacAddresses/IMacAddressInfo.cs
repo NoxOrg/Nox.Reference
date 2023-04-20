@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.MacAddresses;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface IMacAddressInfo
 {

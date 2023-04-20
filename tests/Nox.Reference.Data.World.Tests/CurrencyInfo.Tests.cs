@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Data;
 using Nox.Reference.Data.World;
 using System.Diagnostics;

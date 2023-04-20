@@ -2,7 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Country.DataContext;
 using Nox.Reference.Country.DataContext.Configurations;

@@ -2,7 +2,7 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Data.World;
 
 namespace Nox.Reference.Data;

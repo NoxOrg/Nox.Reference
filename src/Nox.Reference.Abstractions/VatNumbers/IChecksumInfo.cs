@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.VatNumbers
+﻿namespace Nox.Reference.Abstractions
 {
     public interface IChecksumInfo
     {

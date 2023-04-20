@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.PhoneNumbers
+﻿namespace Nox.Reference.Abstractions
 {
     public interface IPhoneNumberService
     {

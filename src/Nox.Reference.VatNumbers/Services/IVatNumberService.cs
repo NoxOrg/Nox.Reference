@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Holidays
 {

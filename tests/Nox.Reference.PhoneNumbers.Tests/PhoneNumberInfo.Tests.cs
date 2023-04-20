@@ -1,11 +1,12 @@
 using System.Diagnostics;
 using System.Text.Json;
+using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.PhoneNumbers.Tests;
 
 public class PhoneNumberInfoTests
 {
-    private readonly JsonSerializerOptions _jsonOptions = new() 
+    private readonly JsonSerializerOptions _jsonOptions = new()
     {
         WriteIndented = true,
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -39,7 +40,6 @@ public class PhoneNumberInfoTests
             Assert.That(info.RegionName, Is.EqualTo("South Africa"));
             Assert.That(info.CarrierName, Is.EqualTo("MTN"));
         });
-        
     }
 
     [TearDown]

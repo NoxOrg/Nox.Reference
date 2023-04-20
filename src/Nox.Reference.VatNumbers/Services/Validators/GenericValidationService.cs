@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Shared;
 using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
@@ -62,6 +62,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
                     }
 
                     break;
+
                 case VerificationApi.None:
                 case VerificationApi.GSTIN:
                 default:
@@ -192,6 +193,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateLuhnDigitForVatNumber());
                     break;
+
                 case ChecksumAlgorithm.ModAndSubstract:
                     if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
                         !(validationInfoByPattern.Checksum.Weights?.Count > 0))
@@ -205,6 +207,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateModAndSubstract(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
                     break;
+
                 case ChecksumAlgorithm.ModAndSubstract_IT:
                     if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
                         !(validationInfoByPattern.Checksum.Weights?.Count > 0))
@@ -218,6 +221,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateModAndSubstractItaly(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights));
                     break;
+
                 case ChecksumAlgorithm.Mod:
                     if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
                         !(validationInfoByPattern.Checksum.Weights?.Count > 0))
@@ -231,11 +235,13 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateMod(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
                     break;
+
                 case ChecksumAlgorithm.MX_Algorithm:
-                    // length is checked inside 
+                    // length is checked inside
 
                     result.ValidationErrors.AddRange(vatNumber.OriginalVatNumber.ValidateMXAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.DE_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
@@ -246,6 +252,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateDEAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.FR_Algorithm:
                     minimumLength = 2;
                     if (digitPart.Length < minimumLength)
@@ -256,6 +263,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateFRAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.CO_Algorithm:
                     minimumLength = 1;
                     if (digitPart.Length < minimumLength)
@@ -266,6 +274,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateCOAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.AU_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
@@ -276,6 +285,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateAUAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.BE_Algorithm:
                     minimumLength = 9;
                     if (digitPart.Length < minimumLength)
@@ -286,6 +296,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                     result.ValidationErrors.AddRange(digitPart.ValidateBEAlgorithm());
                     break;
+
                 case ChecksumAlgorithm.BR_Algorithm:
                     minimumLength = 14;
                     if (digitPart.Length != minimumLength)
@@ -495,6 +506,7 @@ namespace Nox.Reference.VatNumbers.Services.Validators
 
                 case ChecksumAlgorithm.None:
                     break;
+
                 default:
                     result.ValidationErrors.Add(ValidationErrors.UnknownChecksumAlgorithm);
                     break;

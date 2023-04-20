@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.Countries;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface IRestcountryCurrencyInfo
 {

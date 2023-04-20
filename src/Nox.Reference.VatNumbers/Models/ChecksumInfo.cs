@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 using System.Text.Json.Serialization;
 
 namespace Nox.Reference.VatNumbers.Models
