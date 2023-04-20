@@ -5,16 +5,16 @@ namespace Nox.Reference.Countries;
 public class RestcountryCountryInfo : ICountryInfo
 {
     [JsonIgnore]
-    public int Id => Convert.ToInt32(NumericCode);
+    public string Id => AlphaCode2;
 
     [JsonIgnore]
     public string Name => Names.CommonName;
 
     [JsonPropertyName("name")]
-    public RestcountryCountryNames Names1 { get; set; } = null!;
+    public RestcountryCountryNames Names_ { get; set; } = null!;
 
     [JsonIgnore]
-    public ICountryNames Names => Names1; 
+    public ICountryNames Names => Names_; 
 
     [JsonPropertyName("tld")]
     public IReadOnlyList<string> TopLevelDomains { get; set; } = new List<string>();
@@ -55,19 +55,19 @@ public class RestcountryCountryInfo : ICountryInfo
     public IReadOnlyList<string>? Currencies => Currencies1?.Select(kv => kv.Key).ToList(); 
 
     [JsonPropertyName("idd")]
-    public RestcountryDialingInfo? DialingInfo1 { get; set; }
+    public RestcountryDialingInfo? DialingInfo_ { get; set; }
 
     [JsonIgnore]
-    public IDialingInfo? DialingInfo => DialingInfo1;
+    public IDialingInfo? DialingInfo => DialingInfo_;
 
     [JsonPropertyName("capital")]
     public IReadOnlyList<string> Capitals { get; set; } = new List<string>();
 
     [JsonPropertyName("capitalInfo")]
-    public RestcountryCapitalInfo? CapitalInfo1 { get; set; }
+    public RestcountryCapitalInfo? CapitalInfo_ { get; set; }
 
     [JsonIgnore]
-    public ICapitalInfo? CapitalInfo => CapitalInfo1;
+    public ICapitalInfo? CapitalInfo => CapitalInfo_;
 
     [JsonPropertyName("altSpellings")]
     public IReadOnlyList<string> AlternateSpellings { get; set; } = new List<string>();
@@ -82,14 +82,14 @@ public class RestcountryCountryInfo : ICountryInfo
     public IReadOnlyList<string> Continents { get; set; } = new List<string>();
 
     [JsonPropertyName("languages")]
-    public Dictionary<string, string> Languages1 { get; set; } = null!;
-    public IReadOnlyList<string> Languages => Languages1.Select(kv => kv.Key).ToList();
+    public Dictionary<string, string> Languages_ { get; set; } = new Dictionary<string, string>();
+    public IReadOnlyList<string> Languages => Languages_.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("translations")]
-    public Dictionary<string, RestcountryNativeNameInfo>? NameTranslations1 { get; set; } = null!;
+    public Dictionary<string, RestcountryNativeNameInfo> NameTranslations_ { get; set; } = new Dictionary<string, RestcountryNativeNameInfo>();
 
     [JsonIgnore]
-    public IReadOnlyList<INativeNameInfo>? NameTranslations => NameTranslations1?
+    public IReadOnlyList<INativeNameInfo>? NameTranslations => NameTranslations_?
         .Select(kv => new RestcountryNativeNameInfo
         {
             Language = kv.Key,
@@ -116,10 +116,10 @@ public class RestcountryCountryInfo : ICountryInfo
     public string EmojiFlag { get; set; } = string.Empty;
 
     [JsonPropertyName("demonyms")]
-    public Dictionary<string, RestcountryDemonymn>? Demonyms1 { get; set; } = null!;
+    public Dictionary<string, RestcountryDemonymn>? Demonyms_ { get; set; } = new Dictionary<string, RestcountryDemonymn>();
 
     [JsonIgnore]
-    public IReadOnlyList<IDemonymn>? Demonyms => Demonyms1?
+    public IReadOnlyList<IDemonymn>? Demonyms => Demonyms_?
         .Select(kv => new RestcountryDemonymn
         {
             Language = kv.Key,
@@ -128,16 +128,16 @@ public class RestcountryCountryInfo : ICountryInfo
         }).ToList();
 
     [JsonPropertyName("flags")]
-    public RestcountryFlags Flags1 { get; set; } = null!;
+    public RestcountryFlags Flags_ { get; set; } = null!;
 
     [JsonIgnore]
-    public IFlags Flags  => Flags1;
+    public IFlags Flags  => Flags_;
 
     [JsonPropertyName("coatOfArms")]
-    public RestcountryCoatOfArms CoatOfArms1 { get; set; } = null!;
+    public RestcountryCoatOfArms CoatOfArms_ { get; set; } = null!;
 
     [JsonIgnore]
-    public ICoatOfArms CoatOfArms => CoatOfArms1;
+    public ICoatOfArms CoatOfArms => CoatOfArms_;
 
 
     [JsonPropertyName("population")]
@@ -150,16 +150,16 @@ public class RestcountryCountryInfo : ICountryInfo
     public IMaps Maps => Maps1;
 
     [JsonPropertyName("gini")]
-    public Dictionary<string, decimal>? GiniCoefficients1 { get; set; }
+    public Dictionary<string, decimal>? GiniCoefficients_ { get; set; }
 
     [JsonIgnore]
-    public IReadOnlyDictionary<string, decimal>? GiniCoefficients => GiniCoefficients1;
+    public IReadOnlyDictionary<string, decimal>? GiniCoefficients => GiniCoefficients_;
 
     [JsonPropertyName("car")]
-    public RestcountryVehicleInfo? VehicleInfo1 { get; set; }
+    public RestcountryVehicleInfo? VehicleInfo_ { get; set; }
 
     [JsonIgnore]
-    public IVehicleInfo? VehicleInfo => VehicleInfo1;
+    public IVehicleInfo? VehicleInfo => VehicleInfo_;
 
     [JsonPropertyName("postalCode")]
     public RestcountryPostalCodeInfo? PostalCodeInfo1 { get; set; }

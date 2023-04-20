@@ -26,7 +26,6 @@ public class LanguageDataExtractCommand : ICliCommand
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
-        var uriRestLanguages = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
         var uriRestLanguagesAdditionalInfo = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesAdditionalInfo)!;
         try
         {
@@ -36,11 +35,13 @@ public class LanguageDataExtractCommand : ICliCommand
             var targetFilePath = targetOutputPath;
             Directory.CreateDirectory(targetFilePath);
 
-            var languages = GetLanguageIso639_3_Data(uriRestLanguages, sourceFilePath);
+            var languages = GetLanguageIso639_3_Data(_configuration, sourceFilePath);
 
             var languagesToSave = languages
                 .Select(x => x.ToLanguageInfo())
                 .ToList();
+
+            EnrichWithEnglishTranslation(languagesToSave);
             EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
             EnrichLanguageDataWithNativeNames(languagesToSave, sourceFilePath);
 
@@ -62,6 +63,23 @@ public class LanguageDataExtractCommand : ICliCommand
         }
     }
 
+    private static void EnrichWithEnglishTranslation(List<LanguageInfo> languagesToSave)
+    {
+        foreach (var language in languagesToSave)
+        {
+            if (language.Name == "English")
+            {
+                continue;
+            }
+
+            language.NameTranslations_.Add(new LanguageTranslation
+            {
+                Language = "en",
+                Translation = language.Name,
+            });
+        }
+    }
+
     private void EnrichLanguageDataWithNativeNames(List<LanguageInfo> languagesToSave, string sourcePath)
     {
         using var reader = new StreamReader(Path.Combine(sourcePath, "native_language_names.json"));
@@ -77,19 +95,28 @@ public class LanguageDataExtractCommand : ICliCommand
             var language = languagesToSave.FirstOrDefault(x => nativeLaguageInfo.Code.Equals(x.Iso_639_1));
             if (language != null)
             {
-                language.NativeName_ = nativeLaguageInfo.NativeName;
+                language.NameTranslations_.Add(new LanguageTranslation
+                {
+                    Language = language.Iso_639_1!,
+                    Translation = nativeLaguageInfo.NativeName
+                });
             }
         }
     }
 
-    private static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
-        string uriRestLanguages,
-        string sourceFilePath)
+    public static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
+        IConfiguration configuration,
+        string? sourceFilePath = null)
     {
+        var uriRestLanguages = configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
+
         var data = RestHelper.GetInternetContent(uriRestLanguages).Content!;
 
         // Save content
-        File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
+        if (!string.IsNullOrWhiteSpace(sourceFilePath))
+        {
+            File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
+        }
 
         // Remove starting part
         data = data.Replace("---\n", string.Empty);
@@ -144,7 +171,7 @@ public class LanguageDataExtractCommand : ICliCommand
                 .Replace(":macro_language", "macro_language")
                 .Replace("'yes'", "yes")
                 .Replace("'no'", "no");
-
+            
             languages.Add(serializer.Deserialize<LanguageInfoYaml>(dataPiece));
 
             if (encodeQuotes)
@@ -176,8 +203,16 @@ public class LanguageDataExtractCommand : ICliCommand
             if (language != null)
             {
                 language.WikiUrl_ = addtionalInfoForCountry.WikiUrl;
-                language.GermanName_ = addtionalInfoForCountry.FrenchName!.First();
-                language.FrenchName_ = addtionalInfoForCountry.GermanName!.First();
+                language.NameTranslations_.Add(new LanguageTranslation
+                {
+                    Language = "fr",
+                    Translation = addtionalInfoForCountry.FrenchName!.First()
+                });
+                language.NameTranslations_.Add(new LanguageTranslation
+                {
+                    Language = "de",
+                    Translation = addtionalInfoForCountry.GermanName!.First()
+                });
             }
         }
     }

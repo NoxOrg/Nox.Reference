@@ -16,7 +16,7 @@ namespace Nox.Reference.Languages.Models
 
         public LanguageInfo ToLanguageInfo() => new LanguageInfo
         {
-            EnglishName_ = EnglishName,
+            Name_ = EnglishName,
             Iso_639_1_ = Iso_639_1,
             Iso_639_3_ = Iso_639_3,
             Iso_639_2b_ = Iso_639_2b,
