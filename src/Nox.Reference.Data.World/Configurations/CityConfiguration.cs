@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal class CityConfiguration : NoxReferenceEntityConfigurationBase<City>
 {

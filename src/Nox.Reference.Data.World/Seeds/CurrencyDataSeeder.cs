@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World;
 using System.Text.Json;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal class CurrencyDataSeeder : INoxReferenceDataSeeder
 {
@@ -65,45 +66,41 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
 
             var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData, deserializationOptions) ?? new();
 
+            var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies);
+            if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new Exception("Can't find file in worldCurrency repo.");
+            }
+            var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
+
+            // Fix Ni-Vanuatu Vatu
+            worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
+
+            var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
+
             foreach (var currency in currencyData)
             {
-                try
+                currency.Value.IsoCode = currency.Key;
+
+                if (!worldCurrencyData.TryGetValue(currency.Value.IsoCode.ToUpper(), out var worldCurrencyInfo))
                 {
-                    currency.Value.IsoCode = currency.Key;
-                    var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies + currency.Value.IsoCode.ToLower() + ".json5");
-
-                    if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
-                    {
-                        throw new NoxDataExtractorException("Can't find file in worldCurrency repo.");
-                    }
-                    var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
-
-                    // Fix Ni-Vanuatu Vatu
-                    if (currency.Key.Equals("VUV"))
-                    {
-                        worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
-                    }
-
-                    // Save content
-                    File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency_{currency.Value.IsoCode}.json"), worldCurrencyRestData);
-                    var worldCurrencyData = JsonSerializer.Deserialize<Dictionary<string, WorldCurrencyRestData>>(worldCurrencyRestData, deserializationOptions) ?? new();
-
-                    currency.Value.IsoNumber = worldCurrencyData.First().Value.Iso.Number;
-                    currency.Value.Banknotes = worldCurrencyData.First().Value.Banknotes;
-                    currency.Value.Coins = worldCurrencyData.First().Value.Coins;
-                    currency.Value.Units = worldCurrencyData.First().Value.Units;
-                    currency.Value.Name = worldCurrencyData.First().Value.Name;
+                    _logger.LogWarning("Warning! WorldData doesn't have key for currency '{Key}' from CurrencyFormatter.", currency.Key);
+                    continue;
                 }
-                catch (Exception ex)
-                {
-                    _logger.LogWarning("Warning! WorldData doesn't have key for currency '{Key}' from CurrencyFormatter. Error message: {Message}", currency.Key, ex.Message);
-                }
+
+                currency.Value.IsoNumber = worldCurrencyInfo.Iso.Number;
+                currency.Value.Banknotes = worldCurrencyInfo.Banknotes;
+                currency.Value.Coins = worldCurrencyInfo.Coins;
+                currency.Value.Units = worldCurrencyInfo.Units;
+                currency.Value.Name = worldCurrencyInfo.Name;
             }
 
-            var currencies = currencyData
-                .Select(x => x.Value);
+            var currencyInfos =
+                currencyData.Select(x => x.Value)
+                .ToList();
 
-            var entities = _mapper.Map<IEnumerable<Currency>>(currencies);
+            var entities = _mapper.Map<IEnumerable<Currency>>(currencyInfos);
+
             dataSet.AddRange(entities);
 
             _dbContext.SaveChanges();

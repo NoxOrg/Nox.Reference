@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 /// <summary>
 /// This class is used as a rest model and serialization model

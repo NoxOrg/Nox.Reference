@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal static class RestHelper
 {

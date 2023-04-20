@@ -4,10 +4,9 @@ using Microsoft.Extensions.Logging;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World;
 using System.Text.Json;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal class CountryDataSeeder : INoxReferenceDataSeeder
 {

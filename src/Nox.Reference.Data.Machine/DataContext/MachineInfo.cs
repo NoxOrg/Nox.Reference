@@ -18,7 +18,7 @@ public static class MachineInfo
             cfg.AddMaps(Assembly.GetExecutingAssembly());
         });
         var mapper = mapperConfiguration.CreateMapper();
-        IConfiguration configuration = new ConfigurationBuilder()
+        var configuration = new ConfigurationBuilder()
             .AddJsonFile("appsetings.json")
             .Build();
         _dbContext = new MachineDbContext(new DbContextOptions<MachineDbContext>(), mapper, configuration);

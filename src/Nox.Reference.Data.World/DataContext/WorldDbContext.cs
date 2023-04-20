@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
-using Nox.Reference.Country.DataContext;
-using Nox.Reference.Country.DataContext.Configurations;
+using Nox.Reference.Data.World;
+using Nox.Reference.Data.World.Configurations;
 
 namespace Nox.Reference.Data.World;
 
@@ -32,7 +32,7 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<ICurrencyInfo> Currencies
       => Set<Currency>()
          .AsQueryable()
-         .ProjectTo<ICurrencyInfo>(_mapper.ConfigurationProvider);
+         .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

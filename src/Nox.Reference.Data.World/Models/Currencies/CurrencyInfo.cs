@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal class CurrencyInfo : ICurrencyInfo
 {
@@ -13,7 +13,7 @@ internal class CurrencyInfo : ICurrencyInfo
     [JsonPropertyName("symbolOnLeft")] public bool SymbolOnLeft { get; set; } = false;
     [JsonPropertyName("spaceBetweenAmountAndSymbol")] public bool SpaceBetweenAmountAndSymbol { get; set; } = false;
     [JsonPropertyName("decimalDigits")] public int DecimalDigits { get; set; } = 0;
-    [JsonPropertyName("name")] public string Name { get; set; } = String.Empty;
+    [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;
     [JsonPropertyName("units")] public ICurrencyUnit Units { get; set; } = new CurrencyUnitInfo();
     [JsonPropertyName("banknotes")] public ICurrencyUsage Banknotes { get; set; } = new CurrencyUsageInfo();
     [JsonPropertyName("coins")] public ICurrencyUsage Coins { get; set; } = new CurrencyUsageInfo();

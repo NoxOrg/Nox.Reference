@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Country.DataContext;
+namespace Nox.Reference.Data.World;
 
 internal class City : INoxReferenceEntity
 {

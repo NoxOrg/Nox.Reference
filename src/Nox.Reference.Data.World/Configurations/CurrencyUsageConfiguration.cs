@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Country.DataContext.Configurations;
+namespace Nox.Reference.Data.World.Configurations;
 
 internal class CurrencyUsageConfiguration : NoxReferenceEntityConfigurationBase<CurrencyUsage>
 {

@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Country.DataContext;
+﻿namespace Nox.Reference.Data.World;
 
 internal class Dialing
 {

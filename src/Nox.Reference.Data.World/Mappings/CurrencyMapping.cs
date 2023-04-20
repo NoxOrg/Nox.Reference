@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Country.DataContext.Mappings
+namespace Nox.Reference.Data.World.Mappings
 {
     internal class CurrencyMapping : Profile
     {
@@ -32,9 +32,6 @@ namespace Nox.Reference.Country.DataContext.Mappings
             CreateProjection<CurrencyUsage, CurrencyUsageInfo>()
                 .ForMember(x => x.Frequent, x => x.MapFrom(t => t.Frequent.Select(x => x.Name).ToList()))
                 .ForMember(x => x.Rare, x => x.MapFrom(t => t.Rare.Select(x => x.Name).ToList()));
-
-            CreateMap<Currency, ICurrencyInfo>()
-                .As<CurrencyInfo>();
 
             CreateMap<CurrencyUsage, ICurrencyUsage>()
                 .As<CurrencyUsageInfo>();
