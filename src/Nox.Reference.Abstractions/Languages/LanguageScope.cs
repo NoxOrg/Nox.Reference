@@ -1,13 +1,12 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Abstractions.Languages
+namespace Nox.Reference.Abstractions;
+
+[JsonConverter(typeof(JsonStringEnumConverter))]
+public enum LanguageScope
 {
-    [JsonConverter(typeof(JsonStringEnumConverter))]
-    public enum LanguageScope
-    {
-        Unknown,
-        Individual,
-        MacroLanguage,
-        Special
-    }
+    Unknown,
+    Individual,
+    MacroLanguage,
+    Special
 }

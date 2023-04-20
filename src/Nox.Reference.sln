@@ -37,9 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.Machine.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.World.Tests", "..\tests\Nox.Reference.Data.World.Tests\Nox.Reference.Data.World.Tests.csproj", "{376E4E14-9477-4BC4-BF00-15274A0F27C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Languages", "Nox.Reference.Languages\Nox.Reference.Languages.csproj", "{CC770740-B079-47D3-B186-259D81095535}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Languages.Tests", "..\tests\Nox.Reference.Languages.Tests\Nox.Reference.Languages.Tests.csproj", "{D37E9295-EECE-471C-B150-9168A48367D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Languages.Tests", "..\tests\Nox.Reference.Languages.Tests\Nox.Reference.Languages.Tests.csproj", "{D37E9295-EECE-471C-B150-9168A48367D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +109,10 @@ Global
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D37E9295-EECE-471C-B150-9168A48367D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37E9295-EECE-471C-B150-9168A48367D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37E9295-EECE-471C-B150-9168A48367D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37E9295-EECE-471C-B150-9168A48367D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

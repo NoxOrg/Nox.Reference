@@ -5,6 +5,7 @@ using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using System.Text.Json;
+using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
@@ -51,42 +52,24 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
             var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
-            
+
             FixData(countries);
             EnrichWithMappingData(sourceFilePath, countries);
             FixTranslation(_configuration, countries);
 
-            // Edit germany
-            var germany = countries.First(c => c.Code.Equals("DEU"));
-
-            if (germany is not null && germany.VehicleInfo1 is not null)
+            // Store output
+            var options = new JsonSerializerOptions()
             {
-                germany.VehicleInfo1.InternationalRegistrationCodes = new string[] { "D" };
-            }
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true,
+            };
 
-            // Add fips codes
-            var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(
-                File.ReadAllText(Path.Combine(sourceFilePath, "static-iso2fips.json"))
-            );
+            var outputContent = JsonSerializer.Serialize(countries
+                .Where(c => !string.IsNullOrEmpty(c.NumericCode))
+                .Cast<ICountryInfo>(),
+                options);
 
-            foreach (var country in countries)
-            {
-                if (isoAlpha2ToFipsMapping?.TryGetValue(country.AlphaCode2, out var fips) ?? false)
-                {
-                    country.FipsCode = fips;
-                }
-
-                MapLatLongIntoGeoCoordinates(country);
-            }
-            var filteredCountries = countries
-                .Where(c => !string.IsNullOrEmpty(c.NumericCode));
-
-            var entities = _mapper.Map<IEnumerable<Country>>(filteredCountries);
-            _dbContext
-                .Set<Country>()
-                .AddRange(entities);
-
-            _dbContext.SaveChanges();
+            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
         }
         catch (Exception ex)
         {
@@ -96,7 +79,7 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
 
     private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)
     {
-        var iso3LanguageData = LanguageDataExtractCommand.GetLanguageIso639_3_Data(configuration);
+        var iso3LanguageData = GetLanguageIso639_3_Data(configuration);
         foreach (var country in countries)
         {
             var dictionaryCopy = country.NameTranslations_.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
@@ -106,7 +89,7 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
             {
                 var countryData = dictionaryCopy[translationLanguage];
                 dictionaryCopy.Remove(translationLanguage);
-                
+
                 string? newKey;
                 if (translationLanguage == "per")
                 {
@@ -186,5 +169,88 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
         {
             country.CapitalInfo_.LatLong = null!;
         }
+    }
+
+    public static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
+        IConfiguration configuration,
+        string? sourceFilePath = null)
+    {
+        var uriRestLanguages = configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
+
+        var data = RestHelper.GetInternetContent(uriRestLanguages).Content!;
+
+        // Save content
+        if (!string.IsNullOrWhiteSpace(sourceFilePath))
+        {
+            File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
+        }
+
+        // Remove starting part
+        data = data.Replace("---\n", string.Empty);
+
+        var serializer = new Deserializer();
+        var splitter = "- :name:";
+        var splitContent = data.Split(splitter);
+        splitContent = splitContent[1..];
+
+        var languages = new List<LanguageInfoYaml>();
+
+        foreach (var splitPart in splitContent)
+        {
+            var dataPiece = splitPart;
+            var encodeQuotes = false;
+
+            // Handle case when quote is first character
+            if (dataPiece.Contains("!"))
+            {
+                encodeQuotes = true;
+                if (dataPiece.Contains(":iso_639_3: alu")) { dataPiece = dataPiece.Replace("! '''Are''are'", "TO_DECODE"); }
+                else if (dataPiece.Contains(":iso_639_3: kud")) { dataPiece = dataPiece.Replace("! '''Auhelawa'", "TO_DECODE"); }
+                else if (dataPiece.Contains(":iso_639_3: nmn")) { dataPiece = dataPiece.Replace("! '!Xóõ'", "TO_DECODE"); }
+                else if (dataPiece.Contains(":iso_639_3: oun")) { dataPiece = dataPiece.Replace("! '!O!ung'", "TO_DECODE"); }
+            }
+
+            dataPiece = $"{splitter}{dataPiece}";
+
+            // Remove block
+            dataPiece = dataPiece.Replace("-", " ");
+
+            // Replace common name with name
+            if (dataPiece.Contains("common_name"))
+            {
+                dataPiece = string
+                    .Join(
+                        "\n",
+                        dataPiece
+                            .Split("\n")
+                            .Skip(1))
+                    .Replace("common_name", "name");
+            }
+
+            dataPiece = dataPiece
+                .Replace(":individual", "individual")
+                .Replace(":living", "living")
+                .Replace(":historical", "historical")
+                .Replace(":special", "special")
+                .Replace(":extinct", "extinct")
+                .Replace(":ancient", "ancient")
+                .Replace(":constructed", "constructed")
+                .Replace(":macro_language", "macro_language")
+                .Replace("'yes'", "yes")
+                .Replace("'no'", "no");
+
+            languages.Add(serializer.Deserialize<LanguageInfoYaml>(dataPiece));
+
+            if (encodeQuotes)
+            {
+                var language = languages[languages.Count - 1];
+                if (language.Iso_639_3 == "alu") { languages[languages.Count - 1].EnglishName = "'Are'are"; }
+                else if (language.Iso_639_3 == "kud") { languages[languages.Count - 1].EnglishName = "'Auhelawa"; }
+                else if (language.Iso_639_3 == "nmn") { languages[languages.Count - 1].EnglishName = "!Xóõ"; }
+                else if (language.Iso_639_3 == "oun") { languages[languages.Count - 1].EnglishName = "!O!ung"; }
+            }
+        }
+
+        return languages;
     }
 }
