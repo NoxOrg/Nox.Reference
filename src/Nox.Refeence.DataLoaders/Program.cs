@@ -1,15 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nox.Refeence.DataLoaders;
-using Nox.Reference.Country.DataContext;
-using Nox.Reference.MacAddress.DataContext;
+using Nox.Reference.Data;
+using Nox.Reference.Data.Machine;
 
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices(services =>
     {
         services.AddScoped<DataSeedRunner>();
-        services.AddMacAddressDbContext();
-        services.AddCountryDbContext();
+        services.AddMachineContext();
+        services.AddWorldContext();
     })
     .Build();
 
