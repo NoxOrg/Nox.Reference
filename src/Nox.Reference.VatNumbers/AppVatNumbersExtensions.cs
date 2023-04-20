@@ -29,8 +29,8 @@ public static class AppVatNumbersExtensions
                 return;
             }
 
-            //var vatNumbers = AssemblyDataInitializer.GetDataFromAssemblyResource<VatNumberInfo>(ResourceName);
-            //VatNumberService.Init(vatNumbers);
+            var vatNumbers = AssemblyDataInitializer.GetDataFromAssemblyResource<VatNumberInfo>(ResourceName);
+            VatNumberService.Init(vatNumbers);
 
             _initialized = true;
         }
