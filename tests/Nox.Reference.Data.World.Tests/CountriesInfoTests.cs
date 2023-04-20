@@ -1,7 +1,7 @@
 //using System.Diagnostics;
 //using System.Text.Json;
 
-//namespace Nox.Reference.Countries.Tests;
+//namespace Nox.Reference.Data.World.Tests;
 
 //public class CountryInfoTests
 //{

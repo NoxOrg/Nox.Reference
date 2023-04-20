@@ -1,8 +1,9 @@
 using System.Diagnostics;
 using System.Text.Json;
 using Nox.Reference.Abstractions;
+using Nox.Reference.PhoneNumbers;
 
-namespace Nox.Reference.PhoneNumbers.Tests;
+namespace Nox.Reference.Data.World.Tests;
 
 public class PhoneNumberInfoTests
 {

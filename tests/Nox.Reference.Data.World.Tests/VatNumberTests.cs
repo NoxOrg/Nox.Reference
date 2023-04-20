@@ -1,16 +1,17 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Holidays;
+using Nox.Reference.VatNumbers;
 using Nox.Reference.VatNumbers.Models;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Nox.Reference.VatNumbers.Tests;
+namespace Nox.Reference.Data.World.Tests;
 
 //TODO: transform into a command-like structure similarly to get data project
-public class Tests
+public class VatNumberTests
 {
     private string _testFilePath = string.Empty;
 

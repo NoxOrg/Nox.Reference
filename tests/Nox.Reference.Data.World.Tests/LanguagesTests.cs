@@ -2,7 +2,7 @@
 //using System.Diagnostics;
 //using System.Linq;
 
-//namespace Nox.Reference.Languages.Tests;
+//namespace Nox.Reference.Data.World.Tests;
 
 //public class LanguagesTests
 //{

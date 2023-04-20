@@ -1,12 +1,12 @@
-using Nox.Reference.Holidays;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
+using Nox.Reference.Holidays;
 
-namespace Nox.Reference.Currency.Tests;
+namespace Nox.Reference.Data.World.Tests;
 
-public class CurrencyTests
+public class HolidayInfoTests
 {
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -33,7 +33,7 @@ public class CurrencyTests
         Trace.WriteLine($"An exception was thrown: {exception!.Message}");
     }
 
-    #endregion
+    #endregion Constructor
 
     #region GetHolidays
 
@@ -52,7 +52,7 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetHolidays
 
     #region GetHolidaysByCountryCode
 
@@ -85,7 +85,7 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetHolidaysByCountryCode
 
     #region GetHolidaysByCountryName
 
@@ -118,7 +118,7 @@ public class CurrencyTests
         });
     }
 
-    #endregion
+    #endregion GetHolidaysByCountryName
 
     [TearDown]
     public void EndTest()

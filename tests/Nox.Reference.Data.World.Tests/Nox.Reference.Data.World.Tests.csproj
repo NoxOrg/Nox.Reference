@@ -18,6 +18,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Nox.Reference.Data.World\Nox.Reference.Data.World.csproj" />
+    <ProjectReference Include="..\..\src\Nox.Reference.Holidays\Nox.Reference.Holidays.csproj" />
+    <ProjectReference Include="..\..\src\Nox.Reference.PhoneNumbers\Nox.Reference.PhoneNumbers.csproj" />
+    <ProjectReference Include="..\..\src\Nox.Reference.VatNumbers\Nox.Reference.VatNumbers.csproj" />
   </ItemGroup>
 
 </Project>

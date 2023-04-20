@@ -7,21 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.PhoneNumbers"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Abstractions", "Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj", "{14684838-9E31-4177-8E46-525285F72618}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.PhoneNumbers.Tests", "..\tests\Nox.Reference.PhoneNumbers.Tests\Nox.Reference.PhoneNumbers.Tests.csproj", "{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Countries.Tests", "..\tests\Nox.Reference.Countries.Tests\Nox.Reference.Countries.Tests.csproj", "{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30573BE2-24E0-491F-AC22-01B487A90806}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays", "Nox.Reference.Holidays\Nox.Reference.Holidays.csproj", "{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays.Tests", "..\tests\Nox.Reference.Holidays.Tests\Nox.Reference.Holidays.Tests.csproj", "{DFB022E9-12A0-470F-8171-015725970140}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Common", "Nox.Reference.Common\Nox.Reference.Common.csproj", "{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.VatNumbers", "Nox.Reference.VatNumbers\Nox.Reference.VatNumbers.csproj", "{08F59ABF-1996-4B27-978B-D9025E6610A6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.VatNumbers.Tests", "..\tests\Nox.Reference.VatNumbers.Tests\Nox.Reference.VatNumbers.Tests.csproj", "{51F980CC-3DB9-4298-A0EF-CF059E74596E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.GetTestData", "..\tests\Nox.Reference.GetTestData\Nox.Reference.GetTestData.csproj", "{18B526F8-95FA-4291-8A46-14CFF3BDF842}"
 EndProject
@@ -37,8 +29,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.Machine.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.World.Tests", "..\tests\Nox.Reference.Data.World.Tests\Nox.Reference.Data.World.Tests.csproj", "{376E4E14-9477-4BC4-BF00-15274A0F27C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Languages.Tests", "..\tests\Nox.Reference.Languages.Tests\Nox.Reference.Languages.Tests.csproj", "{D37E9295-EECE-471C-B150-9168A48367D9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,22 +43,10 @@ Global
 		{14684838-9E31-4177-8E46-525285F72618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14684838-9E31-4177-8E46-525285F72618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14684838-9E31-4177-8E46-525285F72618}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFB022E9-12A0-470F-8171-015725970140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFB022E9-12A0-470F-8171-015725970140}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFB022E9-12A0-470F-8171-015725970140}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,10 +55,6 @@ Global
 		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08F59ABF-1996-4B27-978B-D9025E6610A6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51F980CC-3DB9-4298-A0EF-CF059E74596E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{18B526F8-95FA-4291-8A46-14CFF3BDF842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{18B526F8-95FA-4291-8A46-14CFF3BDF842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B526F8-95FA-4291-8A46-14CFF3BDF842}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -109,23 +83,14 @@ Global
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D37E9295-EECE-471C-B150-9168A48367D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D37E9295-EECE-471C-B150-9168A48367D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D37E9295-EECE-471C-B150-9168A48367D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D37E9295-EECE-471C-B150-9168A48367D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6EA6C2FB-31B5-46E2-9A6F-3631DC6BE83F} = {30573BE2-24E0-491F-AC22-01B487A90806}
-		{1D89422A-577E-4C27-907F-FEB2FF8AAFA3} = {30573BE2-24E0-491F-AC22-01B487A90806}
-		{DFB022E9-12A0-470F-8171-015725970140} = {30573BE2-24E0-491F-AC22-01B487A90806}
-		{51F980CC-3DB9-4298-A0EF-CF059E74596E} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{18B526F8-95FA-4291-8A46-14CFF3BDF842} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{BF20207D-1DB9-41F4-8AA6-94ABE1AE4C6C} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7} = {30573BE2-24E0-491F-AC22-01B487A90806}
-		{D37E9295-EECE-471C-B150-9168A48367D9} = {30573BE2-24E0-491F-AC22-01B487A90806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CAE0589-FF10-4A9A-949C-4BB11AB1397C}

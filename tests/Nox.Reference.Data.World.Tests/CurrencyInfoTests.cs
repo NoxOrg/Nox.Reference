@@ -1,12 +1,9 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
-using Nox.Reference.Data;
-using Nox.Reference.Data.World;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace Nox.Reference.Currency.Tests;
+namespace Nox.Reference.Data.World.Tests;
 
 public class CurrencyTests
 {
