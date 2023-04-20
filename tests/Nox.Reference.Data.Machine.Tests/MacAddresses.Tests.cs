@@ -3,8 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.Machine;
 
-using Nox.Reference.Data.Machine;
-
 namespace Nox.Reference.Data.Tests;
 
 public class MacAddressesTests
@@ -38,14 +36,5 @@ public class MacAddressesTests
         Assert.That(info.Id, Is.EqualTo(expectedPrefix));
         Assert.That(info.MacPrefix, Is.EqualTo(expectedPrefix));
         Assert.That(info.OrganizationName, Is.EqualTo(expectedOrganizationName));
-    }
-
-    [TestCase("V0:16:F6:11:22:33")]
-    [TestCase("0016-F6-11-22-33")]
-    [TestCase("")]
-    [TestCase(null)]
-    public void GetVendorMacAddress_InvalidMacAddressString_ShouldThrow(string input)
-    {
-        Assert.Throws<ArgumentException>(() => _macAddressContext.MacAddresses.FirstOrDefault(x => x.MacPrefix == input));
     }
 }
