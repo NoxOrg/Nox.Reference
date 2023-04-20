@@ -9,7 +9,7 @@ public class MacAddressesTests
 {
     private IMachineContext _macAddressContext;
 
-    [SetUp]
+    [OneTimeSetUp]
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();

@@ -2,7 +2,7 @@
 
 public interface ICountryInfo
 {
-    public int Id { get; }
+    public string Id { get; }
     public string Name { get; }
     public string Code { get; }
     public IReadOnlyList<string> Languages { get; }

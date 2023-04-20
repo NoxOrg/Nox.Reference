@@ -37,6 +37,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.Machine.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.World.Tests", "..\tests\Nox.Reference.Data.World.Tests\Nox.Reference.Data.World.Tests.csproj", "{376E4E14-9477-4BC4-BF00-15274A0F27C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Languages", "Nox.Reference.Languages\Nox.Reference.Languages.csproj", "{CC770740-B079-47D3-B186-259D81095535}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nox.Reference.Languages.Tests", "..\tests\Nox.Reference.Languages.Tests\Nox.Reference.Languages.Tests.csproj", "{D37E9295-EECE-471C-B150-9168A48367D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +123,7 @@ Global
 		{18B526F8-95FA-4291-8A46-14CFF3BDF842} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{BF20207D-1DB9-41F4-8AA6-94ABE1AE4C6C} = {30573BE2-24E0-491F-AC22-01B487A90806}
 		{376E4E14-9477-4BC4-BF00-15274A0F27C7} = {30573BE2-24E0-491F-AC22-01B487A90806}
+		{D37E9295-EECE-471C-B150-9168A48367D9} = {30573BE2-24E0-491F-AC22-01B487A90806}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CAE0589-FF10-4A9A-949C-4BB11AB1397C}

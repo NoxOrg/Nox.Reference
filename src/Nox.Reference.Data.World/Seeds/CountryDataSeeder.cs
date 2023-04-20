@@ -51,6 +51,10 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
             File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
             var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+            
+            FixData(countries);
+            EnrichWithMappingData(sourceFilePath, countries);
+            FixTranslation(_configuration, countries);
 
             // Edit germany
             var germany = countries.First(c => c.Code.Equals("DEU"));
@@ -75,8 +79,7 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
                 MapLatLongIntoGeoCoordinates(country);
             }
             var filteredCountries = countries
-                .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>();
+                .Where(c => !string.IsNullOrEmpty(c.NumericCode));
 
             var entities = _mapper.Map<IEnumerable<Country>>(filteredCountries);
             _dbContext
@@ -91,6 +94,79 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
         }
     }
 
+    private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)
+    {
+        var iso3LanguageData = LanguageDataExtractCommand.GetLanguageIso639_3_Data(configuration);
+        foreach (var country in countries)
+        {
+            var dictionaryCopy = country.NameTranslations_.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            var countryTranslations = dictionaryCopy.Select(x => x.Key).ToList();
+
+            foreach (var translationLanguage in countryTranslations)
+            {
+                var countryData = dictionaryCopy[translationLanguage];
+                dictionaryCopy.Remove(translationLanguage);
+                
+                string? newKey;
+                if (translationLanguage == "per")
+                {
+                    newKey = "fa";
+                }
+                else
+                {
+                    newKey = iso3LanguageData.FirstOrDefault(x => translationLanguage.Equals(x.Iso_639_2t))?.Iso_639_1;
+                }
+
+                if (string.IsNullOrWhiteSpace(newKey))
+                {
+                    _logger.LogWarning("Warning! Can't find a language iso 639-1 code for language '{translationLanguage}'.", translationLanguage);
+                }
+                else
+                {
+                    dictionaryCopy[newKey!] = countryData;
+                }
+            }
+
+            dictionaryCopy.Add("en", new RestcountryNativeNameInfo
+            {
+                CommonName = country.Name,
+                OfficialName = country.Name,
+                Language = "English",
+            });
+
+            country.NameTranslations_ = dictionaryCopy;
+        }
+    }
+
+    private static void EnrichWithMappingData(string sourceFilePath, RestcountryCountryInfo[] countries)
+    {
+        var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(
+                        File.ReadAllText(Path.Combine(sourceFilePath, "static-iso2fips.json"))
+                    );
+
+        foreach (var country in countries)
+        {
+            // Add fips codes
+            if (isoAlpha2ToFipsMapping?.TryGetValue(country.AlphaCode2, out var fips) ?? false)
+            {
+                country.FipsCode = fips;
+            }
+
+            MapLatLongIntoGeoCoordinates(country);
+        }
+    }
+
+    private static void FixData(RestcountryCountryInfo[] countries)
+    {
+        // Edit germany
+        var germany = countries.First(c => c.Code.Equals("DEU"));
+
+        if (germany is not null && germany.VehicleInfo_ is not null)
+        {
+            germany.VehicleInfo_.InternationalRegistrationCodes = new string[] { "D" };
+        }
+    }
+
     private static void MapLatLongIntoGeoCoordinates(RestcountryCountryInfo country)
     {
         if (country.LatLong?.Count == 2)
@@ -100,15 +176,15 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
         }
         country.LatLong = null!;
 
-        if (country.CapitalInfo1?.LatLong?.Count == 2)
+        if (country.CapitalInfo_?.LatLong?.Count == 2)
         {
-            country.CapitalInfo1.GeoCoordinates.Latitude = country.CapitalInfo1.LatLong[0];
-            country.CapitalInfo1.GeoCoordinates.Longitude = country.CapitalInfo1.LatLong[1];
+            country.CapitalInfo_.GeoCoordinates.Latitude = country.CapitalInfo_.LatLong[0];
+            country.CapitalInfo_.GeoCoordinates.Longitude = country.CapitalInfo_.LatLong[1];
         }
 
-        if (country.CapitalInfo1 != null)
+        if (country.CapitalInfo_ != null)
         {
-            country.CapitalInfo1.LatLong = null!;
+            country.CapitalInfo_.LatLong = null!;
         }
     }
 }
