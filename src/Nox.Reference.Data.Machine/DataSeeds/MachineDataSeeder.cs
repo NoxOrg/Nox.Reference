@@ -3,47 +3,29 @@ using AutoMapper;
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Seeds;
 
 namespace Nox.Reference.Data.Machine;
 
-internal class MachineDataSeeder : INoxReferenceDataSeeder
+internal class MachineDataSeeder : NoxReferenceDataSeederBase<MachineDbContext, MacAddressInfo, MacAddress>
 {
     private const string SourceFilePath = @"MacAddresses\mac-vendor.csv";
 
     private readonly IConfiguration _configuration;
-    private readonly IMapper _mapper;
-    private readonly MachineDbContext _dbContext;
-
-    private readonly ILogger<MachineDataSeeder> _logger;
 
     public MachineDataSeeder(
         IConfiguration configuration,
         IMapper mapper,
         MachineDbContext dbContext,
         ILogger<MachineDataSeeder> logger
-       )
+       ) : base(dbContext, mapper, logger)
     {
         _configuration = configuration;
-        _mapper = mapper;
-        _dbContext = dbContext;
-        _logger = logger;
     }
 
-    public void Seed()
+    protected override IEnumerable<MacAddressInfo> GetDataInfos()
     {
-        var dataSet = _dbContext
-            .Set<MacAddress>();
-
-        if (dataSet.Any())
-        {
-            return;
-        }
-
-        _logger.LogInformation("Getting MAC Address data...");
-
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
 
         var sourceFilePath = Path.Combine(sourceOutputPath, SourceFilePath);
@@ -59,7 +41,7 @@ internal class MachineDataSeeder : INoxReferenceDataSeeder
         using var sr = new StreamReader(sourceFilePath);
         using var csvReader = new CsvReader(sr, CultureInfo.InvariantCulture);
 
-        var dataRecords = new List<IMacAddressInfo>();
+        var dataRecords = new List<MacAddressInfo>();
         while (csvReader.Read())
         {
             var data = csvReader.GetRecord<MacAddressInfo>();
@@ -69,11 +51,8 @@ internal class MachineDataSeeder : INoxReferenceDataSeeder
             }
             dataRecords.Add(data);
         }
-        var entities = _mapper.Map<IEnumerable<MacAddress>>(dataRecords);
-        dataSet.AddRange(entities);
 
-        _dbContext.SaveChanges();
-        _logger.LogInformation("Getting MAC Address data successfuly completed...");
+        return dataRecords;
     }
 
     private async Task DownloadSourceFileAsync()

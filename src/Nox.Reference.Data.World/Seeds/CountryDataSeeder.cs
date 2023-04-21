@@ -1,80 +1,55 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Seeds;
 using System.Text.Json;
 using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryDataSeeder : INoxReferenceDataSeeder
+internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryInfo, Country>
 {
     private readonly IConfiguration _configuration;
-    private readonly Mapper _mapper;
-    private readonly WorldDbContext _dbContext;
-    private readonly ILogger<CountryDataSeeder> _logger;
 
     public CountryDataSeeder(
         IConfiguration configuration,
         Mapper mapper,
         WorldDbContext dbContext,
         ILogger<CountryDataSeeder> logger)
+        : base(dbContext, mapper, logger)
     {
         _configuration = configuration;
-        _mapper = mapper;
-        _dbContext = dbContext;
-        _logger = logger;
     }
 
-    public void Seed()
+    protected override IEnumerable<CountryInfo> GetDataInfos()
     {
-        _logger.LogInformation("Getting country data...");
-
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
-        try
-        {
-            var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
+        var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
 
-            var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
-            Directory.CreateDirectory(sourceFilePath);
+        var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
+        Directory.CreateDirectory(sourceFilePath);
 
-            var targetFilePath = targetOutputPath;
-            Directory.CreateDirectory(targetFilePath);
+        var targetFilePath = targetOutputPath;
+        Directory.CreateDirectory(targetFilePath);
 
-            // Fix empty dictionaries for 'currencies' from empty arrays
-            var editedContent = data.Replace(@"""currencies"": [],", @"""currencies"": {},");
+        // Fix empty dictionaries for 'currencies' from empty arrays
+        var editedContent = data.Replace(@"""currencies"": [],", @"""currencies"": {},");
 
-            // save content
-            File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
+        // save content
+        File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
 
-            var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+        var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
-            FixData(countries);
-            EnrichWithMappingData(sourceFilePath, countries);
-            FixTranslation(_configuration, countries);
+        FixData(countries);
+        EnrichWithMappingData(sourceFilePath, countries);
+        FixTranslation(_configuration, countries);
 
-            // Store output
-            var options = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
-
-            var outputContent = JsonSerializer.Serialize(countries
+        return countries
                 .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>(),
-                options);
-
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex.Message);
-        }
+                .Cast<CountryInfo>();
     }
 
     private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)

@@ -17,4 +17,8 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.4" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
+	</ItemGroup>
+
 </Project>

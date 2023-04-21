@@ -1,66 +1,52 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Seeds;
 using System.Text.Json;
 using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-public class LanguageDataSeed : INoxReferenceDataSeeder
+internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, LanguageInfo, Language>
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<LanguageDataSeed> _logger;
 
     public LanguageDataSeed(
         IConfiguration configuration,
+        WorldDbContext dbContext,
+        IMapper mapper,
         ILogger<LanguageDataSeed> logger)
+        : base(dbContext, mapper, logger)
     {
         _configuration = configuration;
-        _logger = logger;
     }
 
-    public void Seed()
+    protected override IEnumerable<LanguageInfo> GetDataInfos()
     {
         _logger.LogInformation("Getting language data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestLanguagesAdditionalInfo = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesAdditionalInfo)!;
-        try
-        {
-            var sourceFilePath = Path.Combine(sourceOutputPath, "Languages");
-            Directory.CreateDirectory(sourceFilePath);
 
-            var targetFilePath = targetOutputPath;
-            Directory.CreateDirectory(targetFilePath);
+        var sourceFilePath = Path.Combine(sourceOutputPath, "Languages");
+        Directory.CreateDirectory(sourceFilePath);
 
-            var languages = GetLanguageIso639_3_Data(_configuration, sourceFilePath);
+        var targetFilePath = targetOutputPath;
+        Directory.CreateDirectory(targetFilePath);
 
-            var languagesToSave = languages
-                .Select(x => x.ToLanguageInfo())
-                .ToList();
+        var languages = GetLanguageIso639_3_Data(_configuration, sourceFilePath);
 
-            EnrichWithEnglishTranslation(languagesToSave);
-            EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
-            EnrichLanguageDataWithNativeNames(languagesToSave, sourceFilePath);
+        var languagesToSave = languages
+            .Select(x => x.ToLanguageInfo())
+            .ToList();
 
-            // Store output
-            var options = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
+        EnrichWithEnglishTranslation(languagesToSave);
+        EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
+        EnrichLanguageDataWithNativeNames(languagesToSave, sourceFilePath);
 
-            // Map yaml model to normal model
-            var outputContent = JsonSerializer.Serialize(languagesToSave, options);
-
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Languages.json"), outputContent);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex.Message);
-        }
+        return languagesToSave;
     }
 
     private static void EnrichWithEnglishTranslation(List<LanguageInfo> languagesToSave)
