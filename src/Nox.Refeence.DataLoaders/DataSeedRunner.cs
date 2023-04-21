@@ -21,7 +21,7 @@ public class DataSeedRunner
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine($"Exception happened during seeding data {dataSeeder.GetType().Name}. Exception: {e.Message}");
             }
         }
     }

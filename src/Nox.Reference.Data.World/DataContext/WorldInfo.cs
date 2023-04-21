@@ -3,6 +3,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Common;
 using Nox.Reference.Data.World;
 
 namespace Nox.Reference.Data;
@@ -19,7 +20,7 @@ public static class WorldInfo
         });
         var mapper = mapperConfiguration.CreateMapper();
         IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsetings.json")
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
         _dbContext = new WorldDbContext(new DbContextOptions<WorldDbContext>(), mapper, configuration);
     }

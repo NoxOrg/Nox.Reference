@@ -14,7 +14,7 @@ public static class WorldDataExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsetings.json")
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
 
         services.AddScoped(_ => configuration);

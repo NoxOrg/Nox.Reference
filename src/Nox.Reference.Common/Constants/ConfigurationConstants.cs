@@ -11,4 +11,5 @@ public static class ConfigurationConstants
     public const string UriLanguagesISO639 = "UriLanguagesISO639";
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string ConnectionStringName = "NoxReferencesConnection";
+    public const string ConfigFileName = "appsettings.json";
 }
