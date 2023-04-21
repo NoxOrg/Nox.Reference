@@ -49,14 +49,20 @@ public class CurrencyTests
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
         ICurrencyInfo uaCurrency = WorldInfo.Currencies.Get("UAH")!;
-        ICurrencyUnit currencyUnit = WorldInfo.Currencies.Get("USD").Units;
 
         Assert.Multiple(() =>
         {
-            Assert.That(currencyUnit.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
             Assert.That(uaCurrency, Is.Not.Null);
             Assert.That(uaCurrency?.IsoCode, Is.EqualTo("UAH"));
         });
+    }
+
+    [Test]
+    public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
+    {
+        ICurrencyUnit currencyUnit = WorldInfo.Currencies.Get("USD").Units;
+
+        Assert.That(currencyUnit.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
     }
 
     #endregion GetCurrencies

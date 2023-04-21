@@ -1,63 +1,9 @@
-# Nox.Reference.MacAddresses
-MacAddresses list and info
+In order to create migrations:
+- In powershel or similar command tool go to Nox.Reference\src\Nox.Reference.Data.World
+- Run the following command:   dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.World.csproj
+- Created migration will appear in Nox.Reference.Data.World\\Mirations folder
 
-## Usage example
+To create or update database:
+Run command dotnet ef database update --connection "Data Source=..\\..\\data\\noxreferences.db"
 
-```csharp
-
-using System.Text.Json;
-using Nox.Reference.MacAddresses;
-
-public class TestClass
-{
-    private readonly IMacAddressesService _macAddressesService;
-
-    public TestClass(IMacAddressesService macAddressesService)
-    {
-        _macAddressesService = macAddressesService;
-    }
-
-    public void Test()
-    {
-        var info = _macAddressesService.GetMacAddressInfo("FC:59:C0:FF:EF:57"); 
-
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = true,
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        };
-
-        Console.WriteLine(JsonSerializer.Serialize(info,options));
-    }
-}
-
-
-public class Startup
-{
-    ConfigureServices(IServiceCollection services)
-    {
-        services.AddNoxMacAddresses();
-    }
-}
-```
-
-<details>
-  <summary>Output example</summary>
-
-```csharp
-/* Outputs:
-  {
-    "IEEERegistry": "MA-L",
-    "Id": "FC59C0",
-    "MacPrefix": "FC59C0",
-    "OrganizationName": "Arista Networks",
-    "OrganizationAddress": "5453 Great America Parkway Santa Clara CA US 95054 "
-  }
-*/
-```
-</details>
-
-### To install from nuget.org
-```powershell
-dotnet add package Nox.Reference.MacAddresses
-```
+noxreferences.db database file will appear in (RootPath)//data

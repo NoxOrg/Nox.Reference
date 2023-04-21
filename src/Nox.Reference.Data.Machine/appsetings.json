@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "noxreferencesConnection": "Data Source=..\\..\\..\\..\\..\\data\\noxreferences.db"
+    "NoxReferencesConnection": "Data Source=..\\..\\..\\..\\..\\data\\noxreferences.db"
   },
   "SourceDataPath": "..\\..\\..\\..\\..\\data\\source",
   "TargetDataPath": "..\\..\\..\\..\\..\\data",

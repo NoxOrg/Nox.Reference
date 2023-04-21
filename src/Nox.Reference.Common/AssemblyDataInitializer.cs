@@ -7,17 +7,12 @@ public static class AssemblyDataInitializer
 {
     public static IEnumerable<TType> GetDataFromAssemblyResource<TType>(string resourceName)
     {
-        var assembly = Assembly.GetCallingAssembly();
-
-        if (assembly == null)
-        {
-            throw new InvalidOperationException("ExecutingAssembly was not found");
-        }
+        var assembly = Assembly.GetCallingAssembly()!;
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)
         {
-            throw new InvalidOperationException($"Resource {resourceName} stream is null or empty");
+            throw new NoxDataExtractorException($"Resource {resourceName} stream is null or empty");
         }
 
         using var reader = new StreamReader(stream);
@@ -28,7 +23,7 @@ public static class AssemblyDataInitializer
 
         if (data == null || !data.Any())
         {
-            throw new InvalidOperationException($"Deserialized collection from {resourceName} is null or empty.");
+            throw new NoxDataExtractorException($"Deserialized collection from {resourceName} is null or empty.");
         }
 
         return data;

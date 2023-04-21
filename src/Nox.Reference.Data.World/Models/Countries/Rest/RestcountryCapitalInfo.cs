@@ -10,8 +10,8 @@ namespace Nox.Reference.Data.World;
 public class RestcountryCapitalInfo : ICapitalInfo
 {
     [JsonPropertyName("latlng")]
-    public IReadOnlyList<decimal> LatLong { get; set; } = null!;
+    public IReadOnlyList<decimal> LatLong { get; set; } = new List<decimal>();
 
     [JsonPropertyName("getCoordinates")]
-    public IGeoCoordinates GeoCoordinates { get; set; } = null!;
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
 }

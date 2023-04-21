@@ -10,5 +10,5 @@ public static class ConfigurationConstants
     public const string UriRestCountriesSettingName = "UriRestCountries";
     public const string UriLanguagesISO639 = "UriLanguagesISO639";
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
-    public const string ConnectionStringName = "noxreferencesConnection";
+    public const string ConnectionStringName = "NoxReferencesConnection";
 }

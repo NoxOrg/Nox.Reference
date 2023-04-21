@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Refeence.DataLoaders;
+namespace Nox.Reference.DataLoaders;
 
 public class DataSeedRunner
 {
@@ -15,7 +15,14 @@ public class DataSeedRunner
     {
         foreach (var dataSeeder in _dataSeeders)
         {
-            dataSeeder.Seed();
+            try
+            {
+                dataSeeder.Seed();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
     }
 }
