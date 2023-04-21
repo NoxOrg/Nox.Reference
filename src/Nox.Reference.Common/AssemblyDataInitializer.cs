@@ -12,18 +12,17 @@ public static class AssemblyDataInitializer
         using var stream = assembly.GetManifestResourceStream(resourceName);
         if (stream == null)
         {
-            throw new NoxDataExtractorException($"Resource {resourceName} stream is null or empty");
+            throw new NoxDataExtractorException($"Resource {resourceName} was not found in assesmbly {assembly.FullName}");
         }
 
         using var reader = new StreamReader(stream);
-
         var jsonContent = reader.ReadToEnd();
 
         var data = JsonSerializer.Deserialize<TType[]>(jsonContent);
 
         if (data == null || !data.Any())
         {
-            throw new NoxDataExtractorException($"Deserialized collection from {resourceName} is null or empty.");
+            throw new NoxDataExtractorException($"Reference data for {resourceName} is unexpectedly missing from assembly {assembly.FullName}.");
         }
 
         return data;
