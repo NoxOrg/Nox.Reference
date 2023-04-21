@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 using Nox.Reference.VatNumbers.Constants;
 using Nox.Reference.VatNumbers.Extension;
 using Nox.Reference.VatNumbers.Models;
@@ -19,7 +19,8 @@ public class VatNumberService : IVatNumberService
         }
     }
 
-    public VatNumberService() {  }
+    public VatNumberService()
+    { }
 
     public IVatNumberInfo GetCountryVatInfo(IVatNumberInfo vatNumberInfo)
     {

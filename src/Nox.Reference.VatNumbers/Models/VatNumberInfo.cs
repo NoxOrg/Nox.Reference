@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Shared;
 using System.Text.Json.Serialization;
 
@@ -6,7 +6,8 @@ namespace Nox.Reference.VatNumbers.Models
 {
     public class VatNumberInfo : IVatNumberInfo
     {
-        public VatNumberInfo() { }
+        public VatNumberInfo()
+        { }
 
         public VatNumberInfo(string countryIso2Code)
         {
@@ -35,6 +36,7 @@ namespace Nox.Reference.VatNumbers.Models
 
         // Taken from constructor
         [JsonPropertyName("country")] public string Country { get; set; } = string.Empty;
+
         public string OriginalVatNumber { get; set; } = string.Empty;
 
         // Enriched from database
@@ -42,7 +44,9 @@ namespace Nox.Reference.VatNumbers.Models
         [JsonPropertyName("localName")] public string LocalName { get; set; } = string.Empty;
         [JsonPropertyName("validations")] public ValidationInfo[]? Validations_ { get; set; }
         [JsonIgnore] public IValidationInfo[]? ValidationsOverride_ { get; set; }
-        [JsonIgnore] public IValidationInfo[]? Validations
+
+        [JsonIgnore]
+        public IValidationInfo[]? Validations
         {
             get
             {
@@ -58,10 +62,12 @@ namespace Nox.Reference.VatNumbers.Models
                 ValidationsOverride_ = value;
             }
         }
+
         [JsonPropertyName("verificationApi")] public VerificationApi VerificationApi { get; set; } = VerificationApi.None;
 
         // Optionally set on runtime
         public string FormattedVatNumber { get; set; } = string.Empty;
+
         public IValidationResult ValidationResult { get; set; } = new ValidationResult();
         public bool IsVerified { get; set; } = false;
         public object? ApiVerificationData { get; set; } = null;

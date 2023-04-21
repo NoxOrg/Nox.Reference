@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface INativeNameInfo
 {
@@ -7,4 +7,3 @@ public interface INativeNameInfo
 
     public string CommonName { get; }
 }
-

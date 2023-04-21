@@ -1,8 +1,7 @@
-﻿namespace Nox.Reference.Abstractions.Languages
+﻿namespace Nox.Reference.Abstractions;
+
+public interface ILanguageTranslation
 {
-    public interface ILanguageTranslation
-    {
-        public string Translation { get; set; }
-        public string Language { get; set; }
-    }
+    public string Translation { get; set; }
+    public string Language { get; set; }
 }

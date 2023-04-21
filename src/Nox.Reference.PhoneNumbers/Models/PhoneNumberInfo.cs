@@ -1,4 +1,6 @@
-﻿namespace Nox.Reference.PhoneNumbers;
+﻿using Nox.Reference.Abstractions;
+
+namespace Nox.Reference.PhoneNumbers;
 
 internal class PhoneNumberInfo : IPhoneNumberInfo
 {
@@ -14,5 +16,3 @@ internal class PhoneNumberInfo : IPhoneNumberInfo
     public string RegionName { get; set; } = string.Empty;
     public string CarrierName { get; set; } = "Unknown";
 }
-
-

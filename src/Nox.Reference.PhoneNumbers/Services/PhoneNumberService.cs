@@ -1,4 +1,5 @@
-﻿using LibPhoneNumber = PhoneNumbers;
+﻿using Nox.Reference.Abstractions;
+using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;
 
@@ -7,7 +8,6 @@ public partial class PhoneNumberService : IPhoneNumberService
     private static readonly LibPhoneNumber.PhoneNumberUtil _phoneUtil = LibPhoneNumber.PhoneNumberUtil.GetInstance();
 
     private static readonly LibPhoneNumber.PhoneNumberOfflineGeocoder _geoCoder = LibPhoneNumber.PhoneNumberOfflineGeocoder.GetInstance();
-
 
     public PhoneNumberService()
     {
@@ -74,6 +74,5 @@ public partial class PhoneNumberService : IPhoneNumberService
         if (min < 1 || max > _carrierMap.Length - 1) return "Unknown";
 
         return _carriers[_carrierMap[max, 1]];
-
     }
 }

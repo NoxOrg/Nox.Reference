@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Shared;
 
-namespace Nox.Reference.Abstractions.VatNumbers
+namespace Nox.Reference.Abstractions
 {
     public interface IVatNumberInfo
     {

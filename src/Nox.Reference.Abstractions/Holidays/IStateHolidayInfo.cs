@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.Holidays
+﻿namespace Nox.Reference.Abstractions
 {
     public interface IStateHolidayInfo
     {

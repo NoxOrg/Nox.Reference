@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Countries;
+namespace Nox.Reference.Abstractions;
 
 public interface ICountryNames
 {
@@ -9,4 +9,3 @@ public interface ICountryNames
 
     IReadOnlyList<INativeNameInfo>? NativeNames { get; }
 }
-

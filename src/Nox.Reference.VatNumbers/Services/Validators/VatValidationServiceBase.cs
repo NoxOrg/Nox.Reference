@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.VatNumbers;
+﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Shared;
 using Nox.Reference.VatNumbers.Constants;
 using System.Text.RegularExpressions;

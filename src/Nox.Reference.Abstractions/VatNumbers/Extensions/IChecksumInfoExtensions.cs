@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.VatNumbers.Extensions
+﻿namespace Nox.Reference.Abstractions.Extensions
 {
     public static class IChecksumInfoExtensions
     {

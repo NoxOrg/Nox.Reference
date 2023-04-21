@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface IDemonymn
 {
@@ -6,4 +6,3 @@ public interface IDemonymn
     public string Feminine { get; }
     public string Masculine { get; }
 }
-

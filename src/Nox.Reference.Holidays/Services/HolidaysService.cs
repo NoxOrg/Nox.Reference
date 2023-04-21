@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.Holidays;
+﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Holidays.Models;
 using System.IO.Compression;
 using System.Reflection;

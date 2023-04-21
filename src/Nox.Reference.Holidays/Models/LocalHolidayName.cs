@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Abstractions.Holidays;
+﻿using Nox.Reference.Abstractions;
 using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Holidays.Models

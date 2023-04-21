@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Abstractions.Holidays
+namespace Nox.Reference.Abstractions
 {
     public interface IHolidayInfo
     {

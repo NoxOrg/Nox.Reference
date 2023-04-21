@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Countries;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface IGeoCoordinates
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace Nox.Reference.Abstractions.Currencies;
+namespace Nox.Reference.Abstractions;
 
 public interface ICurrencyUsage
 {
