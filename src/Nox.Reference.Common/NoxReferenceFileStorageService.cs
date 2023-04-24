@@ -28,7 +28,7 @@ public class NoxReferenceFileStorageService
         File.WriteAllBytes(filePath, content);
     }
 
-    public void SaveDataToFile<TSource>(IEnumerable<TSource> data, string fileName)
+    public void SaveDataToFile<TSource>(IEnumerable<TSource> data, string folderRelativePath, string fileName)
     {
         var targetPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var options = new JsonSerializerOptions()
@@ -39,7 +39,9 @@ public class NoxReferenceFileStorageService
 
         var outputContent = JsonSerializer.Serialize(data, options);
 
-        File.WriteAllText(Path.Combine(targetPath, fileName), outputContent);
+        Directory.CreateDirectory(Path.Combine(targetPath, folderRelativePath));
+
+        File.WriteAllText(Path.Combine(targetPath, folderRelativePath, fileName), outputContent);
     }
 
     public string GetFileContentFromSource(

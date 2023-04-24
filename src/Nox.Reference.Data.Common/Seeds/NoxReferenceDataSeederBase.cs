@@ -44,7 +44,7 @@ namespace Nox.Reference.Data.Common.Seeds
             try
             {
                 var infos = GetDataInfos();
-                _fileStorageService.SaveDataToFile(infos, TargetFileName);
+                _fileStorageService.SaveDataToFile(infos, DataFolderPath, TargetFileName);
 
                 var entities = _mapper.Map<IEnumerable<TEntity>>(infos);
                 dataSet.AddRange(entities);
