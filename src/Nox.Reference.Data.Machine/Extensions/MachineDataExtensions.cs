@@ -11,14 +11,15 @@ public static class MachineDataExtensions
 {
     public static IServiceCollection AddMachineContext(this IServiceCollection services)
     {
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsetings.json")
+        var configuration = new ConfigurationBuilder()
+            .AddJsonFile(ConfigurationConstants.MachineConfigFileName)
             .Build();
 
-        services.AddScoped(_ => configuration);
+        services.AddNoxReferenceConfiguration(configuration);
+
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-        var connectionString = configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
+        var connectionString = configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
         services.AddSqlite<MachineDbContext>(connectionString);
 
         services.AddScoped<INoxReferenceDataSeeder, MachineDataSeeder>();

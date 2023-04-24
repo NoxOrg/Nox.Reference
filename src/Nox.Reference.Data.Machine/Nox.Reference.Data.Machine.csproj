@@ -44,7 +44,7 @@
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
 </ItemGroup>
 <ItemGroup>
-  <None Update="appsettings.json">
+  <None Update="machine.appsettings.json">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
 </ItemGroup>
