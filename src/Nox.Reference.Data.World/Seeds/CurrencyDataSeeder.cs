@@ -15,29 +15,24 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
         IConfiguration configuration,
         IMapper mapper,
         WorldDbContext dbContext,
-        ILogger<CurrencyDataSeeder> logger)
-        : base(dbContext, mapper, logger)
+        ILogger<CurrencyDataSeeder> logger,
+        NoxReferenceFileStorageService noxReferenceFileStorage)
+        : base(dbContext, mapper, logger, noxReferenceFileStorage)
     {
         _configuration = configuration;
     }
 
+    public override string TargetFileName => "Nox.Reference.Languages.json";
+
+    public override string DataFolderPath => "Languages";
+
     protected override IEnumerable<CurrencyInfo> GetDataInfos()
     {
-        var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
-        var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestCurrencyFormatterCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestCurrencyFormatterCurrenciesSettingName)!;
         var uriRestWorldCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestWorldCurrenciesSettingName)!;
 
         var currencyFormatterRestData = RestHelper.GetInternetContent(uriRestCurrencyFormatterCurrencies).Content!;
-
-        var sourceFilePath = Path.Combine(sourceOutputPath, "Currencies");
-        Directory.CreateDirectory(sourceFilePath);
-
-        var targetFilePath = targetOutputPath;
-        Directory.CreateDirectory(targetFilePath);
-
-        // Save content
-        File.WriteAllText(Path.Combine(sourceFilePath, "currencyFormatter.json"), currencyFormatterRestData);
+        _fileStorageService.SaveContentToSource(currencyFormatterRestData, DataFolderPath, "currencyFormatter.json");
 
         var deserializationOptions = new JsonSerializerOptions()
         {
@@ -46,7 +41,6 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
         };
 
         var currencyData = JsonSerializer.Deserialize<Dictionary<string, CurrencyInfo>>(currencyFormatterRestData, deserializationOptions) ?? new();
-
         var worldCurrencyRestDataResponse = RestHelper.GetInternetContent(uriRestWorldCurrencies);
         if (worldCurrencyRestDataResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
         {

@@ -16,27 +16,24 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
         IConfiguration configuration,
         WorldDbContext dbContext,
         IMapper mapper,
-        ILogger<LanguageDataSeed> logger)
-        : base(dbContext, mapper, logger)
+        ILogger<LanguageDataSeed> logger,
+        NoxReferenceFileStorageService fileStorageService)
+        : base(dbContext, mapper, logger, fileStorageService)
     {
         _configuration = configuration;
     }
+
+    public override string TargetFileName => "Nox.Reference.Languages.json";
+
+    public override string DataFolderPath => "Languages";
 
     protected override IEnumerable<LanguageInfo> GetDataInfos()
     {
         _logger.LogInformation("Getting language data...");
 
-        var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
-        var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestLanguagesAdditionalInfo = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesAdditionalInfo)!;
 
-        var sourceFilePath = Path.Combine(sourceOutputPath, "Languages");
-        Directory.CreateDirectory(sourceFilePath);
-
-        var targetFilePath = targetOutputPath;
-        Directory.CreateDirectory(targetFilePath);
-
-        var languages = GetLanguageIso639_3_Data(_configuration, sourceFilePath);
+        var languages = GetLanguageIso639_3_Data();
 
         var languagesToSave = languages
             .Select(x => x.ToLanguageInfo())
@@ -44,7 +41,7 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
 
         EnrichWithEnglishTranslation(languagesToSave);
         EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
-        EnrichLanguageDataWithNativeNames(languagesToSave, sourceFilePath);
+        EnrichLanguageDataWithNativeNames(languagesToSave);
 
         return languagesToSave;
     }
@@ -66,16 +63,16 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
         }
     }
 
-    private void EnrichLanguageDataWithNativeNames(List<LanguageInfo> languagesToSave, string sourcePath)
+    private void EnrichLanguageDataWithNativeNames(List<LanguageInfo> languagesToSave)
     {
-        using var reader = new StreamReader(Path.Combine(sourcePath, "native_language_names.json"));
+        var fileContent = _fileStorageService.GetFileContentFromSource(DataFolderPath, "native_language_names.json");
         var deserializationOptions = new JsonSerializerOptions()
         {
             AllowTrailingCommas = true,
             ReadCommentHandling = JsonCommentHandling.Skip
         };
 
-        var nativeLanguageNamesInfo = JsonSerializer.Deserialize<List<LanguageNativeNameInfo>>(reader.ReadToEnd(), deserializationOptions) ?? new();
+        var nativeLanguageNamesInfo = JsonSerializer.Deserialize<List<LanguageNativeNameInfo>>(fileContent, deserializationOptions) ?? new();
         foreach (var nativeLaguageInfo in nativeLanguageNamesInfo)
         {
             var language = languagesToSave.FirstOrDefault(x => nativeLaguageInfo.Code.Equals(x.Iso_639_1));
@@ -90,20 +87,14 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
         }
     }
 
-    public static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
-        IConfiguration configuration,
-        string? sourceFilePath = null)
+    public List<LanguageInfoYaml> GetLanguageIso639_3_Data()
     {
-        var uriRestLanguages = configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
+        var uriRestLanguages = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
 
         var data = RestHelper.GetInternetContent(uriRestLanguages).Content!;
 
         // Save content
-        if (!string.IsNullOrWhiteSpace(sourceFilePath))
-        {
-            File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
-        }
-
+        _fileStorageService.SaveContentToSource(data, DataFolderPath, "languages.yml");
         // Remove starting part
         data = data.Replace("---\n", string.Empty);
 

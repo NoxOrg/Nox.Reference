@@ -15,6 +15,8 @@ public static class MachineDataExtensions
             .AddJsonFile(ConfigurationConstants.MachineConfigFileName)
             .Build();
 
+        services.AddNoxReferenceCommon();
+
         services.AddNoxReferenceConfiguration(configuration);
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -22,7 +24,7 @@ public static class MachineDataExtensions
         var connectionString = configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
         services.AddSqlite<MachineDbContext>(connectionString);
 
-        services.AddScoped<INoxReferenceDataSeeder, MachineDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, MacAddressDataSeeder>();
         services.AddScoped<IMachineContext, MachineDbContext>();
         return services;
     }

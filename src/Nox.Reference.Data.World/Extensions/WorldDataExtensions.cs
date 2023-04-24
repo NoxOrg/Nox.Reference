@@ -17,6 +17,7 @@ public static class WorldDataExtensions
           .AddJsonFile(ConfigurationConstants.WorldConfigFileName)
           .Build();
 
+        services.AddNoxReferenceCommon();
         services.AddNoxReferenceConfiguration(configuration);
 
         services.AddAutoMapper(Assembly.GetExecutingAssembly());

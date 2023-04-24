@@ -6,24 +6,28 @@ using Nox.Reference.Common;
 namespace Nox.Reference.Data.Common.Seeds
 {
     public abstract class NoxReferenceDataSeederBase<TDbContext, TSource, TEntity> : INoxReferenceDataSeeder
-     where TDbContext : DbContext
-     where TEntity : class, INoxReferenceEntity
-     where TSource : class
+         where TDbContext : DbContext
+         where TEntity : class, INoxReferenceEntity
+         where TSource : class
     {
         private readonly TDbContext _dbContext;
         private readonly IMapper _mapper;
         protected readonly ILogger _logger;
+        protected readonly NoxReferenceFileStorageService _fileStorageService;
 
         protected NoxReferenceDataSeederBase(TDbContext dbContext,
                   IMapper mapper,
-                  ILogger logger)
+                  ILogger logger,
+                  NoxReferenceFileStorageService fileStorageService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _logger = logger;
+            _fileStorageService = fileStorageService;
         }
 
-        protected abstract IEnumerable<TSource> GetDataInfos();
+        public abstract string TargetFileName { get; }
+        public abstract string DataFolderPath { get; }
 
         public void Seed()
         {
@@ -40,9 +44,9 @@ namespace Nox.Reference.Data.Common.Seeds
             try
             {
                 var infos = GetDataInfos();
+                _fileStorageService.SaveDataToFile(infos, TargetFileName);
 
                 var entities = _mapper.Map<IEnumerable<TEntity>>(infos);
-
                 dataSet.AddRange(entities);
 
                 _dbContext.SaveChanges();
@@ -57,5 +61,7 @@ namespace Nox.Reference.Data.Common.Seeds
                 throw new NoxDataExtractorException(errorMessage);
             }
         }
+
+        protected abstract IEnumerable<TSource> GetDataInfos();
     }
 }
