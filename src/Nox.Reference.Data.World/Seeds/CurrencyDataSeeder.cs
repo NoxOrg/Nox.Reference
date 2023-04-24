@@ -22,9 +22,9 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
         _configuration = configuration;
     }
 
-    public override string TargetFileName => "Nox.Reference.Languages.json";
+    public override string TargetFileName => "Nox.Reference.Currencies.json";
 
-    public override string DataFolderPath => "Languages";
+    public override string DataFolderPath => "Currencies";
 
     protected override IEnumerable<CurrencyInfo> GetDataInfos()
     {
@@ -73,6 +73,13 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
         var currencyInfos =
             currencyData.Select(x => x.Value)
             .ToList();
+
+        EnumGeneratorService.Generate(currencyInfos.Where(x => !string.IsNullOrWhiteSpace(x.Name)),
+            x => x.Name
+            .Replace(" ", "")
+            .Replace("'", "")
+            .Replace("-", "")
+            , "World", "Currencies");
 
         return currencyInfos;
     }

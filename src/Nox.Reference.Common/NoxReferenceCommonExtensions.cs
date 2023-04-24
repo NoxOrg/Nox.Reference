@@ -7,6 +7,7 @@ namespace Nox.Reference.Common
         public static IServiceCollection AddNoxReferenceCommon(this IServiceCollection services)
         {
             services.AddScoped<NoxReferenceFileStorageService>();
+
             return services;
         }
     }
