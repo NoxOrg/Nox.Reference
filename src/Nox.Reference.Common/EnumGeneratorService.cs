@@ -12,7 +12,7 @@ public static class EnumGeneratorService
     {
         var sb = new StringBuilder($"namespace Nox.Reference.Data.{enumNameSpace};\n");
 
-        sb.AppendLine($"public enum {enumName}\n");
+        sb.AppendLine($"public enum {enumName}");
         sb.AppendLine("{");
         foreach (var entity in entities)
         {
@@ -24,6 +24,7 @@ public static class EnumGeneratorService
 
             sb.AppendLine($"\t{nameGetter(entity)},");
         }
+        sb.Remove(sb.Length - 1, 1);
         sb.AppendLine("}");
         var filePath = ResolveFilePath(enumNameSpace, enumName);
         File.WriteAllText(filePath, sb.ToString());
