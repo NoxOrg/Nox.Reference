@@ -1,4 +1,5 @@
-﻿using Nox.Reference.Abstractions;
+﻿using System.Text;
+using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Data.World;
 
@@ -20,12 +21,14 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
         return result;
     }
 
-    public static VatNumberValidationResult CreateWithValidaton(string formattedVatNumber)
+    public static VatNumberValidationResult CreateWithValidaton(string vatNumber, string country)
     {
         var result = new VatNumberValidationResult
         {
-            FormattedVatNumber = formattedVatNumber,
-            IsVerified = true
+            OriginalVatNumber = vatNumber,
+            FormattedVatNumber = NormalizeVatNumber(vatNumber, country),
+            IsVerified = true,
+            Country = country
         };
         return result;
     }
@@ -35,6 +38,8 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
     public object? ApiVerificationData { get; set; }
     public IReadOnlyList<string?> ValidationErrors => _validationErrors;
     public string FormattedVatNumber { get; init; } = string.Empty;
+    public string OriginalVatNumber { get; init; } = string.Empty;
+    public string Country { get; init; } = string.Empty;
 
     public void AddError(string error)
     {
@@ -44,5 +49,27 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
     public void AddErrors(IEnumerable<string> errors)
     {
         _validationErrors.AddRange(errors);
+    }
+
+    private static string NormalizeVatNumber(string vatNumber, string country)
+    {
+        var number = RemoveSpecialCharacthers(vatNumber);
+
+        var numberWithoutCountryCode = number.ToUpper().TrimStart(country.ToCharArray());
+        return $"{country.ToUpper()}{numberWithoutCountryCode}";
+    }
+
+    private static string RemoveSpecialCharacthers(string vatNumber)
+    {
+        var sb = new StringBuilder();
+        for (int i = 0; i < vatNumber?.Length; i++)
+        {
+            if (char.IsLetterOrDigit(vatNumber[i]))
+            {
+                sb.Append(vatNumber[i]);
+            }
+        }
+
+        return sb.ToString();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -7,22 +6,21 @@ namespace Nox.Reference.Data.World;
 
 public class GenericValidationService : VatValidationServiceBase
 {
-    public static HttpClient _httpClient { get; set; } = new HttpClient();
-
     protected override IVatNumberValidationResult DoValidateVatNumber(
         string vatNumber,
         IVatNumberDefinitionInfo vatNumberInfo,
         bool shouldValidateViaApi = true)
     {
-        var formattedVatNumber = vatNumber.NormalizeVatNumber(vatNumberInfo.Country);
-        var result = VatNumberValidationResult.CreateWithValidaton(formattedVatNumber);
+        var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country);
+        var validationInfoByPattern = GetValidationInfoFromVatNumberInfo(result.FormattedVatNumber, vatNumberInfo);
 
-        IValidationInfo? validationInfoByPattern = GetValidationInfoFromVatNumberInfo(vatNumber, vatNumberInfo);
         if (validationInfoByPattern == null)
         {
             result.AddError(ValidationErrors.CantMatchValidationPatternError);
             return result;
         }
+
+        var formattedVatNumber = result.FormattedVatNumber;
 
         result.AddErrors(VatNumberValidationHelper.ValidateRegex(
             formattedVatNumber,
@@ -30,15 +28,15 @@ public class GenericValidationService : VatValidationServiceBase
             vatNumber,
             validationInfoByPattern.ValidationFormatDescription));
 
-        ValidateLength(formattedVatNumber, result, validationInfoByPattern);
+        ValidateLength(result, validationInfoByPattern);
 
-        var digitPart = new string(formattedVatNumber.Where(char.IsDigit).ToArray());
+        var digitPart = new string(result.FormattedVatNumber.Where(char.IsDigit).ToArray());
         if (!ValidateDigitPart(digitPart, result))
         {
             return result;
         }
 
-        ValidateChecksum(formattedVatNumber, result, validationInfoByPattern, digitPart);
+        ValidateChecksum(result, validationInfoByPattern, digitPart);
 
         if (shouldValidateViaApi)
         {
@@ -57,20 +55,23 @@ public class GenericValidationService : VatValidationServiceBase
         switch (vatNumberInfo.VerificationApi)
         {
             case VerificationApi.EuropeVies:
-                apiResult = _httpClient.Send(new HttpRequestMessage
                 {
-                    RequestUri = new Uri($"https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vatNumberInfo.Country}/vat/{formattedVatNumber.Substring(2)}"),
-                    Method = HttpMethod.Get
-                });
-                var viesResult = JsonSerializer.Deserialize<ViesVerificationResponse>(apiResult.Content.ReadAsStringAsync().Result)!;
-                result.ApiVerificationData = viesResult;
+                    using var httpClient = new HttpClient();
+                    apiResult = httpClient.Send(new HttpRequestMessage
+                    {
+                        RequestUri = new Uri($"https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vatNumberInfo.Country}/vat/{formattedVatNumber.Substring(2)}"),
+                        Method = HttpMethod.Get
+                    });
+                    var viesResult = JsonSerializer.Deserialize<ViesVerificationResponse>(apiResult.Content.ReadAsStringAsync().Result)!;
+                    result.ApiVerificationData = viesResult;
 
-                if (!viesResult.isValid)
-                {
-                    result.AddError(ValidationErrors.ApiValidationError);
+                    if (!viesResult.isValid)
+                    {
+                        result.AddError(ValidationErrors.ApiValidationError);
+                    }
+
+                    break;
                 }
-
-                break;
 
             case VerificationApi.None:
             case VerificationApi.GSTIN:
@@ -79,8 +80,7 @@ public class GenericValidationService : VatValidationServiceBase
         }
     }
 
-    private void ValidateChecksum(
-        string formattedVatNumber,
+    private static void ValidateChecksum(
         VatNumberValidationResult result,
         IValidationInfo validationInfoByPattern,
         string digitPart)
@@ -102,7 +102,7 @@ public class GenericValidationService : VatValidationServiceBase
             return;
         }
 
-        ValidateChecksumByCountry(formattedVatNumber, result, validationInfoByPattern, digitPart, checksumDigitPosition.Value);
+        ValidateChecksumByCountry(result, validationInfoByPattern, digitPart, checksumDigitPosition.Value);
     }
 
     private static int? CalculateChecksumDigitPosition(IValidationInfo validationInfoByPattern, VatNumberValidationResult result, string digitPart)
@@ -156,22 +156,21 @@ public class GenericValidationService : VatValidationServiceBase
     }
 
     private static void ValidateLength(
-        string formattedVatNumber,
         VatNumberValidationResult result,
         IValidationInfo validationInfoByPattern)
     {
-        if (formattedVatNumber.Length > validationInfoByPattern.MaximumLength)
+        if (result.FormattedVatNumber.Length > validationInfoByPattern.MaximumLength)
         {
             result.AddError(string.Format(ValidationErrors.MaximumNumbericLengthError, validationInfoByPattern.MaximumLength));
         }
 
-        if (formattedVatNumber.Length < validationInfoByPattern.MinimumLength)
+        if (result.FormattedVatNumber.Length < validationInfoByPattern.MinimumLength)
         {
             result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, validationInfoByPattern.MinimumLength));
         }
     }
 
-    private static IValidationInfo? GetValidationInfoFromVatNumberInfo(string vatNumber, IVatNumberDefinitionInfo vatNumberInfo)
+    private static IValidationInfo? GetValidationInfoFromVatNumberInfo(string formattedVatNumber, IVatNumberDefinitionInfo vatNumberInfo)
     {
         IValidationInfo? validationInfoByPattern = null;
 
@@ -183,7 +182,7 @@ public class GenericValidationService : VatValidationServiceBase
         {
             foreach (var validation in vatNumberInfo.Validations!)
             {
-                if (Regex.IsMatch(vatNumber.NormalizeVatNumber(vatNumberInfo.Country), validation.Regex))
+                if (Regex.IsMatch(formattedVatNumber, validation.Regex))
                 {
                     validationInfoByPattern = validation;
                 }
@@ -194,13 +193,13 @@ public class GenericValidationService : VatValidationServiceBase
     }
 
     private static void ValidateChecksumByCountry(
-        string formattedVatNumber,
         VatNumberValidationResult result,
         IValidationInfo validationInfoByPattern,
         string digitPart,
         int checksumDigitPosition)
     {
         int minimumLength;
+        var formattedVatNumber = result.FormattedVatNumber;
 
         switch (validationInfoByPattern.Checksum!.Algorithm)
         {
@@ -260,7 +259,7 @@ public class GenericValidationService : VatValidationServiceBase
             case ChecksumAlgorithm.MX_Algorithm:
                 // length is checked inside
 
-                result.AddErrors(formattedVatNumber.ValidateMXAlgorithm());
+                result.AddErrors(result.OriginalVatNumber.ValidateMXAlgorithm());
                 break;
 
             case ChecksumAlgorithm.DE_Algorithm:

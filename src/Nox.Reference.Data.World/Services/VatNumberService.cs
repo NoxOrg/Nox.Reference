@@ -1,18 +1,11 @@
 ﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.World;
 
-internal class VatNumberService
+internal static class VatNumberService
 {
-    private readonly WorldDbContext _dbContext;
-
-    public VatNumberService(WorldDbContext dbContext)
-    {
-        _dbContext = dbContext;
-    }
-
-    public IVatNumberValidationResult ValidateVatNumber(
+    public static IVatNumberValidationResult ValidateVatNumber(
+        IVatNumberDefinitionInfo vatNumberDefinitionInfo,
         string vatNumber,
         string country,
         bool shouldValidateViaApi = true)
@@ -22,9 +15,7 @@ internal class VatNumberService
             return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.EmptyVatNumberError);
         }
 
-        var vatNumberDefinition = _dbContext.VatNumberDefinitions.FirstOrDefault(x => x.Country == country);
-
-        if (vatNumberDefinition == null)
+        if (vatNumberDefinitionInfo == null)
         {
             return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
         }
@@ -33,9 +24,9 @@ internal class VatNumberService
 
         if (isSupportCountry)
         {
-            return VatValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
+            return VatValidationService.ValidateVatNumber(vatNumber, vatNumberDefinitionInfo, shouldValidateViaApi);
         }
 
-        return VatNumberValidationResult.CreateWithValidaton(vatNumber.NormalizeVatNumber(country));
+        return VatNumberValidationResult.CreateWithValidaton(vatNumber, country);
     }
 }

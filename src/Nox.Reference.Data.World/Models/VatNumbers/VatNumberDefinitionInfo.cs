@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-public class VatNumberInfo : IVatNumberDefinitionInfo
+public class VatNumberDefinitionInfo : IVatNumberDefinitionInfo
 {
     [JsonPropertyName("country")]
     public string Country { get; set; } = string.Empty;
@@ -13,7 +13,7 @@ public class VatNumberInfo : IVatNumberDefinitionInfo
     public string LocalName { get; set; } = string.Empty;
 
     [JsonPropertyName("validations")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IValidationInfo, ValidationInfo>))]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IValidationInfo[], ValidationInfo[]>))]
     public IValidationInfo[]? Validations { get; set; } = Array.Empty<ValidationInfo>();
 
     [JsonPropertyName("verificationApi")]

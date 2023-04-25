@@ -34,13 +34,15 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     public IQueryable<ICurrencyInfo> Currencies
         => Set<Currency>()
+             .AsNoTracking()
              .AsQueryable()
              .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
 
     public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
          => Set<VatNumberDefinition>()
-          .AsQueryable()
-          .ProjectTo<VatNumberInfo>(_mapper.ConfigurationProvider);
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<VatNumberDefinitionInfo>(_mapper.ConfigurationProvider);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

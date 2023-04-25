@@ -12,7 +12,7 @@ internal class VatNumberValidationRule : INoxReferenceEntity
     public string InputMask { get; set; } = string.Empty;
     public int MinimumLength { get; set; }
     public int MaximumLength { get; set; }
-    public Checksum? Checksum { get; set; }
+    public Checksum Checksum { get; set; } = new Checksum();
 }
 
 internal class Checksum
@@ -21,4 +21,15 @@ internal class Checksum
     public string? ChecksumDigit { get; set; }
     public int? Modulus { get; set; }
     public string Weights { get; set; } = string.Empty;
+
+    public IEnumerable<int> GetWeights()
+    {
+        if (string.IsNullOrEmpty(Weights))
+        {
+            return Array.Empty<int>();
+        }
+
+        return Weights.Split(",")
+            .Select(x => int.Parse(x));
+    }
 }

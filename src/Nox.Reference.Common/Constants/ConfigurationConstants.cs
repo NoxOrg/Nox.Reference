@@ -12,6 +12,7 @@ public static class ConfigurationConstants
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
+    public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string MachineConfigFileName = "machine.appsettings.json";
     public const string WorldConfigFileName = "world.appsettings.json";
 }
