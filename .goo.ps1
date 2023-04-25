@@ -81,7 +81,7 @@ $goo.Command.Add( 'build', {
 
 # command: goo db-update | Update databases according to their migrations.
 $goo.Command.Add( 'db-update', {
-    $goo.Console.WriteInfo( "Apply miggrations for databases..." )
+    $goo.Console.WriteInfo( "Apply migrations for databases..." )
 	cd $script:WorldProjectPath
     $goo.Command.RunExternal('dotnet',"ef database update --connection ""Data Source=$script:WorldDbFile""")
 	$goo.StopIfError("Failed to apply migrations for World database. (Release)")

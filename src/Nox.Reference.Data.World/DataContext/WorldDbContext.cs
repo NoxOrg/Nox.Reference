@@ -37,6 +37,11 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
              .AsQueryable()
              .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
 
+    public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
+         => Set<VatNumberDefinition>()
+          .AsQueryable()
+          .ProjectTo<VatNumberInfo>(_mapper.ConfigurationProvider);
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -71,6 +76,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
         modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
         modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
+
+        modelBuilder.ApplyConfiguration(new VatNumberDefinitionConfiguration());
+        modelBuilder.ApplyConfiguration(new VatNumberValidationRuleConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

@@ -78,7 +78,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasIndex("MinorUnitId");
 
-                    b.ToTable("Currency");
+                    b.ToTable("Currency", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyFrequentUsage", b =>
@@ -98,7 +98,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasIndex("CurrencyUsageId");
 
-                    b.ToTable("CurrencyFrequentUsage");
+                    b.ToTable("CurrencyFrequentUsage", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyRareUsage", b =>
@@ -118,7 +118,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasIndex("CurrencyUsageId");
 
-                    b.ToTable("CurrencyRareUsage");
+                    b.ToTable("CurrencyRareUsage", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
@@ -129,7 +129,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CurrencyUsage");
+                    b.ToTable("CurrencyUsage", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
@@ -148,7 +148,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MajorCurrencyUnit");
+                    b.ToTable("MajorCurrencyUnit", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.MinorCurrencyUnit", b =>
@@ -170,7 +170,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MinorCurrencyUnit");
+                    b.ToTable("MinorCurrencyUnit", (string)null);
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
