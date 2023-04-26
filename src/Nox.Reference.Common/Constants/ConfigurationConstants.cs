@@ -10,8 +10,10 @@ public static class ConfigurationConstants
     public const string UriRestCountriesSettingName = "UriRestCountries";
     public const string UriLanguagesISO639 = "UriLanguagesISO639";
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
-    public const string ConnectionStringName = "NoxReferencesConnection";
-    public const string ConfigFileName = "appsettings.json";
+    public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
+    public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
+    public const string MachineConfigFileName = "machine.appsettings.json";
+    public const string WorldConfigFileName = "world.appsettings.json";
     public const string UriLocalePlanetList = "UriLocalePlanetList";
     public const string UriLocalePlanetItem = "UriLocalePlanetItem";
     public const string LocaleCodePlaceholder = "{localeCode}";

@@ -27,9 +27,12 @@ $script:SolutionName            = 'Nox.Reference'
 $script:RootFolder              = (Get-Location).Path
 $script:SourceFolder            = '.\src'
 $script:TestsFolder            	= '.\tests'
-$script:SolutionFolder          = $script:SourceFolder
+$script:SolutionFolder          = "$script:SourceFolder"
 $script:SolutionFile            = "$script:SolutionFolder\Nox.Reference.sln"
-
+$script:WorldProjectPath 		= "$script:SolutionFolder\Nox.Reference.Data.World\"
+$script:MachineProjectPath		= "$script:SolutionFolder\Nox.Reference.Data.Machine\"
+$script:WorldDbFile 			= "$script:RootFolder\data\output\sqlite\NoxReference.World.db"
+$script:MachineDbFile 			= "$script:RootFolder\data\output\sqlite\NoxReference.Machine.db"
 $script:DefaultEnvironment      = 'Development'
 
 <# --- SET YOUR PROJECT'S ENVIRONMENT VARIABLES HERE --- #>
@@ -53,6 +56,7 @@ if($null -eq $Env:Environment)
 $goo.Command.Add( 'init', {
     $goo.Command.Run( 'clean' )
     $goo.Command.Run( 'build' )
+    $goo.Command.Run( 'db-update')
     $goo.Command.Run( 'test' )
 })
 
@@ -73,6 +77,19 @@ $goo.Command.Add( 'build', {
     $goo.StopIfError("Failed to build solution. (Release)")
     $goo.Command.RunExternal('dotnet','publish --configuration Release --nologo --verbosity minimal --output ../dist --no-build', $script:SolutionFolder)
     $goo.StopIfError("Failed to publish CLI project. (Release)")
+})
+
+# command: goo db-update | Update databases according to their migrations.
+$goo.Command.Add( 'db-update', {
+    $goo.Console.WriteInfo( "Apply miggrations for databases..." )
+	cd $script:WorldProjectPath
+    $goo.Command.RunExternal('dotnet',"ef database update --connection ""Data Source=$script:WorldDbFile""")
+	$goo.StopIfError("Failed to apply migrations for World database. (Release)")
+	cd ..\..
+	cd $script:MachineProjectPath
+    $goo.Command.RunExternal('dotnet',"ef database update --connection ""Data Source=$script:MachineDbFile""")
+	$goo.StopIfError("Failed to apply migrations for Machine database. (Release)")
+	cd ..\..
 })
 
 # command: goo test| Run the console application

@@ -11,17 +11,20 @@ public static class MachineDataExtensions
 {
     public static IServiceCollection AddMachineContext(this IServiceCollection services)
     {
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile(ConfigurationConstants.ConfigFileName)
+        var configuration = new ConfigurationBuilder()
+            .AddJsonFile(ConfigurationConstants.MachineConfigFileName)
             .Build();
 
-        services.AddScoped(_ => configuration);
+        services.AddNoxReferenceCommon();
+
+        services.AddNoxReferenceConfiguration(configuration);
+
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-        var connectionString = configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
+        var connectionString = configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
         services.AddSqlite<MachineDbContext>(connectionString);
 
-        services.AddScoped<INoxReferenceDataSeeder, MachineDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, MacAddressDataSeeder>();
         services.AddScoped<IMachineContext, MachineDbContext>();
         return services;
     }

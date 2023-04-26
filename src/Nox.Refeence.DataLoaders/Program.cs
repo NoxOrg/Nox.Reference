@@ -10,6 +10,7 @@ var host = Host.CreateDefaultBuilder()
         services.AddMachineContext();
         services.AddWorldContext();
     })
+    .ConfigureLogging(x => x.Services.AddLogging())
     .Build();
 
 var dataSeedRunner = host.Services.GetRequiredService<DataSeedRunner>();

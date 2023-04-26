@@ -1,66 +1,49 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Seeds;
 using System.Text.Json;
 using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-public class LanguageDataSeed : INoxReferenceDataSeeder
+internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, LanguageInfo, Language>
 {
     private readonly IConfiguration _configuration;
-    private readonly ILogger<LanguageDataSeed> _logger;
 
     public LanguageDataSeed(
         IConfiguration configuration,
-        ILogger<LanguageDataSeed> logger)
+        WorldDbContext dbContext,
+        IMapper mapper,
+        ILogger<LanguageDataSeed> logger,
+        NoxReferenceFileStorageService fileStorageService)
+        : base(dbContext, mapper, logger, fileStorageService)
     {
         _configuration = configuration;
-        _logger = logger;
     }
 
-    public void Seed()
+    public override string TargetFileName => "Nox.Reference.Languages.json";
+
+    public override string DataFolderPath => "Languages";
+
+    protected override IEnumerable<LanguageInfo> GetDataInfos()
     {
         _logger.LogInformation("Getting language data...");
 
-        var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
-        var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestLanguagesAdditionalInfo = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesAdditionalInfo)!;
-        try
-        {
-            var sourceFilePath = Path.Combine(sourceOutputPath, "Languages");
-            Directory.CreateDirectory(sourceFilePath);
 
-            var targetFilePath = targetOutputPath;
-            Directory.CreateDirectory(targetFilePath);
+        var languages = GetLanguageIso639_3_Data();
 
-            var languages = GetLanguageIso639_3_Data(_configuration, sourceFilePath);
+        var languagesToSave = languages
+            .Select(x => x.ToLanguageInfo())
+            .ToList();
 
-            var languagesToSave = languages
-                .Select(x => x.ToLanguageInfo())
-                .ToList();
+        EnrichWithEnglishTranslation(languagesToSave);
+        EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
+        EnrichLanguageDataWithNativeNames(languagesToSave);
 
-            EnrichWithEnglishTranslation(languagesToSave);
-            EnrichAdditionalData(uriRestLanguagesAdditionalInfo, languagesToSave);
-            EnrichLanguageDataWithNativeNames(languagesToSave, sourceFilePath);
-
-            // Store output
-            var options = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
-
-            // Map yaml model to normal model
-            var outputContent = JsonSerializer.Serialize(languagesToSave, options);
-
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Languages.json"), outputContent);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex.Message);
-        }
+        return languagesToSave;
     }
 
     private static void EnrichWithEnglishTranslation(List<LanguageInfo> languagesToSave)
@@ -80,16 +63,16 @@ public class LanguageDataSeed : INoxReferenceDataSeeder
         }
     }
 
-    private void EnrichLanguageDataWithNativeNames(List<LanguageInfo> languagesToSave, string sourcePath)
+    private void EnrichLanguageDataWithNativeNames(List<LanguageInfo> languagesToSave)
     {
-        using var reader = new StreamReader(Path.Combine(sourcePath, "native_language_names.json"));
+        var fileContent = _fileStorageService.GetFileContentFromSource(DataFolderPath, "native_language_names.json");
         var deserializationOptions = new JsonSerializerOptions()
         {
             AllowTrailingCommas = true,
             ReadCommentHandling = JsonCommentHandling.Skip
         };
 
-        var nativeLanguageNamesInfo = JsonSerializer.Deserialize<List<LanguageNativeNameInfo>>(reader.ReadToEnd(), deserializationOptions) ?? new();
+        var nativeLanguageNamesInfo = JsonSerializer.Deserialize<List<LanguageNativeNameInfo>>(fileContent, deserializationOptions) ?? new();
         foreach (var nativeLaguageInfo in nativeLanguageNamesInfo)
         {
             var language = languagesToSave.FirstOrDefault(x => nativeLaguageInfo.Code.Equals(x.Iso_639_1));
@@ -104,20 +87,14 @@ public class LanguageDataSeed : INoxReferenceDataSeeder
         }
     }
 
-    public static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
-        IConfiguration configuration,
-        string? sourceFilePath = null)
+    public List<LanguageInfoYaml> GetLanguageIso639_3_Data()
     {
-        var uriRestLanguages = configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
+        var uriRestLanguages = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
 
         var data = RestHelper.GetInternetContent(uriRestLanguages).Content!;
 
         // Save content
-        if (!string.IsNullOrWhiteSpace(sourceFilePath))
-        {
-            File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
-        }
-
+        _fileStorageService.SaveContentToSource(data, DataFolderPath, "languages.yml");
         // Remove starting part
         data = data.Replace("---\n", string.Empty);
 

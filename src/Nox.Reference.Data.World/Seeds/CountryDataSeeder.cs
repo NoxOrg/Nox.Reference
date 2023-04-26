@@ -1,80 +1,51 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Seeds;
 using System.Text.Json;
 using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryDataSeeder : INoxReferenceDataSeeder
+internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryInfo, Country>
 {
     private readonly IConfiguration _configuration;
-    private readonly Mapper _mapper;
-    private readonly WorldDbContext _dbContext;
-    private readonly ILogger<CountryDataSeeder> _logger;
 
     public CountryDataSeeder(
         IConfiguration configuration,
         Mapper mapper,
         WorldDbContext dbContext,
-        ILogger<CountryDataSeeder> logger)
+        ILogger<CountryDataSeeder> logger,
+        NoxReferenceFileStorageService fileStorageService)
+        : base(dbContext, mapper, logger, fileStorageService)
     {
         _configuration = configuration;
-        _mapper = mapper;
-        _dbContext = dbContext;
-        _logger = logger;
     }
 
-    public void Seed()
+    public override string TargetFileName => "Nox.Reference.Countries.json";
+    public override string DataFolderPath => "Countries";
+
+    protected override IEnumerable<CountryInfo> GetDataInfos()
     {
-        _logger.LogInformation("Getting country data...");
-
-        var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
-        var targetOutputPath = _configuration.GetValue<string>(ConfigurationConstants.TargetDataPathSettingName)!;
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
-        try
-        {
-            var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
+        var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
 
-            var sourceFilePath = Path.Combine(sourceOutputPath, "Countries");
-            Directory.CreateDirectory(sourceFilePath);
+        // Fix empty dictionaries for 'currencies' from empty arrays
+        var editedContent = data.Replace(@"""currencies"": [],", @"""currencies"": {},");
 
-            var targetFilePath = targetOutputPath;
-            Directory.CreateDirectory(targetFilePath);
+        // save content
+        _fileStorageService.SaveContentToSource(editedContent, DataFolderPath, "restcountries.json");
 
-            // Fix empty dictionaries for 'currencies' from empty arrays
-            var editedContent = data.Replace(@"""currencies"": [],", @"""currencies"": {},");
+        var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
 
-            // save content
-            File.WriteAllText(Path.Combine(sourceFilePath, "restcountries.json"), editedContent);
+        FixData(countries);
+        EnrichWithMappingData(countries);
+        FixTranslation(_configuration, countries);
 
-            var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
-
-            FixData(countries);
-            EnrichWithMappingData(sourceFilePath, countries);
-            FixTranslation(_configuration, countries);
-
-            // Store output
-            var options = new JsonSerializerOptions()
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                WriteIndented = true,
-            };
-
-            var outputContent = JsonSerializer.Serialize(countries
+        return countries
                 .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<ICountryInfo>(),
-                options);
-
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Countries.json"), outputContent);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex.Message);
-        }
+                .Cast<CountryInfo>();
     }
 
     private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)
@@ -121,11 +92,10 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
         }
     }
 
-    private static void EnrichWithMappingData(string sourceFilePath, RestcountryCountryInfo[] countries)
+    private void EnrichWithMappingData(RestcountryCountryInfo[] countries)
     {
-        var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(
-                        File.ReadAllText(Path.Combine(sourceFilePath, "static-iso2fips.json"))
-                    );
+        var fileContent = _fileStorageService.GetFileContentFromSource(DataFolderPath, "static-iso2fips.json");
+        var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(fileContent);
 
         foreach (var country in countries)
         {
@@ -171,27 +141,20 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
         }
     }
 
-    public static List<LanguageInfoYaml> GetLanguageIso639_3_Data(
-        IConfiguration configuration,
-        string? sourceFilePath = null)
+    public List<LanguageInfoYaml> GetLanguageIso639_3_Data(IConfiguration configuration)
     {
         var uriRestLanguages = configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
 
         var data = RestHelper.GetInternetContent(uriRestLanguages).Content!;
 
-        // Save content
-        if (!string.IsNullOrWhiteSpace(sourceFilePath))
-        {
-            File.WriteAllText(Path.Combine(sourceFilePath, "languages.yml"), data);
-        }
+        _fileStorageService.SaveContentToSource(data, DataFolderPath, "languages.yml");
 
         // Remove starting part
         data = data.Replace("---\n", string.Empty);
 
         var serializer = new Deserializer();
         var splitter = "- :name:";
-        var splitContent = data.Split(splitter);
-        splitContent = splitContent[1..];
+        var splitContent = data.Split(splitter)[1..];
 
         var languages = new List<LanguageInfoYaml>();
 
@@ -201,7 +164,7 @@ internal class CountryDataSeeder : INoxReferenceDataSeeder
             var encodeQuotes = false;
 
             // Handle case when quote is first character
-            if (dataPiece.Contains("!"))
+            if (dataPiece.Contains('!'))
             {
                 encodeQuotes = true;
                 if (dataPiece.Contains(":iso_639_3: alu")) { dataPiece = dataPiece.Replace("! '''Are''are'", "TO_DECODE"); }

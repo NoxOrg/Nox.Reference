@@ -3,4 +3,6 @@
 public interface INoxReferenceDataSeeder
 {
     void Seed();
+
+    string TargetFileName { get; }
 }

@@ -13,19 +13,22 @@ public static class WorldDataExtensions
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile(ConfigurationConstants.ConfigFileName)
-            .Build();
+        var configuration = new ConfigurationBuilder()
+          .AddJsonFile(ConfigurationConstants.WorldConfigFileName)
+          .Build();
 
-        services.AddScoped(_ => configuration);
+        services.AddNoxReferenceCommon();
+        services.AddNoxReferenceConfiguration(configuration);
+
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
-        var connectionString = configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
+        var connectionString = configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
         services.AddSqlite<WorldDbContext>(connectionString);
 
         services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, CultureDataSeeder>();
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
+
         return services;
     }
 }

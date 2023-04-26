@@ -48,7 +48,7 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     {
         base.OnConfiguring(optionsBuilder);
 
-        var connectionString = _configuration.GetConnectionString(ConfigurationConstants.ConnectionStringName);
+        var connectionString = _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
         optionsBuilder.UseSqlite(connectionString);
     }
 
