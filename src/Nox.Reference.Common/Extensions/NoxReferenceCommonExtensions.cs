@@ -13,9 +13,9 @@ namespace Nox.Reference.Common
         public static IServiceCollection AddNoxReferenceCommon(this IServiceCollection services)
         {
             services.AddScoped<NoxReferenceFileStorageService>();
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(Assembly.GetCallingAssembly());
 
-            services.AddSingleton(_ => GetNoxReferenceConfiguration(services));
+            services.AddSingleton(_configuration);
             return services;
         }
 

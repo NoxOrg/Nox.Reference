@@ -11,8 +11,8 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230425151100_AddVatNumberValidations")]
-    partial class AddVatNumberValidations
+    [Migration("20230426142954_InitDatabase")]
+    partial class InitDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
