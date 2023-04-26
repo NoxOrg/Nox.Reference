@@ -12,4 +12,7 @@ public static class ConfigurationConstants
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string ConnectionStringName = "NoxReferencesConnection";
     public const string ConfigFileName = "appsettings.json";
+    public const string UriLocalePlanetList = "UriLocalePlanetList";
+    public const string UriLocalePlanetItem = "UriLocalePlanetItem";
+    public const string LocaleCodePlaceholder = "{localeCode}";
 }

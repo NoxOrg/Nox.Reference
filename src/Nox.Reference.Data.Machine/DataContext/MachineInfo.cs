@@ -1,9 +1,10 @@
-﻿using System.Reflection;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Common;
 using Nox.Reference.Data.Machine;
+using System.Reflection;
 
 namespace Nox.Reference.Data;
 
@@ -19,7 +20,7 @@ public static class MachineInfo
         });
         var mapper = mapperConfiguration.CreateMapper();
         var configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsetings.json")
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
         _dbContext = new MachineDbContext(new DbContextOptions<MachineDbContext>(), mapper, configuration);
     }

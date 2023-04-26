@@ -11,6 +11,29 @@ namespace Nox.Reference.Data.World.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Culture",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    FormalName = table.Column<string>(type: "TEXT", nullable: false),
+                    NativeName = table.Column<string>(type: "TEXT", nullable: false),
+                    CommonName = table.Column<string>(type: "TEXT", nullable: true),
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
+                    Country = table.Column<string>(type: "TEXT", nullable: false),
+                    DisplayName = table.Column<string>(type: "TEXT", nullable: false),
+                    DisplayNameWithDialect = table.Column<string>(type: "TEXT", nullable: false),
+                    CharacterOrientation = table.Column<string>(type: "TEXT", nullable: false),
+                    LineOrientation = table.Column<string>(type: "TEXT", nullable: false),
+                    LanguageIso_639_2t = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Culture", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CurrencyUsage",
                 columns: table => new
                 {
@@ -49,6 +72,72 @@ namespace Nox.Reference.Data.World.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MinorCurrencyUnit", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DateFormat",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    AmPmStrings = table.Column<string>(type: "TEXT", nullable: false),
+                    Eras = table.Column<string>(type: "TEXT", nullable: false),
+                    EraNames = table.Column<string>(type: "TEXT", nullable: false),
+                    Months = table.Column<string>(type: "TEXT", nullable: false),
+                    ShortMonths = table.Column<string>(type: "TEXT", nullable: false),
+                    ShortWeekdays = table.Column<string>(type: "TEXT", nullable: false),
+                    Weekdays = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_3 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_2 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_1 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_0 = table.Column<string>(type: "TEXT", nullable: false),
+                    CultureId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DateFormat", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DateFormat_Culture_CultureId",
+                        column: x => x.CultureId,
+                        principalTable: "Culture",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NumberFormat",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CurrencySymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    DecimalSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Digit = table.Column<string>(type: "TEXT", nullable: false),
+                    ExponentSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    GroupingSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Infinity = table.Column<string>(type: "TEXT", nullable: false),
+                    InternationalCurrencySymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    MinusSign = table.Column<string>(type: "TEXT", nullable: false),
+                    MonetaryDecimalSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    NotANumberSymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    PadEscape = table.Column<string>(type: "TEXT", nullable: false),
+                    PatternSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Percent = table.Column<string>(type: "TEXT", nullable: false),
+                    PerMill = table.Column<string>(type: "TEXT", nullable: false),
+                    PlusSign = table.Column<string>(type: "TEXT", nullable: false),
+                    SignificantDigit = table.Column<string>(type: "TEXT", nullable: false),
+                    ZeroDigit = table.Column<string>(type: "TEXT", nullable: false),
+                    CultureId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NumberFormat", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_NumberFormat_Culture_CultureId",
+                        column: x => x.CultureId,
+                        principalTable: "Culture",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,6 +258,18 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "IX_CurrencyRareUsage_CurrencyUsageId",
                 table: "CurrencyRareUsage",
                 column: "CurrencyUsageId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DateFormat_CultureId",
+                table: "DateFormat",
+                column: "CultureId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NumberFormat_CultureId",
+                table: "NumberFormat",
+                column: "CultureId",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -184,6 +285,12 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CurrencyRareUsage");
 
             migrationBuilder.DropTable(
+                name: "DateFormat");
+
+            migrationBuilder.DropTable(
+                name: "NumberFormat");
+
+            migrationBuilder.DropTable(
                 name: "MajorCurrencyUnit");
 
             migrationBuilder.DropTable(
@@ -191,6 +298,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "CurrencyUsage");
+
+            migrationBuilder.DropTable(
+                name: "Culture");
         }
     }
 }

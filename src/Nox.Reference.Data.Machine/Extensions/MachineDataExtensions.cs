@@ -12,7 +12,7 @@ public static class MachineDataExtensions
     public static IServiceCollection AddMachineContext(this IServiceCollection services)
     {
         IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile("appsetings.json")
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
 
         services.AddScoped(_ => configuration);

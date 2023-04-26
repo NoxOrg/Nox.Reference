@@ -3,9 +3,11 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Common;
-using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Configurations;
+using Nox.Reference.Data.World.Entities.Cultures;
+using Nox.Reference.Data.World.Models.Cultures;
 
 namespace Nox.Reference.Data.World;
 
@@ -36,6 +38,11 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         => Set<Currency>()
              .AsQueryable()
              .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
+
+    public IQueryable<ICultureInfo> Cultures
+        => Set<Culture>()
+             .AsQueryable()
+             .ProjectTo<CultureInfo>(_mapper.ConfigurationProvider);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -71,6 +78,10 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
         modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
         modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
+
+        modelBuilder.ApplyConfiguration(new CultureConfiguration());
+        modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
+        modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

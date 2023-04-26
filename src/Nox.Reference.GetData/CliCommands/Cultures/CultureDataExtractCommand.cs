@@ -1,41 +1,26 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
+using Nox.Reference.Abstractions.Currencies;
+using Nox.Reference.Currencies.Models.Rest;
 using System.Text.Json;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.GetData.CliCommands;
 
-internal class CurrencyDataSeeder : INoxReferenceDataSeeder
+public class CultureDataExtractCommand : ICliCommand
 {
     private readonly IConfiguration _configuration;
-    private readonly IMapper _mapper;
-    private readonly WorldDbContext _dbContext;
-    private readonly ILogger<CurrencyDataSeeder> _logger;
+    private readonly ILogger<CultureDataExtractCommand> _logger;
 
-    public CurrencyDataSeeder(
+    public CultureDataExtractCommand(
         IConfiguration configuration,
-        IMapper mapper,
-        WorldDbContext dbContext,
-        ILogger<CurrencyDataSeeder> logger)
+        ILogger<CultureDataExtractCommand> logger)
     {
         _configuration = configuration;
-        _mapper = mapper;
-        _dbContext = dbContext;
         _logger = logger;
     }
 
-    public void Seed()
+    public void Execute()
     {
-        var dataSet = _dbContext
-           .Set<Currency>();
-
-        if (dataSet.Any())
-        {
-            return;
-        }
-
         _logger.LogInformation("Getting currency data...");
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
@@ -71,6 +56,9 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
             }
             var worldCurrencyRestData = worldCurrencyRestDataResponse.Content!;
 
+            // Save content
+            File.WriteAllText(Path.Combine(sourceFilePath, $"worldCurrency.json"), worldCurrencyRestData);
+
             // Fix Ni-Vanuatu Vatu
             worldCurrencyRestData = worldCurrencyRestData.Replace("\"majorValue\": \"\"", "\"majorValue\": 1");
 
@@ -78,7 +66,7 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
 
             foreach (var currency in currencyData)
             {
-                currency.Value.IsoCode = currency.Key;
+                currency.Value.IsoCode_ = currency.Key;
 
                 if (!worldCurrencyData.TryGetValue(currency.Value.IsoCode.ToUpper(), out var worldCurrencyInfo))
                 {
@@ -86,22 +74,25 @@ internal class CurrencyDataSeeder : INoxReferenceDataSeeder
                     continue;
                 }
 
-                currency.Value.IsoNumber = worldCurrencyInfo.Iso.Number;
-                currency.Value.Banknotes = worldCurrencyInfo.Banknotes;
-                currency.Value.Coins = worldCurrencyInfo.Coins;
-                currency.Value.Units = worldCurrencyInfo.Units;
-                currency.Value.Name = worldCurrencyInfo.Name;
+                currency.Value.IsoNumber_ = worldCurrencyInfo.Iso.Number;
+                currency.Value.Banknotes_ = worldCurrencyInfo.Banknotes;
+                currency.Value.Coins_ = worldCurrencyInfo.Coins;
+                currency.Value.Units_ = worldCurrencyInfo.Units;
+                currency.Value.Name_ = worldCurrencyInfo.Name;
             }
 
-            var currencyInfos =
-                currencyData.Select(x => x.Value)
-                .ToList();
+            // Store output
+            var serializationOptions = new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true,
+            };
 
-            var entities = _mapper.Map<IEnumerable<Currency>>(currencyInfos);
+            var outputContent = JsonSerializer.Serialize(
+                currencyData.Select(x => x.Value).Cast<ICurrencyInfo>(),
+                serializationOptions);
 
-            dataSet.AddRange(entities);
-
-            _dbContext.SaveChanges();
+            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Currencies.json"), outputContent);
         }
         catch (Exception ex)
         {
