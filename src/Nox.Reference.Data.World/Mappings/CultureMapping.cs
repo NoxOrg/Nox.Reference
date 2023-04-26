@@ -13,10 +13,11 @@ namespace Nox.Reference.Data.World.Mappings
                 .ForMember(x => x.Id, x => x.Ignore())
                 .ForMember(x => x.Name, x => x.MapFrom(x => x.Id))
                 .ReverseMap();
-            CreateMap<IDateFormatInfo, DateFormat>();
-            CreateMap<INumberFormatInfo, NumberFormat>();
+            CreateMap<IDateFormatInfo, DateFormat>().ReverseMap().As<DateFormatInfo>();
+            CreateMap<INumberFormatInfo, NumberFormat>().ReverseMap().As<NumberFormatInfo>();
 
-            CreateProjection<Culture, CultureInfo>();
+            CreateProjection<Culture, CultureInfo>()
+                .ForMember(x => x.Id, x => x.MapFrom(x => x.Name));
             CreateProjection<DateFormat, DateFormatInfo>();
             CreateProjection<NumberFormat, NumberFormatInfo>();
         }

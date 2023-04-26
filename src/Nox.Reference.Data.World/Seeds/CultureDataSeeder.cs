@@ -75,10 +75,10 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                     var cultureInfo = new CultureInfo
                     {
-                        Id_ = GetNodeText(idNode).Replace('_', '-'),
-                        FormalName_ = GetNodeText(formalNameNode),
-                        NativeName_ = GetNodeText(nativeNameNode),
-                        CommonName_ = GetNodeTextOrNull(commonNameNode)
+                        Id = GetNodeText(idNode).Replace('_', '-'),
+                        FormalName = GetNodeText(formalNameNode),
+                        NativeName = GetNodeText(nativeNameNode),
+                        CommonName = GetNodeTextOrNull(commonNameNode)
                     };
     
                     culturesDataToSave.Add(cultureInfo);
@@ -107,13 +107,13 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
                 var lineOrientationNode = nodes[13];
                 var languageIso639_2t_node = nodes[15];
 
-                cultureInfo.Language_ = GetNodeText(languageNode);
-                cultureInfo.Country_ = GetNodeText(countryNode);
-                cultureInfo.DisplayName_ = GetNodeText(displayNameNode);
-                cultureInfo.DisplayNameWithDialect_ = GetNodeText(displayNameWithDialectNode);
-                cultureInfo.CharacterOrientation_ = GetNodeText(characterOrientationNode);
-                cultureInfo.LineOrientation_ = GetNodeText(lineOrientationNode);
-                cultureInfo.LanguageIso_639_2t_ = GetNodeTextOrNull(languageIso639_2t_node);
+                cultureInfo.Language = GetNodeText(languageNode);
+                cultureInfo.Country = GetNodeText(countryNode);
+                cultureInfo.DisplayName = GetNodeText(displayNameNode);
+                cultureInfo.DisplayNameWithDialect = GetNodeText(displayNameWithDialectNode);
+                cultureInfo.CharacterOrientation = GetNodeText(characterOrientationNode);
+                cultureInfo.LineOrientation = GetNodeText(lineOrientationNode);
+                cultureInfo.LanguageIso_639_2t = GetNodeTextOrNull(languageIso639_2t_node);
 
                 var currencySymbolNode = nodes[21];
                 var decimalSeparatorNode = nodes[23];
@@ -135,25 +135,25 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                 var numberFormat = new NumberFormatInfo()
                 {
-                    CurrencySymbol_ = GetNodeText(currencySymbolNode),
-                    DecimalSeparator_ = GetNodeText(decimalSeparatorNode),
-                    Digit_ = GetNodeText(digitNode),
-                    ExponentSeparator_ = GetNodeText(exponentSeparatorNode),
-                    GroupingSeparator_ = GetNodeText(groupingSeparatorNode),
-                    Infinity_ = GetNodeText(infinityNode),
-                    InternationalCurrencySymbol_ = GetNodeText(internationalCurrencySymbolNode),
-                    MinusSign_ = GetNodeText(minusSignNode),
-                    MonetaryDecimalSeparator_ = GetNodeText(monetaryDecimalSeparatorNode),
-                    NotANumberSymbol_ = GetNodeText(notANumberNode),
-                    PadEscape_ = GetNodeText(PadEscapeNode),
-                    PatternSeparator_ = GetNodeText(PatternSeparatorNode),
-                    Percent_ = GetNodeText(PercentNode),
-                    PerMill_ = GetNodeText(PerMillNode),
-                    PlusSign_ = GetNodeText(PlusSignNode),
-                    SignificantDigit_ = GetNodeText(SignificantDigitNode),
-                    ZeroDigit_ = GetNodeText(ZeroDigitNode),
+                    CurrencySymbol = GetNodeText(currencySymbolNode),
+                    DecimalSeparator = GetNodeText(decimalSeparatorNode),
+                    Digit = GetNodeText(digitNode),
+                    ExponentSeparator = GetNodeText(exponentSeparatorNode),
+                    GroupingSeparator = GetNodeText(groupingSeparatorNode),
+                    Infinity = GetNodeText(infinityNode),
+                    InternationalCurrencySymbol = GetNodeText(internationalCurrencySymbolNode),
+                    MinusSign = GetNodeText(minusSignNode),
+                    MonetaryDecimalSeparator = GetNodeText(monetaryDecimalSeparatorNode),
+                    NotANumberSymbol = GetNodeText(notANumberNode),
+                    PadEscape = GetNodeText(PadEscapeNode),
+                    PatternSeparator = GetNodeText(PatternSeparatorNode),
+                    Percent = GetNodeText(PercentNode),
+                    PerMill = GetNodeText(PerMillNode),
+                    PlusSign = GetNodeText(PlusSignNode),
+                    SignificantDigit = GetNodeText(SignificantDigitNode),
+                    ZeroDigit = GetNodeText(ZeroDigitNode),
                 };
-                cultureInfo.NumberFormat_ = numberFormat;
+                cultureInfo.NumberFormat = numberFormat;
 
                 var amPsStringNode = nodes[55];
                 var erasNode = nodes[57];
@@ -169,20 +169,20 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                 var dateFormat = new DateFormatInfo()
                 {
-                    AmPmStrings_ = GetNodeText(amPsStringNode),
-                    Eras_ = GetNodeText(erasNode),
-                    EraNames_ = GetNodeText(eraNamesNode),
-                    Months_ = GetNodeText(monthNode),
-                    ShortMonths_ = GetNodeText(shortMonthsNode),
-                    ShortWeekdays_ = GetNodeText(shortWeekdaysNode),
-                    Weekdays_ = GetNodeText(weekdaysNode),
-                    Date_3_ = GetDateNode(date3Node),
-                    Date_2_ = GetDateNode(date2Node),
-                    Date_1_ = GetDateNode(date1Node),
-                    Date_0_ = GetDateNode(date0Node),
+                    AmPmStrings = GetNodeText(amPsStringNode),
+                    Eras = GetNodeText(erasNode),
+                    EraNames = GetNodeText(eraNamesNode),
+                    Months = GetNodeText(monthNode),
+                    ShortMonths = GetNodeText(shortMonthsNode),
+                    ShortWeekdays = GetNodeText(shortWeekdaysNode),
+                    Weekdays = GetNodeText(weekdaysNode),
+                    Date_3 = GetDateNode(date3Node),
+                    Date_2 = GetDateNode(date2Node),
+                    Date_1 = GetDateNode(date1Node),
+                    Date_0 = GetDateNode(date0Node),
                 };
 
-                cultureInfo.DateFormat_ = dateFormat;
+                cultureInfo.DateFormat = dateFormat;
 
                 // When web scraping it's ethical to add a timeout
                 Task.Delay(500).Wait();
