@@ -56,7 +56,7 @@ if($null -eq $Env:Environment)
 $goo.Command.Add( 'init', {
     $goo.Command.Run( 'clean' )
     $goo.Command.Run( 'build' )
-	$goo.Command.Run( 'db-update')
+    $goo.Command.Run( 'db-update')
     $goo.Command.Run( 'test' )
 })
 
