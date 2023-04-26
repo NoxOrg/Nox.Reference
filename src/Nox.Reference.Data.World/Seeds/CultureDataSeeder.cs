@@ -17,6 +17,8 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
     private readonly WorldDbContext _dbContext;
     private readonly ILogger<CultureDataSeeder> _logger;
 
+    public string TargetFileName => "Nox.Reference.Cultures.json";
+
     public CultureDataSeeder(
         IConfiguration configuration,
         IMapper mapper,
@@ -197,7 +199,7 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
             // Map yaml model to normal model
             var outputContent = JsonSerializer.Serialize(culturesDataToSave, options);
 
-            File.WriteAllText(Path.Combine(targetFilePath, "Nox.Reference.Cultures.json"), outputContent);
+            File.WriteAllText(Path.Combine(targetFilePath, TargetFileName), outputContent);
 
             var entities = _mapper.Map<List<Culture>>(culturesDataToSave);
 

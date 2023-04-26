@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Nox.Reference.DataLoaders;
 using Nox.Reference.Data;
+using Nox.Reference.DataLoaders;
 
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices(services =>
