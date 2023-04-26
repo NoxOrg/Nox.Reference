@@ -19,7 +19,7 @@ namespace Nox.Reference.Data.World
                 .ForMember(x => x.Validations, x => x.MapFrom(t => t.ValidationRules));
 
             CreateProjection<VatNumberValidationRule, ValidationInfo>()
-                .ForMember(x => x.Checksum, x => x.MapFrom(t => new ChecksumInfo
+                .ForMember(x => x.Checksum, x => x.MapFrom(t => t.Checksum == null ? null : new ChecksumInfo
                 {
                     Algorithm = t.Checksum.Algorithm,
                     ChecksumDigit = t.Checksum.ChecksumDigit,

@@ -11,17 +11,9 @@ public static class WorldDataExtensions
 {
     public static IServiceCollection AddWorldContext(this IServiceCollection services)
     {
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
-        var configuration = new ConfigurationBuilder()
-          .AddJsonFile(ConfigurationConstants.WorldConfigFileName)
-          .Build();
-
         services.AddNoxReferenceCommon();
-        services.AddNoxReferenceConfiguration(configuration);
 
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
+        var configuration = services.GetNoxReferenceConfiguration();
         var connectionString = configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
         services.AddSqlite<WorldDbContext>(connectionString);
 

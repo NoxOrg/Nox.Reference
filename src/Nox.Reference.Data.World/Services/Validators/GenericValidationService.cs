@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 
 namespace Nox.Reference.Data.World;
 
-public class GenericValidationService : VatValidationServiceBase
+public static class GenericValidationService
 {
-    protected override IVatNumberValidationResult DoValidateVatNumber(
+    public static IVatNumberValidationResult ValidateVatNumber(
         string vatNumber,
         IVatNumberDefinitionInfo vatNumberInfo,
         bool shouldValidateViaApi = true)

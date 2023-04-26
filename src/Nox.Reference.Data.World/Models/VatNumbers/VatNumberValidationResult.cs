@@ -18,23 +18,33 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
         {
             result.AddError(validationError);
         }
+
+        result.Status = VatValidationStatus.NotVerified;
         return result;
     }
 
     public static VatNumberValidationResult CreateWithValidaton(string vatNumber, string country)
     {
+        return CreateWithValidaton(VatValidationStatus.Valid, vatNumber, country);
+    }
+
+    private static VatNumberValidationResult CreateWithValidaton(
+        VatValidationStatus status,
+        string vatNumber,
+        string country)
+    {
         var result = new VatNumberValidationResult
         {
             OriginalVatNumber = vatNumber,
             FormattedVatNumber = NormalizeVatNumber(vatNumber, country),
-            IsVerified = true,
+            Status = status,
             Country = country
         };
         return result;
     }
 
-    public bool IsValid => _validationErrors.Count == 0;
-    public bool IsVerified { get; init; }
+    public VatValidationStatus Status { get; private set; } = VatValidationStatus.NotVerified;
+
     public object? ApiVerificationData { get; set; }
     public IReadOnlyList<string?> ValidationErrors => _validationErrors;
     public string FormattedVatNumber { get; init; } = string.Empty;
@@ -43,11 +53,21 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
 
     public void AddError(string error)
     {
+        if (error != null)
+        {
+            Status = VatValidationStatus.Invalid;
+        }
         _validationErrors.Add(error);
     }
 
     public void AddErrors(IEnumerable<string> errors)
     {
+        if (errors == null || !errors.Any())
+        {
+            return;
+        }
+
+        Status = VatValidationStatus.Invalid;
         _validationErrors.AddRange(errors);
     }
 

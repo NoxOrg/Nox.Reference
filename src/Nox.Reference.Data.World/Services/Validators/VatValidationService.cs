@@ -1,5 +1,4 @@
 ﻿using Nox.Reference.Abstractions;
-using System.Collections.Concurrent;
 using System.Reflection;
 
 namespace Nox.Reference.Data.World;
@@ -7,64 +6,67 @@ namespace Nox.Reference.Data.World;
 // TODO: Issue #12: We could optionally auto-detect and validate country here in case original validation failed
 public static class VatValidationService
 {
-    private static readonly ConcurrentDictionary<string, VatValidationServiceBase> _validationServicesByCountry = new ConcurrentDictionary<string, VatValidationServiceBase>();
-    private static readonly VatValidationServiceBase _genericVatValidationServiceBase = new GenericValidationService();
+    private static readonly IReadOnlyDictionary<string, IVatValidationService> _validationServicesByCountry = GetValidationServices();
 
     public static IVatNumberValidationResult ValidateVatNumber(
-        string vatNumber,
         IVatNumberDefinitionInfo vatNumberDefinition,
-        bool shouldValidateViaApi)
+        string vatNumber,
+        bool shouldValidateViaApi = true)
     {
-        if (vatNumberDefinition == null)
+        if (string.IsNullOrWhiteSpace(vatNumber))
         {
-            return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.NullValueError);
+            return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.EmptyVatNumberError);
         }
 
-        var countryCode = vatNumberDefinition.Country.ToUpper();
-        if (IsSupportingCountryValidation(countryCode))
+        if (vatNumberDefinition == null || vatNumberDefinition.Validations?.Length < 1)
         {
-            return _validationServicesByCountry[countryCode].ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
+            return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
         }
-        else if (vatNumberDefinition.Validations?.Length > 0)
+
+        return GenericValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
+    }
+
+    public static IVatNumberValidationResult ValidateVatNumber(
+         string countryCode,
+         string vatNumber,
+         bool shouldValidateViaApi = true)
+    {
+        if (string.IsNullOrWhiteSpace(vatNumber))
         {
-            return _genericVatValidationServiceBase.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
+            return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.EmptyVatNumberError);
+        }
+        if (string.IsNullOrWhiteSpace(countryCode))
+        {
+            return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.EmptyCountryError);
+        }
+
+        var iso2CountryCode = countryCode?.ToUpper() ?? string.Empty;
+        var isSupportCountry = _validationServicesByCountry.ContainsKey(iso2CountryCode);
+
+        if (isSupportCountry)
+        {
+            var validationService = _validationServicesByCountry[iso2CountryCode];
+            return validationService.ValidateVatNumber(vatNumber, shouldValidateViaApi);
         }
 
         return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
     }
 
-    public static bool IsSupportingCountryValidation(string? iso2CountryCode)
+    public static IReadOnlyDictionary<string, IVatValidationService> GetValidationServices()
     {
-        iso2CountryCode = iso2CountryCode?.ToUpper() ?? string.Empty;
-
-        if (_validationServicesByCountry.ContainsKey(iso2CountryCode))
-        {
-            return true;
-        }
-
-        var validationService = GetCountryValidationServiceType(iso2CountryCode);
-        if (validationService != null)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private static VatValidationServiceBase? GetCountryValidationServiceType(string iso2CountryCode)
-    {
-        var validationServiceType = Assembly
+        var validationServiceTypes = Assembly
             .GetExecutingAssembly()
             .GetTypes()
-            .FirstOrDefault(x => x.Name.Equals($"{iso2CountryCode}ValidationService", StringComparison.OrdinalIgnoreCase));
+            .Where(x => typeof(IVatValidationService).IsAssignableFrom(x))
+            .ToArray();
 
-        if (validationServiceType != null)
+        var validationServices = new Dictionary<string, IVatValidationService>();
+        foreach (var validationServiceType in validationServiceTypes)
         {
-            var instance = (VatValidationServiceBase)Activator.CreateInstance(validationServiceType)!;
-            _validationServicesByCountry[iso2CountryCode] = instance;
-            return instance;
+            var instance = (IVatValidationService)Activator.CreateInstance(validationServiceType)!;
+            validationServices[instance.CountryCode] = instance;
         }
 
-        return null;
+        return validationServices;
     }
 }

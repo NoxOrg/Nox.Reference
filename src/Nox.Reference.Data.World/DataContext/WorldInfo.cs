@@ -10,7 +10,8 @@ namespace Nox.Reference.Data;
 
 public static class WorldInfo
 {
-    private static readonly IWorldInfoContext _dbContext;
+    private static readonly IConfiguration _configuration;
+    private static readonly IMapper _mapper;
 
 #pragma warning disable S3963 // "static" fields should be initialized inline
 
@@ -21,13 +22,18 @@ public static class WorldInfo
         {
             cfg.AddMaps(Assembly.GetExecutingAssembly());
         });
-        var mapper = mapperConfiguration.CreateMapper();
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile(ConfigurationConstants.WorldConfigFileName)
+        _mapper = mapperConfiguration.CreateMapper();
+        _configuration = new ConfigurationBuilder()
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
-        _dbContext = new WorldDbContext(new DbContextOptions<WorldDbContext>(), mapper, configuration);
     }
 
     public static IQueryable<ICurrencyInfo> Currencies
-        => _dbContext.Currencies;
+        => CreateDbContext().Currencies;
+
+    public static IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
+        => CreateDbContext().VatNumberDefinitions;
+
+    private static IWorldInfoContext CreateDbContext()
+     => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
 }
