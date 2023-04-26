@@ -7,6 +7,7 @@ using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Entities.Cultures;
 using Nox.Reference.Data.World.Models.Cultures;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace Nox.Reference.Data.World;
 
@@ -16,6 +17,8 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
     private readonly IMapper _mapper;
     private readonly WorldDbContext _dbContext;
     private readonly ILogger<CultureDataSeeder> _logger;
+
+    private readonly Regex _scriptRegex = new Regex(@"<script.*/script>", RegexOptions.Singleline);
 
     public string TargetFileName => "Nox.Reference.Cultures.json";
 
@@ -40,8 +43,8 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
         if (dataSet.Any())
         {
-            _logger.LogInformation("Found no data set for culture data. Finishing operaiton.");
-            return;
+           _logger.LogInformation("Data set is not empty. Finishing operation.");
+           return;
         }
 
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
@@ -62,7 +65,9 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
             var htmlDoc = htmlWeb.Load(uriLocalePlanetList);
 
             // Save content
-            File.WriteAllText(Path.Combine(sourceFilePath, "localePlanetList.html"), htmlDoc.DocumentNode.OuterHtml);
+            var body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
+            var formattedBody = _scriptRegex.Replace(body, string.Empty);
+            File.WriteAllText(Path.Combine(sourceFilePath, "localePlanetList.html"), formattedBody);
 
             var nodes = htmlDoc.DocumentNode.SelectNodes("/html/body/div[2]/div/table/tbody/tr/td");
 
@@ -99,7 +104,9 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
                 nodes = htmlDoc.DocumentNode.SelectNodes("/html/body/div[2]/div/table/tr/td");
 
                 // Save content
-                File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), htmlDoc.DocumentNode.OuterHtml);
+                body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
+                formattedBody = _scriptRegex.Replace(body, string.Empty);
+                File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), formattedBody);
 
                 var languageNode = nodes[3];
                 var countryNode = nodes[5];
