@@ -12,7 +12,10 @@ public static class WorldInfo
 {
     private static readonly IWorldInfoContext _dbContext;
 
+#pragma warning disable S3963 // "static" fields should be initialized inline
+
     static WorldInfo()
+#pragma warning restore S3963 // "static" fields should be initialized inline
     {
         var mapperConfiguration = new MapperConfiguration(cfg =>
         {
@@ -20,7 +23,7 @@ public static class WorldInfo
         });
         var mapper = mapperConfiguration.CreateMapper();
         IConfiguration configuration = new ConfigurationBuilder()
-            .AddJsonFile(ConfigurationConstants.ConfigFileName)
+            .AddJsonFile(ConfigurationConstants.WorldConfigFileName)
             .Build();
         _dbContext = new WorldDbContext(new DbContextOptions<WorldDbContext>(), mapper, configuration);
     }
