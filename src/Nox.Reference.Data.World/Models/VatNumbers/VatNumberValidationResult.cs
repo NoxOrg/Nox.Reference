@@ -11,6 +11,13 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
     {
     }
 
+    public VatValidationStatus Status { get; private set; } = VatValidationStatus.NotVerified;
+    public object? ApiVerificationData { get; set; }
+    public IReadOnlyList<string?> ValidationErrors => _validationErrors;
+    public string FormattedVatNumber { get; init; } = string.Empty;
+    public string OriginalVatNumber { get; init; } = string.Empty;
+    public string Country { get; init; } = string.Empty;
+
     public static VatNumberValidationResult CreateWithoutValidation(string validationError)
     {
         var result = new VatNumberValidationResult();
@@ -25,31 +32,15 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
 
     public static VatNumberValidationResult CreateWithValidaton(string vatNumber, string country)
     {
-        return CreateWithValidaton(VatValidationStatus.Valid, vatNumber, country);
-    }
-
-    private static VatNumberValidationResult CreateWithValidaton(
-        VatValidationStatus status,
-        string vatNumber,
-        string country)
-    {
         var result = new VatNumberValidationResult
         {
             OriginalVatNumber = vatNumber,
             FormattedVatNumber = NormalizeVatNumber(vatNumber, country),
-            Status = status,
-            Country = country
+            Country = country,
+            Status = VatValidationStatus.Valid
         };
         return result;
     }
-
-    public VatValidationStatus Status { get; private set; } = VatValidationStatus.NotVerified;
-
-    public object? ApiVerificationData { get; set; }
-    public IReadOnlyList<string?> ValidationErrors => _validationErrors;
-    public string FormattedVatNumber { get; init; } = string.Empty;
-    public string OriginalVatNumber { get; init; } = string.Empty;
-    public string Country { get; init; } = string.Empty;
 
     public void AddError(string error)
     {
