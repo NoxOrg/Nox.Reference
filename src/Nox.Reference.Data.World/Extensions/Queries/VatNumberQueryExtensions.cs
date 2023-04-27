@@ -1,7 +1,7 @@
 ﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Data.World;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class VatNumberQueryExtensions
 {

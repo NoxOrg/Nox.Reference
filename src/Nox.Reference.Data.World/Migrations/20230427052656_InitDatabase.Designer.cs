@@ -11,7 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230426142954_InitDatabase")]
+    [Migration("20230427052656_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />
@@ -133,6 +133,70 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CurrencyUsage");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Common")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Iso_639_1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_2b")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_2t")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_3")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Scope")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("WikiUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Language");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Translation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("LanguageTranslation");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
@@ -287,6 +351,13 @@ namespace Nox.Reference.Data.World.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Language", null)
+                        .WithMany("NameTranslations")
+                        .HasForeignKey("LanguageId");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", null)
@@ -327,6 +398,11 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Frequent");
 
                     b.Navigation("Rare");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
+                {
+                    b.Navigation("NameTranslations");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>

@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class CurrencyQueryExtensions
 {

@@ -8,15 +8,15 @@ using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, LanguageInfo, Language>
+internal class LanguageDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, LanguageInfo, Language>
 {
     private readonly IConfiguration _configuration;
 
-    public LanguageDataSeed(
+    public LanguageDataSeeder(
         IConfiguration configuration,
         WorldDbContext dbContext,
         IMapper mapper,
-        ILogger<LanguageDataSeed> logger,
+        ILogger<LanguageDataSeeder> logger,
         NoxReferenceFileStorageService fileStorageService)
         : base(dbContext, mapper, logger, fileStorageService)
     {
@@ -35,8 +35,8 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
 
         var languages = GetLanguageIso639_3_Data();
 
-        var languagesToSave = languages
-            .Select(x => x.ToLanguageInfo())
+        var languagesToSave = _mapper
+            .Map<IEnumerable<LanguageInfo>>(languages)
             .ToList();
 
         EnrichWithEnglishTranslation(languagesToSave);
@@ -55,7 +55,7 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
                 continue;
             }
 
-            language.NameTranslations_.Add(new LanguageTranslation
+            language.NameTranslations.Add(new LanguageTranslationInfo
             {
                 Language = "en",
                 Translation = language.Name,
@@ -78,7 +78,7 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
             var language = languagesToSave.FirstOrDefault(x => nativeLaguageInfo.Code.Equals(x.Iso_639_1));
             if (language != null)
             {
-                language.NameTranslations_.Add(new LanguageTranslation
+                language.NameTranslations.Add(new LanguageTranslationInfo
                 {
                     Language = language.Iso_639_1!,
                     Translation = nativeLaguageInfo.NativeName
@@ -179,13 +179,13 @@ internal class LanguageDataSeed : NoxReferenceDataSeederBase<WorldDbContext, Lan
             var language = languagesToSave.FirstOrDefault(x => addtionalInfoForCountry.Iso_639_2.Equals(x.Iso_639_2t));
             if (language != null)
             {
-                language.WikiUrl_ = addtionalInfoForCountry.WikiUrl;
-                language.NameTranslations_.Add(new LanguageTranslation
+                language.WikiUrl = addtionalInfoForCountry.WikiUrl;
+                language.NameTranslations.Add(new LanguageTranslationInfo
                 {
                     Language = "fr",
                     Translation = addtionalInfoForCountry.FrenchName!.First()
                 });
-                language.NameTranslations_.Add(new LanguageTranslation
+                language.NameTranslations.Add(new LanguageTranslationInfo
                 {
                     Language = "de",
                     Translation = addtionalInfoForCountry.GermanName!.First()

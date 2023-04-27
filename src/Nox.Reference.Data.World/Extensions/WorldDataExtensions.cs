@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World;
-using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data;
 
@@ -17,8 +16,8 @@ public static class WorldDataExtensions
         var connectionString = configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
         services.AddSqlite<WorldDbContext>(connectionString);
 
-        services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
-        services.AddScoped<INoxReferenceDataSeeder, VatNumberDefinitionDataSeeder>();
+        services.AddSeeders();
+
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
         return services;

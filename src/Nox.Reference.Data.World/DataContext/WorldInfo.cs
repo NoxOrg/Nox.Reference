@@ -29,11 +29,14 @@ public static class WorldInfo
     }
 
     public static IQueryable<ICurrencyInfo> Currencies
-        => CreateDbContext().Currencies;
+        => DbContext.Currencies;
 
     public static IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
-        => CreateDbContext().VatNumberDefinitions;
+        => DbContext.VatNumberDefinitions;
 
-    private static IWorldInfoContext CreateDbContext()
-     => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
+    public static IQueryable<ILanguageInfo> Languages
+        => DbContext.Languages;
+
+    private static IWorldInfoContext DbContext
+        => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
 }

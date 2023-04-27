@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
-using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Configurations;
 
 namespace Nox.Reference.Data.World;
@@ -44,6 +43,12 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
             .AsQueryable()
             .ProjectTo<VatNumberDefinitionInfo>(_mapper.ConfigurationProvider);
 
+    public IQueryable<ILanguageInfo> Languages
+         => Set<Language>()
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<LanguageInfo>(_mapper.ConfigurationProvider);
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -60,7 +65,6 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
         //modelBuilder.ApplyConfiguration(new CountryConfiguration());
         //modelBuilder.ApplyConfiguration(new CountryLocalizationConfiguration());
-        //modelBuilder.ApplyConfiguration(new LanguageConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainLocalizationConfiguration());
         //modelBuilder.ApplyConfiguration(new CityConfiguration());
@@ -70,6 +74,8 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
 
         //modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());
 
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());

@@ -23,6 +23,27 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Language",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Iso_639_1 = table.Column<string>(type: "TEXT", nullable: true),
+                    Iso_639_2b = table.Column<string>(type: "TEXT", nullable: true),
+                    Iso_639_2t = table.Column<string>(type: "TEXT", nullable: true),
+                    Iso_639_3 = table.Column<string>(type: "TEXT", nullable: false),
+                    Common = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Type = table.Column<int>(type: "INTEGER", nullable: false),
+                    Scope = table.Column<int>(type: "INTEGER", nullable: false),
+                    WikiUrl = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Language", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MajorCurrencyUnit",
                 columns: table => new
                 {
@@ -104,6 +125,26 @@ namespace Nox.Reference.Data.World.Migrations
                         principalTable: "CurrencyUsage",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LanguageTranslation",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Translation = table.Column<string>(type: "TEXT", nullable: false),
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
+                    LanguageId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LanguageTranslation", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LanguageTranslation_Language_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Language",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -213,6 +254,11 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "CurrencyUsageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LanguageTranslation_LanguageId",
+                table: "LanguageTranslation",
+                column: "LanguageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VatNumberValidationRule_VatNumberDefinitionId",
                 table: "VatNumberValidationRule",
                 column: "VatNumberDefinitionId");
@@ -231,6 +277,9 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CurrencyRareUsage");
 
             migrationBuilder.DropTable(
+                name: "LanguageTranslation");
+
+            migrationBuilder.DropTable(
                 name: "VatNumberValidationRule");
 
             migrationBuilder.DropTable(
@@ -241,6 +290,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "CurrencyUsage");
+
+            migrationBuilder.DropTable(
+                name: "Language");
 
             migrationBuilder.DropTable(
                 name: "VatNumberDefinition");
