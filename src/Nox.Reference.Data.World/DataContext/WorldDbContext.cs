@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Configurations;
+using Nox.Reference.Data.World.Configurations.Currencies;
+using Nox.Reference.Data.World.Configurations.VatNumbers;
 
 namespace Nox.Reference.Data.World;
 
@@ -32,22 +35,25 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     }
 
     public IQueryable<ICurrencyInfo> Currencies
-        => Set<Currency>()
-             .AsNoTracking()
-             .AsQueryable()
-             .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
+        => GetData<Currency, CurrencyInfo>();
 
     public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
-         => Set<VatNumberDefinition>()
-            .AsNoTracking()
-            .AsQueryable()
-            .ProjectTo<VatNumberDefinitionInfo>(_mapper.ConfigurationProvider);
+         => GetData<VatNumberDefinition, VatNumberDefinitionInfo>();
 
     public IQueryable<ILanguageInfo> Languages
-         => Set<Language>()
+         => GetData<Language, LanguageInfo>();
+
+    public IQueryable<ICountryHolidayInfo> Holidays
+         => GetData<CountryHoliday, CountryHolidayInfo>();
+
+    private IQueryable<TOutput> GetData<TSource, TOutput>()
+        where TSource : class, INoxReferenceEntity
+    {
+        return Set<TSource>()
             .AsNoTracking()
             .AsQueryable()
-            .ProjectTo<LanguageInfo>(_mapper.ConfigurationProvider);
+            .ProjectTo<TOutput>(_mapper.ConfigurationProvider);
+    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -64,7 +70,6 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
         //modelBuilder.ApplyConfiguration(new CountryConfiguration());
-        //modelBuilder.ApplyConfiguration(new CountryLocalizationConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainLocalizationConfiguration());
         //modelBuilder.ApplyConfiguration(new CityConfiguration());
@@ -73,7 +78,12 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
         //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
 
-        //modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
+        modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
+        modelBuilder.ApplyConfiguration(new StateHolidayConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryHolidayConfiguration());
+        modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
+        modelBuilder.ApplyConfiguration(new LocalHolidayNameConfiguration());
+
         modelBuilder.ApplyConfiguration(new LanguageConfiguration());
         modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());
 

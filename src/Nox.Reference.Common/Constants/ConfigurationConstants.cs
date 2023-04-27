@@ -14,4 +14,5 @@ public static class ConfigurationConstants
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string ConfigFileName = "appsettings.json";
+    public const string HolidaysZipPathSettingName = "HolidaysZipPath";
 }

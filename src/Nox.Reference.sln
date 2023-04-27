@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Abstractions"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{30573BE2-24E0-491F-AC22-01B487A90806}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Holidays", "Nox.Reference.Holidays\Nox.Reference.Holidays.csproj", "{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Common", "Nox.Reference.Common\Nox.Reference.Common.csproj", "{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.GetTestData", "..\tests\Nox.Reference.GetTestData\Nox.Reference.GetTestData.csproj", "{18B526F8-95FA-4291-8A46-14CFF3BDF842}"
@@ -41,10 +39,6 @@ Global
 		{14684838-9E31-4177-8E46-525285F72618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14684838-9E31-4177-8E46-525285F72618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14684838-9E31-4177-8E46-525285F72618}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1E6F09D-F9A7-4D23-AD18-6559EAB259D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA0B7BE9-7B1B-4F38-9D7C-CA705DE62213}.Release|Any CPU.ActiveCfg = Release|Any CPU

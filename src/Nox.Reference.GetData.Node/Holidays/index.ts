@@ -190,7 +190,17 @@ Object.entries(getCountries).map(([countryCode, countryName]) => {
     };
 });
 
-const data = JSON.stringify(yearInfo);
+var newList = yearInfo.holidaysByCountries.map(x => (
+
+    {
+    
+     ...x,
+    
+     year: yearInfo.year
+    
+    }));
+    
+    const data = JSON.stringify(newList);
 
 fs.writeFileSync(file, data);
 
