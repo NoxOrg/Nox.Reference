@@ -11,5 +11,7 @@
   "UriLanguagesISO639": "https://raw.githubusercontent.com/scsmith/language_list/master/data/languages.yml",
   "UriLanguagesAdditionalInfo": "https://raw.githubusercontent.com/haliaeetus/iso-639/master/data/iso_639-2.json",
   "UriLocalePlanetList": "https://www.localeplanet.com/icu/index.html",
-  "UriLocalePlanetItem": "https://www.localeplanet.com/icu/{localeCode}/index.html"
+  "UriLocalePlanetItem": "https://www.localeplanet.com/icu/{localeCode}/index.html",
+  "TimeZoneUrl": "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+  "NodaTimeUrl": "https://nodatime.org/timezones#notes",
 }

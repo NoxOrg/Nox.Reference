@@ -6,6 +6,7 @@ using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Entities.Cultures;
 using Nox.Reference.Data.World.Models.Cultures;
+using Nox.Reference.Data.World.Seeds.Utils;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -82,10 +83,10 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                     var cultureInfo = new CultureInfo
                     {
-                        Id = GetNodeText(idNode).Replace('_', '-'),
-                        FormalName = GetNodeText(formalNameNode),
-                        NativeName = GetNodeText(nativeNameNode),
-                        CommonName = GetNodeTextOrNull(commonNameNode)
+                        Id = DataSeederUtils.GetNodeText(idNode).Replace('_', '-'),
+                        FormalName = DataSeederUtils.GetNodeText(formalNameNode),
+                        NativeName = DataSeederUtils.GetNodeText(nativeNameNode),
+                        CommonName = DataSeederUtils.GetNodeTextOrNull(commonNameNode)
                     };
     
                     culturesDataToSave.Add(cultureInfo);
@@ -116,13 +117,13 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
                 var lineOrientationNode = nodes[13];
                 var languageIso639_2t_node = nodes[15];
 
-                cultureInfo.Language = GetNodeText(languageNode);
-                cultureInfo.Country = GetNodeText(countryNode);
-                cultureInfo.DisplayName = GetNodeText(displayNameNode);
-                cultureInfo.DisplayNameWithDialect = GetNodeText(displayNameWithDialectNode);
-                cultureInfo.CharacterOrientation = GetNodeText(characterOrientationNode);
-                cultureInfo.LineOrientation = GetNodeText(lineOrientationNode);
-                cultureInfo.LanguageIso_639_2t = GetNodeTextOrNull(languageIso639_2t_node);
+                cultureInfo.Language = DataSeederUtils.GetNodeText(languageNode);
+                cultureInfo.Country = DataSeederUtils.GetNodeText(countryNode);
+                cultureInfo.DisplayName = DataSeederUtils.GetNodeText(displayNameNode);
+                cultureInfo.DisplayNameWithDialect = DataSeederUtils.GetNodeText(displayNameWithDialectNode);
+                cultureInfo.CharacterOrientation = DataSeederUtils.GetNodeText(characterOrientationNode);
+                cultureInfo.LineOrientation = DataSeederUtils.GetNodeText(lineOrientationNode);
+                cultureInfo.LanguageIso_639_2t = DataSeederUtils.GetNodeTextOrNull(languageIso639_2t_node);
 
                 var currencySymbolNode = nodes[21];
                 var decimalSeparatorNode = nodes[23];
@@ -144,23 +145,23 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                 var numberFormat = new NumberFormatInfo()
                 {
-                    CurrencySymbol = GetNodeText(currencySymbolNode),
-                    DecimalSeparator = GetNodeText(decimalSeparatorNode),
-                    Digit = GetNodeText(digitNode),
-                    ExponentSeparator = GetNodeText(exponentSeparatorNode),
-                    GroupingSeparator = GetNodeText(groupingSeparatorNode),
-                    Infinity = GetNodeText(infinityNode),
-                    InternationalCurrencySymbol = GetNodeText(internationalCurrencySymbolNode),
-                    MinusSign = GetNodeText(minusSignNode),
-                    MonetaryDecimalSeparator = GetNodeText(monetaryDecimalSeparatorNode),
-                    NotANumberSymbol = GetNodeText(notANumberNode),
-                    PadEscape = GetNodeText(PadEscapeNode),
-                    PatternSeparator = GetNodeText(PatternSeparatorNode),
-                    Percent = GetNodeText(PercentNode),
-                    PerMill = GetNodeText(PerMillNode),
-                    PlusSign = GetNodeText(PlusSignNode),
-                    SignificantDigit = GetNodeText(SignificantDigitNode),
-                    ZeroDigit = GetNodeText(ZeroDigitNode),
+                    CurrencySymbol = DataSeederUtils.GetNodeText(currencySymbolNode),
+                    DecimalSeparator = DataSeederUtils.GetNodeText(decimalSeparatorNode),
+                    Digit = DataSeederUtils.GetNodeText(digitNode),
+                    ExponentSeparator = DataSeederUtils.GetNodeText(exponentSeparatorNode),
+                    GroupingSeparator = DataSeederUtils.GetNodeText(groupingSeparatorNode),
+                    Infinity = DataSeederUtils.GetNodeText(infinityNode),
+                    InternationalCurrencySymbol = DataSeederUtils.GetNodeText(internationalCurrencySymbolNode),
+                    MinusSign = DataSeederUtils.GetNodeText(minusSignNode),
+                    MonetaryDecimalSeparator = DataSeederUtils.GetNodeText(monetaryDecimalSeparatorNode),
+                    NotANumberSymbol = DataSeederUtils.GetNodeText(notANumberNode),
+                    PadEscape = DataSeederUtils.GetNodeText(PadEscapeNode),
+                    PatternSeparator = DataSeederUtils.GetNodeText(PatternSeparatorNode),
+                    Percent = DataSeederUtils.GetNodeText(PercentNode),
+                    PerMill = DataSeederUtils.GetNodeText(PerMillNode),
+                    PlusSign = DataSeederUtils.GetNodeText(PlusSignNode),
+                    SignificantDigit = DataSeederUtils.GetNodeText(SignificantDigitNode),
+                    ZeroDigit = DataSeederUtils.GetNodeText(ZeroDigitNode),
                 };
                 cultureInfo.NumberFormat = numberFormat;
 
@@ -178,17 +179,17 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
 
                 var dateFormat = new DateFormatInfo()
                 {
-                    AmPmStrings = GetNodeText(amPsStringNode),
-                    Eras = GetNodeText(erasNode),
-                    EraNames = GetNodeText(eraNamesNode),
-                    Months = GetNodeText(monthNode),
-                    ShortMonths = GetNodeText(shortMonthsNode),
-                    ShortWeekdays = GetNodeText(shortWeekdaysNode),
-                    Weekdays = GetNodeText(weekdaysNode),
-                    Date_3 = GetDateNode(date3Node),
-                    Date_2 = GetDateNode(date2Node),
-                    Date_1 = GetDateNode(date1Node),
-                    Date_0 = GetDateNode(date0Node),
+                    AmPmStrings = DataSeederUtils.GetNodeText(amPsStringNode),
+                    Eras = DataSeederUtils.GetNodeText(erasNode),
+                    EraNames = DataSeederUtils.GetNodeText(eraNamesNode),
+                    Months = DataSeederUtils.GetNodeText(monthNode),
+                    ShortMonths = DataSeederUtils.GetNodeText(shortMonthsNode),
+                    ShortWeekdays = DataSeederUtils.GetNodeText(shortWeekdaysNode),
+                    Weekdays = DataSeederUtils.GetNodeText(weekdaysNode),
+                    Date_3 = DataSeederUtils.GetDateNode(date3Node),
+                    Date_2 = DataSeederUtils.GetDateNode(date2Node),
+                    Date_1 = DataSeederUtils.GetDateNode(date1Node),
+                    Date_0 = DataSeederUtils.GetDateNode(date0Node),
                 };
 
                 cultureInfo.DateFormat = dateFormat;
@@ -218,40 +219,5 @@ internal class CultureDataSeeder : INoxReferenceDataSeeder
         {
             _logger.LogError(ex.Message);
         }
-    }
-
-    private string GetNodeText(HtmlNode? htmlNode)
-    {
-        var value = htmlNode?.InnerText;
-        if (string.IsNullOrWhiteSpace(value))
-        {
-#pragma warning disable S112 // General exceptions should never be thrown
-            throw new Exception("Error! Null value was encountered on not nullable node.");
-#pragma warning restore S112 // General exceptions should never be thrown
-        }
-
-        return value.Trim();
-    }
-
-    private string? GetNodeTextOrNull(HtmlNode? htmlNode)
-    {
-        var value = htmlNode?.InnerText;
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            value = null;
-        }
-
-        return value?.Trim();
-    }
-
-    private string GetDateNode(HtmlNode? htmlNode)
-    {
-        var value = htmlNode?.InnerHtml?.Replace("<br>", Environment.NewLine);
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            value = null;
-        }
-
-        return value?.Trim();
     }
 }

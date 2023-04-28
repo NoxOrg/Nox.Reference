@@ -1,5 +1,4 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Cultures;
+﻿using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Common;
 using System.Text.Json.Serialization;
 

@@ -27,6 +27,7 @@ public static class WorldDataExtensions
 
         services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, CultureDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, TimeZoneDataSeeder>();
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
         return services;

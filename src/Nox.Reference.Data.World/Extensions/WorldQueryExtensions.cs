@@ -1,11 +1,17 @@
 ﻿using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Cultures;
+using Nox.Reference.Abstractions.TimeZones;
 
 namespace Nox.Reference.Data;
 
 public static class WorldQueryExtensions
 {
     public static ICultureInfo? Get(this IQueryable<ICultureInfo> query, string code)
+    {
+        return query.First(x => x.Id == code);
+    }
+
+    public static ITimeZoneInfo? Get(this IQueryable<ITimeZoneInfo> query, string code)
     {
         return query.First(x => x.Id == code);
     }

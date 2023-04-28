@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Cultures;
+using Nox.Reference.Abstractions.TimeZones;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Configurations;
 using Nox.Reference.Data.World.Entities.Cultures;
@@ -44,6 +45,11 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
              .AsQueryable()
              .ProjectTo<CultureInfo>(_mapper.ConfigurationProvider);
 
+    public IQueryable<ITimeZoneInfo> TimeZones
+        => Set<Entities.TimeZones.TimeZone>()
+             .AsQueryable()
+             .ProjectTo<Models.TimeZones.TimeZoneInfo>(_mapper.ConfigurationProvider);
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
@@ -82,6 +88,8 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         modelBuilder.ApplyConfiguration(new CultureConfiguration());
         modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
         modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
+
+        modelBuilder.ApplyConfiguration(new TimeZoneConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }
