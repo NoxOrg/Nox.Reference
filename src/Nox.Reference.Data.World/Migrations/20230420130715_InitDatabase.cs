@@ -75,6 +75,28 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TimeZone",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Code = table.Column<string>(type: "TEXT", nullable: false),
+                    EmbeddedComments = table.Column<string>(type: "TEXT", nullable: true),
+                    Type = table.Column<string>(type: "TEXT", nullable: false),
+                    Notes = table.Column<string>(type: "TEXT", nullable: true),
+                    SDT_UTC_Offset = table.Column<string>(type: "TEXT", nullable: false),
+                    DST_UTC_Offset = table.Column<string>(type: "TEXT", nullable: false),
+                    SDT_TimeZoneAbbreviation = table.Column<string>(type: "TEXT", nullable: false),
+                    DST_TimeZoneAbbreviation = table.Column<string>(type: "TEXT", nullable: true),
+                    Latitude = table.Column<double>(type: "REAL", nullable: true),
+                    Longitude = table.Column<double>(type: "REAL", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeZone", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DateFormat",
                 columns: table => new
                 {
@@ -127,7 +149,7 @@ namespace Nox.Reference.Data.World.Migrations
                     PlusSign = table.Column<string>(type: "TEXT", nullable: false),
                     SignificantDigit = table.Column<string>(type: "TEXT", nullable: false),
                     ZeroDigit = table.Column<string>(type: "TEXT", nullable: false),
-                    CultureId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CultureId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -289,6 +311,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "NumberFormat");
+
+            migrationBuilder.DropTable(
+                name: "TimeZone");
 
             migrationBuilder.DropTable(
                 name: "MajorCurrencyUnit");

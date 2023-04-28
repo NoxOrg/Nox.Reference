@@ -1,0 +1,4030 @@
+<body>
+    <div class="fixed">
+        <nav class="top-bar" data-topbar="" role="navigation">
+            <ul class="title-area">
+                <li class="name"><h1><a href="/">Noda Time</a></h1></li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li class="divider"></li>
+                    <li class="has-dropdown">
+                        <a href="#">User Guide</a>
+                        <ul class="dropdown">
+                            <li><label>Current</label></li>
+                                <li><a href="/3.1.x/userguide/">3.1.x</a></li>
+                                <li><a href="/2.4.x/userguide/">2.4.x</a></li>
+                                <li><a href="/1.4.x/userguide/">1.4.x</a></li>
+                            <li><a href="/unstable/userguide/">Development</a></li>
+                            <li><label>Old</label></li>
+                                <li><a href="/3.0.x/userguide/">3.0.x</a></li>
+                                <li><a href="/2.3.x/userguide/">2.3.x</a></li>
+                                <li><a href="/2.2.x/userguide/">2.2.x</a></li>
+                                <li><a href="/2.1.x/userguide/">2.1.x</a></li>
+                                <li><a href="/2.0.x/userguide/">2.0.x</a></li>
+                                <li><a href="/1.3.x/userguide/">1.3.x</a></li>
+                                <li><a href="/1.2.x/userguide/">1.2.x</a></li>
+                                <li><a href="/1.1.x/userguide/">1.1.x</a></li>
+                                <li><a href="/1.0.x/userguide/">1.0.x</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider hide-for-small-only"></li>
+                    <li class="has-dropdown">
+                        <a href="#">API</a>
+                        <ul class="dropdown">
+                            <li><label>Current</label></li>
+                                <li><a href="/3.1.x/api/">3.1.x</a></li>
+                                <li><a href="/2.4.x/api/">2.4.x</a></li>
+                                <li><a href="/1.4.x/api/">1.4.x</a></li>
+                            <li><a href="/unstable/api/">Development</a></li>
+                            <li><a href="/serialization/api/">Serialization</a></li>
+                            <li><label>Old</label></li>
+                                <li><a href="/3.0.x/api/">3.0.x</a></li>
+                                <li><a href="/2.3.x/api/">2.3.x</a></li>
+                                <li><a href="/2.2.x/api/">2.2.x</a></li>
+                                <li><a href="/2.1.x/api/">2.1.x</a></li>
+                                <li><a href="/2.0.x/api/">2.0.x</a></li>
+                                <li><a href="/1.3.x/api/">1.3.x</a></li>
+                                <li><a href="/1.2.x/api/">1.2.x</a></li>
+                                <li><a href="/1.1.x/api/">1.1.x</a></li>
+                                <li><a href="/1.0.x/api/">1.0.x</a></li>
+                        </ul>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="/developer/">Developer Guide</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/versions">Versions</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/TimeZones">Time Zones</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/benchmarks">Benchmarks</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/#info">More Info</a></li>
+                    <li class="divider show-for-small"></li>
+                    <li class="has-form hide-for-small">
+                        <a class="button" href="/#install">Install</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+
+
+    <section class="body">
+        
+<div class="row">
+    <div class="large-12 columns">
+        <h1>IANA (TZDB) time zone information</h1>
+
+        <p>
+            This page provides information about the IANA (also known as TZ or TZDB) time zones used in Noda Time
+            via <a href="unstable/api/NodaTime.DateTimeZoneProviders.html#NodaTime_DateTimeZoneProviders_Tzdb">DateTimeZoneProviders.Tzdb</a>.
+            Select a time zone data version from the drop-down below to see the list of zones from that version.
+            See the <a href="#notes">notes</a> at the end of this page for more information.
+        </p>
+
+        <form method="get" action="#">
+            <p>
+                Data version:  <select name="version" onchange="this.form.submit()" style="width: 10em; margin-bottom: 0">
+                            <option value="2023c" selected="selected">2023c</option>
+                            <option value="2023b">2023b</option>
+                            <option value="2023a">2023a</option>
+                            <option value="2022g">2022g</option>
+                            <option value="2022f">2022f</option>
+                            <option value="2022e">2022e</option>
+                            <option value="2022d">2022d</option>
+                            <option value="2022c">2022c</option>
+                            <option value="2022b">2022b</option>
+                            <option value="2022a">2022a</option>
+                            <option value="2021e">2021e</option>
+                            <option value="2021d">2021d</option>
+                            <option value="2021c">2021c</option>
+                            <option value="2021b">2021b</option>
+                            <option value="2021a">2021a</option>
+                            <option value="2020e">2020e</option>
+                            <option value="2020d">2020d</option>
+                            <option value="2020c">2020c</option>
+                            <option value="2020b">2020b</option>
+                            <option value="2020a">2020a</option>
+                            <option value="2019c">2019c</option>
+                            <option value="2019b">2019b</option>
+                            <option value="2019a">2019a</option>
+                            <option value="2018i">2018i</option>
+                            <option value="2018h">2018h</option>
+                            <option value="2018g">2018g</option>
+                            <option value="2018f">2018f</option>
+                            <option value="2018e">2018e</option>
+                            <option value="2018d">2018d</option>
+                            <option value="2018c">2018c</option>
+                            <option value="2017c">2017c</option>
+                            <option value="2017b">2017b</option>
+                            <option value="2017a">2017a</option>
+                            <option value="2016j">2016j</option>
+                            <option value="2016i">2016i</option>
+                            <option value="2016h">2016h</option>
+                            <option value="2016g">2016g</option>
+                            <option value="2016f">2016f</option>
+                            <option value="2016e">2016e</option>
+                            <option value="2016d">2016d</option>
+                            <option value="2016c">2016c</option>
+                            <option value="2016b">2016b</option>
+                            <option value="2016a">2016a</option>
+                            <option value="2015g">2015g</option>
+                            <option value="2015f">2015f</option>
+                            <option value="2015e">2015e</option>
+                            <option value="2015d">2015d</option>
+                            <option value="2015c">2015c</option>
+                            <option value="2015b">2015b</option>
+                            <option value="2015a">2015a</option>
+                            <option value="2014j">2014j</option>
+                            <option value="2014i">2014i</option>
+                            <option value="2014h">2014h</option>
+                            <option value="2014g">2014g</option>
+                            <option value="2014f">2014f</option>
+                            <option value="2014e">2014e</option>
+                            <option value="2014c">2014c</option>
+                            <option value="2014b">2014b</option>
+                            <option value="2014a">2014a</option>
+                            <option value="2013i">2013i</option>
+                            <option value="2013h">2013h</option>
+                </select>
+            </p>
+        </form>
+        <ul>
+            <li>IANA Version: 2023c</li>
+            <li>Full source version ID: TZDB: 2023c (mapping: $Revision$)</li>
+            <li>Alternative representations: <a href="?version=2023c&format=json">JSON</a>, <a href="/tzvalidate/generate?version=2023c">tzvalidate</a></li>
+        </ul>
+        <table>
+            <tr>
+                <th>Zone ID</th>
+                <th>Modern&nbsp;offsets<br><a href="#notes">(Notes)</a></th>
+                <th width="40%">Aliases</th>
+                <th>Country name</th>
+                <th>Country code</th>
+                <th>Lat / Long<br><a href="#notes">(Notes)</a></th>
+                <th>Comment</th>
+            </tr>
+                <tr>
+                    <td>Africa/Abidjan</td>
+                    <td>&#x2B;00</td>
+                    <td>Africa/Accra, Africa/Bamako, Africa/Banjul, Africa/Conakry, Africa/Dakar, Africa/Freetown, Africa/Lome, Africa/Nouakchott, Africa/Ouagadougou, Africa/Timbuktu, Atlantic/Reykjavik, Atlantic/St_Helena, Iceland</td>
+                    <td>C&#xF4;te d&#x27;Ivoire</td>
+                    <td>CI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=5.316666666666666,-4.033333333333333">(5.317,&nbsp;-4.033)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Algiers</td>
+                    <td>&#x2B;01</td>
+                    <td></td>
+                    <td>Algeria</td>
+                    <td>DZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=36.78333333333333,3.05">(36.783,&nbsp;3.050)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Bissau</td>
+                    <td>&#x2B;00</td>
+                    <td></td>
+                    <td>Guinea-Bissau</td>
+                    <td>GW</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=11.85,-15.583333333333334">(11.850,&nbsp;-15.583)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Cairo</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Egypt</td>
+                    <td>Egypt</td>
+                    <td>EG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=30.05,31.25">(30.050,&nbsp;31.250)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Casablanca</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td>Morocco</td>
+                    <td>MA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.65,-7.583333333333333">(33.650,&nbsp;-7.583)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Ceuta</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Spain</td>
+                    <td>ES</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.88333333333333,-5.316666666666666">(35.883,&nbsp;-5.317)</a>
+                    </td>
+                    <td>Ceuta, Melilla</td>
+                </tr>
+                <tr>
+                    <td>Africa/El_Aaiun</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td>Western Sahara</td>
+                    <td>EH</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=27.15,-13.2">(27.150,&nbsp;-13.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Johannesburg</td>
+                    <td>&#x2B;02</td>
+                    <td>Africa/Maseru, Africa/Mbabane</td>
+                    <td>South Africa</td>
+                    <td>ZA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-26.25,28">(-26.250,&nbsp;28.000)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Juba</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>South Sudan</td>
+                    <td>SS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=4.85,31.616666666666667">(4.850,&nbsp;31.617)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Khartoum</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Sudan</td>
+                    <td>SD</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=15.6,32.53333333333333">(15.600,&nbsp;32.533)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Lagos</td>
+                    <td>&#x2B;01</td>
+                    <td>Africa/Bangui, Africa/Brazzaville, Africa/Douala, Africa/Kinshasa, Africa/Libreville, Africa/Luanda, Africa/Malabo, Africa/Niamey, Africa/Porto-Novo</td>
+                    <td>Nigeria</td>
+                    <td>NG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=6.45,3.4">(6.450,&nbsp;3.400)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Maputo</td>
+                    <td>&#x2B;02</td>
+                    <td>Africa/Blantyre, Africa/Bujumbura, Africa/Gaborone, Africa/Harare, Africa/Kigali, Africa/Lubumbashi, Africa/Lusaka</td>
+                    <td>Mozambique</td>
+                    <td>MZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-25.966666666666665,32.583333333333336">(-25.967,&nbsp;32.583)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Monrovia</td>
+                    <td>&#x2B;00</td>
+                    <td></td>
+                    <td>Liberia</td>
+                    <td>LR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=6.3,-10.783333333333333">(6.300,&nbsp;-10.783)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Nairobi</td>
+                    <td>&#x2B;03</td>
+                    <td>Africa/Addis_Ababa, Africa/Asmara, Africa/Asmera, Africa/Dar_es_Salaam, Africa/Djibouti, Africa/Kampala, Africa/Mogadishu, Indian/Antananarivo, Indian/Comoro, Indian/Mayotte</td>
+                    <td>Kenya</td>
+                    <td>KE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-1.2833333333333334,36.81666666666667">(-1.283,&nbsp;36.817)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Ndjamena</td>
+                    <td>&#x2B;01</td>
+                    <td></td>
+                    <td>Chad</td>
+                    <td>TD</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=12.116666666666667,15.05">(12.117,&nbsp;15.050)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Sao_Tome</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td>Sao Tome &amp; Principe</td>
+                    <td>ST</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=0.3333333333333333,6.733333333333333">(0.333,&nbsp;6.733)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Tripoli</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Libya</td>
+                    <td>Libya</td>
+                    <td>LY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=32.9,13.183333333333334">(32.900,&nbsp;13.183)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Tunis</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Tunisia</td>
+                    <td>TN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=36.8,10.183333333333334">(36.800,&nbsp;10.183)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Africa/Windhoek</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Namibia</td>
+                    <td>NA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-22.566666666666666,17.1">(-22.567,&nbsp;17.100)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Adak</td>
+                    <td>-10, -09</td>
+                    <td>America/Atka, US/Aleutian</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=51.88,-176.65805555555556">(51.880,&nbsp;-176.658)</a>
+                    </td>
+                    <td>Alaska - western Aleutians</td>
+                </tr>
+                <tr>
+                    <td>America/Anchorage</td>
+                    <td>-09, -08</td>
+                    <td>US/Alaska</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=61.21805555555556,-149.90027777777777">(61.218,&nbsp;-149.900)</a>
+                    </td>
+                    <td>Alaska (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Araguaina</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-7.2,-48.2">(-7.200,&nbsp;-48.200)</a>
+                    </td>
+                    <td>Tocantins</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Buenos_Aires</td>
+                    <td>-03, -02</td>
+                    <td>America/Buenos_Aires</td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-34.6,-58.45">(-34.600,&nbsp;-58.450)</a>
+                    </td>
+                    <td>Buenos Aires (BA, CF)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Catamarca</td>
+                    <td>-04, -03, -02</td>
+                    <td>America/Argentina/ComodRivadavia, America/Catamarca</td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-28.466666666666665,-65.78333333333333">(-28.467,&nbsp;-65.783)</a>
+                    </td>
+                    <td>Catamarca (CT); Chubut (CH)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Cordoba</td>
+                    <td>-03, -02</td>
+                    <td>America/Cordoba, America/Rosario</td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.4,-64.18333333333334">(-31.400,&nbsp;-64.183)</a>
+                    </td>
+                    <td>Argentina (most areas: CB, CC, CN, ER, FM, MN, SE, SF)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Jujuy</td>
+                    <td>-03, -02</td>
+                    <td>America/Jujuy</td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-24.183333333333334,-65.3">(-24.183,&nbsp;-65.300)</a>
+                    </td>
+                    <td>Jujuy (JY)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/La_Rioja</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-29.433333333333334,-66.85">(-29.433,&nbsp;-66.850)</a>
+                    </td>
+                    <td>La Rioja (LR)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Mendoza</td>
+                    <td>-04, -03, -02</td>
+                    <td>America/Mendoza</td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-32.88333333333333,-68.81666666666666">(-32.883,&nbsp;-68.817)</a>
+                    </td>
+                    <td>Mendoza (MZ)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Rio_Gallegos</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-51.63333333333333,-69.21666666666667">(-51.633,&nbsp;-69.217)</a>
+                    </td>
+                    <td>Santa Cruz (SC)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Salta</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-24.783333333333335,-65.41666666666667">(-24.783,&nbsp;-65.417)</a>
+                    </td>
+                    <td>Salta (SA, LP, NQ, RN)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/San_Juan</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.533333333333335,-68.51666666666667">(-31.533,&nbsp;-68.517)</a>
+                    </td>
+                    <td>San Juan (SJ)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/San_Luis</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-33.31666666666667,-66.35">(-33.317,&nbsp;-66.350)</a>
+                    </td>
+                    <td>San Luis (SL)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Tucuman</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-26.816666666666666,-65.21666666666667">(-26.817,&nbsp;-65.217)</a>
+                    </td>
+                    <td>Tucuman (TM)</td>
+                </tr>
+                <tr>
+                    <td>America/Argentina/Ushuaia</td>
+                    <td>-04, -03, -02</td>
+                    <td></td>
+                    <td>Argentina</td>
+                    <td>AR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-54.8,-68.3">(-54.800,&nbsp;-68.300)</a>
+                    </td>
+                    <td>Tierra del Fuego (TF)</td>
+                </tr>
+                <tr>
+                    <td>America/Asuncion</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Paraguay</td>
+                    <td>PY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-25.266666666666666,-57.666666666666664">(-25.267,&nbsp;-57.667)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Bahia</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-12.983333333333333,-38.516666666666666">(-12.983,&nbsp;-38.517)</a>
+                    </td>
+                    <td>Bahia</td>
+                </tr>
+                <tr>
+                    <td>America/Bahia_Banderas</td>
+                    <td>-07, -06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=20.8,-105.25">(20.800,&nbsp;-105.250)</a>
+                    </td>
+                    <td>Bahia de Banderas</td>
+                </tr>
+                <tr>
+                    <td>America/Barbados</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td>Barbados</td>
+                    <td>BB</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=13.1,-59.61666666666667">(13.100,&nbsp;-59.617)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Belem</td>
+                    <td>-03</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-1.45,-48.483333333333334">(-1.450,&nbsp;-48.483)</a>
+                    </td>
+                    <td>Para (east); Amapa</td>
+                </tr>
+                <tr>
+                    <td>America/Belize</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td>Belize</td>
+                    <td>BZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=17.5,-88.2">(17.500,&nbsp;-88.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Boa_Vista</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=2.816666666666667,-60.666666666666664">(2.817,&nbsp;-60.667)</a>
+                    </td>
+                    <td>Roraima</td>
+                </tr>
+                <tr>
+                    <td>America/Bogota</td>
+                    <td>-05</td>
+                    <td></td>
+                    <td>Colombia</td>
+                    <td>CO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=4.6,-74.08333333333333">(4.600,&nbsp;-74.083)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Boise</td>
+                    <td>-07, -06</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=43.61361111111111,-116.2025">(43.614,&nbsp;-116.203)</a>
+                    </td>
+                    <td>Mountain - ID (south); OR (east)</td>
+                </tr>
+                <tr>
+                    <td>America/Cambridge_Bay</td>
+                    <td>-07, -06, -05</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=69.1138888888889,-105.05277777777778">(69.114,&nbsp;-105.053)</a>
+                    </td>
+                    <td>Mountain - NU (west)</td>
+                </tr>
+                <tr>
+                    <td>America/Campo_Grande</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-20.45,-54.61666666666667">(-20.450,&nbsp;-54.617)</a>
+                    </td>
+                    <td>Mato Grosso do Sul</td>
+                </tr>
+                <tr>
+                    <td>America/Cancun</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=21.083333333333332,-86.76666666666667">(21.083,&nbsp;-86.767)</a>
+                    </td>
+                    <td>Quintana Roo</td>
+                </tr>
+                <tr>
+                    <td>America/Caracas</td>
+                    <td>-04:30, -04</td>
+                    <td></td>
+                    <td>Venezuela</td>
+                    <td>VE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=10.5,-66.93333333333334">(10.500,&nbsp;-66.933)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Cayenne</td>
+                    <td>-03</td>
+                    <td></td>
+                    <td>French Guiana</td>
+                    <td>GF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=4.933333333333334,-52.333333333333336">(4.933,&nbsp;-52.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Chicago</td>
+                    <td>-06, -05</td>
+                    <td>US/Central</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.85,-87.65">(41.850,&nbsp;-87.650)</a>
+                    </td>
+                    <td>Central (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Chihuahua</td>
+                    <td>-07, -06</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=28.633333333333333,-106.08333333333333">(28.633,&nbsp;-106.083)</a>
+                    </td>
+                    <td>Chihuahua (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Ciudad_Juarez</td>
+                    <td>-07, -06</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.733333333333334,-106.48333333333333">(31.733,&nbsp;-106.483)</a>
+                    </td>
+                    <td>Chihuahua (US border - west)</td>
+                </tr>
+                <tr>
+                    <td>America/Costa_Rica</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td>Costa Rica</td>
+                    <td>CR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=9.933333333333334,-84.08333333333333">(9.933,&nbsp;-84.083)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Cuiaba</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-15.583333333333334,-56.083333333333336">(-15.583,&nbsp;-56.083)</a>
+                    </td>
+                    <td>Mato Grosso</td>
+                </tr>
+                <tr>
+                    <td>America/Danmarkshavn</td>
+                    <td>&#x2B;00</td>
+                    <td></td>
+                    <td>Greenland</td>
+                    <td>GL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=76.76666666666667,-18.666666666666668">(76.767,&nbsp;-18.667)</a>
+                    </td>
+                    <td>National Park (east coast)</td>
+                </tr>
+                <tr>
+                    <td>America/Dawson</td>
+                    <td>-08, -07</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=64.06666666666666,-139.41666666666666">(64.067,&nbsp;-139.417)</a>
+                    </td>
+                    <td>MST - Yukon (west)</td>
+                </tr>
+                <tr>
+                    <td>America/Dawson_Creek</td>
+                    <td>-07</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=55.766666666666666,-120.23333333333333">(55.767,&nbsp;-120.233)</a>
+                    </td>
+                    <td>MST - BC (Dawson Cr, Ft St John)</td>
+                </tr>
+                <tr>
+                    <td>America/Denver</td>
+                    <td>-07, -06</td>
+                    <td>America/Shiprock, Navajo, US/Mountain</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=39.73916666666667,-104.98416666666667">(39.739,&nbsp;-104.984)</a>
+                    </td>
+                    <td>Mountain (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Detroit</td>
+                    <td>-05, -04</td>
+                    <td>US/Michigan</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=42.33138888888889,-83.04583333333333">(42.331,&nbsp;-83.046)</a>
+                    </td>
+                    <td>Eastern - MI (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Edmonton</td>
+                    <td>-07, -06</td>
+                    <td>America/Yellowknife, Canada/Mountain</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.55,-113.46666666666667">(53.550,&nbsp;-113.467)</a>
+                    </td>
+                    <td>Mountain - AB; BC (E); NT (E); SK (W)</td>
+                </tr>
+                <tr>
+                    <td>America/Eirunepe</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-6.666666666666667,-69.86666666666666">(-6.667,&nbsp;-69.867)</a>
+                    </td>
+                    <td>Amazonas (west)</td>
+                </tr>
+                <tr>
+                    <td>America/El_Salvador</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td>El Salvador</td>
+                    <td>SV</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=13.7,-89.2">(13.700,&nbsp;-89.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Fort_Nelson</td>
+                    <td>-08, -07</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=58.8,-122.7">(58.800,&nbsp;-122.700)</a>
+                    </td>
+                    <td>MST - BC (Ft Nelson)</td>
+                </tr>
+                <tr>
+                    <td>America/Fortaleza</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-3.716666666666667,-38.5">(-3.717,&nbsp;-38.500)</a>
+                    </td>
+                    <td>Brazil (northeast: MA, PI, CE, RN, PB)</td>
+                </tr>
+                <tr>
+                    <td>America/Glace_Bay</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46.2,-59.95">(46.200,&nbsp;-59.950)</a>
+                    </td>
+                    <td>Atlantic - NS (Cape Breton)</td>
+                </tr>
+                <tr>
+                    <td>America/Goose_Bay</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.333333333333336,-60.416666666666664">(53.333,&nbsp;-60.417)</a>
+                    </td>
+                    <td>Atlantic - Labrador (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Grand_Turk</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>Turks &amp; Caicos Is</td>
+                    <td>TC</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=21.466666666666665,-71.13333333333334">(21.467,&nbsp;-71.133)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Guatemala</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Guatemala</td>
+                    <td>GT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.633333333333333,-90.51666666666667">(14.633,&nbsp;-90.517)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Guayaquil</td>
+                    <td>-05</td>
+                    <td></td>
+                    <td>Ecuador</td>
+                    <td>EC</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-2.1666666666666665,-79.83333333333333">(-2.167,&nbsp;-79.833)</a>
+                    </td>
+                    <td>Ecuador (mainland)</td>
+                </tr>
+                <tr>
+                    <td>America/Guyana</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td>Guyana</td>
+                    <td>GY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=6.8,-58.166666666666664">(6.800,&nbsp;-58.167)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Halifax</td>
+                    <td>-04, -03</td>
+                    <td>Canada/Atlantic</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.65,-63.6">(44.650,&nbsp;-63.600)</a>
+                    </td>
+                    <td>Atlantic - NS (most areas); PE</td>
+                </tr>
+                <tr>
+                    <td>America/Havana</td>
+                    <td>-05, -04</td>
+                    <td>Cuba</td>
+                    <td>Cuba</td>
+                    <td>CU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=23.133333333333333,-82.36666666666666">(23.133,&nbsp;-82.367)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Hermosillo</td>
+                    <td>-07</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=29.066666666666666,-110.96666666666667">(29.067,&nbsp;-110.967)</a>
+                    </td>
+                    <td>Sonora</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Indianapolis</td>
+                    <td>-05, -04</td>
+                    <td>America/Fort_Wayne, America/Indianapolis, US/East-Indiana</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=39.76833333333333,-86.15805555555555">(39.768,&nbsp;-86.158)</a>
+                    </td>
+                    <td>Eastern - IN (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Knox</td>
+                    <td>-06, -05</td>
+                    <td>America/Knox_IN, US/Indiana-Starke</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.295833333333334,-86.625">(41.296,&nbsp;-86.625)</a>
+                    </td>
+                    <td>Central - IN (Starke)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Marengo</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.37555555555556,-86.34472222222222">(38.376,&nbsp;-86.345)</a>
+                    </td>
+                    <td>Eastern - IN (Crawford)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Petersburg</td>
+                    <td>-06, -05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.49194444444444,-87.2786111111111">(38.492,&nbsp;-87.279)</a>
+                    </td>
+                    <td>Eastern - IN (Pike)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Tell_City</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=37.95305555555556,-86.76138888888889">(37.953,&nbsp;-86.761)</a>
+                    </td>
+                    <td>Central - IN (Perry)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Vevay</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.74777777777778,-85.06722222222223">(38.748,&nbsp;-85.067)</a>
+                    </td>
+                    <td>Eastern - IN (Switzerland)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Vincennes</td>
+                    <td>-06, -05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.67722222222222,-87.5286111111111">(38.677,&nbsp;-87.529)</a>
+                    </td>
+                    <td>Eastern - IN (Da, Du, K, Mn)</td>
+                </tr>
+                <tr>
+                    <td>America/Indiana/Winamac</td>
+                    <td>-06, -05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.05138888888889,-86.60305555555556">(41.051,&nbsp;-86.603)</a>
+                    </td>
+                    <td>Eastern - IN (Pulaski)</td>
+                </tr>
+                <tr>
+                    <td>America/Inuvik</td>
+                    <td>-07, -06</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=68.34972222222223,-133.71666666666667">(68.350,&nbsp;-133.717)</a>
+                    </td>
+                    <td>Mountain - NT (west)</td>
+                </tr>
+                <tr>
+                    <td>America/Iqaluit</td>
+                    <td>-06, -05, -04</td>
+                    <td>America/Pangnirtung</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=63.733333333333334,-68.46666666666667">(63.733,&nbsp;-68.467)</a>
+                    </td>
+                    <td>Eastern - NU (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Jamaica</td>
+                    <td>-05</td>
+                    <td>Jamaica</td>
+                    <td>Jamaica</td>
+                    <td>JM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=17.968055555555555,-76.79333333333334">(17.968,&nbsp;-76.793)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Juneau</td>
+                    <td>-09, -08</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=58.301944444444445,-134.41972222222222">(58.302,&nbsp;-134.420)</a>
+                    </td>
+                    <td>Alaska - Juneau area</td>
+                </tr>
+                <tr>
+                    <td>America/Kentucky/Louisville</td>
+                    <td>-05, -04</td>
+                    <td>America/Louisville</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.25416666666667,-85.75944444444444">(38.254,&nbsp;-85.759)</a>
+                    </td>
+                    <td>Eastern - KY (Louisville area)</td>
+                </tr>
+                <tr>
+                    <td>America/Kentucky/Monticello</td>
+                    <td>-06, -05, -04</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=36.82972222222222,-84.84916666666666">(36.830,&nbsp;-84.849)</a>
+                    </td>
+                    <td>Eastern - KY (Wayne)</td>
+                </tr>
+                <tr>
+                    <td>America/La_Paz</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td>Bolivia</td>
+                    <td>BO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-16.5,-68.15">(-16.500,&nbsp;-68.150)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Lima</td>
+                    <td>-05</td>
+                    <td></td>
+                    <td>Peru</td>
+                    <td>PE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-12.05,-77.05">(-12.050,&nbsp;-77.050)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Los_Angeles</td>
+                    <td>-08, -07</td>
+                    <td>US/Pacific</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=34.05222222222222,-118.24277777777777">(34.052,&nbsp;-118.243)</a>
+                    </td>
+                    <td>Pacific</td>
+                </tr>
+                <tr>
+                    <td>America/Maceio</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9.666666666666666,-35.71666666666667">(-9.667,&nbsp;-35.717)</a>
+                    </td>
+                    <td>Alagoas, Sergipe</td>
+                </tr>
+                <tr>
+                    <td>America/Managua</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Nicaragua</td>
+                    <td>NI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=12.15,-86.28333333333333">(12.150,&nbsp;-86.283)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Manaus</td>
+                    <td>-04</td>
+                    <td>Brazil/West</td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-3.1333333333333333,-60.016666666666666">(-3.133,&nbsp;-60.017)</a>
+                    </td>
+                    <td>Amazonas (east)</td>
+                </tr>
+                <tr>
+                    <td>America/Martinique</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td>Martinique</td>
+                    <td>MQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.6,-61.083333333333336">(14.600,&nbsp;-61.083)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Matamoros</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=25.833333333333332,-97.5">(25.833,&nbsp;-97.500)</a>
+                    </td>
+                    <td>Coahuila, Nuevo Leon, Tamaulipas (US border)</td>
+                </tr>
+                <tr>
+                    <td>America/Mazatlan</td>
+                    <td>-07, -06</td>
+                    <td>Mexico/BajaSur</td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=23.216666666666665,-106.41666666666667">(23.217,&nbsp;-106.417)</a>
+                    </td>
+                    <td>Baja California Sur, Nayarit (most areas), Sinaloa</td>
+                </tr>
+                <tr>
+                    <td>America/Menominee</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=45.10777777777778,-87.61416666666666">(45.108,&nbsp;-87.614)</a>
+                    </td>
+                    <td>Central - MI (Wisconsin border)</td>
+                </tr>
+                <tr>
+                    <td>America/Merida</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=20.966666666666665,-89.61666666666666">(20.967,&nbsp;-89.617)</a>
+                    </td>
+                    <td>Campeche, Yucatan</td>
+                </tr>
+                <tr>
+                    <td>America/Metlakatla</td>
+                    <td>-09, -08</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=55.12694444444445,-131.57638888888889">(55.127,&nbsp;-131.576)</a>
+                    </td>
+                    <td>Alaska - Annette Island</td>
+                </tr>
+                <tr>
+                    <td>America/Mexico_City</td>
+                    <td>-06, -05</td>
+                    <td>Mexico/General</td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=19.4,-99.15">(19.400,&nbsp;-99.150)</a>
+                    </td>
+                    <td>Central Mexico</td>
+                </tr>
+                <tr>
+                    <td>America/Miquelon</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>St Pierre &amp; Miquelon</td>
+                    <td>PM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.05,-56.333333333333336">(47.050,&nbsp;-56.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Moncton</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46.1,-64.78333333333333">(46.100,&nbsp;-64.783)</a>
+                    </td>
+                    <td>Atlantic - New Brunswick</td>
+                </tr>
+                <tr>
+                    <td>America/Monterrey</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=25.666666666666668,-100.31666666666666">(25.667,&nbsp;-100.317)</a>
+                    </td>
+                    <td>Durango; Coahuila, Nuevo Leon, Tamaulipas (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Montevideo</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Uruguay</td>
+                    <td>UY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-34.909166666666664,-56.2125">(-34.909,&nbsp;-56.213)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/New_York</td>
+                    <td>-05, -04</td>
+                    <td>US/Eastern</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=40.714166666666664,-74.00638888888889">(40.714,&nbsp;-74.006)</a>
+                    </td>
+                    <td>Eastern (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Nome</td>
+                    <td>-09, -08</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=64.50111111111111,-165.4063888888889">(64.501,&nbsp;-165.406)</a>
+                    </td>
+                    <td>Alaska (west)</td>
+                </tr>
+                <tr>
+                    <td>America/Noronha</td>
+                    <td>-02, -01</td>
+                    <td>Brazil/DeNoronha</td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-3.85,-32.416666666666664">(-3.850,&nbsp;-32.417)</a>
+                    </td>
+                    <td>Atlantic islands</td>
+                </tr>
+                <tr>
+                    <td>America/North_Dakota/Beulah</td>
+                    <td>-07, -06, -05</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.26416666666667,-101.77777777777777">(47.264,&nbsp;-101.778)</a>
+                    </td>
+                    <td>Central - ND (Mercer)</td>
+                </tr>
+                <tr>
+                    <td>America/North_Dakota/Center</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.11638888888889,-101.29916666666666">(47.116,&nbsp;-101.299)</a>
+                    </td>
+                    <td>Central - ND (Oliver)</td>
+                </tr>
+                <tr>
+                    <td>America/North_Dakota/New_Salem</td>
+                    <td>-07, -06, -05</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46.845,-101.41083333333333">(46.845,&nbsp;-101.411)</a>
+                    </td>
+                    <td>Central - ND (Morton rural)</td>
+                </tr>
+                <tr>
+                    <td>America/Nuuk</td>
+                    <td>-03, -02, -01</td>
+                    <td>America/Godthab</td>
+                    <td>Greenland</td>
+                    <td>GL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=64.18333333333334,-51.733333333333334">(64.183,&nbsp;-51.733)</a>
+                    </td>
+                    <td>most of Greenland</td>
+                </tr>
+                <tr>
+                    <td>America/Ojinaga</td>
+                    <td>-07, -06, -05</td>
+                    <td></td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=29.566666666666666,-104.41666666666667">(29.567,&nbsp;-104.417)</a>
+                    </td>
+                    <td>Chihuahua (US border - east)</td>
+                </tr>
+                <tr>
+                    <td>America/Panama</td>
+                    <td>-05</td>
+                    <td>America/Atikokan, America/Cayman, America/Coral_Harbour</td>
+                    <td>Panama</td>
+                    <td>PA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=8.966666666666667,-79.53333333333333">(8.967,&nbsp;-79.533)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Paramaribo</td>
+                    <td>-03</td>
+                    <td></td>
+                    <td>Suriname</td>
+                    <td>SR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=5.833333333333333,-55.166666666666664">(5.833,&nbsp;-55.167)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Phoenix</td>
+                    <td>-07</td>
+                    <td>America/Creston, US/Arizona</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.44833333333333,-112.07333333333334">(33.448,&nbsp;-112.073)</a>
+                    </td>
+                    <td>MST - AZ (except Navajo)</td>
+                </tr>
+                <tr>
+                    <td>America/Port-au-Prince</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>Haiti</td>
+                    <td>HT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=18.533333333333335,-72.33333333333333">(18.533,&nbsp;-72.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Porto_Velho</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-8.766666666666667,-63.9">(-8.767,&nbsp;-63.900)</a>
+                    </td>
+                    <td>Rondonia</td>
+                </tr>
+                <tr>
+                    <td>America/Puerto_Rico</td>
+                    <td>-04</td>
+                    <td>America/Anguilla, America/Antigua, America/Aruba, America/Blanc-Sablon, America/Curacao, America/Dominica, America/Grenada, America/Guadeloupe, America/Kralendijk, America/Lower_Princes, America/Marigot, America/Montserrat, America/Port_of_Spain, America/St_Barthelemy, America/St_Kitts, America/St_Lucia, America/St_Thomas, America/St_Vincent, America/Tortola, America/Virgin</td>
+                    <td>Puerto Rico</td>
+                    <td>PR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=18.468333333333334,-66.1061111111111">(18.468,&nbsp;-66.106)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Punta_Arenas</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Chile</td>
+                    <td>CL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-53.15,-70.91666666666667">(-53.150,&nbsp;-70.917)</a>
+                    </td>
+                    <td>Region of Magallanes</td>
+                </tr>
+                <tr>
+                    <td>America/Rankin_Inlet</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=62.81666666666667,-92.08305555555556">(62.817,&nbsp;-92.083)</a>
+                    </td>
+                    <td>Central - NU (central)</td>
+                </tr>
+                <tr>
+                    <td>America/Recife</td>
+                    <td>-03, -02</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-8.05,-34.9">(-8.050,&nbsp;-34.900)</a>
+                    </td>
+                    <td>Pernambuco</td>
+                </tr>
+                <tr>
+                    <td>America/Regina</td>
+                    <td>-06</td>
+                    <td>Canada/Saskatchewan</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.4,-104.65">(50.400,&nbsp;-104.650)</a>
+                    </td>
+                    <td>CST - SK (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Resolute</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=74.69555555555556,-94.82916666666667">(74.696,&nbsp;-94.829)</a>
+                    </td>
+                    <td>Central - NU (Resolute)</td>
+                </tr>
+                <tr>
+                    <td>America/Rio_Branco</td>
+                    <td>-05, -04</td>
+                    <td>America/Porto_Acre, Brazil/Acre</td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9.966666666666667,-67.8">(-9.967,&nbsp;-67.800)</a>
+                    </td>
+                    <td>Acre</td>
+                </tr>
+                <tr>
+                    <td>America/Santarem</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-2.433333333333333,-54.86666666666667">(-2.433,&nbsp;-54.867)</a>
+                    </td>
+                    <td>Para (west)</td>
+                </tr>
+                <tr>
+                    <td>America/Santiago</td>
+                    <td>-04, -03</td>
+                    <td>Chile/Continental</td>
+                    <td>Chile</td>
+                    <td>CL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-33.45,-70.66666666666667">(-33.450,&nbsp;-70.667)</a>
+                    </td>
+                    <td>most of Chile</td>
+                </tr>
+                <tr>
+                    <td>America/Santo_Domingo</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td>Dominican Republic</td>
+                    <td>DO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=18.466666666666665,-69.9">(18.467,&nbsp;-69.900)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Sao_Paulo</td>
+                    <td>-03, -02</td>
+                    <td>Brazil/East</td>
+                    <td>Brazil</td>
+                    <td>BR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-23.533333333333335,-46.61666666666667">(-23.533,&nbsp;-46.617)</a>
+                    </td>
+                    <td>Brazil (southeast: GO, DF, MG, ES, RJ, SP, PR, SC, RS)</td>
+                </tr>
+                <tr>
+                    <td>America/Scoresbysund</td>
+                    <td>-01, &#x2B;00</td>
+                    <td></td>
+                    <td>Greenland</td>
+                    <td>GL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=70.48333333333333,-21.966666666666665">(70.483,&nbsp;-21.967)</a>
+                    </td>
+                    <td>Scoresbysund/Ittoqqortoormiit</td>
+                </tr>
+                <tr>
+                    <td>America/Sitka</td>
+                    <td>-09, -08</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=57.17638888888889,-135.30194444444444">(57.176,&nbsp;-135.302)</a>
+                    </td>
+                    <td>Alaska - Sitka area</td>
+                </tr>
+                <tr>
+                    <td>America/St_Johns</td>
+                    <td>-03:30, -02:30</td>
+                    <td>Canada/Newfoundland</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.56666666666667,-52.71666666666667">(47.567,&nbsp;-52.717)</a>
+                    </td>
+                    <td>Newfoundland; Labrador (southeast)</td>
+                </tr>
+                <tr>
+                    <td>America/Swift_Current</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.28333333333333,-107.83333333333333">(50.283,&nbsp;-107.833)</a>
+                    </td>
+                    <td>CST - SK (midwest)</td>
+                </tr>
+                <tr>
+                    <td>America/Tegucigalpa</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td>Honduras</td>
+                    <td>HN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.1,-87.21666666666667">(14.100,&nbsp;-87.217)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>America/Thule</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Greenland</td>
+                    <td>GL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=76.56666666666666,-68.78333333333333">(76.567,&nbsp;-68.783)</a>
+                    </td>
+                    <td>Thule/Pituffik</td>
+                </tr>
+                <tr>
+                    <td>America/Tijuana</td>
+                    <td>-08, -07</td>
+                    <td>America/Ensenada, America/Santa_Isabel, Mexico/BajaNorte</td>
+                    <td>Mexico</td>
+                    <td>MX</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=32.53333333333333,-117.01666666666667">(32.533,&nbsp;-117.017)</a>
+                    </td>
+                    <td>Baja California</td>
+                </tr>
+                <tr>
+                    <td>America/Toronto</td>
+                    <td>-05, -04</td>
+                    <td>America/Montreal, America/Nassau, America/Nipigon, America/Thunder_Bay, Canada/Eastern</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=43.65,-79.38333333333334">(43.650,&nbsp;-79.383)</a>
+                    </td>
+                    <td>Eastern - ON, QC (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Vancouver</td>
+                    <td>-08, -07</td>
+                    <td>Canada/Pacific</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=49.266666666666666,-123.11666666666666">(49.267,&nbsp;-123.117)</a>
+                    </td>
+                    <td>Pacific - BC (most areas)</td>
+                </tr>
+                <tr>
+                    <td>America/Whitehorse</td>
+                    <td>-08, -07</td>
+                    <td>Canada/Yukon</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=60.71666666666667,-135.05">(60.717,&nbsp;-135.050)</a>
+                    </td>
+                    <td>MST - Yukon (east)</td>
+                </tr>
+                <tr>
+                    <td>America/Winnipeg</td>
+                    <td>-06, -05</td>
+                    <td>America/Rainy_River, Canada/Central</td>
+                    <td>Canada</td>
+                    <td>CA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=49.88333333333333,-97.15">(49.883,&nbsp;-97.150)</a>
+                    </td>
+                    <td>Central - ON (west); Manitoba</td>
+                </tr>
+                <tr>
+                    <td>America/Yakutat</td>
+                    <td>-09, -08</td>
+                    <td></td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=59.54694444444444,-139.72722222222222">(59.547,&nbsp;-139.727)</a>
+                    </td>
+                    <td>Alaska - Yakutat</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Casey</td>
+                    <td>&#x2B;08, &#x2B;11</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-66.28333333333333,110.51666666666667">(-66.283,&nbsp;110.517)</a>
+                    </td>
+                    <td>Casey</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Davis</td>
+                    <td>&#x2B;05, &#x2B;07</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-68.58333333333333,77.96666666666667">(-68.583,&nbsp;77.967)</a>
+                    </td>
+                    <td>Davis</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Macquarie</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td></td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-54.5,158.95">(-54.500,&nbsp;158.950)</a>
+                    </td>
+                    <td>Macquarie Island</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Mawson</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-67.6,62.88333333333333">(-67.600,&nbsp;62.883)</a>
+                    </td>
+                    <td>Mawson</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Palmer</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-64.8,-64.1">(-64.800,&nbsp;-64.100)</a>
+                    </td>
+                    <td>Palmer</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Rothera</td>
+                    <td>-03</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-67.56666666666666,-68.13333333333334">(-67.567,&nbsp;-68.133)</a>
+                    </td>
+                    <td>Rothera</td>
+                </tr>
+                <tr>
+                    <td>Antarctica/Troll</td>
+                    <td>&#x2B;00, &#x2B;02</td>
+                    <td></td>
+                    <td>Antarctica</td>
+                    <td>AQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-72.01138888888889,2.535">(-72.011,&nbsp;2.535)</a>
+                    </td>
+                    <td>Troll</td>
+                </tr>
+                <tr>
+                    <td>Asia/Almaty</td>
+                    <td>&#x2B;06, &#x2B;07</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=43.25,76.95">(43.250,&nbsp;76.950)</a>
+                    </td>
+                    <td>most of Kazakhstan</td>
+                </tr>
+                <tr>
+                    <td>Asia/Amman</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Jordan</td>
+                    <td>JO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.95,35.93333333333333">(31.950,&nbsp;35.933)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Anadyr</td>
+                    <td>&#x2B;11, &#x2B;12, &#x2B;13</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=64.75,177.48333333333332">(64.750,&nbsp;177.483)</a>
+                    </td>
+                    <td>MSK&#x2B;09 - Bering Sea</td>
+                </tr>
+                <tr>
+                    <td>Asia/Aqtau</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.516666666666666,50.266666666666666">(44.517,&nbsp;50.267)</a>
+                    </td>
+                    <td>Mangghystau/Mankistau</td>
+                </tr>
+                <tr>
+                    <td>Asia/Aqtobe</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.28333333333333,57.166666666666664">(50.283,&nbsp;57.167)</a>
+                    </td>
+                    <td>Aqtobe/Aktobe</td>
+                </tr>
+                <tr>
+                    <td>Asia/Ashgabat</td>
+                    <td>&#x2B;05</td>
+                    <td>Asia/Ashkhabad</td>
+                    <td>Turkmenistan</td>
+                    <td>TM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=37.95,58.38333333333333">(37.950,&nbsp;58.383)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Atyrau</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.11666666666667,51.93333333333333">(47.117,&nbsp;51.933)</a>
+                    </td>
+                    <td>Atyrau/Atirau/Gur&#x27;yev</td>
+                </tr>
+                <tr>
+                    <td>Asia/Baghdad</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Iraq</td>
+                    <td>IQ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.35,44.416666666666664">(33.350,&nbsp;44.417)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Baku</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Azerbaijan</td>
+                    <td>AZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=40.38333333333333,49.85">(40.383,&nbsp;49.850)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Bangkok</td>
+                    <td>&#x2B;07</td>
+                    <td>Asia/Phnom_Penh, Asia/Vientiane, Indian/Christmas</td>
+                    <td>Thailand</td>
+                    <td>TH</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=13.75,100.51666666666667">(13.750,&nbsp;100.517)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Barnaul</td>
+                    <td>&#x2B;06, &#x2B;07</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.36666666666667,83.75">(53.367,&nbsp;83.750)</a>
+                    </td>
+                    <td>MSK&#x2B;04 - Altai</td>
+                </tr>
+                <tr>
+                    <td>Asia/Beirut</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Lebanon</td>
+                    <td>LB</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.88333333333333,35.5">(33.883,&nbsp;35.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Bishkek</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Kyrgyzstan</td>
+                    <td>KG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=42.9,74.6">(42.900,&nbsp;74.600)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Chita</td>
+                    <td>&#x2B;08, &#x2B;09, &#x2B;10</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=52.05,113.46666666666667">(52.050,&nbsp;113.467)</a>
+                    </td>
+                    <td>MSK&#x2B;06 - Zabaykalsky</td>
+                </tr>
+                <tr>
+                    <td>Asia/Choibalsan</td>
+                    <td>&#x2B;08, &#x2B;09, &#x2B;10</td>
+                    <td></td>
+                    <td>Mongolia</td>
+                    <td>MN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=48.06666666666667,114.5">(48.067,&nbsp;114.500)</a>
+                    </td>
+                    <td>Dornod, Sukhbaatar</td>
+                </tr>
+                <tr>
+                    <td>Asia/Colombo</td>
+                    <td>&#x2B;05:30, &#x2B;06</td>
+                    <td></td>
+                    <td>Sri Lanka</td>
+                    <td>LK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=6.933333333333334,79.85">(6.933,&nbsp;79.850)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Damascus</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Syria</td>
+                    <td>SY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=33.5,36.3">(33.500,&nbsp;36.300)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Dhaka</td>
+                    <td>&#x2B;06, &#x2B;07</td>
+                    <td>Asia/Dacca</td>
+                    <td>Bangladesh</td>
+                    <td>BD</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=23.716666666666665,90.41666666666667">(23.717,&nbsp;90.417)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Dili</td>
+                    <td>&#x2B;08, &#x2B;09</td>
+                    <td></td>
+                    <td>East Timor</td>
+                    <td>TL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-8.55,125.58333333333333">(-8.550,&nbsp;125.583)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Dubai</td>
+                    <td>&#x2B;04</td>
+                    <td>Asia/Muscat, Indian/Mahe, Indian/Reunion</td>
+                    <td>United Arab Emirates</td>
+                    <td>AE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=25.3,55.3">(25.300,&nbsp;55.300)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Dushanbe</td>
+                    <td>&#x2B;05</td>
+                    <td></td>
+                    <td>Tajikistan</td>
+                    <td>TJ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.583333333333336,68.8">(38.583,&nbsp;68.800)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Famagusta</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Cyprus</td>
+                    <td>CY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.11666666666667,33.95">(35.117,&nbsp;33.950)</a>
+                    </td>
+                    <td>Northern Cyprus</td>
+                </tr>
+                <tr>
+                    <td>Asia/Gaza</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Palestine</td>
+                    <td>PS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.5,34.46666666666667">(31.500,&nbsp;34.467)</a>
+                    </td>
+                    <td>Gaza Strip</td>
+                </tr>
+                <tr>
+                    <td>Asia/Hebron</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Palestine</td>
+                    <td>PS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.533333333333335,35.095">(31.533,&nbsp;35.095)</a>
+                    </td>
+                    <td>West Bank</td>
+                </tr>
+                <tr>
+                    <td>Asia/Ho_Chi_Minh</td>
+                    <td>&#x2B;07</td>
+                    <td>Asia/Saigon</td>
+                    <td>Vietnam</td>
+                    <td>VN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=10.75,106.66666666666667">(10.750,&nbsp;106.667)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Hong_Kong</td>
+                    <td>&#x2B;08</td>
+                    <td>Hongkong</td>
+                    <td>Hong Kong</td>
+                    <td>HK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=22.283333333333335,114.15">(22.283,&nbsp;114.150)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Hovd</td>
+                    <td>&#x2B;07, &#x2B;08</td>
+                    <td></td>
+                    <td>Mongolia</td>
+                    <td>MN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=48.016666666666666,91.65">(48.017,&nbsp;91.650)</a>
+                    </td>
+                    <td>Bayan-Olgiy, Govi-Altai, Hovd, Uvs, Zavkhan</td>
+                </tr>
+                <tr>
+                    <td>Asia/Irkutsk</td>
+                    <td>&#x2B;08, &#x2B;09</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=52.266666666666666,104.33333333333333">(52.267,&nbsp;104.333)</a>
+                    </td>
+                    <td>MSK&#x2B;05 - Irkutsk, Buryatia</td>
+                </tr>
+                <tr>
+                    <td>Asia/Jakarta</td>
+                    <td>&#x2B;07</td>
+                    <td></td>
+                    <td>Indonesia</td>
+                    <td>ID</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-6.166666666666667,106.8">(-6.167,&nbsp;106.800)</a>
+                    </td>
+                    <td>Java, Sumatra</td>
+                </tr>
+                <tr>
+                    <td>Asia/Jayapura</td>
+                    <td>&#x2B;09</td>
+                    <td></td>
+                    <td>Indonesia</td>
+                    <td>ID</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-2.533333333333333,140.7">(-2.533,&nbsp;140.700)</a>
+                    </td>
+                    <td>New Guinea (West Papua / Irian Jaya); Malukus/Moluccas</td>
+                </tr>
+                <tr>
+                    <td>Asia/Jerusalem</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Asia/Tel_Aviv, Israel</td>
+                    <td>Israel</td>
+                    <td>IL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.780555555555555,35.22388888888889">(31.781,&nbsp;35.224)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Kabul</td>
+                    <td>&#x2B;04:30</td>
+                    <td></td>
+                    <td>Afghanistan</td>
+                    <td>AF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=34.516666666666666,69.2">(34.517,&nbsp;69.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Kamchatka</td>
+                    <td>&#x2B;11, &#x2B;12, &#x2B;13</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.016666666666666,158.65">(53.017,&nbsp;158.650)</a>
+                    </td>
+                    <td>MSK&#x2B;09 - Kamchatka</td>
+                </tr>
+                <tr>
+                    <td>Asia/Karachi</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Pakistan</td>
+                    <td>PK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=24.866666666666667,67.05">(24.867,&nbsp;67.050)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Kathmandu</td>
+                    <td>&#x2B;05:45</td>
+                    <td>Asia/Katmandu</td>
+                    <td>Nepal</td>
+                    <td>NP</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=27.716666666666665,85.31666666666666">(27.717,&nbsp;85.317)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Khandyga</td>
+                    <td>&#x2B;09, &#x2B;10, &#x2B;11</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=62.65638888888889,135.55388888888888">(62.656,&nbsp;135.554)</a>
+                    </td>
+                    <td>MSK&#x2B;06 - Tomponsky, Ust-Maysky</td>
+                </tr>
+                <tr>
+                    <td>Asia/Kolkata</td>
+                    <td>&#x2B;05:30</td>
+                    <td>Asia/Calcutta</td>
+                    <td>India</td>
+                    <td>IN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=22.533333333333335,88.36666666666666">(22.533,&nbsp;88.367)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Krasnoyarsk</td>
+                    <td>&#x2B;07, &#x2B;08</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=56.016666666666666,92.83333333333333">(56.017,&nbsp;92.833)</a>
+                    </td>
+                    <td>MSK&#x2B;04 - Krasnoyarsk area</td>
+                </tr>
+                <tr>
+                    <td>Asia/Kuching</td>
+                    <td>&#x2B;08</td>
+                    <td>Asia/Brunei</td>
+                    <td>Malaysia</td>
+                    <td>MY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=1.55,110.33333333333333">(1.550,&nbsp;110.333)</a>
+                    </td>
+                    <td>Sabah, Sarawak</td>
+                </tr>
+                <tr>
+                    <td>Asia/Macau</td>
+                    <td>&#x2B;08</td>
+                    <td>Asia/Macao</td>
+                    <td>Macau</td>
+                    <td>MO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=22.197222222222223,113.54166666666667">(22.197,&nbsp;113.542)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Magadan</td>
+                    <td>&#x2B;10, &#x2B;11, &#x2B;12</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=59.56666666666667,150.8">(59.567,&nbsp;150.800)</a>
+                    </td>
+                    <td>MSK&#x2B;08 - Magadan</td>
+                </tr>
+                <tr>
+                    <td>Asia/Makassar</td>
+                    <td>&#x2B;08</td>
+                    <td>Asia/Ujung_Pandang</td>
+                    <td>Indonesia</td>
+                    <td>ID</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-5.116666666666666,119.4">(-5.117,&nbsp;119.400)</a>
+                    </td>
+                    <td>Borneo (east, south); Sulawesi/Celebes, Bali, Nusa Tengarra; Timor (west)</td>
+                </tr>
+                <tr>
+                    <td>Asia/Manila</td>
+                    <td>&#x2B;08</td>
+                    <td></td>
+                    <td>Philippines</td>
+                    <td>PH</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.583333333333334,121">(14.583,&nbsp;121.000)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Nicosia</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Europe/Nicosia</td>
+                    <td>Cyprus</td>
+                    <td>CY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.166666666666664,33.36666666666667">(35.167,&nbsp;33.367)</a>
+                    </td>
+                    <td>most of Cyprus</td>
+                </tr>
+                <tr>
+                    <td>Asia/Novokuznetsk</td>
+                    <td>&#x2B;06, &#x2B;07, &#x2B;08</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.75,87.11666666666666">(53.750,&nbsp;87.117)</a>
+                    </td>
+                    <td>MSK&#x2B;04 - Kemerovo</td>
+                </tr>
+                <tr>
+                    <td>Asia/Novosibirsk</td>
+                    <td>&#x2B;06, &#x2B;07</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=55.03333333333333,82.91666666666667">(55.033,&nbsp;82.917)</a>
+                    </td>
+                    <td>MSK&#x2B;04 - Novosibirsk</td>
+                </tr>
+                <tr>
+                    <td>Asia/Omsk</td>
+                    <td>&#x2B;06, &#x2B;07</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=55,73.4">(55.000,&nbsp;73.400)</a>
+                    </td>
+                    <td>MSK&#x2B;03 - Omsk</td>
+                </tr>
+                <tr>
+                    <td>Asia/Oral</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=51.21666666666667,51.35">(51.217,&nbsp;51.350)</a>
+                    </td>
+                    <td>West Kazakhstan</td>
+                </tr>
+                <tr>
+                    <td>Asia/Pontianak</td>
+                    <td>&#x2B;07</td>
+                    <td></td>
+                    <td>Indonesia</td>
+                    <td>ID</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-0.03333333333333333,109.33333333333333">(-0.033,&nbsp;109.333)</a>
+                    </td>
+                    <td>Borneo (west, central)</td>
+                </tr>
+                <tr>
+                    <td>Asia/Pyongyang</td>
+                    <td>&#x2B;08:30, &#x2B;09</td>
+                    <td></td>
+                    <td>Korea (North)</td>
+                    <td>KP</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=39.016666666666666,125.75">(39.017,&nbsp;125.750)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Qatar</td>
+                    <td>&#x2B;03</td>
+                    <td>Asia/Bahrain</td>
+                    <td>Qatar</td>
+                    <td>QA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=25.283333333333335,51.53333333333333">(25.283,&nbsp;51.533)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Qostanay</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.2,63.61666666666667">(53.200,&nbsp;63.617)</a>
+                    </td>
+                    <td>Qostanay/Kostanay/Kustanay</td>
+                </tr>
+                <tr>
+                    <td>Asia/Qyzylorda</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Kazakhstan</td>
+                    <td>KZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.8,65.46666666666667">(44.800,&nbsp;65.467)</a>
+                    </td>
+                    <td>Qyzylorda/Kyzylorda/Kzyl-Orda</td>
+                </tr>
+                <tr>
+                    <td>Asia/Riyadh</td>
+                    <td>&#x2B;03</td>
+                    <td>Antarctica/Syowa, Asia/Aden, Asia/Kuwait</td>
+                    <td>Saudi Arabia</td>
+                    <td>SA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=24.633333333333333,46.71666666666667">(24.633,&nbsp;46.717)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Sakhalin</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46.96666666666667,142.7">(46.967,&nbsp;142.700)</a>
+                    </td>
+                    <td>MSK&#x2B;08 - Sakhalin Island</td>
+                </tr>
+                <tr>
+                    <td>Asia/Samarkand</td>
+                    <td>&#x2B;05</td>
+                    <td></td>
+                    <td>Uzbekistan</td>
+                    <td>UZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=39.666666666666664,66.8">(39.667,&nbsp;66.800)</a>
+                    </td>
+                    <td>Uzbekistan (west)</td>
+                </tr>
+                <tr>
+                    <td>Asia/Seoul</td>
+                    <td>&#x2B;09</td>
+                    <td>ROK</td>
+                    <td>Korea (South)</td>
+                    <td>KR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=37.55,126.96666666666667">(37.550,&nbsp;126.967)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Shanghai</td>
+                    <td>&#x2B;08</td>
+                    <td>Asia/Chongqing, Asia/Chungking, Asia/Harbin, PRC</td>
+                    <td>China</td>
+                    <td>CN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=31.233333333333334,121.46666666666667">(31.233,&nbsp;121.467)</a>
+                    </td>
+                    <td>Beijing Time</td>
+                </tr>
+                <tr>
+                    <td>Asia/Singapore</td>
+                    <td>&#x2B;08</td>
+                    <td>Asia/Kuala_Lumpur, Singapore</td>
+                    <td>Singapore</td>
+                    <td>SG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=1.2833333333333334,103.85">(1.283,&nbsp;103.850)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Srednekolymsk</td>
+                    <td>&#x2B;11, &#x2B;12</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=67.46666666666667,153.71666666666667">(67.467,&nbsp;153.717)</a>
+                    </td>
+                    <td>MSK&#x2B;08 - Sakha (E); N Kuril Is</td>
+                </tr>
+                <tr>
+                    <td>Asia/Taipei</td>
+                    <td>&#x2B;08</td>
+                    <td>ROC</td>
+                    <td>Taiwan</td>
+                    <td>TW</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=25.05,121.5">(25.050,&nbsp;121.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Tashkent</td>
+                    <td>&#x2B;05</td>
+                    <td></td>
+                    <td>Uzbekistan</td>
+                    <td>UZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.333333333333336,69.3">(41.333,&nbsp;69.300)</a>
+                    </td>
+                    <td>Uzbekistan (east)</td>
+                </tr>
+                <tr>
+                    <td>Asia/Tbilisi</td>
+                    <td>&#x2B;03, &#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Georgia</td>
+                    <td>GE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.71666666666667,44.81666666666667">(41.717,&nbsp;44.817)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Tehran</td>
+                    <td>&#x2B;03:30, &#x2B;04:30</td>
+                    <td>Iran</td>
+                    <td>Iran</td>
+                    <td>IR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.666666666666664,51.43333333333333">(35.667,&nbsp;51.433)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Thimphu</td>
+                    <td>&#x2B;06</td>
+                    <td>Asia/Thimbu</td>
+                    <td>Bhutan</td>
+                    <td>BT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=27.466666666666665,89.65">(27.467,&nbsp;89.650)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Tokyo</td>
+                    <td>&#x2B;09</td>
+                    <td>Japan</td>
+                    <td>Japan</td>
+                    <td>JP</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.654444444444444,139.7447222222222">(35.654,&nbsp;139.745)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Tomsk</td>
+                    <td>&#x2B;06, &#x2B;07, &#x2B;08</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=56.5,84.96666666666667">(56.500,&nbsp;84.967)</a>
+                    </td>
+                    <td>MSK&#x2B;04 - Tomsk</td>
+                </tr>
+                <tr>
+                    <td>Asia/Ulaanbaatar</td>
+                    <td>&#x2B;08, &#x2B;09</td>
+                    <td>Asia/Ulan_Bator</td>
+                    <td>Mongolia</td>
+                    <td>MN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.916666666666664,106.88333333333334">(47.917,&nbsp;106.883)</a>
+                    </td>
+                    <td>most of Mongolia</td>
+                </tr>
+                <tr>
+                    <td>Asia/Urumqi</td>
+                    <td>&#x2B;06</td>
+                    <td>Antarctica/Vostok, Asia/Kashgar</td>
+                    <td>China</td>
+                    <td>CN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=43.8,87.58333333333333">(43.800,&nbsp;87.583)</a>
+                    </td>
+                    <td>Xinjiang Time</td>
+                </tr>
+                <tr>
+                    <td>Asia/Ust-Nera</td>
+                    <td>&#x2B;10, &#x2B;11, &#x2B;12</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=64.56027777777778,143.22666666666666">(64.560,&nbsp;143.227)</a>
+                    </td>
+                    <td>MSK&#x2B;07 - Oymyakonsky</td>
+                </tr>
+                <tr>
+                    <td>Asia/Vladivostok</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=43.166666666666664,131.93333333333334">(43.167,&nbsp;131.933)</a>
+                    </td>
+                    <td>MSK&#x2B;07 - Amur River</td>
+                </tr>
+                <tr>
+                    <td>Asia/Yakutsk</td>
+                    <td>&#x2B;09, &#x2B;10</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=62,129.66666666666666">(62.000,&nbsp;129.667)</a>
+                    </td>
+                    <td>MSK&#x2B;06 - Lena River</td>
+                </tr>
+                <tr>
+                    <td>Asia/Yangon</td>
+                    <td>&#x2B;06:30</td>
+                    <td>Asia/Rangoon, Indian/Cocos</td>
+                    <td>Myanmar (Burma)</td>
+                    <td>MM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=16.783333333333335,96.16666666666667">(16.783,&nbsp;96.167)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Asia/Yekaterinburg</td>
+                    <td>&#x2B;05, &#x2B;06</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=56.85,60.6">(56.850,&nbsp;60.600)</a>
+                    </td>
+                    <td>MSK&#x2B;02 - Urals</td>
+                </tr>
+                <tr>
+                    <td>Asia/Yerevan</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Armenia</td>
+                    <td>AM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=40.18333333333333,44.5">(40.183,&nbsp;44.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Azores</td>
+                    <td>-01, &#x2B;00</td>
+                    <td></td>
+                    <td>Portugal</td>
+                    <td>PT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=37.733333333333334,-25.666666666666668">(37.733,&nbsp;-25.667)</a>
+                    </td>
+                    <td>Azores</td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Bermuda</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Bermuda</td>
+                    <td>BM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=32.28333333333333,-64.76666666666667">(32.283,&nbsp;-64.767)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Canary</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td>Spain</td>
+                    <td>ES</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=28.1,-15.4">(28.100,&nbsp;-15.400)</a>
+                    </td>
+                    <td>Canary Islands</td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Cape_Verde</td>
+                    <td>-01</td>
+                    <td></td>
+                    <td>Cape Verde</td>
+                    <td>CV</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=14.916666666666666,-23.516666666666666">(14.917,&nbsp;-23.517)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Faroe</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td>Atlantic/Faeroe</td>
+                    <td>Faroe Islands</td>
+                    <td>FO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=62.016666666666666,-6.766666666666667">(62.017,&nbsp;-6.767)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Madeira</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td>Portugal</td>
+                    <td>PT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=32.63333333333333,-16.9">(32.633,&nbsp;-16.900)</a>
+                    </td>
+                    <td>Madeira Islands</td>
+                </tr>
+                <tr>
+                    <td>Atlantic/South_Georgia</td>
+                    <td>-02</td>
+                    <td></td>
+                    <td>South Georgia &amp; the South Sandwich Islands</td>
+                    <td>GS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-54.266666666666666,-36.53333333333333">(-54.267,&nbsp;-36.533)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Atlantic/Stanley</td>
+                    <td>-04, -03</td>
+                    <td></td>
+                    <td>Falkland Islands</td>
+                    <td>FK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-51.7,-57.85">(-51.700,&nbsp;-57.850)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Australia/Adelaide</td>
+                    <td>&#x2B;09:30, &#x2B;10:30</td>
+                    <td>Australia/South</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-34.916666666666664,138.58333333333334">(-34.917,&nbsp;138.583)</a>
+                    </td>
+                    <td>South Australia</td>
+                </tr>
+                <tr>
+                    <td>Australia/Brisbane</td>
+                    <td>&#x2B;10</td>
+                    <td>Australia/Queensland</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-27.466666666666665,153.03333333333333">(-27.467,&nbsp;153.033)</a>
+                    </td>
+                    <td>Queensland (most areas)</td>
+                </tr>
+                <tr>
+                    <td>Australia/Broken_Hill</td>
+                    <td>&#x2B;09:30, &#x2B;10:30</td>
+                    <td>Australia/Yancowinna</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.95,141.45">(-31.950,&nbsp;141.450)</a>
+                    </td>
+                    <td>New South Wales (Yancowinna)</td>
+                </tr>
+                <tr>
+                    <td>Australia/Darwin</td>
+                    <td>&#x2B;09:30</td>
+                    <td>Australia/North</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-12.466666666666667,130.83333333333334">(-12.467,&nbsp;130.833)</a>
+                    </td>
+                    <td>Northern Territory</td>
+                </tr>
+                <tr>
+                    <td>Australia/Eucla</td>
+                    <td>&#x2B;08:45, &#x2B;09:45</td>
+                    <td></td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.716666666666665,128.86666666666667">(-31.717,&nbsp;128.867)</a>
+                    </td>
+                    <td>Western Australia (Eucla)</td>
+                </tr>
+                <tr>
+                    <td>Australia/Hobart</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td>Australia/Currie, Australia/Tasmania</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-42.88333333333333,147.31666666666666">(-42.883,&nbsp;147.317)</a>
+                    </td>
+                    <td>Tasmania</td>
+                </tr>
+                <tr>
+                    <td>Australia/Lindeman</td>
+                    <td>&#x2B;10</td>
+                    <td></td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-20.266666666666666,149">(-20.267,&nbsp;149.000)</a>
+                    </td>
+                    <td>Queensland (Whitsunday Islands)</td>
+                </tr>
+                <tr>
+                    <td>Australia/Lord_Howe</td>
+                    <td>&#x2B;10:30, &#x2B;11</td>
+                    <td>Australia/LHI</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.55,159.08333333333334">(-31.550,&nbsp;159.083)</a>
+                    </td>
+                    <td>Lord Howe Island</td>
+                </tr>
+                <tr>
+                    <td>Australia/Melbourne</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td>Australia/Victoria</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-37.81666666666667,144.96666666666667">(-37.817,&nbsp;144.967)</a>
+                    </td>
+                    <td>Victoria</td>
+                </tr>
+                <tr>
+                    <td>Australia/Perth</td>
+                    <td>&#x2B;08, &#x2B;09</td>
+                    <td>Australia/West</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-31.95,115.85">(-31.950,&nbsp;115.850)</a>
+                    </td>
+                    <td>Western Australia (most areas)</td>
+                </tr>
+                <tr>
+                    <td>Australia/Sydney</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td>Australia/ACT, Australia/Canberra, Australia/NSW</td>
+                    <td>Australia</td>
+                    <td>AU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-33.86666666666667,151.21666666666667">(-33.867,&nbsp;151.217)</a>
+                    </td>
+                    <td>New South Wales (most areas)</td>
+                </tr>
+                <tr>
+                    <td>CET</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CST6CDT</td>
+                    <td>-06, -05</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>EET</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>EST</td>
+                    <td>-05</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>EST5EDT</td>
+                    <td>-05, -04</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT</td>
+                    <td>&#x2B;00</td>
+                    <td>Etc/GMT&#x2B;0, Etc/GMT-0, Etc/GMT0, Etc/Greenwich, GMT, GMT&#x2B;0, GMT-0, GMT0, Greenwich</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-1</td>
+                    <td>&#x2B;01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-10</td>
+                    <td>&#x2B;10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-11</td>
+                    <td>&#x2B;11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-12</td>
+                    <td>&#x2B;12</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-13</td>
+                    <td>&#x2B;13</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-14</td>
+                    <td>&#x2B;14</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-2</td>
+                    <td>&#x2B;02</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-3</td>
+                    <td>&#x2B;03</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-4</td>
+                    <td>&#x2B;04</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-5</td>
+                    <td>&#x2B;05</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-6</td>
+                    <td>&#x2B;06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-7</td>
+                    <td>&#x2B;07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-8</td>
+                    <td>&#x2B;08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT-9</td>
+                    <td>&#x2B;09</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;1</td>
+                    <td>-01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;10</td>
+                    <td>-10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;11</td>
+                    <td>-11</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;12</td>
+                    <td>-12</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;2</td>
+                    <td>-02</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;3</td>
+                    <td>-03</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;4</td>
+                    <td>-04</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;5</td>
+                    <td>-05</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;6</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;7</td>
+                    <td>-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;8</td>
+                    <td>-08</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/GMT&#x2B;9</td>
+                    <td>-09</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Etc/UTC</td>
+                    <td>&#x2B;00</td>
+                    <td>Etc/UCT, Etc/Universal, Etc/Zulu, UCT, UTC, Universal, Zulu</td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Andorra</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Andorra</td>
+                    <td>AD</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=42.5,1.5166666666666666">(42.500,&nbsp;1.517)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Astrakhan</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=46.35,48.05">(46.350,&nbsp;48.050)</a>
+                    </td>
+                    <td>MSK&#x2B;01 - Astrakhan</td>
+                </tr>
+                <tr>
+                    <td>Europe/Athens</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Greece</td>
+                    <td>GR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=37.96666666666667,23.716666666666665">(37.967,&nbsp;23.717)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Belgrade</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/Ljubljana, Europe/Podgorica, Europe/Sarajevo, Europe/Skopje, Europe/Zagreb</td>
+                    <td>Serbia</td>
+                    <td>RS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.833333333333336,20.5">(44.833,&nbsp;20.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Berlin</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Arctic/Longyearbyen, Atlantic/Jan_Mayen, Europe/Copenhagen, Europe/Oslo, Europe/Stockholm</td>
+                    <td>Germany</td>
+                    <td>DE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=52.5,13.366666666666667">(52.500,&nbsp;13.367)</a>
+                    </td>
+                    <td>most of Germany</td>
+                </tr>
+                <tr>
+                    <td>Europe/Brussels</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/Amsterdam, Europe/Luxembourg</td>
+                    <td>Belgium</td>
+                    <td>BE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.833333333333336,4.333333333333333">(50.833,&nbsp;4.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Bucharest</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Romania</td>
+                    <td>RO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.43333333333333,26.1">(44.433,&nbsp;26.100)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Budapest</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Hungary</td>
+                    <td>HU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.5,19.083333333333332">(47.500,&nbsp;19.083)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Chisinau</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Europe/Tiraspol</td>
+                    <td>Moldova</td>
+                    <td>MD</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47,28.833333333333332">(47.000,&nbsp;28.833)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Dublin</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td>Eire</td>
+                    <td>Ireland</td>
+                    <td>IE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.333333333333336,-6.25">(53.333,&nbsp;-6.250)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Gibraltar</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Gibraltar</td>
+                    <td>GI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=36.13333333333333,-5.35">(36.133,&nbsp;-5.350)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Helsinki</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Europe/Mariehamn</td>
+                    <td>Finland</td>
+                    <td>FI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=60.166666666666664,24.966666666666665">(60.167,&nbsp;24.967)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Istanbul</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Asia/Istanbul, Turkey</td>
+                    <td>Turkey</td>
+                    <td>TR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.016666666666666,28.966666666666665">(41.017,&nbsp;28.967)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Kaliningrad</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=54.71666666666667,20.5">(54.717,&nbsp;20.500)</a>
+                    </td>
+                    <td>MSK-01 - Kaliningrad</td>
+                </tr>
+                <tr>
+                    <td>Europe/Kirov</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=58.6,49.65">(58.600,&nbsp;49.650)</a>
+                    </td>
+                    <td>MSK&#x2B;00 - Kirov</td>
+                </tr>
+                <tr>
+                    <td>Europe/Kyiv</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td>Europe/Kiev, Europe/Uzhgorod, Europe/Zaporozhye</td>
+                    <td>Ukraine</td>
+                    <td>UA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.43333333333333,30.516666666666666">(50.433,&nbsp;30.517)</a>
+                    </td>
+                    <td>most of Ukraine</td>
+                </tr>
+                <tr>
+                    <td>Europe/Lisbon</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td>Portugal</td>
+                    <td>Portugal</td>
+                    <td>PT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=38.71666666666667,-9.133333333333333">(38.717,&nbsp;-9.133)</a>
+                    </td>
+                    <td>Portugal (mainland)</td>
+                </tr>
+                <tr>
+                    <td>Europe/London</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td>Europe/Belfast, Europe/Guernsey, Europe/Isle_of_Man, Europe/Jersey, GB, GB-Eire</td>
+                    <td>Britain (UK)</td>
+                    <td>GB</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=51.50833333333333,-0.12527777777777777">(51.508,&nbsp;-0.125)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Madrid</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Spain</td>
+                    <td>ES</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=40.4,-3.683333333333333">(40.400,&nbsp;-3.683)</a>
+                    </td>
+                    <td>Spain (mainland)</td>
+                </tr>
+                <tr>
+                    <td>Europe/Malta</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Malta</td>
+                    <td>MT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=35.9,14.516666666666667">(35.900,&nbsp;14.517)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Minsk</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Belarus</td>
+                    <td>BY</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.9,27.566666666666666">(53.900,&nbsp;27.567)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Moscow</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td>W-SU</td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=55.755833333333335,37.617777777777775">(55.756,&nbsp;37.618)</a>
+                    </td>
+                    <td>MSK&#x2B;00 - Moscow area</td>
+                </tr>
+                <tr>
+                    <td>Europe/Paris</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/Monaco</td>
+                    <td>France</td>
+                    <td>FR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=48.86666666666667,2.3333333333333335">(48.867,&nbsp;2.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Prague</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/Bratislava</td>
+                    <td>Czech Republic</td>
+                    <td>CZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=50.083333333333336,14.433333333333334">(50.083,&nbsp;14.433)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Riga</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Latvia</td>
+                    <td>LV</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=56.95,24.1">(56.950,&nbsp;24.100)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Rome</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/San_Marino, Europe/Vatican</td>
+                    <td>Italy</td>
+                    <td>IT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.9,12.483333333333333">(41.900,&nbsp;12.483)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Samara</td>
+                    <td>&#x2B;03, &#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=53.2,50.15">(53.200,&nbsp;50.150)</a>
+                    </td>
+                    <td>MSK&#x2B;01 - Samara, Udmurtia</td>
+                </tr>
+                <tr>
+                    <td>Europe/Saratov</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=51.56666666666667,46.03333333333333">(51.567,&nbsp;46.033)</a>
+                    </td>
+                    <td>MSK&#x2B;01 - Saratov</td>
+                </tr>
+                <tr>
+                    <td>Europe/Simferopol</td>
+                    <td>&#x2B;02, &#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Ukraine</td>
+                    <td>UA</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=44.95,34.1">(44.950,&nbsp;34.100)</a>
+                    </td>
+                    <td>Crimea</td>
+                </tr>
+                <tr>
+                    <td>Europe/Sofia</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Bulgaria</td>
+                    <td>BG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=42.68333333333333,23.316666666666666">(42.683,&nbsp;23.317)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Tallinn</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Estonia</td>
+                    <td>EE</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=59.416666666666664,24.75">(59.417,&nbsp;24.750)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Tirane</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Albania</td>
+                    <td>AL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=41.333333333333336,19.833333333333332">(41.333,&nbsp;19.833)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Ulyanovsk</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=54.333333333333336,48.4">(54.333,&nbsp;48.400)</a>
+                    </td>
+                    <td>MSK&#x2B;01 - Ulyanovsk</td>
+                </tr>
+                <tr>
+                    <td>Europe/Vienna</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td>Austria</td>
+                    <td>AT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=48.21666666666667,16.333333333333332">(48.217,&nbsp;16.333)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Vilnius</td>
+                    <td>&#x2B;02, &#x2B;03</td>
+                    <td></td>
+                    <td>Lithuania</td>
+                    <td>LT</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=54.68333333333333,25.316666666666666">(54.683,&nbsp;25.317)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Volgograd</td>
+                    <td>&#x2B;03, &#x2B;04</td>
+                    <td></td>
+                    <td>Russia</td>
+                    <td>RU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=48.733333333333334,44.416666666666664">(48.733,&nbsp;44.417)</a>
+                    </td>
+                    <td>MSK&#x2B;00 - Volgograd</td>
+                </tr>
+                <tr>
+                    <td>Europe/Warsaw</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Poland</td>
+                    <td>Poland</td>
+                    <td>PL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=52.25,21">(52.250,&nbsp;21.000)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Europe/Zurich</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td>Europe/Busingen, Europe/Vaduz</td>
+                    <td>Switzerland</td>
+                    <td>CH</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=47.38333333333333,8.533333333333333">(47.383,&nbsp;8.533)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HST</td>
+                    <td>-10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Indian/Chagos</td>
+                    <td>&#x2B;06</td>
+                    <td></td>
+                    <td>British Indian Ocean Territory</td>
+                    <td>IO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-7.333333333333333,72.41666666666667">(-7.333,&nbsp;72.417)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Indian/Maldives</td>
+                    <td>&#x2B;05</td>
+                    <td>Indian/Kerguelen</td>
+                    <td>Maldives</td>
+                    <td>MV</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=4.166666666666667,73.5">(4.167,&nbsp;73.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Indian/Mauritius</td>
+                    <td>&#x2B;04, &#x2B;05</td>
+                    <td></td>
+                    <td>Mauritius</td>
+                    <td>MU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-20.166666666666668,57.5">(-20.167,&nbsp;57.500)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MET</td>
+                    <td>&#x2B;01, &#x2B;02</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MST</td>
+                    <td>-07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MST7MDT</td>
+                    <td>-07, -06</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Apia</td>
+                    <td>-11, -10, &#x2B;13, &#x2B;14</td>
+                    <td></td>
+                    <td>Samoa (western)</td>
+                    <td>WS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-13.833333333333334,-171.73333333333332">(-13.833,&nbsp;-171.733)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Auckland</td>
+                    <td>&#x2B;12, &#x2B;13</td>
+                    <td>Antarctica/McMurdo, Antarctica/South_Pole, NZ</td>
+                    <td>New Zealand</td>
+                    <td>NZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-36.86666666666667,174.76666666666668">(-36.867,&nbsp;174.767)</a>
+                    </td>
+                    <td>most of New Zealand</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Bougainville</td>
+                    <td>&#x2B;10, &#x2B;11</td>
+                    <td></td>
+                    <td>Papua New Guinea</td>
+                    <td>PG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-6.216666666666667,155.56666666666666">(-6.217,&nbsp;155.567)</a>
+                    </td>
+                    <td>Bougainville</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Chatham</td>
+                    <td>&#x2B;12:45, &#x2B;13:45</td>
+                    <td>NZ-CHAT</td>
+                    <td>New Zealand</td>
+                    <td>NZ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-43.95,-176.55">(-43.950,&nbsp;-176.550)</a>
+                    </td>
+                    <td>Chatham Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Easter</td>
+                    <td>-06, -05</td>
+                    <td>Chile/EasterIsland</td>
+                    <td>Chile</td>
+                    <td>CL</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-27.15,-109.43333333333334">(-27.150,&nbsp;-109.433)</a>
+                    </td>
+                    <td>Easter Island</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Efate</td>
+                    <td>&#x2B;11</td>
+                    <td></td>
+                    <td>Vanuatu</td>
+                    <td>VU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-17.666666666666668,168.41666666666666">(-17.667,&nbsp;168.417)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Fakaofo</td>
+                    <td>-11, &#x2B;13</td>
+                    <td></td>
+                    <td>Tokelau</td>
+                    <td>TK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9.366666666666667,-171.23333333333332">(-9.367,&nbsp;-171.233)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Fiji</td>
+                    <td>&#x2B;12, &#x2B;13</td>
+                    <td></td>
+                    <td>Fiji</td>
+                    <td>FJ</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-18.133333333333333,178.41666666666666">(-18.133,&nbsp;178.417)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Galapagos</td>
+                    <td>-06</td>
+                    <td></td>
+                    <td>Ecuador</td>
+                    <td>EC</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-0.9,-89.6">(-0.900,&nbsp;-89.600)</a>
+                    </td>
+                    <td>Galapagos Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Gambier</td>
+                    <td>-09</td>
+                    <td></td>
+                    <td>French Polynesia</td>
+                    <td>PF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-23.133333333333333,-134.95">(-23.133,&nbsp;-134.950)</a>
+                    </td>
+                    <td>Gambier Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Guadalcanal</td>
+                    <td>&#x2B;11</td>
+                    <td>Pacific/Pohnpei, Pacific/Ponape</td>
+                    <td>Solomon Islands</td>
+                    <td>SB</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9.533333333333333,160.2">(-9.533,&nbsp;160.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Guam</td>
+                    <td>&#x2B;10</td>
+                    <td>Pacific/Saipan</td>
+                    <td>Guam</td>
+                    <td>GU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=13.466666666666667,144.75">(13.467,&nbsp;144.750)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Honolulu</td>
+                    <td>-10</td>
+                    <td>Pacific/Johnston, US/Hawaii</td>
+                    <td>United States</td>
+                    <td>US</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=21.306944444444444,-157.85833333333332">(21.307,&nbsp;-157.858)</a>
+                    </td>
+                    <td>Hawaii</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Kanton</td>
+                    <td>&#x2B;13</td>
+                    <td>Pacific/Enderbury</td>
+                    <td>Kiribati</td>
+                    <td>KI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-2.783333333333333,-171.71666666666667">(-2.783,&nbsp;-171.717)</a>
+                    </td>
+                    <td>Phoenix Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Kiritimati</td>
+                    <td>&#x2B;14</td>
+                    <td></td>
+                    <td>Kiribati</td>
+                    <td>KI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=1.8666666666666667,-157.33333333333334">(1.867,&nbsp;-157.333)</a>
+                    </td>
+                    <td>Line Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Kosrae</td>
+                    <td>&#x2B;11</td>
+                    <td></td>
+                    <td>Micronesia</td>
+                    <td>FM</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=5.316666666666666,162.98333333333332">(5.317,&nbsp;162.983)</a>
+                    </td>
+                    <td>Kosrae</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Kwajalein</td>
+                    <td>&#x2B;12</td>
+                    <td>Kwajalein</td>
+                    <td>Marshall Islands</td>
+                    <td>MH</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=9.083333333333334,167.33333333333334">(9.083,&nbsp;167.333)</a>
+                    </td>
+                    <td>Kwajalein</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Marquesas</td>
+                    <td>-09:30</td>
+                    <td></td>
+                    <td>French Polynesia</td>
+                    <td>PF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9,-139.5">(-9.000,&nbsp;-139.500)</a>
+                    </td>
+                    <td>Marquesas Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Nauru</td>
+                    <td>&#x2B;12</td>
+                    <td></td>
+                    <td>Nauru</td>
+                    <td>NR</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-0.5166666666666667,166.91666666666666">(-0.517,&nbsp;166.917)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Niue</td>
+                    <td>-11</td>
+                    <td></td>
+                    <td>Niue</td>
+                    <td>NU</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-19.016666666666666,-169.91666666666666">(-19.017,&nbsp;-169.917)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Norfolk</td>
+                    <td>&#x2B;11, &#x2B;11:30, &#x2B;12</td>
+                    <td></td>
+                    <td>Norfolk Island</td>
+                    <td>NF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-29.05,167.96666666666667">(-29.050,&nbsp;167.967)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Noumea</td>
+                    <td>&#x2B;11</td>
+                    <td></td>
+                    <td>New Caledonia</td>
+                    <td>NC</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-22.266666666666666,166.45">(-22.267,&nbsp;166.450)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Pago_Pago</td>
+                    <td>-11</td>
+                    <td>Pacific/Midway, Pacific/Samoa, US/Samoa</td>
+                    <td>Samoa (American)</td>
+                    <td>AS</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-14.266666666666667,-170.7">(-14.267,&nbsp;-170.700)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Palau</td>
+                    <td>&#x2B;09</td>
+                    <td></td>
+                    <td>Palau</td>
+                    <td>PW</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=7.333333333333333,134.48333333333332">(7.333,&nbsp;134.483)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Pitcairn</td>
+                    <td>-08</td>
+                    <td></td>
+                    <td>Pitcairn</td>
+                    <td>PN</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-25.066666666666666,-130.08333333333334">(-25.067,&nbsp;-130.083)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Port_Moresby</td>
+                    <td>&#x2B;10</td>
+                    <td>Antarctica/DumontDUrville, Pacific/Chuuk, Pacific/Truk, Pacific/Yap</td>
+                    <td>Papua New Guinea</td>
+                    <td>PG</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-9.5,147.16666666666666">(-9.500,&nbsp;147.167)</a>
+                    </td>
+                    <td>most of Papua New Guinea</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Rarotonga</td>
+                    <td>-10</td>
+                    <td></td>
+                    <td>Cook Islands</td>
+                    <td>CK</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-21.233333333333334,-159.76666666666668">(-21.233,&nbsp;-159.767)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Pacific/Tahiti</td>
+                    <td>-10</td>
+                    <td></td>
+                    <td>French Polynesia</td>
+                    <td>PF</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-17.533333333333335,-149.56666666666666">(-17.533,&nbsp;-149.567)</a>
+                    </td>
+                    <td>Society Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Tarawa</td>
+                    <td>&#x2B;12</td>
+                    <td>Pacific/Funafuti, Pacific/Majuro, Pacific/Wake, Pacific/Wallis</td>
+                    <td>Kiribati</td>
+                    <td>KI</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=1.4166666666666667,173">(1.417,&nbsp;173.000)</a>
+                    </td>
+                    <td>Gilbert Islands</td>
+                </tr>
+                <tr>
+                    <td>Pacific/Tongatapu</td>
+                    <td>&#x2B;13, &#x2B;14</td>
+                    <td></td>
+                    <td>Tonga</td>
+                    <td>TO</td>
+                    <td>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-21.133333333333333,-175.2">(-21.133,&nbsp;-175.200)</a>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PST8PDT</td>
+                    <td>-08, -07</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>WET</td>
+                    <td>&#x2B;00, &#x2B;01</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    </td>
+                    <td></td>
+                </tr>
+        </table>
+
+        <h2><a name="notes">Notes</a></h2>
+        <p>
+            This page displays a single row per canonical ID. Aliases for each ID are listed in the row for that
+            canonical ID, but don't each have their own row.
+        </p>
+        <p>
+            The latitude and longitude are in degrees. These are the values provided by zone.tab in IANA,
+            and are the reference locations for the zones. However, that does <em>not</em> mean that finding the
+            time zone at a particular location is as simple as finding the zone with the nearest location to the
+            target one. See <a href="https://stackoverflow.com/questions/16086962#16086964">this Stack Overflow answer</a>
+            for more information and resources.
+        </p>
+        <p>
+            The offsets for each zone are the ones which are effective (in the specified version)
+            in the interval [2000-01-01T00:00, 2040-01-01T00:00). May time zones observed a wider range of
+            offsets earlier than the year 2000. There's nothing special about the year 2000 here; it's just
+            an arbitrary cutoff that is likely to give enough information for most uses. Of course,
+            using Noda Time directly you can find all the offsets ever observed.
+        </p>
+        <p>
+            The JSON format models the information from this web page closely, but latitude and longitude are
+            separated out to make them easier to use programmatically.
+        </p>
+    </div>
+</div>
+
+    </section>
+
+    <footer>
+        <div class="row">
+            <div class="small-6 columns">
+<span>The latest version is 3.1.9.</span>
+            </div>
+            <div class="small-6 columns copy">
+                &copy; <a href="https://github.com/nodatime/nodatime/blob/main/AUTHORS.txt">The Noda Time Authors</a>,
+                <span class="design">Web Design by Nathan Palmer</span>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    
+    
+        
+    
+</body>
