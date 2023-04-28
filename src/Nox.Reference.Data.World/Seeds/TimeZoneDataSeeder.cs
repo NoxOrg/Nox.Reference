@@ -4,9 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Seeds.Utils;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+
+using static Nox.Reference.Data.World.Seeds.Utils.DataSeederUtils;
 
 namespace Nox.Reference.Data.World;
 
@@ -85,13 +86,13 @@ internal class TimeZoneDataSeeder : INoxReferenceDataSeeder
 
                     var timeZone = new Models.TimeZones.TimeZoneInfo
                     {
-                        Id = DataSeederUtils.GetNodeText(tzIdCell),
-                        EmbeddedComments = DataSeederUtils.GetNodeTextOrNull(embeddedCommentsCell),
-                        Type = DataSeederUtils.GetNodeText(typeCell).Replace("†", " (Obsolete)"),
-                        SDT_UTC_Offset = DataSeederUtils.GetNodeText(utcOffsetStdCell),
-                        DST_UTC_Offset = DataSeederUtils.GetNodeText(utcOffsetDstCell),
-                        SDT_TimeZoneAbbreviation = DataSeederUtils.GetNodeText(stdTimeZoneAbbreviationCell),
-                        CountriesWithTimeZone = DataSeederUtils.GetNodeTextOrNull(countryCell)?.Split(",").Select(x => x.Trim()).ToList() ?? new List<string>(),
+                        Id = GetNodeText(tzIdCell),
+                        EmbeddedComments = GetNodeTextOrNull(embeddedCommentsCell),
+                        Type = GetNodeText(typeCell).Replace("†", " (Obsolete)"),
+                        SDT_UTC_Offset = GetNodeText(utcOffsetStdCell),
+                        DST_UTC_Offset = GetNodeText(utcOffsetDstCell),
+                        SDT_TimeZoneAbbreviation = GetNodeText(stdTimeZoneAbbreviationCell),
+                        CountriesWithTimeZone = GetNodeTextOrNull(countryCell)?.Split(",").Select(x => x.Trim()).ToList() ?? new List<string>(),
                     };
 
                     var isDstCellPresent = cells.Count > 9;
@@ -101,14 +102,14 @@ internal class TimeZoneDataSeeder : INoxReferenceDataSeeder
                         var dstTimeZoneAbbreviationCell = cells[7];
                         var notesCell = cells[9];
 
-                        timeZone.DST_TimeZoneAbbreviation = DataSeederUtils.GetNodeText(dstTimeZoneAbbreviationCell);
-                        timeZone.Notes = DataSeederUtils.GetNodeTextOrNull(notesCell);
+                        timeZone.DST_TimeZoneAbbreviation = GetNodeText(dstTimeZoneAbbreviationCell);
+                        timeZone.Notes = GetNodeTextOrNull(notesCell);
                     }
                     else
                     {
                         var notesCell = cells[8];
 
-                        timeZone.Notes = DataSeederUtils.GetNodeTextOrNull(notesCell);
+                        timeZone.Notes = GetNodeTextOrNull(notesCell);
                     }
     
                     timeZoneDataToSave.Add(timeZone);
@@ -137,13 +138,13 @@ internal class TimeZoneDataSeeder : INoxReferenceDataSeeder
                     var countryCell = cells[0];
                     var latLongCell = cells[5];
 
-                    var timeZone = timeZoneDataToSave.FirstOrDefault(x => x.Id.Equals(DataSeederUtils.GetNodeText(countryCell)));
+                    var timeZone = timeZoneDataToSave.FirstOrDefault(x => x.Id.Equals(GetNodeText(countryCell)));
                     if (timeZone == null)
                     {
                         continue;
                     }
 
-                    var latLongContent = DataSeederUtils.GetNodeTextOrNull(latLongCell);
+                    var latLongContent = GetNodeTextOrNull(latLongCell);
                     if (latLongContent == null)
                     {
                         continue;
