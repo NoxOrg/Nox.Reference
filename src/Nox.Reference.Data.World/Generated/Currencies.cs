@@ -151,5 +151,4 @@ public enum Currencies
     CFPFranc,
     YemeniRial,
     SouthAfricanRand,
-    ZambianKwacha,
-}
+    ZambianKwacha,}

@@ -1,10 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using static Nox.Reference.Common.NoxReferenceJsonSerializer;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -36,6 +38,8 @@ public class VatNumberTests
             path = path.Parent;
         }
         _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
+
+        Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
     #region ValidateVatNumber
@@ -43,8 +47,11 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUkraineNumber_ReturnsSuccess()
     {
-        var vatDefinition = _dbContext!.VatNumberDefinitions.Get("UA")!;
-        var validationResult = vatDefinition.Validate("0203654090", false)!;
+        var validationResult = _dbContext!
+            .VatNumberDefinitions.Get("UA")!
+            .Validate("0203654090", false)!;
+
+        Trace.WriteLine(Serialize(validationResult));
 
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
@@ -54,6 +61,8 @@ public class VatNumberTests
     {
         var validationResult = _dbContext!.VatNumberDefinitions.Get("UA")!.Validate("UA0203654090", false)!;
 
+        Trace.WriteLine(Serialize(validationResult));
+
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
 
@@ -61,6 +70,8 @@ public class VatNumberTests
     public void VatNumber_WithInvalidUkraineValue_ReturnsFail()
     {
         var validationResult = _dbContext!.VatNumberDefinitions.Get("UA")!.Validate("123Test456", false)!;
+
+        Trace.WriteLine(Serialize(validationResult));
 
         Assert.Multiple(() =>
         {
@@ -75,6 +86,8 @@ public class VatNumberTests
         var validationResult = WorldInfo.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
+
+        Trace.WriteLine(Serialize(validationResult));
 
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Unverified));
     }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Diagnostics;
-using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -9,12 +9,6 @@ public class CulturesTests
 {
     // set during mamndatory init
     private IWorldInfoContext _countryDbContext = null!;
-
-    private readonly JsonSerializerOptions _jsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    };
 
     [OneTimeSetUp]
     public void Setup()
@@ -36,7 +30,7 @@ public class CulturesTests
     {
         var info = _countryDbContext.Cultures.Get("en-US");
 
-        Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 
         Assert.Multiple(() =>
         {
