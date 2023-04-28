@@ -17,7 +17,6 @@ public static class WorldDataExtensions
         services.AddSqlite<WorldDbContext>(connectionString);
 
         services.AddSeeders();
-
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
         return services;

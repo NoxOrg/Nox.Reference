@@ -12,7 +12,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class VatNumberTests
 {
     private string _testFilePath = string.Empty;
-    private IWorldInfoContext? _dbContext;
+    private IWorldInfoContext _dbContext;
 
     [OneTimeSetUp]
     public void Setup()

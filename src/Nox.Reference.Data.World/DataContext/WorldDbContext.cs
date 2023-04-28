@@ -3,9 +3,12 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Configurations;
+using Nox.Reference.Data.World.Entities.Cultures;
+using Nox.Reference.Data.World.Models.Cultures;
 using Nox.Reference.Data.World.Configurations.Currencies;
 using Nox.Reference.Data.World.Configurations.VatNumbers;
 
@@ -36,6 +39,11 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     public IQueryable<ICurrencyInfo> Currencies
         => GetData<Currency, CurrencyInfo>();
+
+    public IQueryable<ICultureInfo> Cultures
+        => Set<Culture>()
+             .AsQueryable()
+             .ProjectTo<CultureInfo>(_mapper.ConfigurationProvider);
 
     public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
          => GetData<VatNumberDefinition, VatNumberDefinitionInfo>();
@@ -97,6 +105,10 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
         modelBuilder.ApplyConfiguration(new VatNumberDefinitionConfiguration());
         modelBuilder.ApplyConfiguration(new VatNumberValidationRuleConfiguration());
+
+        modelBuilder.ApplyConfiguration(new CultureConfiguration());
+        modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
+        modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

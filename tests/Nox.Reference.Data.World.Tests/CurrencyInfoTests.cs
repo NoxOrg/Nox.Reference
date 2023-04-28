@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -35,6 +36,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_WithKnownUkraineCode_ReturnsValidInfo()
     {
+        var all = _countryDbContext.Currencies.ToList();
         var info = _countryDbContext.Currencies.GetByIsoCode("UAH");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
