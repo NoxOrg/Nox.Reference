@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class Flags : INoxReferenceEntity
+internal class CountryFlag : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public string Svg { get; set; } = string.Empty;
