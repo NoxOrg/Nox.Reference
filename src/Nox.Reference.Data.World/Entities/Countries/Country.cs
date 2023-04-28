@@ -11,9 +11,9 @@ internal class Country : INoxReferenceEntity
     public string OfficialName { get; set; } = string.Empty;
 
     public IReadOnlyList<CountryNativeName> NativeNames { get; set; } = Array.Empty<CountryNativeName>();
-    public IReadOnlyList<string> TopLevelDomains { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Languages { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Currencies { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; set; } = Array.Empty<TopLevelDomain>();
+    public IReadOnlyList<Language> Languages { get; set; } = Array.Empty<Language>();
+    public IReadOnlyList<Currency> Currencies { get; set; } = Array.Empty<string>();
     public IReadOnlyList<string> AlternateSpellings { get; set; } = Array.Empty<string>();
     public IReadOnlyList<string> Continents { get; set; } = Array.Empty<string>();
     public IReadOnlyList<CountryNativeName> NameTranslations { get; set; } = Array.Empty<CountryNativeName>();
@@ -49,6 +49,12 @@ internal class Country : INoxReferenceEntity
     public string FipsCode { get; set; } = string.Empty;
     public string CodeAssignedStatus { get; set; } = string.Empty;
     public DayOfWeek StartDayOfWeek { get; set; }
+}
+
+internal class TopLevelDomain : INoxReferenceEntity
+{
+    public int Id { get; private set; }
+    public string Name { get; set; }
 }
 
 internal class CountryNativeName : INoxReferenceEntity

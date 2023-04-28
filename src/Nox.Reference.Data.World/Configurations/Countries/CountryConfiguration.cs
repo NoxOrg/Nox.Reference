@@ -17,7 +17,7 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
             .WithOne();
 
         builder
-            .Ow(x => x.Capital)
+            .Ows(x => x.Capital)
             .WithOne();
 
         builder
