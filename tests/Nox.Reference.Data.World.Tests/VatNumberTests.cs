@@ -76,7 +76,7 @@ public class VatNumberTests
             .Get("SM")!
             .Validate("123456", false)!;
 
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.NotVerified));
+        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Unverified));
     }
 
     #endregion ValidateVatNumber

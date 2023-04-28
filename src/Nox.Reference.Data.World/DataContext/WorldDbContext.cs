@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Cultures;
+using Nox.Reference.Abstractions.TimeZones;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Configurations;
@@ -53,6 +54,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     public IQueryable<ICountryHolidayInfo> Holidays
          => GetData<CountryHoliday, CountryHolidayInfo>();
+
+    public IQueryable<ITimeZoneInfo> TimeZones
+         => GetData<TimeZone, Models.TimeZones.TimeZoneInfo>();
 
     private IQueryable<TOutput> GetData<TSource, TOutput>()
         where TSource : class, INoxReferenceEntity
@@ -109,6 +113,8 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         modelBuilder.ApplyConfiguration(new CultureConfiguration());
         modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
         modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
+
+        modelBuilder.ApplyConfiguration(new TimeZoneConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

@@ -1,6 +1,8 @@
-﻿namespace Nox.Reference.Data.World;
+﻿using Nox.Reference.Abstractions.Shared;
 
-internal class GeoCoordinates
+namespace Nox.Reference.Data.World;
+
+internal class GeoCoordinates : IGeoCoordinates
 {
     public decimal? Latitude { get; set; }
     public decimal? Longitude { get; set; }

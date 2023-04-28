@@ -20,26 +20,20 @@ String.prototype.toTitleCase = function (this: string) {
 
 /// Types declaration
 
-class YearInfo {
-    public year: number;
-    public holidaysByCountries: CountryHolidayInfo[] = [];
-    constructor(year: number) {
-        this.year = year;
-    }
-}
-
 class CountryHolidayInfo {
+    public year: number;
     public country: string;
     public countryName: string;
     public dayOff: string;
     public holidays: HolidayInfo[];
     public states: StateHolidayInfo[];
-    constructor(countryCode: string, countryName: string) {
+    constructor(countryCode: string, countryName: string, year: number) {
         this.country = countryCode;
         this.countryName = countryName;
         this.dayOff = "unknown";
         this.holidays = [];
         this.states = [];
+        this.year = year;
     }
 }
 
@@ -126,14 +120,10 @@ function getNamesArray(holidays: HolidaysTypes.Holiday[], languages: string[]): 
 const hd = new Holidays();
 
 const getCountries = hd.getCountries('en');
-
-const yearInfo = new YearInfo(year);
+const result: CountryHolidayInfo[] = []
 
 Object.entries(getCountries).map(([countryCode, countryName]) => {
-
-    const countryHolidayInfo = new CountryHolidayInfo(countryCode, countryName);
-
-    yearInfo.holidaysByCountries.push(countryHolidayInfo);
+    const countryHolidayInfo = new CountryHolidayInfo(countryCode, countryName, year);
 
     hd.init(countryCode);
 
@@ -188,19 +178,11 @@ Object.entries(getCountries).map(([countryCode, countryName]) => {
             }
         });
     };
+
+    result.push(countryHolidayInfo);
 });
 
-var newList = yearInfo.holidaysByCountries.map(x => (
-
-    {
-    
-     ...x,
-    
-     year: yearInfo.year
-    
-    }));
-    
-    const data = JSON.stringify(newList);
+const data = JSON.stringify(result);
 
 fs.writeFileSync(file, data);
 

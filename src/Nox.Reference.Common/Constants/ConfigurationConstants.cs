@@ -18,4 +18,6 @@ public static class ConfigurationConstants
     public const string UriLocalePlanetList = "UriLocalePlanetList";
     public const string UriLocalePlanetItem = "UriLocalePlanetItem";
     public const string LocaleCodePlaceholder = "{localeCode}";
+    public const string TimeZoneUrl = "TimeZoneUrl";
+    public const string NodaTimeUrl = "NodaTimeUrl";
 }
