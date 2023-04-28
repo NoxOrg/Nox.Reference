@@ -26,6 +26,7 @@ public static class WorldDataExtensions
         services.AddSqlite<WorldDbContext>(connectionString);
 
         services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, CultureDataSeeder>();
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
         return services;
