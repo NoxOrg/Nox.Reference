@@ -76,15 +76,17 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
         modelBuilder.ApplyConfiguration(new DemonymnConfiguration());
         modelBuilder.ApplyConfiguration(new CountryNativeNameConfiguration());
-
-        //modelBuilder.ApplyConfiguration(new FlagsConfiguration());
-        //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
+        modelBuilder.ApplyConfiguration(new AlternateSpellingConfiguration());
+        modelBuilder.ApplyConfiguration(new PostalCodeConfiguration());
 
         modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
         modelBuilder.ApplyConfiguration(new StateHolidayConfiguration());
         modelBuilder.ApplyConfiguration(new CountryHolidayConfiguration());
         modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
         modelBuilder.ApplyConfiguration(new LocalHolidayNameConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryCapitalConfiguration());
+        modelBuilder.ApplyConfiguration(new GeoCoordinatesConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryNameTranslationConfiguration());
 
         modelBuilder.ApplyConfiguration(new LanguageConfiguration());
         modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());

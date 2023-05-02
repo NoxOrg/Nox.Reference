@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World.Configurations.Countries;
@@ -9,21 +8,43 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
     protected override void DoConfigure(EntityTypeBuilder<Country> builder)
     {
         builder
-            .HasMany(x => x.Languages)
-            .WithOne();
+            .OwnsOne(x => x.Dialing)
+            .WithOwner();
+
+        builder
+            .OwnsOne(x => x.CoatOfArms)
+            .WithOwner();
+
+        builder
+            .HasOne(x => x.GeoCoordinates)
+            .WithMany();
+
+        builder
+            .OwnsOne(x => x.Flag)
+            .WithOwner();
+
+        builder
+            .OwnsOne(x => x.Maps)
+            .WithOwner();
+
+        builder
+            .OwnsOne(x => x.Vehicle)
+            .WithOwner();
+
+        builder
+            .HasOne(x => x.PostalCode)
+            .WithMany();
 
         builder
             .HasMany(x => x.TopLevelDomains)
-            .WithOne();
+            .WithMany();
 
         builder
-            .HasOne(x => x.Capital)
-            .WithOne();
+            .Ignore(x => x.Capital);
 
         builder
             .HasMany(x => x.Capitals)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithOne();
 
         builder
             .HasMany(x => x.NativeNames)
@@ -31,37 +52,38 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
 
         builder
             .HasMany(x => x.NameTranslations)
-           .WithOne();
+            .WithOne();
 
-        builder.HasMany(x => x.TimeZones)
-            .WithMany()
-            .UsingEntity(j => j.ToTable("CountryTimeZoneInfos"));
+        builder
+            .HasMany(x => x.Languages)
+            .WithMany();
 
-        builder.HasMany(x => x.Currencies)
-            .WithMany()
-            .UsingEntity(j => j.ToTable("CountryCurrencies"));
+        builder
+            .HasMany(x => x.Currencies)
+            .WithMany();
 
-        /*
-             public IReadOnlyList<CountryNativeName> NativeNames { get; set; } = Array.Empty<CountryNativeName>();
-    public IReadOnlyList<string> TopLevelDomains { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Languages { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Currencies { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> AlternateSpellings { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Continents { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<CountryNativeName> NameTranslations { get; set; } = Array.Empty<CountryNativeName>();
-    public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; set; } = Array.Empty<GiniCoefficient>();
-    public IReadOnlyList<Demonymn> Demonyms { get; set; } = Array.Empty<Demonymn>();
-    public IReadOnlyList<string> BorderingCountries { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Capitals { get; set; } = Array.Empty<string>();
+        builder
+            .HasMany(x => x.BorderingCountries)
+            .WithMany();
 
-    public CountryDialing Dialing { get; set; } = new CountryDialing();
-    public CountryCapital Capital { get; set; } = new CountryCapital();
-    public CoatOfArms CoatOfArms { get; set; } = new CoatOfArms();
-    public GeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
-    public CountryFlag Flag { get; set; } = new CountryFlag();
-    public CountryMaps Maps { get; set; } = new CountryMaps();
-    public Vehicle Vehicle { get; set; } = new Vehicle();
-    public PostalCode PostalCode { get; set; } = new PostalCode();
-         */
+        builder
+            .HasMany(x => x.Demonyms)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.Continents)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.AlternateSpellings)
+            .WithOne();
+
+        builder
+            .HasMany(x => x.NameTranslations)
+            .WithOne();
+
+        builder
+            .HasMany(x => x.GiniCoefficients)
+            .WithOne();
     }
 }

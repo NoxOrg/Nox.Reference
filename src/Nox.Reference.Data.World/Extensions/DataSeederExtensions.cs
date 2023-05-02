@@ -8,10 +8,11 @@ internal static class DataSeederExtensions
 {
     public static IServiceCollection AddSeeders(this IServiceCollection services)
     {
-        services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
-        services.AddScoped<INoxReferenceDataSeeder, VatNumberDefinitionDataSeeder>();
-        services.AddScoped<INoxReferenceDataSeeder, LanguageDataSeeder>();
-        services.AddScoped<INoxReferenceDataSeeder, HolidayDataSeeder>();
+        //services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
+        //services.AddScoped<INoxReferenceDataSeeder, VatNumberDefinitionDataSeeder>();
+        //services.AddScoped<INoxReferenceDataSeeder, LanguageDataSeeder>();
+        //services.AddScoped<INoxReferenceDataSeeder, HolidayDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, CountryDataSeeder>();
         return services;
     }
 }

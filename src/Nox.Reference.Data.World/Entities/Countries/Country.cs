@@ -14,16 +14,16 @@ internal class Country : INoxReferenceEntity
     public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; set; } = Array.Empty<TopLevelDomain>();
     public IReadOnlyList<Language> Languages { get; set; } = Array.Empty<Language>();
     public IReadOnlyList<Currency> Currencies { get; set; } = Array.Empty<Currency>();
-    public IReadOnlyList<string> AlternateSpellings { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<AlternateSpelling> AlternateSpellings { get; set; } = Array.Empty<AlternateSpelling>();
     public IReadOnlyList<Continent> Continents { get; set; } = Array.Empty<Continent>();
-    public IReadOnlyList<CountryNativeName> NameTranslations { get; set; } = Array.Empty<CountryNativeName>();
+    public IReadOnlyList<CountryNameTranslation> NameTranslations { get; set; } = Array.Empty<CountryNameTranslation>();
     public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; set; } = Array.Empty<GiniCoefficient>();
     public IReadOnlyList<Demonymn> Demonyms { get; set; } = Array.Empty<Demonymn>();
     public IReadOnlyList<Country> BorderingCountries { get; set; } = Array.Empty<Country>();
     public IReadOnlyList<CountryCapital> Capitals { get; set; } = Array.Empty<CountryCapital>();
 
     public CountryDialing Dialing { get; set; } = new CountryDialing();
-    public CountryCapital Capital { get; set; } = new CountryCapital();
+    public CountryCapital Capital => Capitals[0];
     public CoatOfArms CoatOfArms { get; set; } = new CoatOfArms();
     public GeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
     public CountryFlag Flag { get; set; } = new CountryFlag();
@@ -51,6 +51,12 @@ internal class Country : INoxReferenceEntity
     public DayOfWeek StartDayOfWeek { get; set; }
 }
 
+internal class AlternateSpelling : INoxReferenceEntity
+{
+    public int Id { get; private set; }
+    public string Name { get; set; } = string.Empty;
+}
+
 internal class TopLevelDomain : INoxReferenceEntity
 {
     public int Id { get; private set; }
@@ -71,15 +77,24 @@ internal class CountryNativeName : INoxReferenceEntity
     public string CommonName { get; set; } = string.Empty;
 }
 
+internal class CountryNameTranslation : INoxReferenceEntity
+{
+    public int Id { get; private set; }
+    public string Language { get; set; } = string.Empty;
+    public string OfficialName { get; set; } = string.Empty;
+    public string CommonName { get; set; } = string.Empty;
+}
+
 internal class CountryDialing
 {
     public string Prefix { get; set; } = string.Empty;
 
-    public IReadOnlyList<string> Suffixes { get; set; } = new List<string>();
+    public string Suffixes { get; set; } = string.Empty;
 }
 
-internal class CountryCapital
+internal class CountryCapital : INoxReferenceEntity
 {
+    public int Id { get; private set; }
     public string Name { get; set; } = string.Empty;
     public GeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
 }

@@ -14,7 +14,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
 
     public CountryDataSeeder(
         IConfiguration configuration,
-        Mapper mapper,
+        IMapper mapper,
         WorldDbContext dbContext,
         ILogger<CountryDataSeeder> logger,
         NoxReferenceFileStorageService fileStorageService)
