@@ -23,7 +23,7 @@ public static class MachineInfo
         });
         var mapper = mapperConfiguration.CreateMapper();
         var configuration = new ConfigurationBuilder()
-            .AddJsonFile(ConfigurationConstants.MachineConfigFileName)
+            .AddJsonFile(ConfigurationConstants.ConfigFileName)
             .Build();
         _dbContext = new MachineDbContext(new DbContextOptions<MachineDbContext>(), mapper, configuration);
     }

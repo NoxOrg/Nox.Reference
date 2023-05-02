@@ -11,7 +11,7 @@ namespace Nox.Reference.Data.Common.Seeds
          where TSource : class
     {
         private readonly TDbContext _dbContext;
-        private readonly IMapper _mapper;
+        protected readonly IMapper _mapper;
         protected readonly ILogger _logger;
         protected readonly NoxReferenceFileStorageService _fileStorageService;
 

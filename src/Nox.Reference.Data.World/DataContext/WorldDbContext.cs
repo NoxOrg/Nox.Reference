@@ -37,8 +37,21 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     public IQueryable<ICurrencyInfo> Currencies
         => Set<Currency>()
+             .AsNoTracking()
              .AsQueryable()
              .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
+
+    public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
+         => Set<VatNumberDefinition>()
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<VatNumberDefinitionInfo>(_mapper.ConfigurationProvider);
+
+    public IQueryable<ILanguageInfo> Languages
+         => Set<Language>()
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<LanguageInfo>(_mapper.ConfigurationProvider);
 
     public IQueryable<ICultureInfo> Cultures
         => Set<Culture>()
@@ -66,7 +79,6 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
         //modelBuilder.ApplyConfiguration(new CountryConfiguration());
         //modelBuilder.ApplyConfiguration(new CountryLocalizationConfiguration());
-        //modelBuilder.ApplyConfiguration(new LanguageConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
         //modelBuilder.ApplyConfiguration(new TopLevelDomainLocalizationConfiguration());
         //modelBuilder.ApplyConfiguration(new CityConfiguration());
@@ -76,6 +88,8 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
 
         //modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+        modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());
 
         modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
         modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());
@@ -84,6 +98,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
         modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
         modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
+
+        modelBuilder.ApplyConfiguration(new VatNumberDefinitionConfiguration());
+        modelBuilder.ApplyConfiguration(new VatNumberValidationRuleConfiguration());
 
         modelBuilder.ApplyConfiguration(new CultureConfiguration());
         modelBuilder.ApplyConfiguration(new DateFormatConfiguration());

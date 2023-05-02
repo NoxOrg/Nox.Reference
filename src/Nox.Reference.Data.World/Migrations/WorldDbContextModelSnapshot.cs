@@ -377,6 +377,70 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("TimeZone");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Common")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Iso_639_1")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_2b")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_2t")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Iso_639_3")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Scope")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("WikiUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Language");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Translation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LanguageId");
+
+                    b.ToTable("LanguageTranslation");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
                 {
                     b.Property<int>("Id")
@@ -416,6 +480,66 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MinorCurrencyUnit");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LocalName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("VerificationApi")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VatNumberDefinition");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("InputMask")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MaximumLength")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinimumLength")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Regex")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TranslationId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ValidationFormatDescription")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("VatNumberDefinitionId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VatNumberDefinitionId");
+
+                    b.ToTable("VatNumberValidationRule");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
@@ -491,6 +615,48 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Culture");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Language", null)
+                        .WithMany("NameTranslations")
+                        .HasForeignKey("LanguageId");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", null)
+                        .WithMany("ValidationRules")
+                        .HasForeignKey("VatNumberDefinitionId");
+
+                    b.OwnsOne("Nox.Reference.Data.World.Checksum", "Checksum", b1 =>
+                        {
+                            b1.Property<int>("VatNumberValidationRuleId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<int?>("Algorithm")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("ChecksumDigit")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<int?>("Modulus")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("Weights")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("VatNumberValidationRuleId");
+
+                            b1.ToTable("VatNumberValidationRule");
+
+                            b1.WithOwner()
+                                .HasForeignKey("VatNumberValidationRuleId");
+                        });
+
+                    b.Navigation("Checksum");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
                     b.Navigation("Frequent");
@@ -505,6 +671,16 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.Navigation("NumberFormat")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
+                {
+                    b.Navigation("NameTranslations");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>
+                {
+                    b.Navigation("ValidationRules");
                 });
 #pragma warning restore 612, 618
         }

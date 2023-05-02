@@ -8,7 +8,7 @@ internal class LanguageConfiguration : NoxReferenceEntityConfigurationBase<Langu
     protected override void DoConfigure(EntityTypeBuilder<Language> builder)
     {
         builder
-            .Property(x => x.Name)
-            .IsRequired();
+            .HasMany(x => x.NameTranslations)
+            .WithOne();
     }
 }

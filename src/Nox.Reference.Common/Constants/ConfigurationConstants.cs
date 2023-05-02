@@ -12,8 +12,8 @@ public static class ConfigurationConstants
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
-    public const string MachineConfigFileName = "machine.appsettings.json";
-    public const string WorldConfigFileName = "world.appsettings.json";
+    public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
+    public const string ConfigFileName = "appsettings.json";
     public const string UriLocalePlanetList = "UriLocalePlanetList";
     public const string UriLocalePlanetItem = "UriLocalePlanetItem";
     public const string LocaleCodePlaceholder = "{localeCode}";

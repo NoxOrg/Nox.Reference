@@ -13,16 +13,4 @@ public class LanguageInfoYaml
     [YamlMember(Alias = ":common")] public bool Common { get; set; }
     [YamlMember(Alias = ":type")] public LanguageType Type { get; set; }
     [YamlMember(Alias = ":scope")] public LanguageScopeYaml Scope { get; set; }
-
-    public LanguageInfo ToLanguageInfo() => new LanguageInfo
-    {
-        Name_ = EnglishName,
-        Iso_639_1_ = Iso_639_1,
-        Iso_639_3_ = Iso_639_3,
-        Iso_639_2b_ = Iso_639_2b,
-        Iso_639_2t_ = Iso_639_2t,
-        Common_ = Common,
-        Type_ = Type,
-        Scope_ = (LanguageScope)(int)Scope
-    };
 }
