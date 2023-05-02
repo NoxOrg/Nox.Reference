@@ -4938,10 +4938,10 @@
     }
   },
   {
-    "id": "Asia/Rangoon",
+    "id": "Asia/Yangon",
     "embeddedComments": null,
     "type": "Link",
-    "notes": "Link to Asia/Yangon",
+    "notes": "Link to Asia/Rangoon",
     "sdt_UTC_offset": "\u002B06:30",
     "dst_UTC_offset": "\u002B06:30",
     "sdt_timeZoneAbbreviation": "\u002B0630",
@@ -4949,7 +4949,10 @@
     "countriesWithTimeZone": [
       "MM"
     ],
-    "geoCoordinates": null
+    "geoCoordinates": {
+      "latitude": 16.783,
+      "longitude": 96.167
+    }
   },
   {
     "id": "Asia/Riyadh",
@@ -5376,10 +5379,7 @@
       "MM",
       "CC"
     ],
-    "geoCoordinates": {
-      "latitude": 16.783,
-      "longitude": 96.167
-    }
+    "geoCoordinates": null
   },
   {
     "id": "Asia/Yekaterinburg",
