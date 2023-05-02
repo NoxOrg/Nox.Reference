@@ -77,7 +77,7 @@ internal class CountryInfo : ICountryInfo
     public IReadOnlyList<string> Continents { get; set; } = Array.Empty<string>();
 
     [JsonPropertyName("nameTranslations")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<INativeNameInfo, NativeNameInfo>))]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<INativeNameInfo>, NativeNameInfo[]>))]
     public IReadOnlyList<INativeNameInfo> NameTranslations { get; set; } = Array.Empty<NativeNameInfo>();
 
     [JsonPropertyName("geoCoordinates")]
@@ -97,7 +97,7 @@ internal class CountryInfo : ICountryInfo
     public string EmojiFlag { get; set; } = string.Empty;
 
     [JsonPropertyName("demonyms")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IDemonymn, DemonymnInfo>))]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<IDemonymn>, DemonymnInfo[]>))]
     public IReadOnlyList<IDemonymn> Demonyms { get; set; } = Array.Empty<DemonymnInfo>();
 
     [JsonPropertyName("flags")]

@@ -103,7 +103,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public IReadOnlyList<decimal> LatLong { get; set; } = null!;
 
     [JsonPropertyName("geoCoordinates")]
-    public IGeoCoordinates GeoCoordinates { get; set; } = null!;
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
 
     [JsonPropertyName("landlocked")]
     public bool IsLandlocked { get; set; }
