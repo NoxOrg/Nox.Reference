@@ -6,6 +6,7 @@ using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Configurations;
+using Nox.Reference.Data.World.Configurations.Countries;
 using Nox.Reference.Data.World.Configurations.Currencies;
 using Nox.Reference.Data.World.Configurations.VatNumbers;
 
@@ -69,13 +70,14 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         //var configurations = Assembly.GetExecutingAssembly();
 
         //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
-        //modelBuilder.ApplyConfiguration(new CountryConfiguration());
-        //modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
-        //modelBuilder.ApplyConfiguration(new TopLevelDomainLocalizationConfiguration());
-        //modelBuilder.ApplyConfiguration(new CityConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryConfiguration());
+        modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
+        modelBuilder.ApplyConfiguration(new ContinentConfiguration());
+        modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
+        modelBuilder.ApplyConfiguration(new DemonymnConfiguration());
+        modelBuilder.ApplyConfiguration(new CountryNativeNameConfiguration());
 
         //modelBuilder.ApplyConfiguration(new FlagsConfiguration());
-        //modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
         //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
 
         modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());

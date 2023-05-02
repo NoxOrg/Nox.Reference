@@ -13,14 +13,14 @@ internal class Country : INoxReferenceEntity
     public IReadOnlyList<CountryNativeName> NativeNames { get; set; } = Array.Empty<CountryNativeName>();
     public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; set; } = Array.Empty<TopLevelDomain>();
     public IReadOnlyList<Language> Languages { get; set; } = Array.Empty<Language>();
-    public IReadOnlyList<Currency> Currencies { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<Currency> Currencies { get; set; } = Array.Empty<Currency>();
     public IReadOnlyList<string> AlternateSpellings { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Continents { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<Continent> Continents { get; set; } = Array.Empty<Continent>();
     public IReadOnlyList<CountryNativeName> NameTranslations { get; set; } = Array.Empty<CountryNativeName>();
     public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; set; } = Array.Empty<GiniCoefficient>();
     public IReadOnlyList<Demonymn> Demonyms { get; set; } = Array.Empty<Demonymn>();
-    public IReadOnlyList<string> BorderingCountries { get; set; } = Array.Empty<string>();
-    public IReadOnlyList<string> Capitals { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<Country> BorderingCountries { get; set; } = Array.Empty<Country>();
+    public IReadOnlyList<CountryCapital> Capitals { get; set; } = Array.Empty<CountryCapital>();
 
     public CountryDialing Dialing { get; set; } = new CountryDialing();
     public CountryCapital Capital { get; set; } = new CountryCapital();
@@ -54,7 +54,13 @@ internal class Country : INoxReferenceEntity
 internal class TopLevelDomain : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
+}
+
+internal class Continent : INoxReferenceEntity
+{
+    public int Id { get; private set; }
+    public string Name { get; set; } = string.Empty;
 }
 
 internal class CountryNativeName : INoxReferenceEntity

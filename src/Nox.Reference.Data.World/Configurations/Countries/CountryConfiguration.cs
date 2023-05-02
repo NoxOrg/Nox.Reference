@@ -17,7 +17,7 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
             .WithOne();
 
         builder
-            .Ows(x => x.Capital)
+            .HasOne(x => x.Capital)
             .WithOne();
 
         builder
@@ -25,9 +25,13 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
             .WithOne()
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne(x => x.Flags)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Cascade);
+        builder
+            .HasMany(x => x.NativeNames)
+            .WithOne();
+
+        builder
+            .HasMany(x => x.NameTranslations)
+           .WithOne();
 
         builder.HasMany(x => x.TimeZones)
             .WithMany()
