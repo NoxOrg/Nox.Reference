@@ -11,11 +11,6 @@ public static class CurrencyQueryExtensions
         return query.FirstOrDefault(x => x.Id == code);
     }
 
-    public static ITimeZoneInfo? Get(this IQueryable<ITimeZoneInfo> query, string code)
-    {
-        return query.FirstOrDefault(x => x.Id == code);
-    }
-
     public static ICurrencyInfo Get(this IQueryable<ICurrencyInfo> query, string currency)
     {
         return query.First(x => x.IsoCode == currency);

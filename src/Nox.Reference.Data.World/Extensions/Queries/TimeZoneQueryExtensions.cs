@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
 
-internal static class TimeZoneQueryExtensions
+public static class TimeZoneQueryExtensions
 {
     public static ITimeZoneInfo? Get(this IQueryable<ITimeZoneInfo> query, string code)
     {

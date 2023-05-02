@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +13,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class VatNumberTests
 {
     private string _testFilePath = string.Empty;
-    private IWorldInfoContext _dbContext;
+    private IWorldInfoContext _dbContext = null!;
 
     [OneTimeSetUp]
     public void Setup()
