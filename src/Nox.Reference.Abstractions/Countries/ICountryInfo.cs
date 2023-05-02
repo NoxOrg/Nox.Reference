@@ -1,4 +1,6 @@
-﻿namespace Nox.Reference.Abstractions;
+﻿using Nox.Reference.Abstractions.Shared;
+
+namespace Nox.Reference.Abstractions;
 
 public interface ICountryInfo
 {

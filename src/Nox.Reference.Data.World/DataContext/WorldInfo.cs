@@ -3,6 +3,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World;
 
@@ -39,4 +40,7 @@ public static class WorldInfo
 
     private static IWorldInfoContext DbContext
         => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
+
+    public static IQueryable<ICultureInfo> Cultures
+        => DbContext.Cultures;
 }
