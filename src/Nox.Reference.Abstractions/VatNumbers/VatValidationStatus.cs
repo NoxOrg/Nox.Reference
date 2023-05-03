@@ -2,7 +2,7 @@
 
 public enum VatValidationStatus
 {
-    NotVerified = 1,
+    Unverified = 1,
     Valid = 2,
     Invalid = 3
 }

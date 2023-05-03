@@ -11,7 +11,7 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
     {
     }
 
-    public VatValidationStatus Status { get; private set; } = VatValidationStatus.NotVerified;
+    public VatValidationStatus Status { get; private set; } = VatValidationStatus.Unverified;
     public object? ApiVerificationData { get; set; }
     public IReadOnlyList<string?> ValidationErrors => _validationErrors;
     public string FormattedVatNumber { get; init; } = string.Empty;
@@ -26,7 +26,7 @@ internal class VatNumberValidationResult : IVatNumberValidationResult
             result.AddError(validationError);
         }
 
-        result.Status = VatValidationStatus.NotVerified;
+        result.Status = VatValidationStatus.Unverified;
         return result;
     }
 

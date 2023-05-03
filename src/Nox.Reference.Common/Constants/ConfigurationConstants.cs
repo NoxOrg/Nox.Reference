@@ -14,5 +14,10 @@ public static class ConfigurationConstants
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string ConfigFileName = "appsettings.json";
+    public const string UriLocalePlanetList = "UriLocalePlanetList";
+    public const string UriLocalePlanetItem = "UriLocalePlanetItem";
+    public const string LocaleCodePlaceholder = "{localeCode}";
+    public const string TimeZoneUrl = "TimeZoneUrl";
+    public const string NodaTimeUrl = "NodaTimeUrl";
     public const string HolidaysZipPathSettingName = "HolidaysZipPath";
 }

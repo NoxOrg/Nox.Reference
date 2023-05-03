@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Abstractions.Shared;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.World;

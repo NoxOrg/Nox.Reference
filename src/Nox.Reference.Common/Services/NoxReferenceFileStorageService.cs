@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 
 namespace Nox.Reference.Common;
@@ -41,7 +42,7 @@ public class NoxReferenceFileStorageService
 
         Directory.CreateDirectory(Path.Combine(targetPath, folderRelativePath));
 
-        File.WriteAllText(Path.Combine(targetPath, folderRelativePath, fileName), outputContent);
+        File.WriteAllText(Path.Combine(targetPath, folderRelativePath, fileName), outputContent, Encoding.Unicode);
     }
 
     public string GetFileContentFromSource(
