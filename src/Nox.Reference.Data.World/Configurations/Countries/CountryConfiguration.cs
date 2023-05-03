@@ -8,28 +8,28 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
     protected override void DoConfigure(EntityTypeBuilder<Country> builder)
     {
         builder
-            .OwnsOne(x => x.Dialing)
-            .WithOwner();
+            .HasOne(x => x.Dialing)
+            .WithMany();
 
         builder
-            .OwnsOne(x => x.CoatOfArms)
-            .WithOwner();
+            .HasOne(x => x.CoatOfArms)
+            .WithMany();
 
         builder
             .HasOne(x => x.GeoCoordinates)
             .WithMany();
 
         builder
-            .OwnsOne(x => x.Flag)
-            .WithOwner();
+            .HasOne(x => x.Flag)
+            .WithMany();
 
         builder
-            .OwnsOne(x => x.Maps)
-            .WithOwner();
+            .HasOne(x => x.Maps)
+            .WithMany();
 
         builder
-            .OwnsOne(x => x.Vehicle)
-            .WithOwner();
+            .HasOne(x => x.Vehicle)
+            .WithMany();
 
         builder
             .HasOne(x => x.PostalCode)
@@ -47,8 +47,8 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
             .WithOne();
 
         builder
-            .HasMany(x => x.NativeNames)
-            .WithOne();
+            .HasOne(x => x.Names)
+            .WithMany();
 
         builder
             .HasMany(x => x.NameTranslations)

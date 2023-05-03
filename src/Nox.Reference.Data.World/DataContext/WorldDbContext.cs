@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Reflection;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -80,47 +81,8 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //IMPORTANT: Only the following line should be used to add configurations when all structure will be done.
-        //var configurations = Assembly.GetExecutingAssembly();
-
-        //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
-        modelBuilder.ApplyConfiguration(new CountryConfiguration());
-        modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
-        modelBuilder.ApplyConfiguration(new ContinentConfiguration());
-        modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
-        modelBuilder.ApplyConfiguration(new DemonymnConfiguration());
-        modelBuilder.ApplyConfiguration(new CountryNativeNameConfiguration());
-        modelBuilder.ApplyConfiguration(new AlternateSpellingConfiguration());
-        modelBuilder.ApplyConfiguration(new PostalCodeConfiguration());
-
-        modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
-        modelBuilder.ApplyConfiguration(new StateHolidayConfiguration());
-        modelBuilder.ApplyConfiguration(new CountryHolidayConfiguration());
-        modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
-        modelBuilder.ApplyConfiguration(new LocalHolidayNameConfiguration());
-        modelBuilder.ApplyConfiguration(new CountryCapitalConfiguration());
-        modelBuilder.ApplyConfiguration(new GeoCoordinatesConfiguration());
-        modelBuilder.ApplyConfiguration(new CountryNameTranslationConfiguration());
-
-        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-        modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());
-
-        modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyFrequentUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyRareUsageConfiguration());
-
-        modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
-        modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
-
-        modelBuilder.ApplyConfiguration(new VatNumberDefinitionConfiguration());
-        modelBuilder.ApplyConfiguration(new VatNumberValidationRuleConfiguration());
-
-        modelBuilder.ApplyConfiguration(new CultureConfiguration());
-        modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
-        modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
-
-        modelBuilder.ApplyConfiguration(new TimeZoneConfiguration());
+        var configurations = Assembly.GetExecutingAssembly();
+        modelBuilder.ApplyConfigurationsFromAssembly(configurations);
 
         base.OnModelCreating(modelBuilder);
     }

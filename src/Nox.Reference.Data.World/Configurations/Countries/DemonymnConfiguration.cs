@@ -7,6 +7,8 @@ internal class DemonymnConfiguration : NoxReferenceEntityConfigurationBase<Demon
 {
     protected override void DoConfigure(EntityTypeBuilder<Demonymn> builder)
     {
-
+        builder
+            .HasOne(x => x.Language)
+            .WithMany();
     }
 }

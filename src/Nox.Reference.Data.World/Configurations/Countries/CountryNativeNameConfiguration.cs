@@ -7,5 +7,8 @@ internal class CountryNativeNameConfiguration : NoxReferenceEntityConfigurationB
 {
     protected override void DoConfigure(EntityTypeBuilder<CountryNativeName> builder)
     {
+        builder
+            .HasOne(x => x.Language)
+            .WithMany();
     }
 }

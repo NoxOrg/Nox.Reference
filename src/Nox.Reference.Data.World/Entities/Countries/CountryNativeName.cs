@@ -5,7 +5,7 @@ namespace Nox.Reference.Data.World;
 internal class CountryNativeName : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Language { get; set; } = string.Empty;
+    public Language Language { get; set; } = new Language();
     public string OfficialName { get; set; } = string.Empty;
     public string CommonName { get; set; } = string.Empty;
 }

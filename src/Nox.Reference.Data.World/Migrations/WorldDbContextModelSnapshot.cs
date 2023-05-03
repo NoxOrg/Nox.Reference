@@ -127,6 +127,25 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("AlternateSpelling");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CoatOfArms", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Png")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Svg")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CoatOfArms");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.Continent", b =>
                 {
                     b.Property<int>("Id")
@@ -156,6 +175,9 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("CoatOfArmsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -164,9 +186,8 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("CommonName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("DialingId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("EmojiFlag")
                         .IsRequired()
@@ -180,7 +201,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("GeoCoordinatesId")
+                    b.Property<int?>("FlagId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("GeoCoordinatesId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsIndependent")
@@ -195,15 +219,17 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<decimal>("LandAreaInSquareKilometers")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("MapsId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("NumericCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("NamesId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("OfficialName")
+                    b.Property<string>("NumericCode")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -214,7 +240,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<decimal>("Population")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PostalCodeId")
+                    b.Property<int?>("PostalCodeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Region")
@@ -232,11 +258,26 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("VehicleId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CoatOfArmsId");
+
+                    b.HasIndex("DialingId");
+
+                    b.HasIndex("FlagId");
 
                     b.HasIndex("GeoCoordinatesId");
 
+                    b.HasIndex("MapsId");
+
+                    b.HasIndex("NamesId");
+
                     b.HasIndex("PostalCodeId");
+
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("Country");
                 });
@@ -250,7 +291,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<int?>("CountryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("GeoCoordinatesId")
+                    b.Property<int?>("GeoCoordinatesId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -264,6 +305,48 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasIndex("GeoCoordinatesId");
 
                     b.ToTable("CountryCapital");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryDialing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Prefix")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Suffixes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryDialing");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryFlag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AlternateText")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Png")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Svg")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryFlag");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
@@ -287,6 +370,25 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CountryHoliday");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryMaps", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("GoogleMaps")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OpenStreetMaps")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryMaps");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNameTranslation", b =>
@@ -318,6 +420,25 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("CountryNameTranslation");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryNames", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CommonName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OfficialName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryNames");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNativeName", b =>
                 {
                     b.Property<int>("Id")
@@ -328,12 +449,11 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int?>("CountryNamesId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Language")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("OfficialName")
                         .IsRequired()
@@ -341,9 +461,30 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryNamesId");
+
+                    b.HasIndex("LanguageId");
 
                     b.ToTable("CountryNativeName");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryVehicle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DrivingSide")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("InternationalRegistrationCodes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryVehicle");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
@@ -471,9 +612,8 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Language")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Masculine")
                         .IsRequired()
@@ -481,7 +621,254 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LanguageId");
+
                     b.ToTable("Demonymn");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.Culture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CharacterOrientation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CommonName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DisplayNameWithDialect")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FormalName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LanguageIso_639_2t")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LineOrientation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NativeName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Culture");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.DateFormat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("AmPmStrings")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("CultureId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Date_0")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Date_1")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Date_2")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Date_3")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EraNames")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Eras")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Months")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ShortMonths")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ShortWeekdays")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Weekdays")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CultureId")
+                        .IsUnique();
+
+                    b.ToTable("DateFormat");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.NumberFormat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CultureId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CurrencySymbol")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DecimalSeparator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Digit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ExponentSeparator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GroupingSeparator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Infinity")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("InternationalCurrencySymbol")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MinusSign")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MonetaryDecimalSeparator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NotANumberSymbol")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PadEscape")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PatternSeparator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PerMill")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Percent")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PlusSign")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SignificantDigit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ZeroDigit")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CultureId")
+                        .IsUnique();
+
+                    b.ToTable("NumberFormat");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.TimeZones.TimeZone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_TimeZoneAbbreviation")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmbeddedComments")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_TimeZoneAbbreviation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TimeZone");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.GeoCoordinates", b =>
@@ -692,11 +1079,9 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Format")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Regex")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -926,148 +1311,55 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.Country", b =>
                 {
+                    b.HasOne("Nox.Reference.Data.World.CoatOfArms", "CoatOfArms")
+                        .WithMany()
+                        .HasForeignKey("CoatOfArmsId");
+
+                    b.HasOne("Nox.Reference.Data.World.CountryDialing", "Dialing")
+                        .WithMany()
+                        .HasForeignKey("DialingId");
+
+                    b.HasOne("Nox.Reference.Data.World.CountryFlag", "Flag")
+                        .WithMany()
+                        .HasForeignKey("FlagId");
+
                     b.HasOne("Nox.Reference.Data.World.GeoCoordinates", "GeoCoordinates")
                         .WithMany()
-                        .HasForeignKey("GeoCoordinatesId")
+                        .HasForeignKey("GeoCoordinatesId");
+
+                    b.HasOne("Nox.Reference.Data.World.CountryMaps", "Maps")
+                        .WithMany()
+                        .HasForeignKey("MapsId");
+
+                    b.HasOne("Nox.Reference.Data.World.CountryNames", "Names")
+                        .WithMany()
+                        .HasForeignKey("NamesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.PostalCode", "PostalCode")
                         .WithMany()
-                        .HasForeignKey("PostalCodeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostalCodeId");
 
-                    b.OwnsOne("Nox.Reference.Data.World.CoatOfArms", "CoatOfArms", b1 =>
-                        {
-                            b1.Property<int>("CountryId")
-                                .HasColumnType("INTEGER");
+                    b.HasOne("Nox.Reference.Data.World.CountryVehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId");
 
-                            b1.Property<string>("Png")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
+                    b.Navigation("CoatOfArms");
 
-                            b1.Property<string>("Svg")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
+                    b.Navigation("Dialing");
 
-                            b1.HasKey("CountryId");
-
-                            b1.ToTable("Country");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CountryId");
-                        });
-
-                    b.OwnsOne("Nox.Reference.Data.World.CountryDialing", "Dialing", b1 =>
-                        {
-                            b1.Property<int>("CountryId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("Prefix")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("Suffixes")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("CountryId");
-
-                            b1.ToTable("Country");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CountryId");
-                        });
-
-                    b.OwnsOne("Nox.Reference.Data.World.CountryFlag", "Flag", b1 =>
-                        {
-                            b1.Property<int>("CountryId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("AlternateText")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<int>("Id")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("Png")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("Svg")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("CountryId");
-
-                            b1.ToTable("Country");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CountryId");
-                        });
-
-                    b.OwnsOne("Nox.Reference.Data.World.CountryMaps", "Maps", b1 =>
-                        {
-                            b1.Property<int>("CountryId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("GoogleMaps")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("OpenStreetMaps")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("CountryId");
-
-                            b1.ToTable("Country");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CountryId");
-                        });
-
-                    b.OwnsOne("Nox.Reference.Data.World.Vehicle", "Vehicle", b1 =>
-                        {
-                            b1.Property<int>("CountryId")
-                                .HasColumnType("INTEGER");
-
-                            b1.Property<string>("DrivingSide")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.Property<string>("InternationalRegistrationCodes")
-                                .IsRequired()
-                                .HasColumnType("TEXT");
-
-                            b1.HasKey("CountryId");
-
-                            b1.ToTable("Country");
-
-                            b1.WithOwner()
-                                .HasForeignKey("CountryId");
-                        });
-
-                    b.Navigation("CoatOfArms")
-                        .IsRequired();
-
-                    b.Navigation("Dialing")
-                        .IsRequired();
-
-                    b.Navigation("Flag")
-                        .IsRequired();
+                    b.Navigation("Flag");
 
                     b.Navigation("GeoCoordinates");
 
-                    b.Navigation("Maps")
-                        .IsRequired();
+                    b.Navigation("Maps");
+
+                    b.Navigation("Names");
 
                     b.Navigation("PostalCode");
 
-                    b.Navigation("Vehicle")
-                        .IsRequired();
+                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryCapital", b =>
@@ -1078,9 +1370,7 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.HasOne("Nox.Reference.Data.World.GeoCoordinates", "GeoCoordinates")
                         .WithMany()
-                        .HasForeignKey("GeoCoordinatesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GeoCoordinatesId");
 
                     b.Navigation("GeoCoordinates");
                 });
@@ -1102,9 +1392,17 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNativeName", b =>
                 {
-                    b.HasOne("Nox.Reference.Data.World.Country", null)
+                    b.HasOne("Nox.Reference.Data.World.CountryNames", null)
                         .WithMany("NativeNames")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryNamesId");
+
+                    b.HasOne("Nox.Reference.Data.World.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
@@ -1156,6 +1454,39 @@ namespace Nox.Reference.Data.World.Migrations
                         .WithMany("Rare")
                         .HasForeignKey("CurrencyUsageId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Demonymn", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.DateFormat", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Entities.Cultures.Culture", "Culture")
+                        .WithOne("DateFormat")
+                        .HasForeignKey("Nox.Reference.Data.World.Entities.Cultures.DateFormat", "CultureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Culture");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.NumberFormat", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Entities.Cultures.Culture", "Culture")
+                        .WithOne("NumberFormat")
+                        .HasForeignKey("Nox.Reference.Data.World.Entities.Cultures.NumberFormat", "CultureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Culture");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.GiniCoefficient", b =>
@@ -1252,8 +1583,6 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("GiniCoefficients");
 
                     b.Navigation("NameTranslations");
-
-                    b.Navigation("NativeNames");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
@@ -1263,11 +1592,25 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("States");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryNames", b =>
+                {
+                    b.Navigation("NativeNames");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
                     b.Navigation("Frequent");
 
                     b.Navigation("Rare");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Entities.Cultures.Culture", b =>
+                {
+                    b.Navigation("DateFormat")
+                        .IsRequired();
+
+                    b.Navigation("NumberFormat")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>

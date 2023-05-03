@@ -15,23 +15,65 @@ internal class CountryMapping : Profile
         CreateMap<string, AlternateSpelling>().ForMember(x => x.Name, x => x.MapFrom(t => t));
         CreateMap<string, Continent>().ForMember(x => x.Name, x => x.MapFrom(t => t));
         CreateMap<INativeNameInfo, CountryNameTranslation>().ConvertUsing<CountryNameTranslationSingleMapping>();
+        CreateMap<IDemonymn, Demonymn>().ConvertUsing<DemonymnSingleMapping>();
+        CreateMap<ICoatOfArms, CoatOfArms>();
+        CreateMap<IGeoCoordinates, GeoCoordinates>();
+        CreateMap<IMaps, CountryMaps>();
+        CreateMap<IFlags, CountryFlag>();
+        CreateMap<IVehicleInfo, CountryVehicle>()
+            .ForMember(x => x.InternationalRegistrationCodes, x => x.MapFrom(t => string.Join(",", t.InternationalRegistrationCodes)));
+
+        CreateMap<IPostalCodeInfo, PostalCode>();
+        CreateMap<IDialingInfo, CountryDialing>()
+            .ForMember(x => x.Suffixes, x => x.MapFrom(t => string.Join(",", t.Suffixes)));
+
+        CreateMap<INativeNameInfo, CountryNativeName>().ConvertUsing<CountryNativeNameSingleMapping>();
+        CreateMap<ICountryNames, CountryNames>();
 
         CreateMap<IReadOnlyList<string>, IReadOnlyList<Language>>().ConvertUsing<LanguageMappingResolver>();
         CreateMap<IReadOnlyList<string>, IReadOnlyList<Currency>>().ConvertUsing<CurrencyMappingResolver>();
         CreateMap<IReadOnlyList<string>, IReadOnlyList<TopLevelDomain>>().ConvertUsing<TopLevelDomainMappingResolver>();
         CreateMap<IReadOnlyList<string>, IReadOnlyList<AlternateSpelling>>().ConvertUsing<AlternateSpellingMappingResolver>();
         CreateMap<IReadOnlyList<string>, IReadOnlyList<Continent>>().ConvertUsing<ContinentMappingResolver>();
+        CreateMap<IReadOnlyList<IDemonymn>, IReadOnlyList<Demonymn>>().ConvertUsing<DemonymnMappingResolver>();
         CreateMap<IReadOnlyList<INativeNameInfo>, IReadOnlyList<CountryNameTranslation>>().ConvertUsing<CountryNameTranslationMappingResolver>();
 
+        CreateMap<IReadOnlyDictionary<string, decimal>, IReadOnlyList<GiniCoefficient>>()
+            .ConstructUsing(x => x.Keys.Select(t => new GiniCoefficient
+            {
+                Year = int.Parse(t),
+                Value = x[t]
+            }).ToList());
+
         CreateMap<ICountryInfo, Country>()
-            .IgnoreAllMembers()
+            //.IgnoreAllMembers()
             .ForMember(x => x.Id, x => x.Ignore())
-            .ForMember(x => x.TopLevelDomains, x => x.MapFrom(t => t.TopLevelDomains))
-            .ForMember(x => x.Languages, x => x.MapFrom(t => t.Languages))
-            .ForMember(x => x.Currencies, x => x.MapFrom(t => t.Currencies))
-            .ForMember(x => x.AlternateSpellings, x => x.MapFrom(t => t.AlternateSpellings))
-            .ForMember(x => x.Continents, x => x.MapFrom(t => t.Continents))
-            .ForMember(x => x.NameTranslations, x => x.MapFrom(t => t.NameTranslations));
+            .ForMember(x => x.BorderingCountries, x => x.Ignore())
+            //.ForMember(x => x.TopLevelDomains, x => x.MapFrom(t => t.TopLevelDomains))
+            //.ForMember(x => x.Languages, x => x.MapFrom(t => t.Languages))
+            //.ForMember(x => x.Currencies, x => x.MapFrom(t => t.Currencies))
+            //.ForMember(x => x.AlternateSpellings, x => x.MapFrom(t => t.AlternateSpellings))
+            //.ForMember(x => x.Continents, x => x.MapFrom(t => t.Continents))
+            .ForMember(x => x.NameTranslations, x => x.Ignore())
+            //.ForMember(x => x.GiniCoefficients, x => x.MapFrom(t => t.GiniCoefficients))
+            //.ForMember(x => x.Demonyms, x => x.MapFrom(t => t.Demonyms))
+            //.ForMember(x => x.CoatOfArms, x => x.MapFrom(t => t.CoatOfArms))
+            //.ForMember(x => x.GeoCoordinates, x => x.MapFrom(t => t.GeoCoordinates))
+            //.ForMember(x => x.Maps, x => x.MapFrom(t => t.Maps))
+            .ForMember(x => x.Dialing, x => x.MapFrom(t => t.DialingInfo))
+            .ForMember(x => x.Flag, x => x.MapFrom(t => t.Flags))
+            //.ForMember(x => x.Names, x => x.MapFrom(t => t.Names))
+            .ForMember(x => x.Vehicle, x => x.MapFrom(t => t.VehicleInfo))
+            .ForMember(x => x.PostalCode, x => x.MapFrom(t => t.PostalCodeInfo))
+            .ForMember(x => x.Capitals, x => x.MapFrom(t => t.Capitals.Select(s => new CountryCapital
+            {
+                Name = s,
+                GeoCoordinates = (t.CapitalInfo == null ? null : new GeoCoordinates
+                {
+                    Latitude = t.GeoCoordinates.Latitude,
+                    Longitude = t.GeoCoordinates.Longitude
+                })
+            }).ToList()));
     }
 }
 
@@ -64,6 +106,76 @@ internal class CountryNameTranslationSingleMapping : ITypeConverter<INativeNameI
             Language = language,
             CommonName = source.CommonName,
             OfficialName = source.OfficialName
+        };
+
+        return destination;
+    }
+}
+
+internal class CountryNativeNameSingleMapping : ITypeConverter<INativeNameInfo, CountryNativeName>
+{
+    private readonly WorldDbContext _worldDbContext;
+    private readonly ILogger<CountryNativeNameSingleMapping> _logger;
+
+    public CountryNativeNameSingleMapping(
+        WorldDbContext worldDbContext,
+        ILogger<CountryNativeNameSingleMapping> logger)
+    {
+        _worldDbContext = worldDbContext;
+        _logger = logger;
+    }
+
+    public CountryNativeName Convert(INativeNameInfo source, CountryNativeName destination, ResolutionContext context)
+    {
+        var language = _worldDbContext
+            .Set<Language>()
+            .FirstOrDefault(x => x.Iso_639_3 == source.Language);
+
+        if (language == null)
+        {
+            return null;
+        }
+
+        destination = new CountryNativeName
+        {
+            Language = language,
+            CommonName = source.CommonName,
+            OfficialName = source.OfficialName
+        };
+
+        return destination;
+    }
+}
+
+internal class DemonymnSingleMapping : ITypeConverter<IDemonymn, Demonymn>
+{
+    private readonly WorldDbContext _worldDbContext;
+    private readonly ILogger<DemonymnSingleMapping> _logger;
+
+    public DemonymnSingleMapping(
+        WorldDbContext worldDbContext,
+        ILogger<DemonymnSingleMapping> logger)
+    {
+        _worldDbContext = worldDbContext;
+        _logger = logger;
+    }
+
+    public Demonymn Convert(IDemonymn source, Demonymn destination, ResolutionContext context)
+    {
+        var language = _worldDbContext
+            .Set<Language>()
+            .FirstOrDefault(x => x.Iso_639_3 == source.Language);
+
+        if (language == null)
+        {
+            return null;
+        }
+
+        destination = new Demonymn
+        {
+            Language = language,
+            Feminine = source.Feminine,
+            Masculine = source.Masculine
         };
 
         return destination;
@@ -202,5 +314,22 @@ internal class CountryNameTranslationMappingResolver : SourceArrayToEntitiesMapp
     }
 
     protected override Expression<Func<CountryNameTranslation, bool>> KeySearchExpression(INativeNameInfo source)
-         => x => x.Language.Name == source.Language;
+         => x => x.Language.Iso_639_1 == source.Language
+         && x.OfficialName == source.OfficialName
+         && x.CommonName == source.OfficialName;
+}
+
+internal class DemonymnMappingResolver : SourceArrayToEntitiesMappingResolverBase<IDemonymn, Demonymn>
+{
+    public DemonymnMappingResolver(
+        WorldDbContext worldDbContext,
+        IMapper mapper,
+        ILogger<DemonymnMappingResolver> logger) : base(worldDbContext, mapper, logger)
+    {
+    }
+
+    protected override Expression<Func<Demonymn, bool>> KeySearchExpression(IDemonymn source)
+         => x => x.Feminine == source.Feminine
+         && x.Masculine == source.Masculine
+         && x.Language.Iso_639_3 == source.Language;
 }

@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Shared;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.World;
@@ -57,7 +56,7 @@ internal class CountryInfo : ICountryInfo
     public IReadOnlyList<string> Currencies { get; set; } = Array.Empty<string>();
 
     [JsonPropertyName("dialingInfo")]
-    public IDialingInfo DialingInfo { get; set; } = new DialingInfo();
+    public IDialingInfo? DialingInfo { get; set; }
 
     [JsonPropertyName("capitals")]
     public IReadOnlyList<string> Capitals { get; set; } = Array.Empty<string>();
@@ -83,7 +82,7 @@ internal class CountryInfo : ICountryInfo
 
     [JsonPropertyName("geoCoordinates")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IGeoCoordinates, GeoCoordinatesInfo>))]
-    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
+    public IGeoCoordinates? GeoCoordinates { get; set; }
 
     [JsonPropertyName("isLandlocked")]
     public bool IsLandlocked { get; set; }
@@ -103,29 +102,29 @@ internal class CountryInfo : ICountryInfo
 
     [JsonPropertyName("flags")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IFlags, FlagsInfo>))]
-    public IFlags Flags { get; set; } = new FlagsInfo();
+    public IFlags? Flags { get; set; }
 
     [JsonPropertyName("coatOfArms")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<ICoatOfArms, CoatOfArmsInfo>))]
-    public ICoatOfArms CoatOfArms { get; set; } = new CoatOfArmsInfo();
+    public ICoatOfArms? CoatOfArms { get; set; }
 
     [JsonPropertyName("population")]
     public decimal Population { get; set; }
 
     [JsonPropertyName("maps")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IMaps, MapsInfo>))]
-    public IMaps Maps { get; set; } = null!;
+    public IMaps? Maps { get; set; } = null;
 
     [JsonPropertyName("giniCoefficients")]
     public IReadOnlyDictionary<string, decimal>? GiniCoefficients { get; set; }
 
     [JsonPropertyName("vehicleInfo")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IVehicleInfo, VehicleInfo>))]
-    public IVehicleInfo VehicleInfo { get; set; } = new VehicleInfo();
+    public IVehicleInfo? VehicleInfo { get; set; }
 
     [JsonPropertyName("postalCodeInfo")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IPostalCodeInfo, PostalCodeInfo>))]
-    public IPostalCodeInfo PostalCodeInfo { get; set; } = new PostalCodeInfo();
+    public IPostalCodeInfo? PostalCodeInfo { get; set; }
 
     [JsonPropertyName("startOfWeek")]
     public string StartOfWeek { get; set; } = string.Empty;

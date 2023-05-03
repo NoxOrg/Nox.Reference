@@ -6,5 +6,5 @@ internal class CountryCapital : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public string Name { get; set; } = string.Empty;
-    public GeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
+    public GeoCoordinates? GeoCoordinates { get; set; }
 }

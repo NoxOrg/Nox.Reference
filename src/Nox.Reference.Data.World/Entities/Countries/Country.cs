@@ -7,10 +7,8 @@ internal class Country : INoxReferenceEntity
     public int Id { get; private set; }
     public string Name { get; set; } = string.Empty;
     public string Code { get; set; } = string.Empty;
-    public string CommonName { get; set; } = string.Empty;
-    public string OfficialName { get; set; } = string.Empty;
 
-    public IReadOnlyList<CountryNativeName> NativeNames { get; set; } = Array.Empty<CountryNativeName>();
+    public CountryNames Names { get; set; } = new CountryNames();
     public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; set; } = Array.Empty<TopLevelDomain>();
     public IReadOnlyList<Language> Languages { get; set; } = Array.Empty<Language>();
     public IReadOnlyList<Currency> Currencies { get; set; } = Array.Empty<Currency>();
@@ -22,14 +20,14 @@ internal class Country : INoxReferenceEntity
     public IReadOnlyList<Country> BorderingCountries { get; set; } = Array.Empty<Country>();
     public IReadOnlyList<CountryCapital> Capitals { get; set; } = Array.Empty<CountryCapital>();
 
-    public CountryDialing Dialing { get; set; } = new CountryDialing();
+    public CountryDialing? Dialing { get; set; }
     public CountryCapital Capital => Capitals[0];
-    public CoatOfArms CoatOfArms { get; set; } = new CoatOfArms();
-    public GeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinates();
-    public CountryFlag Flag { get; set; } = new CountryFlag();
-    public CountryMaps Maps { get; set; } = new CountryMaps();
-    public Vehicle Vehicle { get; set; } = new Vehicle();
-    public PostalCode PostalCode { get; set; } = new PostalCode();
+    public CoatOfArms? CoatOfArms { get; set; }
+    public GeoCoordinates? GeoCoordinates { get; set; }
+    public CountryFlag? Flag { get; set; }
+    public CountryMaps? Maps { get; set; }
+    public CountryVehicle? Vehicle { get; set; }
+    public PostalCode? PostalCode { get; set; }
 
     public string EmojiFlag { get; set; } = string.Empty;
     public decimal LandAreaInSquareKilometers { get; set; }

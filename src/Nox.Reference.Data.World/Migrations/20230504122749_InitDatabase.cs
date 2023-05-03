@@ -11,6 +11,20 @@ namespace Nox.Reference.Data.World.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "CoatOfArms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Svg = table.Column<string>(type: "TEXT", nullable: false),
+                    Png = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CoatOfArms", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Continent",
                 columns: table => new
                 {
@@ -21,6 +35,35 @@ namespace Nox.Reference.Data.World.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Continent", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryDialing",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Prefix = table.Column<string>(type: "TEXT", nullable: false),
+                    Suffixes = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryDialing", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryFlag",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Svg = table.Column<string>(type: "TEXT", nullable: false),
+                    Png = table.Column<string>(type: "TEXT", nullable: false),
+                    AlternateText = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryFlag", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,6 +83,71 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CountryMaps",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    GoogleMaps = table.Column<string>(type: "TEXT", nullable: false),
+                    OpenStreetMaps = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryMaps", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryNames",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CommonName = table.Column<string>(type: "TEXT", nullable: false),
+                    OfficialName = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryNames", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryVehicle",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DrivingSide = table.Column<string>(type: "TEXT", nullable: false),
+                    InternationalRegistrationCodes = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryVehicle", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Culture",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    FormalName = table.Column<string>(type: "TEXT", nullable: false),
+                    NativeName = table.Column<string>(type: "TEXT", nullable: false),
+                    CommonName = table.Column<string>(type: "TEXT", nullable: true),
+                    Language = table.Column<string>(type: "TEXT", nullable: false),
+                    Country = table.Column<string>(type: "TEXT", nullable: false),
+                    DisplayName = table.Column<string>(type: "TEXT", nullable: false),
+                    DisplayNameWithDialect = table.Column<string>(type: "TEXT", nullable: false),
+                    CharacterOrientation = table.Column<string>(type: "TEXT", nullable: false),
+                    LineOrientation = table.Column<string>(type: "TEXT", nullable: false),
+                    LanguageIso_639_2t = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Culture", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CurrencyUsage",
                 columns: table => new
                 {
@@ -49,21 +157,6 @@ namespace Nox.Reference.Data.World.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CurrencyUsage", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Demonymn",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Language = table.Column<string>(type: "TEXT", nullable: false),
-                    Feminine = table.Column<string>(type: "TEXT", nullable: false),
-                    Masculine = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Demonymn", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -136,12 +229,34 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Format = table.Column<string>(type: "TEXT", nullable: false),
-                    Regex = table.Column<string>(type: "TEXT", nullable: false)
+                    Format = table.Column<string>(type: "TEXT", nullable: true),
+                    Regex = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PostalCode", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TimeZone",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Code = table.Column<string>(type: "TEXT", nullable: false),
+                    EmbeddedComments = table.Column<string>(type: "TEXT", nullable: true),
+                    Type = table.Column<string>(type: "TEXT", nullable: false),
+                    Notes = table.Column<string>(type: "TEXT", nullable: true),
+                    SDT_UTC_Offset = table.Column<string>(type: "TEXT", nullable: false),
+                    DST_UTC_Offset = table.Column<string>(type: "TEXT", nullable: false),
+                    SDT_TimeZoneAbbreviation = table.Column<string>(type: "TEXT", nullable: false),
+                    DST_TimeZoneAbbreviation = table.Column<string>(type: "TEXT", nullable: true),
+                    Latitude = table.Column<double>(type: "REAL", nullable: true),
+                    Longitude = table.Column<double>(type: "REAL", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TimeZone", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,6 +308,72 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "DateFormat",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    AmPmStrings = table.Column<string>(type: "TEXT", nullable: false),
+                    Eras = table.Column<string>(type: "TEXT", nullable: false),
+                    EraNames = table.Column<string>(type: "TEXT", nullable: false),
+                    Months = table.Column<string>(type: "TEXT", nullable: false),
+                    ShortMonths = table.Column<string>(type: "TEXT", nullable: false),
+                    ShortWeekdays = table.Column<string>(type: "TEXT", nullable: false),
+                    Weekdays = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_3 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_2 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_1 = table.Column<string>(type: "TEXT", nullable: false),
+                    Date_0 = table.Column<string>(type: "TEXT", nullable: false),
+                    CultureId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DateFormat", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DateFormat_Culture_CultureId",
+                        column: x => x.CultureId,
+                        principalTable: "Culture",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NumberFormat",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CurrencySymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    DecimalSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Digit = table.Column<string>(type: "TEXT", nullable: false),
+                    ExponentSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    GroupingSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Infinity = table.Column<string>(type: "TEXT", nullable: false),
+                    InternationalCurrencySymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    MinusSign = table.Column<string>(type: "TEXT", nullable: false),
+                    MonetaryDecimalSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    NotANumberSymbol = table.Column<string>(type: "TEXT", nullable: false),
+                    PadEscape = table.Column<string>(type: "TEXT", nullable: false),
+                    PatternSeparator = table.Column<string>(type: "TEXT", nullable: false),
+                    Percent = table.Column<string>(type: "TEXT", nullable: false),
+                    PerMill = table.Column<string>(type: "TEXT", nullable: false),
+                    PlusSign = table.Column<string>(type: "TEXT", nullable: false),
+                    SignificantDigit = table.Column<string>(type: "TEXT", nullable: false),
+                    ZeroDigit = table.Column<string>(type: "TEXT", nullable: false),
+                    CultureId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NumberFormat", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_NumberFormat_Culture_CultureId",
+                        column: x => x.CultureId,
+                        principalTable: "Culture",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CurrencyFrequentUsage",
                 columns: table => new
                 {
@@ -228,6 +409,54 @@ namespace Nox.Reference.Data.World.Migrations
                         name: "FK_CurrencyRareUsage_CurrencyUsage_CurrencyUsageId",
                         column: x => x.CurrencyUsageId,
                         principalTable: "CurrencyUsage",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryNativeName",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    OfficialName = table.Column<string>(type: "TEXT", nullable: false),
+                    CommonName = table.Column<string>(type: "TEXT", nullable: false),
+                    CountryNamesId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryNativeName", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CountryNativeName_CountryNames_CountryNamesId",
+                        column: x => x.CountryNamesId,
+                        principalTable: "CountryNames",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_CountryNativeName_Language_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Language",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Demonymn",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Feminine = table.Column<string>(type: "TEXT", nullable: false),
+                    Masculine = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Demonymn", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Demonymn_Language_LanguageId",
+                        column: x => x.LanguageId,
+                        principalTable: "Language",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -305,25 +534,18 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "Country",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    CommonName = table.Column<string>(type: "TEXT", nullable: false),
-                    OfficialName = table.Column<string>(type: "TEXT", nullable: false),
-                    Dialing_Prefix = table.Column<string>(type: "TEXT", nullable: false),
-                    Dialing_Suffixes = table.Column<string>(type: "TEXT", nullable: false),
-                    CoatOfArms_Svg = table.Column<string>(type: "TEXT", nullable: false),
-                    CoatOfArms_Png = table.Column<string>(type: "TEXT", nullable: false),
-                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Flag_Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    Flag_Svg = table.Column<string>(type: "TEXT", nullable: false),
-                    Flag_Png = table.Column<string>(type: "TEXT", nullable: false),
-                    Flag_AlternateText = table.Column<string>(type: "TEXT", nullable: false),
-                    Maps_GoogleMaps = table.Column<string>(type: "TEXT", nullable: false),
-                    Maps_OpenStreetMaps = table.Column<string>(type: "TEXT", nullable: false),
-                    Vehicle_DrivingSide = table.Column<string>(type: "TEXT", nullable: false),
-                    Vehicle_InternationalRegistrationCodes = table.Column<string>(type: "TEXT", nullable: false),
-                    PostalCodeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    NamesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DialingId = table.Column<int>(type: "INTEGER", nullable: true),
+                    CoatOfArmsId = table.Column<int>(type: "INTEGER", nullable: true),
+                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: true),
+                    FlagId = table.Column<int>(type: "INTEGER", nullable: true),
+                    MapsId = table.Column<int>(type: "INTEGER", nullable: true),
+                    VehicleId = table.Column<int>(type: "INTEGER", nullable: true),
+                    PostalCodeId = table.Column<int>(type: "INTEGER", nullable: true),
                     EmojiFlag = table.Column<string>(type: "TEXT", nullable: false),
                     LandAreaInSquareKilometers = table.Column<decimal>(type: "TEXT", nullable: false),
                     IsIndependent = table.Column<bool>(type: "INTEGER", nullable: true),
@@ -346,17 +568,46 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     table.PrimaryKey("PK_Country", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Country_CoatOfArms_CoatOfArmsId",
+                        column: x => x.CoatOfArmsId,
+                        principalTable: "CoatOfArms",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Country_CountryDialing_DialingId",
+                        column: x => x.DialingId,
+                        principalTable: "CountryDialing",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Country_CountryFlag_FlagId",
+                        column: x => x.FlagId,
+                        principalTable: "CountryFlag",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Country_CountryMaps_MapsId",
+                        column: x => x.MapsId,
+                        principalTable: "CountryMaps",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Country_CountryNames_NamesId",
+                        column: x => x.NamesId,
+                        principalTable: "CountryNames",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Country_CountryVehicle_VehicleId",
+                        column: x => x.VehicleId,
+                        principalTable: "CountryVehicle",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Country_GeoCoordinates_GeoCoordinatesId",
                         column: x => x.GeoCoordinatesId,
                         principalTable: "GeoCoordinates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Country_PostalCode_PostalCodeId",
                         column: x => x.PostalCodeId,
                         principalTable: "PostalCode",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -456,7 +707,7 @@ namespace Nox.Reference.Data.World.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: true),
                     CountryId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -471,8 +722,7 @@ namespace Nox.Reference.Data.World.Migrations
                         name: "FK_CountryCapital_GeoCoordinates_GeoCoordinatesId",
                         column: x => x.GeoCoordinatesId,
                         principalTable: "GeoCoordinates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -599,27 +849,6 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CountryNativeName",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Language = table.Column<string>(type: "TEXT", nullable: false),
-                    OfficialName = table.Column<string>(type: "TEXT", nullable: false),
-                    CommonName = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CountryNativeName", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CountryNativeName_Country_CountryId",
-                        column: x => x.CountryId,
-                        principalTable: "Country",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CountryTopLevelDomain",
                 columns: table => new
                 {
@@ -727,14 +956,44 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "CountryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Country_CoatOfArmsId",
+                table: "Country",
+                column: "CoatOfArmsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_DialingId",
+                table: "Country",
+                column: "DialingId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_FlagId",
+                table: "Country",
+                column: "FlagId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Country_GeoCoordinatesId",
                 table: "Country",
                 column: "GeoCoordinatesId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Country_MapsId",
+                table: "Country",
+                column: "MapsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_NamesId",
+                table: "Country",
+                column: "NamesId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Country_PostalCodeId",
                 table: "Country",
                 column: "PostalCodeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_VehicleId",
+                table: "Country",
+                column: "VehicleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CountryCapital_CountryId",
@@ -777,9 +1036,14 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryNativeName_CountryId",
+                name: "IX_CountryNativeName_CountryNamesId",
                 table: "CountryNativeName",
-                column: "CountryId");
+                column: "CountryNamesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CountryNativeName_LanguageId",
+                table: "CountryNativeName",
+                column: "LanguageId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CountryTopLevelDomain_TopLevelDomainsId",
@@ -817,6 +1081,17 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "CurrencyUsageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DateFormat_CultureId",
+                table: "DateFormat",
+                column: "CultureId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Demonymn_LanguageId",
+                table: "Demonymn",
+                column: "LanguageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GiniCoefficient_CountryId",
                 table: "GiniCoefficient",
                 column: "CountryId");
@@ -845,6 +1120,12 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "IX_LocalHolidayName_HolidayDataId",
                 table: "LocalHolidayName",
                 column: "HolidayDataId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NumberFormat_CultureId",
+                table: "NumberFormat",
+                column: "CultureId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_RegionHoliday_StateHolidayId",
@@ -902,6 +1183,9 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CurrencyRareUsage");
 
             migrationBuilder.DropTable(
+                name: "DateFormat");
+
+            migrationBuilder.DropTable(
                 name: "GiniCoefficient");
 
             migrationBuilder.DropTable(
@@ -909,6 +1193,12 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "LocalHolidayName");
+
+            migrationBuilder.DropTable(
+                name: "NumberFormat");
+
+            migrationBuilder.DropTable(
+                name: "TimeZone");
 
             migrationBuilder.DropTable(
                 name: "VatNumberValidationRule");
@@ -929,10 +1219,10 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "Country");
 
             migrationBuilder.DropTable(
-                name: "Language");
+                name: "HolidayData");
 
             migrationBuilder.DropTable(
-                name: "HolidayData");
+                name: "Culture");
 
             migrationBuilder.DropTable(
                 name: "VatNumberDefinition");
@@ -945,6 +1235,27 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "MinorCurrencyUnit");
+
+            migrationBuilder.DropTable(
+                name: "Language");
+
+            migrationBuilder.DropTable(
+                name: "CoatOfArms");
+
+            migrationBuilder.DropTable(
+                name: "CountryDialing");
+
+            migrationBuilder.DropTable(
+                name: "CountryFlag");
+
+            migrationBuilder.DropTable(
+                name: "CountryMaps");
+
+            migrationBuilder.DropTable(
+                name: "CountryNames");
+
+            migrationBuilder.DropTable(
+                name: "CountryVehicle");
 
             migrationBuilder.DropTable(
                 name: "GeoCoordinates");
