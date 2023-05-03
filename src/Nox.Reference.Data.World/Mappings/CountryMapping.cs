@@ -35,60 +35,39 @@ internal class CountryMapping : Profile
     }
 }
 
-internal abstract class SourceToEntiyMappingResolverBase<TSource, TEntity> : ITypeConverter<TSource, TEntity>
-    where TEntity : class, INoxReferenceEntity
+internal class CountryNameTranslationSingleMapping : ITypeConverter<INativeNameInfo, CountryNameTranslation>
 {
-    protected readonly WorldDbContext _worldDbContext;
-    private readonly IMapper _mapper;
-    protected readonly ILogger _logger;
+    private readonly WorldDbContext _worldDbContext;
+    private readonly ILogger<CountryNameTranslationSingleMapping> _logger;
 
-    protected SourceToEntiyMappingResolverBase(
+    public CountryNameTranslationSingleMapping(
         WorldDbContext worldDbContext,
-        IMapper mapper,
-        ILogger logger)
+        ILogger<CountryNameTranslationSingleMapping> logger)
     {
         _worldDbContext = worldDbContext;
-        _mapper = mapper;
         _logger = logger;
     }
 
-    protected abstract Expression<Func<TEntity, bool>> KeySearchExpression(TSource source);
-
-    public TEntity Convert(TSource source, TEntity? destination, ResolutionContext context)
+    public CountryNameTranslation Convert(INativeNameInfo source, CountryNameTranslation destination, ResolutionContext context)
     {
-        var dbSet = _worldDbContext
-            .Set<TEntity>();
+        var language = _worldDbContext
+            .Set<Language>()
+            .FirstOrDefault(x => x.Iso_639_1 == source.Language);
 
-        try
+        if (language == null)
         {
-            var exp = KeySearchExpression(source);
-            destination = dbSet.FirstOrDefault(exp);
+            return null;
+        }
 
-            if (destination == null)
-            {
-                destination = _mapper.Map<TEntity>(source);
-                dbSet.Add(destination);
-                _worldDbContext.SaveChanges();
-            }
-        }
-        catch (Exception ex)
+        destination = new CountryNameTranslation
         {
-            _logger.LogError("Error occurs during mapping {source}. Error:{error}", source, ex.Message);
-        }
+            Language = language,
+            CommonName = source.CommonName,
+            OfficialName = source.OfficialName
+        };
 
         return destination;
     }
-}
-
-internal class CountryNameTranslationSingleMapping : SourceToEntiyMappingResolverBase<INativeNameInfo, CountryNameTranslation>
-{
-    public CountryNameTranslationSingleMapping(WorldDbContext worldDbContext, IMapper mapper, ILogger<CountryNameTranslationSingleMapping> logger)
-        : base(worldDbContext, mapper, logger)
-    {
-    }
-
-    protected override Expression<Func<CountryNameTranslation, bool>> KeySearchExpression(INativeNameInfo source)
-        => x => x.Language.Iso_639_1 == source.Language;
 }
 
 internal abstract class SourceArrayToEntitiesMappingResolverBase<TSource, TEntity> : ITypeConverter<IReadOnlyList<TSource>, IReadOnlyList<TEntity>>
