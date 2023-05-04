@@ -49,20 +49,7 @@ namespace Nox.Reference.Data.Common.Seeds
                 var entities = _mapper.Map<IEnumerable<TEntity>>(infos);
                 dataSet.AddRange(entities);
                 _dbContext.SaveChanges();
-                //foreach (var entity in entities)
-                //{
-                //    try
-                //    {
-                //        dataSet.Add(entity);
-                //        _dbContext.SaveChanges();
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        _logger.LogError("Error adding entity. Error: {ex}", ex.Message);
-                //    }
-                //}
-
-                _logger.LogInformation("Start seeding {dataSet}...", typeof(TEntity).Name);
+                _logger.LogInformation("End seeding {dataSet}...", typeof(TEntity).Name);
             }
             catch (Exception ex)
             {
