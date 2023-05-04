@@ -11,6 +11,7 @@ public static class ConfigurationConstants
     public const string UriLanguagesISO639 = "UriLanguagesISO639";
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
+    public const string NoxReferenceWorldDbName = "NoxReferenceWorldDbName";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string ConfigFileName = "appsettings.json";
