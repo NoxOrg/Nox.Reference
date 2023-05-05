@@ -151,10 +151,10 @@ public class RestcountryCountryInfo : ICountryInfo
     public IMaps Maps => Maps1;
 
     [JsonPropertyName("gini")]
-    public Dictionary<string, decimal>? GiniCoefficients_ { get; set; }
+    public Dictionary<int, decimal>? GiniCoefficients_ { get; set; }
 
     [JsonIgnore]
-    public IReadOnlyDictionary<string, decimal>? GiniCoefficients => GiniCoefficients_;
+    public IReadOnlyDictionary<int, decimal>? GiniCoefficients => GiniCoefficients_;
 
     [JsonPropertyName("car")]
     public RestcountryVehicleInfo? VehicleInfo_ { get; set; }

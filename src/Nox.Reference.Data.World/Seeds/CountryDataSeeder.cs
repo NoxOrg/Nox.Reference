@@ -49,6 +49,24 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
                    .Cast<ICountryInfo>();
     }
 
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<ICountryInfo> sources, IEnumerable<Country> destinations)
+    {
+        base.DoSpecialTreatAfterAdding(sources, destinations);
+
+        foreach (var source in sources)
+        {
+            var countryEntity = destinations.First(x => x.Code == source.Code);
+            countryEntity.BorderingCountries = destinations
+                .Where(x => source.BorderingCountries.Contains(x.Code))
+                .ToList();
+        }
+
+        _dbContext.Set<Country>()
+            .UpdateRange(destinations);
+
+        _dbContext.SaveChanges();
+    }
+
     private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)
     {
         var iso3LanguageData = GetLanguageIso639_3_Data(configuration);

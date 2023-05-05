@@ -21,7 +21,7 @@ internal class Country : INoxReferenceEntity
     public IReadOnlyList<CountryCapital> Capitals { get; set; } = Array.Empty<CountryCapital>();
 
     public CountryDialing? Dialing { get; set; }
-    public CountryCapital Capital => Capitals[0];
+    public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
     public CoatOfArms? CoatOfArms { get; set; }
     public GeoCoordinates? GeoCoordinates { get; set; }
     public CountryFlag? Flag { get; set; }

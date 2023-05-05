@@ -12,4 +12,5 @@ public interface IWorldInfoContext
     IQueryable<ILanguageInfo> Languages { get; }
     IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions { get; }
     IQueryable<ICountryHolidayInfo> Holidays { get; }
+    IQueryable<ICountryInfo> Countries { get; }
 }

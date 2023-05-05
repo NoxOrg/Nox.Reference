@@ -113,10 +113,10 @@ internal class CountryInfo : ICountryInfo
 
     [JsonPropertyName("maps")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IMaps, MapsInfo>))]
-    public IMaps? Maps { get; set; } = null;
+    public IMaps Maps { get; set; }
 
     [JsonPropertyName("giniCoefficients")]
-    public IReadOnlyDictionary<string, decimal>? GiniCoefficients { get; set; }
+    public IReadOnlyDictionary<int, decimal>? GiniCoefficients { get; set; }
 
     [JsonPropertyName("vehicleInfo")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IVehicleInfo, VehicleInfo>))]

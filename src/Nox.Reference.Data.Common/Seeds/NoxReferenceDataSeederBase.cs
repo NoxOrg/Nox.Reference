@@ -10,7 +10,7 @@ namespace Nox.Reference.Data.Common.Seeds
          where TEntity : class, INoxReferenceEntity
          where TSource : class
     {
-        private readonly TDbContext _dbContext;
+        protected readonly TDbContext _dbContext;
         protected readonly IMapper _mapper;
         protected readonly ILogger _logger;
         protected readonly NoxReferenceFileStorageService _fileStorageService;
@@ -47,8 +47,12 @@ namespace Nox.Reference.Data.Common.Seeds
                 _fileStorageService.SaveDataToFile(infos, DataFolderPath, TargetFileName);
 
                 var entities = _mapper.Map<IEnumerable<TEntity>>(infos);
+
                 dataSet.AddRange(entities);
                 _dbContext.SaveChanges();
+
+                DoSpecialTreatAfterAdding(infos, entities);
+
                 _logger.LogInformation("End seeding {dataSet}...", typeof(TEntity).Name);
             }
             catch (Exception ex)
@@ -58,6 +62,10 @@ namespace Nox.Reference.Data.Common.Seeds
 
                 throw new NoxDataExtractorException(errorMessage);
             }
+        }
+
+        protected virtual void DoSpecialTreatAfterAdding(IEnumerable<TSource> sources, IEnumerable<TEntity> destinations)
+        {
         }
 
         protected abstract IEnumerable<TSource> GetDataInfos();

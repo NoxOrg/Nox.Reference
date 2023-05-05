@@ -36,7 +36,7 @@ public interface ICountryInfo
     ICoatOfArms CoatOfArms { get; }
     decimal Population { get; }
     IMaps Maps { get; }
-    IReadOnlyDictionary<string, decimal>? GiniCoefficients { get; }
+    IReadOnlyDictionary<int, decimal>? GiniCoefficients { get; }
     IVehicleInfo? VehicleInfo { get; }
     IPostalCodeInfo? PostalCodeInfo { get; }
     string StartOfWeek { get; }

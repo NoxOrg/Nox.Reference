@@ -8,10 +8,6 @@ using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Abstractions.TimeZones;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Configurations;
-using Nox.Reference.Data.World.Configurations.Countries;
-using Nox.Reference.Data.World.Configurations.Currencies;
-using Nox.Reference.Data.World.Configurations.VatNumbers;
 using Nox.Reference.Data.World.Entities.Cultures;
 using Nox.Reference.Data.World.Models.Cultures;
 
@@ -52,24 +48,14 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<ICountryHolidayInfo> Holidays
          => GetData<CountryHoliday, CountryHolidayInfo>();
 
-    private IQueryable<TOutput> GetData<TSource, TOutput>()
-        where TSource : class, INoxReferenceEntity
-    {
-        return Set<TSource>()
-            .AsNoTracking()
-            .AsQueryable()
-            .ProjectTo<TOutput>(_mapper.ConfigurationProvider);
-    }
-
     public IQueryable<ICultureInfo> Cultures
-        => Set<Culture>()
-             .AsQueryable()
-             .ProjectTo<CultureInfo>(_mapper.ConfigurationProvider);
+        => GetData<Culture, CultureInfo>();
 
     public IQueryable<ITimeZoneInfo> TimeZones
-        => Set<Entities.TimeZones.TimeZone>()
-             .AsQueryable()
-             .ProjectTo<Models.TimeZones.TimeZoneInfo>(_mapper.ConfigurationProvider);
+        => GetData<Entities.TimeZones.TimeZone, Models.TimeZones.TimeZoneInfo>();
+
+    public IQueryable<ICountryInfo> Countries
+        => GetData<Country, CountryInfo>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -85,5 +71,14 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         modelBuilder.ApplyConfigurationsFromAssembly(configurations);
 
         base.OnModelCreating(modelBuilder);
+    }
+
+    private IQueryable<TOutput> GetData<TSource, TOutput>()
+        where TSource : class, INoxReferenceEntity
+    {
+        return Set<TSource>()
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<TOutput>(_mapper.ConfigurationProvider);
     }
 }
