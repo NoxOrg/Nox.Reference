@@ -11,7 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230502120559_InitDatabase")]
+    [Migration("20230505141059_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />

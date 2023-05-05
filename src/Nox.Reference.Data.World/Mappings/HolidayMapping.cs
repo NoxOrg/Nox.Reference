@@ -16,10 +16,6 @@ namespace Nox.Reference.Data.World.Mappings
 
             //Out
             CreateProjection<CountryHoliday, CountryHolidayInfo>();
-            //CreateProjection<HolidayData, HolidayDataInfo>();
-            //CreateProjection<StateHoliday, StateHolidayInfo>();
-            //CreateProjection<LocalHolidayName, LocalHolidayNameInfo>();
-            //CreateProjection<RegionHoliday, RegionHolidayInfo>();
 
             CreateMap<CountryHoliday, ICountryHolidayInfo>().As<CountryHolidayInfo>();
             CreateMap<HolidayData, IHolidayData>().As<HolidayDataInfo>();
