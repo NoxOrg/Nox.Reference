@@ -52,7 +52,7 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         => GetData<Culture, CultureInfo>();
 
     public IQueryable<ITimeZoneInfo> TimeZones
-        => GetData<Entities.TimeZones.TimeZone, Models.TimeZones.TimeZoneInfo>();
+        => GetData<TimeZone, Models.TimeZones.TimeZoneInfo>();
 
     public IQueryable<ICountryInfo> Countries
         => GetData<Country, CountryInfo>();

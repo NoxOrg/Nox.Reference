@@ -25,7 +25,10 @@ internal class CountryNameTranslationSingleMapping : ITypeConverter<INativeNameI
 
         if (language == null)
         {
+            _logger.LogWarning("Language {lang} has not found.", source.Language);
+#pragma warning disable CS8603 // Possible null reference return. Method Convert is interface method. It gets the same error if it's marked as nullable
             return null;
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         destination = new CountryNameTranslation

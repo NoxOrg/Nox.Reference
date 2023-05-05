@@ -184,16 +184,6 @@ Object.entries(getCountries).map(([countryCode, countryName]) => {
 
 const data = JSON.stringify(result);
 
-    {
-    
-     ...x,
-    
-     year: yearInfo.year
-    
-    }));
-    
-    const data = JSON.stringify(newList);
-
 fs.writeFileSync(file, data);
 
 // Create a gzip function for reusable purpose

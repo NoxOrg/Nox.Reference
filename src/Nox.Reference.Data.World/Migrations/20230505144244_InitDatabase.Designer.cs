@@ -11,7 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230504122749_InitDatabase")]
+    [Migration("20230505144244_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />
@@ -828,52 +828,6 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("NumberFormat");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Data.World.Entities.TimeZones.TimeZone", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DST_TimeZoneAbbreviation")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DST_UTC_Offset")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EmbeddedComments")
-                        .HasColumnType("TEXT");
-
-                    b.Property<double?>("Latitude")
-                        .HasColumnType("REAL");
-
-                    b.Property<double?>("Longitude")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SDT_TimeZoneAbbreviation")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SDT_UTC_Offset")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TimeZone");
-                });
-
             modelBuilder.Entity("Nox.Reference.Data.World.GeoCoordinates", b =>
                 {
                     b.Property<int>("Id")
@@ -1138,6 +1092,52 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasIndex("CountryHolidayId");
 
                     b.ToTable("StateHoliday");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.TimeZone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_TimeZoneAbbreviation")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmbeddedComments")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_TimeZoneAbbreviation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TimeZone");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.TopLevelDomain", b =>

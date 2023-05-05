@@ -2,7 +2,6 @@
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Diagnostics;
-using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
 

@@ -1,7 +1,4 @@
 using System.Diagnostics;
-using System.Linq;
-using System.Text.Json;
-using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.World.Extensions.Queries;
 
 namespace Nox.Reference.Data.World.Tests;

@@ -82,7 +82,7 @@ internal class CountryInfo : ICountryInfo
 
     [JsonPropertyName("geoCoordinates")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IGeoCoordinates, GeoCoordinatesInfo>))]
-    public IGeoCoordinates? GeoCoordinates { get; set; }
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
 
     [JsonPropertyName("isLandlocked")]
     public bool IsLandlocked { get; set; }
@@ -102,18 +102,18 @@ internal class CountryInfo : ICountryInfo
 
     [JsonPropertyName("flags")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IFlags, FlagsInfo>))]
-    public IFlags? Flags { get; set; }
+    public IFlags Flags { get; set; } = new FlagsInfo();
 
     [JsonPropertyName("coatOfArms")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<ICoatOfArms, CoatOfArmsInfo>))]
-    public ICoatOfArms? CoatOfArms { get; set; }
+    public ICoatOfArms CoatOfArms { get; set; } = new CoatOfArmsInfo();
 
     [JsonPropertyName("population")]
     public decimal Population { get; set; }
 
     [JsonPropertyName("maps")]
     [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IMaps, MapsInfo>))]
-    public IMaps Maps { get; set; }
+    public IMaps Maps { get; set; } = new MapsInfo();
 
     [JsonPropertyName("giniCoefficients")]
     public IReadOnlyDictionary<int, decimal>? GiniCoefficients { get; set; }

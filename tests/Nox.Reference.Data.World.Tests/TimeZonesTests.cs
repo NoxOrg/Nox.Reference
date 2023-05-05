@@ -1,20 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Diagnostics;
-using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
 
 public class TimeZonesTests
 {
     // set during mamndatory init
-    private IWorldInfoContext _countryDbContext = null!;
-
-    private readonly JsonSerializerOptions _jsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    };
+    private IWorldInfoContext _worldDbContext = null!;
 
     [OneTimeSetUp]
     public void Setup()
@@ -24,7 +18,7 @@ public class TimeZonesTests
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        _countryDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -34,9 +28,9 @@ public class TimeZonesTests
     [Test]
     public void GetTimeZones_WithKnownGMTCode_ReturnsValidInfo()
     {
-        var info = _countryDbContext.TimeZones.Get("Europe/Vilnius");
+        var info = _worldDbContext.TimeZones.Get("Europe/Vilnius");
 
-        Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 
         Assert.Multiple(() =>
         {
