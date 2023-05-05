@@ -2,6 +2,7 @@
 {
     public interface ICountryHolidayInfo
     {
+        public int Year { get; }
         public string Country { get; }
         public string CountryName { get; }
         public string DayOff { get; }

@@ -17,6 +17,29 @@ namespace Nox.Reference.Data.World.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CountryName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DayOff")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountryHoliday");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
                 {
                     b.Property<int>("Id")
@@ -331,50 +354,39 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("NumberFormat");
                 });
 
-            modelBuilder.Entity("Nox.Reference.Data.World.Entities.TimeZones.TimeZone", b =>
+            modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
+                    b.Property<int?>("CountryHolidayId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DST_TimeZoneAbbreviation")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DST_UTC_Offset")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("RegionHolidayId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("EmbeddedComments")
-                        .HasColumnType("TEXT");
-
-                    b.Property<double?>("Latitude")
-                        .HasColumnType("REAL");
-
-                    b.Property<double?>("Longitude")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SDT_TimeZoneAbbreviation")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SDT_UTC_Offset")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("StateHolidayId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TimeZone");
+                    b.HasIndex("CountryHolidayId");
+
+                    b.HasIndex("RegionHolidayId");
+
+                    b.HasIndex("StateHolidayId");
+
+                    b.ToTable("HolidayData");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
@@ -441,6 +453,28 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("LanguageTranslation");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.LocalHolidayName", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("HolidayDataId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Language")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HolidayDataId");
+
+                    b.ToTable("LocalHolidayName");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
                 {
                     b.Property<int>("Id")
@@ -480,6 +514,100 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MinorCurrencyUnit");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.RegionHoliday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RegionName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("StateHolidayId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StateHolidayId");
+
+                    b.ToTable("RegionHoliday");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.StateHoliday", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CountryHolidayId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StateName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryHolidayId");
+
+                    b.ToTable("StateHoliday");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.TimeZone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_TimeZoneAbbreviation")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("DST_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmbeddedComments")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_TimeZoneAbbreviation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT_UTC_Offset")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TimeZone");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>
@@ -615,11 +743,47 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Culture");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.CountryHoliday", null)
+                        .WithMany("Holidays")
+                        .HasForeignKey("CountryHolidayId");
+
+                    b.HasOne("Nox.Reference.Data.World.RegionHoliday", null)
+                        .WithMany("Holidays")
+                        .HasForeignKey("RegionHolidayId");
+
+                    b.HasOne("Nox.Reference.Data.World.StateHoliday", null)
+                        .WithMany("Holidays")
+                        .HasForeignKey("StateHolidayId");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.Language", null)
                         .WithMany("NameTranslations")
                         .HasForeignKey("LanguageId");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.LocalHolidayName", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.HolidayData", null)
+                        .WithMany("LocalNames")
+                        .HasForeignKey("HolidayDataId");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.RegionHoliday", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.StateHoliday", null)
+                        .WithMany("Regions")
+                        .HasForeignKey("StateHolidayId");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.StateHoliday", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.CountryHoliday", null)
+                        .WithMany("States")
+                        .HasForeignKey("CountryHolidayId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
@@ -657,6 +821,13 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Checksum");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
+                {
+                    b.Navigation("Holidays");
+
+                    b.Navigation("States");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
                     b.Navigation("Frequent");
@@ -673,9 +844,26 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>
+                {
+                    b.Navigation("LocalNames");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
                 {
                     b.Navigation("NameTranslations");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.RegionHoliday", b =>
+                {
+                    b.Navigation("Holidays");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.StateHoliday", b =>
+                {
+                    b.Navigation("Holidays");
+
+                    b.Navigation("Regions");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>

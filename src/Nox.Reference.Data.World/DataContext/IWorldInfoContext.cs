@@ -7,8 +7,9 @@ namespace Nox.Reference.Data.World;
 public interface IWorldInfoContext
 {
     IQueryable<ICurrencyInfo> Currencies { get; }
-    IQueryable<ICultureInfo> Cultures { get; }
-    IQueryable<ITimeZoneInfo> TimeZones { get; }
     IQueryable<ILanguageInfo> Languages { get; }
     IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions { get; }
+    IQueryable<ICountryHolidayInfo> Holidays { get; }
+    IQueryable<ICultureInfo> Cultures { get; }
+    IQueryable<ITimeZoneInfo> TimeZones { get; }
 }

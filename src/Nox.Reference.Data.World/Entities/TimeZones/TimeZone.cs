@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.World.Entities.TimeZones;
+namespace Nox.Reference.Data.World;
 
 internal class TimeZone : INoxReferenceEntity
 {
