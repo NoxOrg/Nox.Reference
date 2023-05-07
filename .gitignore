@@ -35,7 +35,7 @@ bld/
 [Ll]ogs/
 
 #Ignore html files from Cultures input
-data\input\source\Cultures\
+data/input/source/Cultures/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
