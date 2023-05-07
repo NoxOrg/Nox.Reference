@@ -1,6 +1,4 @@
-﻿using Nox.Reference.Abstractions.Shared;
-
-namespace Nox.Reference.Abstractions.TimeZones
+﻿namespace Nox.Reference.Abstractions.TimeZones
 {
     public interface ITimeZoneInfo
     {

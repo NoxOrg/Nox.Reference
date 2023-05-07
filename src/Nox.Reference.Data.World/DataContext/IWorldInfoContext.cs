@@ -12,4 +12,5 @@ public interface IWorldInfoContext
     IQueryable<ICountryHolidayInfo> Holidays { get; }
     IQueryable<ICultureInfo> Cultures { get; }
     IQueryable<ITimeZoneInfo> TimeZones { get; }
+    IQueryable<ICountryInfo> Countries { get; }
 }

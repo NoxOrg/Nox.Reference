@@ -1,8 +1,6 @@
-﻿using Nox.Reference.Abstractions.Shared;
-
-namespace Nox.Reference.Abstractions;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface ICapitalInfo
 {
-    public IGeoCoordinates GeoCoordinates { get; }
+    IGeoCoordinates GeoCoordinates { get; }
 }

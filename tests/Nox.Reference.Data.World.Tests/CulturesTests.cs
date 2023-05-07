@@ -8,7 +8,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class CulturesTests
 {
     // set during mamndatory init
-    private IWorldInfoContext _countryDbContext = null!;
+    private IWorldInfoContext _worldDbContext = null!;
 
     [OneTimeSetUp]
     public void Setup()
@@ -18,7 +18,7 @@ public class CulturesTests
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        _countryDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -28,7 +28,7 @@ public class CulturesTests
     [Test]
     public void GetCultures_WithKnownEnglishCode_ReturnsValidInfo()
     {
-        var info = _countryDbContext.Cultures.Get("en-US");
+        var info = _worldDbContext.Cultures.Get("en-US");
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 

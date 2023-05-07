@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Shared;
 
 namespace Nox.Reference.Data.World;
 
@@ -104,7 +103,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public IReadOnlyList<decimal> LatLong { get; set; } = null!;
 
     [JsonPropertyName("geoCoordinates")]
-    public IGeoCoordinates GeoCoordinates { get; set; } = null!;
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
 
     [JsonPropertyName("landlocked")]
     public bool IsLandlocked { get; set; }
@@ -152,10 +151,10 @@ public class RestcountryCountryInfo : ICountryInfo
     public IMaps Maps => Maps1;
 
     [JsonPropertyName("gini")]
-    public Dictionary<string, decimal>? GiniCoefficients_ { get; set; }
+    public Dictionary<int, decimal>? GiniCoefficients_ { get; set; }
 
     [JsonIgnore]
-    public IReadOnlyDictionary<string, decimal>? GiniCoefficients => GiniCoefficients_;
+    public IReadOnlyDictionary<int, decimal>? GiniCoefficients => GiniCoefficients_;
 
     [JsonPropertyName("car")]
     public RestcountryVehicleInfo? VehicleInfo_ { get; set; }

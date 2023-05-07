@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World.Configurations.Countries;
@@ -9,35 +8,82 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
     protected override void DoConfigure(EntityTypeBuilder<Country> builder)
     {
         builder
-            .HasMany(x => x.Languages)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasOne(x => x.Dialing)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.CoatOfArms)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.GeoCoordinates)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.Flag)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.Maps)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.Vehicle)
+            .WithMany();
+
+        builder
+            .HasOne(x => x.PostalCode)
+            .WithMany();
 
         builder
             .HasMany(x => x.TopLevelDomains)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithMany();
 
         builder
-            .HasOne(x => x.Capital)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+            .Ignore(x => x.Capital);
 
         builder
             .HasMany(x => x.Capitals)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+            .WithOne();
 
-        builder.HasOne(x => x.Flags)
-            .WithMany()
-            .OnDelete(DeleteBehavior.Cascade);
+        builder
+            .HasOne(x => x.Names)
+            .WithMany();
 
-        builder.HasMany(x => x.TimeZones)
-            .WithMany()
-            .UsingEntity(j => j.ToTable("CountryTimeZoneInfos"));
+        builder
+            .HasMany(x => x.NameTranslations)
+            .WithOne();
 
-        builder.HasMany(x => x.Currencies)
-            .WithMany()
-            .UsingEntity(j => j.ToTable("CountryCurrencies"));
+        builder
+            .HasMany(x => x.Languages)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.Currencies)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.BorderingCountries)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.Demonyms)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.Continents)
+            .WithMany();
+
+        builder
+            .HasMany(x => x.AlternateSpellings)
+            .WithOne();
+
+        builder
+            .HasMany(x => x.NameTranslations)
+            .WithOne();
+
+        builder
+            .HasMany(x => x.GiniCoefficients)
+            .WithOne();
     }
 }

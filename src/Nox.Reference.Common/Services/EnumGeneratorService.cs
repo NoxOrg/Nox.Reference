@@ -26,6 +26,7 @@ public static class EnumGeneratorService
         }
         sb.Remove(sb.Length - 1, 1);
         sb.AppendLine("}");
+        sb.Append("\r\n");
         var filePath = ResolveFilePath(enumNameSpace, enumName);
         File.WriteAllText(filePath, sb.ToString().Trim());
     }
