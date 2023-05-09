@@ -7,7 +7,7 @@
     <PackageId>Nox.Reference.Data.World</PackageId>
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
     <FileVersion>1.0.4.0</FileVersion>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.4.0</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -17,6 +17,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageIcon>nox.png</PackageIcon>
     <Description>Nox Reference World data context</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -27,13 +28,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Database\NoxReference.World.db" />
+    <Resource Include="Database\NoxReference.World.db" Pack="true" PackagePath="Database">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Database\NoxReference.World.db">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <Content Include="Nox.Reference.Data.World.targets" PackagePath="build/Nox.Reference.Data.World.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Database\NoxReference.World.db" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

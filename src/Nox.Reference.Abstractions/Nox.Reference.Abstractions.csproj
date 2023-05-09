@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Abstractions</PackageId>
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <PackageVersion>1.0.4</PackageVersion>
-    <Authors>Andre Sharpe, Jan Schutte</Authors>
+    <PackageVersion>1.0.4.0</PackageVersion>
+    <PackageVersion>1.0.4.0</PackageVersion>
+    <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
     <PackageProjectUrl>https://github.com/NoxOrg/Nox.Reference</PackageProjectUrl>
@@ -15,7 +15,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>nox.png</PackageIcon>
-    <Description>Phone number info utilities</Description>
+    <Description>Basic shared abstractions</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
