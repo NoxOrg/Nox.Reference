@@ -26,7 +26,6 @@ public class CountryInfoTests
     public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
     {
         var info = _worldDbContext.Countries.Get("ZAF")!;
-
         Assert.Multiple(() =>
         {
             Assert.That(info, Is.Not.Null);

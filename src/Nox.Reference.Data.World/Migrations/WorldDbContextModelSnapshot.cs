@@ -127,6 +127,25 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("AlternateSpelling");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.CarrierPhoneNumber", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PhoneCarrierId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PhoneCarrierId");
+
+                    b.ToTable("CarrierPhoneNumber");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.CoatOfArms", b =>
                 {
                     b.Property<int>("Id")
@@ -1026,6 +1045,21 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("MinorCurrencyUnit");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.PhoneCarrier", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhoneCarrier");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.PostalCode", b =>
                 {
                     b.Property<int>("Id")
@@ -1307,6 +1341,17 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany("AlternateSpellings")
                         .HasForeignKey("CountryId");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CarrierPhoneNumber", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.PhoneCarrier", "PhoneCarrier")
+                        .WithMany("PhoneNumberCarriers")
+                        .HasForeignKey("PhoneCarrierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PhoneCarrier");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Country", b =>
@@ -1621,6 +1666,11 @@ namespace Nox.Reference.Data.World.Migrations
             modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
                 {
                     b.Navigation("NameTranslations");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.PhoneCarrier", b =>
+                {
+                    b.Navigation("PhoneNumberCarriers");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.RegionHoliday", b =>
