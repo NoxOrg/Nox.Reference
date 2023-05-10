@@ -22,19 +22,16 @@
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <None Remove="noxReferenceSettings.json" />
+    <None Include="noxReferenceSettings.json" Pack="true" PackagePath="Config/">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Nox.Reference.Common.targets" PackagePath="build/Nox.Reference.Common.targets" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="noxReferenceSettings.json" Pack="true"  PackagePath="noxReferenceSettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

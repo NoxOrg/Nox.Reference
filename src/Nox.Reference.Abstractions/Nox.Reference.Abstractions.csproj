@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Abstractions</PackageId>
     <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <PackageVersion>1.0.4.0</PackageVersion>
+    <FileVersion>1.0.4.0</FileVersion>
     <PackageVersion>1.0.4.0</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>

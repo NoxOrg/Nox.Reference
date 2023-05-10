@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Resource Include="Database\NoxReference.World.db" Pack="true" PackagePath="Database">
+    <Resource Include="NoxReferenceDatabase\NoxReference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -36,10 +36,6 @@
 
   <ItemGroup>
     <Content Include="Nox.Reference.Data.World.targets" PackagePath="build/Nox.Reference.Data.World.targets" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Database\NoxReference.World.db" />
   </ItemGroup>
 
   <ItemGroup>
