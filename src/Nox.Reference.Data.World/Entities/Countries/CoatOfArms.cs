@@ -1,7 +1,11 @@
-﻿namespace Nox.Reference.Data.World;
+﻿using Nox.Reference.Data.Common;
 
-internal class CoatOfArms
+namespace Nox.Reference.Data.World;
+
+internal class CoatOfArms : INoxReferenceEntity
 {
+    public int Id { get; private set; }
     public string Svg { get; set; } = string.Empty;
+
     public string Png { get; set; } = string.Empty;
 }

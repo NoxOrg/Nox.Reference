@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
 using System.Text.Json;
@@ -8,13 +9,13 @@ using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryInfo, Country>
+internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, ICountryInfo, Country>
 {
     private readonly IConfiguration _configuration;
 
     public CountryDataSeeder(
         IConfiguration configuration,
-        Mapper mapper,
+        IMapper mapper,
         WorldDbContext dbContext,
         ILogger<CountryDataSeeder> logger,
         NoxReferenceFileStorageService fileStorageService)
@@ -26,7 +27,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     public override string TargetFileName => "Nox.Reference.Countries.json";
     public override string DataFolderPath => "Countries";
 
-    protected override IEnumerable<CountryInfo> GetDataInfos()
+    protected override IEnumerable<ICountryInfo> GetDataInfos()
     {
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
         var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
@@ -44,8 +45,26 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         FixTranslation(_configuration, countries);
 
         return countries
-                .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                .Cast<CountryInfo>();
+                   .Where(c => !string.IsNullOrEmpty(c.NumericCode))
+                   .Cast<ICountryInfo>();
+    }
+
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<ICountryInfo> sources, IEnumerable<Country> destinations)
+    {
+        base.DoSpecialTreatAfterAdding(sources, destinations);
+
+        foreach (var source in sources)
+        {
+            var countryEntity = destinations.First(x => x.Code == source.Code);
+            countryEntity.BorderingCountries = destinations
+                .Where(x => source.BorderingCountries.Contains(x.Code))
+                .ToList();
+        }
+
+        _dbContext.Set<Country>()
+            .UpdateRange(destinations);
+
+        _dbContext.SaveChanges();
     }
 
     private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)

@@ -1,5 +1,5 @@
 ﻿using GeoTimeZone;
-using Nox.Reference.Abstractions.Shared;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.TimeZones;
 
 namespace Nox.Reference.Data.World.Services.TimeZones

@@ -1,90 +1,137 @@
 ﻿using System.Text.Json.Serialization;
 using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Shared;
+using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.World;
 
 internal class CountryInfo : ICountryInfo
 {
-    [JsonPropertyName("id")] public string Id_ { get; set; } = string.Empty;
-    [JsonPropertyName("name")] public string Name_ { get; set; } = string.Empty;
-    [JsonPropertyName("code")] public string Code_ { get; set; } = string.Empty;
-    [JsonPropertyName("languages")] public IReadOnlyList<string> Languages_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("names")] public CountryNames Names_ { get; set; } = null!;
-    [JsonPropertyName("topLevelDomains")] public IReadOnlyList<string> TopLevelDomains_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("alphaCode2")] public string AlphaCode2_ { get; set; } = string.Empty;
-    [JsonPropertyName("numericCode")] public string NumericCode_ { get; set; } = string.Empty;
-    [JsonPropertyName("alphaCode3")] public string AlphaCode3_ { get; set; } = string.Empty;
-    [JsonPropertyName("olympicCommitteeCode")] public string OlympicCommitteeCode_ { get; set; } = string.Empty;
-    [JsonPropertyName("fifaCode")] public string FifaCode_ { get; set; } = string.Empty;
-    [JsonPropertyName("fipsCode")] public string FipsCode_ { get; set; } = string.Empty;
-    [JsonPropertyName("isIndependent")] public bool IsIndependent_ { get; set; }
-    [JsonPropertyName("codeAssignedStatus")] public string CodeAssignedStatus_ { get; set; } = string.Empty;
-    [JsonPropertyName("isUnitedNationsMember")] public bool IsUnitedNationsMember_ { get; set; }
-    [JsonPropertyName("currencies")] public IReadOnlyList<string> Currencies_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("dialingInfo")] public DialingInfo DialingInfo_ { get; set; } = null!;
-    [JsonPropertyName("capitals")] public IReadOnlyList<string> Capitals_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("capitalInfo")] public CapitalInfo CapitalInfo_ { get; set; } = null!;
-    [JsonPropertyName("alternateSpellings")] public IReadOnlyList<string> AlternateSpellings_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("region")] public string Region_ { get; set; } = string.Empty;
-    [JsonPropertyName("subRegion")] public string SubRegion_ { get; set; } = string.Empty;
-    [JsonPropertyName("continents")] public IReadOnlyList<string> Continents_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("nameTranslations")] public IReadOnlyList<NativeNameInfo> NameTranslations_ { get; set; } = Array.Empty<NativeNameInfo>();
-    [JsonPropertyName("geoCoordinates")] public GeoCoordinatesInfo GeoCoordinates_ { get; set; } = new GeoCoordinatesInfo();
-    [JsonPropertyName("isLandlocked")] public bool IsLandlocked_ { get; set; }
-    [JsonPropertyName("borderingCountries")] public IReadOnlyList<string> BorderingCountries_ { get; set; } = Array.Empty<string>();
-    [JsonPropertyName("landAreaInSquareKilometers")] public decimal LandAreaInSquareKilometers_ { get; set; }
-    [JsonPropertyName("emojiFlag")] public string EmojiFlag_ { get; set; } = string.Empty;
-    [JsonPropertyName("demonyms")] public IReadOnlyList<DemonymnInfo> Demonyms_ { get; set; } = Array.Empty<DemonymnInfo>();
-    [JsonPropertyName("flags")] public FlagsInfo Flags_ { get; set; } = null!;
-    [JsonPropertyName("coatOfArms")] public CoatOfArmsInfo CoatOfArms_ { get; set; } = null!;
-    [JsonPropertyName("population")] public decimal Population_ { get; set; }
-    [JsonPropertyName("maps")] public MapsInfo Maps_ { get; set; } = null!;
-    [JsonPropertyName("giniCoefficients")] public Dictionary<string, decimal>? GiniCoefficients_ { get; set; }
-    [JsonPropertyName("vehicleInfo")] public VehicleInfo VehicleInfo_ { get; set; } = null!;
-    [JsonPropertyName("postalCodeInfo")] public PostalCodeInfo PostalCodeInfo_ { get; set; } = null!;
-    [JsonPropertyName("startOfWeek")] public string StartOfWeek_ { get; set; } = string.Empty;
-    [JsonPropertyName("startDayOfWeek")] public DayOfWeek StartDayOfWeek_ { get; set; }
-    [JsonPropertyName("timeZones")] public IReadOnlyList<string> TimeZones_ { get; set; } = Array.Empty<string>();
+    [JsonPropertyName("id")]
+    public string Id { get; set; } = string.Empty;
 
-    [JsonIgnore] public string Id => Id_;
-    [JsonIgnore] public string Name => Name_;
-    [JsonIgnore] public string Code => Code_;
-    [JsonIgnore] public IReadOnlyList<string> Languages => Languages_;
-    [JsonIgnore] public ICountryNames Names => Names_;
-    [JsonIgnore] public IReadOnlyList<string> TopLevelDomains => TopLevelDomains_;
-    [JsonIgnore] public string AlphaCode2 => AlphaCode2_;
-    [JsonIgnore] public string NumericCode => NumericCode_;
-    [JsonIgnore] public string AlphaCode3 => AlphaCode3_;
-    [JsonIgnore] public string OlympicCommitteeCode => OlympicCommitteeCode_;
-    [JsonIgnore] public string FifaCode => FifaCode_;
-    [JsonIgnore] public string FipsCode => FipsCode_;
-    [JsonIgnore] public bool? IsIndependent => IsIndependent_;
-    [JsonIgnore] public string CodeAssignedStatus => CodeAssignedStatus_;
-    [JsonIgnore] public bool IsUnitedNationsMember => IsUnitedNationsMember_;
-    [JsonIgnore] public IReadOnlyList<string>? Currencies => Currencies_;
-    [JsonIgnore] public IDialingInfo? DialingInfo => DialingInfo_;
-    [JsonIgnore] public IReadOnlyList<string> Capitals => Capitals_;
-    [JsonIgnore] public ICapitalInfo? CapitalInfo => CapitalInfo_;
-    [JsonIgnore] public IReadOnlyList<string> AlternateSpellings => AlternateSpellings_;
-    [JsonIgnore] public string Region => Region_;
-    [JsonIgnore] public string SubRegion => SubRegion_;
-    [JsonIgnore] public IReadOnlyList<string> Continents => Continents_;
-    [JsonIgnore] public IReadOnlyList<INativeNameInfo>? NameTranslations => NameTranslations_;
-    [JsonIgnore] public IGeoCoordinates GeoCoordinates => GeoCoordinates_;
-    [JsonIgnore] public bool IsLandlocked => IsLandlocked_;
-    [JsonIgnore] public IReadOnlyList<string> BorderingCountries => BorderingCountries_;
-    [JsonIgnore] public decimal LandAreaInSquareKilometers => LandAreaInSquareKilometers_;
-    [JsonIgnore] public string EmojiFlag => EmojiFlag_;
-    [JsonIgnore] public IReadOnlyList<IDemonymn>? Demonyms => Demonyms_;
-    [JsonIgnore] public IFlags Flags => Flags_;
-    [JsonIgnore] public ICoatOfArms CoatOfArms => CoatOfArms_;
-    [JsonIgnore] public decimal Population => Population_;
-    [JsonIgnore] public IMaps Maps => Maps_;
-    [JsonIgnore] public IReadOnlyDictionary<string, decimal>? GiniCoefficients => GiniCoefficients_;
-    [JsonIgnore] public IVehicleInfo? VehicleInfo => VehicleInfo_;
-    [JsonIgnore] public IPostalCodeInfo? PostalCodeInfo => PostalCodeInfo_;
-    [JsonIgnore] public string StartOfWeek => StartOfWeek_;
-    [JsonIgnore] public DayOfWeek StartDayOfWeek => StartDayOfWeek_;
-    [JsonIgnore] public IReadOnlyList<string> TimeZones => TimeZones_;
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
+
+    [JsonPropertyName("code")]
+    public string Code { get; set; } = string.Empty;
+
+    [JsonPropertyName("languages")]
+    public IReadOnlyList<string> Languages { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("names")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<ICountryNames, CountryNamesInfo>))]
+    public ICountryNames Names { get; set; } = new CountryNamesInfo();
+
+    [JsonPropertyName("topLevelDomains")]
+    public IReadOnlyList<string> TopLevelDomains { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("alphaCode2")]
+    public string AlphaCode2 { get; set; } = string.Empty;
+
+    [JsonPropertyName("numericCode")]
+    public string NumericCode { get; set; } = string.Empty;
+
+    [JsonPropertyName("alphaCode3")]
+    public string AlphaCode3 { get; set; } = string.Empty;
+
+    [JsonPropertyName("olympicCommitteeCode")]
+    public string OlympicCommitteeCode { get; set; } = string.Empty;
+
+    [JsonPropertyName("fifaCode")]
+    public string FifaCode { get; set; } = string.Empty;
+
+    [JsonPropertyName("fipsCode")]
+    public string FipsCode { get; set; } = string.Empty;
+
+    [JsonPropertyName("isIndependent")]
+    public bool? IsIndependent { get; set; }
+
+    [JsonPropertyName("codeAssignedStatus")]
+    public string CodeAssignedStatus { get; set; } = string.Empty;
+
+    [JsonPropertyName("isUnitedNationsMember")]
+    public bool IsUnitedNationsMember { get; set; }
+
+    [JsonPropertyName("currencies")]
+    public IReadOnlyList<string> Currencies { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("dialingInfo")]
+    public IDialingInfo? DialingInfo { get; set; }
+
+    [JsonPropertyName("capitals")]
+    public IReadOnlyList<string> Capitals { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("capitalInfo")]
+    public ICapitalInfo CapitalInfo { get; set; } = new CapitalInfo();
+
+    [JsonPropertyName("alternateSpellings")]
+    public IReadOnlyList<string> AlternateSpellings { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("region")]
+    public string Region { get; set; } = string.Empty;
+
+    [JsonPropertyName("subRegion")]
+    public string SubRegion { get; set; } = string.Empty;
+
+    [JsonPropertyName("continents")]
+    public IReadOnlyList<string> Continents { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("nameTranslations")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<INativeNameInfo>, NativeNameInfo[]>))]
+    public IReadOnlyList<INativeNameInfo> NameTranslations { get; set; } = Array.Empty<NativeNameInfo>();
+
+    [JsonPropertyName("geoCoordinates")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IGeoCoordinates, GeoCoordinatesInfo>))]
+    public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
+
+    [JsonPropertyName("isLandlocked")]
+    public bool IsLandlocked { get; set; }
+
+    [JsonPropertyName("borderingCountries")]
+    public IReadOnlyList<string> BorderingCountries { get; set; } = Array.Empty<string>();
+
+    [JsonPropertyName("landAreaInSquareKilometers")]
+    public decimal LandAreaInSquareKilometers { get; set; }
+
+    [JsonPropertyName("emojiFlag")]
+    public string EmojiFlag { get; set; } = string.Empty;
+
+    [JsonPropertyName("demonyms")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<IDemonymn>, DemonymnInfo[]>))]
+    public IReadOnlyList<IDemonymn> Demonyms { get; set; } = Array.Empty<DemonymnInfo>();
+
+    [JsonPropertyName("flags")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IFlags, FlagsInfo>))]
+    public IFlags Flags { get; set; } = new FlagsInfo();
+
+    [JsonPropertyName("coatOfArms")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<ICoatOfArms, CoatOfArmsInfo>))]
+    public ICoatOfArms CoatOfArms { get; set; } = new CoatOfArmsInfo();
+
+    [JsonPropertyName("population")]
+    public decimal Population { get; set; }
+
+    [JsonPropertyName("maps")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IMaps, MapsInfo>))]
+    public IMaps Maps { get; set; } = new MapsInfo();
+
+    [JsonPropertyName("giniCoefficients")]
+    public IReadOnlyDictionary<int, decimal>? GiniCoefficients { get; set; }
+
+    [JsonPropertyName("vehicleInfo")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IVehicleInfo, VehicleInfo>))]
+    public IVehicleInfo? VehicleInfo { get; set; }
+
+    [JsonPropertyName("postalCodeInfo")]
+    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IPostalCodeInfo, PostalCodeInfo>))]
+    public IPostalCodeInfo? PostalCodeInfo { get; set; }
+
+    [JsonPropertyName("startOfWeek")]
+    public string StartOfWeek { get; set; } = string.Empty;
+
+    [JsonPropertyName("startDayOfWeek")]
+    public DayOfWeek StartDayOfWeek { get; set; }
+
+    [JsonPropertyName("timeZones")]
+    public IReadOnlyList<string> TimeZones { get; set; } = Array.Empty<string>();
 }

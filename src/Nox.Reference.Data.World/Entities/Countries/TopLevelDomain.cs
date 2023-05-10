@@ -1,10 +1,9 @@
 ﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.World
+namespace Nox.Reference.Data.World;
+
+internal class TopLevelDomain : INoxReferenceEntity
 {
-    internal class TopLevelDomain : INoxReferenceEntity
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-    }
+    public int Id { get; private set; }
+    public string Name { get; set; } = string.Empty;
 }

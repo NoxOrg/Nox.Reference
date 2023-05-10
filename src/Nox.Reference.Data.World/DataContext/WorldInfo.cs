@@ -38,9 +38,15 @@ public static class WorldInfo
     public static IQueryable<ILanguageInfo> Languages
         => DbContext.Languages;
 
-    private static IWorldInfoContext DbContext
-        => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
+    public static IQueryable<ICountryHolidayInfo> Holidays
+        => DbContext.Holidays;
 
     public static IQueryable<ICultureInfo> Cultures
         => DbContext.Cultures;
+
+    public static IQueryable<ICountryInfo> Countries
+        => DbContext.Countries;
+
+    private static IWorldInfoContext DbContext
+        => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
 }

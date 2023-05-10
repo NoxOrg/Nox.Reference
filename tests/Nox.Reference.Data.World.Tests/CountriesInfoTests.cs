@@ -1,42 +1,45 @@
-//using System.Diagnostics;
-//using System.Text.Json;
+using System.Diagnostics;
+using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Common;
+using Nox.Reference.Data.World.Extensions.Queries;
 
-//namespace Nox.Reference.Data.World.Tests;
+namespace Nox.Reference.Data.World.Tests;
 
-//public class CountryInfoTests
-//{
-//    private readonly JsonSerializerOptions _jsonOptions = new()
-//    {
-//        WriteIndented = true,
-//        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-//    };
+public class CountryInfoTests
+{
+    private IWorldInfoContext _worldDbContext = null!;
 
-//    [OneTimeSetUp]
-//    public void Setup()
-//    {
-//        Trace.Listeners.Add(new ConsoleTraceListener());
-//    }
+    [OneTimeSetUp]
+    public void Setup()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddWorldContext();
 
-//    [Test]
-//    public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
-//    {
-//        ICountriesService countryService = new CountriesService();
+        var serviceProvider = serviceCollection.BuildServiceProvider();
 
-//        ICountryInfo? info = countryService?.GetCountries()?.First(c => c.Code.Equals("ZAF"));
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
-//        Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+        Trace.Listeners.Add(new ConsoleTraceListener());
+    }
 
-//        Assert.Multiple(() =>
-//        {
-//            Assert.That(info, Is.Not.Null);
-//            Assert.That(info?.Code, Is.EqualTo("ZAF"));
-//        });
+    [Test]
+    public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
+    {
+        var info = _worldDbContext.Countries.Get("ZAF")!;
 
-//    }
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 
-//    [TearDown]
-//    public void EndTest()
-//    {
-//        Trace.Flush();
-//    }
-//}
+        Assert.Multiple(() =>
+        {
+            Assert.That(info, Is.Not.Null);
+            Assert.That(info.Code, Is.EqualTo("ZAF"));
+            Assert.That(info.Languages, Is.Not.Empty);
+        });
+    }
+
+    [TearDown]
+    public void EndTest()
+    {
+        Trace.Flush();
+    }
+}

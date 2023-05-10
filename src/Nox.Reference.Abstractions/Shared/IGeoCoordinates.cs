@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions.Shared;
+﻿namespace Nox.Reference.Abstractions;
 
 public interface IGeoCoordinates
 {

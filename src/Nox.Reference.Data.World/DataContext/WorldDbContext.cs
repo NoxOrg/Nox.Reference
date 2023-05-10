@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Reflection;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -6,7 +7,7 @@ using Nox.Reference.Abstractions;
 using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Abstractions.TimeZones;
 using Nox.Reference.Common;
-using Nox.Reference.Data.World.Configurations;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Entities.Cultures;
 using Nox.Reference.Data.World.Models.Cultures;
 
@@ -36,32 +37,25 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     }
 
     public IQueryable<ICurrencyInfo> Currencies
-        => Set<Currency>()
-             .AsNoTracking()
-             .AsQueryable()
-             .ProjectTo<CurrencyInfo>(_mapper.ConfigurationProvider);
+        => GetData<Currency, CurrencyInfo>();
 
     public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
-         => Set<VatNumberDefinition>()
-            .AsNoTracking()
-            .AsQueryable()
-            .ProjectTo<VatNumberDefinitionInfo>(_mapper.ConfigurationProvider);
+         => GetData<VatNumberDefinition, VatNumberDefinitionInfo>();
 
     public IQueryable<ILanguageInfo> Languages
-         => Set<Language>()
-            .AsNoTracking()
-            .AsQueryable()
-            .ProjectTo<LanguageInfo>(_mapper.ConfigurationProvider);
+         => GetData<Language, LanguageInfo>();
+
+    public IQueryable<ICountryHolidayInfo> Holidays
+         => GetData<CountryHoliday, CountryHolidayInfo>();
 
     public IQueryable<ICultureInfo> Cultures
-        => Set<Culture>()
-             .AsQueryable()
-             .ProjectTo<CultureInfo>(_mapper.ConfigurationProvider);
+        => GetData<Culture, CultureInfo>();
 
     public IQueryable<ITimeZoneInfo> TimeZones
-        => Set<Entities.TimeZones.TimeZone>()
-             .AsQueryable()
-             .ProjectTo<Models.TimeZones.TimeZoneInfo>(_mapper.ConfigurationProvider);
+        => GetData<TimeZone, Models.TimeZones.TimeZoneInfo>();
+
+    public IQueryable<ICountryInfo> Countries
+        => GetData<Country, CountryInfo>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -73,41 +67,18 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //IMPORTANT: Only the following line should be used to add configurations when all structure will be done.
-        //var configurations = Assembly.GetExecutingAssembly();
-
-        //modelBuilder.ApplyConfigurationsFromAssembly(configurations);
-        //modelBuilder.ApplyConfiguration(new CountryConfiguration());
-        //modelBuilder.ApplyConfiguration(new CountryLocalizationConfiguration());
-        //modelBuilder.ApplyConfiguration(new TopLevelDomainConfiguration());
-        //modelBuilder.ApplyConfiguration(new TopLevelDomainLocalizationConfiguration());
-        //modelBuilder.ApplyConfiguration(new CityConfiguration());
-
-        //modelBuilder.ApplyConfiguration(new FlagsConfiguration());
-        //modelBuilder.ApplyConfiguration(new GiniCoefficientConfiguration());
-        //modelBuilder.ApplyConfiguration(new TimeZoneInfoConfiguration());
-
-        //modelBuilder.ApplyConfiguration(new HolidayDataConfiguration());
-        modelBuilder.ApplyConfiguration(new LanguageConfiguration());
-        modelBuilder.ApplyConfiguration(new LanguageTranslationConfiguration());
-
-        modelBuilder.ApplyConfiguration(new CurrencyConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyFrequentUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new CurrencyRareUsageConfiguration());
-
-        modelBuilder.ApplyConfiguration(new MinorCurrencyUnitConfiguration());
-        modelBuilder.ApplyConfiguration(new MajorCurrencyUnitConfiguration());
-
-        modelBuilder.ApplyConfiguration(new VatNumberDefinitionConfiguration());
-        modelBuilder.ApplyConfiguration(new VatNumberValidationRuleConfiguration());
-
-        modelBuilder.ApplyConfiguration(new CultureConfiguration());
-        modelBuilder.ApplyConfiguration(new DateFormatConfiguration());
-        modelBuilder.ApplyConfiguration(new NumberFormatConfiguration());
-
-        modelBuilder.ApplyConfiguration(new TimeZoneConfiguration());
+        var configurations = Assembly.GetExecutingAssembly();
+        modelBuilder.ApplyConfigurationsFromAssembly(configurations);
 
         base.OnModelCreating(modelBuilder);
+    }
+
+    private IQueryable<TOutput> GetData<TSource, TOutput>()
+        where TSource : class, INoxReferenceEntity
+    {
+        return Set<TSource>()
+            .AsNoTracking()
+            .AsQueryable()
+            .ProjectTo<TOutput>(_mapper.ConfigurationProvider);
     }
 }
