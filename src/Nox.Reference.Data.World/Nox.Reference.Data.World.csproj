@@ -34,6 +34,13 @@
     </Resource>
   </ItemGroup>
 
+	<ItemGroup>
+		<Resource Include="NoxReferenceConfig\noxReferenceSettings.json" Pack="true" PackagePath="NoxReferenceConfig">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
   <ItemGroup>
     <Content Include="Nox.Reference.Data.World.targets" PackagePath="build/Nox.Reference.Data.World.targets" />
   </ItemGroup>

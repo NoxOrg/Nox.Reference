@@ -18,9 +18,29 @@
   <PackageIcon>nox.png</PackageIcon>
   <Description>All necessary information about Mac Addresses</Description>
 </PropertyGroup>
-<ItemGroup>
-  <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
-</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="NoxReferenceDatabase\NoxReference.Machine.db" Pack="true" PackagePath="NoxReferenceDatabase">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="NoxReferenceConfig\noxReferenceSettings.json" Pack="true" PackagePath="NoxReferenceConfig">
+			<PackageCopyToOutput>true</PackageCopyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Nox.Reference.Data.Machine.targets" PackagePath="build/Nox.Reference.Data.Machine.targets" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+	
 <ItemGroup>
   <PackageReference Include="AutoMapper" Version="12.0.1" />
   <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />

@@ -8,12 +8,12 @@ namespace Nox.Reference.Data;
 
 public static class MachineDataExtensions
 {
-    public static IServiceCollection AddMachineContext(this IServiceCollection services)
+    public static IServiceCollection AddMachineContext(this IServiceCollection services, string connectionStringKey = null)
     {
         services.AddNoxReferenceCommon();
 
         var configuration = services.GetNoxReferenceConfiguration();
-        var connectionString = configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
+        var connectionString = configuration.GetConnectionString(connectionStringKey ?? ConfigurationConstants.MachineConnectionStringName);
 
         services.AddSqlite<MachineDbContext>(connectionString);
 
