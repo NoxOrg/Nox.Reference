@@ -20,4 +20,5 @@ public static class ConfigurationConstants
     public const string TimeZoneUrl = "TimeZoneUrl";
     public const string NodaTimeUrl = "NodaTimeUrl";
     public const string HolidaysZipPathSettingName = "HolidaysZipPath";
+    public const string PhoneCarrierDataPathSettingName = "PhoneCarrierDataPath";
 }

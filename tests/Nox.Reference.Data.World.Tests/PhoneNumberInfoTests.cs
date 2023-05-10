@@ -1,32 +1,35 @@
 using System.Diagnostics;
 using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Abstractions;
+using Nox.Reference.Common;
 using Nox.Reference.PhoneNumbers;
 
 namespace Nox.Reference.Data.World.Tests;
 
 public class PhoneNumberInfoTests
 {
-    private readonly JsonSerializerOptions _jsonOptions = new()
-    {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-    };
+    private IPhoneNumberService _phoneNumberService = null!;
 
     [OneTimeSetUp]
     public void Setup()
     {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddWorldContext();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+
+        _phoneNumberService = serviceProvider.GetRequiredService<IPhoneNumberService>();
+
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
     [Test]
     public void PhoneNumberInfo_WithKnownSouthAfricanMobileNumber_ReturnsValidInfo()
     {
-        IPhoneNumberService phoneNumberService = new PhoneNumberService();
+        IPhoneNumberInfo info = _phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
 
-        IPhoneNumberInfo info = phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
-
-        Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 
         Assert.Multiple(() =>
         {

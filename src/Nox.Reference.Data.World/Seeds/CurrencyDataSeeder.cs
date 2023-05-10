@@ -74,13 +74,6 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
             currencyData.Select(x => x.Value)
             .ToList();
 
-        EnumGeneratorService.Generate(currencyInfos.Where(x => !string.IsNullOrWhiteSpace(x.Name)),
-            x => x.Name
-            .Replace(" ", "")
-            .Replace("'", "")
-            .Replace("-", "")
-            , "World", "Currencies");
-
         return currencyInfos;
     }
 }

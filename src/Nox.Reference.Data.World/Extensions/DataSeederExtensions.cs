@@ -15,6 +15,7 @@ internal static class DataSeederExtensions
         services.AddScoped<INoxReferenceDataSeeder, TimeZoneDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, HolidayDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, CountryDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, PhoneNumbersDataSeeder>();
 
         return services;
     }

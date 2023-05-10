@@ -27,6 +27,8 @@ public class CountryInfoTests
     {
         var info = _worldDbContext.Countries.Get("ZAF")!;
 
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
+
         Assert.Multiple(() =>
         {
             Assert.That(info, Is.Not.Null);
