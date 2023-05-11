@@ -34,6 +34,25 @@ public class CountryInfoTests
             Assert.That(info, Is.Not.Null);
             Assert.That(info.Code, Is.EqualTo("ZAF"));
             Assert.That(info.Languages, Is.Not.Empty);
+            Assert.That(info.NameTranslations, Is.Not.Empty);
+            Assert.That(info.Currencies, Is.Not.Empty);
+            Assert.That(info.TopLevelDomains, Is.Not.Empty);
+            Assert.That(info.Capitals, Is.Not.Empty);
+        });
+    }
+
+    [Test]
+    public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
+    {
+        var translation = _worldDbContext.Countries.Get("ZAF")!.GetTranslation("en")!;
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translation));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(translation, Is.Not.Null);
+            Assert.That(translation.OfficialName, Is.EqualTo("South Africa"));
+            Assert.That(translation.CommonName, Is.EqualTo("South Africa"));
         });
     }
 

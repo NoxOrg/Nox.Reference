@@ -60,9 +60,11 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-
         var connectionString = _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
-        optionsBuilder.UseSqlite(connectionString);
+        optionsBuilder.UseSqlite(connectionString, opts =>
+        {
+            opts.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
+        });//.LogTo(Console.WriteLine);// -- Use the following method for debug purposes
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
