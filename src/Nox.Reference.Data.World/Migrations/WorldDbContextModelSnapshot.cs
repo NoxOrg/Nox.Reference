@@ -79,13 +79,13 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("CountryLanguage", b =>
                 {
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountriesId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LanguagesId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountryId", "LanguagesId");
+                    b.HasKey("CountriesId", "LanguagesId");
 
                     b.HasIndex("LanguagesId");
 
@@ -420,7 +420,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LanguageId")
@@ -1310,7 +1310,7 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1422,15 +1422,19 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNameTranslation", b =>
                 {
-                    b.HasOne("Nox.Reference.Data.World.Country", null)
+                    b.HasOne("Nox.Reference.Data.World.Country", "Country")
                         .WithMany("NameTranslations")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Language", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Country");
 
                     b.Navigation("Language");
                 });

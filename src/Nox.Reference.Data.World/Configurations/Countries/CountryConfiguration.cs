@@ -52,11 +52,11 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
 
         builder
             .HasMany(x => x.NameTranslations)
-            .WithOne();
+            .WithOne(x => x.Country);
 
         builder
             .HasMany(x => x.Languages)
-            .WithMany();
+            .WithMany(x => x.Countries);
 
         builder
             .HasMany(x => x.Currencies)
@@ -76,10 +76,6 @@ internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Countr
 
         builder
             .HasMany(x => x.AlternateSpellings)
-            .WithOne();
-
-        builder
-            .HasMany(x => x.NameTranslations)
             .WithOne();
 
         builder

@@ -97,6 +97,13 @@ internal class CountryMapping : Profile
         CreateMap<ICountryInfo, Country>()
             .ForMember(x => x.Id, x => x.Ignore())
             .ForMember(x => x.BorderingCountries, x => x.Ignore())
+            .ForMember(x => x.NameTranslations, x => x.Ignore())
+            .ForMember(x => x.Continents, x => x.Ignore())
+            .ForMember(x => x.AlternateSpellings, x => x.Ignore())
+            .ForMember(x => x.Demonyms, x => x.Ignore())
+            .ForMember(x => x.TopLevelDomains, x => x.Ignore())
+            .ForMember(x => x.Currencies, x => x.Ignore())
+            .ForMember(x => x.Languages, x => x.Ignore())
             .ForMember(x => x.Dialing, x => x.MapFrom(t => t.DialingInfo))
             .ForMember(x => x.Flag, x => x.MapFrom(t => t.Flags))
             .ForMember(x => x.Vehicle, x => x.MapFrom(t => t.VehicleInfo))
@@ -142,27 +149,6 @@ internal class CountryMapping : Profile
 
         CreateMap<ICountryNames, CountryNames>()
             .AfterMap((s, d) => d.NativeNames = d.NativeNames.Where(f => f != null).ToList());
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Language>>()
-            .ConvertUsing<LanguageMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Currency>>()
-            .ConvertUsing<CurrencyMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<TopLevelDomain>>()
-            .ConvertUsing<TopLevelDomainMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<AlternateSpelling>>()
-            .ConvertUsing<AlternateSpellingMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Continent>>()
-            .ConvertUsing<ContinentMappingResolver>();
-
-        CreateMap<IReadOnlyList<IDemonymn>, IReadOnlyList<Demonymn>>()
-            .ConvertUsing<DemonymnMappingResolver>();
-
-        CreateMap<IReadOnlyList<INativeNameInfo>, IReadOnlyList<CountryNameTranslation>>()
-            .ConvertUsing<CountryNameTranslationMappingResolver>();
 
         CreateMap<IReadOnlyDictionary<int, decimal>, IReadOnlyList<GiniCoefficient>>()
             .ConstructUsing(x => x.Keys.Select(t => new GiniCoefficient

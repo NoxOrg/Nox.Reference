@@ -834,15 +834,15 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryLanguage",
                 columns: table => new
                 {
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountriesId = table.Column<int>(type: "INTEGER", nullable: false),
                     LanguagesId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryLanguage", x => new { x.CountryId, x.LanguagesId });
+                    table.PrimaryKey("PK_CountryLanguage", x => new { x.CountriesId, x.LanguagesId });
                     table.ForeignKey(
-                        name: "FK_CountryLanguage_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryLanguage_Country_CountriesId",
+                        column: x => x.CountriesId,
                         principalTable: "Country",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -860,10 +860,10 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
                     LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
                     OfficialName = table.Column<string>(type: "TEXT", nullable: false),
-                    CommonName = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CommonName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -872,7 +872,8 @@ namespace Nox.Reference.Data.World.Migrations
                         name: "FK_CountryNameTranslation_Country_CountryId",
                         column: x => x.CountryId,
                         principalTable: "Country",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CountryNameTranslation_Language_LanguageId",
                         column: x => x.LanguageId,

@@ -57,6 +57,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<ICountryInfo> Countries
         => GetData<Country, CountryInfo>();
 
+    public IQueryable<INativeNameInfo> CountryNameTranslations
+        => GetData<CountryNameTranslation, INativeNameInfo>();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);

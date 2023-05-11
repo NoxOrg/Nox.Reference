@@ -1,4 +1,5 @@
-﻿using Nox.Reference.Abstractions;
+﻿using System.Collections.Generic;
+using Nox.Reference.Abstractions;
 using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
@@ -16,4 +17,5 @@ internal class Language : INoxReferenceEntity
     public LanguageScope Scope { get; set; }
     public IList<LanguageTranslation> NameTranslations { get; set; } = new List<LanguageTranslation>();
     public string? WikiUrl { get; set; }
+    public IReadOnlyList<Country> Countries { get; private set; } = null!;
 }
