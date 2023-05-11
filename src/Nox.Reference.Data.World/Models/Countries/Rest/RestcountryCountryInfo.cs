@@ -50,10 +50,10 @@ public class RestcountryCountryInfo : ICountryInfo
     public bool IsUnitedNationsMember { get; set; } = true;
 
     [JsonPropertyName("currencies")]
-    public Dictionary<string, RestcountryCurrencyInfo>? Currencies1 { get; set; }
+    public Dictionary<string, RestcountryCurrencyInfo> Currencies1 { get; set; } = new Dictionary<string, RestcountryCurrencyInfo>();
 
     [JsonIgnore]
-    public IReadOnlyList<string> Currencies => Currencies1?.Select(kv => kv.Key).ToList();
+    public IReadOnlyList<string> Currencies => Currencies1.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("idd")]
     public RestcountryDialingInfo? DialingInfo_ { get; set; }
