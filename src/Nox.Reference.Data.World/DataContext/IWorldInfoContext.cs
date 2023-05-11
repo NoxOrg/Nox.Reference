@@ -13,4 +13,5 @@ public interface IWorldInfoContext
     IQueryable<ICultureInfo> Cultures { get; }
     IQueryable<ITimeZoneInfo> TimeZones { get; }
     IQueryable<ICountryInfo> Countries { get; }
+    IQueryable<INativeNameInfo> CountryNameTranslations { get; }
 }

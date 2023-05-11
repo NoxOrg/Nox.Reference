@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Abstractions;
@@ -30,23 +31,43 @@ public static class WorldInfo
     }
 
     public static IQueryable<ICurrencyInfo> Currencies
-        => DbContext.Currencies;
+        => WorldDataContext.Currencies;
 
     public static IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
-        => DbContext.VatNumberDefinitions;
+        => WorldDataContext.VatNumberDefinitions;
 
     public static IQueryable<ILanguageInfo> Languages
-        => DbContext.Languages;
+        => WorldDataContext.Languages;
 
     public static IQueryable<ICountryHolidayInfo> Holidays
-        => DbContext.Holidays;
+        => WorldDataContext.Holidays;
 
     public static IQueryable<ICultureInfo> Cultures
-        => DbContext.Cultures;
+        => WorldDataContext.Cultures;
 
     public static IQueryable<ICountryInfo> Countries
-        => DbContext.Countries;
+        => WorldDataContext.Countries;
 
-    private static IWorldInfoContext DbContext
+    public static IQueryable<INativeNameInfo> GetCountryTranslationsForLanguage(string languageCode)
+    {
+        return DbContext.Set<CountryNameTranslation>()
+            .Where(x => x.Language.Iso_639_1 == languageCode)
+            .AsNoTracking()
+            .ProjectTo<NativeNameInfo>(_mapper.ConfigurationProvider);
+    }
+
+    public static IQueryable<ICountryInfo> GetCountriesThatUseLanguage(string languageCode)
+    {
+        return DbContext.Set<Language>()
+            .Where(x => x.Iso_639_1 == languageCode)
+            .SelectMany(x => x.Countries)
+            .AsNoTracking()
+            .ProjectTo<CountryInfo>(_mapper.ConfigurationProvider);
+    }
+
+    private static IWorldInfoContext WorldDataContext
+        => DbContext;
+
+    private static WorldDbContext DbContext
         => new WorldDbContext(new DbContextOptions<WorldDbContext>(), _mapper, _configuration);
 }

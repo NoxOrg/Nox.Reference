@@ -53,12 +53,26 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
     {
         base.DoSpecialTreatAfterAdding(sources, destinations);
 
+        var continents = _mapper.Map<List<Continent>>(sources.SelectMany(x => x.Continents).Distinct().ToArray());
+        _dbContext.AddRange(continents);
+
+        var languages = _dbContext.Set<Language>().ToList();
+        var currencies = _dbContext.Set<Currency>().ToList();
+
         foreach (var source in sources)
         {
             var countryEntity = destinations.First(x => x.Code == source.Code);
             countryEntity.BorderingCountries = destinations
                 .Where(x => source.BorderingCountries.Contains(x.Code))
                 .ToList();
+
+            countryEntity.NameTranslations = _mapper.Map<List<CountryNameTranslation>>(source.NameTranslations);
+            countryEntity.Continents = continents.Where(x => source.Continents.Contains(x.Name)).ToList();
+            countryEntity.AlternateSpellings = _mapper.Map<List<AlternateSpelling>>(source.AlternateSpellings);
+            countryEntity.Demonyms = _mapper.Map<List<Demonymn>>(source.Demonyms);
+            countryEntity.TopLevelDomains = _mapper.Map<List<TopLevelDomain>>(source.TopLevelDomains);
+            countryEntity.Languages = languages.Where(x => source.Languages.Contains(x.Iso_639_3)).ToList();
+            countryEntity.Currencies = currencies.Where(x => source.Currencies.Contains(x.IsoCode)).ToList();
         }
 
         _dbContext.Set<Country>()

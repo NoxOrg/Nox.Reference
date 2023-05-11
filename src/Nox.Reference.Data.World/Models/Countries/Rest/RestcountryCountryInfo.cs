@@ -53,7 +53,7 @@ public class RestcountryCountryInfo : ICountryInfo
     public Dictionary<string, RestcountryCurrencyInfo>? Currencies1 { get; set; }
 
     [JsonIgnore]
-    public IReadOnlyList<string>? Currencies => Currencies1?.Select(kv => kv.Key).ToList();
+    public IReadOnlyList<string> Currencies => Currencies1?.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("idd")]
     public RestcountryDialingInfo? DialingInfo_ { get; set; }

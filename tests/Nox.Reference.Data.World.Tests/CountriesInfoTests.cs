@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
@@ -25,9 +26,7 @@ public class CountryInfoTests
     [Test]
     public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
     {
-        var info = _worldDbContext.Countries.Get("ZAF")!;
-
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
+        var info = WorldInfo.Countries.Get("ZAF")!;
 
         Assert.Multiple(() =>
         {
@@ -54,6 +53,16 @@ public class CountryInfoTests
             Assert.That(translation.OfficialName, Is.EqualTo("South Africa"));
             Assert.That(translation.CommonName, Is.EqualTo("South Africa"));
         });
+    }
+
+    [Test]
+    public void CountryNameTranslation_WithIso3Alpha_ReturnsTranslation()
+    {
+        var translations = WorldInfo.GetCountryTranslationsForLanguage("en").ToList();
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translations));
+
+        Assert.That(translations, Is.Not.Empty);
     }
 
     [TearDown]

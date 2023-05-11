@@ -17,7 +17,7 @@ public interface ICountryInfo
     bool? IsIndependent { get; }
     string CodeAssignedStatus { get; }
     bool IsUnitedNationsMember { get; }
-    IReadOnlyList<string>? Currencies { get; }
+    IReadOnlyList<string> Currencies { get; }
     IDialingInfo? DialingInfo { get; }
     IReadOnlyList<string> Capitals { get; }
     ICapitalInfo? CapitalInfo { get; }
