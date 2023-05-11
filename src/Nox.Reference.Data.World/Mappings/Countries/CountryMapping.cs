@@ -52,10 +52,11 @@ internal class CountryMapping : Profile
         CreateMap<CountryVehicle, IVehicleInfo>()
             .As<VehicleInfo>();
 
-        CreateMap<Demonymn, DemonymnInfo>();
-        CreateMap<CountryNameTranslation, NativeNameInfo>();
+        CreateMap<Country, CountryInfo>();
+        CreateMap<Demonymn, DemonymnInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_3));
+        CreateMap<CountryNameTranslation, NativeNameInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_1));
         CreateMap<CountryNames, CountryNamesInfo>();
-        CreateMap<CountryNativeName, NativeNameInfo>();
+        CreateMap<CountryNativeName, NativeNameInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_3));
         CreateMap<CoatOfArms, CoatOfArmsInfo>();
         CreateMap<GeoCoordinates, GeoCoordinatesInfo>();
         CreateMap<CountryMaps, MapsInfo>();
@@ -65,7 +66,6 @@ internal class CountryMapping : Profile
         CreateMap<CountryFlag, FlagsInfo>();
         CreateMap<PostalCode, PostalCodeInfo>();
         CreateMap<CountryCapital, CapitalInfo>();
-        CreateMap<Country, CountryInfo>();
         CreateMap<CountryVehicle, VehicleInfo>()
             .ForMember(
                 x => x.InternationalRegistrationCodes,
@@ -77,7 +77,7 @@ internal class CountryMapping : Profile
 
         CreateProjection<Country, CountryInfo>()
             .ForMember(x => x.Id, x => x.MapFrom(t => t.Code))
-            .ForMember(x => x.NameTranslations, x => x.Ignore())
+            .ForMember(x => x.NameTranslations, x => x.MapFrom(t => t.NameTranslations))
             .ForMember(x => x.BorderingCountries, x => x.MapFrom(t => t.BorderingCountries.Select(x => x.Code).ToList()))
             .ForMember(x => x.TopLevelDomains, x => x.MapFrom(t => t.TopLevelDomains.Select(x => x.Name).ToList()))
             .ForMember(x => x.Languages, x => x.MapFrom(t => t.Languages.Select(x => x.Iso_639_3).ToList()))
@@ -97,6 +97,13 @@ internal class CountryMapping : Profile
         CreateMap<ICountryInfo, Country>()
             .ForMember(x => x.Id, x => x.Ignore())
             .ForMember(x => x.BorderingCountries, x => x.Ignore())
+            .ForMember(x => x.NameTranslations, x => x.Ignore())
+            .ForMember(x => x.Continents, x => x.Ignore())
+            .ForMember(x => x.AlternateSpellings, x => x.Ignore())
+            .ForMember(x => x.Demonyms, x => x.Ignore())
+            .ForMember(x => x.TopLevelDomains, x => x.Ignore())
+            .ForMember(x => x.Currencies, x => x.Ignore())
+            .ForMember(x => x.Languages, x => x.Ignore())
             .ForMember(x => x.Dialing, x => x.MapFrom(t => t.DialingInfo))
             .ForMember(x => x.Flag, x => x.MapFrom(t => t.Flags))
             .ForMember(x => x.Vehicle, x => x.MapFrom(t => t.VehicleInfo))
@@ -142,27 +149,6 @@ internal class CountryMapping : Profile
 
         CreateMap<ICountryNames, CountryNames>()
             .AfterMap((s, d) => d.NativeNames = d.NativeNames.Where(f => f != null).ToList());
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Language>>()
-            .ConvertUsing<LanguageMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Currency>>()
-            .ConvertUsing<CurrencyMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<TopLevelDomain>>()
-            .ConvertUsing<TopLevelDomainMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<AlternateSpelling>>()
-            .ConvertUsing<AlternateSpellingMappingResolver>();
-
-        CreateMap<IReadOnlyList<string>, IReadOnlyList<Continent>>()
-            .ConvertUsing<ContinentMappingResolver>();
-
-        CreateMap<IReadOnlyList<IDemonymn>, IReadOnlyList<Demonymn>>()
-            .ConvertUsing<DemonymnMappingResolver>();
-
-        CreateMap<IReadOnlyList<INativeNameInfo>, IReadOnlyList<CountryNameTranslation>>()
-            .ConvertUsing<CountryNameTranslationMappingResolver>();
 
         CreateMap<IReadOnlyDictionary<int, decimal>, IReadOnlyList<GiniCoefficient>>()
             .ConstructUsing(x => x.Keys.Select(t => new GiniCoefficient
