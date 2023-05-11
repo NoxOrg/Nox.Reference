@@ -9,4 +9,9 @@ public static class CountryQueryExtensions
     {
         return query.FirstOrDefault(x => x.Id == countryCode);
     }
+
+    public static INativeNameInfo? GetTranslation(this ICountryInfo info, string languageCode)
+    {
+        return info.NameTranslations!.FirstOrDefault(x => x.Language == languageCode);
+    }
 }
