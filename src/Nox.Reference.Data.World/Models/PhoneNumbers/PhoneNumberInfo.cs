@@ -1,6 +1,6 @@
-﻿namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference.Data.World.Models;
 
-internal class PhoneNumberInfo
+public class PhoneNumberInfo
 {
     public string InputNumber { get; set; } = string.Empty;
     public string FormattedNumber { get; set; } = string.Empty;

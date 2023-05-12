@@ -6,7 +6,7 @@ public class CarrierPhoneNumber : INoxReferenceEntity
 {
     public int Id { get; private set; }
 
-    public int PhoneNumber { get; private set; }
+    public int PhoneNumber { get; internal set; }
 
     public PhoneCarrier PhoneCarrier { get; private set; } = new PhoneCarrier();
 }

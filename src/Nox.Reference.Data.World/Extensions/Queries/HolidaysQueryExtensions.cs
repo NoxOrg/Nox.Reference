@@ -1,11 +1,9 @@
-﻿using Nox.Reference.Abstractions;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class HolidaysQueryExtensions
 {
-    public static ICountryHolidayInfo? Get(
-        this IQueryable<ICountryHolidayInfo> query,
+    public static CountryHoliday? Get(
+        this IQueryable<CountryHoliday> query,
         int year,
         string countryCode)
     {

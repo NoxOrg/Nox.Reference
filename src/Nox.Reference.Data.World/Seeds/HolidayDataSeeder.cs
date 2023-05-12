@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
+using Nox.Reference.Data.World.Models;
 using System.Text.Json;
 
 namespace Nox.Reference.Data.World;
 
-internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, ICountryHolidayInfo, CountryHoliday>
+internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryHolidayInfo, CountryHoliday>
 {
     private readonly int[] _availableYears = new[] { 2023, 2024 };
     private readonly IConfiguration _configuration;
@@ -28,7 +28,7 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
 
     public override string TargetFileName => "Nox.Reference.Holidays.json";
 
-    protected override IEnumerable<ICountryHolidayInfo> GetDataInfos()
+    protected override IEnumerable<CountryHolidayInfo> GetDataInfos()
     {
         var holidaysZipPath = _configuration.GetValue<string>(ConfigurationConstants.HolidaysZipPathSettingName)!;
         var holidays = new List<CountryHolidayInfo>();
