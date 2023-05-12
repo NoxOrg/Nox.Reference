@@ -11,6 +11,6 @@ public static class CountryQueryExtensions
 
     public static CountryNameTranslation? GetTranslation(this Country info, string languageCode)
     {
-        return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_3 == languageCode);
+        return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_1 == languageCode);
     }
 }

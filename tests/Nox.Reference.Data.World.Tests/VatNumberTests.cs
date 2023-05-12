@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;

@@ -52,8 +52,8 @@ internal class CountryMapping : Profile
         CreateMap<DemonymnInfo, Demonymn>()
             .ConvertUsing<DemonymnSingleMapping>();
 
-        CreateMap<CoatOfArms, CoatOfArms>();
-        CreateMap<GeoCoordinates, GeoCoordinates>();
+        CreateMap<CoatOfArmsInfo, CoatOfArms>();
+        CreateMap<GeoCoordinatesInfo, GeoCoordinates>();
         CreateMap<MapsInfo, CountryMaps>();
         CreateMap<FlagsInfo, CountryFlag>();
         CreateMap<VehicleInfo, CountryVehicle>()

@@ -33,7 +33,6 @@ public class MacAddressesTests
         var info = _macAddressContext.MacAddresses.Get(input);
 
         Assert.That(info, Is.Not.Null);
-        Assert.That(info.Id, Is.EqualTo(expectedPrefix));
         Assert.That(info.MacPrefix, Is.EqualTo(expectedPrefix));
         Assert.That(info.OrganizationName, Is.EqualTo(expectedOrganizationName));
     }

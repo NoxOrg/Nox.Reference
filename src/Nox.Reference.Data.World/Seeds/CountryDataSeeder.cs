@@ -44,9 +44,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         EnrichWithMappingData(countries);
         FixTranslation(_configuration, countries);
 
-        return countries
-                   .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                   .Cast<CountryInfo>();
+        return countries.Where(c => !string.IsNullOrEmpty(c.NumericCode));
     }
 
     protected override void DoSpecialTreatAfterAdding(IEnumerable<CountryInfo> sources, IEnumerable<Country> destinations)

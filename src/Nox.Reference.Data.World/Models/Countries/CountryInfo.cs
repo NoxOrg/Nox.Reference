@@ -11,7 +11,7 @@ internal class CountryInfo
     public string Name => Names.CommonName;
 
     [JsonPropertyName("name")]
-    public CountryNamesInfo Names { get; set; }
+    public CountryNamesInfo Names { get; set; } = new CountryNamesInfo();
 
     [JsonPropertyName("tld")]
     public IReadOnlyList<string> TopLevelDomains { get; set; } = new List<string>();
@@ -75,6 +75,7 @@ internal class CountryInfo
     [JsonPropertyName("languages")]
     public Dictionary<string, string> Languages_ { get; set; } = new Dictionary<string, string>();
 
+    [JsonIgnore]
     public IReadOnlyList<string> Languages => Languages_.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("translations")]

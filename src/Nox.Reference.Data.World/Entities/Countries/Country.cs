@@ -9,16 +9,16 @@ public class Country : INoxReferenceEntity
     public string Code { get; private set; } = string.Empty;
 
     public CountryNames Names { get; private set; } = new CountryNames();
-    public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; internal set; } = Array.Empty<TopLevelDomain>();
-    public IReadOnlyList<Language> Languages { get; internal set; } = Array.Empty<Language>();
-    public IReadOnlyList<Currency> Currencies { get; internal set; } = Array.Empty<Currency>();
-    public IReadOnlyList<AlternateSpelling> AlternateSpellings { get; internal set; } = Array.Empty<AlternateSpelling>();
-    public IReadOnlyList<Continent> Continents { get; internal set; } = Array.Empty<Continent>();
-    public IReadOnlyList<CountryNameTranslation> NameTranslations { get; internal set; } = Array.Empty<CountryNameTranslation>();
-    public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; internal set; } = Array.Empty<GiniCoefficient>();
-    public IReadOnlyList<Demonymn> Demonyms { get; internal set; } = Array.Empty<Demonymn>();
-    public IReadOnlyList<Country> BorderingCountries { get; internal set; } = Array.Empty<Country>();
-    public IReadOnlyList<CountryCapital> Capitals { get; internal set; } = Array.Empty<CountryCapital>();
+    public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; internal set; } = new List<TopLevelDomain>();
+    public IReadOnlyList<Language> Languages { get; internal set; } = new List<Language>();
+    public IReadOnlyList<Currency> Currencies { get; internal set; } = new List<Currency>();
+    public IReadOnlyList<AlternateSpelling> AlternateSpellings { get; internal set; } = new List<AlternateSpelling>();
+    public IReadOnlyList<Continent> Continents { get; internal set; } = new List<Continent>();
+    public IReadOnlyList<CountryNameTranslation> NameTranslations { get; internal set; } = new List<CountryNameTranslation>();
+    public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; internal set; } = new List<GiniCoefficient>();
+    public IReadOnlyList<Demonymn> Demonyms { get; internal set; } = new List<Demonymn>();
+    public IReadOnlyList<Country> BorderingCountries { get; internal set; } = new List<Country>();
+    public IReadOnlyList<CountryCapital> Capitals { get; internal set; } = new List<CountryCapital>();
 
     public CountryDialing? Dialing { get; private set; }
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
