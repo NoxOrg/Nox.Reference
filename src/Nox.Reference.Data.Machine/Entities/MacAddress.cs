@@ -1,9 +1,8 @@
-﻿using Nox.Reference.Data;
-using Nox.Reference.Data.Common;
+﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.Machine;
+namespace Nox.Reference.Data;
 
-internal class MacAddress : INoxReferenceEntity
+public class MacAddress : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public string IEEERegistry { get; private set; } = string.Empty;

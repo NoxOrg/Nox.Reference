@@ -26,13 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Models\Countries\Rest\" />
     <Folder Include="Models\Languages\Yaml\" />
   </ItemGroup>
 

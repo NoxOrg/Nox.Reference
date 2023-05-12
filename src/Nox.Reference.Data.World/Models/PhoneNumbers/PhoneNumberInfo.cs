@@ -1,8 +1,6 @@
-﻿using Nox.Reference.Abstractions;
+﻿namespace Nox.Reference.Data.World;
 
-namespace Nox.Reference.Data.World;
-
-internal class PhoneNumberInfo : IPhoneNumberInfo
+internal class PhoneNumberInfo
 {
     public string InputNumber { get; set; } = string.Empty;
     public string FormattedNumber { get; set; } = string.Empty;

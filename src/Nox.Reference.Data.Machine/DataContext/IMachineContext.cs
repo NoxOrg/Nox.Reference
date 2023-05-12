@@ -1,8 +1,6 @@
-﻿using Nox.Reference.Abstractions;
-
-namespace Nox.Reference.Data.Machine;
+﻿namespace Nox.Reference.Data.Machine;
 
 public interface IMachineContext
 {
-    IQueryable<IMacAddressInfo> MacAddresses { get; }
+    IQueryable<MacAddress> MacAddresses { get; }
 }

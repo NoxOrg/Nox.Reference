@@ -1,9 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-internal class LocalHolidayNameInfo : ILocalHolidayName
+internal class LocalHolidayNameInfo
 {
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;

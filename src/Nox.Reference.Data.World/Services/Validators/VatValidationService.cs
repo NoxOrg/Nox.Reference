@@ -1,5 +1,5 @@
-﻿using Nox.Reference.Abstractions;
-using System.Reflection;
+﻿using System.Reflection;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World;
 
@@ -8,8 +8,8 @@ public static class VatValidationService
 {
     private static readonly IReadOnlyDictionary<string, IVatValidationService> _validationServicesByCountry = GetValidationServices();
 
-    public static IVatNumberValidationResult ValidateVatNumber(
-        IVatNumberDefinitionInfo vatNumberDefinition,
+    public static VatNumberValidationResult ValidateVatNumber(
+        VatNumberDefinition vatNumberDefinition,
         string vatNumber,
         bool shouldValidateViaApi = true)
     {
@@ -18,7 +18,7 @@ public static class VatValidationService
             return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.EmptyVatNumberError);
         }
 
-        if (vatNumberDefinition == null || vatNumberDefinition.Validations?.Length < 1)
+        if (vatNumberDefinition == null || vatNumberDefinition.ValidationRules?.Count() < 1)
         {
             return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
         }
@@ -26,7 +26,7 @@ public static class VatValidationService
         return GenericValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
     }
 
-    public static IVatNumberValidationResult ValidateVatNumber(
+    public static VatNumberValidationResult ValidateVatNumber(
          string countryCode,
          string vatNumber,
          bool shouldValidateViaApi = true)

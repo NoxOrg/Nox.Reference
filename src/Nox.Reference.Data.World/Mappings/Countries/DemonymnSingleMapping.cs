@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
 
-internal class DemonymnSingleMapping : ITypeConverter<IDemonymn, Demonymn>
+internal class DemonymnSingleMapping : ITypeConverter<DemonymnInfo, Demonymn>
 {
     private readonly WorldDbContext _worldDbContext;
     private readonly ILogger<DemonymnSingleMapping> _logger;
@@ -17,7 +17,7 @@ internal class DemonymnSingleMapping : ITypeConverter<IDemonymn, Demonymn>
         _logger = logger;
     }
 
-    public Demonymn Convert(IDemonymn source, Demonymn destination, ResolutionContext context)
+    public Demonymn Convert(DemonymnInfo source, Demonymn destination, ResolutionContext context)
     {
         var language = _worldDbContext
             .Set<Language>()

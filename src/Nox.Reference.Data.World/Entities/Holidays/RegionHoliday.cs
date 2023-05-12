@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class RegionHoliday : INoxReferenceEntity
+public class RegionHoliday : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public string Region { get; set; } = string.Empty;

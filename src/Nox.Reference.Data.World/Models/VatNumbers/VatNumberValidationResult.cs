@@ -1,9 +1,8 @@
 ﻿using System.Text;
-using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-internal class VatNumberValidationResult : IVatNumberValidationResult
+public class VatNumberValidationResult
 {
     private readonly List<string?> _validationErrors = new();
 

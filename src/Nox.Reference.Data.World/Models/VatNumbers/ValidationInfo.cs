@@ -1,10 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class ValidationInfo : IValidationInfo
+internal class ValidationInfo
 {
     [JsonPropertyName("translationId")]
     public string TranslationId { get; set; } = string.Empty;
@@ -25,6 +23,5 @@ public class ValidationInfo : IValidationInfo
     public int MaximumLength { get; set; }
 
     [JsonPropertyName("checksum")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IChecksumInfo, ChecksumInfo>))]
-    public IChecksumInfo? Checksum { get; set; }
+    public ChecksumInfo? Checksum { get; set; }
 }

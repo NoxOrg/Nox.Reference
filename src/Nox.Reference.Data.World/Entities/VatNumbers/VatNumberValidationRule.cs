@@ -1,35 +1,15 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Data.Common;
+﻿using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
 
-internal class VatNumberValidationRule : INoxReferenceEntity
+public class VatNumberValidationRule : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string TranslationId { get; set; } = string.Empty;
-    public string Regex { get; set; } = string.Empty;
-    public string ValidationFormatDescription { get; set; } = string.Empty;
-    public string InputMask { get; set; } = string.Empty;
-    public int MinimumLength { get; set; }
-    public int MaximumLength { get; set; }
-    public Checksum? Checksum { get; set; }
-}
-
-internal class Checksum
-{
-    public ChecksumAlgorithm? Algorithm { get; set; }
-    public string? ChecksumDigit { get; set; }
-    public int? Modulus { get; set; }
-    public string Weights { get; set; } = string.Empty;
-
-    public IEnumerable<int> GetWeights()
-    {
-        if (string.IsNullOrEmpty(Weights))
-        {
-            return Array.Empty<int>();
-        }
-
-        return Weights.Split(",")
-            .Select(x => int.Parse(x));
-    }
+    public string TranslationId { get; private set; } = string.Empty;
+    public string Regex { get; private set; } = string.Empty;
+    public string ValidationFormatDescription { get; private set; } = string.Empty;
+    public string InputMask { get; private set; } = string.Empty;
+    public int MinimumLength { get; private set; }
+    public int MaximumLength { get; private set; }
+    public Checksum? Checksum { get; private set; }
 }

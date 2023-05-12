@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.Machine;
 
 internal class MachineDbContext : DbContext, IMachineContext
 {
-    private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;
 
     // DON'T remove default constructor. It is used for migrations purposes.
@@ -22,18 +19,16 @@ internal class MachineDbContext : DbContext, IMachineContext
 
     public MachineDbContext(
         DbContextOptions<MachineDbContext> options,
-        IMapper mapper,
         IConfiguration configuration)
         : base(options)
     {
-        _mapper = mapper;
         _configuration = configuration;
     }
 
-    public IQueryable<IMacAddressInfo> MacAddresses
+    public IQueryable<MacAddress> MacAddresses
          => Set<MacAddress>()
-            .AsQueryable()
-            .ProjectTo<MacAddressInfo>(_mapper.ConfigurationProvider);
+            .AsNoTracking()
+            .AsQueryable();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

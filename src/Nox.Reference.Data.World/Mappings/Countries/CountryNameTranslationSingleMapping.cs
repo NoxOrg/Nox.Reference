@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
 
-internal class CountryNameTranslationSingleMapping : ITypeConverter<INativeNameInfo, CountryNameTranslation>
+internal class CountryNameTranslationSingleMapping : ITypeConverter<NativeNameInfo, CountryNameTranslation>
 {
     private readonly WorldDbContext _worldDbContext;
     private readonly ILogger<CountryNameTranslationSingleMapping> _logger;
@@ -17,7 +17,7 @@ internal class CountryNameTranslationSingleMapping : ITypeConverter<INativeNameI
         _logger = logger;
     }
 
-    public CountryNameTranslation Convert(INativeNameInfo source, CountryNameTranslation destination, ResolutionContext context)
+    public CountryNameTranslation Convert(NativeNameInfo source, CountryNameTranslation destination, ResolutionContext context)
     {
         var language = _worldDbContext
             .Set<Language>()

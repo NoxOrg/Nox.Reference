@@ -1,14 +1,14 @@
-﻿using Nox.Reference.Abstractions;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.RegularExpressions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World;
 
 public static class GenericValidationService
 {
-    public static IVatNumberValidationResult ValidateVatNumber(
+    public static VatNumberValidationResult ValidateVatNumber(
         string vatNumber,
-        IVatNumberDefinitionInfo vatNumberInfo,
+        VatNumberDefinition vatNumberInfo,
         bool shouldValidateViaApi = true)
     {
         var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country);
@@ -47,7 +47,7 @@ public static class GenericValidationService
     }
 
     private static void ValidateWithOnlineService(
-        IVatNumberDefinitionInfo vatNumberInfo,
+        VatNumberDefinition vatNumberInfo,
         string formattedVatNumber,
         VatNumberValidationResult result)
     {
@@ -82,7 +82,7 @@ public static class GenericValidationService
 
     private static void ValidateChecksum(
         VatNumberValidationResult result,
-        IValidationInfo validationInfoByPattern,
+        VatNumberValidationRule validationInfoByPattern,
         string digitPart)
     {
         if (validationInfoByPattern.Checksum == null)
@@ -90,9 +90,9 @@ public static class GenericValidationService
             return;
         }
 
-        if (digitPart.Length < validationInfoByPattern.Checksum.Weights?.Count)
+        if (digitPart.Length < validationInfoByPattern.Checksum.GetWeights().Length)
         {
-            result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, validationInfoByPattern.Checksum.Weights?.Count));
+            result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, validationInfoByPattern.Checksum.GetWeights().Length));
             return;
         }
 
@@ -105,7 +105,7 @@ public static class GenericValidationService
         ValidateChecksumByCountry(result, validationInfoByPattern, digitPart, checksumDigitPosition.Value);
     }
 
-    private static int? CalculateChecksumDigitPosition(IValidationInfo validationInfoByPattern, VatNumberValidationResult result, string digitPart)
+    private static int? CalculateChecksumDigitPosition(VatNumberValidationRule validationInfoByPattern, VatNumberValidationResult result, string digitPart)
     {
         var checksumDigitPosition = -1;
         var checksumDigitValue = validationInfoByPattern.Checksum!.ChecksumDigit ?? "Last";
@@ -129,7 +129,7 @@ public static class GenericValidationService
             // add +1 since length is not from 0 and check digit position is from 0
             if (digitPart.Length < checksumDigitPosition + 1)
             {
-                result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, validationInfoByPattern.Checksum.Weights?.Count));
+                result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, validationInfoByPattern.Checksum.GetWeights().Count()));
                 return null;
             }
         }
@@ -157,7 +157,7 @@ public static class GenericValidationService
 
     private static void ValidateLength(
         VatNumberValidationResult result,
-        IValidationInfo validationInfoByPattern)
+        VatNumberValidationRule validationInfoByPattern)
     {
         if (result.FormattedVatNumber.Length > validationInfoByPattern.MaximumLength)
         {
@@ -170,17 +170,17 @@ public static class GenericValidationService
         }
     }
 
-    private static IValidationInfo? GetValidationInfoFromVatNumberInfo(string formattedVatNumber, IVatNumberDefinitionInfo vatNumberInfo)
+    private static VatNumberValidationRule? GetValidationInfoFromVatNumberInfo(string formattedVatNumber, VatNumberDefinition vatNumberDefinition)
     {
-        IValidationInfo? validationInfoByPattern = null;
+        VatNumberValidationRule? validationInfoByPattern = null;
 
-        if (vatNumberInfo.Validations!.Length == 1)
+        if (vatNumberDefinition.ValidationRules.Count == 1)
         {
-            validationInfoByPattern = vatNumberInfo.Validations[0];
+            validationInfoByPattern = vatNumberDefinition.ValidationRules[0];
         }
         else
         {
-            foreach (var validation in vatNumberInfo.Validations!)
+            foreach (var validation in vatNumberDefinition.ValidationRules!)
             {
                 if (Regex.IsMatch(formattedVatNumber, validation.Regex))
                 {
@@ -194,7 +194,7 @@ public static class GenericValidationService
 
     private static void ValidateChecksumByCountry(
         VatNumberValidationResult result,
-        IValidationInfo validationInfoByPattern,
+        VatNumberValidationRule validationInfoByPattern,
         string digitPart,
         int checksumDigitPosition)
     {
@@ -216,7 +216,7 @@ public static class GenericValidationService
 
             case ChecksumAlgorithm.ModAndSubstract:
                 if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
-                    !(validationInfoByPattern.Checksum.Weights?.Count > 0))
+                    !(validationInfoByPattern.Checksum.GetWeights().Any()))
                 {
                     result.AddError(
                         string.Format(
@@ -225,12 +225,12 @@ public static class GenericValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateModAndSubstract(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
+                result.AddErrors(digitPart.ValidateModAndSubstract(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
                 break;
 
             case ChecksumAlgorithm.ModAndSubstract_IT:
                 if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
-                    !(validationInfoByPattern.Checksum.Weights?.Count > 0))
+                    !validationInfoByPattern.Checksum.GetWeights().Any())
                 {
                     result.AddError(
                         string.Format(
@@ -239,12 +239,12 @@ public static class GenericValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateModAndSubstractItaly(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights));
+                result.AddErrors(digitPart.ValidateModAndSubstractItaly(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights()));
                 break;
 
             case ChecksumAlgorithm.Mod:
                 if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
-                    !(validationInfoByPattern.Checksum.Weights?.Count > 0))
+                    !(validationInfoByPattern.Checksum.GetWeights().Length > 0))
                 {
                     result.AddError(
                         string.Format(
@@ -253,7 +253,7 @@ public static class GenericValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateMod(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.Weights, checksumDigitPosition));
+                result.AddErrors(digitPart.ValidateMod(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
                 break;
 
             case ChecksumAlgorithm.MX_Algorithm:

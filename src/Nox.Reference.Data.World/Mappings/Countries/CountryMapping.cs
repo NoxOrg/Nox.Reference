@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
 
@@ -9,92 +9,11 @@ internal class CountryMapping : Profile
     {
         //Write
         MapCountryInfoToCountry();
-
-        //Read
-        MapCountryToCountryInfo();
-    }
-
-    private void MapCountryToCountryInfo()
-    {
-        CreateMap<Demonymn, IDemonymn>()
-            .As<DemonymnInfo>();
-
-        CreateMap<CountryNameTranslation, INativeNameInfo>()
-            .As<NativeNameInfo>();
-
-        CreateMap<CountryNames, ICountryNames>()
-            .As<CountryNamesInfo>();
-
-        CreateMap<CountryNativeName, INativeNameInfo>()
-            .As<NativeNameInfo>();
-
-        CreateMap<CoatOfArms, ICoatOfArms>()
-            .As<CoatOfArmsInfo>();
-
-        CreateMap<GeoCoordinates, IGeoCoordinates>()
-            .As<GeoCoordinatesInfo>();
-
-        CreateMap<CountryMaps, IMaps>()
-            .As<MapsInfo>();
-
-        CreateMap<CountryDialing, IDialingInfo>()
-            .As<DialingInfo>();
-
-        CreateMap<CountryFlag, IFlags>()
-            .As<FlagsInfo>();
-
-        CreateMap<PostalCode, IPostalCodeInfo>()
-            .As<PostalCodeInfo>();
-
-        CreateMap<CountryCapital, ICapitalInfo>()
-            .As<CapitalInfo>();
-
-        CreateMap<CountryVehicle, IVehicleInfo>()
-            .As<VehicleInfo>();
-
-        CreateMap<Country, CountryInfo>();
-        CreateMap<Demonymn, DemonymnInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_3));
-        CreateMap<CountryNameTranslation, NativeNameInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_1));
-        CreateMap<CountryNames, CountryNamesInfo>();
-        CreateMap<CountryNativeName, NativeNameInfo>().ForMember(x => x.Language, x => x.MapFrom(t => t.Language.Iso_639_3));
-        CreateMap<CoatOfArms, CoatOfArmsInfo>();
-        CreateMap<GeoCoordinates, GeoCoordinatesInfo>();
-        CreateMap<CountryMaps, MapsInfo>();
-        CreateMap<CountryDialing, DialingInfo>()
-            .ForMember(x => x.Suffixes, x => x.MapFrom(t => t.Suffixes.Split(",", StringSplitOptions.TrimEntries).ToList()));
-
-        CreateMap<CountryFlag, FlagsInfo>();
-        CreateMap<PostalCode, PostalCodeInfo>();
-        CreateMap<CountryCapital, CapitalInfo>();
-        CreateMap<CountryVehicle, VehicleInfo>()
-            .ForMember(
-                x => x.InternationalRegistrationCodes,
-                x => x.MapFrom(t => t.InternationalRegistrationCodes.Split(",", StringSplitOptions.TrimEntries))
-             );
-
-        CreateMap<IReadOnlyList<GiniCoefficient>, IReadOnlyDictionary<int, decimal>>()
-            .ConstructUsing(x => new Dictionary<int, decimal>(x.Select(x => new KeyValuePair<int, decimal>(x.Year, x.Value))));
-
-        CreateProjection<Country, CountryInfo>()
-            .ForMember(x => x.Id, x => x.MapFrom(t => t.Code))
-            .ForMember(x => x.NameTranslations, x => x.MapFrom(t => t.NameTranslations))
-            .ForMember(x => x.BorderingCountries, x => x.MapFrom(t => t.BorderingCountries.Select(x => x.Code).ToList()))
-            .ForMember(x => x.TopLevelDomains, x => x.MapFrom(t => t.TopLevelDomains.Select(x => x.Name).ToList()))
-            .ForMember(x => x.Languages, x => x.MapFrom(t => t.Languages.Select(x => x.Iso_639_3).ToList()))
-            .ForMember(x => x.Currencies, x => x.MapFrom(t => t.Currencies.Select(x => x.IsoCode).ToList()))
-            .ForMember(x => x.AlternateSpellings, x => x.MapFrom(t => t.AlternateSpellings.Select(x => x.Name).ToList()))
-            .ForMember(x => x.Continents, x => x.MapFrom(t => t.Continents.Select(x => x.Name).ToList()))
-            .ForMember(x => x.DialingInfo, x => x.MapFrom(t => t.Dialing))
-            .ForMember(x => x.Flags, x => x.MapFrom(t => t.Flag))
-            .ForMember(x => x.VehicleInfo, x => x.MapFrom(t => t.Vehicle))
-            .ForMember(x => x.PostalCodeInfo, x => x.MapFrom(t => t.PostalCode))
-            .ForMember(x => x.Capitals, x => x.MapFrom(t => t.Capitals.Select(x => x.Name).ToList()))
-            .ForMember(x => x.CapitalInfo, x => x.MapFrom(t => t.Capital));
     }
 
     private void MapCountryInfoToCountry()
     {
-        CreateMap<ICountryInfo, Country>()
+        CreateMap<CountryInfo, Country>()
             .ForMember(x => x.Id, x => x.Ignore())
             .ForMember(x => x.BorderingCountries, x => x.Ignore())
             .ForMember(x => x.NameTranslations, x => x.Ignore())
@@ -127,27 +46,27 @@ internal class CountryMapping : Profile
         CreateMap<string, Continent>()
             .ForMember(x => x.Name, x => x.MapFrom(t => t));
 
-        CreateMap<INativeNameInfo, CountryNameTranslation>()
+        CreateMap<NativeNameInfo, CountryNameTranslation>()
             .ConvertUsing<CountryNameTranslationSingleMapping>();
 
-        CreateMap<IDemonymn, Demonymn>()
+        CreateMap<DemonymnInfo, Demonymn>()
             .ConvertUsing<DemonymnSingleMapping>();
 
-        CreateMap<ICoatOfArms, CoatOfArms>();
-        CreateMap<IGeoCoordinates, GeoCoordinates>();
-        CreateMap<IMaps, CountryMaps>();
-        CreateMap<IFlags, CountryFlag>();
-        CreateMap<IVehicleInfo, CountryVehicle>()
+        CreateMap<CoatOfArms, CoatOfArms>();
+        CreateMap<GeoCoordinates, GeoCoordinates>();
+        CreateMap<MapsInfo, CountryMaps>();
+        CreateMap<FlagsInfo, CountryFlag>();
+        CreateMap<VehicleInfo, CountryVehicle>()
             .ForMember(x => x.InternationalRegistrationCodes, x => x.MapFrom(t => string.Join(",", t.InternationalRegistrationCodes)));
 
-        CreateMap<IPostalCodeInfo, PostalCode>();
-        CreateMap<IDialingInfo, CountryDialing>()
+        CreateMap<PostalCodeInfo, PostalCode>();
+        CreateMap<DialingInfo, CountryDialing>()
             .ForMember(x => x.Suffixes, x => x.MapFrom(t => string.Join(",", t.Suffixes)));
 
-        CreateMap<INativeNameInfo, CountryNativeName>()
+        CreateMap<NativeNameInfo, CountryNativeName>()
             .ConvertUsing<CountryNativeNameSingleMapping>();
 
-        CreateMap<ICountryNames, CountryNames>()
+        CreateMap<CountryNamesInfo, CountryNames>()
             .AfterMap((s, d) => d.NativeNames = d.NativeNames.Where(f => f != null).ToList());
 
         CreateMap<IReadOnlyDictionary<int, decimal>, IReadOnlyList<GiniCoefficient>>()
