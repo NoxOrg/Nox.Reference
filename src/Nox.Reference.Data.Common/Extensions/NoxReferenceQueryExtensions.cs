@@ -16,7 +16,6 @@ public static class NoxReferenceQueryExtensions
         foreach (var navigationProperty in navigationProperties)
         {
             queryable = queryable.Include(navigationProperty.Name);
-            queryable.IncludeAll();
         }
 
         return queryable;

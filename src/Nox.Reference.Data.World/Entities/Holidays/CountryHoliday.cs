@@ -9,6 +9,6 @@ public class CountryHoliday : INoxReferenceEntity
     public string? Country { get; private set; } = string.Empty;
     public string? CountryName { get; private set; } = string.Empty;
     public string? DayOff { get; private set; } = string.Empty;
-    public IReadOnlyList<HolidayData> Holidays { get; private set; } = Array.Empty<HolidayData>();
-    public IReadOnlyList<StateHoliday> States { get; private set; } = Array.Empty<StateHoliday>();
+    public IReadOnlyList<HolidayData> Holidays { get; private set; } = new List<HolidayData>();
+    public IReadOnlyList<StateHoliday> States { get; private set; } = new List<StateHoliday>();
 }

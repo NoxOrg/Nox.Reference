@@ -8,7 +8,7 @@ public class Country : INoxReferenceEntity
     public string Name { get; private set; } = string.Empty;
     public string Code { get; private set; } = string.Empty;
 
-    public CountryNames Names { get; private set; } = new CountryNames();
+    public CountryNames Names { get; internal set; } = new CountryNames();
     public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; internal set; } = new List<TopLevelDomain>();
     public IReadOnlyList<Language> Languages { get; internal set; } = new List<Language>();
     public IReadOnlyList<Currency> Currencies { get; internal set; } = new List<Currency>();

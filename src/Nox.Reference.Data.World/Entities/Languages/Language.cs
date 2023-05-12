@@ -14,7 +14,7 @@ public class Language : INoxReferenceEntity
     public bool Common { get; private set; }
     public LanguageType Type { get; private set; }
     public LanguageScope Scope { get; private set; }
-    public IList<LanguageTranslation> NameTranslations { get; private set; } = new List<LanguageTranslation>();
+    public IReadOnlyList<LanguageTranslation> NameTranslations { get; private set; } = new List<LanguageTranslation>();
     public string? WikiUrl { get; private set; }
-    public IReadOnlyList<Country> Countries { get; private set; } = null!;
+    public IReadOnlyList<Country> Countries { get; private set; } = new List<Country>();
 }
