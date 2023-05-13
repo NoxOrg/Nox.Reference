@@ -11,7 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-    [Migration("20230511081927_InitDatabase")]
+    [Migration("20230511113312_InitDatabase")]
     partial class InitDatabase
     {
         /// <inheritdoc />
@@ -93,6 +93,21 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasIndex("LanguagesId");
 
                     b.ToTable("CountryLanguage");
+                });
+
+            modelBuilder.Entity("CountryTimeZone", b =>
+                {
+                    b.Property<int>("CountriesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TimeZonesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CountriesId", "TimeZonesId");
+
+                    b.HasIndex("TimeZonesId");
+
+                    b.ToTable("CountryTimeZone");
                 });
 
             modelBuilder.Entity("CountryTopLevelDomain", b =>
@@ -1320,6 +1335,21 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasOne("Nox.Reference.Data.World.Language", null)
                         .WithMany()
                         .HasForeignKey("LanguagesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CountryTimeZone", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Country", null)
+                        .WithMany()
+                        .HasForeignKey("CountriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Nox.Reference.Data.World.TimeZone", null)
+                        .WithMany()
+                        .HasForeignKey("TimeZonesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

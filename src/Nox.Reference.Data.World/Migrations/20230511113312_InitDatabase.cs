@@ -883,6 +883,30 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CountryTimeZone",
+                columns: table => new
+                {
+                    CountriesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeZonesId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryTimeZone", x => new { x.CountriesId, x.TimeZonesId });
+                    table.ForeignKey(
+                        name: "FK_CountryTimeZone_Country_CountriesId",
+                        column: x => x.CountriesId,
+                        principalTable: "Country",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CountryTimeZone_TimeZone_TimeZonesId",
+                        column: x => x.TimeZonesId,
+                        principalTable: "TimeZone",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CountryTopLevelDomain",
                 columns: table => new
                 {
@@ -1085,6 +1109,11 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "LanguageId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CountryTimeZone_TimeZonesId",
+                table: "CountryTimeZone",
+                column: "TimeZonesId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CountryTopLevelDomain_TopLevelDomainsId",
                 table: "CountryTopLevelDomain",
                 column: "TopLevelDomainsId");
@@ -1216,6 +1245,9 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryNativeName");
 
             migrationBuilder.DropTable(
+                name: "CountryTimeZone");
+
+            migrationBuilder.DropTable(
                 name: "CountryTopLevelDomain");
 
             migrationBuilder.DropTable(
@@ -1240,9 +1272,6 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "NumberFormat");
 
             migrationBuilder.DropTable(
-                name: "TimeZone");
-
-            migrationBuilder.DropTable(
                 name: "VatNumberValidationRule");
 
             migrationBuilder.DropTable(
@@ -1256,6 +1285,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "Demonymn");
+
+            migrationBuilder.DropTable(
+                name: "TimeZone");
 
             migrationBuilder.DropTable(
                 name: "TopLevelDomain");

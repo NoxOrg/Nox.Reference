@@ -68,6 +68,6 @@ namespace Nox.Reference.Data.Common.Seeds
         {
         }
 
-        protected abstract IEnumerable<TSource> GetDataInfos();
+        protected abstract List<TSource> GetDataInfos();
     }
 }

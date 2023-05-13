@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -19,36 +18,34 @@
     <Description>Nox Reference World data context</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
-
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Remove="NoxReferenceConfig\noxReferenceSettings.json" />
+    <None Remove="NoxReferenceDatabase\NoxReference.World.db" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="NoxReferenceDatabase\NoxReference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
-
-	<ItemGroup>
-		<Resource Include="NoxReferenceConfig\noxReferenceSettings.json" Pack="true" PackagePath="NoxReferenceConfig">
-			<PackageCopyToOutput>true</PackageCopyToOutput>
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
-	</ItemGroup>
-
+  <ItemGroup>
+    <Resource Include="NoxReferenceConfig\noxReferenceSettings.json" Pack="true" PackagePath="NoxReferenceConfig">
+      <PackageCopyToOutput>true</PackageCopyToOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Nox.Reference.Data.World.targets" PackagePath="build/Nox.Reference.Data.World.targets" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="GeoTimeZone" Version="5.2.0" />
@@ -62,20 +59,17 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
-	<PackageReference Include="RestSharp" Version="109.0.1" />
-	<PackageReference Include="YamlDotNet" Version="13.1.0" />
-	<PackageReference Include="libphonenumber-csharp" Version="8.13.7" />
+    <PackageReference Include="RestSharp" Version="109.0.1" />
+    <PackageReference Include="YamlDotNet" Version="13.1.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.7" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Models\Languages\Yaml\" />
   </ItemGroup>
-
 </Project>

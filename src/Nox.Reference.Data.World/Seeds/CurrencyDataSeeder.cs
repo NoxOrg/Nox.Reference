@@ -26,7 +26,7 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
 
     public override string DataFolderPath => "Currencies";
 
-    protected override IEnumerable<CurrencyInfo> GetDataInfos()
+    protected override List<CurrencyInfo> GetDataInfos()
     {
         var uriRestCurrencyFormatterCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestCurrencyFormatterCurrenciesSettingName)!;
         var uriRestWorldCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestWorldCurrenciesSettingName)!;

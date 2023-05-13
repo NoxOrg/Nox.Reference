@@ -28,10 +28,10 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
 
     public override string TargetFileName => "Nox.Reference.Holidays.json";
 
-    protected override IEnumerable<ICountryHolidayInfo> GetDataInfos()
+    protected override List<ICountryHolidayInfo> GetDataInfos()
     {
         var holidaysZipPath = _configuration.GetValue<string>(ConfigurationConstants.HolidaysZipPathSettingName)!;
-        var holidays = new List<CountryHolidayInfo>();
+        var holidays = new List<ICountryHolidayInfo>();
 
         foreach (var year in _availableYears)
         {

@@ -19,6 +19,7 @@ internal class Country : INoxReferenceEntity
     public IReadOnlyList<Demonymn> Demonyms { get; set; } = Array.Empty<Demonymn>();
     public IReadOnlyList<Country> BorderingCountries { get; set; } = Array.Empty<Country>();
     public IReadOnlyList<CountryCapital> Capitals { get; set; } = Array.Empty<CountryCapital>();
+    public IReadOnlyList<TimeZone> TimeZones { get; set; } = Array.Empty<TimeZone>();
 
     public CountryDialing? Dialing { get; set; }
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();

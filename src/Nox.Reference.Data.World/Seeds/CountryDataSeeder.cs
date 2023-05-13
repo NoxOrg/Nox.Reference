@@ -27,7 +27,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
     public override string TargetFileName => "Nox.Reference.Countries.json";
     public override string DataFolderPath => "Countries";
 
-    protected override IEnumerable<ICountryInfo> GetDataInfos()
+    protected override List<ICountryInfo> GetDataInfos()
     {
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
         var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
@@ -46,7 +46,8 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
 
         return countries
                    .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                   .Cast<ICountryInfo>();
+                   .Cast<ICountryInfo>()
+                   .ToList();
     }
 
     protected override void DoSpecialTreatAfterAdding(IEnumerable<ICountryInfo> sources, IEnumerable<Country> destinations)

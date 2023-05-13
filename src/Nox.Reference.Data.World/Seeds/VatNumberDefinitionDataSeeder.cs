@@ -26,12 +26,12 @@ internal class VatNumberDefinitionDataSeeder : NoxReferenceDataSeederBase<WorldD
 
     public override string DataFolderPath => "VatNumberDefinitions";
 
-    protected override IEnumerable<VatNumberDefinitionInfo> GetDataInfos()
+    protected override List<VatNumberDefinitionInfo> GetDataInfos()
     {
         var vatNumberDefinitionDataPath = _configuration.GetValue<string>(ConfigurationConstants.VatNumberDefinitionDataPathSettingName)!;
 
         var content = File.ReadAllText(vatNumberDefinitionDataPath);
-        var data = JsonSerializer.Deserialize<VatNumberDefinitionInfo[]>(content)!;
+        var data = JsonSerializer.Deserialize<List<VatNumberDefinitionInfo>>(content)!;
 
         return data;
     }

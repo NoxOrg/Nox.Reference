@@ -13,10 +13,11 @@ using Nox.Reference.Data.World.Models.Cultures;
 
 namespace Nox.Reference.Data.World;
 
-internal class WorldDbContext : DbContext, IWorldInfoContext
+public class WorldDbContext : DbContext, IWorldInfoContext
 {
     private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;
+    private static string? _databasePath;
 
     // DON'T remove default constructor. It is used for migrations purposes.
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -60,10 +61,15 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<INativeNameInfo> CountryNameTranslations
         => GetData<CountryNameTranslation, INativeNameInfo>();
 
+    public static void UseDatabasePath(string databasePath)
+    {
+        _databasePath = databasePath;
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        var connectionString = _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
+        var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
         optionsBuilder.UseSqlite(connectionString, opts =>
         {
             opts.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);

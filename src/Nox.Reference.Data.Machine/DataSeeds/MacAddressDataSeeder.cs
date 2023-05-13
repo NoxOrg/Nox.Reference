@@ -27,7 +27,7 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
 
     public override string DataFolderPath => "MacAddresses";
 
-    protected override IEnumerable<MacAddressInfo> GetDataInfos()
+    protected override List<MacAddressInfo> GetDataInfos()
     {
         var binaryData = DownloadSourceFileAsync()
               .ConfigureAwait(false)
@@ -51,7 +51,7 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
             dataRecords.Add(data);
         }
 
-        return dataRecords;
+        return dataRecords.OrderBy(x => x.IEEERegistry).ThenBy(x => x.Id).ToList();
     }
 
     private async Task<byte[]> DownloadSourceFileAsync()

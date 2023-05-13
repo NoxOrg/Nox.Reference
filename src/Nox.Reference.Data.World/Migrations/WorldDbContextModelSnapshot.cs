@@ -92,6 +92,21 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("CountryLanguage");
                 });
 
+            modelBuilder.Entity("CountryTimeZone", b =>
+                {
+                    b.Property<int>("CountriesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TimeZonesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CountriesId", "TimeZonesId");
+
+                    b.HasIndex("TimeZonesId");
+
+                    b.ToTable("CountryTimeZone");
+                });
+
             modelBuilder.Entity("CountryTopLevelDomain", b =>
                 {
                     b.Property<int>("CountryId")
@@ -1317,6 +1332,21 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasOne("Nox.Reference.Data.World.Language", null)
                         .WithMany()
                         .HasForeignKey("LanguagesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CountryTimeZone", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Country", null)
+                        .WithMany()
+                        .HasForeignKey("CountriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Nox.Reference.Data.World.TimeZone", null)
+                        .WithMany()
+                        .HasForeignKey("TimeZonesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
