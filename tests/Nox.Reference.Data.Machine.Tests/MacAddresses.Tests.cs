@@ -7,7 +7,7 @@ namespace Nox.Reference.Data.Tests;
 
 public class MacAddressesTests
 {
-    private IMachineContext _macAddressContext;
+    private IMachineInfoContext _macAddressContext;
 
     [OneTimeSetUp]
     public void Setup()
@@ -18,7 +18,7 @@ public class MacAddressesTests
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        _macAddressContext = serviceProvider.GetRequiredService<IMachineContext>();
+        _macAddressContext = serviceProvider.GetRequiredService<IMachineInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }

@@ -3,7 +3,7 @@
   <ItemGroup>
     <NoxWorldDbFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceDatabase/NoxReference.World.db" />
   </ItemGroup>
-  <Target Name="CopyDbFiles" BeforeTargets="Build">
+  <Target Name="CopyWorldDbFile" BeforeTargets="Build">
     <Copy SourceFiles="@(NoxWorldDbFiles)" DestinationFolder="$(TargetDir)/NoxReferenceDatabase/" />
   </Target>
 	<ItemGroup>

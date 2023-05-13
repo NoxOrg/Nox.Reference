@@ -10,7 +10,7 @@ namespace Nox.Reference.Data;
 
 public static class MachineInfo
 {
-    private static readonly IMachineContext _dbContext;
+    private static readonly IMachineInfoContext _dbContext;
 
 #pragma warning disable S3963 // "static" fields should be initialized inline
 

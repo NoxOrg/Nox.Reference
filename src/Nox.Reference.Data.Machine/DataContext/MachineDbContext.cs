@@ -7,7 +7,7 @@ using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.Machine;
 
-public class MachineDbContext : DbContext, IMachineContext
+public class MachineDbContext : DbContext, IMachineInfoContext
 {
     private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;

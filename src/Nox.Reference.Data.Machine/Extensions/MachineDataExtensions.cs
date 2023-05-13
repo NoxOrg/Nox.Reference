@@ -14,7 +14,7 @@ public static class MachineDataExtensions
         services.AddDbContext<MachineDbContext>();
 
         services.AddScoped<INoxReferenceDataSeeder, MacAddressDataSeeder>();
-        services.AddScoped<IMachineContext, MachineDbContext>();
+        services.AddScoped<IMachineInfoContext, MachineDbContext>();
         return services;
     }
 }
