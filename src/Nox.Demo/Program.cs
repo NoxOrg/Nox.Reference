@@ -14,7 +14,7 @@ var timezone = worldContext2.TimeZones.Get("EET")!;
 Console.WriteLine($"{timezone.Id} -- {timezone.Type}");
 
 var machineContext2 = MachineDataContext.Create();
-var macAddress = machineContext2.MacAddresses.Get("B0D888")!;
+var macAddress = machineContext2.MacAddresses.Get("00-16-F6-11-22-33")!;
 
 Console.WriteLine($"{macAddress.Id} -- {macAddress.OrganizationName}");
 
@@ -22,6 +22,7 @@ Console.WriteLine($"{macAddress.Id} -- {macAddress.OrganizationName}");
 
 var serviceCollection = new ServiceCollection();
 serviceCollection.AddWorldContext();
+serviceCollection.AddMachineContext();
 
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
@@ -31,6 +32,6 @@ timezone = worldContext.TimeZones.Get("EET")!;
 Console.WriteLine($"{timezone.Id} -- {timezone.Type}");
 
 var machineContext = serviceProvider.GetRequiredService<IMachineInfoContext>();
-macAddress = machineContext.MacAddresses.Get("B0D888")!;
+macAddress = machineContext.MacAddresses.Get("00-16-F6-11-22-33")!;
 
 Console.WriteLine($"{macAddress.Id} -- {macAddress.OrganizationName}");
