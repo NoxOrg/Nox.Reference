@@ -12,7 +12,6 @@ public static class ConfigurationConstants
     public const string UriLanguagesAdditionalInfo = "UriLanguagesAdditionalInfo";
     public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
     public const string WorldDataLoadConnectionStringName = "NoxReferenceDataLoadWorldConnection";
-    public const string NoxReferenceWorldDbName = "NoxReferenceWorldDbName";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
     public const string MachineDataLoadConnectionStringName = "NoxReferenceDataLoadMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
