@@ -16,6 +16,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
     private readonly IConfiguration _configuration;
 
     private readonly Regex _scriptRegex = new Regex(@"<script.*/script>", RegexOptions.Singleline);
+    private readonly Regex _removeNavBarRegex = new Regex(@"<ul class=""nav"">(?s:.)*?<\/ul>");
 
     public CultureDataSeeder(
         IConfiguration configuration,
@@ -87,6 +88,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
             // Save content
             body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
             formattedBody = _scriptRegex.Replace(body, string.Empty);
+            formattedBody = _removeNavBarRegex.Replace(formattedBody, string.Empty);
             File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), formattedBody);
 
             var languageNode = nodes[3];
