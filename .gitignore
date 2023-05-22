@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # project
 **/dist
+
+# nuget content
+NoxReferenceConfig/
+NoxReferenceDatabase/
