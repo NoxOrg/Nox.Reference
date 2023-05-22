@@ -31,7 +31,7 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     protected override List<CountryHolidayInfo> GetDataInfos()
     {
         var holidaysZipPath = _configuration.GetValue<string>(ConfigurationConstants.HolidaysZipPathSettingName)!;
-        var holidays = new List<ICountryHolidayInfo>();
+        var holidays = new List<CountryHolidayInfo>();
 
         foreach (var year in _availableYears)
         {

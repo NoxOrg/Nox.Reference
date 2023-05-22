@@ -19,7 +19,7 @@ namespace Nox.Reference.Data.Machine.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("Nox.Reference.Data.Machine.MacAddress", b =>
+            modelBuilder.Entity("Nox.Reference.Data.MacAddress", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

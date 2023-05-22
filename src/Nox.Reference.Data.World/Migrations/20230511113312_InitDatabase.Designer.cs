@@ -11,11 +11,7 @@ using Nox.Reference.Data.World;
 namespace Nox.Reference.Data.World.Migrations
 {
     [DbContext(typeof(WorldDbContext))]
-<<<<<<<< HEAD:src/Nox.Reference.Data.World/Migrations/20230511113312_InitDatabase.Designer.cs
     [Migration("20230511113312_InitDatabase")]
-========
-    [Migration("20230512184423_InitDatabase")]
->>>>>>>> main:src/Nox.Reference.Data.World/Migrations/20230512184423_InitDatabase.Designer.cs
     partial class InitDatabase
     {
         /// <inheritdoc />

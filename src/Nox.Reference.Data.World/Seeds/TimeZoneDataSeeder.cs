@@ -143,7 +143,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
 
         return timeZoneDataToSave;
     }
-    protected override void DoSpecialTreatAfterAdding(IEnumerable<Models.TimeZones.TimeZoneInfo> sources, IEnumerable<TimeZone> destinations)
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<Models.TimeZoneInfo> sources, IEnumerable<TimeZone> destinations)
     {
         base.DoSpecialTreatAfterAdding(sources, destinations);
 

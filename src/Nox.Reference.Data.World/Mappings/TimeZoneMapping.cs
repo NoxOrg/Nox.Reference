@@ -17,15 +17,14 @@ internal class TimeZoneMapping : Profile
             .ReverseMap();
 #pragma warning restore S3358 // Ternary operators should not be nested
 
-            CreateProjection<TimeZone, Models.TimeZones.TimeZoneInfo>()
-                .ForMember(x => x.Id, x => x.MapFrom(x => x.Code))
-                .ForMember(x => x.CountriesWithTimeZone, x => x.MapFrom(t => t.Countries.Select(x => x.Code).ToList()))
-                .ForMember(x => x.GeoCoordinates, x => x.MapFrom(t => t.Latitude == null ? null :
-                    new GeoCoordinates
-                    {
-                        Latitude = Convert.ToDecimal(t.Latitude),
-                        Longitude = Convert.ToDecimal(t.Longitude)
-                    }));
-        }
+        CreateProjection<TimeZone, TimeZoneInfo>()
+            .ForMember(x => x.Id, x => x.MapFrom(x => x.Code))
+            .ForMember(x => x.CountriesWithTimeZone, x => x.MapFrom(t => t.Countries.Select(x => x.Code).ToList()))
+            .ForMember(x => x.GeoCoordinates, x => x.MapFrom(t => t.Latitude == null ? null :
+                new GeoCoordinates
+                {
+                    Latitude = Convert.ToDecimal(t.Latitude),
+                    Longitude = Convert.ToDecimal(t.Longitude)
+                }));
     }
 }
