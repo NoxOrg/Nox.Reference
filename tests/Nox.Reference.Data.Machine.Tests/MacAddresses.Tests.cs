@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.Machine;
+using Nox.Reference.Data.Machine.Tests;
 
 namespace Nox.Reference.Data.Tests;
 
@@ -15,6 +16,7 @@ public class MacAddressesTests
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddMachineContext();
+        MachineDbContext.UseDatabasePath(DatabaseConstant.MachineDbPath);
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 

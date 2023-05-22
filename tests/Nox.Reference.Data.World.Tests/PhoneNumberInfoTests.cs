@@ -15,6 +15,7 @@ public class PhoneNumberInfoTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();

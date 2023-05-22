@@ -1,6 +1,5 @@
-using System.Diagnostics;
-using Microsoft.EntityFrameworkCore;
 using Nox.Reference.Data.World.Extensions.Queries;
+using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
 
