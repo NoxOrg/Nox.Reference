@@ -1,10 +1,11 @@
-﻿using System.Globalization;
-using AutoMapper;
+﻿using AutoMapper;
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
+using System.Globalization;
+using System.Text;
 
 namespace Nox.Reference.Data.Machine;
 
@@ -34,10 +35,15 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
               .GetAwaiter()
               .GetResult();
 
-        // TODO: sort raw data before insert
-        _fileStorageService.SaveContentToSource(binaryData, DataFolderPath, "mac-vendor.csv");
-
         using var ms = new MemoryStream(binaryData);
+        var rawData = Encoding.ASCII.GetString(ms.ToArray());
+        var splitRows = rawData.Split("\n");
+        var sortedRows = splitRows.Skip(1).OrderBy(x => x).Skip(1).ToList();
+        sortedRows.Insert(0, splitRows[0]);
+        var resultingString = string.Join("\n", sortedRows);
+        // TODO: fix saved data
+        _fileStorageService.SaveContentToSource(resultingString, DataFolderPath, "mac-vendor.csv");
+
         using var sr = new StreamReader(ms);
         using var csvReader = new CsvReader(sr, CultureInfo.InvariantCulture);
 
