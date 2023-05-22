@@ -34,6 +34,7 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
               .GetAwaiter()
               .GetResult();
 
+        // TODO: sort raw data before insert
         _fileStorageService.SaveContentToSource(binaryData, DataFolderPath, "mac-vendor.csv");
 
         using var ms = new MemoryStream(binaryData);

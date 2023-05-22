@@ -88,6 +88,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
             body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
             formattedBody = _scriptRegex.Replace(body, string.Empty);
             formattedBody = _removeNavBarRegex.Replace(formattedBody, string.Empty);
+            // TODO: find a way to ignore date to not add unnessesary diffs
             File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), formattedBody);
 
             var languageNode = nodes[3];
