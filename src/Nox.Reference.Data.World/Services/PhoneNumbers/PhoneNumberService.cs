@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Data.World;
+using Nox.Reference.Data.World.Models;
 using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;
@@ -17,7 +17,7 @@ internal class PhoneNumberService : IPhoneNumberService
         _worldDbContext = worldDbContext;
     }
 
-    public IPhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
+    public PhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
     {
         var phoneNumber = _phoneUtil.Parse(inputPhoneNumber, countryAlpha2Code);
 

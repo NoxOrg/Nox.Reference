@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions.Cultures;
-using Nox.Reference.Data.World.Entities.Cultures;
-using Nox.Reference.Data.World.Models.Cultures;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings
 {
@@ -9,17 +7,12 @@ namespace Nox.Reference.Data.World.Mappings
     {
         public CultureMapping()
         {
-            CreateMap<ICultureInfo, Culture>()
+            CreateMap<CultureInfo, Culture>()
                 .ForMember(x => x.Id, x => x.Ignore())
                 .ForMember(x => x.Name, x => x.MapFrom(x => x.Id))
                 .ReverseMap();
-            CreateMap<IDateFormatInfo, DateFormat>().ReverseMap().As<DateFormatInfo>();
-            CreateMap<INumberFormatInfo, NumberFormat>().ReverseMap().As<NumberFormatInfo>();
-
-            CreateProjection<Culture, CultureInfo>()
-                .ForMember(x => x.Id, x => x.MapFrom(x => x.Name));
-            CreateProjection<DateFormat, DateFormatInfo>();
-            CreateProjection<NumberFormat, NumberFormatInfo>();
+            CreateMap<DateFormatInfo, DateFormat>();
+            CreateMap<NumberFormatInfo, NumberFormat>();
         }
     }
 }

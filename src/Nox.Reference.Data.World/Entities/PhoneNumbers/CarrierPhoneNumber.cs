@@ -2,11 +2,11 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class CarrierPhoneNumber : INoxReferenceEntity
+public class CarrierPhoneNumber : INoxReferenceEntity
 {
     public int Id { get; private set; }
 
-    public int PhoneNumber { get; set; }
+    public int PhoneNumber { get; internal set; }
 
-    public PhoneCarrier PhoneCarrier { get; set; } = new PhoneCarrier();
+    public PhoneCarrier PhoneCarrier { get; private set; } = new PhoneCarrier();
 }

@@ -1,10 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class LanguageInfo : ILanguageInfo
+internal class LanguageInfo
 {
     [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;
     [JsonPropertyName("iso_639_1")] public string? Iso_639_1 { get; set; }
@@ -17,6 +15,5 @@ public class LanguageInfo : ILanguageInfo
     [JsonPropertyName("wikiUrl")] public string? WikiUrl { get; set; }
 
     [JsonPropertyName("nameTranslations")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IList<ILanguageTranslation>, LanguageTranslationInfo[]>))]
-    public IList<ILanguageTranslation> NameTranslations { get; set; } = new List<ILanguageTranslation>();
+    public IList<LanguageTranslationInfo> NameTranslations { get; set; } = new List<LanguageTranslationInfo>();
 }

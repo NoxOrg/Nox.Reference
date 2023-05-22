@@ -1,10 +1,7 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Cultures;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World;
 
@@ -30,40 +27,23 @@ public static class WorldInfo
             .Build();
     }
 
-    public static IQueryable<ICurrencyInfo> Currencies
+    public static IQueryable<Currency> Currencies
         => WorldDataContext.Currencies;
 
-    public static IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
+    public static IQueryable<VatNumberDefinition> VatNumberDefinitions
         => WorldDataContext.VatNumberDefinitions;
 
-    public static IQueryable<ILanguageInfo> Languages
+    public static IQueryable<Language> Languages
         => WorldDataContext.Languages;
 
-    public static IQueryable<ICountryHolidayInfo> Holidays
+    public static IQueryable<CountryHoliday> Holidays
         => WorldDataContext.Holidays;
 
-    public static IQueryable<ICultureInfo> Cultures
+    public static IQueryable<Culture> Cultures
         => WorldDataContext.Cultures;
 
-    public static IQueryable<ICountryInfo> Countries
+    public static IQueryable<Country> Countries
         => WorldDataContext.Countries;
-
-    public static IQueryable<INativeNameInfo> GetCountryTranslationsForLanguage(string languageCode)
-    {
-        return DbContext.Set<CountryNameTranslation>()
-            .Where(x => x.Language.Iso_639_1 == languageCode)
-            .AsNoTracking()
-            .ProjectTo<NativeNameInfo>(_mapper.ConfigurationProvider);
-    }
-
-    public static IQueryable<ICountryInfo> GetCountriesThatUseLanguage(string languageCode)
-    {
-        return DbContext.Set<Language>()
-            .Where(x => x.Iso_639_1 == languageCode)
-            .SelectMany(x => x.Countries)
-            .AsNoTracking()
-            .ProjectTo<CountryInfo>(_mapper.ConfigurationProvider);
-    }
 
     private static IWorldInfoContext WorldDataContext
         => DbContext;

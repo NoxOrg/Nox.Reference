@@ -1,9 +1,8 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class RestcountryCurrencyInfo : IRestcountryCurrencyInfo
+public class CountryCurrencyInfo
 {
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;

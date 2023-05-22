@@ -1,9 +1,8 @@
 ﻿using CsvHelper.Configuration.Attributes;
-using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Data.Machine;
 
-public class MacAddressInfo : IMacAddressInfo
+public class MacAddressInfo
 {
     [Name("Assignment")]
     public string Id { get; init; } = string.Empty;

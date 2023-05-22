@@ -2,9 +2,9 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryCapital : INoxReferenceEntity
+public class CountryCapital : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Name { get; set; } = string.Empty;
-    public GeoCoordinates? GeoCoordinates { get; set; }
+    public string Name { get; internal set; } = string.Empty;
+    public GeoCoordinates? GeoCoordinates { get; internal set; }
 }

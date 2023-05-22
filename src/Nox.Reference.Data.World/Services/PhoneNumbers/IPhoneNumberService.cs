@@ -1,8 +1,8 @@
-﻿using Nox.Reference.Abstractions;
+﻿using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.PhoneNumbers;
 
 public interface IPhoneNumberService
 {
-    IPhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null);
+    PhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null);
 }

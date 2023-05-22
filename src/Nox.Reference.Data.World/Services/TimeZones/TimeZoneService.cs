@@ -1,12 +1,10 @@
-﻿using GeoTimeZone;
-using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.TimeZones;
+﻿using TimeZoneInfo = Nox.Reference.Data.World.Models.TimeZoneInfo;
 
 namespace Nox.Reference.Data.World.Services.TimeZones
 {
     internal static class TimeZoneService
     {
-        public static ITimeZoneInfo? GetTimeZoneByCoordinates(IGeoCoordinates geoCoordinates)
+        public static TimeZoneInfo? GetTimeZoneByCoordinates(GeoCoordinatesInfo geoCoordinates)
         {
             if (geoCoordinates?.Latitude == null ||
                 geoCoordinates.Longitude == null)

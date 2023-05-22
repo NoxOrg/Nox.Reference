@@ -1,9 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using YamlDotNet.Serialization;
+﻿using YamlDotNet.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class LanguageInfoYaml
+internal class LanguageInfoYaml
 {
     [YamlMember(Alias = ":name")] public string EnglishName { get; set; } = string.Empty;
     [YamlMember(Alias = ":iso_639_1")] public string? Iso_639_1 { get; set; }

@@ -1,10 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class VatNumberDefinitionInfo : IVatNumberDefinitionInfo
+internal class VatNumberDefinitionInfo
 {
     [JsonPropertyName("country")]
     public string Country { get; set; } = string.Empty;
@@ -13,8 +11,7 @@ public class VatNumberDefinitionInfo : IVatNumberDefinitionInfo
     public string LocalName { get; set; } = string.Empty;
 
     [JsonPropertyName("validations")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IValidationInfo[], ValidationInfo[]>))]
-    public IValidationInfo[]? Validations { get; set; } = Array.Empty<ValidationInfo>();
+    public ValidationInfo[]? Validations { get; set; } = Array.Empty<ValidationInfo>();
 
     [JsonPropertyName("verificationApi")]
     public VerificationApi VerificationApi { get; set; } = VerificationApi.None;

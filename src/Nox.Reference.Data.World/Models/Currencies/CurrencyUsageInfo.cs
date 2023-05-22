@@ -1,13 +1,12 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-internal class CurrencyUsageInfo : ICurrencyUsage
+internal class CurrencyUsageInfo
 {
     [JsonPropertyName("frequent")]
-    public IReadOnlyList<string> Frequent { get; set; } = new List<string>();
+    public IReadOnlyList<string> Frequent { get; set; } = Array.Empty<string>();
 
     [JsonPropertyName("rare")]
-    public IReadOnlyList<string> Rare { get; set; } = new List<string>();
+    public IReadOnlyList<string> Rare { get; set; } = Array.Empty<string>();
 }

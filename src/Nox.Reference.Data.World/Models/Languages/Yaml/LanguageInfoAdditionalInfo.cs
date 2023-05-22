@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class LanguageInfoAdditionalInfo
+internal class LanguageInfoAdditionalInfo
 {
     [JsonPropertyName("639-1")] public string? Iso_639_1 { get; set; }
     [JsonPropertyName("639-2")] public string Iso_639_2 { get; set; } = string.Empty;

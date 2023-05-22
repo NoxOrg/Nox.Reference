@@ -1,10 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Common;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-internal class StateHolidayInfo : IStateHolidayInfo
+internal class StateHolidayInfo
 {
     [JsonPropertyName("state")]
     public string State { get; set; } = string.Empty;
@@ -13,10 +11,8 @@ internal class StateHolidayInfo : IStateHolidayInfo
     public string StateName { get; set; } = string.Empty;
 
     [JsonPropertyName("holidays")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<IHolidayData>, HolidayDataInfo[]>))]
-    public IReadOnlyList<IHolidayData> Holidays { get; set; } = new List<IHolidayData>();
+    public IReadOnlyList<HolidayDataInfo> Holidays { get; set; } = new List<HolidayDataInfo>();
 
     [JsonPropertyName("regions")]
-    [JsonConverter(typeof(NoxRefenceInfoJsonConverter<IReadOnlyList<IRegionHolidayInfo>, RegionHolidayInfo[]>))]
-    public IReadOnlyList<IRegionHolidayInfo> Regions { get; set; } = new List<IRegionHolidayInfo>();
+    public IReadOnlyList<RegionHolidayInfo> Regions { get; set; } = new List<RegionHolidayInfo>();
 }

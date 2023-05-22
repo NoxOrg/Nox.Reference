@@ -2,10 +2,10 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryNativeName : INoxReferenceEntity
+public class CountryNativeName : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public Language Language { get; set; } = new Language();
-    public string OfficialName { get; set; } = string.Empty;
-    public string CommonName { get; set; } = string.Empty;
+    public Language Language { get; internal set; } = new Language();
+    public string OfficialName { get; internal set; } = string.Empty;
+    public string CommonName { get; internal set; } = string.Empty;
 }

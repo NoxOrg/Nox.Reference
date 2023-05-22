@@ -1,15 +1,9 @@
 ﻿using System.Reflection;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Cultures;
-using Nox.Reference.Abstractions.TimeZones;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Entities.Cultures;
-using Nox.Reference.Data.World.Models.Cultures;
 
 namespace Nox.Reference.Data.World;
 
@@ -36,29 +30,26 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         _configuration = configuration;
     }
 
-    public IQueryable<ICurrencyInfo> Currencies
-        => GetData<Currency, CurrencyInfo>();
+    public IQueryable<Currency> Currencies
+        => GetData<Currency>();
 
-    public IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions
-         => GetData<VatNumberDefinition, VatNumberDefinitionInfo>();
+    public IQueryable<VatNumberDefinition> VatNumberDefinitions
+         => GetData<VatNumberDefinition>();
 
-    public IQueryable<ILanguageInfo> Languages
-         => GetData<Language, LanguageInfo>();
+    public IQueryable<Language> Languages
+         => GetData<Language>();
 
-    public IQueryable<ICountryHolidayInfo> Holidays
-         => GetData<CountryHoliday, CountryHolidayInfo>();
+    public IQueryable<CountryHoliday> Holidays
+         => GetData<CountryHoliday>();
 
-    public IQueryable<ICultureInfo> Cultures
-        => GetData<Culture, CultureInfo>();
+    public IQueryable<Culture> Cultures
+        => GetData<Culture>();
 
-    public IQueryable<ITimeZoneInfo> TimeZones
-        => GetData<TimeZone, Models.TimeZones.TimeZoneInfo>();
+    public IQueryable<TimeZone> TimeZones
+        => GetData<TimeZone>();
 
-    public IQueryable<ICountryInfo> Countries
-        => GetData<Country, CountryInfo>();
-
-    public IQueryable<INativeNameInfo> CountryNameTranslations
-        => GetData<CountryNameTranslation, INativeNameInfo>();
+    public IQueryable<Country> Countries
+        => GetData<Country>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -78,12 +69,9 @@ internal class WorldDbContext : DbContext, IWorldInfoContext
         base.OnModelCreating(modelBuilder);
     }
 
-    private IQueryable<TOutput> GetData<TSource, TOutput>()
+    private IQueryable<TSource> GetData<TSource>()
         where TSource : class, INoxReferenceEntity
-    {
-        return Set<TSource>()
-            .AsNoTracking()
-            .AsQueryable()
-            .ProjectTo<TOutput>(_mapper.ConfigurationProvider);
-    }
+        => Set<TSource>()
+            .IncludeAll()
+            .AsNoTracking();
 }

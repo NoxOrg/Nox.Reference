@@ -5,5 +5,5 @@ namespace Nox.Reference.Data.World;
 public class CurrencyRareUsage : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; internal set; } = string.Empty;
 }

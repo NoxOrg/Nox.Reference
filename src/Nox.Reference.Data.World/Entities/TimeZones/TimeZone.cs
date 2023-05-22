@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class TimeZone : INoxReferenceEntity
+public class TimeZone : INoxReferenceEntity
 {
     public int Id { get; set; }
     public string Code { get; set; } = string.Empty;

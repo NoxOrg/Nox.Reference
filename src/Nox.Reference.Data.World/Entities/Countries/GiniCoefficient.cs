@@ -2,9 +2,9 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class GiniCoefficient : INoxReferenceEntity
+public class GiniCoefficient : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public int Year { get; set; }
-    public decimal Value { get; set; }
+    public int Year { get; internal set; }
+    public decimal Value { get; internal set; }
 }

@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
+using Nox.Reference.Data.World.Models;
 using Nox.Reference.PhoneNumbers;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -27,7 +27,7 @@ public class PhoneNumberInfoTests
     [Test]
     public void PhoneNumberInfo_WithKnownSouthAfricanMobileNumber_ReturnsValidInfo()
     {
-        IPhoneNumberInfo info = _phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
+        PhoneNumberInfo info = _phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 

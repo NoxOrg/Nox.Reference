@@ -38,7 +38,6 @@
 	<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
 </ItemGroup>
 <ItemGroup>
-    <ProjectReference Include="..\Nox.Reference.Abstractions\Nox.Reference.Abstractions.csproj" />
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
 </ItemGroup>

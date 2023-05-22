@@ -1,10 +1,9 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-internal class MajorCurrencyUnitInfo : IMajorCurrencyUnit
+internal class MajorCurrencyUnitInfo
 {
-    [JsonPropertyName("name")] public string Name { get; set; } = "";
-    [JsonPropertyName("symbol")] public string Symbol { get; set; } = "";
+    [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;
+    [JsonPropertyName("symbol")] public string Symbol { get; set; } = string.Empty;
 }

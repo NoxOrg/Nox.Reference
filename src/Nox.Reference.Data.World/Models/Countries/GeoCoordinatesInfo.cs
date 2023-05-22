@@ -1,9 +1,8 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions;
 
 namespace Nox.Reference.Data.World;
 
-internal class GeoCoordinatesInfo : IGeoCoordinates
+internal class GeoCoordinatesInfo
 {
     [JsonPropertyName("latitude")]
     public decimal? Latitude { get; set; } = null;

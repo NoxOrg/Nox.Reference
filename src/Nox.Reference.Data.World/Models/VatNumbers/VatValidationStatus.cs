@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Abstractions;
+﻿namespace Nox.Reference.Data.World.Models;
 
 public enum VatValidationStatus
 {
