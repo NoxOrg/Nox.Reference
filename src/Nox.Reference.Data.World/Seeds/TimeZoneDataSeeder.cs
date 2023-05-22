@@ -143,6 +143,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
 
         return timeZoneDataToSave;
     }
+
     protected override void DoSpecialTreatAfterAdding(IEnumerable<Models.TimeZoneInfo> sources, IEnumerable<TimeZone> destinations)
     {
         base.DoSpecialTreatAfterAdding(sources, destinations);
@@ -152,7 +153,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
         foreach (var source in sources)
         {
             var timeZoneEntity = destinations.First(x => x.Code == source.Id);
-            timeZoneEntity.Countries = countries.Where(x => source.CountriesWithTimeZone.Contains(x.Code)).ToList();
+            timeZoneEntity.Countries = countries.Where(x => source.CountriesWithTimeZone.Contains(x.AlphaCode2)).ToList();
         }
 
         _dbContext.Set<TimeZone>()

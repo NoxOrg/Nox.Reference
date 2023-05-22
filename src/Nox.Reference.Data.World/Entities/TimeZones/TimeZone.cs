@@ -15,5 +15,5 @@ public class TimeZone : INoxReferenceEntity
     public string? DST_TimeZoneAbbreviation { get; set; }
     public double? Latitude { get; set; }
     public double? Longitude { get; set; }
-    public IReadOnlyList<Country> Countries { get; set; } = Array.Empty<Country>();
+    public IReadOnlyList<Country> Countries { get; set; } = new List<Country>();
 }

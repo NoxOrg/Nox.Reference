@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Models\Countries\Rest\" />
     <Folder Include="Models\Languages\Yaml\" />
   </ItemGroup>
 </Project>

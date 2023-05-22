@@ -1,9 +1,9 @@
-﻿using System.Reflection;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World;
+using System.Reflection;
 
 namespace Nox.Reference.Data;
 

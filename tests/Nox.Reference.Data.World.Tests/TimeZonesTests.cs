@@ -37,6 +37,7 @@ public class TimeZonesTests
         {
             Assert.That(info, Is.Not.Null);
             Assert.That(info?.Type, Is.EqualTo("Canonical"));
+            Assert.That(info?.Countries.Count, Is.EqualTo(1));
         });
     }
 

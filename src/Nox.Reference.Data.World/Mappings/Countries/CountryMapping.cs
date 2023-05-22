@@ -23,6 +23,7 @@ internal class CountryMapping : Profile
             .ForMember(x => x.TopLevelDomains, x => x.Ignore())
             .ForMember(x => x.Currencies, x => x.Ignore())
             .ForMember(x => x.Languages, x => x.Ignore())
+            .ForMember(x => x.TimeZones, x => x.Ignore())
             .ForMember(x => x.Dialing, x => x.MapFrom(t => t.DialingInfo))
             .ForMember(x => x.Flag, x => x.MapFrom(t => t.Flags))
             .ForMember(x => x.Vehicle, x => x.MapFrom(t => t.VehicleInfo))
