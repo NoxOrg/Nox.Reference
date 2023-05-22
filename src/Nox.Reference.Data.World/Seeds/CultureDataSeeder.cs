@@ -90,6 +90,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
             body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
             formattedBody = _scriptRegex.Replace(body, string.Empty);
             formattedBody = _removeNavBarRegex.Replace(formattedBody, string.Empty);
+            // TODO: find a way to resolve the same issue in output .json file
             formattedBody = _removeDateValueRawRegex.Replace(formattedBody, "<td>REMOVED IN GIT FOR AVOIDING EXTRA GIT CHANGES</td>");
             File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), formattedBody);
 
