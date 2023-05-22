@@ -1,20 +1,20 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions.TimeZones;
+using TimeZoneInfo = Nox.Reference.Data.World.Models.TimeZoneInfo;
 
-namespace Nox.Reference.Data.World.Mappings
+namespace Nox.Reference.Data.World.Mappings;
+
+internal class TimeZoneMapping : Profile
 {
-    internal class TimeZoneMapping : Profile
+    public TimeZoneMapping()
     {
-        public TimeZoneMapping()
-        {
 #pragma warning disable S3358 // Ternary operators should not be nested
-            CreateMap<ITimeZoneInfo, TimeZone>()
-                .ForMember(x => x.Id, x => x.Ignore())
-                .ForMember(x => x.Code, x => x.MapFrom(x => x.Id))
-                .ForMember(x => x.Latitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Latitude == null ? null : s.GeoCoordinates.Latitude)))
-                .ForMember(x => x.Longitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Longitude == null ? null : s.GeoCoordinates.Longitude)))
-                .ForMember(x => x.Countries, x => x.Ignore())
-                .ReverseMap();
+        CreateMap<TimeZoneInfo, TimeZone>()
+            .ForMember(x => x.Id, x => x.Ignore())
+            .ForMember(x => x.Code, x => x.MapFrom(x => x.Id))
+            .ForMember(x => x.Latitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Latitude == null ? null : s.GeoCoordinates.Latitude)))
+            .ForMember(x => x.Longitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Longitude == null ? null : s.GeoCoordinates.Longitude)))
+            .ForMember(x => x.Countries, x => x.Ignore())
+            .ReverseMap();
 #pragma warning restore S3358 // Ternary operators should not be nested
 
             CreateProjection<TimeZone, Models.TimeZones.TimeZoneInfo>()

@@ -1,21 +1,21 @@
 ﻿using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.World.Entities.Cultures;
+namespace Nox.Reference.Data.World;
 
-internal class Culture : INoxReferenceEntity
+public class Culture : INoxReferenceEntity
 {
     public int Id { get; set; }
-    public string Name { get; set; } = string.Empty;
-    public string FormalName { get; set; } = string.Empty;
-    public string NativeName { get; set; } = string.Empty;
-    public string? CommonName { get; set; }
-    public string Language { get; set; } = string.Empty;
-    public string Country { get; set; } = string.Empty;
-    public string DisplayName { get; set; } = string.Empty;
-    public string DisplayNameWithDialect { get; set; } = string.Empty;
-    public string CharacterOrientation { get; set; } = string.Empty;
-    public string LineOrientation { get; set; } = string.Empty;
-    public string? LanguageIso_639_2t { get; set; }
-    public NumberFormat NumberFormat { get; set; } = null!;
-    public DateFormat DateFormat { get; set; } = null!;
+    public string Name { get; private set; } = string.Empty;
+    public string FormalName { get; private set; } = string.Empty;
+    public string NativeName { get; private set; } = string.Empty;
+    public string? CommonName { get; private set; }
+    public string Language { get; private set; } = string.Empty;
+    public string Country { get; private set; } = string.Empty;
+    public string DisplayName { get; private set; } = string.Empty;
+    public string DisplayNameWithDialect { get; private set; } = string.Empty;
+    public string CharacterOrientation { get; private set; } = string.Empty;
+    public string LineOrientation { get; private set; } = string.Empty;
+    public string? LanguageIso_639_2t { get; private set; }
+    public NumberFormat NumberFormat { get; private set; } = null!;
+    public DateFormat DateFormat { get; private set; } = null!;
 }

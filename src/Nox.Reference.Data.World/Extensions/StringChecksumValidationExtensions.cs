@@ -4,7 +4,7 @@ namespace Nox.Reference.Data.World;
 
 internal static class StringChecksumValidationExtensions
 {
-    public static List<string> ValidateCustomChecksum(this string vatNumber, Func<string, List<string>> checksumFunc)
+    public static IEnumerable<string> ValidateCustomChecksum(this string vatNumber, Func<string, IEnumerable<string>> checksumFunc)
     {
         var errorMessages = new List<string>();
 
@@ -20,147 +20,147 @@ internal static class StringChecksumValidationExtensions
         return errorMessages;
     }
 
-    public static List<string> ValidateLuhnDigitForVatNumber(this string vatNumber)
+    public static IEnumerable<string> ValidateLuhnDigitForVatNumber(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckLuhnDigit());
     }
 
-    public static List<string> ValidateModAndSubstract(this string vatNumber, int modulus, List<int> weights, int checksumDigitPosition)
+    public static IEnumerable<string> ValidateModAndSubstract(this string vatNumber, int modulus, int[] weights, int checksumDigitPosition)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckModAndSubstract(modulus, weights, checksumDigitPosition));
     }
 
-    public static List<string> ValidateModAndSubstractItaly(this string vatNumber, int modulus, List<int> weights)
+    public static IEnumerable<string> ValidateModAndSubstractItaly(this string vatNumber, int modulus, int[] weights)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckModAndSubstractItaly(modulus, weights));
     }
 
-    public static List<string> ValidateMod(this string vatNumber, int modulus, List<int> weights, int checksumDigitPosition)
+    public static IEnumerable<string> ValidateMod(this string vatNumber, int modulus, int[] weights, int checksumDigitPosition)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMod(modulus, weights, checksumDigitPosition));
     }
 
-    public static List<string> ValidateMXAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateMXAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckMXAlgorithm());
     }
 
-    public static List<string> ValidateDEAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateDEAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDEAlgorithm());
     }
 
-    public static List<string> ValidateFRAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateFRAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckFRAlgorithm());
     }
 
-    public static List<string> ValidateCOAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateCOAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCOAlgorithm());
     }
 
-    public static List<string> ValidateAUAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateAUAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckAUAlgorithm());
     }
 
-    public static List<string> ValidateBEAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateBEAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBEAlgorithm());
     }
 
-    public static List<string> ValidateBRAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateBRAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckBRAlgorithm());
     }
 
-    public static List<string> ValidateCAAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateCAAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCAAlgorithm());
     }
 
-    public static List<string> ValidateCHAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateCHAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCHAlgorithm());
     }
 
-    public static List<string> ValidateGBAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateGBAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckGBAlgorithm());
     }
 
-    public static List<string> ValidateES1Algorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateES1Algorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES1Algorithm());
     }
 
-    public static List<string> ValidateES2Algorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateES2Algorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES2Algorithm());
     }
 
-    public static List<string> ValidateES3Algorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateES3Algorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckES3Algorithm());
     }
 
-    public static List<string> ValidateDKAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateDKAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckDKAlgorithm());
     }
 
-    public static List<string> ValidateATAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateATAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckATAlgorithm());
     }
 
-    public static List<string> ValidateJPAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateJPAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckJPAlgorithm());
     }
 
-    public static List<string> ValidateCNAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateCNAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckCNAlgorithm());
     }
 
-    public static List<string> ValidateTRAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateTRAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckTRAlgorithm());
     }
 
-    public static List<string> ValidateSEAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateSEAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckSEAlgorithm());
     }
 
-    public static List<string> ValidateILAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateILAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckILAlgorithm());
     }
 
-    public static List<string> ValidateNOAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateNOAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNOAlgorithm());
     }
 
-    public static List<string> ValidateRUAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateRUAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckRUAlgorithm());
     }
 
-    public static List<string> ValidateNZAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateNZAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckNZAlgorithm());
     }
 
-    public static List<string> ValidateIDAlgorithm(this string vatNumber)
+    public static IEnumerable<string> ValidateIDAlgorithm(this string vatNumber)
     {
         return vatNumber.ValidateCustomChecksum((vatNumber) => vatNumber.CheckIDAlgorithm());
     }
 
-    private static List<string> CheckLuhnDigit(this string stringDigits)
+    private static IEnumerable<string> CheckLuhnDigit(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -180,7 +180,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckModAndSubstract(this string stringDigits, int modulus, List<int> weights, int checksumDigitPosition)
+    private static IEnumerable<string> CheckModAndSubstract(this string stringDigits, int modulus, int[] weights, int checksumDigitPosition)
     {
         var errorMessage = new List<string>();
 
@@ -192,7 +192,7 @@ internal static class StringChecksumValidationExtensions
 
         // TODO: think about proper handling cases of different length
         // TODO: possibly change way to operate with checksum digit position
-        for (var index = 0; index < weights.Count && index < checksumDigitPosition; index++)
+        for (var index = 0; index < weights.Count() && index < checksumDigitPosition; index++)
         {
             if (stringDigits.Length <= index)
             {
@@ -224,7 +224,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckMod(this string stringDigits, int modulus, List<int> weights, int checksumDigitPosition)
+    private static IEnumerable<string> CheckMod(this string stringDigits, int modulus, int[] weights, int checksumDigitPosition)
     {
         var errorMessage = new List<string>();
 
@@ -236,7 +236,7 @@ internal static class StringChecksumValidationExtensions
 
         // TODO: think about proper handling cases of different length
         // TODO: possibly change way to operate with checksum digit position
-        for (var index = 0; index < weights.Count && index < checksumDigitPosition; index++)
+        for (var index = 0; index < weights.Length && index < checksumDigitPosition; index++)
         {
             if (stringDigits.Length <= index)
             {
@@ -263,7 +263,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckModAndSubstractItaly(this string stringDigits, int modulus, List<int> weights)
+    private static IEnumerable<string> CheckModAndSubstractItaly(this string stringDigits, int modulus, int[] weights)
     {
         var errorMessage = new List<string>();
 
@@ -279,7 +279,7 @@ internal static class StringChecksumValidationExtensions
 
         // TODO: think about proper handling cases of different length
         // TODO: possibly change way to operate with checksum digit position
-        for (var index = 0; index < weights.Count; index++)
+        for (var index = 0; index < weights.Length; index++)
         {
             temp = int.Parse(stringDigits[index].ToString()) * weights[index];
             sum += temp > 9
@@ -303,7 +303,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckMXAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckMXAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
         var originalCheckDigit = stringDigits.Last();
@@ -359,7 +359,7 @@ internal static class StringChecksumValidationExtensions
         }
     }
 
-    private static List<string> CheckDEAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckDEAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -389,7 +389,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckFRAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckFRAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -405,7 +405,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckCOAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckCOAlgorithm(this string stringDigits)
     {
         var weights = new int[] { 3, 7, 13, 17, 19, 23, 29, 37, 41, 43, 47, 53, 59, 67, 71 };
 
@@ -437,7 +437,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckAUAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckAUAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -464,7 +464,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckBEAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckBEAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -485,7 +485,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckBRAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckBRAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -526,7 +526,7 @@ internal static class StringChecksumValidationExtensions
         return Convert.ToInt32(mod < 2 ? 0 : 11 - mod);
     }
 
-    private static List<string> CheckCAAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckCAAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -545,7 +545,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckCHAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckCHAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -579,7 +579,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckGBAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckGBAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -629,7 +629,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckES1Algorithm(this string stringDigits)
+    private static IEnumerable<string> CheckES1Algorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
         var total = 0;
@@ -661,7 +661,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckES2Algorithm(this string stringDigits)
+    private static IEnumerable<string> CheckES2Algorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
         var total = 0;
@@ -692,7 +692,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckES3Algorithm(this string stringDigits)
+    private static IEnumerable<string> CheckES3Algorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -720,7 +720,7 @@ internal static class StringChecksumValidationExtensions
     }
 
     // TODO: join with MOD
-    private static List<string> CheckDKAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckDKAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -751,7 +751,7 @@ internal static class StringChecksumValidationExtensions
     }
 
     // TODO: join with other, possibly with Luhn
-    private static List<string> CheckATAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckATAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -780,7 +780,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckJPAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckJPAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -790,7 +790,7 @@ internal static class StringChecksumValidationExtensions
     }
 
     // TODO: join with ModAndSubstract
-    private static List<string> CheckCNAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckCNAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -815,7 +815,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckTRAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckTRAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -847,7 +847,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckSEAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckSEAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -877,7 +877,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckILAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckILAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -907,7 +907,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckNOAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckNOAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -940,7 +940,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckRUAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckRUAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -999,7 +999,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckNZAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckNZAlgorithm(this string stringDigits)
     {
         var errorMessage = new List<string>();
 
@@ -1046,7 +1046,7 @@ internal static class StringChecksumValidationExtensions
         return errorMessage;
     }
 
-    private static List<string> CheckIDAlgorithm(this string stringDigits)
+    private static IEnumerable<string> CheckIDAlgorithm(this string stringDigits)
     {
         var vatNumber = stringDigits;
         if (vatNumber.Length == 12)

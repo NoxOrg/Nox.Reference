@@ -9,7 +9,7 @@ using static Nox.Reference.Data.World.Seeds.Utils.DataSeederUtils;
 
 namespace Nox.Reference.Data.World;
 
-internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Models.TimeZones.TimeZoneInfo, TimeZone>
+internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Models.TimeZoneInfo, TimeZone>
 {
     private readonly IConfiguration _configuration;
 
@@ -29,7 +29,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
 
     public override string DataFolderPath => "TimeZones";
 
-    protected override List<Models.TimeZones.TimeZoneInfo> GetDataInfos()
+    protected override List<Models.TimeZoneInfo> GetDataInfos()
     {
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var timeZoneUrl = _configuration.GetValue<string>(ConfigurationConstants.TimeZoneUrl)!;
@@ -38,7 +38,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
         var sourceFilePath = Path.Combine(sourceOutputPath, "TimeZones");
         Directory.CreateDirectory(sourceFilePath);
 
-        var timeZoneDataToSave = new List<Models.TimeZones.TimeZoneInfo>();
+        var timeZoneDataToSave = new List<Models.TimeZoneInfo>();
         var htmlWeb = new HtmlWeb();
         var htmlDoc = htmlWeb.Load(timeZoneUrl);
 
@@ -62,7 +62,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
                 var utcOffsetDstCell = cells[5];
                 var stdTimeZoneAbbreviationCell = cells[6];
 
-                var timeZone = new Models.TimeZones.TimeZoneInfo
+                var timeZone = new Models.TimeZoneInfo
                 {
                     Id = GetNodeText(tzIdCell),
                     EmbeddedComments = GetNodeTextOrNull(embeddedCommentsCell),

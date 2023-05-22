@@ -1,17 +1,12 @@
-﻿using Nox.Reference.Abstractions;
-using Nox.Reference.Abstractions.Cultures;
-using Nox.Reference.Abstractions.TimeZones;
-
-namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference.Data.World;
 
 public interface IWorldInfoContext
 {
-    IQueryable<ICurrencyInfo> Currencies { get; }
-    IQueryable<ILanguageInfo> Languages { get; }
-    IQueryable<IVatNumberDefinitionInfo> VatNumberDefinitions { get; }
-    IQueryable<ICountryHolidayInfo> Holidays { get; }
-    IQueryable<ICultureInfo> Cultures { get; }
-    IQueryable<ITimeZoneInfo> TimeZones { get; }
-    IQueryable<ICountryInfo> Countries { get; }
-    IQueryable<INativeNameInfo> CountryNameTranslations { get; }
+    IQueryable<Currency> Currencies { get; }
+    IQueryable<Language> Languages { get; }
+    IQueryable<VatNumberDefinition> VatNumberDefinitions { get; }
+    IQueryable<CountryHoliday> Holidays { get; }
+    IQueryable<Culture> Cultures { get; }
+    IQueryable<TimeZone> TimeZones { get; }
+    IQueryable<Country> Countries { get; }
 }

@@ -2,8 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class Continent : INoxReferenceEntity
+public class Continent : INoxReferenceEntity
 {
     public int Id { get; private set; }
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
 }

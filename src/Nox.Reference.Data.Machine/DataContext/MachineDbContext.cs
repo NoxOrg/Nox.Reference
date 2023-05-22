@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.Machine;
 
 public class MachineDbContext : DbContext, IMachineInfoContext
 {
-    private readonly IMapper _mapper;
     private readonly IConfiguration _configuration;
     private static string? _databasePath;
 
@@ -23,18 +20,16 @@ public class MachineDbContext : DbContext, IMachineInfoContext
 
     public MachineDbContext(
         DbContextOptions<MachineDbContext> options,
-        IMapper mapper,
         IConfiguration configuration)
         : base(options)
     {
-        _mapper = mapper;
         _configuration = configuration;
     }
 
-    public IQueryable<IMacAddressInfo> MacAddresses
+    public IQueryable<MacAddress> MacAddresses
          => Set<MacAddress>()
-            .AsQueryable()
-            .ProjectTo<MacAddressInfo>(_mapper.ConfigurationProvider);
+            .AsNoTracking()
+            .AsQueryable();
 
     public static void UseDatabasePath(string databasePath)
     {

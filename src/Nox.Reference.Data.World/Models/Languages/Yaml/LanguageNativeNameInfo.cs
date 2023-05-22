@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class LanguageNativeNameInfo
+internal class LanguageNativeNameInfo
 {
     [JsonPropertyName("code")] public string Code { get; set; } = string.Empty;
     [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;

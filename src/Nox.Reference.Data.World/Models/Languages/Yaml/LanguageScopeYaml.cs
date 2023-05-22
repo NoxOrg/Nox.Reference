@@ -1,6 +1,6 @@
-﻿namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference.Data.World.Models;
 
-public enum LanguageScopeYaml
+internal enum LanguageScopeYaml
 {
     Unknown,
     Individual,

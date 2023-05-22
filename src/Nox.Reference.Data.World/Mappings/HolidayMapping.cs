@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings
 {
@@ -13,15 +13,6 @@ namespace Nox.Reference.Data.World.Mappings
             CreateMap<StateHolidayInfo, StateHoliday>().ReverseMap();
             CreateMap<LocalHolidayNameInfo, LocalHolidayName>().ReverseMap();
             CreateMap<RegionHolidayInfo, RegionHoliday>().ReverseMap();
-
-            //Out
-            CreateProjection<CountryHoliday, CountryHolidayInfo>();
-
-            CreateMap<CountryHoliday, ICountryHolidayInfo>().As<CountryHolidayInfo>();
-            CreateMap<HolidayData, IHolidayData>().As<HolidayDataInfo>();
-            CreateMap<StateHoliday, IStateHolidayInfo>().As<StateHolidayInfo>();
-            CreateMap<LocalHolidayName, ILocalHolidayName>().As<LocalHolidayNameInfo>();
-            CreateMap<RegionHoliday, IRegionHolidayInfo>().As<RegionHolidayInfo>();
         }
     }
 }

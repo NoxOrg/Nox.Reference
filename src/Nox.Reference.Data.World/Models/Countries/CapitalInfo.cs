@@ -1,9 +1,12 @@
 ﻿using System.Text.Json.Serialization;
-using Nox.Reference.Abstractions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class CapitalInfo : ICapitalInfo
+internal class CapitalInfo
 {
-    [JsonPropertyName("geoCoordinates")] public IGeoCoordinates GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
+    [JsonPropertyName("latlng")]
+    public IReadOnlyList<decimal> LatLong { get; set; } = new List<decimal>();
+
+    [JsonPropertyName("getCoordinates")]
+    public GeoCoordinatesInfo GeoCoordinates { get; set; } = new GeoCoordinatesInfo();
 }

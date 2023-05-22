@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Nox.Reference.Abstractions;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings
 {
@@ -13,13 +13,6 @@ namespace Nox.Reference.Data.World.Mappings
 
             CreateMap<LanguageInfo, Language>();
             CreateMap<LanguageTranslationInfo, LanguageTranslation>();
-
-            //Out
-            CreateProjection<Language, LanguageInfo>();
-            CreateProjection<LanguageTranslation, LanguageTranslationInfo>();
-
-            CreateMap<LanguageTranslation, ILanguageTranslation>()
-                .As<LanguageTranslationInfo>();
         }
     }
 }

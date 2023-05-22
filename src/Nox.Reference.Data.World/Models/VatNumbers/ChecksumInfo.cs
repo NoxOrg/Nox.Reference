@@ -1,9 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class ChecksumInfo : IChecksumInfo
+internal class ChecksumInfo
 {
     [JsonPropertyName("algorithm")] public ChecksumAlgorithm? Algorithm { get; set; }
     [JsonPropertyName("checksumDigit")] public string? ChecksumDigit { get; set; }

@@ -1,15 +1,15 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Abstractions;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
+using Nox.Reference.Data.World.Models;
 using System.Text.Json;
 using YamlDotNet.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, ICountryInfo, Country>
+internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryInfo, Country>
 {
     private readonly IConfiguration _configuration;
 
@@ -27,7 +27,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
     public override string TargetFileName => "Nox.Reference.Countries.json";
     public override string DataFolderPath => "Countries";
 
-    protected override List<ICountryInfo> GetDataInfos()
+    protected override List<CountryInfo> GetDataInfos()
     {
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
         var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
@@ -38,19 +38,18 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
         // save content
         _fileStorageService.SaveContentToSource(editedContent, DataFolderPath, "restcountries.json");
 
-        var countries = JsonSerializer.Deserialize<RestcountryCountryInfo[]>(editedContent) ?? Array.Empty<RestcountryCountryInfo>();
+        var countries = JsonSerializer.Deserialize<CountryInfo[]>(editedContent) ?? Array.Empty<CountryInfo>();
 
         FixData(countries);
         EnrichWithMappingData(countries);
         FixTranslation(_configuration, countries);
 
         return countries
-                   .Where(c => !string.IsNullOrEmpty(c.NumericCode))
-                   .Cast<ICountryInfo>()
-                   .ToList();
+            .Where(c => !string.IsNullOrEmpty(c.NumericCode))
+            .ToList();
     }
 
-    protected override void DoSpecialTreatAfterAdding(IEnumerable<ICountryInfo> sources, IEnumerable<Country> destinations)
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<CountryInfo> sources, IEnumerable<Country> destinations)
     {
         base.DoSpecialTreatAfterAdding(sources, destinations);
 
@@ -82,7 +81,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
         _dbContext.SaveChanges();
     }
 
-    private void FixTranslation(IConfiguration configuration, RestcountryCountryInfo[] countries)
+    private void FixTranslation(IConfiguration configuration, CountryInfo[] countries)
     {
         var iso3LanguageData = GetLanguageIso639_3_Data(configuration);
         foreach (var country in countries)
@@ -115,7 +114,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
                 }
             }
 
-            dictionaryCopy.Add("en", new RestcountryNativeNameInfo
+            dictionaryCopy.Add("en", new NativeNameInfo
             {
                 CommonName = country.Name,
                 OfficialName = country.Name,
@@ -126,7 +125,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
         }
     }
 
-    private void EnrichWithMappingData(RestcountryCountryInfo[] countries)
+    private void EnrichWithMappingData(CountryInfo[] countries)
     {
         var fileContent = _fileStorageService.GetFileContentFromSource(DataFolderPath, "static-iso2fips.json");
         var isoAlpha2ToFipsMapping = JsonSerializer.Deserialize<Dictionary<string, string>>(fileContent);
@@ -143,18 +142,18 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
         }
     }
 
-    private static void FixData(RestcountryCountryInfo[] countries)
+    private static void FixData(CountryInfo[] countries)
     {
         // Edit germany
         var germany = countries.First(c => c.Code.Equals("DEU"));
 
-        if (germany is not null && germany.VehicleInfo_ is not null)
+        if (germany is not null && germany.VehicleInfo is not null)
         {
-            germany.VehicleInfo_.InternationalRegistrationCodes = new string[] { "D" };
+            germany.VehicleInfo.InternationalRegistrationCodes = new string[] { "D" };
         }
     }
 
-    private static void MapLatLongIntoGeoCoordinates(RestcountryCountryInfo country)
+    private static void MapLatLongIntoGeoCoordinates(CountryInfo country)
     {
         if (country.LatLong?.Count == 2)
         {
@@ -163,15 +162,15 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, IC
         }
         country.LatLong = null!;
 
-        if (country.CapitalInfo_?.LatLong?.Count == 2)
+        if (country.CapitalInfo?.LatLong?.Count == 2)
         {
-            country.CapitalInfo_.GeoCoordinates.Latitude = country.CapitalInfo_.LatLong[0];
-            country.CapitalInfo_.GeoCoordinates.Longitude = country.CapitalInfo_.LatLong[1];
+            country.CapitalInfo.GeoCoordinates.Latitude = country.CapitalInfo.LatLong[0];
+            country.CapitalInfo.GeoCoordinates.Longitude = country.CapitalInfo.LatLong[1];
         }
 
-        if (country.CapitalInfo_ != null)
+        if (country.CapitalInfo != null)
         {
-            country.CapitalInfo_.LatLong = null!;
+            country.CapitalInfo.LatLong = null!;
         }
     }
 

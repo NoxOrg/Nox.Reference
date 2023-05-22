@@ -1,9 +1,8 @@
-﻿using Nox.Reference.Abstractions;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Models;
 
-public class LanguageTranslationInfo : ILanguageTranslation
+internal class LanguageTranslationInfo
 {
     [JsonPropertyName("translation")] public string Translation { get; set; } = string.Empty;
     [JsonPropertyName("language")] public string Language { get; set; } = string.Empty;

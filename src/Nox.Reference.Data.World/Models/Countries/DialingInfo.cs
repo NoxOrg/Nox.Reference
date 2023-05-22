@@ -1,10 +1,12 @@
-﻿using Nox.Reference.Abstractions;
+﻿using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Data.World;
 
-public class DialingInfo : IDialingInfo
+public class DialingInfo
 {
+    [JsonPropertyName("root")]
     public string Prefix { get; set; } = string.Empty;
 
+    [JsonPropertyName("suffixes")]
     public IReadOnlyList<string> Suffixes { get; set; } = new List<string>();
 }
