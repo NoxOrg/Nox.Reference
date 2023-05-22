@@ -49,6 +49,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
         // Save content
         var body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
         var formattedBody = _scriptRegex.Replace(body, string.Empty);
+        formattedBody = _removeNavBarRegex.Replace(formattedBody, string.Empty);
         File.WriteAllText(Path.Combine(sourceFilePath, "localePlanetList.html"), formattedBody);
 
         var nodes = htmlDoc.DocumentNode.SelectNodes("/html/body/div[2]/div/table/tbody/tr/td");
