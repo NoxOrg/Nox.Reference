@@ -16,6 +16,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
 
     private readonly Regex _scriptRegex = new Regex(@"<script.*/script>", RegexOptions.Singleline);
     private readonly Regex _removeNavBarRegex = new Regex(@"<ul class=""nav"">(?s:.)*?<\/ul>");
+    private readonly Regex _removeDateValueRawRegex = new Regex(@"<td>Example: (?s:.)*?<\/td>");
 
     public CultureDataSeeder(
         IConfiguration configuration,
@@ -88,7 +89,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
             body = htmlDoc.DocumentNode.SelectSingleNode("/html/body").OuterHtml;
             formattedBody = _scriptRegex.Replace(body, string.Empty);
             formattedBody = _removeNavBarRegex.Replace(formattedBody, string.Empty);
-            // TODO: find a way to ignore date to not add unnessesary diffs
+            formattedBody = _removeDateValueRawRegex.Replace(formattedBody, "<td>REMOVED IN GIT FOR AVOIDING EXTRA GIT CHANGES</td>");
             File.WriteAllText(Path.Combine(sourceFilePath, $"localePlanetItem_{cultureInfo.Id}.html"), formattedBody);
 
             var languageNode = nodes[3];
