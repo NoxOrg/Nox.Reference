@@ -1,4 +1,5 @@
 ﻿using Nox.Reference.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nox.Reference.Data.World;
 
@@ -21,8 +22,9 @@ public class Country : INoxReferenceEntity
     public IReadOnlyList<CountryCapital> Capitals { get; internal set; } = new List<CountryCapital>();
     public IReadOnlyList<TimeZone> TimeZones { get; set; } = new List<TimeZone>();
 
-    public CountryDialing? Dialing { get; private set; }
+    [NotMapped]
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
+    public CountryDialing? Dialing { get; private set; }
     public CoatOfArms? CoatOfArms { get; private set; }
     public GeoCoordinates? GeoCoordinates { get; private set; }
     public CountryFlag? Flag { get; private set; }

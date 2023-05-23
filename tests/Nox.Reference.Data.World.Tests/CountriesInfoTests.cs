@@ -1,7 +1,8 @@
-using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -40,11 +41,14 @@ public class CountryInfoTests
         });
     }
 
-    //TODO: Play with Include
     [Test]
     public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
     {
-        var translation = _worldDbContext.Countries.Get("ZAF")!.GetTranslation("en")!;
+        var country = _worldDbContext.Countries
+            .Include(x => x.NameTranslations)
+            .ThenInclude(x => x.Language)
+            .Get("ZAF")!;
+        var translation = country.GetTranslation("en")!;
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translation));
 

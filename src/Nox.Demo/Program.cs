@@ -3,20 +3,35 @@ using Nox.Reference.Data;
 using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("This is Nox.Reference Demo!");
 
 // Simplified
 
-var worldContext2 = WorldDataContext.Create();
-var timezone = worldContext2.TimeZones.Get("EET")!;
+var worldContextInline = WorldDataContext.Create();
+var timezone = worldContextInline.TimeZones.Get("EET")!;
 
-Console.WriteLine($"{timezone.Id} -- {timezone.Type}");
+Console.WriteLine($"Inline -- TimeZone -- {timezone.Id} -- {timezone.Type}");
 
-var machineContext2 = MachineDataContext.Create();
-var macAddress = machineContext2.MacAddresses.Get("00-16-F6-11-22-33")!;
+var machineContextInline = MachineDataContext.Create();
+var macAddress = machineContextInline.MacAddresses.Get("00-16-F6-11-22-33")!;
 
-Console.WriteLine($"{macAddress.Id} -- {macAddress.OrganizationName}");
+Console.WriteLine($"Inline -- MacAddress -- {macAddress.Id} -- {macAddress.OrganizationName}");
+
+var country = worldContextInline.Countries
+    .Include(x => x.NameTranslations)
+    .ThenInclude(x => x.Language)
+    .Get("ZAF")!;
+var translation = country.GetTranslation("en")!;
+
+Console.WriteLine($"Inline -- Translation -- {translation.Id} -- {translation.CommonName}");
+
+var countryWithoutInclude = worldContextInline.Countries
+    .Get("ZAF")!;
+var translationWithoutInclude = countryWithoutInclude.GetTranslation("en")!;
+
+Console.WriteLine($"Inline -- TranslationWithoutInclude -- {translationWithoutInclude?.Id} -- {translationWithoutInclude?.CommonName}");
 
 // From DI
 
@@ -26,12 +41,12 @@ serviceCollection.AddMachineContext();
 
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
-var worldContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
-timezone = worldContext.TimeZones.Get("EET")!;
+var worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
+timezone = worldContextDi.TimeZones.Get("EET")!;
 
-Console.WriteLine($"{timezone.Id} -- {timezone.Type}");
+Console.WriteLine($"DI -- TimeZone -- {timezone.Id} -- {timezone.Type}");
 
-var machineContext = serviceProvider.GetRequiredService<IMachineInfoContext>();
-macAddress = machineContext.MacAddresses.Get("00-16-F6-11-22-33")!;
+var machineContextDi = serviceProvider.GetRequiredService<IMachineInfoContext>();
+macAddress = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 
-Console.WriteLine($"{macAddress.Id} -- {macAddress.OrganizationName}");
+Console.WriteLine($"DI -- MacAddress -- {macAddress.Id} -- {macAddress.OrganizationName}");

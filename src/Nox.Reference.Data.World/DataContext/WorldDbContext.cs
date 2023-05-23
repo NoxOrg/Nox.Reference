@@ -7,6 +7,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
 
+// TODO: possibly cache this and machine context itself
 public class WorldDbContext : DbContext, IWorldInfoContext
 {
     private readonly IMapper _mapper;

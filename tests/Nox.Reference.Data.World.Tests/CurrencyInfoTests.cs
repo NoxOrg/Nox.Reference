@@ -63,7 +63,8 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        MajorCurrencyUnit currencyUnit = WorldInfo.Currencies.Get("USD").MajorUnit;
+        var currency = WorldInfo.Currencies.Get("USD");
+        var currencyUnit = currency.MajorUnit;
 
         Assert.That(currencyUnit.Name, Is.EqualTo("dollar"));
     }

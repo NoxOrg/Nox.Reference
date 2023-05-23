@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nox.Reference.Data.Common;
 
@@ -10,8 +11,14 @@ public static class NoxReferenceQueryExtensions
             .GenericTypeArguments[0];
 
         var navigationProperties = entityType.GetProperties()
-            .Where(p => p.PropertyType.IsGenericType
-                && p.PropertyType.GetGenericTypeDefinition() == typeof(IReadOnlyList<>));
+            .Where(p =>
+                // force-ignore
+                !Attribute.IsDefined(p, typeof(NotMappedAttribute)) &&
+                // one-to-many
+                ((p.PropertyType.IsGenericType &&
+                p.PropertyType.GetGenericTypeDefinition() == typeof(IReadOnlyList<>)) ||
+                // one-to-one
+                typeof(INoxReferenceEntity).IsAssignableFrom(p.PropertyType)));
 
         foreach (var navigationProperty in navigationProperties)
         {
