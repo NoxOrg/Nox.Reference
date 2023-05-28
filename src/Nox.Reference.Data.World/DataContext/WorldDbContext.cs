@@ -1,9 +1,9 @@
-﻿using System.Reflection;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
+using System.Reflection;
 
 namespace Nox.Reference.Data.World;
 
@@ -62,10 +62,9 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     {
         base.OnConfiguring(optionsBuilder);
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
-        optionsBuilder.UseSqlite(connectionString, opts =>
-        {
-            opts.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery);
-        });//.LogTo(Console.WriteLine);// -- Use the following method for debug purposes
+        optionsBuilder
+            .UseLazyLoadingProxies()
+            .UseSqlite(connectionString);//.LogTo(Console.WriteLine);// -- Use the following method for debug purposes
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -78,7 +77,5 @@ public class WorldDbContext : DbContext, IWorldInfoContext
 
     private IQueryable<TSource> GetData<TSource>()
         where TSource : class, INoxReferenceEntity
-        => Set<TSource>()
-            .IncludeAll()
-            .AsNoTracking();
+        => Set<TSource>();
 }

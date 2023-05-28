@@ -16,5 +16,5 @@ public class DateFormat : INoxReferenceEntity
     public string Date_2 { get; private set; } = string.Empty;
     public string Date_1 { get; private set; } = string.Empty;
     public string Date_0 { get; private set; } = string.Empty;
-    public Culture Culture { get; private set; } = new Culture();
+    public virtual Culture Culture { get; private set; } = new Culture();
 }

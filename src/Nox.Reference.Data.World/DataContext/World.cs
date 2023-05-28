@@ -10,7 +10,7 @@ namespace Nox.Reference.Data;
 public static class WorldInfo
 {
     private static readonly IConfiguration _configuration;
-    private static readonly IMapper _mapper;
+    public static readonly IMapper _mapper;
 
 #pragma warning disable S3963 // "static" fields should be initialized inline
 
@@ -44,6 +44,9 @@ public static class WorldInfo
 
     public static IQueryable<Country> Countries
         => WorldDataContext.Countries;
+
+    public static IQueryable<World.TimeZone> TimeZones
+        => WorldDataContext.TimeZones;
 
     private static IWorldInfoContext WorldDataContext
         => DbContext;

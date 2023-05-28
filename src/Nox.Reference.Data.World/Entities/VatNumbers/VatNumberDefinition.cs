@@ -8,5 +8,5 @@ public class VatNumberDefinition : INoxReferenceEntity
     public string Country { get; private set; } = string.Empty;
     public string LocalName { get; private set; } = string.Empty;
     public VerificationApi VerificationApi { get; private set; }
-    public IReadOnlyList<VatNumberValidationRule> ValidationRules { get; private set; } = new List<VatNumberValidationRule>();
+    public virtual IReadOnlyList<VatNumberValidationRule> ValidationRules { get; private set; } = new List<VatNumberValidationRule>();
 }

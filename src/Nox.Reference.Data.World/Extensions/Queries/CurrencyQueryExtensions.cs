@@ -1,12 +1,10 @@
-﻿using Nox.Reference.Data.World.Models;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class CurrencyQueryExtensions
 {
-    public static Currency Get(this IQueryable<Currency> query, string currency)
+    public static Currency? Get(this IQueryable<Currency> query, string currency)
     {
-        return query.First(x => x.IsoCode == currency);
+        return query.GetByIsoCode(currency);
     }
 
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)

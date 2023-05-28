@@ -22,5 +22,5 @@ public class NumberFormat : INoxReferenceEntity
     public string PlusSign { get; private set; } = string.Empty;
     public string SignificantDigit { get; private set; } = string.Empty;
     public string ZeroDigit { get; private set; } = string.Empty;
-    public Culture Culture { get; private set; } = new Culture();
+    public virtual Culture Culture { get; private set; } = new Culture();
 }

@@ -9,28 +9,28 @@ public class Country : INoxReferenceEntity
     public string Name { get; private set; } = string.Empty;
     public string Code { get; private set; } = string.Empty;
 
-    public CountryNames Names { get; internal set; } = new CountryNames();
-    public IReadOnlyList<TopLevelDomain> TopLevelDomains { get; internal set; } = new List<TopLevelDomain>();
-    public IReadOnlyList<Language> Languages { get; internal set; } = new List<Language>();
-    public IReadOnlyList<Currency> Currencies { get; internal set; } = new List<Currency>();
-    public IReadOnlyList<AlternateSpelling> AlternateSpellings { get; internal set; } = new List<AlternateSpelling>();
-    public IReadOnlyList<Continent> Continents { get; internal set; } = new List<Continent>();
-    public IReadOnlyList<CountryNameTranslation> NameTranslations { get; internal set; } = new List<CountryNameTranslation>();
-    public IReadOnlyList<GiniCoefficient> GiniCoefficients { get; internal set; } = new List<GiniCoefficient>();
-    public IReadOnlyList<Demonymn> Demonyms { get; internal set; } = new List<Demonymn>();
-    public IReadOnlyList<Country> BorderingCountries { get; internal set; } = new List<Country>();
-    public IReadOnlyList<CountryCapital> Capitals { get; internal set; } = new List<CountryCapital>();
-    public IReadOnlyList<TimeZone> TimeZones { get; set; } = new List<TimeZone>();
+    public virtual CountryNames Names { get; internal set; } = new CountryNames();
+    public virtual IReadOnlyList<TopLevelDomain> TopLevelDomains { get; internal set; } = new List<TopLevelDomain>();
+    public virtual IReadOnlyList<Language> Languages { get; internal set; } = new List<Language>();
+    public virtual IReadOnlyList<Currency> Currencies { get; internal set; } = new List<Currency>();
+    public virtual IReadOnlyList<AlternateSpelling> AlternateSpellings { get; internal set; } = new List<AlternateSpelling>();
+    public virtual IReadOnlyList<Continent> Continents { get; internal set; } = new List<Continent>();
+    public virtual IReadOnlyList<CountryNameTranslation> NameTranslations { get; internal set; } = new List<CountryNameTranslation>();
+    public virtual IReadOnlyList<GiniCoefficient> GiniCoefficients { get; internal set; } = new List<GiniCoefficient>();
+    public virtual IReadOnlyList<Demonymn> Demonyms { get; internal set; } = new List<Demonymn>();
+    public virtual List<Country> BorderingCountries { get; internal set; } = new List<Country>();
+    public virtual IReadOnlyList<CountryCapital> Capitals { get; internal set; } = new List<CountryCapital>();
+    public virtual IReadOnlyList<TimeZone> TimeZones { get; set; } = new List<TimeZone>();
 
     [NotMapped]
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
-    public CountryDialing? Dialing { get; private set; }
-    public CoatOfArms? CoatOfArms { get; private set; }
-    public GeoCoordinates? GeoCoordinates { get; private set; }
-    public CountryFlag? Flag { get; private set; }
-    public CountryMaps? Maps { get; private set; }
-    public CountryVehicle? Vehicle { get; private set; }
-    public PostalCode? PostalCode { get; private set; }
+    public virtual CountryDialing? Dialing { get; private set; }
+    public virtual CoatOfArms? CoatOfArms { get; private set; }
+    public virtual GeoCoordinates? GeoCoordinates { get; private set; }
+    public virtual CountryFlag? Flag { get; private set; }
+    public virtual CountryMaps? Maps { get; private set; }
+    public virtual CountryVehicle? Vehicle { get; private set; }
+    public virtual PostalCode? PostalCode { get; private set; }
     public string EmojiFlag { get; private set; } = string.Empty;
     public decimal LandAreaInSquareKilometers { get; private set; }
     public bool? IsIndependent { get; private set; }

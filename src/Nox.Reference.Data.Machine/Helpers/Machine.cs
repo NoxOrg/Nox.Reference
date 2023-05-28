@@ -2,9 +2,9 @@
 
 namespace Nox.Reference.Data.Machine;
 
-public class MachineDataContext
+public static class Machine
 {
-    public static IMachineInfoContext Create()
+    internal static IMachineInfoContext Create()
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddMachineContext();
@@ -13,4 +13,7 @@ public class MachineDataContext
 
         return serviceProvider.GetRequiredService<IMachineInfoContext>();
     }
+
+    public static IQueryable<MacAddress> MacAddresses
+         => Create().MacAddresses;
 }

@@ -14,8 +14,8 @@ public class Currency : INoxReferenceEntity
     public bool SpaceBetweenAmountAndSymbol { get; private set; }
     public int DecimalDigits { get; private set; }
     public string Name { get; private set; } = string.Empty;
-    public CurrencyUsage Banknotes { get; private set; } = new CurrencyUsage();
-    public CurrencyUsage Coins { get; private set; } = new CurrencyUsage();
-    public MajorCurrencyUnit MajorUnit { get; private set; } = new MajorCurrencyUnit();
-    public MinorCurrencyUnit MinorUnit { get; private set; } = new MinorCurrencyUnit();
+    public virtual CurrencyUsage Banknotes { get; private set; } = new CurrencyUsage();
+    public virtual CurrencyUsage Coins { get; private set; } = new CurrencyUsage();
+    public virtual MajorCurrencyUnit MajorUnit { get; private set; } = new MajorCurrencyUnit();
+    public virtual MinorCurrencyUnit MinorUnit { get; private set; } = new MinorCurrencyUnit();
 }

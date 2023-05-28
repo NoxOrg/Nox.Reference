@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
@@ -45,8 +44,6 @@ public class CountryInfoTests
     public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
     {
         var country = _worldDbContext.Countries
-            .Include(x => x.NameTranslations)
-            .ThenInclude(x => x.Language)
             .Get("ZAF")!;
         var translation = country.GetTranslation("en")!;
 

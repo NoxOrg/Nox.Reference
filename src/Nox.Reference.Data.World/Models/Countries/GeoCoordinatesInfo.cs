@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-internal class GeoCoordinatesInfo
+public class GeoCoordinatesInfo
 {
     [JsonPropertyName("latitude")]
     public decimal? Latitude { get; set; } = null;
