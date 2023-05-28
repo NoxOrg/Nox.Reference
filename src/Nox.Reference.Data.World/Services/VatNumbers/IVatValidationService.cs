@@ -1,6 +1,6 @@
 ﻿using Nox.Reference.Data.World.Models;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Services.VatNumbers;
 
 public interface IVatValidationService
 {

@@ -15,6 +15,12 @@ public class VatNumberTests
     private string _testFilePath = string.Empty;
     private IWorldInfoContext _dbContext = null!;
 
+    private readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        WriteIndented = true,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    };
+
     [OneTimeSetUp]
     public void Setup()
     {
@@ -154,6 +160,7 @@ public class VatNumberTests
 
         Trace.WriteLine($"Failed VAT count: {failedVat.Count}/{testData.Length}");
         Trace.WriteLine("Failed VAT:");
+        Trace.WriteLine(JsonSerializer.Serialize(failedVat, _jsonOptions));
     }
 
     [TestCase("44403198682", "FR", true)]
@@ -165,6 +172,7 @@ public class VatNumberTests
         var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber)!;
 
         var status = isValid ? VatValidationStatus.Valid : VatValidationStatus.Invalid;
+
         Assert.Multiple(() =>
         {
             Assert.That(validationResult.Status, Is.EqualTo(status));

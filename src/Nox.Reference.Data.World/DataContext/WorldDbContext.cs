@@ -53,6 +53,9 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<Country> Countries
         => GetData<Country>();
 
+    public IQueryable<CarrierPhoneNumber> CarrierPhoneNumbers
+        => GetData<CarrierPhoneNumber>();
+
     public static void UseDatabasePath(string databasePath)
     {
         _databasePath = databasePath;

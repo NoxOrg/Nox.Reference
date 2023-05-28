@@ -34,4 +34,8 @@ public static class World
 
     public static IQueryable<Country> Countries
         => Create().Countries;
+
+    public static Services.PhoneNumbers.PhoneNumbers PhoneNumbers =>
+        new Services.PhoneNumbers.PhoneNumbers(Create());
+
 }

@@ -9,4 +9,5 @@ public interface IWorldInfoContext
     IQueryable<Culture> Cultures { get; }
     IQueryable<TimeZone> TimeZones { get; }
     IQueryable<Country> Countries { get; }
+    IQueryable<CarrierPhoneNumber> CarrierPhoneNumbers { get; }
 }

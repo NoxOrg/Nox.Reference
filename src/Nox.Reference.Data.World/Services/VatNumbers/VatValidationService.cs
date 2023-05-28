@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Nox.Reference.Data.World.Models;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference.Data.World.Services.VatNumbers;
 
 // TODO: Issue #12: We could optionally auto-detect and validate country here in case original validation failed
 public static class VatValidationService

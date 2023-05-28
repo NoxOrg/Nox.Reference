@@ -264,6 +264,8 @@ $goo.Command.Add( 'build-nugets', { param()
     $goo.Command.Run( 'move-nugets' )
 })
 
+# TODO: potential improvement, copy nugets to local feed specified by a command
+
 <# --- START GOO EXECUTION --- #>
 
 $goo.Start()

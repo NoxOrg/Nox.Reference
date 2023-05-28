@@ -21,10 +21,42 @@ Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Nam
 var countryEnglishTranslation = World.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
+// Cultures
+var culture = World.Cultures.Get("tg-TJ")!;
+
+Console.WriteLine($"Inline -- Culture -- {culture.Id} -- {culture.DisplayName}");
+
+// Currencies
+var currency = World.Currencies.Get("TWD")!;
+
+Console.WriteLine($"Inline -- Currency -- {currency.Id} -- {currency.Name}");
+
+// Holidays
+var holidays = World.Holidays.Get(2024, "AD")!;
+
+Console.WriteLine($"Inline -- Holidays -- {holidays.CountryName} - {holidays.Year} -- {holidays.Holidays.Count}");
+
+// Languages
+var language = World.Languages.GetByIso_639_2t("ces")!;
+
+Console.WriteLine($"Inline -- Language -- {language.Iso_639_3} -- {language.Name}");
+
 // Timezones
 var timezone = World.TimeZones.Get("EET")!;
 
 Console.WriteLine($"Inline -- TimeZone -- {timezone.Id} -- {timezone.Type}");
+
+// VatNumberDefinitions
+var validationSuccessResult = World.VatNumberDefinitions.Validate("ES", "B65296485", true)!;
+var validationFailResult = World.VatNumberDefinitions.Validate("ES", "BROKEN", true)!;
+
+Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationSuccessResult.Country} -- {validationSuccessResult.FormattedVatNumber} -- {validationSuccessResult.Status}");
+Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationFailResult.Country} -- {validationFailResult.FormattedVatNumber} -- {validationFailResult.Status}");
+
+// Phone
+var phone = World.PhoneNumbers.GetPhoneNumberInfo("+380965370000", "UA");
+
+Console.WriteLine($"Inline -- PhoneNumbers -- {phone.FormattedNumber} -- {phone.CarrierName}");
 
 // Machine
 // Mac address
@@ -42,15 +74,29 @@ serviceCollection.AddMachineContext();
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
 // World context
-// Timezones
 var worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
+
+// Country
+ukraine1 = worldContextDi.Countries.Get("UKR");
+ukraine2 = worldContextDi.Countries.First(x => x.FipsCode == "UP");
+ukraine3 = worldContextDi.Countries.GetByAlpha2Code("UA");
+
+Console.WriteLine($"Inline -- Country -- {ukraine1!.Id} -- {ukraine1.Names.CommonName}");
+Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
+Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
+
+countryEnglishTranslation = worldContextDi.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
+Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
+
+// Timezones
 timezone = worldContextDi.TimeZones.Get("EET")!;
 
 Console.WriteLine($"DI -- TimeZone -- {timezone.Id} -- {timezone.Type}");
 
 // Machine context
-// Mac address
 var machineContextDi = serviceProvider.GetRequiredService<IMachineInfoContext>();
+
+// Mac address
 macAddress = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 
 Console.WriteLine($"DI -- MacAddress -- {macAddress.Id} -- {macAddress.OrganizationName}");
