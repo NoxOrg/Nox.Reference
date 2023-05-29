@@ -33,7 +33,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
 
     public override string DataFolderPath => "Cultures";
 
-    protected override List<CultureInfo> GetDataInfos()
+    protected override IReadOnlyList<CultureInfo> GetDataInfos()
     {
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var uriLocalePlanetList = _configuration.GetValue<string>(ConfigurationConstants.UriLocalePlanetList)!;
