@@ -1,41 +1,45 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Nox.Reference.Data.World;
 
 public static class World
 {
-    internal static IWorldInfoContext Create()
+    private static readonly IServiceProvider _serviceProvider;
+    public static readonly IMapper Mapper;
+
+    static World()
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddWorldContext();
 
-        var serviceProvider = serviceCollection.BuildServiceProvider();
-
-        return serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _serviceProvider = serviceCollection.BuildServiceProvider();
+        Mapper = _serviceProvider.GetRequiredService<IMapper>();
     }
 
     public static IQueryable<Currency> Currencies
-        => Create().Currencies;
+        => WorldDataContext.Currencies;
 
     public static IQueryable<VatNumberDefinition> VatNumberDefinitions
-         => Create().VatNumberDefinitions;
+        => WorldDataContext.VatNumberDefinitions;
 
     public static IQueryable<Language> Languages
-         => Create().Languages;
+        => WorldDataContext.Languages;
 
     public static IQueryable<CountryHoliday> Holidays
-         => Create().Holidays;
+        => WorldDataContext.Holidays;
 
     public static IQueryable<Culture> Cultures
-        => Create().Cultures;
-
-    public static IQueryable<TimeZone> TimeZones
-        => Create().TimeZones;
+        => WorldDataContext.Cultures;
 
     public static IQueryable<Country> Countries
-        => Create().Countries;
+        => WorldDataContext.Countries;
+    public static IQueryable<TimeZone> TimeZones
+        => WorldDataContext.TimeZones;
 
     public static Services.PhoneNumbers.PhoneNumbers PhoneNumbers =>
-        new Services.PhoneNumbers.PhoneNumbers(Create());
+        new Services.PhoneNumbers.PhoneNumbers(WorldDataContext);
 
+    private static IWorldInfoContext WorldDataContext
+        => _serviceProvider.GetRequiredService<IWorldInfoContext>();
 }

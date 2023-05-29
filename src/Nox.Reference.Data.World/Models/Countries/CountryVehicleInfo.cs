@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-public class VehicleInfo
+public class CountryVehicleInfo
 {
     [JsonPropertyName("signs")]
     public IReadOnlyList<string> InternationalRegistrationCodes { get; set; } = new List<string>();

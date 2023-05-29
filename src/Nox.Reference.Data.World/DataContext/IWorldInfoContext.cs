@@ -10,4 +10,5 @@ public interface IWorldInfoContext
     IQueryable<TimeZone> TimeZones { get; }
     IQueryable<Country> Countries { get; }
     IQueryable<CarrierPhoneNumber> CarrierPhoneNumbers { get; }
+    IQueryable<PhoneCarrier> PhoneCarriers { get; }
 }

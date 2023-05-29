@@ -4,7 +4,7 @@ using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
 
-internal class CountryNameTranslationSingleMapping : ITypeConverter<NativeNameInfo, CountryNameTranslation>
+internal class CountryNameTranslationSingleMapping : ITypeConverter<CountryNameTranslationInfo, CountryNameTranslation>
 {
     private readonly WorldDbContext _worldDbContext;
     private readonly ILogger<CountryNameTranslationSingleMapping> _logger;
@@ -17,7 +17,7 @@ internal class CountryNameTranslationSingleMapping : ITypeConverter<NativeNameIn
         _logger = logger;
     }
 
-    public CountryNameTranslation Convert(NativeNameInfo source, CountryNameTranslation destination, ResolutionContext context)
+    public CountryNameTranslation Convert(CountryNameTranslationInfo source, CountryNameTranslation destination, ResolutionContext context)
     {
         var language = _worldDbContext
             .Set<Language>()

@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CountryHolidayInfo
+public class CountryHolidayInfo
 {
     [JsonPropertyName("year")]
     public int Year { get; set; }

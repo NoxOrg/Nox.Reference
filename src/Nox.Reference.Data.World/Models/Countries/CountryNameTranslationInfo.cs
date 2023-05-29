@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-public class NativeNameInfo
+public class CountryNameTranslationInfo
 {
     [JsonIgnore]
     public string Language { get; set; } = string.Empty;

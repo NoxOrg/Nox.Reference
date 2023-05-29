@@ -2,8 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Tests.Mapping;
-using Nox.Reference.Data.World.Tests.Models;
+using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -26,12 +25,6 @@ public class TimeZonesTests
         _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
-
-        var mapperConfiguration = new MapperConfiguration(cfg =>
-        {
-            cfg.AddMaps(typeof(TimeZoneMapping));
-        });
-        _mapper = mapperConfiguration.CreateMapper();
     }
 
     #region GetTimeZones
@@ -40,16 +33,16 @@ public class TimeZonesTests
     public void GetTimeZones_WithKnownVilniusTimezone_ReturnsValidInfo()
     {
         var info = _worldDbContext.TimeZones.Get("Europe/Vilnius");
-        var mappedInfo = _mapper.Map<TimeZoneFlatModel>(info);
+        var mappedInfo = World.Mapper.Map<TimeZoneInfo>(info);
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 
         Assert.Multiple(() =>
         {
             Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo?.Id, Is.EqualTo("Europe/Vilnius"));
             Assert.That(mappedInfo?.Type, Is.EqualTo("Canonical"));
-            Assert.That(mappedInfo?.Code, Is.EqualTo("Europe/Vilnius"));
-            Assert.That(mappedInfo?.Countries.Count, Is.EqualTo(1));
+            Assert.That(mappedInfo?.CountriesWithTimeZone.Count, Is.EqualTo(1));
         });
     }
 
@@ -65,15 +58,15 @@ public class TimeZonesTests
             Latitude = 50.0196769m,
             Longitude = 36.3569638m
         });
-        var mappedInfo = _mapper.Map<TimeZoneFlatModel>(info);
+        var mappedInfo = World.Mapper.Map<TimeZoneInfo>(info);
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 
         Assert.Multiple(() =>
         {
             Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo?.Code, Is.EqualTo("Europe/Kyiv"));
-            Assert.That(mappedInfo?.Countries.Count, Is.EqualTo(1));
+            Assert.That(mappedInfo?.Id, Is.EqualTo("Europe/Kyiv"));
+            Assert.That(mappedInfo?.CountriesWithTimeZone.Count, Is.EqualTo(1));
         });
     }
 

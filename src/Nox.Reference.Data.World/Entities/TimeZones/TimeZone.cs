@@ -28,6 +28,6 @@ public class TimeZone : INoxReferenceEntity
 
         var result = TimeZoneLookup.GetTimeZone(Convert.ToDouble(geoCoordinates.Latitude), Convert.ToDouble(geoCoordinates.Longitude)).Result;
 
-        return World.Create().TimeZones.FirstOrDefault(x => x.Code == result);
+        return World.TimeZones.FirstOrDefault(x => x.Code == result);
     }
 }

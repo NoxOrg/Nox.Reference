@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class FlagsInfo
+public class FlagsInfo
 {
     [JsonPropertyName("svg")]
     public string Svg { get; set; } = string.Empty;

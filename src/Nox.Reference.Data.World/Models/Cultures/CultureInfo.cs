@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CultureInfo
+public class CultureInfo
 {
     [JsonPropertyName("id")] public string Id { get; set; } = string.Empty;
     [JsonPropertyName("formalName")] public string FormalName { get; set; } = string.Empty;

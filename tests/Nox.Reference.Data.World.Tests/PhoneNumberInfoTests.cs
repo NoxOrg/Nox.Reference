@@ -1,9 +1,9 @@
-using System.Diagnostics;
-using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Models;
 using Nox.Reference.PhoneNumbers;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -28,7 +28,7 @@ public class PhoneNumberInfoTests
     [Test]
     public void PhoneNumberInfo_WithKnownSouthAfricanMobileNumber_ReturnsValidInfo()
     {
-        PhoneNumberInfo info = _phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
+        var info = _phoneNumberService.GetPhoneNumberInfo("833770694", "ZA");
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
 
@@ -44,6 +44,21 @@ public class PhoneNumberInfoTests
             Assert.That(info.RegionCode, Is.EqualTo("ZA"));
             Assert.That(info.RegionName, Is.EqualTo("South Africa"));
             Assert.That(info.CarrierName, Is.EqualTo("MTN"));
+        });
+    }
+
+    [Test]
+    public void GetPhoneCarriers_StaticWithMap_ReturnsResult()
+    {
+        var carrierPhoneNumbers = World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
+
+        var mappedCarrierPhoneNumbers = World.Mapper.Map<PhoneCarrierInfo>(carrierPhoneNumbers);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedCarrierPhoneNumbers, Is.Not.Null);
+            Assert.That(mappedCarrierPhoneNumbers?.Name, Is.EqualTo("Kyivstar"));
+            Assert.That(mappedCarrierPhoneNumbers?.PhoneNumbers.Count, Is.EqualTo(3));
         });
     }
 

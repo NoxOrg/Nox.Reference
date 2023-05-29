@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class NumberFormatInfo
+public class NumberFormatInfo
 {
     [JsonPropertyName("currencySymbol")] public string CurrencySymbol { get; set; } = string.Empty;
     [JsonPropertyName("decimalSeparator")] public string DecimalSeparator { get; set; } = string.Empty;

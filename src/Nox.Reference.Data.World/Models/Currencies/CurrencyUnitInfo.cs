@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CurrencyUnitInfo
+public class CurrencyUnitInfo
 {
     [JsonPropertyName("major")]
     public MajorCurrencyUnitInfo MajorCurrencyUnit { get; set; } = new MajorCurrencyUnitInfo();

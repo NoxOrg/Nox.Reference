@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class LanguageInfo
+public class LanguageInfo
 {
     [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;
     [JsonPropertyName("iso_639_1")] public string? Iso_639_1 { get; set; }
@@ -16,4 +16,7 @@ internal class LanguageInfo
 
     [JsonPropertyName("nameTranslations")]
     public IList<LanguageTranslationInfo> NameTranslations { get; set; } = new List<LanguageTranslationInfo>();
+
+    [JsonIgnore]
+    public IList<string> Countries { get; set; } = new List<string>();
 }

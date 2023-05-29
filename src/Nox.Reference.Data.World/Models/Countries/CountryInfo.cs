@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CountryInfo
+public class CountryInfo
 {
     [JsonIgnore]
     public string Id => AlphaCode2;
@@ -46,10 +46,10 @@ internal class CountryInfo
     public bool IsUnitedNationsMember { get; set; } = true;
 
     [JsonPropertyName("currencies")]
-    public Dictionary<string, CountryCurrencyInfo> Currencies1 { get; set; } = new Dictionary<string, CountryCurrencyInfo>();
+    public Dictionary<string, CountryCurrencyInfo> CurrenciesDictionary { get; set; } = new Dictionary<string, CountryCurrencyInfo>();
 
     [JsonIgnore]
-    public IReadOnlyList<string> Currencies => Currencies1.Select(kv => kv.Key).ToList();
+    public IReadOnlyList<string> Currencies => CurrenciesDictionary.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("idd")]
     public DialingInfo? DialingInfo { get; set; }
@@ -73,17 +73,17 @@ internal class CountryInfo
     public IReadOnlyList<string> Continents { get; set; } = new List<string>();
 
     [JsonPropertyName("languages")]
-    public Dictionary<string, string> Languages_ { get; set; } = new Dictionary<string, string>();
+    public Dictionary<string, string> LanguagesDictionary { get; set; } = new Dictionary<string, string>();
 
     [JsonIgnore]
-    public IReadOnlyList<string> Languages => Languages_.Select(kv => kv.Key).ToList();
+    public IReadOnlyList<string> Languages => LanguagesDictionary.Select(kv => kv.Key).ToList();
 
     [JsonPropertyName("translations")]
-    public Dictionary<string, NativeNameInfo> NameTranslations_ { get; set; } = new Dictionary<string, NativeNameInfo>();
+    public Dictionary<string, CountryNameTranslationInfo> NameTranslationsDictionary { get; set; } = new Dictionary<string, CountryNameTranslationInfo>();
 
     [JsonIgnore]
-    public IReadOnlyList<NativeNameInfo>? NameTranslations => NameTranslations_?
-        .Select(kv => new NativeNameInfo
+    public IReadOnlyList<CountryNameTranslationInfo>? NameTranslations => NameTranslationsDictionary?
+        .Select(kv => new CountryNameTranslationInfo
         {
             Language = kv.Key,
             CommonName = kv.Value.CommonName,
@@ -109,10 +109,10 @@ internal class CountryInfo
     public string EmojiFlag { get; set; } = string.Empty;
 
     [JsonPropertyName("demonyms")]
-    public Dictionary<string, DemonymnInfo>? Demonyms_ { get; set; } = new Dictionary<string, DemonymnInfo>();
+    public Dictionary<string, DemonymnInfo>? DemonymsDictionary { get; set; } = new Dictionary<string, DemonymnInfo>();
 
     [JsonIgnore]
-    public IReadOnlyList<DemonymnInfo>? Demonyms => Demonyms_?
+    public IReadOnlyList<DemonymnInfo>? Demonyms => DemonymsDictionary?
         .Select(kv => new DemonymnInfo
         {
             Language = kv.Key,
@@ -133,13 +133,13 @@ internal class CountryInfo
     public MapsInfo Maps { get; set; } = new MapsInfo();
 
     [JsonPropertyName("gini")]
-    public Dictionary<int, decimal>? GiniCoefficients_ { get; set; }
+    public Dictionary<int, decimal>? GiniCoefficientsDictionary { get; set; }
 
     [JsonIgnore]
-    public IReadOnlyDictionary<int, decimal>? GiniCoefficients => GiniCoefficients_;
+    public IReadOnlyDictionary<int, decimal>? GiniCoefficients => GiniCoefficientsDictionary;
 
     [JsonPropertyName("car")]
-    public VehicleInfo? VehicleInfo { get; set; }
+    public CountryVehicleInfo? VehicleInfo { get; set; }
 
     [JsonPropertyName("postalCode")]
     public PostalCodeInfo? PostalCodeInfo { get; set; }

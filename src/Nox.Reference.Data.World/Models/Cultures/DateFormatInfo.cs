@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class DateFormatInfo
+public class DateFormatInfo
 {
     [JsonPropertyName("amPmStrings")] public string AmPmStrings { get; set; } = string.Empty;
     [JsonPropertyName("eras")] public string Eras { get; set; } = string.Empty;

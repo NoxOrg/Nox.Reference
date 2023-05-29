@@ -1,22 +1,48 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
 
 public class LanguagesTests
 {
-    [TestCase("uk", "true", "Ukrainian", 4)]
+    private IWorldInfoContext _worldDbContext = null!;
+
+    [OneTimeSetUp]
+    public void Setup()
+    {
+        IServiceCollection serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
+        serviceCollection.AddWorldContext();
+
+        var serviceProvider = serviceCollection.BuildServiceProvider();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+
+        Trace.Listeners.Add(new ConsoleTraceListener());
+    }
+
+    [TestCase("uk", "true", "Ukrainian", 4, 1, "UKR")]
     public void GetLanguages_ReturnsProperValue(
         string input,
         string expectedIsCommon,
         string expectedName,
-        int expectedCount)
+        int expectedNameTranslationCount,
+        int expectedCountryCount,
+        string countryCode)
     {
-        var info = WorldInfo.Languages.Include(x => x.NameTranslations).Get(input);
+        var info = _worldDbContext.Languages.Include(x => x.NameTranslations).Get(input);
 
-        Assert.That(info, Is.Not.Null);
-        Assert.That(info?.Common, Is.EqualTo(bool.Parse(expectedIsCommon)));
-        Assert.That(info?.Name, Is.EqualTo(expectedName));
-        Assert.That(info?.NameTranslations.Count, Is.EqualTo(expectedCount));
+        var mappedInfo = World.Mapper.Map<Models.LanguageInfo>(info);
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
+
+        Assert.That(mappedInfo, Is.Not.Null);
+        Assert.That(mappedInfo?.Common, Is.EqualTo(bool.Parse(expectedIsCommon)));
+        Assert.That(mappedInfo?.Name, Is.EqualTo(expectedName));
+        Assert.That(mappedInfo?.NameTranslations.Count, Is.EqualTo(expectedNameTranslationCount));
+        Assert.That(mappedInfo?.Countries.Count, Is.EqualTo(expectedCountryCount));
+        Assert.That(mappedInfo?.Countries[0], Is.EqualTo(countryCode));
     }
 }

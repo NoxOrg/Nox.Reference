@@ -86,7 +86,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         var iso3LanguageData = GetLanguageIso639_3_Data(configuration);
         foreach (var country in countries)
         {
-            var dictionaryCopy = country.NameTranslations_.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            var dictionaryCopy = country.NameTranslationsDictionary.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             var countryTranslations = dictionaryCopy.Select(x => x.Key).ToList();
 
             foreach (var translationLanguage in countryTranslations)
@@ -114,14 +114,14 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
                 }
             }
 
-            dictionaryCopy.Add("en", new NativeNameInfo
+            dictionaryCopy.Add("en", new CountryNameTranslationInfo
             {
                 CommonName = country.Name,
                 OfficialName = country.Name,
                 Language = "English",
             });
 
-            country.NameTranslations_ = dictionaryCopy;
+            country.NameTranslationsDictionary = dictionaryCopy;
         }
     }
 

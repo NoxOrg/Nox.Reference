@@ -9,10 +9,16 @@ namespace Nox.Reference.Data.World
         {
             // IN
             CreateMap<VatNumberDefinitionInfo, VatNumberDefinition>()
-                .ForMember(x => x.ValidationRules, x => x.MapFrom(t => t.Validations));
+                .ForMember(x => x.ValidationRules, x => x.MapFrom(t => t.Validations))
+                .ReverseMap();
 
-            CreateMap<ValidationInfo, VatNumberValidationRule>();
-            CreateMap<ChecksumInfo, Checksum>().ForMember(x => x.Weights, x => x.MapFrom(t => string.Join(",", t.Weights ?? new List<int>())));
+            CreateMap<ValidationInfo, VatNumberValidationRule>()
+                .ReverseMap();
+
+            CreateMap<ChecksumInfo, Checksum>()
+                .ForMember(x => x.Weights, x => x.MapFrom(t => string.Join(",", t.Weights ?? new List<int>())));
+            CreateMap<Checksum, ChecksumInfo>()
+                .ForMember(x => x.Weights, x => x.MapFrom(t => t.GetWeights().ToList()));
         }
     }
 }

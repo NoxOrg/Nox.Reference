@@ -1,19 +1,25 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Nox.Reference.Data.Machine;
 
 public static class Machine
 {
-    internal static IMachineInfoContext Create()
+    private static readonly IServiceProvider _serviceProvider;
+    public static readonly IMapper Mapper;
+
+    static Machine()
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddMachineContext();
 
-        var serviceProvider = serviceCollection.BuildServiceProvider();
-
-        return serviceProvider.GetRequiredService<IMachineInfoContext>();
+        _serviceProvider = serviceCollection.BuildServiceProvider();
+        Mapper = _serviceProvider.GetRequiredService<IMapper>();
     }
 
     public static IQueryable<MacAddress> MacAddresses
-         => Create().MacAddresses;
+         => WorldDataContext.MacAddresses;
+
+    private static IMachineInfoContext WorldDataContext
+        => _serviceProvider.GetRequiredService<IMachineInfoContext>();
 }

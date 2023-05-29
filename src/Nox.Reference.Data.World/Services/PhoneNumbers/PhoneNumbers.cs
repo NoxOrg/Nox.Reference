@@ -15,7 +15,7 @@ namespace Nox.Reference.Data.World.Services.PhoneNumbers
 
         }
 
-        public IQueryable<CarrierPhoneNumber> CarrierPhoneNumbers => _worldInfoContext.CarrierPhoneNumbers;
+        public IQueryable<PhoneCarrier> PhoneCarriers => _worldInfoContext.PhoneCarriers;
 
         public PhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
         {

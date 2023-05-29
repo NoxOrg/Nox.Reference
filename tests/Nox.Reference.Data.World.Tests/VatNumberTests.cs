@@ -65,10 +65,15 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get("UA")!.Validate("UA0203654090", false)!;
+        var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
+        var validationResult = definition.Validate("UA0203654090", false)!;
 
+        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
+
+        Trace.WriteLine(Serialize(mappedDefinition));
         Trace.WriteLine(Serialize(validationResult));
 
+        Assert.That(mappedDefinition, Is.Not.Null);
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
 
@@ -89,7 +94,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = WorldInfo.VatNumberDefinitions
+        var validationResult = World.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -181,6 +186,18 @@ public class VatNumberTests
     }
 
     #endregion PerCountry
+
+    [Test]
+    public void VatNumber_Automapper()
+    {
+        var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
+
+        var mappedResult = World.Mapper.Map<VatNumberDefinitionInfo>(validationDefinition);
+
+        Trace.WriteLine(Serialize(mappedResult));
+
+        Assert.That(mappedResult, Is.Not.Null);
+    }
 
     [TearDown]
     public void EndTest()

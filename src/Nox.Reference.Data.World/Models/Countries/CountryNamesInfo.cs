@@ -11,11 +11,11 @@ public class CountryNamesInfo
     public string OfficialName { get; set; } = string.Empty;
 
     [JsonPropertyName("nativeName")]
-    public Dictionary<string, NativeNameInfo>? NativeNames1 { get; set; } = null!;
+    public Dictionary<string, CountryNameTranslationInfo>? NativeNamesDictionary { get; set; } = null!;
 
     [JsonIgnore]
-    public IReadOnlyList<NativeNameInfo>? NativeNames => NativeNames1?
-        .Select(kv => new NativeNameInfo
+    public IReadOnlyList<CountryNameTranslationInfo>? NativeNames => NativeNamesDictionary?
+        .Select(kv => new CountryNameTranslationInfo
         {
             Language = kv.Key,
             CommonName = kv.Value.CommonName,

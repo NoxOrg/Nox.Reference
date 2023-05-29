@@ -1,8 +1,8 @@
-using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.Machine.Tests;
+using System.Diagnostics;
 
 namespace Nox.Reference.Data.Tests;
 
@@ -34,8 +34,26 @@ public class MacAddressesTests
     {
         var info = _macAddressContext.MacAddresses.Get(input);
 
-        Assert.That(info, Is.Not.Null);
-        Assert.That(info.MacPrefix, Is.EqualTo(expectedPrefix));
-        Assert.That(info.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+
+        Assert.That(mappedInfo, Is.Not.Null);
+        Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
+        Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+    }
+
+    [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]
+    [TestCase("00-16-F6-11-22-33", "0016F6", "Nevion")]
+    public void GetVendorMacAddress_StaticCall_ReturnsValidInfo(
+        string input,
+        string expectedPrefix,
+        string expectedOrganizationName)
+    {
+        var info = Machine.Machine.MacAddresses.Get(input);
+
+        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+
+        Assert.That(mappedInfo, Is.Not.Null);
+        Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
+        Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
     }
 }

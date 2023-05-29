@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class StateHolidayInfo
+public class StateHolidayInfo
 {
     [JsonPropertyName("state")]
     public string State { get; set; } = string.Empty;
