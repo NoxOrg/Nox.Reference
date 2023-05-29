@@ -6,6 +6,7 @@ namespace Nox.Reference.Data.World;
 public static class World
 {
     private static readonly IServiceProvider _serviceProvider;
+    // TODO: possibly add specialized flat mapping methods per entity
     public static readonly IMapper Mapper;
 
     static World()
