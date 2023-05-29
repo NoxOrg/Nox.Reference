@@ -8,6 +8,8 @@ using System.Text.Json;
 
 Console.WriteLine("This is Nox.Reference Demo!");
 
+// TODO: redirect to nuget feed packages instead of local
+
 // Simplified flow
 
 // World
