@@ -3,6 +3,8 @@ using Nox.Reference.Data;
 using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
+using System.Text.Json;
 
 Console.WriteLine("This is Nox.Reference Demo!");
 
@@ -100,3 +102,11 @@ var machineContextDi = serviceProvider.GetRequiredService<IMachineInfoContext>()
 macAddress = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 
 Console.WriteLine($"DI -- MacAddress -- {macAddress.Id} -- {macAddress.OrganizationName}");
+
+// Automapper example
+var ukraineMapped = World.Mapper.Map<CountryInfo>(ukraine1);
+Console.WriteLine("Serialized data:");
+Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new System.Text.Json.JsonSerializerOptions
+{
+    WriteIndented = true,
+}));
