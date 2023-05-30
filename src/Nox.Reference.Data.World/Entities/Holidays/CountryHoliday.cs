@@ -2,9 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryHoliday : INoxReferenceEntity
+public class CountryHoliday : NoxReferenceEntityBase
 {
-    public int Id { get; private set; }
     public int Year { get; private set; }
     public string? Country { get; private set; } = string.Empty;
     public string? CountryName { get; private set; } = string.Empty;

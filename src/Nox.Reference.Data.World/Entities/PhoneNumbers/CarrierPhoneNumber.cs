@@ -2,10 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CarrierPhoneNumber : INoxReferenceEntity
+public class CarrierPhoneNumber : NoxReferenceEntityBase
 {
-    public int Id { get; private set; }
-
     public int PhoneNumber { get; internal set; }
 
     public virtual PhoneCarrier PhoneCarrier { get; private set; } = new PhoneCarrier();
