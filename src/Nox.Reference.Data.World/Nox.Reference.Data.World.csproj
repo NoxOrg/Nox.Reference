@@ -69,7 +69,6 @@
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Models\Languages\Yaml\" />
   </ItemGroup>
 </Project>
