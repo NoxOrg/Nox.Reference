@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -9,11 +11,13 @@ public class TimeZonesTests
 {
     // set during mamndatory init
     private IWorldInfoContext _worldDbContext = null!;
+    public IMapper _mapper = null!;
 
     [OneTimeSetUp]
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -23,23 +27,50 @@ public class TimeZonesTests
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
-    #region GetCultures
+    #region GetTimeZones
 
     [Test]
-    public void GetTimeZones_WithKnownGMTCode_ReturnsValidInfo()
+    public void GetTimeZones_WithKnownVilniusTimezone_ReturnsValidInfo()
     {
         var info = _worldDbContext.TimeZones.Get("Europe/Vilnius");
+        var mappedInfo = World.Mapper.Map<TimeZoneInfo>(info);
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(info));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 
         Assert.Multiple(() =>
         {
-            Assert.That(info, Is.Not.Null);
-            Assert.That(info?.Type, Is.EqualTo("Canonical"));
+            Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo?.Id, Is.EqualTo("Europe/Vilnius"));
+            Assert.That(mappedInfo?.Type, Is.EqualTo("Canonical"));
+            Assert.That(mappedInfo?.CountriesWithTimeZone.Count, Is.EqualTo(1));
         });
     }
 
     #endregion GetCultures
+
+    #region GetTimeZoneByCoordinates
+
+    [Test]
+    public void GetTimeZoneByCoordinates_WithKnownUkraineCoords_ReturnsValidInfo()
+    {
+        var info = TimeZone.GetTimeZoneByCoordinates(new GeoCoordinatesInfo
+        {
+            Latitude = 50.0196769m,
+            Longitude = 36.3569638m
+        });
+        var mappedInfo = World.Mapper.Map<TimeZoneInfo>(info);
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo?.Id, Is.EqualTo("Europe/Kyiv"));
+            Assert.That(mappedInfo?.CountriesWithTimeZone.Count, Is.EqualTo(1));
+        });
+    }
+
+    #endregion
 
     [TearDown]
     public void EndTest()

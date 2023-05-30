@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CurrencyInfo
+public class CurrencyInfo
 {
     [JsonPropertyName("isoCode")] public string IsoCode { get; set; } = string.Empty;
     [JsonPropertyName("isoNumber")] public string IsoNumber { get; set; } = string.Empty;

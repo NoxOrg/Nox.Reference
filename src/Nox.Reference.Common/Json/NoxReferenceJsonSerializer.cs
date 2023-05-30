@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Common
 {
@@ -8,6 +9,7 @@ namespace Nox.Reference.Common
         {
             WriteIndented = true,
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            ReferenceHandler = ReferenceHandler.IgnoreCycles
         };
 
         public static string Serialize<TType>(TType value)

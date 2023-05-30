@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class ChecksumInfo
+public class ChecksumInfo
 {
     [JsonPropertyName("algorithm")] public ChecksumAlgorithm? Algorithm { get; set; }
     [JsonPropertyName("checksumDigit")] public string? ChecksumDigit { get; set; }

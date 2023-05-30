@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class TimeZoneInfo
+public class TimeZoneInfo
 {
     [JsonPropertyName("id")] public string Id { get; set; } = string.Empty;
     [JsonPropertyName("embeddedComments")] public string? EmbeddedComments { get; set; }

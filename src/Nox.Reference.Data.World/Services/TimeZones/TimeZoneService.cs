@@ -1,21 +1,10 @@
-﻿using TimeZoneInfo = Nox.Reference.Data.World.Models.TimeZoneInfo;
-
-namespace Nox.Reference.Data.World.Services.TimeZones
+﻿namespace Nox.Reference.Data.World.Services.TimeZones
 {
     internal static class TimeZoneService
     {
-        public static TimeZoneInfo? GetTimeZoneByCoordinates(GeoCoordinatesInfo geoCoordinates)
+        public static TimeZone? GetTimeZoneByCoordinates(GeoCoordinatesInfo geoCoordinates)
         {
-            if (geoCoordinates?.Latitude == null ||
-                geoCoordinates.Longitude == null)
-            {
-                throw new ArgumentException("Null coordinate value was provided.");
-            }
-
-            //var result = TimeZoneLookup.GetTimeZone(Convert.ToDouble(geoCoordinates.Latitude), Convert.ToDouble(geoCoordinates.Longitude)).Result;
-
-            // TODO add when country entity is added
-            return null;
+            return TimeZone.GetTimeZoneByCoordinates(geoCoordinates);
         }
     }
 }

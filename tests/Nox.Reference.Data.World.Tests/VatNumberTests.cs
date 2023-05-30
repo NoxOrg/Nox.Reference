@@ -15,10 +15,17 @@ public class VatNumberTests
     private string _testFilePath = string.Empty;
     private IWorldInfoContext _dbContext = null!;
 
+    private readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        WriteIndented = true,
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+    };
+
     [OneTimeSetUp]
     public void Setup()
     {
         IServiceCollection serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -58,10 +65,15 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get("UA")!.Validate("UA0203654090", false)!;
+        var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
+        var validationResult = definition.Validate("UA0203654090", false)!;
 
+        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
+
+        Trace.WriteLine(Serialize(mappedDefinition));
         Trace.WriteLine(Serialize(validationResult));
 
+        Assert.That(mappedDefinition, Is.Not.Null);
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
 
@@ -82,7 +94,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = WorldInfo.VatNumberDefinitions
+        var validationResult = World.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -153,6 +165,7 @@ public class VatNumberTests
 
         Trace.WriteLine($"Failed VAT count: {failedVat.Count}/{testData.Length}");
         Trace.WriteLine("Failed VAT:");
+        Trace.WriteLine(JsonSerializer.Serialize(failedVat, _jsonOptions));
     }
 
     [TestCase("44403198682", "FR", true)]
@@ -164,6 +177,7 @@ public class VatNumberTests
         var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber)!;
 
         var status = isValid ? VatValidationStatus.Valid : VatValidationStatus.Invalid;
+
         Assert.Multiple(() =>
         {
             Assert.That(validationResult.Status, Is.EqualTo(status));
@@ -172,6 +186,18 @@ public class VatNumberTests
     }
 
     #endregion PerCountry
+
+    [Test]
+    public void VatNumber_Automapper()
+    {
+        var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
+
+        var mappedResult = World.Mapper.Map<VatNumberDefinitionInfo>(validationDefinition);
+
+        Trace.WriteLine(Serialize(mappedResult));
+
+        Assert.That(mappedResult, Is.Not.Null);
+    }
 
     [TearDown]
     public void EndTest()

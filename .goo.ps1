@@ -219,6 +219,53 @@ $goo.Command.Add( 'bump-version', { param($version)
     $goo.Command.Run('set-project-version', @($versionInfoTable, $versionArray))
 })
 
+# command: goo move-nugets [<output>]| Copies all nuget files into output folder (Default: 'generated-packages')
+$goo.Command.Add( 'move-nugets', { param($output)
+    if($null -eq $output){
+        $output = 'generated-packages'
+    }
+    New-Item -ItemType Directory -Force -Path $output
+    Get-ChildItem -Path "." -Filter *.nupkg -r | Copy-Item -Destination $output
+    Get-ChildItem -Path "./src" -Filter *.nupkg -r | foreach { Remove-Item -Path $_.FullName }
+})
+
+# command: goo update-shared-files| Copies all shared files into projects
+$goo.Command.Add( 'update-shared-files', { param($output)
+    if($null -eq $output){
+        $output = 'generated-packages'
+    }
+
+    $source = ".\data\output\sqlite\NoxReference.World.db"
+    $destination = ".\src\Nox.Reference.Data.World\NoxReferenceDatabase\NoxReference.World.db"
+    New-Item -ItemType File -Path $destination -Force
+    Get-ChildItem -Path $source | Copy-Item -Destination $destination  -Force
+
+    $source = ".\src\Nox.Reference.Common\noxReferenceSettings.json"
+    $destination = ".\src\Nox.Reference.Data.World\NoxReferenceConfig\noxReferenceSettings.json"
+    New-Item -ItemType File -Path $destination -Force
+    Get-ChildItem -Path $source | Copy-Item -Destination $destination -Force
+
+    $source = ".\data\output\sqlite\NoxReference.Machine.db"
+    $destination = ".\src\Nox.Reference.Data.Machine\NoxReferenceDatabase\NoxReference.Machine.db"
+    New-Item -ItemType File -Path $destination -Force
+    Get-ChildItem -Path $source | Copy-Item -Destination $destination -Force
+    
+    $source = ".\src\Nox.Reference.Common\noxReferenceSettings.json"
+    $destination = ".\src\Nox.Reference.Data.Machine\NoxReferenceConfig\noxReferenceSettings.json"
+    New-Item -ItemType File -Path $destination -Force
+    Get-ChildItem -Path $source | Copy-Item -Destination $destination -Force
+})
+
+# command: goo build-nugets| Build and move nugets to folder
+$goo.Command.Add( 'build-nugets', { param()
+    $goo.Command.Run( 'update-shared-files' )
+    $goo.Command.Run( 'clean' )
+    $goo.Command.Run( 'build' )
+    $goo.Command.Run( 'move-nugets' )
+})
+
+# TODO: potential improvement, copy nugets to local feed specified by a command
+
 <# --- START GOO EXECUTION --- #>
 
 $goo.Start()

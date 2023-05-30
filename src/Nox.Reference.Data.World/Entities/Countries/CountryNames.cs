@@ -7,5 +7,5 @@ public class CountryNames : INoxReferenceEntity
     public int Id { get; private set; }
     public string CommonName { get; private set; } = string.Empty;
     public string OfficialName { get; private set; } = string.Empty;
-    public IReadOnlyList<CountryNativeName> NativeNames { get; internal set; } = new List<CountryNativeName>();
+    public virtual IReadOnlyList<CountryNativeName> NativeNames { get; internal set; } = new List<CountryNativeName>();
 }

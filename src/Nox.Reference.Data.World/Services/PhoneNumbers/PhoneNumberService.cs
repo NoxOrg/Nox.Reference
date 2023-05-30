@@ -1,18 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Nox.Reference.Data.World;
+﻿using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Models;
 using LibPhoneNumber = PhoneNumbers;
 
 namespace Nox.Reference.PhoneNumbers;
 
-internal class PhoneNumberService : IPhoneNumberService
+public class PhoneNumberService : IPhoneNumberService
 {
     private readonly LibPhoneNumber.PhoneNumberUtil _phoneUtil = LibPhoneNumber.PhoneNumberUtil.GetInstance();
     private readonly LibPhoneNumber.PhoneNumberOfflineGeocoder _geoCoder = LibPhoneNumber.PhoneNumberOfflineGeocoder.GetInstance();
-    private readonly WorldDbContext _worldDbContext;
+    private readonly IWorldInfoContext _worldDbContext;
     private Tuple<int, string>[] _phoneNumbers = new Tuple<int, string>[0];
 
-    public PhoneNumberService(WorldDbContext worldDbContext)
+    public PhoneNumberService(IWorldInfoContext worldDbContext)
     {
         _worldDbContext = worldDbContext;
     }
@@ -94,8 +93,7 @@ internal class PhoneNumberService : IPhoneNumberService
         }
 
         _phoneNumbers = _worldDbContext
-            .Set<CarrierPhoneNumber>()
-            .Include(x => x.PhoneCarrier)
+            .CarrierPhoneNumbers
             .OrderBy(x => x.PhoneNumber)
             .Select(x => Tuple.Create(x.PhoneNumber, x.PhoneCarrier.Name))
             .ToArray();

@@ -16,6 +16,6 @@ public class Culture : INoxReferenceEntity
     public string CharacterOrientation { get; private set; } = string.Empty;
     public string LineOrientation { get; private set; } = string.Empty;
     public string? LanguageIso_639_2t { get; private set; }
-    public NumberFormat NumberFormat { get; private set; } = null!;
-    public DateFormat DateFormat { get; private set; } = null!;
+    public virtual NumberFormat NumberFormat { get; private set; } = null!;
+    public virtual DateFormat DateFormat { get; private set; } = null!;
 }

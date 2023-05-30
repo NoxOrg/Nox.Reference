@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Machine;
@@ -12,13 +11,10 @@ public static class MachineDataExtensions
     {
         services.AddNoxReferenceCommon();
 
-        var configuration = services.GetNoxReferenceConfiguration();
-        var connectionString = configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
-
-        services.AddSqlite<MachineDbContext>(connectionString);
+        services.AddDbContext<MachineDbContext>();
 
         services.AddScoped<INoxReferenceDataSeeder, MacAddressDataSeeder>();
-        services.AddScoped<IMachineContext, MachineDbContext>();
+        services.AddScoped<IMachineInfoContext, MachineDbContext>();
         return services;
     }
 }

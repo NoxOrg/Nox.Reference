@@ -2,11 +2,11 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class CurrencyUsageInfo
+public class CurrencyUsageInfo
 {
     [JsonPropertyName("frequent")]
-    public IReadOnlyList<string> Frequent { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> Frequent { get; set; } = new List<string>();
 
     [JsonPropertyName("rare")]
-    public IReadOnlyList<string> Rare { get; set; } = Array.Empty<string>();
+    public IReadOnlyList<string> Rare { get; set; } = new List<string>();
 }

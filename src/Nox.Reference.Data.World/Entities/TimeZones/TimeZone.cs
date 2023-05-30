@@ -1,4 +1,5 @@
-﻿using Nox.Reference.Data.Common;
+﻿using GeoTimeZone;
+using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
 
@@ -15,5 +16,18 @@ public class TimeZone : INoxReferenceEntity
     public string? DST_TimeZoneAbbreviation { get; set; }
     public double? Latitude { get; set; }
     public double? Longitude { get; set; }
-    // TODO: add relation to country entity when it's created
+    public virtual IReadOnlyList<Country> Countries { get; set; } = new List<Country>();
+
+    public static TimeZone? GetTimeZoneByCoordinates(GeoCoordinatesInfo geoCoordinates)
+    {
+        if (geoCoordinates?.Latitude == null ||
+            geoCoordinates.Longitude == null)
+        {
+            throw new ArgumentException("Null coordinate value was provided.");
+        }
+
+        var result = TimeZoneLookup.GetTimeZone(Convert.ToDouble(geoCoordinates.Latitude), Convert.ToDouble(geoCoordinates.Longitude)).Result;
+
+        return World.TimeZones.FirstOrDefault(x => x.Code == result);
+    }
 }

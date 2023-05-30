@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class VatNumberDefinitionInfo
+public class VatNumberDefinitionInfo
 {
     [JsonPropertyName("country")]
     public string Country { get; set; } = string.Empty;

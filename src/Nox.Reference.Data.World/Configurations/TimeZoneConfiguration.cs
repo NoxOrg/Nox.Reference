@@ -7,11 +7,8 @@ internal class TimeZoneConfiguration : NoxReferenceEntityConfigurationBase<TimeZ
 {
     protected override void DoConfigure(EntityTypeBuilder<TimeZone> builder)
     {
-        // TODO: add when currency entity is added
-        //builder
-        //    .HasOne(x => x.DateFormat)
-        //    .WithOne(x => x.Culture)
-        //    .HasForeignKey<DateFormat>("CultureId")
-        //    .OnDelete(DeleteBehavior.Cascade);
+        builder
+            .HasMany(x => x.Countries)
+            .WithMany(x => x.TimeZones);
     }
 }

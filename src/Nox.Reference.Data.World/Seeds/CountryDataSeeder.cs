@@ -27,7 +27,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     public override string TargetFileName => "Nox.Reference.Countries.json";
     public override string DataFolderPath => "Countries";
 
-    protected override IEnumerable<CountryInfo> GetDataInfos()
+    protected override IReadOnlyList<CountryInfo> GetDataInfos()
     {
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
         var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
@@ -44,7 +44,9 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         EnrichWithMappingData(countries);
         FixTranslation(_configuration, countries);
 
-        return countries.Where(c => !string.IsNullOrEmpty(c.NumericCode));
+        return countries
+            .Where(c => !string.IsNullOrEmpty(c.NumericCode))
+            .ToList();
     }
 
     protected override void DoSpecialTreatAfterAdding(IEnumerable<CountryInfo> sources, IEnumerable<Country> destinations)
@@ -84,7 +86,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         var iso3LanguageData = GetLanguageIso639_3_Data(configuration);
         foreach (var country in countries)
         {
-            var dictionaryCopy = country.NameTranslations_.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+            var dictionaryCopy = country.NameTranslationsDictionary.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
             var countryTranslations = dictionaryCopy.Select(x => x.Key).ToList();
 
             foreach (var translationLanguage in countryTranslations)
@@ -112,14 +114,14 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
                 }
             }
 
-            dictionaryCopy.Add("en", new NativeNameInfo
+            dictionaryCopy.Add("en", new CountryNameTranslationInfo
             {
                 CommonName = country.Name,
                 OfficialName = country.Name,
                 Language = "English",
             });
 
-            country.NameTranslations_ = dictionaryCopy;
+            country.NameTranslationsDictionary = dictionaryCopy;
         }
     }
 

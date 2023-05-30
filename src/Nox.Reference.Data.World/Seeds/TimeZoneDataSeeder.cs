@@ -29,7 +29,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
 
     public override string DataFolderPath => "TimeZones";
 
-    protected override IEnumerable<Models.TimeZoneInfo> GetDataInfos()
+    protected override IReadOnlyList<Models.TimeZoneInfo> GetDataInfos()
     {
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var timeZoneUrl = _configuration.GetValue<string>(ConfigurationConstants.TimeZoneUrl)!;
@@ -142,5 +142,23 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
         }
 
         return timeZoneDataToSave;
+    }
+
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<Models.TimeZoneInfo> sources, IEnumerable<TimeZone> destinations)
+    {
+        base.DoSpecialTreatAfterAdding(sources, destinations);
+
+        var countries = _dbContext.Set<Country>().ToList();
+
+        foreach (var source in sources)
+        {
+            var timeZoneEntity = destinations.First(x => x.Code == source.Id);
+            timeZoneEntity.Countries = countries.Where(x => source.CountriesWithTimeZone.Contains(x.AlphaCode2)).ToList();
+        }
+
+        _dbContext.Set<TimeZone>()
+            .UpdateRange(destinations);
+
+        _dbContext.SaveChanges();
     }
 }

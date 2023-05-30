@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
@@ -21,6 +22,7 @@ public class CurrencyTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -50,7 +52,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
-        Currency uaCurrency = WorldInfo.Currencies.Get("UAH")!;
+        Currency uaCurrency = World.Currencies.Get("UAH")!;
 
         Assert.Multiple(() =>
         {
@@ -62,9 +64,12 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        MajorCurrencyUnit currencyUnit = WorldInfo.Currencies.Get("USD").MajorUnit;
+        var currency = World.Currencies.Get("USD");
 
-        Assert.That(currencyUnit.Name, Is.EqualTo("dollar"));
+        var mappedCurrency = World.Mapper.Map<CurrencyInfo>(currency);
+
+        Assert.That(mappedCurrency.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
+        Assert.That(mappedCurrency.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
     }
 
     #endregion GetCurrencies

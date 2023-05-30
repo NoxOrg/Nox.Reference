@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World.Models;
 
-internal class ValidationInfo
+public class ValidationInfo
 {
     [JsonPropertyName("translationId")]
     public string TranslationId { get; set; } = string.Empty;

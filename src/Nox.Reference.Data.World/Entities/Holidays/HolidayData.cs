@@ -8,5 +8,5 @@ public class HolidayData : INoxReferenceEntity
     public string? Name { get; private set; } = string.Empty;
     public string? Type { get; private set; } = string.Empty;
     public string? Date { get; private set; } = string.Empty;
-    public IReadOnlyList<LocalHolidayName> LocalNames { get; private set; } = new List<LocalHolidayName>();
+    public virtual IReadOnlyList<LocalHolidayName> LocalNames { get; private set; } = new List<LocalHolidayName>();
 }

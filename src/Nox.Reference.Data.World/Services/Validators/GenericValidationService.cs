@@ -51,6 +51,7 @@ public static class GenericValidationService
         string formattedVatNumber,
         VatNumberValidationResult result)
     {
+        // TODO: handle API not available case
         HttpResponseMessage? apiResult;
         switch (vatNumberInfo.VerificationApi)
         {

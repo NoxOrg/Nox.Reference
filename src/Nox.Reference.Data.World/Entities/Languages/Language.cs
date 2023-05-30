@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Nox.Reference.Data.Common;
+﻿using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
 
@@ -14,7 +13,7 @@ public class Language : INoxReferenceEntity
     public bool Common { get; private set; }
     public LanguageType Type { get; private set; }
     public LanguageScope Scope { get; private set; }
-    public IReadOnlyList<LanguageTranslation> NameTranslations { get; private set; } = new List<LanguageTranslation>();
+    public virtual IReadOnlyList<LanguageTranslation> NameTranslations { get; private set; } = new List<LanguageTranslation>();
     public string? WikiUrl { get; private set; }
-    public IReadOnlyList<Country> Countries { get; private set; } = new List<Country>();
+    public virtual IReadOnlyList<Country> Countries { get; private set; } = new List<Country>();
 }

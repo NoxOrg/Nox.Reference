@@ -8,5 +8,5 @@ public class CarrierPhoneNumber : INoxReferenceEntity
 
     public int PhoneNumber { get; internal set; }
 
-    public PhoneCarrier PhoneCarrier { get; private set; } = new PhoneCarrier();
+    public virtual PhoneCarrier PhoneCarrier { get; private set; } = new PhoneCarrier();
 }

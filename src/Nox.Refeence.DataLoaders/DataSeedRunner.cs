@@ -25,9 +25,10 @@ public class DataSeedRunner
             }
             catch (Exception e)
             {
-                _logger.LogError("Exception happened during seeding data {dataSeeder}. Exception: {Message}"
-                    , dataSeeder.GetType().Name
-                    , e.Message);
+                _logger.LogError(
+                    "Exception happened during seeding data {dataSeeder}. Exception: {Message}",
+                    dataSeeder.GetType().Name,
+                    e.Message);
             }
         }
     }

@@ -1,7 +1,8 @@
-using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
+using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -13,6 +14,7 @@ public class CountryInfoTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
+        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -25,33 +27,38 @@ public class CountryInfoTests
     [Test]
     public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
     {
-        var info = WorldInfo.Countries.Get("ZAF")!;
+        var info = World.Countries.Get("ZAF")!;
+
+        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
 
         Assert.Multiple(() =>
         {
-            Assert.That(info, Is.Not.Null);
-            Assert.That(info.Code, Is.EqualTo("ZAF"));
-            Assert.That(info.Languages, Is.Not.Empty);
-            Assert.That(info.NameTranslations, Is.Not.Empty);
-            Assert.That(info.Currencies, Is.Not.Empty);
-            Assert.That(info.TopLevelDomains, Is.Not.Empty);
-            Assert.That(info.Capitals, Is.Not.Empty);
+            Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo.Code, Is.EqualTo("ZAF"));
+            Assert.That(mappedInfo.Languages, Is.Not.Empty);
+            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
+            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
         });
     }
 
-    //TODO: Play with Include
     [Test]
     public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
     {
-        var translation = _worldDbContext.Countries.Get("ZAF")!.GetTranslation("en")!;
+        var translation = _worldDbContext.Countries
+            .Get("ZAF")!
+            .GetTranslation("en")!;
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translation));
+        var mappedTranslation = World.Mapper.Map<CountryNameTranslationInfo>(translation);
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedTranslation));
 
         Assert.Multiple(() =>
         {
-            Assert.That(translation, Is.Not.Null);
-            Assert.That(translation.OfficialName, Is.EqualTo("South Africa"));
-            Assert.That(translation.CommonName, Is.EqualTo("South Africa"));
+            Assert.That(mappedTranslation, Is.Not.Null);
+            Assert.That(mappedTranslation.OfficialName, Is.EqualTo("South Africa"));
+            Assert.That(mappedTranslation.CommonName, Is.EqualTo("South Africa"));
         });
     }
 

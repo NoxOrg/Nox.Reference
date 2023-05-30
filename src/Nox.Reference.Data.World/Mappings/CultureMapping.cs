@@ -9,10 +9,14 @@ namespace Nox.Reference.Data.World.Mappings
         {
             CreateMap<CultureInfo, Culture>()
                 .ForMember(x => x.Id, x => x.Ignore())
-                .ForMember(x => x.Name, x => x.MapFrom(x => x.Id))
+                .ForMember(x => x.Name, x => x.MapFrom(x => x.Id));
+            CreateMap<Culture, CultureInfo>()
+                .ForMember(x => x.Id, x => x.MapFrom(x => x.Name));
+
+            CreateMap<DateFormatInfo, DateFormat>()
                 .ReverseMap();
-            CreateMap<DateFormatInfo, DateFormat>();
-            CreateMap<NumberFormatInfo, NumberFormat>();
+            CreateMap<NumberFormatInfo, NumberFormat>()
+                .ReverseMap();
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Common;
 
 namespace Nox.Reference.Data.Machine;
 
-internal class MachineDbContext : DbContext, IMachineContext
+public class MachineDbContext : DbContext, IMachineInfoContext
 {
     private readonly IConfiguration _configuration;
+    private static string? _databasePath;
 
     // DON'T remove default constructor. It is used for migrations purposes.
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -30,11 +30,16 @@ internal class MachineDbContext : DbContext, IMachineContext
             .AsNoTracking()
             .AsQueryable();
 
+    public static void UseDatabasePath(string databasePath)
+    {
+        _databasePath = databasePath;
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
 
-        var connectionString = _configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
+        var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
         optionsBuilder.UseSqlite(connectionString);
     }
 

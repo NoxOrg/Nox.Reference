@@ -25,7 +25,7 @@ internal class PhoneNumbersDataSeeder : NoxReferenceDataSeederBase<WorldDbContex
 
     public override string DataFolderPath => "PhoneNumberCarriers";
 
-    protected override IEnumerable<PhoneCarrierInfo> GetDataInfos()
+    protected override IReadOnlyList<PhoneCarrierInfo> GetDataInfos()
     {
         var phoneCarrierDataPath = _configuration.GetValue<string>(ConfigurationConstants.PhoneCarrierDataPathSettingName)!;
 
@@ -35,7 +35,7 @@ internal class PhoneNumbersDataSeeder : NoxReferenceDataSeederBase<WorldDbContex
         {
             PropertyNameCaseInsensitive = true
         };
-        var data = JsonSerializer.Deserialize<PhoneCarrierInfo[]>(content, deserializationOptions)!;
+        var data = JsonSerializer.Deserialize<List<PhoneCarrierInfo>>(content, deserializationOptions)!;
 
         return data;
     }
