@@ -15,10 +15,11 @@ namespace Nox.Reference.Data.Common.Seeds
         protected readonly ILogger _logger;
         protected readonly NoxReferenceFileStorageService _fileStorageService;
 
-        protected NoxReferenceDataSeederBase(TDbContext dbContext,
-                  IMapper mapper,
-                  ILogger logger,
-                  NoxReferenceFileStorageService fileStorageService)
+        protected NoxReferenceDataSeederBase(
+            TDbContext dbContext,
+            IMapper mapper,
+            ILogger logger,
+            NoxReferenceFileStorageService fileStorageService)
         {
             _dbContext = dbContext;
             _mapper = mapper;
@@ -64,9 +65,7 @@ namespace Nox.Reference.Data.Common.Seeds
             }
         }
 
-        protected virtual void DoSpecialTreatAfterAdding(IEnumerable<TSource> sources, IEnumerable<TEntity> destinations)
-        {
-        }
+        protected virtual void DoSpecialTreatAfterAdding(IEnumerable<TSource> sources, IEnumerable<TEntity> destinations) { }
 
         protected abstract IReadOnlyList<TSource> GetDataInfos();
     }

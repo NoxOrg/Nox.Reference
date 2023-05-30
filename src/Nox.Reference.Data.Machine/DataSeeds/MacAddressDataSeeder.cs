@@ -41,7 +41,6 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
         var sortedRows = splitRows.Skip(1).OrderBy(x => x).Skip(1).ToList();
         sortedRows.Insert(0, splitRows[0]);
         var resultingString = string.Join("\n", sortedRows);
-        // TODO: fix saved data
         _fileStorageService.SaveContentToSource(resultingString, DataFolderPath, "mac-vendor.csv");
 
         using var sr = new StreamReader(ms);

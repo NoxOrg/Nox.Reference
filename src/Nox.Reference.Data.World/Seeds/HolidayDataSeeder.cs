@@ -10,7 +10,7 @@ namespace Nox.Reference.Data.World;
 
 internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryHolidayInfo, CountryHoliday>
 {
-    private readonly int[] _availableYears = new[] { 2023, 2024 };
+    private readonly int[] _availableYears = new[] { 2023, 2024, 2025 };
     private readonly IConfiguration _configuration;
 
     public HolidayDataSeeder(

@@ -16,7 +16,7 @@ public static class WorldDataExtensions
         services.AddSeeders();
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
-        services.AddSingleton<IPhoneNumberService, PhoneNumberService>();
+        services.AddScoped<IPhoneNumberService, PhoneNumberService>();
 
         return services;
     }
