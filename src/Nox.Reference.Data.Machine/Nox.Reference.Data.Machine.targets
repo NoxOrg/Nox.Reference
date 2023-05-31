@@ -6,10 +6,10 @@
   <Target Name="CopyMachineDbFile" BeforeTargets="Build">
     <Copy SourceFiles="@(NoxMachineDbFiles)" DestinationFolder="$(TargetDir)/NoxReferenceDatabase/" />
   </Target>
-	<ItemGroup>
-		<NoxCommonConfigFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceConfig/noxReferenceSettings.json" />
-	</ItemGroup>
-	<Target Name="CopyConfigFiles" BeforeTargets="Build">
-		<Copy SourceFiles="@(NoxCommonConfigFiles)" DestinationFolder="$(TargetDir)/" />
-	</Target>
+  <ItemGroup>
+    <NoxCommonConfigFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceConfig/noxReferenceSettings.json" />
+  </ItemGroup>
+  <Target Name="CopyConfigFiles" BeforeTargets="Build">
+    <Copy SourceFiles="@(NoxCommonConfigFiles)" DestinationFolder="$(TargetDir)/" />
+  </Target>
 </Project>
