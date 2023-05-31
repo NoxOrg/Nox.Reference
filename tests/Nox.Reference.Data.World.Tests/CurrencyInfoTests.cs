@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
+using Nox.Reference.World;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
@@ -37,8 +38,21 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var all = _countryDbContext.Currencies.ToList();
         var info = _countryDbContext.Currencies.GetByIsoCode("UAH");
+
+        Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(info, Is.Not.Null);
+            Assert.That(info?.IsoCode, Is.EqualTo("UAH"));
+        });
+    }
+
+    [Test]
+    public void GetCurrencies_WithEnumUkraine_ReturnsValidInfo()
+    {
+        var info = _countryDbContext.Currencies.Get(WorldCurrencies.UkrainianHryvnia);
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 

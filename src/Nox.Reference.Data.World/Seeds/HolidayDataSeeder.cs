@@ -32,6 +32,7 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     {
         var holidaysZipPath = _configuration.GetValue<string>(ConfigurationConstants.HolidaysZipPathSettingName)!;
         var holidays = new List<CountryHolidayInfo>();
+        var countryNames = _dbContext.Countries.Select(x => x.AlphaCode2).ToList();
 
         foreach (var year in _availableYears)
         {
@@ -47,6 +48,8 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
             holidays.AddRange(holidayInfos);
         }
 
-        return holidays;
+        return holidays
+            .Where(x => countryNames.Contains(x.Country))
+            .ToList();
     }
 }

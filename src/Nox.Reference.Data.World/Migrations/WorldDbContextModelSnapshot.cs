@@ -393,8 +393,8 @@ namespace Nox.Reference.Data.World.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Country")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CountryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CountryName")
                         .HasColumnType("TEXT");
@@ -406,6 +406,8 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("CountryHoliday");
                 });
@@ -1452,6 +1454,17 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasForeignKey("GeoCoordinatesId");
 
                     b.Navigation("GeoCoordinates");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNameTranslation", b =>

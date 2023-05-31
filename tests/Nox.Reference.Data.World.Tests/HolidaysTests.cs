@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
+using Nox.Reference.World;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -28,6 +29,21 @@ public class HolidayTests
     public void GetHolidays_WithKnownUkraineCode_ReturnsValidInfo()
     {
         var countryHolidayInfo = _worldDbContext.Holidays.Get(2023, "UA");
+
+        var mappedHolidayInfo = World.Mapper.Map<CountryHolidayInfo>(countryHolidayInfo);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedHolidayInfo, Is.Not.Null);
+            Assert.That(mappedHolidayInfo?.Country, Is.EqualTo("UA"));
+            Assert.That(mappedHolidayInfo?.Holidays.Count, Is.EqualTo(17));
+        });
+    }
+
+    [Test]
+    public void GetHolidays_WithEnumUkraineCode_ReturnsValidInfo()
+    {
+        var countryHolidayInfo = _worldDbContext.Holidays.Get(2023, WorldCountries.Ukraine);
 
         var mappedHolidayInfo = World.Mapper.Map<CountryHolidayInfo>(countryHolidayInfo);
 

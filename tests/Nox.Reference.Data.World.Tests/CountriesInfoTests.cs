@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
+using Nox.Reference.World;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -28,6 +29,25 @@ public class CountryInfoTests
     public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
     {
         var info = World.Countries.Get("ZAF")!;
+
+        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo.Code, Is.EqualTo("ZAF"));
+            Assert.That(mappedInfo.Languages, Is.Not.Empty);
+            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
+            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
+        });
+    }
+
+    [Test]
+    public void CountryInfo_WithEnum_ReturnsValidInfo()
+    {
+        var info = World.Countries.Get(WorldCountries.SouthAfrica)!;
 
         var mappedInfo = World.Mapper.Map<CountryInfo>(info);
 

@@ -1,10 +1,17 @@
-﻿namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿using Nox.Reference.World;
+
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class CountryQueryExtensions
 {
     public static Country? Get(this IQueryable<Country> query, string countryCode)
     {
         return query.GetByAlpha3Code(countryCode);
+    }
+
+    public static Country? Get(this IQueryable<Country> query, WorldCountries country)
+    {
+        return query.FirstOrDefault(x => x.Id == (int)country);
     }
 
     public static Country? GetByAlpha3Code(this IQueryable<Country> query, string countryCode)

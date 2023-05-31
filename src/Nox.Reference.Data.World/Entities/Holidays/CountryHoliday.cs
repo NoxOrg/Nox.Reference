@@ -6,7 +6,7 @@ public class CountryHoliday : INoxReferenceEntity
 {
     public int Id { get; private set; }
     public int Year { get; private set; }
-    public string? Country { get; private set; } = string.Empty;
+    public virtual Country Country { get; private set; } = new Country();
     public string? CountryName { get; private set; } = string.Empty;
     public string? DayOff { get; private set; } = string.Empty;
     public virtual IReadOnlyList<HolidayData> Holidays { get; private set; } = new List<HolidayData>();
