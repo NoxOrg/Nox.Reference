@@ -4,9 +4,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.Common</PackageId>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <PackageVersion>1.0.4.0</PackageVersion>
+    <AssemblyVersion>1.0.5-alpha</AssemblyVersion>
+    <FileVersion>1.0.5-alpha</FileVersion>
+    <PackageVersion>1.0.5-alpha</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
