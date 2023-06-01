@@ -2,9 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryNameTranslation : INoxReferenceEntity
+public class CountryNameTranslation : WorldNoxReferenceEntity
 {
-    public int Id { get; private set; }
     public virtual Country Country { get; private set; } = new Country();
     public virtual Language Language { get; internal set; } = new Language();
     public string OfficialName { get; internal set; } = string.Empty;

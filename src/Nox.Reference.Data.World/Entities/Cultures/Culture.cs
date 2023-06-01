@@ -2,9 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Culture : INoxReferenceEntity
+public class Culture : WorldNoxReferenceEntity
 {
-    public int Id { get; set; }
     public string Name { get; private set; } = string.Empty;
     public string FormalName { get; private set; } = string.Empty;
     public string NativeName { get; private set; } = string.Empty;
