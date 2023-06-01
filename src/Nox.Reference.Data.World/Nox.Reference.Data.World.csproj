@@ -4,9 +4,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.World</PackageId>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
-    <PackageVersion>1.0.4.0</PackageVersion>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <PackageVersion>1.0.5.0-alpha</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -26,10 +26,14 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="NoxReferenceConfig\noxReferenceSettings.json" />
-    <None Remove="NoxReferenceDatabase\NoxReference.World.db" />
+    <None Remove="NoxReferenceDatabase\Nox.Reference.World.db" />
   </ItemGroup>
+  <Target Name="CopyMiscFilesToLocal" AfterTargets="BeforeBuild">
+    <Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.World.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
+  </Target>
   <ItemGroup>
-    <Resource Include="NoxReferenceDatabase\NoxReference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
+    <Resource Include="NoxReferenceDatabase\Nox.Reference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

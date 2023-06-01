@@ -2,6 +2,6 @@
 {
     public static class DatabaseConstant
     {
-        public static string WorldDbPath { get; set; } = "Data Source=..\\..\\..\\..\\..\\data\\output\\sqlite\\NoxReference.World.db";
+        public static string WorldDbPath { get; set; } = "Data Source=..\\..\\..\\..\\..\\data\\output\\sqlite\\Nox.Reference.World.db";
     }
 }
