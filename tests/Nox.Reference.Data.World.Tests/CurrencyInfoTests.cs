@@ -46,6 +46,7 @@ public class CurrencyTests
         {
             Assert.That(info, Is.Not.Null);
             Assert.That(info?.IsoCode, Is.EqualTo("UAH"));
+            Assert.That(info?.Id, Is.EqualTo("UAH"));
         });
     }
 

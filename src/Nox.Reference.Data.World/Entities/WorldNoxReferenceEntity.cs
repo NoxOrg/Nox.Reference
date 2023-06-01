@@ -4,6 +4,6 @@ namespace Nox.Reference.Data.World;
 
 public abstract class WorldNoxReferenceEntity : INoxReferenceEntity
 {
-    internal int Id { get; private set; }
-    int INoxReferenceEntity.Id => Id;
+    internal int EntityId { get; private set; }
+    int INoxReferenceEntity.EntityId => EntityId;
 }

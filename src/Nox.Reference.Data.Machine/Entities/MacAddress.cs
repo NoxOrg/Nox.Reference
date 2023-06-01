@@ -1,7 +1,10 @@
-﻿namespace Nox.Reference.Data;
+﻿using Nox.Reference.Data.Common;
 
-public class MacAddress : MachineNoxReferenceEntity
+namespace Nox.Reference.Data;
+
+public class MacAddress : MachineNoxReferenceEntity, IKeyedNoxReferenceEntity<string>
 {
+    public string Id => MacPrefix;
     public string IEEERegistry { get; private set; } = string.Empty;
     public string MacPrefix { get; private set; } = string.Empty;
     public string OrganizationName { get; private set; } = string.Empty;

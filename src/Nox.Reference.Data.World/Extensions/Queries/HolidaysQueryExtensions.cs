@@ -17,6 +17,6 @@ public static class HolidaysQueryExtensions
         int year,
         WorldCountries worldCountries)
     {
-        return query.FirstOrDefault(x => x.Year == year && x.Country.Id == (int)worldCountries);
+        return query.FirstOrDefault(x => x.Year == year && x.Country.EntityId == (int)worldCountries);
     }
 }

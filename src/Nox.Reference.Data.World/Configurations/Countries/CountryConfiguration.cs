@@ -3,7 +3,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World.Configurations.Countries;
 
-internal class CountryConfiguration : NoxReferenceEntityConfigurationBase<Country>
+internal class CountryConfiguration : NoxReferenceKeyedEntityConfigurationBase<Country, string>
 {
     protected override void DoConfigure(EntityTypeBuilder<Country> builder)
     {

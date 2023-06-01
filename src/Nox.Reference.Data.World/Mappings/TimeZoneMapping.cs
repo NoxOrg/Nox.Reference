@@ -9,7 +9,7 @@ internal class TimeZoneMapping : Profile
     {
 #pragma warning disable S3358 // Ternary operators should not be nested
         CreateMap<TimeZoneInfo, TimeZone>()
-            .ForMember(x => x.Id, x => x.Ignore())
+            .ForMember(x => x.EntityId, x => x.Ignore())
             .ForMember(x => x.Code, x => x.MapFrom(x => x.Id))
             .ForMember(x => x.Latitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Latitude == null ? null : s.GeoCoordinates.Latitude)))
             .ForMember(x => x.Longitude, y => y.MapFrom(s => s.GeoCoordinates == null ? null : (s.GeoCoordinates.Longitude == null ? null : s.GeoCoordinates.Longitude)))

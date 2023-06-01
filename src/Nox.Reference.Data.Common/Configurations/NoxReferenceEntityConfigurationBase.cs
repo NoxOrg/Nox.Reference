@@ -8,8 +8,7 @@ public abstract class NoxReferenceEntityConfigurationBase<TEntity> : IEntityType
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {
-        builder.HasKey(x => x.Id);
-
+        builder.HasKey(x => x.EntityId);
         DoConfigure(builder);
     }
 

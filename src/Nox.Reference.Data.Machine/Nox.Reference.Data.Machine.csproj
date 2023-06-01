@@ -61,4 +61,7 @@
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
 </Project>

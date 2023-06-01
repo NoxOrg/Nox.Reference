@@ -29,7 +29,7 @@ public static class EnumGeneratorService
                 .Replace("-", "_")
                 .Replace("'", "");
 
-            sb.AppendLine($"\t{itemKey} = {entity.Id},");
+            sb.AppendLine($"\t{itemKey} = {entity.EntityId},");
         }
         sb.Remove(sb.Length - 1, 1);
         sb.AppendLine("}");

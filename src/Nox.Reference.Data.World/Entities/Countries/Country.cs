@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nox.Reference.Data.World;
 
-public class Country : WorldNoxReferenceEntity
+public class Country : WorldNoxReferenceEntity, IKeyedNoxReferenceEntity<string>
 {
+    public string Id => Code;
     public string Name { get; private set; } = string.Empty;
     public string Code { get; private set; } = string.Empty;
 

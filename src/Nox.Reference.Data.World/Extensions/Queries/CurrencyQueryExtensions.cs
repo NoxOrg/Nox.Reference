@@ -11,7 +11,7 @@ public static class CurrencyQueryExtensions
 
     public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
     {
-        return query.FirstOrDefault(x => x.Id == (int)currency);
+        return query.FirstOrDefault(x => x.EntityId == (int)currency);
     }
 
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)

@@ -28,14 +28,17 @@ public class CountryInfoTests
     [Test]
     public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
     {
-        var info = World.Countries.Get("ZAF")!;
+        const string countryCode = "ZAF";
+        var info = World.Countries.Get(countryCode)!;
+        Assert.IsNotNull(info);
+        Assert.That(info.Id, Is.EqualTo(countryCode));
 
         var mappedInfo = World.Mapper.Map<CountryInfo>(info);
 
         Assert.Multiple(() =>
         {
             Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo("ZAF"));
+            Assert.That(mappedInfo.Code, Is.EqualTo(countryCode));
             Assert.That(mappedInfo.Languages, Is.Not.Empty);
             Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
             Assert.That(mappedInfo.Currencies, Is.Not.Empty);

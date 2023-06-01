@@ -84,7 +84,7 @@ internal class CountryMapping : Profile
     private void MapCountryInfoToCountry()
     {
         CreateMap<CountryInfo, Country>()
-            .ForMember(x => x.Id, x => x.Ignore())
+            .ForMember(x => x.EntityId, x => x.Ignore())
             .ForMember(x => x.BorderingCountries, x => x.Ignore())
             .ForMember(x => x.NameTranslations, x => x.Ignore())
             .ForMember(x => x.Continents, x => x.Ignore())

@@ -2,5 +2,5 @@
 
 public interface INoxReferenceEntity
 {
-    int Id { get; }
+    int EntityId { get; }
 }

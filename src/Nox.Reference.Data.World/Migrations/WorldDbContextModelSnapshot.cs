@@ -23,151 +23,151 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("ContinentCountry", b =>
                 {
-                    b.Property<int>("ContinentsId")
+                    b.Property<int>("ContinentsEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ContinentsId", "CountryId");
+                    b.HasKey("ContinentsEntityId", "CountryEntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("ContinentCountry");
                 });
 
             modelBuilder.Entity("CountryCountry", b =>
                 {
-                    b.Property<int>("BorderingCountriesId")
+                    b.Property<int>("BorderingCountriesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("BorderingCountriesId", "CountryId");
+                    b.HasKey("BorderingCountriesEntityId", "CountryEntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("CountryCountry");
                 });
 
             modelBuilder.Entity("CountryCurrency", b =>
                 {
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CurrenciesId")
+                    b.Property<int>("CurrenciesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountryId", "CurrenciesId");
+                    b.HasKey("CountryEntityId", "CurrenciesEntityId");
 
-                    b.HasIndex("CurrenciesId");
+                    b.HasIndex("CurrenciesEntityId");
 
                     b.ToTable("CountryCurrency");
                 });
 
             modelBuilder.Entity("CountryDemonymn", b =>
                 {
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("DemonymsId")
+                    b.Property<int>("DemonymsEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountryId", "DemonymsId");
+                    b.HasKey("CountryEntityId", "DemonymsEntityId");
 
-                    b.HasIndex("DemonymsId");
+                    b.HasIndex("DemonymsEntityId");
 
                     b.ToTable("CountryDemonymn");
                 });
 
             modelBuilder.Entity("CountryLanguage", b =>
                 {
-                    b.Property<int>("CountriesId")
+                    b.Property<int>("CountriesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("LanguagesId")
+                    b.Property<int>("LanguagesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountriesId", "LanguagesId");
+                    b.HasKey("CountriesEntityId", "LanguagesEntityId");
 
-                    b.HasIndex("LanguagesId");
+                    b.HasIndex("LanguagesEntityId");
 
                     b.ToTable("CountryLanguage");
                 });
 
             modelBuilder.Entity("CountryTimeZone", b =>
                 {
-                    b.Property<int>("CountriesId")
+                    b.Property<int>("CountriesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TimeZonesId")
+                    b.Property<int>("TimeZonesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountriesId", "TimeZonesId");
+                    b.HasKey("CountriesEntityId", "TimeZonesEntityId");
 
-                    b.HasIndex("TimeZonesId");
+                    b.HasIndex("TimeZonesEntityId");
 
                     b.ToTable("CountryTimeZone");
                 });
 
             modelBuilder.Entity("CountryTopLevelDomain", b =>
                 {
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TopLevelDomainsId")
+                    b.Property<int>("TopLevelDomainsEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("CountryId", "TopLevelDomainsId");
+                    b.HasKey("CountryEntityId", "TopLevelDomainsEntityId");
 
-                    b.HasIndex("TopLevelDomainsId");
+                    b.HasIndex("TopLevelDomainsEntityId");
 
                     b.ToTable("CountryTopLevelDomain");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.AlternateSpelling", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int?>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("AlternateSpelling");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CarrierPhoneNumber", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PhoneCarrierId")
+                    b.Property<int>("PhoneCarrierEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("PhoneNumber")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("PhoneCarrierId");
+                    b.HasIndex("PhoneCarrierEntityId");
 
                     b.ToTable("CarrierPhoneNumber");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CoatOfArms", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -179,14 +179,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CoatOfArms");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Continent", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -194,14 +194,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("Continent");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Country", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -213,7 +213,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CoatOfArmsId")
+                    b.Property<int?>("CoatOfArmsEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Code")
@@ -224,7 +224,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("DialingId")
+                    b.Property<int?>("DialingEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("EmojiFlag")
@@ -239,10 +239,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("FlagId")
+                    b.Property<int?>("FlagEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("GeoCoordinatesId")
+                    b.Property<int?>("GeoCoordinatesEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool?>("IsIndependent")
@@ -257,14 +257,14 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<decimal>("LandAreaInSquareKilometers")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("MapsId")
+                    b.Property<int?>("MapsEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("NamesId")
+                    b.Property<int>("NamesEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("NumericCode")
@@ -278,7 +278,7 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<decimal>("Population")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PostalCodeId")
+                    b.Property<int?>("PostalCodeEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Region")
@@ -296,58 +296,58 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("VehicleId")
+                    b.Property<int?>("VehicleEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CoatOfArmsId");
+                    b.HasIndex("CoatOfArmsEntityId");
 
-                    b.HasIndex("DialingId");
+                    b.HasIndex("DialingEntityId");
 
-                    b.HasIndex("FlagId");
+                    b.HasIndex("FlagEntityId");
 
-                    b.HasIndex("GeoCoordinatesId");
+                    b.HasIndex("GeoCoordinatesEntityId");
 
-                    b.HasIndex("MapsId");
+                    b.HasIndex("MapsEntityId");
 
-                    b.HasIndex("NamesId");
+                    b.HasIndex("NamesEntityId");
 
-                    b.HasIndex("PostalCodeId");
+                    b.HasIndex("PostalCodeEntityId");
 
-                    b.HasIndex("VehicleId");
+                    b.HasIndex("VehicleEntityId");
 
                     b.ToTable("Country");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryCapital", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int?>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("GeoCoordinatesId")
+                    b.Property<int?>("GeoCoordinatesEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
-                    b.HasIndex("GeoCoordinatesId");
+                    b.HasIndex("GeoCoordinatesEntityId");
 
                     b.ToTable("CountryCapital");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryDialing", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -359,14 +359,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CountryDialing");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryFlag", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -382,18 +382,18 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CountryFlag");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryHoliday", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CountryName")
@@ -405,16 +405,16 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("CountryHoliday");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryMaps", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -426,14 +426,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CountryMaps");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNameTranslation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -441,28 +441,28 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("CountryId")
+                    b.Property<int>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("LanguageId")
+                    b.Property<int>("LanguageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("OfficialName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
-                    b.HasIndex("LanguageId");
+                    b.HasIndex("LanguageEntityId");
 
                     b.ToTable("CountryNameTranslation");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNames", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -474,14 +474,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CountryNames");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryNativeName", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -489,28 +489,28 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CountryNamesId")
+                    b.Property<int?>("CountryNamesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("LanguageId")
+                    b.Property<int>("LanguageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("OfficialName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryNamesId");
+                    b.HasIndex("CountryNamesEntityId");
 
-                    b.HasIndex("LanguageId");
+                    b.HasIndex("LanguageEntityId");
 
                     b.ToTable("CountryNativeName");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CountryVehicle", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -522,14 +522,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CountryVehicle");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Culture", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -575,21 +575,21 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("Culture");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BanknotesId")
+                    b.Property<int>("BanknotesEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CoinsId")
+                    b.Property<int>("CoinsEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("DecimalDigits")
@@ -607,10 +607,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("MajorUnitId")
+                    b.Property<int>("MajorUnitEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("MinorUnitId")
+                    b.Property<int>("MinorUnitEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -631,73 +631,73 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("BanknotesId");
+                    b.HasIndex("BanknotesEntityId");
 
-                    b.HasIndex("CoinsId");
+                    b.HasIndex("CoinsEntityId");
 
-                    b.HasIndex("MajorUnitId");
+                    b.HasIndex("MajorUnitEntityId");
 
-                    b.HasIndex("MinorUnitId");
+                    b.HasIndex("MinorUnitEntityId");
 
                     b.ToTable("Currency");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyFrequentUsage", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CurrencyUsageId")
+                    b.Property<int?>("CurrencyUsageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CurrencyUsageId");
+                    b.HasIndex("CurrencyUsageEntityId");
 
                     b.ToTable("CurrencyFrequentUsage");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyRareUsage", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CurrencyUsageId")
+                    b.Property<int?>("CurrencyUsageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CurrencyUsageId");
+                    b.HasIndex("CurrencyUsageEntityId");
 
                     b.ToTable("CurrencyRareUsage");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CurrencyUsage", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("CurrencyUsage");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.DateFormat", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -748,7 +748,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.HasIndex("CultureId")
                         .IsUnique();
@@ -758,7 +758,7 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.Demonymn", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -766,23 +766,23 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("LanguageId")
+                    b.Property<int>("LanguageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Masculine")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("LanguageId");
+                    b.HasIndex("LanguageEntityId");
 
                     b.ToTable("Demonymn");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.GeoCoordinates", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -792,18 +792,18 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<decimal?>("Longitude")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("GeoCoordinates");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.GiniCoefficient", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int?>("CountryEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Value")
@@ -812,20 +812,20 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("GiniCoefficient");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CountryHolidayId")
+                    b.Property<int?>("CountryHolidayEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Date")
@@ -834,29 +834,29 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("RegionHolidayId")
+                    b.Property<int?>("RegionHolidayEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("StateHolidayId")
+                    b.Property<int?>("StateHolidayEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Type")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryHolidayId");
+                    b.HasIndex("CountryHolidayEntityId");
 
-                    b.HasIndex("RegionHolidayId");
+                    b.HasIndex("RegionHolidayEntityId");
 
-                    b.HasIndex("StateHolidayId");
+                    b.HasIndex("StateHolidayEntityId");
 
                     b.ToTable("HolidayData");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Language", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -889,14 +889,14 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<string>("WikiUrl")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("Language");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -904,27 +904,27 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("LanguageId")
+                    b.Property<int?>("LanguageEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Translation")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("LanguageId");
+                    b.HasIndex("LanguageEntityId");
 
                     b.ToTable("LanguageTranslation");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.LocalHolidayName", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("HolidayDataId")
+                    b.Property<int?>("HolidayDataEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Language")
@@ -933,16 +933,16 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("HolidayDataId");
+                    b.HasIndex("HolidayDataEntityId");
 
                     b.ToTable("LocalHolidayName");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.MajorCurrencyUnit", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -954,14 +954,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("MajorCurrencyUnit");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.MinorCurrencyUnit", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -976,14 +976,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("MinorCurrencyUnit");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.NumberFormat", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1058,7 +1058,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.HasIndex("CultureId")
                         .IsUnique();
@@ -1068,7 +1068,7 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.PhoneCarrier", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1076,14 +1076,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("PhoneCarrier");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.PostalCode", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1093,14 +1093,14 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<string>("Regex")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("PostalCode");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.RegionHoliday", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1112,23 +1112,23 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("StateHolidayId")
+                    b.Property<int?>("StateHolidayEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("StateHolidayId");
+                    b.HasIndex("StateHolidayEntityId");
 
                     b.ToTable("RegionHoliday");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.StateHoliday", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CountryHolidayId")
+                    b.Property<int?>("CountryHolidayEntityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("State")
@@ -1139,16 +1139,16 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("CountryHolidayId");
+                    b.HasIndex("CountryHolidayEntityId");
 
                     b.ToTable("StateHoliday");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.TimeZone", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1187,14 +1187,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("TimeZone");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.TopLevelDomain", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1202,14 +1202,14 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("TopLevelDomain");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1224,14 +1224,14 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<int>("VerificationApi")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("VatNumberDefinition");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -1257,12 +1257,12 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("VatNumberDefinitionId")
+                    b.Property<int?>("VatNumberDefinitionEntityId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
-                    b.HasIndex("VatNumberDefinitionId");
+                    b.HasIndex("VatNumberDefinitionEntityId");
 
                     b.ToTable("VatNumberValidationRule");
                 });
@@ -1271,13 +1271,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Continent", null)
                         .WithMany()
-                        .HasForeignKey("ContinentsId")
+                        .HasForeignKey("ContinentsEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1286,13 +1286,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("BorderingCountriesId")
+                        .HasForeignKey("BorderingCountriesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1301,13 +1301,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Currency", null)
                         .WithMany()
-                        .HasForeignKey("CurrenciesId")
+                        .HasForeignKey("CurrenciesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1316,13 +1316,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Demonymn", null)
                         .WithMany()
-                        .HasForeignKey("DemonymsId")
+                        .HasForeignKey("DemonymsEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1331,13 +1331,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountriesId")
+                        .HasForeignKey("CountriesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Language", null)
                         .WithMany()
-                        .HasForeignKey("LanguagesId")
+                        .HasForeignKey("LanguagesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1346,13 +1346,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountriesId")
+                        .HasForeignKey("CountriesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.TimeZone", null)
                         .WithMany()
-                        .HasForeignKey("TimeZonesId")
+                        .HasForeignKey("TimeZonesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1361,13 +1361,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.TopLevelDomain", null)
                         .WithMany()
-                        .HasForeignKey("TopLevelDomainsId")
+                        .HasForeignKey("TopLevelDomainsEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -1376,14 +1376,14 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany("AlternateSpellings")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.CarrierPhoneNumber", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.PhoneCarrier", "PhoneCarrier")
                         .WithMany("PhoneNumberCarriers")
-                        .HasForeignKey("PhoneCarrierId")
+                        .HasForeignKey("PhoneCarrierEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1394,37 +1394,37 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.CoatOfArms", "CoatOfArms")
                         .WithMany()
-                        .HasForeignKey("CoatOfArmsId");
+                        .HasForeignKey("CoatOfArmsEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.CountryDialing", "Dialing")
                         .WithMany()
-                        .HasForeignKey("DialingId");
+                        .HasForeignKey("DialingEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.CountryFlag", "Flag")
                         .WithMany()
-                        .HasForeignKey("FlagId");
+                        .HasForeignKey("FlagEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.GeoCoordinates", "GeoCoordinates")
                         .WithMany()
-                        .HasForeignKey("GeoCoordinatesId");
+                        .HasForeignKey("GeoCoordinatesEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.CountryMaps", "Maps")
                         .WithMany()
-                        .HasForeignKey("MapsId");
+                        .HasForeignKey("MapsEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.CountryNames", "Names")
                         .WithMany()
-                        .HasForeignKey("NamesId")
+                        .HasForeignKey("NamesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.PostalCode", "PostalCode")
                         .WithMany()
-                        .HasForeignKey("PostalCodeId");
+                        .HasForeignKey("PostalCodeEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.CountryVehicle", "Vehicle")
                         .WithMany()
-                        .HasForeignKey("VehicleId");
+                        .HasForeignKey("VehicleEntityId");
 
                     b.Navigation("CoatOfArms");
 
@@ -1447,11 +1447,11 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany("Capitals")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.GeoCoordinates", "GeoCoordinates")
                         .WithMany()
-                        .HasForeignKey("GeoCoordinatesId");
+                        .HasForeignKey("GeoCoordinatesEntityId");
 
                     b.Navigation("GeoCoordinates");
                 });
@@ -1460,7 +1460,7 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1471,13 +1471,13 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", "Country")
                         .WithMany("NameTranslations")
-                        .HasForeignKey("CountryId")
+                        .HasForeignKey("CountryEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.Language", "Language")
                         .WithMany()
-                        .HasForeignKey("LanguageId")
+                        .HasForeignKey("LanguageEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1490,11 +1490,11 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.CountryNames", null)
                         .WithMany("NativeNames")
-                        .HasForeignKey("CountryNamesId");
+                        .HasForeignKey("CountryNamesEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.Language", "Language")
                         .WithMany()
-                        .HasForeignKey("LanguageId")
+                        .HasForeignKey("LanguageEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1505,25 +1505,25 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.CurrencyUsage", "Banknotes")
                         .WithMany()
-                        .HasForeignKey("BanknotesId")
+                        .HasForeignKey("BanknotesEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.CurrencyUsage", "Coins")
                         .WithMany()
-                        .HasForeignKey("CoinsId")
+                        .HasForeignKey("CoinsEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.MajorCurrencyUnit", "MajorUnit")
                         .WithMany()
-                        .HasForeignKey("MajorUnitId")
+                        .HasForeignKey("MajorUnitEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Nox.Reference.Data.World.MinorCurrencyUnit", "MinorUnit")
                         .WithMany()
-                        .HasForeignKey("MinorUnitId")
+                        .HasForeignKey("MinorUnitEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1540,7 +1540,7 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.CurrencyUsage", null)
                         .WithMany("Frequent")
-                        .HasForeignKey("CurrencyUsageId")
+                        .HasForeignKey("CurrencyUsageEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -1548,7 +1548,7 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.CurrencyUsage", null)
                         .WithMany("Rare")
-                        .HasForeignKey("CurrencyUsageId")
+                        .HasForeignKey("CurrencyUsageEntityId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -1567,7 +1567,7 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Language", "Language")
                         .WithMany()
-                        .HasForeignKey("LanguageId")
+                        .HasForeignKey("LanguageEntityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1578,36 +1578,36 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.Country", null)
                         .WithMany("GiniCoefficients")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.HolidayData", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.CountryHoliday", null)
                         .WithMany("Holidays")
-                        .HasForeignKey("CountryHolidayId");
+                        .HasForeignKey("CountryHolidayEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.RegionHoliday", null)
                         .WithMany("Holidays")
-                        .HasForeignKey("RegionHolidayId");
+                        .HasForeignKey("RegionHolidayEntityId");
 
                     b.HasOne("Nox.Reference.Data.World.StateHoliday", null)
                         .WithMany("Holidays")
-                        .HasForeignKey("StateHolidayId");
+                        .HasForeignKey("StateHolidayEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.LanguageTranslation", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.Language", null)
                         .WithMany("NameTranslations")
-                        .HasForeignKey("LanguageId");
+                        .HasForeignKey("LanguageEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.LocalHolidayName", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.HolidayData", null)
                         .WithMany("LocalNames")
-                        .HasForeignKey("HolidayDataId");
+                        .HasForeignKey("HolidayDataEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.NumberFormat", b =>
@@ -1625,25 +1625,25 @@ namespace Nox.Reference.Data.World.Migrations
                 {
                     b.HasOne("Nox.Reference.Data.World.StateHoliday", null)
                         .WithMany("Regions")
-                        .HasForeignKey("StateHolidayId");
+                        .HasForeignKey("StateHolidayEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.StateHoliday", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.CountryHoliday", null)
                         .WithMany("States")
-                        .HasForeignKey("CountryHolidayId");
+                        .HasForeignKey("CountryHolidayEntityId");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", null)
                         .WithMany("ValidationRules")
-                        .HasForeignKey("VatNumberDefinitionId");
+                        .HasForeignKey("VatNumberDefinitionEntityId");
 
                     b.OwnsOne("Nox.Reference.Data.World.Checksum", "Checksum", b1 =>
                         {
-                            b1.Property<int>("VatNumberValidationRuleId")
+                            b1.Property<int>("VatNumberValidationRuleEntityId")
                                 .HasColumnType("INTEGER");
 
                             b1.Property<int?>("Algorithm")
@@ -1659,12 +1659,12 @@ namespace Nox.Reference.Data.World.Migrations
                                 .IsRequired()
                                 .HasColumnType("TEXT");
 
-                            b1.HasKey("VatNumberValidationRuleId");
+                            b1.HasKey("VatNumberValidationRuleEntityId");
 
                             b1.ToTable("VatNumberValidationRule");
 
                             b1.WithOwner()
-                                .HasForeignKey("VatNumberValidationRuleId");
+                                .HasForeignKey("VatNumberValidationRuleEntityId");
                         });
 
                     b.Navigation("Checksum");
