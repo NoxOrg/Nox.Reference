@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class AlternateSpelling : WorldNoxReferenceEntity
+public class AlternateSpelling : NoxReferenceEntityBase
 {
     public string Name { get; private set; } = string.Empty;
 }

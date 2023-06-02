@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryNameTranslation : WorldNoxReferenceEntity
+public class CountryNameTranslation : NoxReferenceEntityBase
 {
     public virtual Country Country { get; private set; } = new Country();
     public virtual Language Language { get; internal set; } = new Language();

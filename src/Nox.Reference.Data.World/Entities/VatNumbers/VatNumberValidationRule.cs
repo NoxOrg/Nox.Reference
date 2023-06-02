@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class VatNumberValidationRule : WorldNoxReferenceEntity
+public class VatNumberValidationRule : NoxReferenceEntityBase
 {
     public string TranslationId { get; private set; } = string.Empty;
     public string Regex { get; private set; } = string.Empty;

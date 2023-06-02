@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CarrierPhoneNumber : WorldNoxReferenceEntity
+public class CarrierPhoneNumber : NoxReferenceEntityBase
 {
     public int PhoneNumber { get; internal set; }
 

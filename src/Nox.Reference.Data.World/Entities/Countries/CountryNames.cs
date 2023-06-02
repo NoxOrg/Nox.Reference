@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryNames : WorldNoxReferenceEntity
+public class CountryNames : NoxReferenceEntityBase
 {
     public string CommonName { get; private set; } = string.Empty;
     public string OfficialName { get; private set; } = string.Empty;

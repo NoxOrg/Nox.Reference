@@ -8,9 +8,11 @@ public static class EnumGeneratorService
         IEnumerable<TEntity> entities,
         Func<TEntity, string> nameGetter,
         string enumNameSpace,
-        string enumName) where TEntity : INoxReferenceEntity
+        string enumName) where TEntity : NoxReferenceEntityBase
     {
-        var sb = new StringBuilder($"namespace Nox.Reference.{enumNameSpace};\n");
+        var sb = new StringBuilder();
+        sb.AppendLine("using System.ComponentModel;");
+        sb.AppendLine($"namespace Nox.Reference.{enumNameSpace};\n");
 
         sb.AppendLine($"public enum {enumName}");
         sb.AppendLine("{");
@@ -21,15 +23,16 @@ public static class EnumGeneratorService
             {
                 continue;
             }
-
-            itemKey = itemKey
+            var sanitizedItemKey = itemKey
                 .Replace(" ", "")
                 .Replace("(", "")
                 .Replace(")", "")
                 .Replace("-", "_")
-                .Replace("'", "");
+                .Replace("'", "")
+                .Replace(",", "");
 
-            sb.AppendLine($"\t{itemKey} = {entity.EntityId},");
+            sb.AppendLine($"\t[Description(\"{itemKey}\")]");
+            sb.AppendLine($"\t{sanitizedItemKey},");
         }
         sb.Remove(sb.Length - 1, 1);
         sb.AppendLine("}");

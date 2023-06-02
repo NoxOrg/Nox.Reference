@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Currency : WorldNoxReferenceEntity, IKeyedNoxReferenceEntity<string>
+public class Currency : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
     public string Id => IsoCode;
     public string IsoCode { get; private set; } = string.Empty;

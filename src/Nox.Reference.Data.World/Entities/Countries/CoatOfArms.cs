@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CoatOfArms : WorldNoxReferenceEntity
+public class CoatOfArms : NoxReferenceEntityBase
 {
     public string Svg { get; private set; } = string.Empty;
 

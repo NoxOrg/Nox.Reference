@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class NumberFormat : WorldNoxReferenceEntity
+public class NumberFormat : NoxReferenceEntityBase
 {
     public string CurrencySymbol { get; private set; } = string.Empty;
     public string DecimalSeparator { get; private set; } = string.Empty;

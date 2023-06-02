@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryHoliday : WorldNoxReferenceEntity
+public class CountryHoliday : NoxReferenceEntityBase
 {
     public int Year { get; private set; }
     public virtual Country Country { get; private set; } = new Country();

@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Continent : WorldNoxReferenceEntity
+public class Continent : NoxReferenceEntityBase
 {
     public string Name { get; private set; } = string.Empty;
 }

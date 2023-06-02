@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class RegionHoliday : WorldNoxReferenceEntity
+public class RegionHoliday : NoxReferenceEntityBase
 {
     public string Region { get; set; } = string.Empty;
     public string RegionName { get; set; } = string.Empty;

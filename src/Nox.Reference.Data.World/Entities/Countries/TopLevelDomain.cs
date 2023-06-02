@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class TopLevelDomain : WorldNoxReferenceEntity
+public class TopLevelDomain : NoxReferenceEntityBase
 {
     public string Name { get; private set; } = string.Empty;
 }

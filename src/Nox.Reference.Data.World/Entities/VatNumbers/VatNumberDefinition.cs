@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class VatNumberDefinition : WorldNoxReferenceEntity
+public class VatNumberDefinition : NoxReferenceEntityBase
 {
     public string Country { get; private set; } = string.Empty;
     public string LocalName { get; private set; } = string.Empty;

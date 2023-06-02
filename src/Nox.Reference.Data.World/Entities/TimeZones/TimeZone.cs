@@ -3,7 +3,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World;
 
-public class TimeZone : WorldNoxReferenceEntity
+public class TimeZone : NoxReferenceEntityBase
 {
     public string Code { get; set; } = string.Empty;
     public string? EmbeddedComments { get; set; }

@@ -13,6 +13,7 @@ internal static class DataSeederExtensions
         services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, VatNumberDefinitionDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, LanguageDataSeeder>();
+
         services.AddScoped<INoxReferenceDataSeeder, CultureDataSeeder>();
 
         services.AddScoped<INoxReferenceDataSeeder, CountryDataSeeder>();

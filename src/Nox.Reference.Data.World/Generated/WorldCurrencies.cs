@@ -1,153 +1,305 @@
-﻿namespace Nox.Reference.World;
+﻿using System.ComponentModel;
+namespace Nox.Reference.World;
+
 public enum WorldCurrencies
 {
-	EmiratiDirham = 1,
-	AfghanAfghani = 2,
-	Albanianlek = 3,
-	Armeniandram = 4,
-	DutchGuilder = 5,
-	AngolanKwanza = 6,
-	Argentinepeso = 7,
-	AustralianDollar = 8,
-	Arubinflorin = 9,
-	Azerbaijanimanat = 10,
-	BosnianConvertibleMarka = 11,
-	Barbadiandollar = 12,
-	BangladeshiTaka = 13,
-	Bulgarianlev = 14,
-	BahrainiDinar = 15,
-	BurundianFranc = 16,
-	Bermudiandollar = 17,
-	BruneianDollar = 18,
-	BolivianBoliviano = 19,
-	Brazilianreal = 20,
-	Bahamiandollar = 21,
-	BhutaneseNgultrum = 23,
-	BotswanaPula = 24,
-	Belarusianruble = 26,
-	Belizedollar = 27,
-	CanadianDollar = 28,
-	SwissFranc = 30,
-	ChileanPeso = 31,
-	Yuanorchineserenminbi = 32,
-	Colombianpeso = 33,
-	CostaRicancolón = 34,
-	Cubanconvertiblepeso = 35,
-	Cubanpeso = 36,
-	CapeVerdeanEscudo = 37,
-	Czechkoruna = 38,
-	DjiboutianFranc = 39,
-	Danishkrone = 40,
-	Dominicanpeso = 41,
-	AlgerianDinar = 42,
-	EgyptianPound = 43,
-	Eritreannakfa = 44,
-	EthiopianBirr = 45,
-	Euro = 46,
-	Fijiandollar = 47,
-	FalklandIslandPound = 48,
-	BritishPound = 49,
-	Georgianlari = 50,
-	GhanaianCedi = 51,
-	Gibraltarpound = 52,
-	Gambiandalasi = 53,
-	GuineanFranc = 54,
-	GuatemalanQuetzal = 55,
-	Guyanesedollar = 56,
-	HongKongdollar = 57,
-	Honduranlempira = 58,
-	Croatiankuna = 59,
-	Haitiangourde = 60,
-	Hungarianforint = 61,
-	IndonesianRupiah = 62,
-	IsraeliShekel = 63,
-	IndianRupee = 64,
-	IraqiDinar = 65,
-	IranianRial = 66,
-	IcelandicKrona = 67,
-	Jamaicandollar = 68,
-	JordanianDinar = 69,
-	Japaneseyen = 70,
-	KenyanShilling = 71,
-	Kyrgyzstanisom = 72,
-	CambodianRiel = 73,
-	ComoranFranc = 74,
-	NorthKoreanwon = 75,
-	SouthKoreanwon = 76,
-	KuwaitiDinar = 77,
-	CaymanianDollar = 78,
-	Kazakhstanitenge = 79,
-	LaoorLaotianKip = 80,
-	LebanesePound = 81,
-	SriLankanRupee = 82,
-	LiberianDollar = 83,
-	Lesotholoti = 84,
-	LibyanDinar = 85,
-	MoroccanDirham = 86,
-	MoldovanLeu = 87,
-	MalagasyAriary = 88,
-	MacedonianDenar = 89,
-	BurmeseKyat = 90,
-	MongolianTughrik = 91,
-	MacauPataca = 92,
-	MauritanianOuguiya = 93,
-	Mauritianrupee = 95,
-	MaldivianRufiyaa = 96,
-	MalawianKwacha = 97,
-	MexicoPeso = 98,
-	MalaysianRinggit = 99,
-	MozambicanMetical = 100,
-	NamibianDollar = 101,
-	NigerianNaira = 102,
-	Nicaraguancórdoba = 103,
-	Norwegiankrone = 104,
-	NepaleseRupee = 105,
-	NewZealandDollar = 106,
-	OmaniRial = 107,
-	Balboapanamérn = 108,
-	Peruviannuevosol = 109,
-	PapuaNewGuineanKina = 110,
-	PhilippinePeso = 111,
-	PakistaniRupee = 112,
-	Polishzłoty = 113,
-	Paraguayanguarani = 114,
-	QatariRiyal = 115,
-	Romanianleu = 116,
-	SerbianDinar = 117,
-	RussianRouble = 118,
-	Rwandanfranc = 119,
-	SaudiArabianRiyal = 120,
-	SolomonIslanderDollar = 121,
-	SeychelloisRupee = 122,
-	SudanesePound = 124,
-	Swedishkrona = 125,
-	SingaporeDollar = 126,
-	SierraLeoneanLeone = 128,
-	SomaliShilling = 129,
-	Surinamesedollar = 130,
-	SyrianPound = 133,
-	SwaziLilangeni = 134,
-	ThaiBaht = 135,
-	Tajikistanisomoni = 136,
-	Turkmenistanmanat = 137,
-	TunisianDinar = 138,
-	TonganPaanga = 139,
-	TurkishLira = 140,
-	Trinidadiandollar = 141,
-	TaiwanNewDollar = 143,
-	TanzanianShilling = 144,
-	UkrainianHryvnia = 145,
-	UgandanShilling = 146,
-	USDollar = 147,
-	Uruguayanpeso = 148,
-	Uzbekistanisom = 149,
-	Venezuelanbolivar = 151,
-	VietnameseDong = 152,
-	Ni_VanuatuVatu = 153,
-	SamoanTālā = 154,
-	EastCaribbeandollar = 156,
-	CFAFranc = 158,
-	CFPFranc = 159,
-	YemeniRial = 160,
-	SouthAfricanRand = 161,
-	ZambianKwacha = 162,}
+	[Description("Emirati Dirham")]
+	EmiratiDirham,
+	[Description("Afghan Afghani")]
+	AfghanAfghani,
+	[Description("Albanian lek")]
+	Albanianlek,
+	[Description("Armenian dram")]
+	Armeniandram,
+	[Description("Dutch Guilder")]
+	DutchGuilder,
+	[Description("Angolan Kwanza")]
+	AngolanKwanza,
+	[Description("Argentine peso")]
+	Argentinepeso,
+	[Description("Australian Dollar")]
+	AustralianDollar,
+	[Description("Arubin florin")]
+	Arubinflorin,
+	[Description("Azerbaijani manat")]
+	Azerbaijanimanat,
+	[Description("Bosnian Convertible Marka")]
+	BosnianConvertibleMarka,
+	[Description("Barbadian dollar")]
+	Barbadiandollar,
+	[Description("Bangladeshi Taka")]
+	BangladeshiTaka,
+	[Description("Bulgarian lev")]
+	Bulgarianlev,
+	[Description("Bahraini Dinar")]
+	BahrainiDinar,
+	[Description("Burundian Franc")]
+	BurundianFranc,
+	[Description("Bermudian dollar")]
+	Bermudiandollar,
+	[Description("Bruneian Dollar")]
+	BruneianDollar,
+	[Description("Bolivian Boliviano")]
+	BolivianBoliviano,
+	[Description("Brazilian real")]
+	Brazilianreal,
+	[Description("Bahamian dollar")]
+	Bahamiandollar,
+	[Description("Bhutanese Ngultrum")]
+	BhutaneseNgultrum,
+	[Description("Botswana Pula")]
+	BotswanaPula,
+	[Description("Belarusian ruble")]
+	Belarusianruble,
+	[Description("Belize dollar")]
+	Belizedollar,
+	[Description("Canadian Dollar")]
+	CanadianDollar,
+	[Description("Swiss Franc")]
+	SwissFranc,
+	[Description("Chilean Peso")]
+	ChileanPeso,
+	[Description("Yuan or chinese renminbi")]
+	Yuanorchineserenminbi,
+	[Description("Colombian peso")]
+	Colombianpeso,
+	[Description("Costa Rican colón")]
+	CostaRicancolón,
+	[Description("Cuban convertible peso")]
+	Cubanconvertiblepeso,
+	[Description("Cuban peso")]
+	Cubanpeso,
+	[Description("Cape Verdean Escudo")]
+	CapeVerdeanEscudo,
+	[Description("Czech koruna")]
+	Czechkoruna,
+	[Description("Djiboutian Franc")]
+	DjiboutianFranc,
+	[Description("Danish krone")]
+	Danishkrone,
+	[Description("Dominican peso")]
+	Dominicanpeso,
+	[Description("Algerian Dinar")]
+	AlgerianDinar,
+	[Description("Egyptian Pound")]
+	EgyptianPound,
+	[Description("Eritrean nakfa")]
+	Eritreannakfa,
+	[Description("Ethiopian Birr")]
+	EthiopianBirr,
+	[Description("Euro")]
+	Euro,
+	[Description("Fijian dollar")]
+	Fijiandollar,
+	[Description("Falkland Island Pound")]
+	FalklandIslandPound,
+	[Description("British Pound")]
+	BritishPound,
+	[Description("Georgian lari")]
+	Georgianlari,
+	[Description("Ghanaian Cedi")]
+	GhanaianCedi,
+	[Description("Gibraltar pound")]
+	Gibraltarpound,
+	[Description("Gambian dalasi")]
+	Gambiandalasi,
+	[Description("Guinean Franc")]
+	GuineanFranc,
+	[Description("Guatemalan Quetzal")]
+	GuatemalanQuetzal,
+	[Description("Guyanese dollar")]
+	Guyanesedollar,
+	[Description("Hong Kong dollar")]
+	HongKongdollar,
+	[Description("Honduran lempira")]
+	Honduranlempira,
+	[Description("Croatian kuna")]
+	Croatiankuna,
+	[Description("Haitian gourde")]
+	Haitiangourde,
+	[Description("Hungarian forint")]
+	Hungarianforint,
+	[Description("Indonesian Rupiah")]
+	IndonesianRupiah,
+	[Description("Israeli Shekel")]
+	IsraeliShekel,
+	[Description("Indian Rupee")]
+	IndianRupee,
+	[Description("Iraqi Dinar")]
+	IraqiDinar,
+	[Description("Iranian Rial")]
+	IranianRial,
+	[Description("Icelandic Krona")]
+	IcelandicKrona,
+	[Description("Jamaican dollar")]
+	Jamaicandollar,
+	[Description("Jordanian Dinar")]
+	JordanianDinar,
+	[Description("Japanese yen")]
+	Japaneseyen,
+	[Description("Kenyan Shilling")]
+	KenyanShilling,
+	[Description("Kyrgyzstani som")]
+	Kyrgyzstanisom,
+	[Description("Cambodian Riel")]
+	CambodianRiel,
+	[Description("Comoran Franc")]
+	ComoranFranc,
+	[Description("North Korean won")]
+	NorthKoreanwon,
+	[Description("South Korean won")]
+	SouthKoreanwon,
+	[Description("Kuwaiti Dinar")]
+	KuwaitiDinar,
+	[Description("Caymanian Dollar")]
+	CaymanianDollar,
+	[Description("Kazakhstani tenge")]
+	Kazakhstanitenge,
+	[Description("Lao or Laotian Kip")]
+	LaoorLaotianKip,
+	[Description("Lebanese Pound")]
+	LebanesePound,
+	[Description("Sri Lankan Rupee")]
+	SriLankanRupee,
+	[Description("Liberian Dollar")]
+	LiberianDollar,
+	[Description("Lesotho loti")]
+	Lesotholoti,
+	[Description("Libyan Dinar")]
+	LibyanDinar,
+	[Description("Moroccan Dirham")]
+	MoroccanDirham,
+	[Description("Moldovan Leu")]
+	MoldovanLeu,
+	[Description("Malagasy Ariary")]
+	MalagasyAriary,
+	[Description("Macedonian Denar")]
+	MacedonianDenar,
+	[Description("Burmese Kyat")]
+	BurmeseKyat,
+	[Description("Mongolian Tughrik")]
+	MongolianTughrik,
+	[Description("Macau Pataca")]
+	MacauPataca,
+	[Description("Mauritanian Ouguiya")]
+	MauritanianOuguiya,
+	[Description("Mauritian rupee")]
+	Mauritianrupee,
+	[Description("Maldivian Rufiyaa")]
+	MaldivianRufiyaa,
+	[Description("Malawian Kwacha")]
+	MalawianKwacha,
+	[Description("Mexico Peso")]
+	MexicoPeso,
+	[Description("Malaysian Ringgit")]
+	MalaysianRinggit,
+	[Description("Mozambican Metical")]
+	MozambicanMetical,
+	[Description("Namibian Dollar")]
+	NamibianDollar,
+	[Description("Nigerian Naira")]
+	NigerianNaira,
+	[Description("Nicaraguan córdoba")]
+	Nicaraguancórdoba,
+	[Description("Norwegian krone")]
+	Norwegiankrone,
+	[Description("Nepalese Rupee")]
+	NepaleseRupee,
+	[Description("New Zealand Dollar")]
+	NewZealandDollar,
+	[Description("Omani Rial")]
+	OmaniRial,
+	[Description("Balboa panamérn")]
+	Balboapanamérn,
+	[Description("Peruvian nuevo sol")]
+	Peruviannuevosol,
+	[Description("Papua New Guinean Kina")]
+	PapuaNewGuineanKina,
+	[Description("Philippine Peso")]
+	PhilippinePeso,
+	[Description("Pakistani Rupee")]
+	PakistaniRupee,
+	[Description("Polish złoty")]
+	Polishzłoty,
+	[Description("Paraguayan guarani")]
+	Paraguayanguarani,
+	[Description("Qatari Riyal")]
+	QatariRiyal,
+	[Description("Romanian leu")]
+	Romanianleu,
+	[Description("Serbian Dinar")]
+	SerbianDinar,
+	[Description("Russian Rouble")]
+	RussianRouble,
+	[Description("Rwandan franc")]
+	Rwandanfranc,
+	[Description("Saudi Arabian Riyal")]
+	SaudiArabianRiyal,
+	[Description("Solomon Islander Dollar")]
+	SolomonIslanderDollar,
+	[Description("Seychellois Rupee")]
+	SeychelloisRupee,
+	[Description("Sudanese Pound")]
+	SudanesePound,
+	[Description("Swedish krona")]
+	Swedishkrona,
+	[Description("Singapore Dollar")]
+	SingaporeDollar,
+	[Description("Sierra Leonean Leone")]
+	SierraLeoneanLeone,
+	[Description("Somali Shilling")]
+	SomaliShilling,
+	[Description("Surinamese dollar")]
+	Surinamesedollar,
+	[Description("Syrian Pound")]
+	SyrianPound,
+	[Description("Swazi Lilangeni")]
+	SwaziLilangeni,
+	[Description("Thai Baht")]
+	ThaiBaht,
+	[Description("Tajikistani somoni")]
+	Tajikistanisomoni,
+	[Description("Turkmenistan manat")]
+	Turkmenistanmanat,
+	[Description("Tunisian Dinar")]
+	TunisianDinar,
+	[Description("Tongan Pa'anga")]
+	TonganPaanga,
+	[Description("Turkish Lira")]
+	TurkishLira,
+	[Description("Trinidadian dollar")]
+	Trinidadiandollar,
+	[Description("Taiwan New Dollar")]
+	TaiwanNewDollar,
+	[Description("Tanzanian Shilling")]
+	TanzanianShilling,
+	[Description("Ukrainian Hryvnia")]
+	UkrainianHryvnia,
+	[Description("Ugandan Shilling")]
+	UgandanShilling,
+	[Description("US Dollar")]
+	USDollar,
+	[Description("Uruguayan peso")]
+	Uruguayanpeso,
+	[Description("Uzbekistani som")]
+	Uzbekistanisom,
+	[Description("Venezuelan bolivar")]
+	Venezuelanbolivar,
+	[Description("Vietnamese Dong")]
+	VietnameseDong,
+	[Description("Ni-Vanuatu Vatu")]
+	Ni_VanuatuVatu,
+	[Description("Samoan Tālā")]
+	SamoanTālā,
+	[Description("East Caribbean dollar")]
+	EastCaribbeandollar,
+	[Description("CFA Franc")]
+	CFAFranc,
+	[Description("CFP Franc")]
+	CFPFranc,
+	[Description("Yemeni Rial")]
+	YemeniRial,
+	[Description("South African Rand")]
+	SouthAfricanRand,
+	[Description("Zambian Kwacha")]
+	ZambianKwacha,}

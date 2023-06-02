@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Language : WorldNoxReferenceEntity, IKeyedNoxReferenceEntity<string>
+public class Language : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
     public string Id => Iso_639_3;
     public string Name { get; private set; } = string.Empty;

@@ -1,4 +1,5 @@
-﻿using Nox.Reference.World;
+﻿using Nox.Reference.Common;
+using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
 
@@ -11,7 +12,7 @@ public static class CurrencyQueryExtensions
 
     public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
     {
-        return query.FirstOrDefault(x => x.EntityId == (int)currency);
+        return query.FirstOrDefault(x => x.Name == currency.GetStringValue());
     }
 
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)

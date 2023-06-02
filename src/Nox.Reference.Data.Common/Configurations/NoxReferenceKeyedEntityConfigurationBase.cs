@@ -3,7 +3,7 @@
 namespace Nox.Reference.Data.Common;
 
 public abstract class NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey> : NoxReferenceEntityConfigurationBase<TEntity>
-    where TEntity : class, INoxReferenceEntity, IKeyedNoxReferenceEntity<TKey>
+    where TEntity : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<TKey>
     where TKey : IEquatable<TKey>
 {
     public new void Configure(EntityTypeBuilder<TEntity> builder)

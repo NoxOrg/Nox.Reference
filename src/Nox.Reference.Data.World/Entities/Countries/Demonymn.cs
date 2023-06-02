@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Demonymn : WorldNoxReferenceEntity
+public class Demonymn : NoxReferenceEntityBase
 {
     public virtual Language Language { get; internal set; } = new Language();
     public string Feminine { get; internal set; } = string.Empty;

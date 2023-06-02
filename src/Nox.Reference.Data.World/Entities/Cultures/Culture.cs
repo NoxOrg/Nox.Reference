@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Culture : WorldNoxReferenceEntity
+public class Culture : NoxReferenceEntityBase
 {
     public string Name { get; private set; } = string.Empty;
     public string FormalName { get; private set; } = string.Empty;

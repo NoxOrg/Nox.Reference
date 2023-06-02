@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CountryDialing : WorldNoxReferenceEntity
+public class CountryDialing : NoxReferenceEntityBase
 {
     public string Prefix { get; private set; } = string.Empty;
 
