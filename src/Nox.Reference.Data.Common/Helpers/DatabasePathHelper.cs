@@ -2,8 +2,22 @@
 
 namespace Nox.Reference.Data.Common.Helpers
 {
+    /// <summary>
+    /// This class contains helper functions that are needed to fix database path
+    /// </summary>
     public static class DatabasePathHelper
     {
+        /// <summary>
+        /// This method is used to fix database file detection. For different types of applications
+        /// Directory.GetCurrentDirectory returns different values, which leads to file not found errors.
+        /// This method checks if the default relative path is working and fixes it according to assembly location
+        /// </summary>
+        /// <param name="connectionString">Provided connection string to check</param>
+        /// <param name="databaseContextType">Database context type</param>
+        /// <param name="contextName">Name of the current database context</param>
+        /// <returns>Fixed connection string</returns>
+        /// <exception cref="ArgumentNullException">Provided parameter is null or whitespace</exception>
+        /// <exception cref="Exception"></exception>
         public static string FixConnectionStringPathUsingAssemblyPath(string? connectionString, Type databaseContextType, string contextName)
         {
             if (string.IsNullOrWhiteSpace(connectionString))

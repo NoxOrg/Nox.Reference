@@ -60,7 +60,14 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<PhoneCarrier> PhoneCarriers
         => GetData<PhoneCarrier>();
 
-    public static void UseDatabasePath(string databasePath)
+    /// <summary>
+    /// <para>Override default database path. Examples: </para>
+    /// <para>'Data Source=.\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=..\..\data\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// </summary>
+    /// <param name="databasePath">New overridden database connection string</param>
+    public static void UseDatabaseConnectionString(string databasePath)
     {
         _databasePath = databasePath;
     }

@@ -14,7 +14,7 @@ public class CountryInfoTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
-        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
+        WorldDbContext.UseDatabaseConnectionString(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -25,16 +25,16 @@ public class CountryInfoTests
     }
 
     [Test]
-    public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
+    public void CountryInfo_WithIso2Alpha_ReturnsValidInfo()
     {
-        var info = World.Countries.Get("ZAF")!;
+        var info = World.Countries.Get("ZA")!;
 
         var mappedInfo = World.Mapper.Map<CountryInfo>(info);
 
         Assert.Multiple(() =>
         {
             Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo("ZAF"));
+            Assert.That(mappedInfo.Code, Is.EqualTo("ZA"));
             Assert.That(mappedInfo.Languages, Is.Not.Empty);
             Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
             Assert.That(mappedInfo.Currencies, Is.Not.Empty);
@@ -47,7 +47,7 @@ public class CountryInfoTests
     public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
     {
         var translation = _worldDbContext.Countries
-            .Get("ZAF")!
+            .Get("ZA")!
             .GetTranslation("en")!;
 
         var mappedTranslation = World.Mapper.Map<CountryNameTranslationInfo>(translation);

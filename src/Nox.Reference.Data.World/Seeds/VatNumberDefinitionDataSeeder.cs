@@ -27,7 +27,7 @@ internal class VatNumberDefinitionDataSeeder : NoxReferenceDataSeederBase<WorldD
 
     public override string DataFolderPath => "VatNumberDefinitions";
 
-    protected override IReadOnlyList<VatNumberDefinitionInfo> GetDataInfos()
+    protected override IReadOnlyList<VatNumberDefinitionInfo> GetFlatEntitiesFromDataSources()
     {
         var vatNumberDefinitionDataPath = _configuration.GetValue<string>(ConfigurationConstants.VatNumberDefinitionDataPathSettingName)!;
 

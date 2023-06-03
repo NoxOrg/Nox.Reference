@@ -16,6 +16,7 @@ public class PhoneNumberService : IPhoneNumberService
         _worldDbContext = worldDbContext;
     }
 
+    /// <inheritdoc/>
     public PhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
     {
         var phoneNumber = _phoneUtil.Parse(inputPhoneNumber, countryAlpha2Code);

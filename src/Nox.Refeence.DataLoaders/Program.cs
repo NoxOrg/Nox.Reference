@@ -12,8 +12,8 @@ var host = Host.CreateDefaultBuilder()
     {
         var config = services.GetNoxReferenceConfiguration();
 
-        WorldDbContext.UseDatabasePath(config.GetConnectionString(ConfigurationConstants.WorldDataLoadConnectionStringName)!);
-        MachineDbContext.UseDatabasePath(config.GetConnectionString(ConfigurationConstants.MachineDataLoadConnectionStringName)!);
+        WorldDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.WorldDataLoadConnectionStringName)!);
+        MachineDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.MachineDataLoadConnectionStringName)!);
 
         services.AddScoped<DataSeedRunner>();
         services.AddMachineContext();

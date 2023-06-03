@@ -23,6 +23,13 @@ public static class Machine
     private static IMachineInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IMachineInfoContext>();
 
-    public static void UseDatabasePath(string path)
-        => MachineDbContext.UseDatabasePath(path);
+    /// <summary>
+    /// <para>Override default database path. Examples: </para>
+    /// <para>'Data Source=.\NoxReferenceDatabase\Nox.Reference.Machine.db'</para>
+    /// <para>'Data Source=..\..\data\Nox.Reference.Machine.db'</para>
+    /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.Machine.db'</para>
+    /// </summary>
+    /// <param name="databasePath">New overridden database connection string</param>
+    public static void UseDatabaseConnectionString(string path)
+        => MachineDbContext.UseDatabaseConnectionString(path);
 }

@@ -28,7 +28,7 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
 
     public override string DataFolderPath => "MacAddresses";
 
-    protected override IReadOnlyList<MacAddressInfo> GetDataInfos()
+    protected override IReadOnlyList<MacAddressInfo> GetFlatEntitiesFromDataSources()
     {
         var binaryData = DownloadSourceFileAsync()
               .ConfigureAwait(false)

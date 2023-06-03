@@ -12,9 +12,9 @@ Console.WriteLine("This is Nox.Reference Demo!");
 
 // World
 // Country
-Country ukraine1 = World.Countries.Get("UKR")!;
+Country ukraine1 = World.Countries.Get("UA")!;
 var ukraine2 = World.Countries.First(x => x.FipsCode == "UP");
-var ukraine3 = World.Countries.GetByAlpha2Code("UA");
+var ukraine3 = World.Countries.GetByAlpha3Code("UKR");
 
 Console.WriteLine($"Inline -- Country -- {ukraine1!.AlphaCode3} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");

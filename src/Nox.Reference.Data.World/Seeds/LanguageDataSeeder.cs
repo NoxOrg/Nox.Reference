@@ -28,7 +28,7 @@ internal class LanguageDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, L
 
     public override string DataFolderPath => "Languages";
 
-    protected override IReadOnlyList<LanguageInfo> GetDataInfos()
+    protected override IReadOnlyList<LanguageInfo> GetFlatEntitiesFromDataSources()
     {
         _logger.LogInformation("Getting language data...");
 

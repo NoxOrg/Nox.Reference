@@ -6,6 +6,13 @@ namespace Nox.Reference.Data.World;
 
 public static class GenericValidationService
 {
+    /// <summary>
+    /// Validates VatNumber object and returns validation result
+    /// </summary>
+    /// <param name="vatNumber">Vat number as text</param>
+    /// <param name="vatNumberInfo">Information that will be used for validation process</param>
+    /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
+    /// <returns>Validation result</returns>
     public static VatNumberValidationResult ValidateVatNumber(
         string vatNumber,
         VatNumberDefinition vatNumberInfo,

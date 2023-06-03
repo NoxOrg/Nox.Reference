@@ -16,7 +16,7 @@ public class MacAddressesTests
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddMachineContext();
-        MachineDbContext.UseDatabasePath(DatabaseConstant.MachineDbPath);
+        MachineDbContext.UseDatabaseConnectionString(DatabaseConstant.MachineDbConnectionString);
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 

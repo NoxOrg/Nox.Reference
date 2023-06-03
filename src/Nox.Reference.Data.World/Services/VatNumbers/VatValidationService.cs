@@ -8,6 +8,13 @@ public static class VatValidationService
 {
     private static readonly IReadOnlyDictionary<string, IVatValidationService> _validationServicesByCountry = GetValidationServices();
 
+    /// <summary>
+    /// Validates VatNumber object and returns validation result
+    /// </summary>
+    /// <param name="vatNumber">Vat number as text</param>
+    /// <param name="vatNumberInfo">Information that will be used for validation process</param>
+    /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
+    /// <returns>Validation result</returns>
     public static VatNumberValidationResult ValidateVatNumber(
         VatNumberDefinition vatNumberDefinition,
         string vatNumber,
@@ -26,9 +33,16 @@ public static class VatValidationService
         return GenericValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
     }
 
+    /// <summary>
+    /// Validates VatNumber object and returns validation result
+    /// </summary>
+    /// <param name="vatNumber">Vat number as text</param>
+    /// <param name="countryCode">VAT number country Alpha 2 code</param>
+    /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
+    /// <returns>Validation result</returns>
     public static VatNumberValidationResult ValidateVatNumber(
-         string countryCode,
          string vatNumber,
+         string countryCode,
          bool shouldValidateViaApi = true)
     {
         if (string.IsNullOrWhiteSpace(vatNumber))
@@ -52,6 +66,10 @@ public static class VatValidationService
         return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
     }
 
+    /// <summary>
+    /// Returns validation service to country map
+    /// </summary>
+    /// <returns>Validation service per country map</returns>
     public static IReadOnlyDictionary<string, IVatValidationService> GetValidationServices()
     {
         var validationServiceTypes = Assembly

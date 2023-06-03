@@ -45,6 +45,13 @@ public static class World
     private static IWorldInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IWorldInfoContext>();
 
-    public static void UseDatabasePath(string path)
-        => WorldDbContext.UseDatabasePath(path);
+    /// <summary>
+    /// <para>Override default database path. Examples: </para>
+    /// <para>'Data Source=.\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=..\..\data\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// </summary>
+    /// <param name="databasePath">New overridden database connection string</param>
+    public static void UseDatabaseConnectionString(string path)
+        => WorldDbContext.UseDatabaseConnectionString(path);
 }
