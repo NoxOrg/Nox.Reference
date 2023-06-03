@@ -18,7 +18,7 @@ public static class NoxReferenceQueryExtensions
                 ((p.PropertyType.IsGenericType &&
                 p.PropertyType.GetGenericTypeDefinition() == typeof(IReadOnlyList<>)) ||
                 // one-to-one
-                typeof(NoxReferenceEntityBase).IsAssignableFrom(p.PropertyType)));
+                typeof(INoxReferenceEntity).IsAssignableFrom(p.PropertyType)));
 
         foreach (var navigationProperty in navigationProperties)
         {

@@ -2,8 +2,9 @@
 
 namespace Nox.Reference.Data.World;
 
-public class HolidayData : NoxReferenceEntityBase
+public class HolidayData : INoxReferenceEntity
 {
+    public int Id { get; private set; }
     public string? Name { get; private set; } = string.Empty;
     public string? Type { get; private set; } = string.Empty;
     public string? Date { get; private set; } = string.Empty;

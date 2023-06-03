@@ -2,7 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class CurrencyFrequentUsage : NoxReferenceEntityBase
+public class CurrencyFrequentUsage : INoxReferenceEntity
 {
+    public int Id { get; private set; }
     public string Name { get; internal set; } = string.Empty;
 }

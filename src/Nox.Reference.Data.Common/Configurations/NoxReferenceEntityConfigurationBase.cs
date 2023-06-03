@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace Nox.Reference.Data.Common;
 
 public abstract class NoxReferenceEntityConfigurationBase<TEntity> : IEntityTypeConfiguration<TEntity>
-    where TEntity : NoxReferenceEntityBase
+    where TEntity : class, INoxReferenceEntity
 {
     public void Configure(EntityTypeBuilder<TEntity> builder)
     {

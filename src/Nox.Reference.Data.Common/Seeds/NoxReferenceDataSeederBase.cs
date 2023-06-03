@@ -7,7 +7,7 @@ namespace Nox.Reference.Data.Common.Seeds
 {
     public abstract class NoxReferenceDataSeederBase<TDbContext, TSource, TEntity> : INoxReferenceDataSeeder
          where TDbContext : DbContext
-         where TEntity : NoxReferenceEntityBase
+         where TEntity : class, INoxReferenceEntity
          where TSource : class
     {
         protected readonly TDbContext _dbContext;

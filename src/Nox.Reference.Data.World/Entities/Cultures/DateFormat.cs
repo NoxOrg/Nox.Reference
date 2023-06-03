@@ -2,8 +2,9 @@
 
 namespace Nox.Reference.Data.World;
 
-public class DateFormat : NoxReferenceEntityBase
+public class DateFormat : INoxReferenceEntity
 {
+    public int Id { get; set; }
     public string AmPmStrings { get; private set; } = string.Empty;
     public string Eras { get; private set; } = string.Empty;
     public string EraNames { get; private set; } = string.Empty;

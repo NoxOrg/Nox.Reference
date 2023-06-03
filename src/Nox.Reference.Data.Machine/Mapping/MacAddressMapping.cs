@@ -7,6 +7,7 @@ internal class MacAddressMapping : Profile
     public MacAddressMapping()
     {
         CreateMap<MacAddressInfo, MacAddress>()
+            .ForMember(x => x.Id, x => x.Ignore())
             .ReverseMap();
     }
 }
