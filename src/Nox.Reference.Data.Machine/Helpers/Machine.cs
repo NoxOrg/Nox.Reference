@@ -18,8 +18,11 @@ public static class Machine
     }
 
     public static IQueryable<MacAddress> MacAddresses
-         => WorldDataContext.MacAddresses;
+        => WorldDataContext.MacAddresses;
 
     private static IMachineInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IMachineInfoContext>();
+
+    public static void UseDatabasePath(string path)
+        => MachineDbContext.UseDatabasePath(path);
 }

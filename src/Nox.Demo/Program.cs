@@ -12,7 +12,7 @@ Console.WriteLine("This is Nox.Reference Demo!");
 
 // World
 // Country
-Country ukraine1 = World.Countries.Get("UKR");
+Country ukraine1 = World.Countries.Get("UKR")!;
 var ukraine2 = World.Countries.First(x => x.FipsCode == "UP");
 var ukraine3 = World.Countries.GetByAlpha2Code("UA");
 
@@ -85,7 +85,7 @@ var serviceProvider = serviceCollection.BuildServiceProvider();
 IWorldInfoContext worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
 // Country
-ukraine1 = worldContextDi.Countries.Get("UKR");
+ukraine1 = worldContextDi.Countries.Get("UKR")!;
 ukraine2 = worldContextDi.Countries.First(x => x.FipsCode == "UP");
 ukraine3 = worldContextDi.Countries.GetByAlpha2Code("UA");
 

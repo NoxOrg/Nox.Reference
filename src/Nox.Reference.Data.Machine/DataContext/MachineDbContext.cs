@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common.Helpers;
 
 namespace Nox.Reference.Data.Machine;
 
@@ -40,6 +41,7 @@ public class MachineDbContext : DbContext, IMachineInfoContext
         base.OnConfiguring(optionsBuilder);
 
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
+        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(MachineDbContext), nameof(Machine));
         optionsBuilder.UseSqlite(connectionString);
     }
 

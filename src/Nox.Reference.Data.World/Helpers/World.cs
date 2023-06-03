@@ -35,6 +35,7 @@ public static class World
 
     public static IQueryable<Country> Countries
         => WorldDataContext.Countries;
+
     public static IQueryable<TimeZone> TimeZones
         => WorldDataContext.TimeZones;
 
@@ -43,4 +44,7 @@ public static class World
 
     private static IWorldInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IWorldInfoContext>();
+
+    public static void UseDatabasePath(string path)
+        => WorldDbContext.UseDatabasePath(path);
 }

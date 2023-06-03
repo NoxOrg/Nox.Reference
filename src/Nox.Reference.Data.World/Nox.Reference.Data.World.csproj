@@ -26,10 +26,10 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="NoxReferenceConfig\noxReferenceSettings.json" />
-    <None Remove="NoxReferenceDatabase\NoxReference.World.db" />
+    <None Remove="NoxReferenceDatabase\Nox.Reference.World.db" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="NoxReferenceDatabase\NoxReference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
+    <Resource Include="NoxReferenceDatabase\Nox.Reference.World.db" Pack="true" PackagePath="NoxReferenceDatabase">
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
