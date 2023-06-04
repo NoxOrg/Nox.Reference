@@ -394,6 +394,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Country")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CountryName")

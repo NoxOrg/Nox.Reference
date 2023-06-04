@@ -73,7 +73,7 @@ namespace Nox.Reference.Data.World.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
-                    Country = table.Column<string>(type: "TEXT", nullable: true),
+                    Country = table.Column<string>(type: "TEXT", nullable: false),
                     CountryName = table.Column<string>(type: "TEXT", nullable: true),
                     DayOff = table.Column<string>(type: "TEXT", nullable: true)
                 },
