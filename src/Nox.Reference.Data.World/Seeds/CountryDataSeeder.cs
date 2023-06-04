@@ -145,7 +145,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     private static void FixData(CountryInfo[] countries)
     {
         // Edit germany
-        var germany = countries.First(c => c.Code.Equals("DEU"));
+        var germany = countries.First(c => c.Code.Equals("DE"));
 
         if (germany is not null && germany.VehicleInfo is not null)
         {
