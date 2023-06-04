@@ -17,7 +17,7 @@ public static class VatNumberQueryExtensions
     /// <returns>Resulting country</returns>
     public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, string country)
     {
-        return query.FirstOrDefault(x => x.Country.Equals(country, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Country.ToUpper() == country.ToUpper());
     }
 
     /// <summary>

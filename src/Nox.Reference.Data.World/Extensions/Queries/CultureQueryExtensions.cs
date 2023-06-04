@@ -31,7 +31,7 @@ public static class CultureQueryExtensions
     /// <returns>Culture info</returns>
     public static Culture? GetByName(this IQueryable<Culture> query, string code)
     {
-        return query.FirstOrDefault(x => x.Name.Equals(code, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Name.ToUpper() == code.ToUpper());
     }
 
     /// <summary>
@@ -46,7 +46,7 @@ public static class CultureQueryExtensions
     /// <returns>Culture info</returns>
     public static Culture? GetByFormalName(this IQueryable<Culture> query, string formalName)
     {
-        return query.FirstOrDefault(x => x.FormalName.Equals(formalName, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.FormalName.ToUpper() == formalName.ToUpper());
     }
 
     /// <summary>
@@ -61,6 +61,6 @@ public static class CultureQueryExtensions
     /// <returns>Culture info</returns>
     public static Culture? GetByNativeName(this IQueryable<Culture> query, string nativeName)
     {
-        return query.FirstOrDefault(x => x.NativeName.Equals(nativeName, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.NativeName == nativeName);
     }
 }

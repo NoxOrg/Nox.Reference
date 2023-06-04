@@ -29,7 +29,7 @@ public static class CurrencyQueryExtensions
     /// <returns>Currency info</returns>
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)
     {
-        return query.FirstOrDefault(x => x.IsoCode.Equals(isoCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.IsoCode == isoCode.ToUpper());
     }
 
     /// <summary>

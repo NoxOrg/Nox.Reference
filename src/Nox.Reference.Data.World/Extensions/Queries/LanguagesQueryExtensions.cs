@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class LanguagesQueryExtensions
 {
@@ -31,7 +29,7 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static Language? GetByEnglishName(this IQueryable<Language> query, string englishName)
     {
-        return query.FirstOrDefault(x => x.Name.Equals(englishName, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Name.ToLower() == englishName.ToLower());
     }
 
     /// <summary>
@@ -46,7 +44,7 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_1(this IQueryable<Language> query, string isoCode)
     {
-        return query.FirstOrDefault(x => x.Iso_639_1 != null && x.Iso_639_1.Equals(isoCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Iso_639_1 == isoCode.ToLower());
     }
 
     /// <summary>
@@ -61,7 +59,7 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_2b(this IQueryable<Language> query, string isoCode)
     {
-        return query.FirstOrDefault(x => x.Iso_639_2b != null && x.Iso_639_2b.Equals(isoCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Iso_639_2b == isoCode.ToLower());
     }
 
     /// <summary>
@@ -76,7 +74,7 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_2t(this IQueryable<Language> query, string isoCode)
     {
-        return query.FirstOrDefault(x => x.Iso_639_2t != null && x.Iso_639_2t.Equals(isoCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Iso_639_2t == isoCode.ToLower());
     }
 
     /// <summary>
@@ -91,6 +89,6 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_3(this IQueryable<Language> query, string isoCode)
     {
-        return query.FirstOrDefault(x => x.Iso_639_3.Equals(isoCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Iso_639_3 == isoCode.ToLower());
     }
 }

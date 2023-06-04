@@ -29,7 +29,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByAlpha3Code(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.Code.Equals(countryCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Code == countryCode.ToUpper());
     }
 
     /// <summary>
@@ -44,7 +44,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByAlpha2Code(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.AlphaCode2.Equals(countryCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.AlphaCode2 == countryCode.ToUpper());
     }
 
     /// <summary>
@@ -74,7 +74,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByOlympicCommitteeCode(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.OlympicCommitteeCode.Equals(countryCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.OlympicCommitteeCode == countryCode.ToUpper());
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByFifaCode(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.FifaCode.Equals(countryCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.FifaCode == countryCode.ToUpper());
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByFipsCode(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.FipsCode.Equals(countryCode, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.FipsCode == countryCode.ToUpper());
     }
 
     /// <summary>
@@ -119,11 +119,10 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByCommonEnglishName(this IQueryable<Country> query, string commonName)
     {
-        return query.FirstOrDefault(x => x.Names.CommonName.Equals(commonName, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Names.CommonName.ToUpper() == commonName.ToUpper());
     }
 
     // TODO: add test for utf-32 (for example arabic) characters
-
     /// <summary>
     /// This method returns country info by official name
     /// <example>
@@ -136,7 +135,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByOfficialEnglishName(this IQueryable<Country> query, string officialName)
     {
-        return query.FirstOrDefault(x => x.Names.OfficialName.Equals(officialName, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Names.OfficialName.ToUpper() == officialName.ToUpper());
     }
 
     /// <summary>
@@ -151,6 +150,6 @@ public static class CountryQueryExtensions
     /// <returns>Name translation or null</returns>
     public static CountryNameTranslation? GetTranslation(this Country info, string languageCode)
     {
-        return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_1.Equals(languageCode, StringComparison.OrdinalIgnoreCase));
+        return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_1 == languageCode.ToLower());
     }
 }

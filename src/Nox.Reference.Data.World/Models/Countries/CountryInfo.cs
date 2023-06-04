@@ -26,7 +26,7 @@ public class CountryInfo
     public string AlphaCode3 { get; set; } = string.Empty;
 
     [JsonIgnore]
-    public string Code => AlphaCode3;
+    public string Code => AlphaCode2;
 
     [JsonPropertyName("cioc")]
     public string OlympicCommitteeCode { get; set; } = string.Empty;

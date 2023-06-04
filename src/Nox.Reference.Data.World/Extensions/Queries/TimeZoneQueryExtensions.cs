@@ -29,6 +29,6 @@ public static class TimeZoneQueryExtensions
     /// <returns>Time zone information</returns>
     public static TimeZone? GetById(this IQueryable<TimeZone> query, string code)
     {
-        return query.FirstOrDefault(x => x.Code.Equals(code, StringComparison.OrdinalIgnoreCase));
+        return query.FirstOrDefault(x => x.Code.ToUpper() == code.ToUpper());
     }
 }
