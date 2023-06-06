@@ -1,4 +1,7 @@
-﻿namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿using Nox.Reference.Common;
+using Nox.Reference.World;
+
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class CountryQueryExtensions
 {
@@ -151,5 +154,11 @@ public static class CountryQueryExtensions
     public static CountryNameTranslation? GetTranslation(this Country info, string languageCode)
     {
         return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_1 == languageCode.ToLower());
+    }
+
+    // TODO: add doc
+    public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
+    {
+        return query.FirstOrDefault(x => x.Name == currency.GetStringValue());
     }
 }

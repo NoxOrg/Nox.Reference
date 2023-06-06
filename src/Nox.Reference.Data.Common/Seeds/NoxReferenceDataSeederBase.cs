@@ -14,7 +14,7 @@ namespace Nox.Reference.Data.Common.Seeds
     /// <typeparam name="TEntity">Entity framework model</typeparam>
     public abstract class NoxReferenceDataSeederBase<TDbContext, TSource, TEntity> : INoxReferenceDataSeeder
          where TDbContext : DbContext
-         where TEntity : class, INoxReferenceEntity
+         where TEntity : NoxReferenceEntityBase
          where TSource : class
     {
         protected readonly TDbContext _dbContext;

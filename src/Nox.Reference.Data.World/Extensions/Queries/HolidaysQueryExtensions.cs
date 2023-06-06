@@ -1,4 +1,7 @@
-﻿namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿using Nox.Reference.Common;
+using Nox.Reference.World;
+
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class HolidaysQueryExtensions
 {
@@ -19,5 +22,14 @@ public static class HolidaysQueryExtensions
         string countryCode)
     {
         return query.FirstOrDefault(x => x.Year == year && x.Country == countryCode.ToUpper());
+    }
+
+    // TODO: add doc
+    public static CountryHoliday? Get(
+        this IQueryable<CountryHoliday> query,
+        int year,
+        WorldCountries worldCountries)
+    {
+        return query.FirstOrDefault(x => x.Year == year && x.Country.Name == worldCountries.ToString());
     }
 }

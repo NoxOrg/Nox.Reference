@@ -14,48 +14,48 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CoatOfArms",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Svg = table.Column<string>(type: "TEXT", nullable: false),
                     Png = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CoatOfArms", x => x.Id);
+                    table.PrimaryKey("PK_CoatOfArms", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Continent",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Continent", x => x.Id);
+                    table.PrimaryKey("PK_Continent", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryDialing",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Prefix = table.Column<string>(type: "TEXT", nullable: false),
                     Suffixes = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryDialing", x => x.Id);
+                    table.PrimaryKey("PK_CountryDialing", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryFlag",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Svg = table.Column<string>(type: "TEXT", nullable: false),
                     Png = table.Column<string>(type: "TEXT", nullable: false),
@@ -63,72 +63,56 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryFlag", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CountryHoliday",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Year = table.Column<int>(type: "INTEGER", nullable: false),
-                    Country = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryName = table.Column<string>(type: "TEXT", nullable: true),
-                    DayOff = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CountryHoliday", x => x.Id);
+                    table.PrimaryKey("PK_CountryFlag", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryMaps",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     GoogleMaps = table.Column<string>(type: "TEXT", nullable: false),
                     OpenStreetMaps = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryMaps", x => x.Id);
+                    table.PrimaryKey("PK_CountryMaps", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryNames",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CommonName = table.Column<string>(type: "TEXT", nullable: false),
                     OfficialName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryNames", x => x.Id);
+                    table.PrimaryKey("PK_CountryNames", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryVehicle",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     DrivingSide = table.Column<string>(type: "TEXT", nullable: false),
                     InternationalRegistrationCodes = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryVehicle", x => x.Id);
+                    table.PrimaryKey("PK_CountryVehicle", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Culture",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     FormalName = table.Column<string>(type: "TEXT", nullable: false),
@@ -144,40 +128,40 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Culture", x => x.Id);
+                    table.PrimaryKey("PK_Culture", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "CurrencyUsage",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrencyUsage", x => x.Id);
+                    table.PrimaryKey("PK_CurrencyUsage", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "GeoCoordinates",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Latitude = table.Column<decimal>(type: "TEXT", nullable: true),
                     Longitude = table.Column<decimal>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GeoCoordinates", x => x.Id);
+                    table.PrimaryKey("PK_GeoCoordinates", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Language",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Iso_639_1 = table.Column<string>(type: "TEXT", nullable: true),
@@ -191,28 +175,28 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Language", x => x.Id);
+                    table.PrimaryKey("PK_Language", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "MajorCurrencyUnit",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Symbol = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MajorCurrencyUnit", x => x.Id);
+                    table.PrimaryKey("PK_MajorCurrencyUnit", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "MinorCurrencyUnit",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Symbol = table.Column<string>(type: "TEXT", nullable: false),
@@ -220,41 +204,41 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MinorCurrencyUnit", x => x.Id);
+                    table.PrimaryKey("PK_MinorCurrencyUnit", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "PhoneCarrier",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhoneCarrier", x => x.Id);
+                    table.PrimaryKey("PK_PhoneCarrier", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "PostalCode",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Format = table.Column<string>(type: "TEXT", nullable: true),
                     Regex = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PostalCode", x => x.Id);
+                    table.PrimaryKey("PK_PostalCode", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TimeZone",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
                     EmbeddedComments = table.Column<string>(type: "TEXT", nullable: true),
@@ -269,27 +253,27 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TimeZone", x => x.Id);
+                    table.PrimaryKey("PK_TimeZone", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "TopLevelDomain",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TopLevelDomain", x => x.Id);
+                    table.PrimaryKey("PK_TopLevelDomain", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "VatNumberDefinition",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Country = table.Column<string>(type: "TEXT", nullable: false),
                     LocalName = table.Column<string>(type: "TEXT", nullable: false),
@@ -297,34 +281,14 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VatNumberDefinition", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "StateHoliday",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    State = table.Column<string>(type: "TEXT", nullable: false),
-                    StateName = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryHolidayId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StateHoliday", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_StateHoliday_CountryHoliday_CountryHolidayId",
-                        column: x => x.CountryHolidayId,
-                        principalTable: "CountryHoliday",
-                        principalColumn: "Id");
+                    table.PrimaryKey("PK_VatNumberDefinition", x => x.EntityId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "DateFormat",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     AmPmStrings = table.Column<string>(type: "TEXT", nullable: false),
                     Eras = table.Column<string>(type: "TEXT", nullable: false),
@@ -341,12 +305,12 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DateFormat", x => x.Id);
+                    table.PrimaryKey("PK_DateFormat", x => x.EntityId);
                     table.ForeignKey(
                         name: "FK_DateFormat_Culture_CultureId",
                         column: x => x.CultureId,
                         principalTable: "Culture",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -354,7 +318,7 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "NumberFormat",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CurrencySymbol = table.Column<string>(type: "TEXT", nullable: false),
                     DecimalSeparator = table.Column<string>(type: "TEXT", nullable: false),
@@ -377,12 +341,12 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_NumberFormat", x => x.Id);
+                    table.PrimaryKey("PK_NumberFormat", x => x.EntityId);
                     table.ForeignKey(
                         name: "FK_NumberFormat_Culture_CultureId",
                         column: x => x.CultureId,
                         principalTable: "Culture",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -390,19 +354,19 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CurrencyFrequentUsage",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    CurrencyUsageId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CurrencyUsageEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrencyFrequentUsage", x => x.Id);
+                    table.PrimaryKey("PK_CurrencyFrequentUsage", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CurrencyFrequentUsage_CurrencyUsage_CurrencyUsageId",
-                        column: x => x.CurrencyUsageId,
+                        name: "FK_CurrencyFrequentUsage_CurrencyUsage_CurrencyUsageEntityId",
+                        column: x => x.CurrencyUsageEntityId,
                         principalTable: "CurrencyUsage",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -410,19 +374,19 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CurrencyRareUsage",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    CurrencyUsageId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CurrencyUsageEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CurrencyRareUsage", x => x.Id);
+                    table.PrimaryKey("PK_CurrencyRareUsage", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CurrencyRareUsage_CurrencyUsage_CurrencyUsageId",
-                        column: x => x.CurrencyUsageId,
+                        name: "FK_CurrencyRareUsage_CurrencyUsage_CurrencyUsageEntityId",
+                        column: x => x.CurrencyUsageEntityId,
                         principalTable: "CurrencyUsage",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -430,26 +394,26 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryNativeName",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LanguageEntityId = table.Column<int>(type: "INTEGER", nullable: false),
                     OfficialName = table.Column<string>(type: "TEXT", nullable: false),
                     CommonName = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryNamesId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CountryNamesEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryNativeName", x => x.Id);
+                    table.PrimaryKey("PK_CountryNativeName", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CountryNativeName_CountryNames_CountryNamesId",
-                        column: x => x.CountryNamesId,
+                        name: "FK_CountryNativeName_CountryNames_CountryNamesEntityId",
+                        column: x => x.CountryNamesEntityId,
                         principalTable: "CountryNames",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_CountryNativeName_Language_LanguageId",
-                        column: x => x.LanguageId,
+                        name: "FK_CountryNativeName_Language_LanguageEntityId",
+                        column: x => x.LanguageEntityId,
                         principalTable: "Language",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -457,20 +421,20 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "Demonymn",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LanguageEntityId = table.Column<int>(type: "INTEGER", nullable: false),
                     Feminine = table.Column<string>(type: "TEXT", nullable: false),
                     Masculine = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Demonymn", x => x.Id);
+                    table.PrimaryKey("PK_Demonymn", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_Demonymn_Language_LanguageId",
-                        column: x => x.LanguageId,
+                        name: "FK_Demonymn_Language_LanguageEntityId",
+                        column: x => x.LanguageEntityId,
                         principalTable: "Language",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -478,27 +442,27 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "LanguageTranslation",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Translation = table.Column<string>(type: "TEXT", nullable: false),
                     Language = table.Column<string>(type: "TEXT", nullable: false),
-                    LanguageId = table.Column<int>(type: "INTEGER", nullable: true)
+                    LanguageEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LanguageTranslation", x => x.Id);
+                    table.PrimaryKey("PK_LanguageTranslation", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_LanguageTranslation_Language_LanguageId",
-                        column: x => x.LanguageId,
+                        name: "FK_LanguageTranslation_Language_LanguageEntityId",
+                        column: x => x.LanguageEntityId,
                         principalTable: "Language",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "Currency",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     IsoCode = table.Column<string>(type: "TEXT", nullable: false),
                     IsoNumber = table.Column<string>(type: "TEXT", nullable: false),
@@ -509,37 +473,37 @@ namespace Nox.Reference.Data.World.Migrations
                     SpaceBetweenAmountAndSymbol = table.Column<bool>(type: "INTEGER", nullable: false),
                     DecimalDigits = table.Column<int>(type: "INTEGER", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    BanknotesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CoinsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MajorUnitId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MinorUnitId = table.Column<int>(type: "INTEGER", nullable: false)
+                    BanknotesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CoinsEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MajorUnitEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MinorUnitEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Currency", x => x.Id);
+                    table.PrimaryKey("PK_Currency", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_Currency_CurrencyUsage_BanknotesId",
-                        column: x => x.BanknotesId,
+                        name: "FK_Currency_CurrencyUsage_BanknotesEntityId",
+                        column: x => x.BanknotesEntityId,
                         principalTable: "CurrencyUsage",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Currency_CurrencyUsage_CoinsId",
-                        column: x => x.CoinsId,
+                        name: "FK_Currency_CurrencyUsage_CoinsEntityId",
+                        column: x => x.CoinsEntityId,
                         principalTable: "CurrencyUsage",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Currency_MajorCurrencyUnit_MajorUnitId",
-                        column: x => x.MajorUnitId,
+                        name: "FK_Currency_MajorCurrencyUnit_MajorUnitEntityId",
+                        column: x => x.MajorUnitEntityId,
                         principalTable: "MajorCurrencyUnit",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Currency_MinorCurrencyUnit_MinorUnitId",
-                        column: x => x.MinorUnitId,
+                        name: "FK_Currency_MinorCurrencyUnit_MinorUnitEntityId",
+                        column: x => x.MinorUnitEntityId,
                         principalTable: "MinorCurrencyUnit",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -547,19 +511,19 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CarrierPhoneNumber",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     PhoneNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    PhoneCarrierId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PhoneCarrierEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarrierPhoneNumber", x => x.Id);
+                    table.PrimaryKey("PK_CarrierPhoneNumber", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CarrierPhoneNumber_PhoneCarrier_PhoneCarrierId",
-                        column: x => x.PhoneCarrierId,
+                        name: "FK_CarrierPhoneNumber_PhoneCarrier_PhoneCarrierEntityId",
+                        column: x => x.PhoneCarrierEntityId,
                         principalTable: "PhoneCarrier",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -567,18 +531,18 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "Country",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Code = table.Column<string>(type: "TEXT", nullable: false),
-                    NamesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    DialingId = table.Column<int>(type: "INTEGER", nullable: true),
-                    CoatOfArmsId = table.Column<int>(type: "INTEGER", nullable: true),
-                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: true),
-                    FlagId = table.Column<int>(type: "INTEGER", nullable: true),
-                    MapsId = table.Column<int>(type: "INTEGER", nullable: true),
-                    VehicleId = table.Column<int>(type: "INTEGER", nullable: true),
-                    PostalCodeId = table.Column<int>(type: "INTEGER", nullable: true),
+                    NamesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DialingEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    CoatOfArmsEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    GeoCoordinatesEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    FlagEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    MapsEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    VehicleEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    PostalCodeEntityId = table.Column<int>(type: "INTEGER", nullable: true),
                     EmojiFlag = table.Column<string>(type: "TEXT", nullable: false),
                     LandAreaInSquareKilometers = table.Column<decimal>(type: "TEXT", nullable: false),
                     IsIndependent = table.Column<bool>(type: "INTEGER", nullable: true),
@@ -599,55 +563,55 @@ namespace Nox.Reference.Data.World.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Country", x => x.Id);
+                    table.PrimaryKey("PK_Country", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_Country_CoatOfArms_CoatOfArmsId",
-                        column: x => x.CoatOfArmsId,
+                        name: "FK_Country_CoatOfArms_CoatOfArmsEntityId",
+                        column: x => x.CoatOfArmsEntityId,
                         principalTable: "CoatOfArms",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_CountryDialing_DialingId",
-                        column: x => x.DialingId,
+                        name: "FK_Country_CountryDialing_DialingEntityId",
+                        column: x => x.DialingEntityId,
                         principalTable: "CountryDialing",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_CountryFlag_FlagId",
-                        column: x => x.FlagId,
+                        name: "FK_Country_CountryFlag_FlagEntityId",
+                        column: x => x.FlagEntityId,
                         principalTable: "CountryFlag",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_CountryMaps_MapsId",
-                        column: x => x.MapsId,
+                        name: "FK_Country_CountryMaps_MapsEntityId",
+                        column: x => x.MapsEntityId,
                         principalTable: "CountryMaps",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_CountryNames_NamesId",
-                        column: x => x.NamesId,
+                        name: "FK_Country_CountryNames_NamesEntityId",
+                        column: x => x.NamesEntityId,
                         principalTable: "CountryNames",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Country_CountryVehicle_VehicleId",
-                        column: x => x.VehicleId,
+                        name: "FK_Country_CountryVehicle_VehicleEntityId",
+                        column: x => x.VehicleEntityId,
                         principalTable: "CountryVehicle",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_GeoCoordinates_GeoCoordinatesId",
-                        column: x => x.GeoCoordinatesId,
+                        name: "FK_Country_GeoCoordinates_GeoCoordinatesEntityId",
+                        column: x => x.GeoCoordinatesEntityId,
                         principalTable: "GeoCoordinates",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_Country_PostalCode_PostalCodeId",
-                        column: x => x.PostalCodeId,
+                        name: "FK_Country_PostalCode_PostalCodeEntityId",
+                        column: x => x.PostalCodeEntityId,
                         principalTable: "PostalCode",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "VatNumberValidationRule",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false),
                     TranslationId = table.Column<string>(type: "TEXT", nullable: false),
                     Regex = table.Column<string>(type: "TEXT", nullable: false),
                     ValidationFormatDescription = table.Column<string>(type: "TEXT", nullable: false),
@@ -658,78 +622,58 @@ namespace Nox.Reference.Data.World.Migrations
                     Checksum_ChecksumDigit = table.Column<string>(type: "TEXT", nullable: true),
                     Checksum_Modulus = table.Column<int>(type: "INTEGER", nullable: true),
                     Checksum_Weights = table.Column<string>(type: "TEXT", nullable: true),
-                    VatNumberDefinitionId = table.Column<int>(type: "INTEGER", nullable: true)
+                    VatNumberDefinitionEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VatNumberValidationRule", x => x.Id);
+                    table.PrimaryKey("PK_VatNumberValidationRule", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_VatNumberValidationRule_VatNumberDefinition_VatNumberDefinitionId",
-                        column: x => x.VatNumberDefinitionId,
+                        name: "FK_VatNumberValidationRule_VatNumberDefinition_VatNumberDefinitionEntityId",
+                        column: x => x.VatNumberDefinitionEntityId,
                         principalTable: "VatNumberDefinition",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RegionHoliday",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Region = table.Column<string>(type: "TEXT", nullable: false),
-                    RegionName = table.Column<string>(type: "TEXT", nullable: false),
-                    StateHolidayId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RegionHoliday", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RegionHoliday_StateHoliday_StateHolidayId",
-                        column: x => x.StateHolidayId,
-                        principalTable: "StateHoliday",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "AlternateSpelling",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AlternateSpelling", x => x.Id);
+                    table.PrimaryKey("PK_AlternateSpelling", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_AlternateSpelling_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_AlternateSpelling_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "ContinentCountry",
                 columns: table => new
                 {
-                    ContinentsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ContinentsEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContinentCountry", x => new { x.ContinentsId, x.CountryId });
+                    table.PrimaryKey("PK_ContinentCountry", x => new { x.ContinentsEntityId, x.CountryEntityId });
                     table.ForeignKey(
-                        name: "FK_ContinentCountry_Continent_ContinentsId",
-                        column: x => x.ContinentsId,
+                        name: "FK_ContinentCountry_Continent_ContinentsEntityId",
+                        column: x => x.ContinentsEntityId,
                         principalTable: "Continent",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ContinentCountry_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_ContinentCountry_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -737,48 +681,48 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryCapital",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    GeoCoordinatesId = table.Column<int>(type: "INTEGER", nullable: true),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    GeoCoordinatesEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryCapital", x => x.Id);
+                    table.PrimaryKey("PK_CountryCapital", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CountryCapital_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryCapital_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_CountryCapital_GeoCoordinates_GeoCoordinatesId",
-                        column: x => x.GeoCoordinatesId,
+                        name: "FK_CountryCapital_GeoCoordinates_GeoCoordinatesEntityId",
+                        column: x => x.GeoCoordinatesEntityId,
                         principalTable: "GeoCoordinates",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "CountryCountry",
                 columns: table => new
                 {
-                    BorderingCountriesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false)
+                    BorderingCountriesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryCountry", x => new { x.BorderingCountriesId, x.CountryId });
+                    table.PrimaryKey("PK_CountryCountry", x => new { x.BorderingCountriesEntityId, x.CountryEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryCountry_Country_BorderingCountriesId",
-                        column: x => x.BorderingCountriesId,
+                        name: "FK_CountryCountry_Country_BorderingCountriesEntityId",
+                        column: x => x.BorderingCountriesEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryCountry_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryCountry_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -786,23 +730,23 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryCurrency",
                 columns: table => new
                 {
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
-                    CurrenciesId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CurrenciesEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryCurrency", x => new { x.CountryId, x.CurrenciesId });
+                    table.PrimaryKey("PK_CountryCurrency", x => new { x.CountryEntityId, x.CurrenciesEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryCurrency_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryCurrency_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryCurrency_Currency_CurrenciesId",
-                        column: x => x.CurrenciesId,
+                        name: "FK_CountryCurrency_Currency_CurrenciesEntityId",
+                        column: x => x.CurrenciesEntityId,
                         principalTable: "Currency",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -810,23 +754,45 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryDemonymn",
                 columns: table => new
                 {
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
-                    DemonymsId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DemonymsEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryDemonymn", x => new { x.CountryId, x.DemonymsId });
+                    table.PrimaryKey("PK_CountryDemonymn", x => new { x.CountryEntityId, x.DemonymsEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryDemonymn_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryDemonymn_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryDemonymn_Demonymn_DemonymsId",
-                        column: x => x.DemonymsId,
+                        name: "FK_CountryDemonymn_Demonymn_DemonymsEntityId",
+                        column: x => x.DemonymsEntityId,
                         principalTable: "Demonymn",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CountryHoliday",
+                columns: table => new
+                {
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Year = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryName = table.Column<string>(type: "TEXT", nullable: true),
+                    DayOff = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountryHoliday", x => x.EntityId);
+                    table.ForeignKey(
+                        name: "FK_CountryHoliday_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
+                        principalTable: "Country",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -834,23 +800,23 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryLanguage",
                 columns: table => new
                 {
-                    CountriesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    LanguagesId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountriesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LanguagesEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryLanguage", x => new { x.CountriesId, x.LanguagesId });
+                    table.PrimaryKey("PK_CountryLanguage", x => new { x.CountriesEntityId, x.LanguagesEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryLanguage_Country_CountriesId",
-                        column: x => x.CountriesId,
+                        name: "FK_CountryLanguage_Country_CountriesEntityId",
+                        column: x => x.CountriesEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryLanguage_Language_LanguagesId",
-                        column: x => x.LanguagesId,
+                        name: "FK_CountryLanguage_Language_LanguagesEntityId",
+                        column: x => x.LanguagesEntityId,
                         principalTable: "Language",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -858,27 +824,27 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryNameTranslation",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
-                    LanguageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LanguageEntityId = table.Column<int>(type: "INTEGER", nullable: false),
                     OfficialName = table.Column<string>(type: "TEXT", nullable: false),
                     CommonName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryNameTranslation", x => x.Id);
+                    table.PrimaryKey("PK_CountryNameTranslation", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_CountryNameTranslation_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryNameTranslation_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryNameTranslation_Language_LanguageId",
-                        column: x => x.LanguageId,
+                        name: "FK_CountryNameTranslation_Language_LanguageEntityId",
+                        column: x => x.LanguageEntityId,
                         principalTable: "Language",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -886,23 +852,23 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryTimeZone",
                 columns: table => new
                 {
-                    CountriesId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TimeZonesId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountriesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeZonesEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryTimeZone", x => new { x.CountriesId, x.TimeZonesId });
+                    table.PrimaryKey("PK_CountryTimeZone", x => new { x.CountriesEntityId, x.TimeZonesEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryTimeZone_Country_CountriesId",
-                        column: x => x.CountriesId,
+                        name: "FK_CountryTimeZone_Country_CountriesEntityId",
+                        column: x => x.CountriesEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryTimeZone_TimeZone_TimeZonesId",
-                        column: x => x.TimeZonesId,
+                        name: "FK_CountryTimeZone_TimeZone_TimeZonesEntityId",
+                        column: x => x.TimeZonesEntityId,
                         principalTable: "TimeZone",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -910,23 +876,23 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "CountryTopLevelDomain",
                 columns: table => new
                 {
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TopLevelDomainsId = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TopLevelDomainsEntityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CountryTopLevelDomain", x => new { x.CountryId, x.TopLevelDomainsId });
+                    table.PrimaryKey("PK_CountryTopLevelDomain", x => new { x.CountryEntityId, x.TopLevelDomainsEntityId });
                     table.ForeignKey(
-                        name: "FK_CountryTopLevelDomain_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_CountryTopLevelDomain_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CountryTopLevelDomain_TopLevelDomain_TopLevelDomainsId",
-                        column: x => x.TopLevelDomainsId,
+                        name: "FK_CountryTopLevelDomain_TopLevelDomain_TopLevelDomainsEntityId",
+                        column: x => x.TopLevelDomainsEntityId,
                         principalTable: "TopLevelDomain",
-                        principalColumn: "Id",
+                        principalColumn: "EntityId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -934,219 +900,264 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "GiniCoefficient",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
                     Value = table.Column<decimal>(type: "TEXT", nullable: false),
-                    CountryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CountryEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GiniCoefficient", x => x.Id);
+                    table.PrimaryKey("PK_GiniCoefficient", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_GiniCoefficient_Country_CountryId",
-                        column: x => x.CountryId,
+                        name: "FK_GiniCoefficient_Country_CountryEntityId",
+                        column: x => x.CountryEntityId,
                         principalTable: "Country",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StateHoliday",
+                columns: table => new
+                {
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    State = table.Column<string>(type: "TEXT", nullable: false),
+                    StateName = table.Column<string>(type: "TEXT", nullable: false),
+                    CountryHolidayEntityId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StateHoliday", x => x.EntityId);
+                    table.ForeignKey(
+                        name: "FK_StateHoliday_CountryHoliday_CountryHolidayEntityId",
+                        column: x => x.CountryHolidayEntityId,
+                        principalTable: "CountryHoliday",
+                        principalColumn: "EntityId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RegionHoliday",
+                columns: table => new
+                {
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Region = table.Column<string>(type: "TEXT", nullable: false),
+                    RegionName = table.Column<string>(type: "TEXT", nullable: false),
+                    StateHolidayEntityId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RegionHoliday", x => x.EntityId);
+                    table.ForeignKey(
+                        name: "FK_RegionHoliday_StateHoliday_StateHolidayEntityId",
+                        column: x => x.StateHolidayEntityId,
+                        principalTable: "StateHoliday",
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "HolidayData",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Type = table.Column<string>(type: "TEXT", nullable: true),
                     Date = table.Column<string>(type: "TEXT", nullable: true),
-                    CountryHolidayId = table.Column<int>(type: "INTEGER", nullable: true),
-                    RegionHolidayId = table.Column<int>(type: "INTEGER", nullable: true),
-                    StateHolidayId = table.Column<int>(type: "INTEGER", nullable: true)
+                    CountryHolidayEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    RegionHolidayEntityId = table.Column<int>(type: "INTEGER", nullable: true),
+                    StateHolidayEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HolidayData", x => x.Id);
+                    table.PrimaryKey("PK_HolidayData", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_HolidayData_CountryHoliday_CountryHolidayId",
-                        column: x => x.CountryHolidayId,
+                        name: "FK_HolidayData_CountryHoliday_CountryHolidayEntityId",
+                        column: x => x.CountryHolidayEntityId,
                         principalTable: "CountryHoliday",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_HolidayData_RegionHoliday_RegionHolidayId",
-                        column: x => x.RegionHolidayId,
+                        name: "FK_HolidayData_RegionHoliday_RegionHolidayEntityId",
+                        column: x => x.RegionHolidayEntityId,
                         principalTable: "RegionHoliday",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                     table.ForeignKey(
-                        name: "FK_HolidayData_StateHoliday_StateHolidayId",
-                        column: x => x.StateHolidayId,
+                        name: "FK_HolidayData_StateHoliday_StateHolidayEntityId",
+                        column: x => x.StateHolidayEntityId,
                         principalTable: "StateHoliday",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateTable(
                 name: "LocalHolidayName",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Language = table.Column<string>(type: "TEXT", nullable: true),
-                    HolidayDataId = table.Column<int>(type: "INTEGER", nullable: true)
+                    HolidayDataEntityId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LocalHolidayName", x => x.Id);
+                    table.PrimaryKey("PK_LocalHolidayName", x => x.EntityId);
                     table.ForeignKey(
-                        name: "FK_LocalHolidayName_HolidayData_HolidayDataId",
-                        column: x => x.HolidayDataId,
+                        name: "FK_LocalHolidayName_HolidayData_HolidayDataEntityId",
+                        column: x => x.HolidayDataEntityId,
                         principalTable: "HolidayData",
-                        principalColumn: "Id");
+                        principalColumn: "EntityId");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AlternateSpelling_CountryId",
+                name: "IX_AlternateSpelling_CountryEntityId",
                 table: "AlternateSpelling",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarrierPhoneNumber_PhoneCarrierId",
+                name: "IX_CarrierPhoneNumber_PhoneCarrierEntityId",
                 table: "CarrierPhoneNumber",
-                column: "PhoneCarrierId");
+                column: "PhoneCarrierEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContinentCountry_CountryId",
+                name: "IX_ContinentCountry_CountryEntityId",
                 table: "ContinentCountry",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_CoatOfArmsId",
+                name: "IX_Country_CoatOfArmsEntityId",
                 table: "Country",
-                column: "CoatOfArmsId");
+                column: "CoatOfArmsEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_DialingId",
+                name: "IX_Country_DialingEntityId",
                 table: "Country",
-                column: "DialingId");
+                column: "DialingEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_FlagId",
+                name: "IX_Country_FlagEntityId",
                 table: "Country",
-                column: "FlagId");
+                column: "FlagEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_GeoCoordinatesId",
+                name: "IX_Country_GeoCoordinatesEntityId",
                 table: "Country",
-                column: "GeoCoordinatesId");
+                column: "GeoCoordinatesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_MapsId",
+                name: "IX_Country_MapsEntityId",
                 table: "Country",
-                column: "MapsId");
+                column: "MapsEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_NamesId",
+                name: "IX_Country_NamesEntityId",
                 table: "Country",
-                column: "NamesId");
+                column: "NamesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_PostalCodeId",
+                name: "IX_Country_PostalCodeEntityId",
                 table: "Country",
-                column: "PostalCodeId");
+                column: "PostalCodeEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Country_VehicleId",
+                name: "IX_Country_VehicleEntityId",
                 table: "Country",
-                column: "VehicleId");
+                column: "VehicleEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryCapital_CountryId",
+                name: "IX_CountryCapital_CountryEntityId",
                 table: "CountryCapital",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryCapital_GeoCoordinatesId",
+                name: "IX_CountryCapital_GeoCoordinatesEntityId",
                 table: "CountryCapital",
-                column: "GeoCoordinatesId");
+                column: "GeoCoordinatesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryCountry_CountryId",
+                name: "IX_CountryCountry_CountryEntityId",
                 table: "CountryCountry",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryCurrency_CurrenciesId",
+                name: "IX_CountryCurrency_CurrenciesEntityId",
                 table: "CountryCurrency",
-                column: "CurrenciesId");
+                column: "CurrenciesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryDemonymn_DemonymsId",
+                name: "IX_CountryDemonymn_DemonymsEntityId",
                 table: "CountryDemonymn",
-                column: "DemonymsId");
+                column: "DemonymsEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryLanguage_LanguagesId",
+                name: "IX_CountryHoliday_CountryEntityId",
+                table: "CountryHoliday",
+                column: "CountryEntityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CountryLanguage_LanguagesEntityId",
                 table: "CountryLanguage",
-                column: "LanguagesId");
+                column: "LanguagesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryNameTranslation_CountryId",
+                name: "IX_CountryNameTranslation_CountryEntityId",
                 table: "CountryNameTranslation",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryNameTranslation_LanguageId",
+                name: "IX_CountryNameTranslation_LanguageEntityId",
                 table: "CountryNameTranslation",
-                column: "LanguageId");
+                column: "LanguageEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryNativeName_CountryNamesId",
+                name: "IX_CountryNativeName_CountryNamesEntityId",
                 table: "CountryNativeName",
-                column: "CountryNamesId");
+                column: "CountryNamesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryNativeName_LanguageId",
+                name: "IX_CountryNativeName_LanguageEntityId",
                 table: "CountryNativeName",
-                column: "LanguageId");
+                column: "LanguageEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryTimeZone_TimeZonesId",
+                name: "IX_CountryTimeZone_TimeZonesEntityId",
                 table: "CountryTimeZone",
-                column: "TimeZonesId");
+                column: "TimeZonesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CountryTopLevelDomain_TopLevelDomainsId",
+                name: "IX_CountryTopLevelDomain_TopLevelDomainsEntityId",
                 table: "CountryTopLevelDomain",
-                column: "TopLevelDomainsId");
+                column: "TopLevelDomainsEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Currency_BanknotesId",
+                name: "IX_Currency_BanknotesEntityId",
                 table: "Currency",
-                column: "BanknotesId");
+                column: "BanknotesEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Currency_CoinsId",
+                name: "IX_Currency_CoinsEntityId",
                 table: "Currency",
-                column: "CoinsId");
+                column: "CoinsEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Currency_MajorUnitId",
+                name: "IX_Currency_MajorUnitEntityId",
                 table: "Currency",
-                column: "MajorUnitId");
+                column: "MajorUnitEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Currency_MinorUnitId",
+                name: "IX_Currency_MinorUnitEntityId",
                 table: "Currency",
-                column: "MinorUnitId");
+                column: "MinorUnitEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CurrencyFrequentUsage_CurrencyUsageId",
+                name: "IX_CurrencyFrequentUsage_CurrencyUsageEntityId",
                 table: "CurrencyFrequentUsage",
-                column: "CurrencyUsageId");
+                column: "CurrencyUsageEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CurrencyRareUsage_CurrencyUsageId",
+                name: "IX_CurrencyRareUsage_CurrencyUsageEntityId",
                 table: "CurrencyRareUsage",
-                column: "CurrencyUsageId");
+                column: "CurrencyUsageEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DateFormat_CultureId",
@@ -1155,39 +1166,39 @@ namespace Nox.Reference.Data.World.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Demonymn_LanguageId",
+                name: "IX_Demonymn_LanguageEntityId",
                 table: "Demonymn",
-                column: "LanguageId");
+                column: "LanguageEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GiniCoefficient_CountryId",
+                name: "IX_GiniCoefficient_CountryEntityId",
                 table: "GiniCoefficient",
-                column: "CountryId");
+                column: "CountryEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HolidayData_CountryHolidayId",
+                name: "IX_HolidayData_CountryHolidayEntityId",
                 table: "HolidayData",
-                column: "CountryHolidayId");
+                column: "CountryHolidayEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HolidayData_RegionHolidayId",
+                name: "IX_HolidayData_RegionHolidayEntityId",
                 table: "HolidayData",
-                column: "RegionHolidayId");
+                column: "RegionHolidayEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HolidayData_StateHolidayId",
+                name: "IX_HolidayData_StateHolidayEntityId",
                 table: "HolidayData",
-                column: "StateHolidayId");
+                column: "StateHolidayEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LanguageTranslation_LanguageId",
+                name: "IX_LanguageTranslation_LanguageEntityId",
                 table: "LanguageTranslation",
-                column: "LanguageId");
+                column: "LanguageEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LocalHolidayName_HolidayDataId",
+                name: "IX_LocalHolidayName_HolidayDataEntityId",
                 table: "LocalHolidayName",
-                column: "HolidayDataId");
+                column: "HolidayDataEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_NumberFormat_CultureId",
@@ -1196,19 +1207,19 @@ namespace Nox.Reference.Data.World.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_RegionHoliday_StateHolidayId",
+                name: "IX_RegionHoliday_StateHolidayEntityId",
                 table: "RegionHoliday",
-                column: "StateHolidayId");
+                column: "StateHolidayEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StateHoliday_CountryHolidayId",
+                name: "IX_StateHoliday_CountryHolidayEntityId",
                 table: "StateHoliday",
-                column: "CountryHolidayId");
+                column: "CountryHolidayEntityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_VatNumberValidationRule_VatNumberDefinitionId",
+                name: "IX_VatNumberValidationRule_VatNumberDefinitionEntityId",
                 table: "VatNumberValidationRule",
-                column: "VatNumberDefinitionId");
+                column: "VatNumberDefinitionEntityId");
         }
 
         /// <inheritdoc />
@@ -1293,9 +1304,6 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "TopLevelDomain");
 
             migrationBuilder.DropTable(
-                name: "Country");
-
-            migrationBuilder.DropTable(
                 name: "HolidayData");
 
             migrationBuilder.DropTable(
@@ -1315,6 +1323,18 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "Language");
+
+            migrationBuilder.DropTable(
+                name: "RegionHoliday");
+
+            migrationBuilder.DropTable(
+                name: "StateHoliday");
+
+            migrationBuilder.DropTable(
+                name: "CountryHoliday");
+
+            migrationBuilder.DropTable(
+                name: "Country");
 
             migrationBuilder.DropTable(
                 name: "CoatOfArms");
@@ -1339,15 +1359,6 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "PostalCode");
-
-            migrationBuilder.DropTable(
-                name: "RegionHoliday");
-
-            migrationBuilder.DropTable(
-                name: "StateHoliday");
-
-            migrationBuilder.DropTable(
-                name: "CountryHoliday");
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Common.Seeds;
 using Nox.Reference.Data.World.Models;
 using System.Text.Json;
@@ -79,6 +80,8 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
             .UpdateRange(destinations);
 
         _dbContext.SaveChanges();
+
+        EnumGeneratorService.Generate(destinations, x => x.Name, "World", "WorldCountries");
     }
 
     private void FixTranslation(IConfiguration configuration, CountryInfo[] countries)

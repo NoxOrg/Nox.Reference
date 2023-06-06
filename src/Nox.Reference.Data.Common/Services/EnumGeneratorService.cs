@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Nox.Reference.Common;
+namespace Nox.Reference.Data.Common;
 
 /// <summary>
 /// This service generates custom enums for fetched data
@@ -12,9 +12,11 @@ public static class EnumGeneratorService
         IEnumerable<TEntity> entities,
         Func<TEntity, string> nameGetter,
         string enumNameSpace,
-        string enumName)
+        string enumName) where TEntity : NoxReferenceEntityBase
     {
-        var sb = new StringBuilder($"namespace Nox.Reference.Data.{enumNameSpace};\n");
+        var sb = new StringBuilder();
+        sb.AppendLine("using System.ComponentModel;");
+        sb.AppendLine($"namespace Nox.Reference.{enumNameSpace};\n");
 
         sb.AppendLine($"public enum {enumName}");
         sb.AppendLine("{");
@@ -25,14 +27,22 @@ public static class EnumGeneratorService
             {
                 continue;
             }
+            var sanitizedItemKey = itemKey
+                .Replace(" ", "")
+                .Replace("(", "")
+                .Replace(")", "")
+                .Replace("-", "_")
+                .Replace("'", "")
+                .Replace(",", "");
 
-            sb.AppendLine($"\t{nameGetter(entity)},");
+            sb.AppendLine($"\t[Description(\"{itemKey}\")]");
+            sb.AppendLine($"\t{sanitizedItemKey},");
         }
         sb.Remove(sb.Length - 1, 1);
         sb.AppendLine("}");
         sb.Append("\r\n");
         var filePath = ResolveFilePath(enumNameSpace, enumName);
-        File.WriteAllText(filePath, sb.ToString().Trim());
+        File.WriteAllText(filePath, sb.ToString().Trim(), Encoding.UTF8);
     }
 
     private static string ResolveFilePath(string enumNameSpace, string enumName)

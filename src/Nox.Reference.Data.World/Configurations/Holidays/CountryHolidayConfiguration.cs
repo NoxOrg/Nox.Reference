@@ -14,5 +14,8 @@ internal class CountryHolidayConfiguration : NoxReferenceEntityConfigurationBase
         builder
             .HasMany(x => x.States)
             .WithOne();
+
+        builder.HasOne(x => x.Country)
+            .WithMany();
     }
 }

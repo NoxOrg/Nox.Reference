@@ -35,6 +35,8 @@ public class MacAddressesTests
         string expectedOrganizationName)
     {
         var info = _macAddressContext.MacAddresses.Get(input);
+        Assert.That(info, Is.Not.Null);
+        Assert.That(expectedPrefix, Is.EqualTo(info.Id));
 
         var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
 

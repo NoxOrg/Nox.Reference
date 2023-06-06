@@ -14,7 +14,7 @@ namespace Nox.Reference.Data.Machine.Migrations
                 name: "MacAddress",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     IEEERegistry = table.Column<string>(type: "TEXT", nullable: false),
                     MacPrefix = table.Column<string>(type: "TEXT", nullable: false),
@@ -23,7 +23,7 @@ namespace Nox.Reference.Data.Machine.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MacAddress", x => x.Id);
+                    table.PrimaryKey("PK_MacAddress", x => x.EntityId);
                 });
         }
 

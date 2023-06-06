@@ -2,9 +2,8 @@
 
 namespace Nox.Reference.Data.World;
 
-public class StateHoliday : INoxReferenceEntity
+public class StateHoliday : NoxReferenceEntityBase
 {
-    public int Id { get; private set; }
     public string State { get; private set; } = string.Empty;
     public string StateName { get; private set; } = string.Empty;
     public virtual IReadOnlyList<HolidayData> Holidays { get; private set; } = new List<HolidayData>();
