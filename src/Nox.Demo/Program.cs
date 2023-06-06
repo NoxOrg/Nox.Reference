@@ -4,6 +4,7 @@ using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.World;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
+using Nox.Reference.World;
 using System.Text.Json;
 
 Console.WriteLine("This is Nox.Reference Demo!");
@@ -15,10 +16,12 @@ Console.WriteLine("This is Nox.Reference Demo!");
 Country ukraine1 = World.Countries.Get("UA")!;
 var ukraine2 = World.Countries.First(x => x.FipsCode == "UP");
 var ukraine3 = World.Countries.GetByAlpha3Code("UKR");
+var ukraine4 = World.Countries.Get(WorldCountries.Ukraine);
 
 Console.WriteLine($"Inline -- Country -- {ukraine1!.AlphaCode3} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
+Console.WriteLine($"Inline -- Country -- {ukraine4!.AlphaCode2} -- {ukraine4.Names.CommonName}");
 
 CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
@@ -29,14 +32,18 @@ Culture culture = World.Cultures.Get("tg-TJ")!;
 Console.WriteLine($"Inline -- Culture -- {culture.Name} -- {culture.DisplayName}");
 
 // Currencies
-Currency currency = World.Currencies.Get("TWD")!;
+Currency currency1 = World.Currencies.Get("TWD")!;
+Currency currency2 = World.Currencies.Get(WorldCurrencies.UkrainianHryvnia)!;
 
-Console.WriteLine($"Inline -- Currency -- {currency.IsoCode} -- {currency.Name}");
+Console.WriteLine($"Inline -- Currency -- {currency1.IsoCode} -- {currency1.Name}");
+Console.WriteLine($"Inline -- Currency -- {currency2.IsoCode} -- {currency2.Name}");
 
 // Holidays
-CountryHoliday holidays = World.Holidays.Get(2024, "AD")!;
+CountryHoliday holidays1 = World.Holidays.Get(2024, "AD")!;
+CountryHoliday holidays2 = World.Holidays.Get(2024, WorldCountries.Ukraine)!;
 
-Console.WriteLine($"Inline -- Holidays -- {holidays.CountryName} - {holidays.Year} -- {holidays.Holidays.Count}");
+Console.WriteLine($"Inline -- Holidays -- {holidays1.CountryName} - {holidays1.Year} -- {holidays1.Holidays.Count}");
+Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Year} -- {holidays2.Holidays.Count}");
 
 // Languages
 Language language = World.Languages.GetByIso_639_2t("ces")!;
