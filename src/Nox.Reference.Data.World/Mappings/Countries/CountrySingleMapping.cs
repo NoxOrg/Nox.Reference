@@ -20,8 +20,7 @@ internal class CountrySingleMapping : ITypeConverter<string, Country>
         {
             country = _worldDbContext.Countries.FirstOrDefault(x => x.AlphaCode3 == source);
         }
-#pragma warning disable CS8603 // Possible null reference return. Convert is interface method.
-        return country;
-#pragma warning restore CS8603 // Possible null reference return.
+
+        return country!;
     }
 }
