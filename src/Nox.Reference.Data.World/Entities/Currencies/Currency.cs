@@ -2,9 +2,9 @@
 
 namespace Nox.Reference.Data.World;
 
-public class Currency : INoxReferenceEntity
+public class Currency : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
-    public int Id { get; private set; }
+    public string Id => IsoCode;
     public string IsoCode { get; private set; } = string.Empty;
     public string IsoNumber { get; private set; } = string.Empty;
     public string Symbol { get; private set; } = string.Empty;

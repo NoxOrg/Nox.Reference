@@ -32,7 +32,9 @@ public class LanguagesTests
         int expectedCountryCount,
         string countryCode)
     {
-        var info = _worldDbContext.Languages.Include(x => x.NameTranslations).Get(input);
+        var info = _worldDbContext.Languages.Include(x => x.NameTranslations).Get(input)!;
+        Assert.That(info, Is.Not.Null);
+        Assert.That(info.Id, Is.EqualTo("ukr"));
 
         var mappedInfo = World.Mapper.Map<Models.LanguageInfo>(info);
 

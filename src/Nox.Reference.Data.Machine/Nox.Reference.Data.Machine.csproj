@@ -23,8 +23,8 @@
     <None Remove="NoxReferenceDatabase\Nox.Reference.Machine.db" />
   </ItemGroup>
   <Target Name="CopyMiscFilesToLocal" AfterTargets="BeforeBuild">
-    <Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.Machine.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
+	<Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.Machine.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
+	<Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
   </Target>
   <ItemGroup>
     <Resource Include="NoxReferenceDatabase\Nox.Reference.Machine.db" Pack="true" PackagePath="NoxReferenceDatabase">
@@ -64,5 +64,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

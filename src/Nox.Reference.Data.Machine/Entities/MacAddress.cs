@@ -2,12 +2,9 @@
 
 namespace Nox.Reference.Data;
 
-// TODO: Add docs
-public class MacAddress : INoxReferenceEntity
+public class MacAddress : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
-    // TODO: hide ID here and in world so internal entity framework
-    // id is not misleading for customers
-    public int Id { get; private set; }
+    public string Id => MacPrefix;
     public string IEEERegistry { get; private set; } = string.Empty;
     public string MacPrefix { get; private set; } = string.Empty;
     public string OrganizationName { get; private set; } = string.Empty;

@@ -82,6 +82,6 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     }
 
     private IQueryable<TSource> GetData<TSource>()
-        where TSource : class, INoxReferenceEntity
+        where TSource : NoxReferenceEntityBase
         => Set<TSource>();
 }

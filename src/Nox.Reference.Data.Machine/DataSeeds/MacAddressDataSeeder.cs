@@ -67,7 +67,8 @@ internal class MacAddressDataSeeder : NoxReferenceDataSeederBase<MachineDbContex
 
         using var httpClient = new HttpClient();
 
-        using var stream = await httpClient.GetStreamAsync(uriMacAddresses);
+        using var stream = await httpClient.GetStreamAsync(uriMacAddresses)
+            .ConfigureAwait(false);
         using var ms = new MemoryStream();
 
         await stream.CopyToAsync(ms);
