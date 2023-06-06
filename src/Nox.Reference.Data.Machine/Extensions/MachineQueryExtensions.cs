@@ -7,6 +7,9 @@ public static class MachineQueryExtensions
     /// <example>
     /// <code>
     /// MacAddresses.Get("00:16:F6:11:22:33")
+    /// MacAddresses.Get("00 16 F6 11 22 33")
+    /// MacAddresses.Get("00-16-F6-11-22-33")
+    /// MacAddresses.Get("0016F6112233")
     /// </code>
     /// </example>
     /// </summary>
@@ -20,6 +23,14 @@ public static class MachineQueryExtensions
 
     /// <summary>
     /// Get mac address info by mac prefix
+    /// <example>
+    /// <code>
+    /// MacAddresses.GetByMacAddress("00:16:F6:11:22:33")
+    /// MacAddresses.GetByMacAddress("00 16 F6 11 22 33")
+    /// MacAddresses.GetByMacAddress("00-16-F6-11-22-33")
+    /// MacAddresses.GetByMacAddress("0016F6112233")
+    /// </code>
+    /// </example>
     /// </summary>
     /// <param name="query">IQueryable incoming query</param>
     /// <param name="macAddress">Mac address</param>

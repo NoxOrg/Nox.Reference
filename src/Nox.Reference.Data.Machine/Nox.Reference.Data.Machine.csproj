@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -64,8 +64,5 @@
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Common\Nox.Reference.Common.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

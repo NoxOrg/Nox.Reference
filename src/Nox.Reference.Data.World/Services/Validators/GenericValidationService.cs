@@ -7,7 +7,7 @@ namespace Nox.Reference.Data.World;
 public static class GenericValidationService
 {
     /// <summary>
-    /// Validates VatNumber object and returns validation result
+    /// Validates vat number string and returns validation result
     /// </summary>
     /// <param name="vatNumber">Vat number as text</param>
     /// <param name="vatNumberInfo">Information that will be used for validation process</param>

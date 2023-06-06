@@ -9,7 +9,7 @@ public static class VatValidationService
     private static readonly IReadOnlyDictionary<string, IVatValidationService> _validationServicesByCountry = GetValidationServices();
 
     /// <summary>
-    /// Validates VatNumber object and returns validation result
+    /// Validates vat number string and returns validation result
     /// </summary>
     /// <param name="vatNumber">Vat number as text</param>
     /// <param name="vatNumberInfo">Information that will be used for validation process</param>
@@ -34,7 +34,7 @@ public static class VatValidationService
     }
 
     /// <summary>
-    /// Validates VatNumber object and returns validation result
+    /// Validates vat number string and returns validation result
     /// </summary>
     /// <param name="vatNumber">Vat number as text</param>
     /// <param name="countryCode">VAT number country Alpha 2 code</param>
