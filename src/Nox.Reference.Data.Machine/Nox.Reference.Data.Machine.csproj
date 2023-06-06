@@ -1,12 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.Machine</PackageId>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <PackageVersion>1.0.5.0-alpha</PackageVersion>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    <PackageVersion>1.0.6.0</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -23,8 +23,8 @@
     <None Remove="NoxReferenceDatabase\Nox.Reference.Machine.db" />
   </ItemGroup>
   <Target Name="CopyMiscFilesToLocal" AfterTargets="BeforeBuild">
-	<Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.Machine.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
-	<Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.Machine.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
   </Target>
   <ItemGroup>
     <Resource Include="NoxReferenceDatabase\Nox.Reference.Machine.db" Pack="true" PackagePath="NoxReferenceDatabase">
