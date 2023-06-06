@@ -32,7 +32,7 @@ public static class CountryQueryExtensions
     /// <returns>Country info</returns>
     public static Country? GetByAlpha3Code(this IQueryable<Country> query, string countryCode)
     {
-        return query.FirstOrDefault(x => x.Code == countryCode.ToUpper());
+        return query.FirstOrDefault(x => x.AlphaCode3 == countryCode.ToUpper());
     }
 
     /// <summary>

@@ -34,7 +34,7 @@ public class LanguagesTests
     {
         var info = _worldDbContext.Languages.Get(input);
         Assert.That(info, Is.Not.Null);
-        Assert.That(info.Id, Is.EqualTo("ukr"));
+        Assert.That(info!.Id, Is.EqualTo("ukr"));
 
         var mappedInfo = World.Mapper.Map<Models.LanguageInfo>(info);
 
