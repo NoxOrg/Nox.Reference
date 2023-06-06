@@ -85,15 +85,15 @@ var serviceProvider = serviceCollection.BuildServiceProvider();
 IWorldInfoContext worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
 // Country
-ukraine1 = worldContextDi.Countries.Get("UKR")!;
+ukraine1 = worldContextDi.Countries.Get("UA")!;
 ukraine2 = worldContextDi.Countries.First(x => x.FipsCode == "UP");
-ukraine3 = worldContextDi.Countries.GetByAlpha2Code("UA");
+ukraine3 = worldContextDi.Countries.GetByAlpha3Code("UKR");
 
 Console.WriteLine($"Inline -- Country -- {ukraine1!.Name} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
 
-countryEnglishTranslation = worldContextDi.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
+countryEnglishTranslation = worldContextDi.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
 // Timezones
