@@ -156,9 +156,18 @@ public static class CountryQueryExtensions
         return info.NameTranslations!.FirstOrDefault(x => x.Language.Iso_639_1 == languageCode.ToLower());
     }
 
-    // TODO: add doc
-    public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
+    /// <summary>
+    /// This method returns country translation in language by currency enum
+    /// <example>
+    /// <code>
+    /// Countries.Get(WorldCountries.Austria)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="country">Country enum value. Example: WorldCountries.Austria.</param>
+    /// <returns>Name translation or null</returns>
+    public static Country? Get(this IQueryable<Country> query, WorldCountries country)
     {
-        return query.FirstOrDefault(x => x.Name == currency.GetStringValue());
+        return query.FirstOrDefault(x => x.Name == country.GetStringValue());
     }
 }

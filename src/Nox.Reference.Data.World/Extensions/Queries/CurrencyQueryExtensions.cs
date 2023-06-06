@@ -50,7 +50,16 @@ public static class CurrencyQueryExtensions
         return query.FirstOrDefault(x => x.IsoNumber == isoNumber);
     }
 
-    // TODO: add doc
+    /// <summary>
+    /// This method returns currency info by currency enum value
+    /// <example>
+    /// <code>
+    /// Currencies.Get(WorldCurrencies.DutchGuilder)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="currency">Currency enum value. Example: WorldCurrencies.DutchGuilder.</param>
+    /// <returns>Currency info</returns>
     public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
     {
         return query.FirstOrDefault(x => x.Name == currency.GetStringValue());
