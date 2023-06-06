@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Common.Seeds;
 using Nox.Reference.Data.World.Models;
 using System.Text.Json;
@@ -88,7 +89,7 @@ internal class LanguageDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, L
         }
     }
 
-    public List<LanguageInfoYaml> GetLanguageIso639_3_Data()
+    private List<LanguageInfoYaml> GetLanguageIso639_3_Data()
     {
         var uriRestLanguages = _configuration.GetValue<string>(ConfigurationConstants.UriLanguagesISO639)!;
 

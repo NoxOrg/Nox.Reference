@@ -3,7 +3,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.Machine;
 
-internal class MacAddressConfiguration : NoxReferenceEntityConfigurationBase<MacAddress>
+internal class MacAddressConfiguration : NoxReferenceKeyedEntityConfigurationBase<MacAddress, string>
 {
     protected override void DoConfigure(EntityTypeBuilder<MacAddress> builder)
     {

@@ -18,7 +18,7 @@ namespace Nox.Reference.Data.Machine.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.MacAddress", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("EntityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -38,7 +38,7 @@ namespace Nox.Reference.Data.Machine.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("EntityId");
 
                     b.ToTable("MacAddress");
                 });

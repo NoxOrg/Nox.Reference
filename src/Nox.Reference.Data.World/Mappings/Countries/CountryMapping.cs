@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Nox.Reference.Data.World.Mappings.Countries;
 using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
@@ -83,7 +84,6 @@ internal class CountryMapping : Profile
     private void MapCountryInfoToCountry()
     {
         CreateMap<CountryInfo, Country>()
-            .ForMember(x => x.Id, x => x.Ignore())
             .ForMember(x => x.BorderingCountries, x => x.Ignore())
             .ForMember(x => x.NameTranslations, x => x.Ignore())
             .ForMember(x => x.Continents, x => x.Ignore())

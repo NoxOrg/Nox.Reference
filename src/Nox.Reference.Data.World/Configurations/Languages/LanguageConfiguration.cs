@@ -3,7 +3,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World.Configurations;
 
-internal class LanguageConfiguration : NoxReferenceEntityConfigurationBase<Language>
+internal class LanguageConfiguration : NoxReferenceKeyedEntityConfigurationBase<Language, string>
 {
     protected override void DoConfigure(EntityTypeBuilder<Language> builder)
     {

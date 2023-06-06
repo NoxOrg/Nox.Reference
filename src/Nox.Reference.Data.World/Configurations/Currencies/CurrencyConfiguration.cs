@@ -4,7 +4,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.Data.World.Configurations.Currencies;
 
-internal class CurrencyConfiguration : NoxReferenceEntityConfigurationBase<Currency>
+internal class CurrencyConfiguration : NoxReferenceKeyedEntityConfigurationBase<Currency, string>
 {
     protected override void DoConfigure(EntityTypeBuilder<Currency> builder)
     {

@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nox.Reference.Data.World;
 
-public class Country : INoxReferenceEntity
+public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
-    public int Id { get; private set; }
+    public string Id => Code;
     public string Name { get; private set; } = string.Empty;
     public string Code { get; private set; } = string.Empty;
 
@@ -24,6 +24,7 @@ public class Country : INoxReferenceEntity
 
     [NotMapped]
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
+
     public virtual CountryDialing? Dialing { get; private set; }
     public virtual CoatOfArms? CoatOfArms { get; private set; }
     public virtual GeoCoordinates? GeoCoordinates { get; private set; }
