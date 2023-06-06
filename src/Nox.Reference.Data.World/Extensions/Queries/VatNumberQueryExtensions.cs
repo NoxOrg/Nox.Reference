@@ -28,21 +28,21 @@ public static class VatNumberQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
-    /// <param name="country">Alpha 2 country code. Example: "UA".</param>
+    /// <param name="countryAlpha2Code">Alpha 2 country code. Example: "UA".</param>
     /// <param name="validationNumber">Vat number as string</param>
     /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
     /// <returns>Validation result</returns>
     public static VatNumberValidationResult? Validate(
         this IQueryable<VatNumberDefinition> query,
-        string country,
+        string countryAlpha2Code,
         string validationNumber,
         bool shouldValidateViaApi = true)
     {
-        var definition = query.FirstOrDefault(x => x.Country.Equals(country, StringComparison.OrdinalIgnoreCase));
+        var definition = query.FirstOrDefault(x => x.Country.ToUpper() == countryAlpha2Code.ToUpper());
 
         if (definition == null)
         {
-            throw new Exception($"Country {country} is not supported.");
+            throw new Exception($"Country {countryAlpha2Code} is not supported.");
         }
 
         return definition.Validate(validationNumber, shouldValidateViaApi);

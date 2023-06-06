@@ -20,7 +20,7 @@ Console.WriteLine($"Inline -- Country -- {ukraine1!.AlphaCode3} -- {ukraine1.Nam
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
 
-CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
+CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
 // Cultures
