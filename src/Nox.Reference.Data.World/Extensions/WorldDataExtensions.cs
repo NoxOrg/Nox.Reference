@@ -7,6 +7,11 @@ namespace Nox.Reference.Data;
 
 public static class WorldDataExtensions
 {
+    /// <summary>
+    /// This method setups world context dependencies
+    /// </summary>
+    /// <param name="services">Current service collection</param>
+    /// <returns>Modified service collection</returns>
     public static IServiceCollection AddWorldContext(this IServiceCollection services)
     {
         services.AddNoxReferenceCommon();
@@ -16,7 +21,7 @@ public static class WorldDataExtensions
         services.AddSeeders();
         services.AddScoped<IWorldInfoContext, WorldDbContext>();
 
-        services.AddSingleton<IPhoneNumberService, PhoneNumberService>();
+        services.AddScoped<IPhoneNumberService, PhoneNumberService>();
 
         return services;
     }

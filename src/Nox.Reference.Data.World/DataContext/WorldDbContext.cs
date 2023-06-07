@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
+using Nox.Reference.Data.Common.Helpers;
 using System.Reflection;
 
 namespace Nox.Reference.Data.World;
@@ -59,7 +60,14 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<PhoneCarrier> PhoneCarriers
         => GetData<PhoneCarrier>();
 
-    public static void UseDatabasePath(string databasePath)
+    /// <summary>
+    /// <para>Override default database path. Examples: </para>
+    /// <para>'Data Source=.\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=..\..\data\Nox.Reference.World.db'</para>
+    /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.World.db'</para>
+    /// </summary>
+    /// <param name="databasePath">New overridden database connection string</param>
+    public static void UseDatabaseConnectionString(string databasePath)
     {
         _databasePath = databasePath;
     }
@@ -67,7 +75,12 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
+
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
+
+        // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
+        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(WorldDbContext), nameof(World));
+
         optionsBuilder
             .UseLazyLoadingProxies()
             .UseSqlite(connectionString);//.LogTo(Console.WriteLine);// -- Use the following method for debug purposes

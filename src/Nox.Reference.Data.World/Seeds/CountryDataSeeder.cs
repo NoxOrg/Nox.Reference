@@ -28,7 +28,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     public override string TargetFileName => "Nox.Reference.Countries.json";
     public override string DataFolderPath => "Countries";
 
-    protected override IReadOnlyList<CountryInfo> GetDataInfos()
+    protected override IReadOnlyList<CountryInfo> GetFlatEntitiesFromDataSources()
     {
         var uriRestCountries = _configuration.GetValue<string>(ConfigurationConstants.UriRestCountriesSettingName)!;
         var data = RestHelper.GetInternetContent(uriRestCountries).Content!;
@@ -148,7 +148,7 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
     private static void FixData(CountryInfo[] countries)
     {
         // Edit germany
-        var germany = countries.First(c => c.Code.Equals("DEU"));
+        var germany = countries.First(c => c.Code.Equals("DE"));
 
         if (germany is not null && germany.VehicleInfo is not null)
         {

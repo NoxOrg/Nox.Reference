@@ -6,12 +6,19 @@ namespace Nox.Reference.Data.World;
 
 public static class GenericValidationService
 {
+    /// <summary>
+    /// Validates vat number string and returns validation result
+    /// </summary>
+    /// <param name="vatNumber">Vat number as text</param>
+    /// <param name="vatNumberInfo">Information that will be used for validation process</param>
+    /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
+    /// <returns>Validation result</returns>
     public static VatNumberValidationResult ValidateVatNumber(
         string vatNumber,
         VatNumberDefinition vatNumberInfo,
         bool shouldValidateViaApi = true)
     {
-        var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country);
+        var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country.AlphaCode2);
         var validationInfoByPattern = GetValidationInfoFromVatNumberInfo(result.FormattedVatNumber, vatNumberInfo);
 
         if (validationInfoByPattern == null)

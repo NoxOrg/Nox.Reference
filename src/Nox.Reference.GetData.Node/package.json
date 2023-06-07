@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
-    "holidays-2023": "ts-node Holidays/index.ts --year 2023 --file ../../data/Nox.Reference.Holidays-2023.json",
-    "holidays-2024": "ts-node Holidays/index.ts --year 2024 --file ../../data/Nox.Reference.Holidays-2024.json"
+    "holidays-2023": "ts-node Holidays/index.ts --year 2023 --file ../../data/input/source/Holidays/Nox.Reference.Holidays-2023.json",
+    "holidays-2024": "ts-node Holidays/index.ts --year 2024 --file ../../data/input/source/Holidays/Nox.Reference.Holidays-2024.json",
+    "holidays-2025": "ts-node Holidays/index.ts --year 2025 --file ../../data/input/source/Holidays/Nox.Reference.Holidays-2025.json"
   },
   "keywords": [],
   "author": "",

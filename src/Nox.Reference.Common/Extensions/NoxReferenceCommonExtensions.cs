@@ -10,6 +10,11 @@ public static class NoxReferenceCommonExtensions
               .AddJsonFile(ConfigurationConstants.ConfigFileName)
               .Build();
 
+    /// <summary>
+    /// This method adds shared dependencies for a world context
+    /// </summary>
+    /// <param name="services">Current service collection</param>
+    /// <returns>Modified service collection</returns>
     public static IServiceCollection AddNoxReferenceCommon(this IServiceCollection services)
     {
         services.AddScoped<NoxReferenceFileStorageService>();

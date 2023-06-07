@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.GetTestData",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.Common", "Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj", "{47F01B3C-A544-45EF-BD9E-7E9B56FC3D31}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.DataLoaders", "Nox.Refeence.DataLoaders\Nox.Reference.DataLoaders.csproj", "{17EDB539-210C-4C8F-8C31-4FCF64190348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.DataLoaders", "Nox.Reference.DataLoaders\Nox.Reference.DataLoaders.csproj", "{17EDB539-210C-4C8F-8C31-4FCF64190348}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nox.Reference.Data.World", "Nox.Reference.Data.World\Nox.Reference.Data.World.csproj", "{DD9F2EB2-B479-4879-9B61-161FA14579B6}"
 EndProject

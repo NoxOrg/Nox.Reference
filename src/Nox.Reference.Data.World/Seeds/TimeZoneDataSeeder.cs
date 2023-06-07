@@ -29,7 +29,7 @@ internal class TimeZoneDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, M
 
     public override string DataFolderPath => "TimeZones";
 
-    protected override IReadOnlyList<Models.TimeZoneInfo> GetDataInfos()
+    protected override IReadOnlyList<Models.TimeZoneInfo> GetFlatEntitiesFromDataSources()
     {
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var timeZoneUrl = _configuration.GetValue<string>(ConfigurationConstants.TimeZoneUrl)!;

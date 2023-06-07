@@ -299,6 +299,9 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("VatNumberDefinitionId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("VehicleEntityId")
                         .HasColumnType("INTEGER");
 
@@ -317,6 +320,9 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasIndex("NamesEntityId");
 
                     b.HasIndex("PostalCodeEntityId");
+
+                    b.HasIndex("VatNumberDefinitionId")
+                        .IsUnique();
 
                     b.HasIndex("VehicleEntityId");
 
@@ -543,9 +549,8 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Property<string>("CommonName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("CountryEntityId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
@@ -579,6 +584,8 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("EntityId");
+
+                    b.HasIndex("CountryEntityId");
 
                     b.ToTable("Culture");
                 });
@@ -1216,7 +1223,7 @@ namespace Nox.Reference.Data.World.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Country")
+                    b.Property<string>("CountryCode")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -1425,6 +1432,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .WithMany()
                         .HasForeignKey("PostalCodeEntityId");
 
+                    b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", "VatNumberDefinition")
+                        .WithOne("Country")
+                        .HasForeignKey("Nox.Reference.Data.World.Country", "VatNumberDefinitionId");
+
                     b.HasOne("Nox.Reference.Data.World.CountryVehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleEntityId");
@@ -1442,6 +1453,8 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Names");
 
                     b.Navigation("PostalCode");
+
+                    b.Navigation("VatNumberDefinition");
 
                     b.Navigation("Vehicle");
                 });
@@ -1502,6 +1515,15 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired();
 
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.Culture", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.Country", "Country")
+                        .WithMany("Cultures")
+                        .HasForeignKey("CountryEntityId");
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.Currency", b =>
@@ -1679,6 +1701,8 @@ namespace Nox.Reference.Data.World.Migrations
 
                     b.Navigation("Capitals");
 
+                    b.Navigation("Cultures");
+
                     b.Navigation("GiniCoefficients");
 
                     b.Navigation("NameTranslations");
@@ -1741,6 +1765,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>
                 {
+                    b.Navigation("Country")
+                        .IsRequired();
+
                     b.Navigation("ValidationRules");
                 });
 #pragma warning restore 612, 618

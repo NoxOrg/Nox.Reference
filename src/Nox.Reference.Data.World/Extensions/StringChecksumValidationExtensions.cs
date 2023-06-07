@@ -4,6 +4,13 @@ namespace Nox.Reference.Data.World;
 
 internal static class StringChecksumValidationExtensions
 {
+    /// <summary>
+    /// Method to validate checksum and return an array of
+    /// validation errors
+    /// </summary>
+    /// <param name="vatNumber">Vat number as string</param>
+    /// <param name="checksumFunc">Function that validates vat number checksum and returns validation errors</param>
+    /// <returns>A enumerable of validation errors</returns>
     public static IEnumerable<string> ValidateCustomChecksum(this string vatNumber, Func<string, IEnumerable<string>> checksumFunc)
     {
         var errorMessages = new List<string>();

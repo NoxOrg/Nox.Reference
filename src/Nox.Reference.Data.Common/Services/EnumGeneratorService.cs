@@ -2,6 +2,10 @@
 
 namespace Nox.Reference.Data.Common;
 
+/// <summary>
+/// This service generates custom enums for fetched data
+/// that allows easier and better-readable entity access
+/// </summary>
 public static class EnumGeneratorService
 {
     public static void Generate<TEntity>(

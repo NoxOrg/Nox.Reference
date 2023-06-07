@@ -59,6 +59,10 @@ internal class CountryConfiguration : NoxReferenceKeyedEntityConfigurationBase<C
             .WithMany(x => x.Countries);
 
         builder
+            .HasMany(x => x.Cultures)
+            .WithOne(x => x.Country);
+
+        builder
             .HasMany(x => x.TimeZones)
             .WithMany(x => x.Countries);
 

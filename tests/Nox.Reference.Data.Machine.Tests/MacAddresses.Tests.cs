@@ -16,7 +16,7 @@ public class MacAddressesTests
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddMachineContext();
-        MachineDbContext.UseDatabasePath(DatabaseConstant.MachineDbPath);
+        MachineDbContext.UseDatabaseConnectionString(DatabaseConstant.MachineDbConnectionString);
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
@@ -27,6 +27,8 @@ public class MacAddressesTests
 
     [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]
     [TestCase("00-16-F6-11-22-33", "0016F6", "Nevion")]
+    [TestCase("00 16 F6 11 22 33", "0016F6", "Nevion")]
+    [TestCase("0016F6112233", "0016F6", "Nevion")]
     public void GetVendorMacAddress_ValidMacAddressString_ReturnsValidInfo(
         string input,
         string expectedPrefix,

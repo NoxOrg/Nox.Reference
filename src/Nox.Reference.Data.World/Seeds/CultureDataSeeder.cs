@@ -33,7 +33,7 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
 
     public override string DataFolderPath => "Cultures";
 
-    protected override IReadOnlyList<CultureInfo> GetDataInfos()
+    protected override IReadOnlyList<CultureInfo> GetFlatEntitiesFromDataSources()
     {
         var sourceOutputPath = _configuration.GetValue<string>(ConfigurationConstants.SourceDataPathSettingName)!;
         var uriLocalePlanetList = _configuration.GetValue<string>(ConfigurationConstants.UriLocalePlanetList)!;
@@ -183,5 +183,24 @@ internal class CultureDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Cu
             Task.Delay(500).Wait();
         }
         return culturesDataToSave;
+    }
+
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<CultureInfo> sources, IEnumerable<Culture> destinations)
+    {
+        base.DoSpecialTreatAfterAdding(sources, destinations);
+
+        var countries = _dbContext.Set<Country>().ToList();
+
+        foreach (var source in sources)
+        {
+            var cultureEntity = destinations.First(x => x.Name == source.Id);
+            cultureEntity.Country = countries.FirstOrDefault(x => source.Country == x.AlphaCode2);
+            cultureEntity.Country?.Cultures.Add(cultureEntity);
+        }
+
+        _dbContext.Set<Culture>()
+            .UpdateRange(destinations);
+
+        _dbContext.SaveChanges();
     }
 }
