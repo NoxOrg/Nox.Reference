@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +14,11 @@ public static class NoxReferenceCommonExtensions
     public static IServiceCollection AddNoxReferenceCommon(this IServiceCollection services)
     {
         services.AddScoped<NoxReferenceFileStorageService>();
-        services.AddAutoMapper(Assembly.GetCallingAssembly());
+
+        var callingAssesmbly = Assembly.GetCallingAssembly();
+        services.AddAutoMapper(callingAssesmbly);
+
+        MapperHolder.AddMapper(callingAssesmbly);
 
         services.AddSingleton(_configuration);
         return services;
