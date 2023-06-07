@@ -36,4 +36,23 @@ internal class VatNumberDefinitionDataSeeder : NoxReferenceDataSeederBase<WorldD
 
         return data;
     }
+
+    protected override void DoSpecialTreatAfterAdding(IEnumerable<VatNumberDefinitionInfo> sources, IEnumerable<VatNumberDefinition> destinations)
+    {
+        base.DoSpecialTreatAfterAdding(sources, destinations);
+
+        var countries = _dbContext.Set<Country>().ToList();
+
+        foreach (var source in sources)
+        {
+            var vatNumberDefinitionEntity = destinations.First(x => x.CountryCode == source.Country);
+            vatNumberDefinitionEntity.Country = countries.First(x => source.Country == x.AlphaCode2);
+            vatNumberDefinitionEntity.Country.VatNumberDefinition = vatNumberDefinitionEntity;
+        }
+
+        _dbContext.Set<VatNumberDefinition>()
+            .UpdateRange(destinations);
+
+        _dbContext.SaveChanges();
+    }
 }

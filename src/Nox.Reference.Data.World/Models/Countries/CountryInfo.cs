@@ -54,6 +54,9 @@ public class CountryInfo
     [JsonPropertyName("idd")]
     public DialingInfo? DialingInfo { get; set; }
 
+    [JsonIgnore]
+    public VatNumberDefinitionInfo? VatNumberDefinition { get; set; }
+
     [JsonPropertyName("capital")]
     public IReadOnlyList<string> Capitals { get; set; } = new List<string>();
 

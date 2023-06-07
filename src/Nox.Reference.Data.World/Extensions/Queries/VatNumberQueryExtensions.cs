@@ -1,5 +1,7 @@
-﻿using Nox.Reference.Data.World.Models;
+﻿using Nox.Reference.Common;
+using Nox.Reference.Data.World.Models;
 using Nox.Reference.Data.World.Services.VatNumbers;
+using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
 
@@ -17,7 +19,22 @@ public static class VatNumberQueryExtensions
     /// <returns>Resulting country</returns>
     public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, string country)
     {
-        return query.FirstOrDefault(x => x.Country.ToUpper() == country.ToUpper());
+        return query.FirstOrDefault(x => x.Country.AlphaCode2.ToUpper() == country.ToUpper());
+    }
+
+    /// <summary>
+    /// Get vat number definition by country
+    /// <example>
+    /// <code>
+    /// VatNumberDefinitions.Get(WorldCountries.France)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="country">Country enum. Example: WorldCountries.France.</param>
+    /// <returns>Resulting country</returns>
+    public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, WorldCountries country)
+    {
+        return query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
     }
 
     /// <summary>
@@ -38,11 +55,39 @@ public static class VatNumberQueryExtensions
         string validationNumber,
         bool shouldValidateViaApi = true)
     {
-        var definition = query.FirstOrDefault(x => x.Country.ToUpper() == countryAlpha2Code.ToUpper());
+        var definition = query.FirstOrDefault(x => x.Country.AlphaCode2.ToUpper() == countryAlpha2Code.ToUpper());
 
         if (definition == null)
         {
             throw new Exception($"Country {countryAlpha2Code} is not supported.");
+        }
+
+        return definition.Validate(validationNumber, shouldValidateViaApi);
+    }
+
+    /// <summary>
+    /// Validate vat number
+    /// <example>
+    /// <code>
+    /// VatNumberDefinitions.Validate(WorldCountries.France, "UA0203654090", false)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="country">Country enum. Example: WorldCountries.France.</param>
+    /// <param name="validationNumber">Vat number as string</param>
+    /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
+    /// <returns>Validation result</returns>
+    public static VatNumberValidationResult? Validate(
+        this IQueryable<VatNumberDefinition> query,
+        WorldCountries country,
+        string validationNumber,
+        bool shouldValidateViaApi = true)
+    {
+        var definition = query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
+
+        if (definition == null)
+        {
+            throw new Exception($"Country {country} is not supported.");
         }
 
         return definition.Validate(validationNumber, shouldValidateViaApi);

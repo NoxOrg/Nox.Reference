@@ -1,4 +1,7 @@
-﻿namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿using Nox.Reference.Common;
+using Nox.Reference.World;
+
+namespace Nox.Reference.Data.World.Extensions.Queries;
 
 public static class LanguagesQueryExtensions
 {
@@ -90,5 +93,20 @@ public static class LanguagesQueryExtensions
     public static Language? GetByIso_639_3(this IQueryable<Language> query, string isoCode)
     {
         return query.FirstOrDefault(x => x.Iso_639_3 == isoCode.ToLower());
+    }
+
+    /// <summary>
+    /// Get languages used in country
+    /// <example>
+    /// <code>
+    /// Languages.GetLanguagesForCountry(WorldCountries.Austria)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="country">Country enum. Example: WorldCountries.Austria.</param>
+    /// <returns>Language info</returns>
+    public static List<Language>? GetLanguagesForCountry(this IQueryable<Language> query, WorldCountries country)
+    {
+        return query.Where(x => x.Countries.Any(x => x.Name == country.GetStringValue())).ToList();
     }
 }

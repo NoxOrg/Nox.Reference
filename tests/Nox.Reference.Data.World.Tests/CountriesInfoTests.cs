@@ -31,6 +31,8 @@ public class CountryInfoTests
         const string countryCode = "ZA";
         var info = World.Countries.Get(countryCode)!;
         Assert.IsNotNull(info);
+        Assert.IsNotEmpty(info.Cultures);
+        Assert.IsNotNull(info.VatNumberDefinition);
         Assert.That(info.Id, Is.EqualTo(countryCode));
 
         var mappedInfo = World.Mapper.Map<CountryInfo>(info);

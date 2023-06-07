@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using Nox.Reference.Common;
+using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
 
@@ -62,5 +63,20 @@ public static class CultureQueryExtensions
     public static Culture? GetByNativeName(this IQueryable<Culture> query, string nativeName)
     {
         return query.FirstOrDefault(x => x.NativeName == nativeName);
+    }
+
+    /// <summary>
+    /// This method returns culture info by country
+    /// <example>
+    /// <code>
+    /// Cultures.GetByCountry(WorldCountries.UnitedStates)
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="country">Country enum. Example: WorldCountries.UnitedStates.</param>
+    /// <returns>Culture info</returns>
+    public static List<Culture> GetByCountry(this IQueryable<Culture> query, WorldCountries country)
+    {
+        return query.Where(x => x.Country != null && x.Country.Name == country.GetStringValue()).ToList();
     }
 }

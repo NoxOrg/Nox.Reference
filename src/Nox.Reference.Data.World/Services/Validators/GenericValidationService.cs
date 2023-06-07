@@ -18,7 +18,7 @@ public static class GenericValidationService
         VatNumberDefinition vatNumberInfo,
         bool shouldValidateViaApi = true)
     {
-        var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country);
+        var result = VatNumberValidationResult.CreateWithValidaton(vatNumber, vatNumberInfo.Country.AlphaCode2);
         var validationInfoByPattern = GetValidationInfoFromVatNumberInfo(result.FormattedVatNumber, vatNumberInfo);
 
         if (validationInfoByPattern == null)

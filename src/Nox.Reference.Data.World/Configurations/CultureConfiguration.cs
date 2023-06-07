@@ -18,5 +18,8 @@ internal class CultureConfiguration : NoxReferenceEntityConfigurationBase<Cultur
             .WithOne(x => x.Culture)
             .HasForeignKey<DateFormat>("CultureId")
             .OnDelete(DeleteBehavior.Cascade);
+        builder
+            .HasOne(x => x.Country)
+            .WithMany(x => x.Cultures);
     }
 }

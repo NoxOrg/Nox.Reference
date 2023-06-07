@@ -10,5 +10,9 @@ internal class VatNumberDefinitionConfiguration : NoxReferenceEntityConfiguratio
         builder
             .HasMany(x => x.ValidationRules)
             .WithOne();
+
+        builder
+            .HasOne(x => x.Country)
+            .WithOne(x => x.VatNumberDefinition);
     }
 }

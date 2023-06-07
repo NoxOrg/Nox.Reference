@@ -27,9 +27,11 @@ CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.Na
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
 // Cultures
-Culture culture = World.Cultures.Get("tg-TJ")!;
+Culture culture1 = World.Cultures.Get("tg-TJ")!;
+List<Culture> culture2 = World.Cultures.GetByCountry(WorldCountries.UnitedStates)!;
 
-Console.WriteLine($"Inline -- Culture -- {culture.Name} -- {culture.DisplayName}");
+Console.WriteLine($"Inline -- Culture -- {culture1.Name} -- {culture1.DisplayName}");
+Console.WriteLine($"Inline -- Culture -- {WorldCountries.UnitedStates} -- {culture2.Count}");
 
 // Currencies
 Currency currency1 = World.Currencies.Get("TWD")!;
@@ -47,8 +49,10 @@ Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Y
 
 // Languages
 Language language = World.Languages.GetByIso_639_2t("ces")!;
+List<Language> languages = World.Languages.GetLanguagesForCountry(WorldCountries.Switzerland)!;
 
 Console.WriteLine($"Inline -- Language -- {language.Iso_639_3} -- {language.Name}");
+Console.WriteLine($"Inline -- Language -- {WorldCountries.Switzerland} -- {languages.Count}");
 
 // Timezones
 Nox.Reference.Data.World.TimeZone timezone = World.TimeZones.Get("EET")!;
@@ -57,7 +61,7 @@ Console.WriteLine($"Inline -- TimeZone -- {timezone.Code} -- {timezone.Type}");
 
 // VatNumberDefinitions
 VatNumberValidationResult validationSuccessResult = World.VatNumberDefinitions.Validate("ES", "B65296485", true)!;
-var validationFailResult = World.VatNumberDefinitions.Validate("ES", "BROKEN", true)!;
+var validationFailResult = World.VatNumberDefinitions.Validate(WorldCountries.Spain, "BROKEN", true)!;
 
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationSuccessResult.Country} -- {validationSuccessResult.FormattedVatNumber} -- {validationSuccessResult.Status}");
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationFailResult.Country} -- {validationFailResult.FormattedVatNumber} -- {validationFailResult.Status}");

@@ -68,12 +68,43 @@ public class VatNumberTests
         var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
+        Assert.That(definition.Country, Is.Not.Null);
+
         var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
 
         Trace.WriteLine(Serialize(mappedDefinition));
         Trace.WriteLine(Serialize(validationResult));
 
         Assert.That(mappedDefinition, Is.Not.Null);
+        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+    }
+
+    [Test]
+    public void VatNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
+    {
+        var definition = _dbContext!.VatNumberDefinitions.Get(Reference.World.WorldCountries.Ukraine)!;
+        var validationResult = definition.Validate("UA0203654090", false)!;
+
+        Assert.That(definition.Country, Is.Not.Null);
+
+        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
+
+        Trace.WriteLine(Serialize(mappedDefinition));
+        Trace.WriteLine(Serialize(validationResult));
+
+        Assert.That(mappedDefinition, Is.Not.Null);
+        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+    }
+
+    [Test]
+    public void VatNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
+    {
+        var validationResult = _dbContext!.VatNumberDefinitions.Validate(Reference.World.WorldCountries.Ukraine, "UA0203654090", false)!;
+
+        Assert.That(validationResult.Country, Is.Not.Null);
+
+        Trace.WriteLine(Serialize(validationResult));
+
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
 
