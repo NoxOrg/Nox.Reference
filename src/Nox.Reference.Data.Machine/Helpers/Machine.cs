@@ -29,7 +29,7 @@ public static class Machine
     /// <para>'Data Source=..\..\data\Nox.Reference.Machine.db'</para>
     /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.Machine.db'</para>
     /// </summary>
-    /// <param name="databasePath">New overridden database connection string</param>
+    /// <param name="path">New overridden database connection string</param>
     public static void UseDatabaseConnectionString(string path)
         => MachineDbContext.UseDatabaseConnectionString(path);
 }

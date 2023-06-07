@@ -13,6 +13,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country alpha 2 code. Example: "UA".</param>
     /// <returns>Country info</returns>
     public static Country? Get(this IQueryable<Country> query, string countryCode)
@@ -28,6 +29,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country alpha 3 code. Example: "UKR".</param>
     /// <returns>Country info</returns>
     public static Country? GetByAlpha3Code(this IQueryable<Country> query, string countryCode)
@@ -43,6 +45,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country alpha 2 code. Example: "UA".</param>
     /// <returns>Country info</returns>
     public static Country? GetByAlpha2Code(this IQueryable<Country> query, string countryCode)
@@ -58,6 +61,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country numeric code. Example: "804".</param>
     /// <returns>Country info</returns>
     public static Country? GetByNumericCode(this IQueryable<Country> query, string countryCode)
@@ -73,6 +77,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country Olympic committee code. Example: "UKR".</param>
     /// <returns>Country info</returns>
     public static Country? GetByOlympicCommitteeCode(this IQueryable<Country> query, string countryCode)
@@ -88,6 +93,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country fifa code. Example: "UKR".</param>
     /// <returns>Country info</returns>
     public static Country? GetByFifaCode(this IQueryable<Country> query, string countryCode)
@@ -103,6 +109,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryCode">Country fips code. Example: "UP".</param>
     /// <returns>Country info</returns>
     public static Country? GetByFipsCode(this IQueryable<Country> query, string countryCode)
@@ -118,6 +125,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="commonName">Country common name. Example: "United States".</param>
     /// <returns>Country info</returns>
     public static Country? GetByCommonEnglishName(this IQueryable<Country> query, string commonName)
@@ -134,7 +142,8 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
-    /// <param name="commonName">Country official name. Example: "United States of America".</param>
+    /// <param name="query">Current collection</param>
+    /// <param name="officialName">Country official name. Example: "United States of America".</param>
     /// <returns>Country info</returns>
     public static Country? GetByOfficialEnglishName(this IQueryable<Country> query, string officialName)
     {
@@ -149,6 +158,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="info">Current country</param>
     /// <param name="languageCode">Language iso 639 1 code. Example: "br".</param>
     /// <returns>Name translation or null</returns>
     public static CountryNameTranslation? GetTranslation(this Country info, string languageCode)
@@ -164,6 +174,7 @@ public static class CountryQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country enum value. Example: WorldCountries.Austria.</param>
     /// <returns>Name translation or null</returns>
     public static Country? Get(this IQueryable<Country> query, WorldCountries country)

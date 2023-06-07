@@ -15,6 +15,7 @@ public static class VatNumberQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country alpha 2 code. Example: "UA".</param>
     /// <returns>Resulting country</returns>
     public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, string country)
@@ -30,6 +31,7 @@ public static class VatNumberQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country enum. Example: WorldCountries.France.</param>
     /// <returns>Resulting country</returns>
     public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, WorldCountries country)
@@ -45,6 +47,7 @@ public static class VatNumberQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="countryAlpha2Code">Alpha 2 country code. Example: "UA".</param>
     /// <param name="validationNumber">Vat number as string</param>
     /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>
@@ -73,6 +76,7 @@ public static class VatNumberQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country enum. Example: WorldCountries.France.</param>
     /// <param name="validationNumber">Vat number as string</param>
     /// <param name="shouldValidateViaApi">Flag to determine if validation should use online API service (if applicable) or not</param>

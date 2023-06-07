@@ -13,6 +13,7 @@ public static class HolidaysQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="year">Year to get holiday info. Example: 2023.</param>
     /// <param name="countryCode">Country to get holiday info alpha code. Example: "UA".</param>
     /// <returns>Holiday info per country</returns>
@@ -32,6 +33,7 @@ public static class HolidaysQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="year">Year to get holiday info. Example: 2023.</param>
     /// <param name="country">Country to get holiday info enum value. Example: WorldCountries.Austria.</param>
     /// <returns>Holiday info per country</returns>

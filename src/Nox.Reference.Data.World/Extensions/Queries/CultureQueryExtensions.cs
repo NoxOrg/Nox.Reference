@@ -13,6 +13,7 @@ public static class CultureQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="code">Culture name. Example: "uz-Arab".</param>
     /// <returns>Culture info</returns>
     public static Culture? Get(this IQueryable<Culture> query, string code)
@@ -28,6 +29,7 @@ public static class CultureQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="code">Culture name. Example: "uz-Arab".</param>
     /// <returns>Culture info</returns>
     public static Culture? GetByName(this IQueryable<Culture> query, string code)
@@ -43,6 +45,7 @@ public static class CultureQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="formalName">Culture name. Example: "Uzbek (Arabic)".</param>
     /// <returns>Culture info</returns>
     public static Culture? GetByFormalName(this IQueryable<Culture> query, string formalName)
@@ -58,6 +61,7 @@ public static class CultureQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="nativeName">Culture native name. Example: "(اوزبیک(عربی".</param>
     /// <returns>Culture info</returns>
     public static Culture? GetByNativeName(this IQueryable<Culture> query, string nativeName)
@@ -73,6 +77,7 @@ public static class CultureQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country enum. Example: WorldCountries.UnitedStates.</param>
     /// <returns>Culture info</returns>
     public static List<Culture> GetByCountry(this IQueryable<Culture> query, WorldCountries country)

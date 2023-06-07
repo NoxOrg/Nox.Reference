@@ -13,6 +13,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Iso 639 1 code. Example: 'fr'.</param>
     /// <returns>Language info</returns>
     public static Language? Get(this IQueryable<Language> query, string isoCode)
@@ -28,6 +29,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="englishName">Language English name. Example: 'French'.</param>
     /// <returns>Language info</returns>
     public static Language? GetByEnglishName(this IQueryable<Language> query, string englishName)
@@ -43,6 +45,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Iso 639 1 code. Example: 'fr'.</param>
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_1(this IQueryable<Language> query, string isoCode)
@@ -58,6 +61,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Iso 639 2b code. Example: 'fre'.</param>
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_2b(this IQueryable<Language> query, string isoCode)
@@ -73,6 +77,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Iso 639 2t code. Example: 'fra'.</param>
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_2t(this IQueryable<Language> query, string isoCode)
@@ -88,6 +93,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Iso 639 3 code. Example: 'fra'.</param>
     /// <returns>Language info</returns>
     public static Language? GetByIso_639_3(this IQueryable<Language> query, string isoCode)
@@ -103,6 +109,7 @@ public static class LanguagesQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="country">Country enum. Example: WorldCountries.Austria.</param>
     /// <returns>Language info</returns>
     public static List<Language>? GetLanguagesForCountry(this IQueryable<Language> query, WorldCountries country)
