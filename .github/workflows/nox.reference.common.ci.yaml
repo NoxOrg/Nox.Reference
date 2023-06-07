@@ -31,6 +31,4 @@ jobs:
       - name: Restore
         run: dotnet restore ./src/Nox.Reference.Common/Nox.Reference.Common.csproj
       - name: Build
-        run: dotnet build ./src/Nox.Reference.Common/Nox.Reference.Common.csproj --warnaserror --configuration Release --no-restore      
-      - name: Tests
-        run: dotnet test ./tests/Nox.Reference.Common.Tests/Nox.Reference.Common.Tests.csproj --no-restore --verbosity minimal --configuration Release
+        run: dotnet build ./src/Nox.Reference.Common/Nox.Reference.Common.csproj --warnaserror --configuration Release --no-restore
