@@ -4,9 +4,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.Common</PackageId>
-    <AssemblyVersion>1.0.7.0</AssemblyVersion>
-    <FileVersion>1.0.7.0</FileVersion>
-    <PackageVersion>1.0.7.0</PackageVersion>
+    <AssemblyVersion>1.0.8.0</AssemblyVersion>
+    <FileVersion>1.0.8.0</FileVersion>
+    <PackageVersion>1.0.8.0</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -17,6 +17,7 @@
     <PackageIcon>nox.png</PackageIcon>
     <Description>Basic shared classes for data</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />

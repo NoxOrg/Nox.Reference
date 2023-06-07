@@ -7,6 +7,8 @@ using Nox.Reference.Data.World.Models;
 using Nox.Reference.World;
 using System.Text.Json;
 
+// TODO: adjust namespaces
+
 Console.WriteLine("This is Nox.Reference Demo!");
 
 // Simplified flow
@@ -56,8 +58,10 @@ Console.WriteLine($"Inline -- Language -- {WorldCountries.Switzerland} -- {langu
 
 // Timezones
 Nox.Reference.Data.World.TimeZone timezone = World.TimeZones.Get("EET")!;
+List<Nox.Reference.Data.World.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
 
 Console.WriteLine($"Inline -- TimeZone -- {timezone.Code} -- {timezone.Type}");
+Console.WriteLine($"Inline -- TimeZone -- {WorldCountries.Canada} -- {timezones.Count}");
 
 // VatNumberDefinitions
 VatNumberValidationResult validationSuccessResult = World.VatNumberDefinitions.Validate("ES", "B65296485", true)!;
