@@ -4,13 +4,13 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - src/Nox.Reference.Abstractions/**
+      - src/Nox.Reference.Common/**
+      - src/Nox.Reference.Data.Common/**
       - tests/Nox.Reference.Data.Common.Tests/**
       - .github/workflows/nox.reference.data.common.ci.yaml
   push:
     branches: [ main ]
     paths:
-      - src/Nox.Reference.Abstractions/**
       - src/Nox.Reference.Data.Common/**
       - tests/Nox.Reference.Data.Common.Tests/**
       - .github/workflows/nox.reference.data.common.ci.yaml

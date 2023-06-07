@@ -4,15 +4,14 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - src/Nox.Reference.Abstractions/**
       - src/Nox.Reference.Common/**
+      - src/Nox.Reference.Data.Common/**
       - src/Nox.Reference.Data.Machine/**
       - tests/Nox.Reference.Data.Machine.Tests/**
       - .github/workflows/nox.reference.data.machine.ci.yaml
   push:
     branches: [ main ]
     paths:
-      - src/Nox.Reference.Abstractions/**
       - src/Nox.Reference.Data.Machine/**
       - tests/Nox.Reference.Data.Machine.Tests/**
       - .github/workflows/nox.reference.data.machine.ci.yaml
