@@ -26,7 +26,7 @@ public class CountryInfo
     public string AlphaCode3 { get; set; } = string.Empty;
 
     [JsonIgnore]
-    public string Code => AlphaCode3;
+    public string Code => AlphaCode2;
 
     [JsonPropertyName("cioc")]
     public string OlympicCommitteeCode { get; set; } = string.Empty;
@@ -53,6 +53,9 @@ public class CountryInfo
 
     [JsonPropertyName("idd")]
     public DialingInfo? DialingInfo { get; set; }
+
+    [JsonIgnore]
+    public VatNumberDefinitionInfo? VatNumberDefinition { get; set; }
 
     [JsonPropertyName("capital")]
     public IReadOnlyList<string> Capitals { get; set; } = new List<string>();

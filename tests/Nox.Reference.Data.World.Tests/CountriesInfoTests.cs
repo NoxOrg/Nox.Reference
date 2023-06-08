@@ -16,7 +16,7 @@ public class CountryInfoTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
-        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
+        WorldDbContext.UseDatabaseConnectionString(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -27,11 +27,14 @@ public class CountryInfoTests
     }
 
     [Test]
-    public void CountryInfo_WithIso3Alpha_ReturnsValidInfo()
+    public void CountryInfo_WithIso2Alpha_ReturnsValidInfo()
     {
-        const string countryCode = "ZAF";
+        const string countryCode = "ZA";
+
         var country = World.Countries.Get(countryCode)!;
         Assert.IsNotNull(country);
+        Assert.IsNotEmpty(country.Cultures);
+        Assert.IsNotNull(country.VatNumberDefinition);
         Assert.That(country.Id, Is.EqualTo(countryCode));
 
         var countryInfo = country.ToDto<CountryInfo>();
@@ -58,7 +61,7 @@ public class CountryInfoTests
         Assert.Multiple(() =>
         {
             Assert.That(countryInfo, Is.Not.Null);
-            Assert.That(countryInfo.Code, Is.EqualTo("ZAF"));
+            Assert.That(countryInfo.Code, Is.EqualTo("ZA"));
             Assert.That(countryInfo.Languages, Is.Not.Empty);
             Assert.That(countryInfo.NameTranslations, Is.Not.Empty);
             Assert.That(countryInfo.Currencies, Is.Not.Empty);
@@ -71,7 +74,7 @@ public class CountryInfoTests
     public void CountryInfo_WithIso3AlphaAndTranslationForCountry_ReturnsTranslation()
     {
         var translation = _worldDbContext.Countries
-            .Get("ZAF")!
+            .Get("ZA")!
             .GetTranslation("en")!;
 
         var translationInfo = translation.ToDto<CountryNameTranslationInfo>();

@@ -20,11 +20,15 @@ public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
     public virtual IReadOnlyList<Demonymn> Demonyms { get; internal set; } = new List<Demonymn>();
     public virtual List<Country> BorderingCountries { get; internal set; } = new List<Country>();
     public virtual IReadOnlyList<CountryCapital> Capitals { get; internal set; } = new List<CountryCapital>();
-    public virtual IReadOnlyList<TimeZone> TimeZones { get; set; } = new List<TimeZone>();
+    public virtual IReadOnlyList<TimeZone> TimeZones { get; private set; } = new List<TimeZone>();
+    public virtual List<Culture> Cultures { get; private set; } = new List<Culture>();
 
     [NotMapped]
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
 
+    internal int? VatNumberDefinitionId { get; private set; }
+    [ForeignKey("VatNumberDefinitionId")]
+    public virtual VatNumberDefinition? VatNumberDefinition { get; internal set; }
     public virtual CountryDialing? Dialing { get; private set; }
     public virtual CoatOfArms? CoatOfArms { get; private set; }
     public virtual GeoCoordinates? GeoCoordinates { get; private set; }

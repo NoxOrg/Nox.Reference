@@ -10,7 +10,7 @@ namespace Nox.Reference.Data.World;
 
 internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryHolidayInfo, CountryHoliday>
 {
-    private readonly int[] _availableYears = new[] { 2023, 2024 };
+    private readonly int[] _availableYears = new[] { 2023, 2024, 2025 };
     private readonly IConfiguration _configuration;
 
     public HolidayDataSeeder(
@@ -28,7 +28,7 @@ internal class HolidayDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
 
     public override string TargetFileName => "Nox.Reference.Holidays.json";
 
-    protected override IReadOnlyList<CountryHolidayInfo> GetDataInfos()
+    protected override IReadOnlyList<CountryHolidayInfo> GetFlatEntitiesFromDataSources()
     {
         var holidaysZipPath = _configuration.GetValue<string>(ConfigurationConstants.HolidaysZipPathSettingName)!;
         var holidays = new List<CountryHolidayInfo>();

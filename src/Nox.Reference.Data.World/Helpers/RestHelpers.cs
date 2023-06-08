@@ -4,6 +4,13 @@ namespace Nox.Reference.Data.World;
 
 internal static class RestHelper
 {
+    /// <summary>
+    /// Helper method to get HTTP request result
+    /// </summary>
+    /// <param name="uri">Request uri</param>
+    /// <param name="accept">Accept header</param>
+    /// <returns>Response</returns>
+    /// <exception cref="Exception"></exception>
     internal static RestResponse GetInternetContent(string uri, string accept = "application/json")
     {
         var client = new RestClient(uri);

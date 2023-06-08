@@ -8,4 +8,9 @@ public static class MapperExtensions
     {
         return MapperHolder.Mapper.Map<TDto>(entity);
     }
+
+    public static IEnumerable<TDto> ToDto<TDto>(this IEnumerable<NoxReferenceEntityBase> entities)
+    {
+        return entities.Select(entity => entity.ToDto<TDto>());
+    }
 }

@@ -2,8 +2,10 @@
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 
 namespace Nox.Reference.Data.World.Tests;
 
@@ -16,7 +18,7 @@ public class CulturesTests
     public void Setup()
     {
         var serviceCollection = new ServiceCollection();
-        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
+        WorldDbContext.UseDatabaseConnectionString(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -40,7 +42,24 @@ public class CulturesTests
         Assert.Multiple(() =>
         {
             Assert.That(cultureInfo, Is.Not.Null);
-            Assert.That(cultureInfo?.DisplayName, Is.EqualTo("English (United States)"));
+            Assert.That(cultureInfo.Country, Is.Not.Null);
+            Assert.That(cultureInfo.DisplayName, Is.EqualTo("English (United States)"));
+        });
+    }
+
+    [Test]
+    public void GetCultures_GetByCountry_ReturnsValidInfo()
+    {
+        var countries = _worldDbContext.Cultures.GetByCountry(Reference.World.WorldCountries.UnitedStates);
+
+        var mappedInfo = countries.ToDto<Models.CultureInfo>();
+
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo, Is.Not.Null);
+            Assert.That(mappedInfo.Count, Is.EqualTo(6));
         });
     }
 

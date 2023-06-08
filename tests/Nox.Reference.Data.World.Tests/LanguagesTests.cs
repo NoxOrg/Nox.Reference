@@ -15,7 +15,7 @@ public class LanguagesTests
     public void Setup()
     {
         IServiceCollection serviceCollection = new ServiceCollection();
-        WorldDbContext.UseDatabasePath(DatabaseConstant.WorldDbPath);
+        WorldDbContext.UseDatabaseConnectionString(DatabaseConstant.WorldDbPath);
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
@@ -24,7 +24,7 @@ public class LanguagesTests
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
 
-    [TestCase("uk", "true", "Ukrainian", 4, 1, "UKR")]
+    [TestCase("uk", "true", "Ukrainian", 4, 1, "UA")]
     public void GetLanguages_ReturnsProperValue(
         string input,
         string expectedIsCommon,
@@ -35,7 +35,7 @@ public class LanguagesTests
     {
         Language language = _worldDbContext.Languages.Get(input)!;
         Assert.That(language, Is.Not.Null);
-        Assert.That(language.Id, Is.EqualTo("ukr"));
+        Assert.That(language!.Id, Is.EqualTo("ukr"));
 
         var mappedInfo = language.ToDto<LanguageInfo>();
 

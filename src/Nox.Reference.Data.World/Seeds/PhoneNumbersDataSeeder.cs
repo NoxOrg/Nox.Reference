@@ -25,7 +25,7 @@ internal class PhoneNumbersDataSeeder : NoxReferenceDataSeederBase<WorldDbContex
 
     public override string DataFolderPath => "PhoneNumberCarriers";
 
-    protected override IReadOnlyList<PhoneCarrierInfo> GetDataInfos()
+    protected override IReadOnlyList<PhoneCarrierInfo> GetFlatEntitiesFromDataSources()
     {
         var phoneCarrierDataPath = _configuration.GetValue<string>(ConfigurationConstants.PhoneCarrierDataPathSettingName)!;
 
