@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using System.Diagnostics;
 using System.Globalization;
@@ -30,16 +31,16 @@ public class CulturesTests
     [Test]
     public void GetCultures_WithKnownEnglishCode_ReturnsValidInfo()
     {
-        var info = _worldDbContext.Cultures.Get("en-US");
+        var culture = _worldDbContext.Cultures.Get("en-US")!;
 
-        var mappedInfo = World.Mapper.Map<Models.CultureInfo>(info);
+        var cultureInfo = culture.ToDto<Models.CultureInfo>();
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(cultureInfo));
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo?.DisplayName, Is.EqualTo("English (United States)"));
+            Assert.That(cultureInfo, Is.Not.Null);
+            Assert.That(cultureInfo?.DisplayName, Is.EqualTo("English (United States)"));
         });
     }
 

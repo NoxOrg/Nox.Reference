@@ -4,7 +4,6 @@ using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
 using Nox.Reference.World;
 using System.Diagnostics;
-using System.Linq;
 using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -80,21 +79,10 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        var currency = World.Currencies.Get("USD");
-
-        var mappedCurrency = World.Mapper.Map<CurrencyInfo>(currency);
-
-        Assert.That(mappedCurrency.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
-        Assert.That(mappedCurrency.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
-    }
-
-    [Test]
-    public void GetCurrencies_ConvertToDto_ReturnsSuccess()
-    {
         var currency = World.Currencies.Get("USD")!;
+
         var currencyInfo = currency.ToDto<CurrencyInfo>();
 
-        Assert.That(currencyInfo, Is.Not.Null);
         Assert.That(currencyInfo.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
         Assert.That(currencyInfo.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
     }

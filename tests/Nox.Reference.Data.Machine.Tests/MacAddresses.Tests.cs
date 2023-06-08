@@ -73,8 +73,9 @@ public class MacAddressesTests
     {
         MacAddress macAddress = Machine.Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
 
-        var macAddressInfo = macAddress.ToDto<MacAddressInfo>();
+        MacAddressInfo macAddressInfo = macAddress.ToDto<MacAddressInfo>();
 
         Assert.That(macAddressInfo, Is.Not.Null);
+        Assert.That(macAddressInfo.MacPrefix, Is.EqualTo("0016F6"));
     }
 }

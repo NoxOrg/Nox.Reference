@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
 using System.Collections.Generic;
@@ -68,12 +69,12 @@ public class VatNumberTests
         var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
-        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
+        var definitionInfo = definition.ToDto<VatNumberDefinitionInfo>();
 
-        Trace.WriteLine(Serialize(mappedDefinition));
+        Trace.WriteLine(Serialize(definitionInfo));
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(mappedDefinition, Is.Not.Null);
+        Assert.That(definitionInfo, Is.Not.Null);
         Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
     }
 
@@ -192,11 +193,11 @@ public class VatNumberTests
     {
         var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
 
-        var mappedResult = World.Mapper.Map<VatNumberDefinitionInfo>(validationDefinition);
+        var validationDefinitionInfo = validationDefinition.ToDto<VatNumberDefinitionInfo>();
 
-        Trace.WriteLine(Serialize(mappedResult));
+        Trace.WriteLine(Serialize(validationDefinitionInfo));
 
-        Assert.That(mappedResult, Is.Not.Null);
+        Assert.That(validationDefinitionInfo, Is.Not.Null);
     }
 
     [TearDown]
