@@ -13,6 +13,7 @@ public static class CurrencyQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="currencyIsoCode">Currency ISO Code. Example: "AED".</param>
     /// <returns>Currency info</returns>
     public static Currency? Get(this IQueryable<Currency> query, string currencyIsoCode)
@@ -28,6 +29,7 @@ public static class CurrencyQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoCode">Currency ISO Code Example: 'AED'</param>
     /// <returns>Currency info</returns>
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)
@@ -43,6 +45,7 @@ public static class CurrencyQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="isoNumber">Currency ISO Number. Example: '784'</param>
     /// <returns>Currency info</returns>
     public static Currency? GetByIsoNumber(this IQueryable<Currency> query, string isoNumber)
@@ -58,6 +61,7 @@ public static class CurrencyQueryExtensions
     /// </code>
     /// </example>
     /// </summary>
+    /// <param name="query">Current collection</param>
     /// <param name="currency">Currency enum value. Example: WorldCurrencies.DutchGuilder.</param>
     /// <returns>Currency info</returns>
     public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
