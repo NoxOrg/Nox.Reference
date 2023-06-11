@@ -30,7 +30,7 @@ public static class VatValidationService
             return VatNumberValidationResult.CreateWithoutValidation(ValidationErrors.ValidatorNotFoundError);
         }
 
-        return GenericValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
+        return GenericVatValidationService.ValidateVatNumber(vatNumber, vatNumberDefinition, shouldValidateViaApi);
     }
 
     /// <summary>

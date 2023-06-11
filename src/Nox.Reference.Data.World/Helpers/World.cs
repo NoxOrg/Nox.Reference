@@ -24,6 +24,9 @@ public static class World
     public static IQueryable<VatNumberDefinition> VatNumberDefinitions
         => WorldDataContext.VatNumberDefinitions;
 
+    public static IQueryable<TaxNumberDefinition> TaxNumberDefinitions
+        => WorldDataContext.TaxNumberDefinitions;
+
     public static IQueryable<Language> Languages
         => WorldDataContext.Languages;
 

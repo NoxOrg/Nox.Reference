@@ -212,6 +212,21 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TaxNumberDefinition",
+                columns: table => new
+                {
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    LocalName = table.Column<string>(type: "TEXT", nullable: false),
+                    VerificationApi = table.Column<int>(type: "INTEGER", nullable: false),
+                    CountryCode = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TaxNumberDefinition", x => x.EntityId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TimeZone",
                 columns: table => new
                 {
@@ -439,6 +454,34 @@ namespace Nox.Reference.Data.World.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TaxNumberValidationRule",
+                columns: table => new
+                {
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    TranslationId = table.Column<string>(type: "TEXT", nullable: false),
+                    Regex = table.Column<string>(type: "TEXT", nullable: false),
+                    ValidationFormatDescription = table.Column<string>(type: "TEXT", nullable: false),
+                    InputMask = table.Column<string>(type: "TEXT", nullable: false),
+                    MinimumLength = table.Column<int>(type: "INTEGER", nullable: false),
+                    MaximumLength = table.Column<int>(type: "INTEGER", nullable: false),
+                    Checksum_Algorithm = table.Column<int>(type: "INTEGER", nullable: true),
+                    Checksum_ChecksumDigit = table.Column<string>(type: "TEXT", nullable: true),
+                    Checksum_Modulus = table.Column<int>(type: "INTEGER", nullable: true),
+                    Checksum_Weights = table.Column<string>(type: "TEXT", nullable: true),
+                    TaxNumberDefinitionEntityId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TaxNumberValidationRule", x => x.EntityId);
+                    table.ForeignKey(
+                        name: "FK_TaxNumberValidationRule_TaxNumberDefinition_TaxNumberDefinitionEntityId",
+                        column: x => x.TaxNumberDefinitionEntityId,
+                        principalTable: "TaxNumberDefinition",
+                        principalColumn: "EntityId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Country",
                 columns: table => new
                 {
@@ -448,6 +491,7 @@ namespace Nox.Reference.Data.World.Migrations
                     Code = table.Column<string>(type: "TEXT", nullable: false),
                     NamesEntityId = table.Column<int>(type: "INTEGER", nullable: false),
                     VatNumberDefinitionId = table.Column<int>(type: "INTEGER", nullable: true),
+                    TaxNumberDefinitionId = table.Column<int>(type: "INTEGER", nullable: true),
                     DialingEntityId = table.Column<int>(type: "INTEGER", nullable: true),
                     CoatOfArmsEntityId = table.Column<int>(type: "INTEGER", nullable: true),
                     GeoCoordinatesEntityId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -518,6 +562,11 @@ namespace Nox.Reference.Data.World.Migrations
                         principalTable: "PostalCode",
                         principalColumn: "EntityId");
                     table.ForeignKey(
+                        name: "FK_Country_TaxNumberDefinition_TaxNumberDefinitionId",
+                        column: x => x.TaxNumberDefinitionId,
+                        principalTable: "TaxNumberDefinition",
+                        principalColumn: "EntityId");
+                    table.ForeignKey(
                         name: "FK_Country_VatNumberDefinition_VatNumberDefinitionId",
                         column: x => x.VatNumberDefinitionId,
                         principalTable: "VatNumberDefinition",
@@ -528,7 +577,8 @@ namespace Nox.Reference.Data.World.Migrations
                 name: "VatNumberValidationRule",
                 columns: table => new
                 {
-                    EntityId = table.Column<int>(type: "INTEGER", nullable: false),
+                    EntityId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     TranslationId = table.Column<string>(type: "TEXT", nullable: false),
                     Regex = table.Column<string>(type: "TEXT", nullable: false),
                     ValidationFormatDescription = table.Column<string>(type: "TEXT", nullable: false),
@@ -1071,6 +1121,12 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "PostalCodeEntityId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Country_TaxNumberDefinitionId",
+                table: "Country",
+                column: "TaxNumberDefinitionId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Country_VatNumberDefinitionId",
                 table: "Country",
                 column: "VatNumberDefinitionId",
@@ -1239,6 +1295,11 @@ namespace Nox.Reference.Data.World.Migrations
                 column: "CountryHolidayEntityId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TaxNumberValidationRule_TaxNumberDefinitionEntityId",
+                table: "TaxNumberValidationRule",
+                column: "TaxNumberDefinitionEntityId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_VatNumberValidationRule_VatNumberDefinitionEntityId",
                 table: "VatNumberValidationRule",
                 column: "VatNumberDefinitionEntityId");
@@ -1303,6 +1364,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "NumberFormat");
+
+            migrationBuilder.DropTable(
+                name: "TaxNumberValidationRule");
 
             migrationBuilder.DropTable(
                 name: "VatNumberValidationRule");
@@ -1378,6 +1442,9 @@ namespace Nox.Reference.Data.World.Migrations
 
             migrationBuilder.DropTable(
                 name: "PostalCode");
+
+            migrationBuilder.DropTable(
+                name: "TaxNumberDefinition");
 
             migrationBuilder.DropTable(
                 name: "VatNumberDefinition");

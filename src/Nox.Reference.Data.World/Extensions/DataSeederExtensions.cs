@@ -17,6 +17,7 @@ internal static class DataSeederExtensions
 
         services.AddScoped<INoxReferenceDataSeeder, CultureDataSeeder>();
         services.AddScoped<INoxReferenceDataSeeder, VatNumberDefinitionDataSeeder>();
+        services.AddScoped<INoxReferenceDataSeeder, TaxNumberDefinitionDataSeeder>();
 
         services.AddScoped<INoxReferenceDataSeeder, HolidayDataSeeder>();
 

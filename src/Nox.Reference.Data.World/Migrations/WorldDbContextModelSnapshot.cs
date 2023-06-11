@@ -296,6 +296,9 @@ namespace Nox.Reference.Data.World.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("TaxNumberDefinitionId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("VatNumberDefinitionId")
                         .HasColumnType("INTEGER");
 
@@ -317,6 +320,9 @@ namespace Nox.Reference.Data.World.Migrations
                     b.HasIndex("NamesEntityId");
 
                     b.HasIndex("PostalCodeEntityId");
+
+                    b.HasIndex("TaxNumberDefinitionId")
+                        .IsUnique();
 
                     b.HasIndex("VatNumberDefinitionId")
                         .IsUnique();
@@ -1153,6 +1159,66 @@ namespace Nox.Reference.Data.World.Migrations
                     b.ToTable("StateHoliday");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.TaxNumberDefinition", b =>
+                {
+                    b.Property<int>("EntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CountryCode")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LocalName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("VerificationApi")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("EntityId");
+
+                    b.ToTable("TaxNumberDefinition");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.TaxNumberValidationRule", b =>
+                {
+                    b.Property<int>("EntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("InputMask")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MaximumLength")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinimumLength")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Regex")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("TaxNumberDefinitionEntityId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("TranslationId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ValidationFormatDescription")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EntityId");
+
+                    b.HasIndex("TaxNumberDefinitionEntityId");
+
+                    b.ToTable("TaxNumberValidationRule");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.TimeZone", b =>
                 {
                     b.Property<int>("EntityId")
@@ -1429,6 +1495,10 @@ namespace Nox.Reference.Data.World.Migrations
                         .WithMany()
                         .HasForeignKey("PostalCodeEntityId");
 
+                    b.HasOne("Nox.Reference.Data.World.TaxNumberDefinition", "TaxNumberDefinition")
+                        .WithOne("Country")
+                        .HasForeignKey("Nox.Reference.Data.World.Country", "TaxNumberDefinitionId");
+
                     b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", "VatNumberDefinition")
                         .WithOne("Country")
                         .HasForeignKey("Nox.Reference.Data.World.Country", "VatNumberDefinitionId");
@@ -1450,6 +1520,8 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Names");
 
                     b.Navigation("PostalCode");
+
+                    b.Navigation("TaxNumberDefinition");
 
                     b.Navigation("VatNumberDefinition");
 
@@ -1657,6 +1729,41 @@ namespace Nox.Reference.Data.World.Migrations
                         .HasForeignKey("CountryHolidayEntityId");
                 });
 
+            modelBuilder.Entity("Nox.Reference.Data.World.TaxNumberValidationRule", b =>
+                {
+                    b.HasOne("Nox.Reference.Data.World.TaxNumberDefinition", null)
+                        .WithMany("ValidationRules")
+                        .HasForeignKey("TaxNumberDefinitionEntityId");
+
+                    b.OwnsOne("Nox.Reference.Data.World.Checksum", "Checksum", b1 =>
+                        {
+                            b1.Property<int>("TaxNumberValidationRuleEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<int?>("Algorithm")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("ChecksumDigit")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<int?>("Modulus")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("Weights")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("TaxNumberValidationRuleEntityId");
+
+                            b1.ToTable("TaxNumberValidationRule");
+
+                            b1.WithOwner()
+                                .HasForeignKey("TaxNumberValidationRuleEntityId");
+                        });
+
+                    b.Navigation("Checksum");
+                });
+
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberValidationRule", b =>
                 {
                     b.HasOne("Nox.Reference.Data.World.VatNumberDefinition", null)
@@ -1758,6 +1865,14 @@ namespace Nox.Reference.Data.World.Migrations
                     b.Navigation("Holidays");
 
                     b.Navigation("Regions");
+                });
+
+            modelBuilder.Entity("Nox.Reference.Data.World.TaxNumberDefinition", b =>
+                {
+                    b.Navigation("Country")
+                        .IsRequired();
+
+                    b.Navigation("ValidationRules");
                 });
 
             modelBuilder.Entity("Nox.Reference.Data.World.VatNumberDefinition", b =>

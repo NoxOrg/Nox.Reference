@@ -5,6 +5,7 @@ public static class ValidationErrors
     public const string NullValueError = "Null value was provided.";
     public const string EmptyCountryError = "Empty country value was provided.";
     public const string UnknownChecksumAlgorithm = "Unknown checksum algorithm.";
+    public const string EmptyTaxNumberError = "Empty tax number was provided.";
     public const string EmptyVatNumberError = "Empty vat number was provided.";
     public const string ValidatorNotFoundError = "Cannot find validator for a provided Vat number.";
     public const string WrongFormatErrorTemplate = "Validation of given value '{0}' has failed. Please, use the following format: '{1}'.";
