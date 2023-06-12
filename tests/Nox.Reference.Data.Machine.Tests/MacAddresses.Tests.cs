@@ -27,20 +27,26 @@ public class MacAddressesTests
 
     [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]
     [TestCase("00-16-F6-11-22-33", "0016F6", "Nevion")]
+    [TestCase("00 16 F6 11 22 33", "0016F6", "Nevion")]
     public void GetVendorMacAddress_ValidMacAddressString_ReturnsValidInfo(
         string input,
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = _macAddressContext.MacAddresses.Get(input);
-        Assert.That(info, Is.Not.Null);
-        Assert.That(expectedPrefix, Is.EqualTo(info.Id));
-
+        var info = _macAddressContext.MacAddresses.Get(input)!;
+        Assert.Multiple(() =>
+        {
+            Assert.That(info, Is.Not.Null);
+            Assert.That(expectedPrefix, Is.EqualTo(info.Id));
+        });
         var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
 
         Assert.That(mappedInfo, Is.Not.Null);
-        Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
-        Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
+            Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        });
     }
 
     [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]

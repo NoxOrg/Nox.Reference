@@ -1,19 +1,25 @@
-#Nox.Refence.Machine project
+# Nox.Refence.Machine project
+*Nox.Refence.Machine* project contains functionality and classes to get common information about MacAddresses,IPAddresses.
 
-#How to use:
+## How to use:
 There are 2 approaches how to deal with Nox.Refence.World:
-	1. Static approach: 
-		Allow to call extension methods or run query over quryable properties.
-		Currency currency = Machine.MacAddresses.Get("0016F6");
-		or
-		Currency currency = Machine.MacAddresses.FirstOrDefault(x => x.Prefix == "0016F6");
-	
-	
-	2. Use dependency injection:
-		- Initially World data context should be registered in dependency container
-		services.AddWorldContext();
+### 1. Static approach: 
+Allow to call extension methods or run query over quryable properties.
+
+`Currency currency = Machine.MacAddresses.Get("0016F6");`
+
+or
+
+`Currency currency = Machine.MacAddresses.FirstOrDefault(x => x.Prefix == "0016F6");`
+
+### 2. Dependency injection:
+- Initially Machine data context should be registered in dependency container
+
+`services.AddMachineContext();`
+
 		
-		Then is simply be aquired using DI
+- Then is simply be aquired using DI
+
 		class ConsumerService
 		{
 			private readonly IMachineInfoContext _machineContext;
@@ -31,17 +37,20 @@ There are 2 approaches how to deal with Nox.Refence.World:
 			}
 		}
 		
-#How to create migrations:
-- In powershel or similar command tool go to Nox.Reference\src\Nox.Reference.Data.World
-- Run the following command:   dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.World.csproj
-- Created migration will appear in Nox.Reference.Data.World\\Mirations folder
+		
+### How to create migrations:
+- In powershell or similar command tool go to Nox.Reference\src\Nox.Reference.Data.Machine
+- Run the following command:   
+`dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.Machine.csproj`
+- Created migration will appear in Nox.Reference.Data.Machine\\Migrations folder
 
 To create or update database:
-Run command dotnet ef database update --connection "Data Source=..\\..\\data\\noxreferences.db"
+Run command 
+`dotnet ef database update --connection "Data Source=..\\..\\data\\Nox.Reference.Machine.db"`
 
-noxreferences.db database file will appear in (RootPath)//data
+Nox.Reference.Machine.db database file will appear in (RootPath)\data\output\sqlite
 
 
-#Project structure		
-Nox.Refence.Machine contains the following entities:
-	- MacAddress
+## Project structure		
+Nox.Reference.Machine contains the following entities:
+- MacAddress

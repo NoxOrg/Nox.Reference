@@ -4,7 +4,7 @@ namespace Nox.Reference.Data.Machine;
 
 internal static class MacAddressHelper
 {
-    private const string MacAddressRegex = "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$";
+    private const string MacAddressRegex = "^([0-9A-Fa-f]{2}[\\s+:-]){5}([0-9A-Fa-f]{2})$";
 
     public static string GetMacAddressPrefix(string input)
     {
@@ -18,6 +18,7 @@ internal static class MacAddressHelper
         var sanitizedInput = input
             .Replace("-", "")
             .Replace(":", "")
+            .Replace(" ", "")
             [..6];
 
         if (!isMatch)
