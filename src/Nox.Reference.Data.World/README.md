@@ -50,7 +50,24 @@ To create or update database:
 Run command dotnet ef database update --connection "Data Source=..\\..\\data\\Nox.Reference.Data.World.db"
 
 Nox.Reference.World.db database file will appear in (RootPath)\data\output\sqlite
-	
+
+
+## How to override VatValidation
+In case an user is supposed to override VatNumber validation with custom rules it's possible just by implementing an interface
+
+```
+
+public interface IVatValidationService
+{
+    VatNumberValidationResult ValidateVatNumber(
+        string vatNumber,
+        bool shouldValidateViaApi = true);
+
+    string CountryCode { get; }
+}
+
+```
+
 ## Project structure		
 Nox.Reference.World contains the following entities:
 

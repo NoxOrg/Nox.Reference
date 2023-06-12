@@ -3,7 +3,6 @@
 ***Nox.Refence*** is a storage which contains the most common used types.
 To persist data Nox.Refence uses sqlLite databases which are dived by domain specific responsabilites. 
 
-
 Nox.Refence solution consists of the following projects:
 
 - Nox.Refence.World
@@ -103,6 +102,18 @@ If command ran successful migration will be created.
   dotnet ef database update --connection "Data Source=..\\..\\data\\output\\sqlite\\NoxReference.World.db"
 
 ```
+## How to bump package version localy:
+- from the roor folder run script bump-version 
+```
+goo bump-version {versionNumber}
+```
+- run script generated-packages
+```
+goo generated-packages
+```
+- copy packages from GeneratedPackages folder  to LocalFeed  folder 
+*if LocalFeed folder does not exist then add [LocalFeed](https://learn.microsoft.com/en-us/nuget/hosting-packages/local-feeds "How to create LocalFeed") folder to solution*
+
 
 ## How to change configuration settings:
 
