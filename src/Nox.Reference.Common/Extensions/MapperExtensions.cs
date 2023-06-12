@@ -1,9 +1,12 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using AutoMapper;
+
+[assembly: InternalsVisibleTo("Nox.Reference.Data.Common")]
 
 namespace Nox.Reference.Common;
 
-public static class MapperHolder
+internal static class MapperHolder
 {
     private static readonly List<Assembly> _assemblyList = new List<Assembly>();
 

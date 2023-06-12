@@ -2,13 +2,13 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Nox.Reference.Common;
+namespace Nox.Reference.Common.Utilities;
 
-public static class EnumExtensions
+public static class EnumHelper
 {
     private static readonly ConcurrentDictionary<string, string> _displayNameCache = new ConcurrentDictionary<string, string>();
 
-    public static string GetStringValue(this Enum value)
+    public static string GetItemDescription(Enum value)
     {
         var key = $"{value.GetType().FullName}.{value}";
 

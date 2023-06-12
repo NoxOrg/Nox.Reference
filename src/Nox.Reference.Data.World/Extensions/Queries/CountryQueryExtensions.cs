@@ -1,4 +1,5 @@
 ﻿using Nox.Reference.Common;
+using Nox.Reference.Common.Utilities;
 using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
@@ -168,6 +169,6 @@ public static class CountryQueryExtensions
     /// <returns>Name translation or null</returns>
     public static Country? Get(this IQueryable<Country> query, WorldCountries country)
     {
-        return query.FirstOrDefault(x => x.Name == country.GetStringValue());
+        return query.FirstOrDefault(x => x.Name == EnumHelper.GetItemDescription(country));
     }
 }

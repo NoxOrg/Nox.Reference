@@ -41,7 +41,7 @@ public class MacAddressesTests
             Assert.That(info, Is.Not.Null);
             Assert.That(expectedPrefix, Is.EqualTo(info.Id));
         });
-        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+        var mappedInfo = info.ToDto<MacAddressInfo>();
 
         Assert.That(mappedInfo, Is.Not.Null);
         Assert.Multiple(() =>
@@ -58,9 +58,9 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = Machine.Machine.MacAddresses.Get(input);
+        var info = Machine.Machine.MacAddresses.Get(input)!;
 
-        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+        var mappedInfo = info.ToDto<MacAddressInfo>();
 
         Assert.That(mappedInfo, Is.Not.Null);
         Assert.Multiple(() =>
