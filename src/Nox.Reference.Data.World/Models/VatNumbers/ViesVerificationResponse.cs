@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data.World.Models;
+﻿namespace Nox.Reference;
 
 public class ViesVerificationResponse
 {

@@ -1,6 +1,4 @@
-﻿using Nox.Reference.Data.World.Models;
-
-namespace Nox.Reference.PhoneNumbers;
+﻿namespace Nox.Reference;
 
 public interface IPhoneNumberService
 {

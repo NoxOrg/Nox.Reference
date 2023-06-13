@@ -1,7 +1,4 @@
-﻿using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Models;
-
-namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference;
 
 public class CountryNameTranslation : NoxReferenceEntityBase,
     IDtoConvertibleEntity<CountryNameTranslationInfo>

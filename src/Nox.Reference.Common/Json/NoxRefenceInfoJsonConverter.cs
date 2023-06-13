@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Common;
 
+// TODO: make internal
 public class NoxRefenceInfoJsonConverter<TSource, TDest> : JsonConverter<TSource>
     where TDest : TSource
 {

@@ -1,13 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data;
-using Nox.Reference.Data.Machine;
-using Nox.Reference.Data.World;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
+using Nox.Reference;
 using System.Text.Json;
-
-// TODO: adjust namespaces
 
 Console.WriteLine("This is Nox.Reference Demo!");
 
@@ -57,8 +50,8 @@ Console.WriteLine($"Inline -- Language -- {language.Iso_639_3} -- {language.Name
 Console.WriteLine($"Inline -- Language -- {WorldCountries.Switzerland} -- {languages.Count}");
 
 // Timezones
-Nox.Reference.Data.World.TimeZone timezone = World.TimeZones.Get("EET")!;
-List<Nox.Reference.Data.World.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
+Nox.Reference.TimeZone timezone = World.TimeZones.Get("EET")!;
+List<Nox.Reference.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
 
 Console.WriteLine($"Inline -- TimeZone -- {timezone.Code} -- {timezone.Type}");
 Console.WriteLine($"Inline -- TimeZone -- {WorldCountries.Canada} -- {timezones.Count}");
@@ -125,7 +118,7 @@ macAddressDash = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 Console.WriteLine($"DI -- MacAddress -- {macAddressDash.MacPrefix} -- {macAddressDash.OrganizationName}");
 
 // Automapper example
-CountryInfo ukraineMapped = World.Mapper.Map<CountryInfo>(ukraine1);
+CountryInfo ukraineMapped = ukraine1.ToDto();
 Console.WriteLine("Serialized data:");
 Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new JsonSerializerOptions
 {

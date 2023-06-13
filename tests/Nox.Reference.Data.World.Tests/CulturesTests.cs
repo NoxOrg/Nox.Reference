@@ -1,10 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -50,7 +46,7 @@ public class CulturesTests
     [Test]
     public void GetCultures_GetByCountry_ReturnsValidInfo()
     {
-        var countries = _worldDbContext.Cultures.GetByCountry(Reference.World.WorldCountries.UnitedStates);
+        var countries = _worldDbContext.Cultures.GetByCountry(WorldCountries.UnitedStates);
 
         var mappedInfo = countries.Select(x => x.ToDto());
 

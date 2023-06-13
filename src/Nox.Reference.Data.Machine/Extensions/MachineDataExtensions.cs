@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Machine;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference;
 
 public static class MachineDataExtensions
 {

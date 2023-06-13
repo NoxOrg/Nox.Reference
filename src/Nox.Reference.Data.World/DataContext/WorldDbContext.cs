@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.Common.Helpers;
 using System.Reflection;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 // TODO: possibly cache this and machine context itself
 public class WorldDbContext : DbContext, IWorldInfoContext
@@ -79,7 +76,7 @@ public class WorldDbContext : DbContext, IWorldInfoContext
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
 
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
-        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(WorldDbContext), nameof(World));
+        //connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(WorldDbContext), nameof(World));
 
         optionsBuilder
             .UseLazyLoadingProxies()

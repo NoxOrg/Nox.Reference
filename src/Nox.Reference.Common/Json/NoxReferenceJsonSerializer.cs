@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
+// TODO: make internal
 namespace Nox.Reference.Common
 {
     /// <summary>

@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Data.World;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public static class World
 {
@@ -40,8 +41,8 @@ public static class World
     public static IQueryable<TimeZone> TimeZones
         => WorldDataContext.TimeZones;
 
-    public static Services.PhoneNumbers.PhoneNumbersFacade PhoneNumbers =>
-        new Services.PhoneNumbers.PhoneNumbersFacade(WorldDataContext);
+    public static PhoneNumbersFacade PhoneNumbers =>
+        new PhoneNumbersFacade(WorldDataContext);
 
     private static IWorldInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IWorldInfoContext>();

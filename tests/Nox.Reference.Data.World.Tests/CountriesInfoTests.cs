@@ -1,9 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -31,7 +27,7 @@ public class CountryInfoTests
     {
         const string countryCode = "ZA";
 
-        var country = World.Countries.Get(countryCode)!;
+        var country = Reference.World.Countries.Get(countryCode)!;
         Assert.IsNotNull(country);
         Assert.IsNotEmpty(country.Cultures);
         Assert.IsNotNull(country.VatNumberDefinition);
@@ -54,7 +50,7 @@ public class CountryInfoTests
     [Test]
     public void CountryInfo_WithEnum_ReturnsValidInfo()
     {
-        var country = World.Countries.Get(WorldCountries.SouthAfrica)!;
+        var country = Reference.World.Countries.Get(WorldCountries.SouthAfrica)!;
 
         var countryInfo = country.ToDto();
 

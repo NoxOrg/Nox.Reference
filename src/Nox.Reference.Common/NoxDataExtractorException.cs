@@ -2,6 +2,7 @@
 
 namespace Nox.Reference.Common;
 
+// TODO: make internal
 [Serializable]
 public class NoxDataExtractorException : Exception
 {
