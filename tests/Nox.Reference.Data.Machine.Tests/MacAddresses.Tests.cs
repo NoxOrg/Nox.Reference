@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.Machine.Tests;
 using System.Diagnostics;
@@ -41,7 +40,7 @@ public class MacAddressesTests
             Assert.That(info, Is.Not.Null);
             Assert.That(expectedPrefix, Is.EqualTo(info.Id));
         });
-        var mappedInfo = info.ToDto<MacAddressInfo>();
+        var mappedInfo = info.ToDto();
 
         Assert.That(mappedInfo, Is.Not.Null);
         Assert.Multiple(() =>
@@ -60,7 +59,7 @@ public class MacAddressesTests
     {
         var info = Machine.Machine.MacAddresses.Get(input)!;
 
-        var mappedInfo = info.ToDto<MacAddressInfo>();
+        var mappedInfo = info.ToDto();
 
         Assert.That(mappedInfo, Is.Not.Null);
         Assert.Multiple(() =>
@@ -75,7 +74,7 @@ public class MacAddressesTests
     {
         MacAddress macAddress = Machine.Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
 
-        MacAddressInfo macAddressInfo = macAddress.ToDto<MacAddressInfo>();
+        MacAddressInfo macAddressInfo = macAddress.ToDto();
         Assert.Multiple(() =>
         {
             Assert.That(macAddressInfo, Is.Not.Null);

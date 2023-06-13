@@ -37,7 +37,7 @@ public class LanguagesTests
         Assert.That(language, Is.Not.Null);
         Assert.That(language!.Id, Is.EqualTo("ukr"));
 
-        var mappedInfo = language.ToDto<LanguageInfo>();
+        var mappedInfo = language.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 

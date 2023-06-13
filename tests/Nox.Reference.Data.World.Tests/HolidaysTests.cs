@@ -31,7 +31,7 @@ public class HolidayTests
     {
         var countryHoliday = _worldDbContext.Holidays.Get(2023, "UA")!;
 
-        var countryHolidayInfo = countryHoliday.ToDto<CountryHolidayInfo>();
+        var countryHolidayInfo = countryHoliday.ToDto();
 
         Assert.Multiple(() =>
         {
@@ -45,7 +45,7 @@ public class HolidayTests
     public void GetHolidays_WithEnumUkraineCode_ReturnsValidInfo()
     {
         var countryHoliday = _worldDbContext.Holidays.Get(2023, WorldCountries.Ukraine)!;
-        var countryHolidayInfo = countryHoliday.ToDto<CountryHolidayInfo>();
+        var countryHolidayInfo = countryHoliday.ToDto();
 
         Assert.Multiple(() =>
         {

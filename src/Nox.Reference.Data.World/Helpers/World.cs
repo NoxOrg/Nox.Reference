@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Nox.Reference.Data.World;
 
@@ -12,7 +13,11 @@ public static class World
         serviceCollection.AddWorldContext();
 
         _serviceProvider = serviceCollection.BuildServiceProvider();
+
+        Mapper = _serviceProvider.GetRequiredService<IMapper>();
     }
+
+    internal static IMapper Mapper { get; }
 
     public static IQueryable<Currency> Currencies
         => WorldDataContext.Currencies;

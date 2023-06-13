@@ -69,7 +69,7 @@ public class VatNumberTests
         var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
-        var definitionInfo = definition.ToDto<VatNumberDefinitionInfo>();
+        var definitionInfo = definition.ToDto();
 
         Trace.WriteLine(Serialize(definitionInfo));
         Trace.WriteLine(Serialize(validationResult));
@@ -86,7 +86,7 @@ public class VatNumberTests
 
         Assert.That(definition.Country, Is.Not.Null);
 
-        var definitionInfo = definition.ToDto<VatNumberDefinitionInfo>();
+        var definitionInfo = definition.ToDto();
 
         Trace.WriteLine(Serialize(definitionInfo));
         Trace.WriteLine(Serialize(validationResult));
@@ -222,7 +222,7 @@ public class VatNumberTests
     {
         var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
 
-        var validationDefinitionInfo = validationDefinition.ToDto<VatNumberDefinitionInfo>();
+        var validationDefinitionInfo = validationDefinition.ToDto();
 
         Trace.WriteLine(Serialize(validationDefinitionInfo));
 

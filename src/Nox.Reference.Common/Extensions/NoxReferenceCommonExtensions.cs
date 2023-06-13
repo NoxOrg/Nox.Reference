@@ -23,8 +23,6 @@ public static class NoxReferenceCommonExtensions
         var callingAssesmbly = Assembly.GetCallingAssembly();
         services.AddAutoMapper(callingAssesmbly);
 
-        MapperHolder.AddMapper(callingAssesmbly);
-
         services.AddSingleton(_configuration);
         return services;
     }

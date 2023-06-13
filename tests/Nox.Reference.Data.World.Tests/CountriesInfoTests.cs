@@ -37,7 +37,7 @@ public class CountryInfoTests
         Assert.IsNotNull(country.VatNumberDefinition);
         Assert.That(country.Id, Is.EqualTo(countryCode));
 
-        var countryInfo = country.ToDto<CountryInfo>();
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
@@ -56,7 +56,7 @@ public class CountryInfoTests
     {
         var country = World.Countries.Get(WorldCountries.SouthAfrica)!;
 
-        var countryInfo = country.ToDto<CountryInfo>();
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
@@ -77,7 +77,7 @@ public class CountryInfoTests
             .Get("ZA")!
             .GetTranslation("en")!;
 
-        var translationInfo = translation.ToDto<CountryNameTranslationInfo>();
+        var translationInfo = translation.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translationInfo));
 

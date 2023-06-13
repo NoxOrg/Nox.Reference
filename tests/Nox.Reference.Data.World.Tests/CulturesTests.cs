@@ -35,7 +35,7 @@ public class CulturesTests
     {
         var culture = _worldDbContext.Cultures.Get("en-US")!;
 
-        var cultureInfo = culture.ToDto<Models.CultureInfo>();
+        var cultureInfo = culture.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(cultureInfo));
 
@@ -52,7 +52,7 @@ public class CulturesTests
     {
         var countries = _worldDbContext.Cultures.GetByCountry(Reference.World.WorldCountries.UnitedStates);
 
-        var mappedInfo = countries.ToDto<Models.CultureInfo>();
+        var mappedInfo = countries.Select(x => x.ToDto());
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 

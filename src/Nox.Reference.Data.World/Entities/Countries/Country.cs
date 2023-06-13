@@ -1,9 +1,12 @@
 ﻿using Nox.Reference.Data.Common;
+using Nox.Reference.Data.World.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nox.Reference.Data.World;
 
-public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
+public class Country : NoxReferenceEntityBase,
+    IKeyedNoxReferenceEntity<string>,
+    IDtoConvertibleEntity<CountryInfo>
 {
     public string Id => Code;
     public string Name { get; private set; } = string.Empty;
@@ -27,8 +30,10 @@ public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
 
     internal int? VatNumberDefinitionId { get; private set; }
+
     [ForeignKey("VatNumberDefinitionId")]
     public virtual VatNumberDefinition? VatNumberDefinition { get; internal set; }
+
     public virtual CountryDialing? Dialing { get; private set; }
     public virtual CoatOfArms? CoatOfArms { get; private set; }
     public virtual GeoCoordinates? GeoCoordinates { get; private set; }
@@ -53,4 +58,9 @@ public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
     public string FipsCode { get; private set; } = string.Empty;
     public string CodeAssignedStatus { get; private set; } = string.Empty;
     public DayOfWeek StartDayOfWeek { get; private set; }
+
+    public CountryInfo ToDto()
+    {
+        return World.Mapper.Map<CountryInfo>(this);
+    }
 }

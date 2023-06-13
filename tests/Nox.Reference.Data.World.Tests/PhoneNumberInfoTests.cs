@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Models;
 using Nox.Reference.PhoneNumbers;
 using System.Diagnostics;
 using System.Linq;
@@ -53,7 +51,7 @@ public class PhoneNumberInfoTests
     {
         var carrierPhoneNumbers = World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
 
-        var carrierPhoneNumberInfos = carrierPhoneNumbers.ToDto<PhoneCarrierInfo>();
+        var carrierPhoneNumberInfos = carrierPhoneNumbers.ToDto();
 
         Assert.Multiple(() =>
         {

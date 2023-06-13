@@ -35,7 +35,7 @@ public class TimeZonesTests
     public void GetTimeZones_WithKnownVilniusTimezone_ReturnsValidInfo()
     {
         var timeZone = _worldDbContext.TimeZones.Get("Europe/Vilnius")!;
-        var timeZoneInfo = timeZone.ToDto<TimeZoneInfo>();
+        var timeZoneInfo = timeZone.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(timeZoneInfo));
 
@@ -60,7 +60,7 @@ public class TimeZonesTests
             Latitude = 50.0196769m,
             Longitude = 36.3569638m
         })!;
-        var timeZoneInfo = timeZone.ToDto<TimeZoneInfo>();
+        var timeZoneInfo = timeZone.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(timeZoneInfo));
 

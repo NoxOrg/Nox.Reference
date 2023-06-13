@@ -81,7 +81,7 @@ public class CurrencyTests
     {
         var currency = World.Currencies.Get("USD")!;
 
-        var currencyInfo = currency.ToDto<CurrencyInfo>();
+        var currencyInfo = currency.ToDto();
 
         Assert.That(currencyInfo.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
         Assert.That(currencyInfo.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
