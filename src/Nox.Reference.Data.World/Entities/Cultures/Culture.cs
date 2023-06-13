@@ -1,8 +1,10 @@
 ﻿using Nox.Reference.Data.Common;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World;
 
-public class Culture : NoxReferenceEntityBase
+public class Culture : NoxReferenceEntityBase,
+    IDtoConvertibleEntity<CultureInfo>
 {
     public string Name { get; private set; } = string.Empty;
     public string FormalName { get; private set; } = string.Empty;
@@ -17,4 +19,9 @@ public class Culture : NoxReferenceEntityBase
     public virtual Country? Country { get; internal set; }
     public virtual NumberFormat NumberFormat { get; private set; } = null!;
     public virtual DateFormat DateFormat { get; private set; } = null!;
+
+    public CultureInfo ToDto()
+    {
+        return World.Mapper.Map<CultureInfo>(this);
+    }
 }

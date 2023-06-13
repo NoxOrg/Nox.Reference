@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
+using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -32,19 +33,19 @@ public class LanguagesTests
         int expectedCountryCount,
         string countryCode)
     {
-        var info = _worldDbContext.Languages.Get(input);
-        Assert.That(info, Is.Not.Null);
-        Assert.That(info!.Id, Is.EqualTo("ukr"));
+        Language language = _worldDbContext.Languages.Get(input)!;
+        Assert.That(language, Is.Not.Null);
+        Assert.That(language!.Id, Is.EqualTo("ukr"));
 
-        var mappedInfo = World.Mapper.Map<Models.LanguageInfo>(info);
+        var mappedInfo = language.ToDto();
 
         Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedInfo));
 
         Assert.That(mappedInfo, Is.Not.Null);
-        Assert.That(mappedInfo?.Common, Is.EqualTo(bool.Parse(expectedIsCommon)));
-        Assert.That(mappedInfo?.Name, Is.EqualTo(expectedName));
-        Assert.That(mappedInfo?.NameTranslations.Count, Is.EqualTo(expectedNameTranslationCount));
-        Assert.That(mappedInfo?.Countries.Count, Is.EqualTo(expectedCountryCount));
-        Assert.That(mappedInfo?.Countries[0], Is.EqualTo(countryCode));
+        Assert.That(mappedInfo.Common, Is.EqualTo(bool.Parse(expectedIsCommon)));
+        Assert.That(mappedInfo.Name, Is.EqualTo(expectedName));
+        Assert.That(mappedInfo.NameTranslations.Count, Is.EqualTo(expectedNameTranslationCount));
+        Assert.That(mappedInfo.Countries.Count, Is.EqualTo(expectedCountryCount));
+        Assert.That(mappedInfo.Countries[0], Is.EqualTo(countryCode));
     }
 }

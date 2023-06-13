@@ -1,4 +1,5 @@
 ﻿using Nox.Reference.Common;
+using Nox.Reference.Common.Utilities;
 using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
@@ -114,6 +115,6 @@ public static class LanguagesQueryExtensions
     /// <returns>Language info</returns>
     public static List<Language>? GetLanguagesForCountry(this IQueryable<Language> query, WorldCountries country)
     {
-        return query.Where(x => x.Countries.Any(x => x.Name == country.GetStringValue())).ToList();
+        return query.Where(x => x.Countries.Any(x => x.Name == EnumHelper.GetItemDescription(country))).ToList();
     }
 }

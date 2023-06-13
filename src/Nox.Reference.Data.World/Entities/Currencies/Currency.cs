@@ -1,8 +1,11 @@
 ﻿using Nox.Reference.Data.Common;
+using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World;
 
-public class Currency : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
+public class Currency : NoxReferenceEntityBase,
+    IKeyedNoxReferenceEntity<string>,
+    IDtoConvertibleEntity<CurrencyInfo>
 {
     public string Id => IsoCode;
     public string IsoCode { get; private set; } = string.Empty;
@@ -18,4 +21,9 @@ public class Currency : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
     public virtual CurrencyUsage Coins { get; private set; } = new CurrencyUsage();
     public virtual MajorCurrencyUnit MajorUnit { get; private set; } = new MajorCurrencyUnit();
     public virtual MinorCurrencyUnit MinorUnit { get; private set; } = new MinorCurrencyUnit();
+
+    public CurrencyInfo ToDto()
+    {
+        return World.Mapper.Map<CurrencyInfo>(this);
+    }
 }

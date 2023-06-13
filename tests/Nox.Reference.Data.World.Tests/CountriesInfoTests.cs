@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
+using Nox.Reference.Data.Common;
 using Nox.Reference.Data.World.Extensions.Queries;
 using Nox.Reference.Data.World.Models;
 using Nox.Reference.World;
@@ -29,42 +30,43 @@ public class CountryInfoTests
     public void CountryInfo_WithIso2Alpha_ReturnsValidInfo()
     {
         const string countryCode = "ZA";
-        var info = World.Countries.Get(countryCode)!;
-        Assert.IsNotNull(info);
-        Assert.IsNotEmpty(info.Cultures);
-        Assert.IsNotNull(info.VatNumberDefinition);
-        Assert.That(info.Id, Is.EqualTo(countryCode));
 
-        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
+        var country = World.Countries.Get(countryCode)!;
+        Assert.IsNotNull(country);
+        Assert.IsNotEmpty(country.Cultures);
+        Assert.IsNotNull(country.VatNumberDefinition);
+        Assert.That(country.Id, Is.EqualTo(countryCode));
+
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo(countryCode));
-            Assert.That(mappedInfo.Languages, Is.Not.Empty);
-            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
-            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
-            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
-            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
+            Assert.That(countryInfo, Is.Not.Null);
+            Assert.That(countryInfo.Code, Is.EqualTo(countryCode));
+            Assert.That(countryInfo.Languages, Is.Not.Empty);
+            Assert.That(countryInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(countryInfo.Currencies, Is.Not.Empty);
+            Assert.That(countryInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(countryInfo.Capitals, Is.Not.Empty);
         });
     }
 
     [Test]
     public void CountryInfo_WithEnum_ReturnsValidInfo()
     {
-        var info = World.Countries.Get(WorldCountries.SouthAfrica)!;
+        var country = World.Countries.Get(WorldCountries.SouthAfrica)!;
 
-        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo("ZA"));
-            Assert.That(mappedInfo.Languages, Is.Not.Empty);
-            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
-            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
-            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
-            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
+            Assert.That(countryInfo, Is.Not.Null);
+            Assert.That(countryInfo.Code, Is.EqualTo("ZA"));
+            Assert.That(countryInfo.Languages, Is.Not.Empty);
+            Assert.That(countryInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(countryInfo.Currencies, Is.Not.Empty);
+            Assert.That(countryInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(countryInfo.Capitals, Is.Not.Empty);
         });
     }
 
@@ -75,15 +77,15 @@ public class CountryInfoTests
             .Get("ZA")!
             .GetTranslation("en")!;
 
-        var mappedTranslation = World.Mapper.Map<CountryNameTranslationInfo>(translation);
+        var translationInfo = translation.ToDto();
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedTranslation));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translationInfo));
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedTranslation, Is.Not.Null);
-            Assert.That(mappedTranslation.OfficialName, Is.EqualTo("South Africa"));
-            Assert.That(mappedTranslation.CommonName, Is.EqualTo("South Africa"));
+            Assert.That(translationInfo, Is.Not.Null);
+            Assert.That(translationInfo.OfficialName, Is.EqualTo("South Africa"));
+            Assert.That(translationInfo.CommonName, Is.EqualTo("South Africa"));
         });
     }
 

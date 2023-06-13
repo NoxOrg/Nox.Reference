@@ -3,16 +3,15 @@ using Nox.Reference.PhoneNumbers;
 
 namespace Nox.Reference.Data.World.Services.PhoneNumbers
 {
-    public class PhoneNumbers
+    public class PhoneNumbersFacade
     {
-        public IWorldInfoContext _worldInfoContext { get; set; }
-        public PhoneNumberService _phoneNumberService { get; set; }
+        private readonly IWorldInfoContext _worldInfoContext;
+        private readonly PhoneNumberService _phoneNumberService;
 
-        public PhoneNumbers(IWorldInfoContext worldInfoContext)
+        public PhoneNumbersFacade(IWorldInfoContext worldInfoContext)
         {
             _worldInfoContext = worldInfoContext;
             _phoneNumberService = new PhoneNumberService(worldInfoContext);
-
         }
 
         public IQueryable<PhoneCarrier> PhoneCarriers => _worldInfoContext.PhoneCarriers;

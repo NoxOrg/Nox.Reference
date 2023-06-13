@@ -1,4 +1,5 @@
 ﻿using Nox.Reference.Common;
+using Nox.Reference.Common.Utilities;
 using Nox.Reference.World;
 
 namespace Nox.Reference.Data.World.Extensions.Queries;
@@ -82,6 +83,6 @@ public static class CultureQueryExtensions
     /// <returns>Culture info</returns>
     public static List<Culture> GetByCountry(this IQueryable<Culture> query, WorldCountries country)
     {
-        return query.Where(x => x.Country != null && x.Country.Name == country.GetStringValue()).ToList();
+        return query.Where(x => x.Country != null && x.Country.Name == EnumHelper.GetItemDescription(country)).ToList();
     }
 }
