@@ -1,9 +1,9 @@
 # Nox.Refence.World project
-*Nox.Refence.World* project contains functionality and classes to get common information about Countries, Currencies, Languages, CountryHolidays etc.
+*Nox.Reference.World* project contains functionality and classes to get common information about Countries, Currencies, Languages, CountryHolidays, etc.
 ## How to use:
-There are 2 approaches how to deal with Nox.Refence.World:
+There are 2 approaches how to deal with Nox.Reference.World:
 ### 1. Static approach: 
-Allow to call extension methods or run query over quryable properties.
+Allow to call extension methods or run a query over queryable properties.
 
 `
 Currency currency = World.Currencies.Get("USD");
@@ -16,13 +16,13 @@ Currency currency = World.Currencies.FirstOrDefault(x => x.IsoCode == isoCode);
 		`
 	
 ### 2. Use dependency injection:
-- Initially World data context should be registered in dependency container
+- Initially, World data context should be registered in the dependency container
 `
 services.AddWorldContext();
 `
 
 
-Then is simply be aquired using DI
+Then is simply be acquired using DI
 
     class ConsumerService
 	{
@@ -41,19 +41,29 @@ Then is simply be aquired using DI
 		}
 	}
 
+More examples you can find in  [Nox.Reference.Demo project](https://github.com/NoxOrg/Nox.Reference/blob/main/src/Nox.Demo/Program.cs "Examples")
+
 ## How to create migrations:
-- In powershel or similar command tool go to Nox.Reference\src\Nox.Reference.Data.World
-- Run the following command:   dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.World.csproj
+- In powershel or a similar command tool go to Nox.Reference\src\Nox.Reference.Data.World
+- Run the following command:   
+
+`dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.World.csproj`
+
 - Created migration will appear in Nox.Reference.Data.World\\Migrations folder
 
-To create or update database:
-Run command dotnet ef database update --connection "Data Source=..\\..\\data\\Nox.Reference.Data.World.db"
+To create or update the database:
+
+Run command
+
+`
+dotnet ef database update --connection "Data Source=..\\..\\data\\Nox.Reference.Data.World.db"
+`
 
 Nox.Reference.World.db database file will appear in (RootPath)\data\output\sqlite
 
 
 ## How to override VatValidation
-In case an user is supposed to override VatNumber validation with custom rules it's possible just by implementing an interface
+In case a user is supposed to override VatNumber validation with custom rules it's possible just by implementing an interface
 
 ```
 
