@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.Machine.Tests;
 using System.Diagnostics;
 
@@ -34,15 +33,20 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = _macAddressContext.MacAddresses.Get(input);
-        Assert.That(info, Is.Not.Null);
-        Assert.That(expectedPrefix, Is.EqualTo(info.Id));
-
-        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+        var info = _macAddressContext.MacAddresses.Get(input)!;
+        Assert.Multiple(() =>
+        {
+            Assert.That(info, Is.Not.Null);
+            Assert.That(expectedPrefix, Is.EqualTo(info.Id));
+        });
+        var mappedInfo = info.ToDto();
 
         Assert.That(mappedInfo, Is.Not.Null);
-        Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
-        Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
+            Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        });
     }
 
     [TestCase("00:16:F6:11:22:33", "0016F6", "Nevion")]
@@ -52,12 +56,28 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = Machine.Machine.MacAddresses.Get(input);
+        var info = Reference.Machine.MacAddresses.Get(input)!;
 
-        var mappedInfo = Machine.Machine.Mapper.Map<MacAddressInfo>(info);
+        var mappedInfo = info.ToDto();
 
         Assert.That(mappedInfo, Is.Not.Null);
-        Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
-        Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        Assert.Multiple(() =>
+        {
+            Assert.That(mappedInfo.MacPrefix, Is.EqualTo(expectedPrefix));
+            Assert.That(mappedInfo.OrganizationName, Is.EqualTo(expectedOrganizationName));
+        });
+    }
+
+    [Test]
+    public void GetVendorMacAddress_ConvertToDto_ReturnsSuccess()
+    {
+        MacAddress macAddress = Reference.Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
+
+        MacAddressInfo macAddressInfo = macAddress.ToDto();
+        Assert.Multiple(() =>
+        {
+            Assert.That(macAddressInfo, Is.Not.Null);
+            Assert.That(macAddressInfo.MacPrefix, Is.EqualTo("0016F6"));
+        });
     }
 }

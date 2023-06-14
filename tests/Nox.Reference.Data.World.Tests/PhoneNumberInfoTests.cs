@@ -1,7 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.PhoneNumbers;
 using System.Diagnostics;
 using System.Linq;
 
@@ -50,15 +48,15 @@ public class PhoneNumberInfoTests
     [Test]
     public void GetPhoneCarriers_StaticWithMap_ReturnsResult()
     {
-        var carrierPhoneNumbers = World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
+        var carrierPhoneNumbers = Reference.World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
 
-        var mappedCarrierPhoneNumbers = World.Mapper.Map<PhoneCarrierInfo>(carrierPhoneNumbers);
+        var carrierPhoneNumberInfos = carrierPhoneNumbers.ToDto();
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedCarrierPhoneNumbers, Is.Not.Null);
-            Assert.That(mappedCarrierPhoneNumbers?.Name, Is.EqualTo("Kyivstar"));
-            Assert.That(mappedCarrierPhoneNumbers?.PhoneNumbers.Count, Is.EqualTo(3));
+            Assert.That(carrierPhoneNumberInfos, Is.Not.Null);
+            Assert.That(carrierPhoneNumberInfos.Name, Is.EqualTo("Kyivstar"));
+            Assert.That(carrierPhoneNumberInfos.PhoneNumbers.Count, Is.EqualTo(3));
         });
     }
 

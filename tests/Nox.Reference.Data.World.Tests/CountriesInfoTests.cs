@@ -1,8 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
+using System;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -29,42 +27,43 @@ public class CountryInfoTests
     public void CountryInfo_WithIso2Alpha_ReturnsValidInfo()
     {
         const string countryCode = "ZA";
-        var info = World.Countries.Get(countryCode)!;
-        Assert.IsNotNull(info);
-        Assert.IsNotEmpty(info.Cultures);
-        Assert.IsNotNull(info.VatNumberDefinition);
-        Assert.That(info.Id, Is.EqualTo(countryCode));
 
-        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
+        var country = Reference.World.Countries.Get(countryCode)!;
+        Assert.IsNotNull(country);
+        Assert.IsNotEmpty(country.Cultures);
+        Assert.IsNotNull(country.VatNumberDefinition);
+        Assert.That(country.Id, Is.EqualTo(countryCode));
+
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo(countryCode));
-            Assert.That(mappedInfo.Languages, Is.Not.Empty);
-            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
-            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
-            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
-            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
+            Assert.That(countryInfo, Is.Not.Null);
+            Assert.That(countryInfo.Code, Is.EqualTo(countryCode));
+            Assert.That(countryInfo.Languages, Is.Not.Empty);
+            Assert.That(countryInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(countryInfo.Currencies, Is.Not.Empty);
+            Assert.That(countryInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(countryInfo.Capitals, Is.Not.Empty);
         });
     }
 
     [Test]
     public void CountryInfo_WithEnum_ReturnsValidInfo()
     {
-        var info = World.Countries.Get(WorldCountries.SouthAfrica)!;
+        var country = Reference.World.Countries.Get(WorldCountries.SouthAfrica)!;
 
-        var mappedInfo = World.Mapper.Map<CountryInfo>(info);
+        var countryInfo = country.ToDto();
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedInfo, Is.Not.Null);
-            Assert.That(mappedInfo.Code, Is.EqualTo("ZA"));
-            Assert.That(mappedInfo.Languages, Is.Not.Empty);
-            Assert.That(mappedInfo.NameTranslations, Is.Not.Empty);
-            Assert.That(mappedInfo.Currencies, Is.Not.Empty);
-            Assert.That(mappedInfo.TopLevelDomains, Is.Not.Empty);
-            Assert.That(mappedInfo.Capitals, Is.Not.Empty);
+            Assert.That(countryInfo, Is.Not.Null);
+            Assert.That(countryInfo.Code, Is.EqualTo("ZA"));
+            Assert.That(countryInfo.Languages, Is.Not.Empty);
+            Assert.That(countryInfo.NameTranslations, Is.Not.Empty);
+            Assert.That(countryInfo.Currencies, Is.Not.Empty);
+            Assert.That(countryInfo.TopLevelDomains, Is.Not.Empty);
+            Assert.That(countryInfo.Capitals, Is.Not.Empty);
         });
     }
 
@@ -75,17 +74,57 @@ public class CountryInfoTests
             .Get("ZA")!
             .GetTranslation("en")!;
 
-        var mappedTranslation = World.Mapper.Map<CountryNameTranslationInfo>(translation);
+        var translationInfo = translation.ToDto();
 
-        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(mappedTranslation));
+        Trace.WriteLine(NoxReferenceJsonSerializer.Serialize(translationInfo));
 
         Assert.Multiple(() =>
         {
-            Assert.That(mappedTranslation, Is.Not.Null);
-            Assert.That(mappedTranslation.OfficialName, Is.EqualTo("South Africa"));
-            Assert.That(mappedTranslation.CommonName, Is.EqualTo("South Africa"));
+            Assert.That(translationInfo, Is.Not.Null);
+            Assert.That(translationInfo.OfficialName, Is.EqualTo("South Africa"));
+            Assert.That(translationInfo.CommonName, Is.EqualTo("South Africa"));
         });
     }
+
+    #region IsWorkingDay
+
+    [TestCase("UA", "2023-06-19", true)]
+    [TestCase("UA", "2023-06-18", false)]
+    [TestCase("UA", "2023-06-17", false)]
+    [TestCase("UA", "2023-06-16", true)]
+    [TestCase("IL", "2023-06-18", true)]
+    [TestCase("IL", "2023-06-17", false)]
+    [TestCase("IL", "2023-06-16", false)]
+    [TestCase("IL", "2023-06-15", true)]
+    public void IsHolidayDate_PositiveAndNegativeScenarios(
+        string country,
+        string date,
+        bool expectedResult)
+    {
+        var isWorkingDay = _worldDbContext.Countries.IsWorkingDay(country, DateTime.Parse(date))!;
+
+        Assert.That(isWorkingDay, Is.EqualTo(expectedResult));
+    }
+
+    [TestCase(WorldCountries.Ukraine, "2023-06-19", true)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-18", false)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-17", false)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-16", true)]
+    [TestCase(WorldCountries.Israel, "2023-06-18", true)]
+    [TestCase(WorldCountries.Israel, "2023-06-17", false)]
+    [TestCase(WorldCountries.Israel, "2023-06-16", false)]
+    [TestCase(WorldCountries.Israel, "2023-06-15", true)]
+    public void IsHolidayDate_PositiveAndNegativeScenarios_WithEnumCode(
+        WorldCountries country,
+        string date,
+        bool expectedResult)
+    {
+        var isWorkingDay = _worldDbContext.Countries.IsWorkingDay(country, DateTime.Parse(date))!;
+
+        Assert.That(isWorkingDay, Is.EqualTo(expectedResult));
+    }
+
+    #endregion IsWorkingDay
 
     [TearDown]
     public void EndTest()

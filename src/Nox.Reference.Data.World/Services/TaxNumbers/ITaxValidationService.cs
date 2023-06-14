@@ -1,6 +1,4 @@
-﻿using Nox.Reference.Data.World.Models;
-
-namespace Nox.Reference.Data.World.Services.TaxNumbers;
+﻿namespace Nox.Reference;
 
 public interface ITaxValidationService
 {

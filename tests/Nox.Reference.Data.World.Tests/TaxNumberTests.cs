@@ -1,6 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
@@ -69,7 +67,7 @@ public class TaxNumberTests
 
         Assert.That(definition.Country, Is.Not.Null);
 
-        var mappedDefinition = World.Mapper.Map<TaxNumberDefinitionInfo>(definition);
+        var mappedDefinition = definition.ToDto();
 
         Trace.WriteLine(Serialize(mappedDefinition));
         Trace.WriteLine(Serialize(validationResult));
@@ -81,12 +79,12 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
     {
-        var definition = _dbContext!.TaxNumberDefinitions.Get(Reference.World.WorldCountries.Ukraine)!;
+        var definition = _dbContext!.TaxNumberDefinitions.Get(WorldCountries.Ukraine)!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
 
-        var mappedDefinition = World.Mapper.Map<TaxNumberDefinitionInfo>(definition);
+        var mappedDefinition = definition.ToDto();
 
         Trace.WriteLine(Serialize(mappedDefinition));
         Trace.WriteLine(Serialize(validationResult));
@@ -98,7 +96,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.TaxNumberDefinitions.Validate(Reference.World.WorldCountries.Ukraine, "UA0203654090", false)!;
+        var validationResult = _dbContext!.TaxNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
 
         Assert.That(validationResult.Country, Is.Not.Null);
 
@@ -124,7 +122,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = World.TaxNumberDefinitions
+        var validationResult = Reference.World.TaxNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -138,9 +136,9 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_Automapper()
     {
-        var validationDefinition = World.TaxNumberDefinitions.Get("UA")!;
+        var validationDefinition = Reference.World.TaxNumberDefinitions.Get("UA")!;
 
-        var mappedResult = World.Mapper.Map<TaxNumberDefinitionInfo>(validationDefinition);
+        var mappedResult = validationDefinition.ToDto();
 
         Trace.WriteLine(Serialize(mappedResult));
 

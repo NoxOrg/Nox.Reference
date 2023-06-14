@@ -1,6 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -68,38 +66,36 @@ public class VatNumberTests
         var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
-        Assert.That(definition.Country, Is.Not.Null);
+        var definitionInfo = definition.ToDto();
 
-        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
-
-        Trace.WriteLine(Serialize(mappedDefinition));
+        Trace.WriteLine(Serialize(definitionInfo));
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(mappedDefinition, Is.Not.Null);
+        Assert.That(definitionInfo, Is.Not.Null);
         Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
     {
-        var definition = _dbContext!.VatNumberDefinitions.Get(Reference.World.WorldCountries.Ukraine)!;
+        var definition = _dbContext!.VatNumberDefinitions.Get(WorldCountries.Ukraine)!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
 
-        var mappedDefinition = World.Mapper.Map<VatNumberDefinitionInfo>(definition);
+        var definitionInfo = definition.ToDto();
 
-        Trace.WriteLine(Serialize(mappedDefinition));
+        Trace.WriteLine(Serialize(definitionInfo));
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(mappedDefinition, Is.Not.Null);
+        Assert.That(definitionInfo, Is.Not.Null);
         Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Validate(Reference.World.WorldCountries.Ukraine, "UA0203654090", false)!;
+        var validationResult = _dbContext!.VatNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
 
         Assert.That(validationResult.Country, Is.Not.Null);
 
@@ -125,7 +121,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = World.VatNumberDefinitions
+        var validationResult = Reference.World.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -221,13 +217,13 @@ public class VatNumberTests
     [Test]
     public void VatNumber_Automapper()
     {
-        var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
+        var validationDefinition = Reference.World.VatNumberDefinitions.Get("DE")!;
 
-        var mappedResult = World.Mapper.Map<VatNumberDefinitionInfo>(validationDefinition);
+        var validationDefinitionInfo = validationDefinition.ToDto();
 
-        Trace.WriteLine(Serialize(mappedResult));
+        Trace.WriteLine(Serialize(validationDefinitionInfo));
 
-        Assert.That(mappedResult, Is.Not.Null);
+        Assert.That(validationDefinitionInfo, Is.Not.Null);
     }
 
     [TearDown]

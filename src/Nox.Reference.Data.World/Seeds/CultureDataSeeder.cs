@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
-using Nox.Reference.Data.World.Models;
 using Nox.Reference.Data.World.Seeds.Utils;
 using System.Text.RegularExpressions;
 

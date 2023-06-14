@@ -1,7 +1,4 @@
-﻿using Nox.Reference.Common;
-using Nox.Reference.World;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference;
 
 public static class CurrencyQueryExtensions
 {
@@ -66,6 +63,6 @@ public static class CurrencyQueryExtensions
     /// <returns>Currency info</returns>
     public static Currency? Get(this IQueryable<Currency> query, WorldCurrencies currency)
     {
-        return query.FirstOrDefault(x => x.Name == currency.GetStringValue());
+        return query.FirstOrDefault(x => x.Name == EnumHelper.GetItemDescription(currency));
     }
 }

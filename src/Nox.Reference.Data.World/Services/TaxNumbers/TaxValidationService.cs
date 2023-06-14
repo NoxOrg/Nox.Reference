@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using Nox.Reference.Data.World.Models;
+﻿using Nox.Reference.Data.World;
+using System.Reflection;
 
-namespace Nox.Reference.Data.World.Services.TaxNumbers;
+namespace Nox.Reference;
 
 // TODO: Issue #12: We could optionally auto-detect and validate country here in case original validation failed
 public static class TaxValidationService

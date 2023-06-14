@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference;
 
 public class Checksum
 {

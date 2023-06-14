@@ -1,7 +1,7 @@
 ﻿using Nox.Reference.Common;
 using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World.Models;
+namespace Nox.Reference;
 
 public class CultureInfo
 {

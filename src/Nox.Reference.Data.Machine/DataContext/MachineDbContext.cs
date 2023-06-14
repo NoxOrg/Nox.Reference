@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Helpers;
+using Nox.Reference.Data.Machine;
 
-namespace Nox.Reference.Data.Machine;
+namespace Nox.Reference;
 
 public class MachineDbContext : DbContext, IMachineInfoContext
 {
@@ -48,7 +48,7 @@ public class MachineDbContext : DbContext, IMachineInfoContext
         base.OnConfiguring(optionsBuilder);
 
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.MachineConnectionStringName);
-        
+
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
         connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(MachineDbContext), nameof(Machine));
 

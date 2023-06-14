@@ -1,8 +1,8 @@
-﻿using System.Text.Json;
+﻿using Nox.Reference.Data.World;
+using System.Text.Json;
 using System.Text.RegularExpressions;
-using Nox.Reference.Data.World.Models;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public static class GenericVatValidationService
 {

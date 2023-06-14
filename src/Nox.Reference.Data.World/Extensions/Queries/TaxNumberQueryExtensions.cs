@@ -1,9 +1,4 @@
-﻿using Nox.Reference.Common;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.Data.World.Services.TaxNumbers;
-using Nox.Reference.World;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference;
 
 public static class TaxNumberQueryExtensions
 {
@@ -36,7 +31,7 @@ public static class TaxNumberQueryExtensions
     /// <returns>Resulting country</returns>
     public static TaxNumberDefinition? Get(this IQueryable<TaxNumberDefinition> query, WorldCountries country)
     {
-        return query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
+        return query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
     }
 
     /// <summary>
@@ -87,7 +82,7 @@ public static class TaxNumberQueryExtensions
         string validationNumber,
         bool shouldValidateViaApi = true)
     {
-        var definition = query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
+        var definition = query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
 
         if (definition == null)
         {

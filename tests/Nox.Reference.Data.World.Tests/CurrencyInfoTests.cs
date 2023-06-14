@@ -1,9 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
 using System.Diagnostics;
-using System.Linq;
 using System.Text.Json;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -67,7 +63,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
-        Currency uaCurrency = World.Currencies.Get("UAH")!;
+        Currency uaCurrency = Reference.World.Currencies.Get("UAH")!;
 
         Assert.Multiple(() =>
         {
@@ -79,12 +75,12 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        var currency = World.Currencies.Get("USD");
+        var currency = Reference.World.Currencies.Get("USD")!;
 
-        var mappedCurrency = World.Mapper.Map<CurrencyInfo>(currency);
+        var currencyInfo = currency.ToDto();
 
-        Assert.That(mappedCurrency.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
-        Assert.That(mappedCurrency.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
+        Assert.That(currencyInfo.Units.MajorCurrencyUnit.Name, Is.EqualTo("dollar"));
+        Assert.That(currencyInfo.Units.MinorCurrencyUnit.MajorValue, Is.EqualTo(0.01m));
     }
 
     #endregion GetCurrencies

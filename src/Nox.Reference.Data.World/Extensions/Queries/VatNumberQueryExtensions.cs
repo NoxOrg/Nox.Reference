@@ -1,9 +1,4 @@
-﻿using Nox.Reference.Common;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.Data.World.Services.VatNumbers;
-using Nox.Reference.World;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference;
 
 public static class VatNumberQueryExtensions
 {
@@ -36,7 +31,7 @@ public static class VatNumberQueryExtensions
     /// <returns>Resulting country</returns>
     public static VatNumberDefinition? Get(this IQueryable<VatNumberDefinition> query, WorldCountries country)
     {
-        return query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
+        return query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
     }
 
     /// <summary>
@@ -87,7 +82,7 @@ public static class VatNumberQueryExtensions
         string validationNumber,
         bool shouldValidateViaApi = true)
     {
-        var definition = query.FirstOrDefault(x => x.Country.Name == country.GetStringValue());
+        var definition = query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
 
         if (definition == null)
         {

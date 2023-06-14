@@ -1,7 +1,4 @@
-﻿using Nox.Reference.Common;
-using Nox.Reference.World;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference;
 
 public static class TimeZoneQueryExtensions
 {
@@ -50,6 +47,6 @@ public static class TimeZoneQueryExtensions
     /// <returns>Time zone information</returns>
     public static List<TimeZone>? GetByCountry(this IQueryable<TimeZone> query, WorldCountries country)
     {
-        return query.Where(x => x.Countries.Any(x => x.Name == country.GetStringValue())).ToList();
+        return query.Where(x => x.Countries.Any(x => x.Name == EnumHelper.GetItemDescription(country))).ToList();
     }
 }

@@ -1,13 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data;
-using Nox.Reference.Data.Machine;
-using Nox.Reference.Data.World;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
+using Nox.Reference;
 using System.Text.Json;
-
-// TODO: adjust namespaces
 
 Console.WriteLine("This is Nox.Reference Demo!");
 
@@ -27,6 +20,14 @@ Console.WriteLine($"Inline -- Country -- {ukraine4!.AlphaCode2} -- {ukraine4.Nam
 
 CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
+
+var sundayDate = DateTime.Parse("2023-01-01");
+var fridayDate = DateTime.Parse("2023-01-06");
+
+Console.WriteLine($"Country: 'UA', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("UA", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Ukraine', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Ukraine, fridayDate)}");
+Console.WriteLine($"Country: 'IL', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("IL", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Israel', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Israel, fridayDate)}");
 
 // Cultures
 Culture culture1 = World.Cultures.Get("tg-TJ")!;
@@ -49,6 +50,11 @@ CountryHoliday holidays2 = World.Holidays.Get(2024, WorldCountries.Ukraine)!;
 Console.WriteLine($"Inline -- Holidays -- {holidays1.CountryName} - {holidays1.Year} -- {holidays1.Holidays.Count}");
 Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Year} -- {holidays2.Holidays.Count}");
 
+var newYearDate = DateTime.Parse("2023-01-01");
+var trettondagsaftonDate = DateTime.Parse("2023-01-05");
+Console.WriteLine($"Inline -- Holidays -- {"UA"} -- {newYearDate.ToShortDateString()} -- {World.Holidays.GetHoliday("UA", newYearDate).Name}");
+Console.WriteLine($"Inline -- Holidays -- {WorldCountries.Sweden} -- {trettondagsaftonDate.ToShortDateString()} -- {World.Holidays.GetHoliday(WorldCountries.Sweden, trettondagsaftonDate).Name}");
+
 // Languages
 Language language = World.Languages.GetByIso_639_2t("ces")!;
 List<Language> languages = World.Languages.GetLanguagesForCountry(WorldCountries.Switzerland)!;
@@ -57,8 +63,8 @@ Console.WriteLine($"Inline -- Language -- {language.Iso_639_3} -- {language.Name
 Console.WriteLine($"Inline -- Language -- {WorldCountries.Switzerland} -- {languages.Count}");
 
 // Timezones
-Nox.Reference.Data.World.TimeZone timezone = World.TimeZones.Get("EET")!;
-List<Nox.Reference.Data.World.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
+Nox.Reference.TimeZone timezone = World.TimeZones.Get("EET")!;
+List<Nox.Reference.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
 
 Console.WriteLine($"Inline -- TimeZone -- {timezone.Code} -- {timezone.Type}");
 Console.WriteLine($"Inline -- TimeZone -- {WorldCountries.Canada} -- {timezones.Count}");
@@ -125,7 +131,7 @@ macAddressDash = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 Console.WriteLine($"DI -- MacAddress -- {macAddressDash.MacPrefix} -- {macAddressDash.OrganizationName}");
 
 // Automapper example
-CountryInfo ukraineMapped = World.Mapper.Map<CountryInfo>(ukraine1);
+CountryInfo ukraineMapped = ukraine1.ToDto();
 Console.WriteLine("Serialized data:");
 Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new JsonSerializerOptions
 {

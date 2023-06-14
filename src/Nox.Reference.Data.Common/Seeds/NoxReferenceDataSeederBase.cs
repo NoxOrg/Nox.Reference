@@ -12,6 +12,7 @@ namespace Nox.Reference.Data.Common.Seeds
     /// <typeparam name="TDbContext">Context to be populated</typeparam>
     /// <typeparam name="TSource">Flat model</typeparam>
     /// <typeparam name="TEntity">Entity framework model</typeparam>
+// TODO: make internal
     public abstract class NoxReferenceDataSeederBase<TDbContext, TSource, TEntity> : INoxReferenceDataSeeder
          where TDbContext : DbContext
          where TEntity : NoxReferenceEntityBase

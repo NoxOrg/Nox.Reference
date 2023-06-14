@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Data.World;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public static class World
 {
     private static readonly IServiceProvider _serviceProvider;
-    // TODO: possibly add specialized flat mapping methods per entity
-    public static readonly IMapper Mapper;
 
     static World()
     {
@@ -15,8 +14,11 @@ public static class World
         serviceCollection.AddWorldContext();
 
         _serviceProvider = serviceCollection.BuildServiceProvider();
+
         Mapper = _serviceProvider.GetRequiredService<IMapper>();
     }
+
+    internal static IMapper Mapper { get; }
 
     public static IQueryable<Currency> Currencies
         => WorldDataContext.Currencies;
@@ -42,8 +44,8 @@ public static class World
     public static IQueryable<TimeZone> TimeZones
         => WorldDataContext.TimeZones;
 
-    public static Services.PhoneNumbers.PhoneNumbers PhoneNumbers =>
-        new Services.PhoneNumbers.PhoneNumbers(WorldDataContext);
+    public static PhoneNumbersFacade PhoneNumbers =>
+        new PhoneNumbersFacade(WorldDataContext);
 
     private static IWorldInfoContext WorldDataContext
         => _serviceProvider.GetRequiredService<IWorldInfoContext>();
