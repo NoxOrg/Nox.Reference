@@ -1,7 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -81,7 +78,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
     {
-        var definition = _dbContext!.VatNumberDefinitions.Get(Reference.World.WorldCountries.Ukraine)!;
+        var definition = _dbContext!.VatNumberDefinitions.Get(WorldCountries.Ukraine)!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
@@ -98,7 +95,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Validate(Reference.World.WorldCountries.Ukraine, "UA0203654090", false)!;
+        var validationResult = _dbContext!.VatNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
 
         Assert.That(validationResult.Country, Is.Not.Null);
 
@@ -124,7 +121,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = World.VatNumberDefinitions
+        var validationResult = Reference.World.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -220,7 +217,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_Automapper()
     {
-        var validationDefinition = World.VatNumberDefinitions.Get("DE")!;
+        var validationDefinition = Reference.World.VatNumberDefinitions.Get("DE")!;
 
         var validationDefinitionInfo = validationDefinition.ToDto();
 

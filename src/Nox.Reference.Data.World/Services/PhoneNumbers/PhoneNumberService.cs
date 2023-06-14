@@ -1,8 +1,7 @@
 ﻿using Nox.Reference.Data.World;
-using Nox.Reference.Data.World.Models;
 using LibPhoneNumber = PhoneNumbers;
 
-namespace Nox.Reference.PhoneNumbers;
+namespace Nox.Reference;
 
 public class PhoneNumberService : IPhoneNumberService
 {

@@ -1,8 +1,4 @@
-﻿using Nox.Reference.Common;
-using Nox.Reference.Common.Utilities;
-using Nox.Reference.World;
-
-namespace Nox.Reference.Data.World.Extensions.Queries;
+﻿namespace Nox.Reference;
 
 public static class TimeZoneQueryExtensions
 {

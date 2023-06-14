@@ -1,8 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
-using Nox.Reference.World;
 using System.Diagnostics;
 using System.Text.Json;
 
@@ -67,7 +63,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
-        Currency uaCurrency = World.Currencies.Get("UAH")!;
+        Currency uaCurrency = Reference.World.Currencies.Get("UAH")!;
 
         Assert.Multiple(() =>
         {
@@ -79,7 +75,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        var currency = World.Currencies.Get("USD")!;
+        var currency = Reference.World.Currencies.Get("USD")!;
 
         var currencyInfo = currency.ToDto();
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Nox.Reference.Data.Common;
+namespace Nox.Reference;
 
 public abstract class NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey> : NoxReferenceEntityConfigurationBase<TEntity>
     where TEntity : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<TKey>

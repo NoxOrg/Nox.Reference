@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data.Common;
+﻿namespace Nox.Reference;
 
 public interface IKeyedNoxReferenceEntity<TKey> where TKey : IEquatable<TKey>
 {

@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.PhoneNumbers;
 using System.Diagnostics;
 using System.Linq;
 
@@ -49,7 +48,7 @@ public class PhoneNumberInfoTests
     [Test]
     public void GetPhoneCarriers_StaticWithMap_ReturnsResult()
     {
-        var carrierPhoneNumbers = World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
+        var carrierPhoneNumbers = Reference.World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
 
         var carrierPhoneNumberInfos = carrierPhoneNumbers.ToDto();
 

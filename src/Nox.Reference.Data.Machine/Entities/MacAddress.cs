@@ -1,7 +1,4 @@
-﻿using Nox.Reference.Data.Common;
-using Nox.Reference.Data.Machine;
-
-namespace Nox.Reference.Data;
+﻿namespace Nox.Reference;
 
 public class MacAddress : NoxReferenceEntityBase,
     IKeyedNoxReferenceEntity<string>,
@@ -15,6 +12,6 @@ public class MacAddress : NoxReferenceEntityBase,
 
     public MacAddressInfo ToDto()
     {
-        return Machine.Machine.Mapper.Map<MacAddressInfo>(this);
+        return Machine.Mapper.Map<MacAddressInfo>(this);
     }
 }

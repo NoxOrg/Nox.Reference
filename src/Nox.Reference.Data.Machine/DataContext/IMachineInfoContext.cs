@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data.Machine;
+﻿namespace Nox.Reference;
 
 public interface IMachineInfoContext
 {

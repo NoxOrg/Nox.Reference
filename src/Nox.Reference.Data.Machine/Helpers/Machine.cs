@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Nox.Reference.Data.Machine;
+namespace Nox.Reference;
 
 public static class Machine
 {

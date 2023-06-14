@@ -1,8 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
-using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;

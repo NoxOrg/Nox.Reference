@@ -1,6 +1,6 @@
 ﻿using YamlDotNet.Serialization;
 
-namespace Nox.Reference.Data.World.Models;
+namespace Nox.Reference;
 
 internal class LanguageInfoYaml
 {

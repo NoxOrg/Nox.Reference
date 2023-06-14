@@ -5,6 +5,7 @@ namespace Nox.Reference.Data.Common.Helpers
     /// <summary>
     /// This class contains helper functions that are needed to fix database path
     /// </summary>
+    // TODO: make internal
     public static class DatabasePathHelper
     {
         /// <summary>
