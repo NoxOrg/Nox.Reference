@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿using Microsoft.Extensions.Configuration;
+using System.Text;
 using System.Text.Json;
-using Microsoft.Extensions.Configuration;
 
 namespace Nox.Reference.Common;
 
+// TODO: make internal
 public class NoxReferenceFileStorageService
 {
     private readonly IConfiguration _configuration;

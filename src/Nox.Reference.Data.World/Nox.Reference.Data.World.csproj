@@ -4,9 +4,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.World</PackageId>
-    <AssemblyVersion>1.0.5.0</AssemblyVersion>
-    <FileVersion>1.0.5.0</FileVersion>
-    <PackageVersion>1.0.5.0-alpha</PackageVersion>
+    <AssemblyVersion>1.0.9.0</AssemblyVersion>
+    <FileVersion>1.0.9.0</FileVersion>
+    <PackageVersion>1.0.9.0</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -17,6 +17,7 @@
     <PackageIcon>nox.png</PackageIcon>
     <Description>Nox Reference World data context</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -29,7 +30,7 @@
     <None Remove="NoxReferenceDatabase\Nox.Reference.World.db" />
   </ItemGroup>
   <Target Name="CopyMiscFilesToLocal" AfterTargets="BeforeBuild">
-	<Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.World.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.World.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
     <Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
   </Target>
   <ItemGroup>
@@ -73,7 +74,6 @@
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Models\Languages\Yaml\" />
   </ItemGroup>
 </Project>

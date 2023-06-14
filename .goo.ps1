@@ -31,8 +31,8 @@ $script:SolutionFolder          = "$script:SourceFolder"
 $script:SolutionFile            = "$script:SolutionFolder\Nox.Reference.sln"
 $script:WorldProjectPath 		= "$script:SolutionFolder\Nox.Reference.Data.World\"
 $script:MachineProjectPath		= "$script:SolutionFolder\Nox.Reference.Data.Machine\"
-$script:WorldDbFile 			= "$script:RootFolder\data\output\sqlite\NoxReference.World.db"
-$script:MachineDbFile 			= "$script:RootFolder\data\output\sqlite\NoxReference.Machine.db"
+$script:WorldDbFile 			= "$script:RootFolder\data\output\sqlite\Nox.Reference.World.db"
+$script:MachineDbFile 			= "$script:RootFolder\data\output\sqlite\Nox.Reference.Machine.db"
 $script:DefaultEnvironment      = 'Development'
 
 <# --- SET YOUR PROJECT'S ENVIRONMENT VARIABLES HERE --- #>

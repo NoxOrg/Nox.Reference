@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
-using Nox.Reference.Data.World.Models;
 
 namespace Nox.Reference.Data.World.Mappings;
 

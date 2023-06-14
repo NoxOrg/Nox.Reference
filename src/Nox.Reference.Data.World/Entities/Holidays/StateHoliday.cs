@@ -1,6 +1,4 @@
-﻿using Nox.Reference.Data.Common;
-
-namespace Nox.Reference.Data.World;
+﻿namespace Nox.Reference;
 
 public class StateHoliday : NoxReferenceEntityBase
 {

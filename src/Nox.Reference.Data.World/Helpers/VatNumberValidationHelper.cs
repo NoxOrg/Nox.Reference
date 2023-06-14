@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public static class VatNumberValidationHelper
 {

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.Common.Seeds;
-using Nox.Reference.Data.World.Models;
 using System.Text.Json;
 
 namespace Nox.Reference.Data.World;
@@ -28,7 +27,7 @@ internal class CurrencyDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, C
 
     public override string DataFolderPath => "Currencies";
 
-    protected override IReadOnlyList<CurrencyInfo> GetDataInfos()
+    protected override IReadOnlyList<CurrencyInfo> GetFlatEntitiesFromDataSources()
     {
         var uriRestCurrencyFormatterCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestCurrencyFormatterCurrenciesSettingName)!;
         var uriRestWorldCurrencies = _configuration.GetValue<string>(ConfigurationConstants.UriRestWorldCurrenciesSettingName)!;

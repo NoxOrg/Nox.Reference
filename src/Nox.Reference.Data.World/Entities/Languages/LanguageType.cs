@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
 public enum LanguageType

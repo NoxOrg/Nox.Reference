@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-namespace Nox.Reference.World;
+
+namespace Nox.Reference;
 
 public enum WorldCurrencies
 {
@@ -302,4 +303,5 @@ public enum WorldCurrencies
 	[Description("South African Rand")]
 	SouthAfricanRand,
 	[Description("Zambian Kwacha")]
-	ZambianKwacha,}
+	ZambianKwacha,
+}

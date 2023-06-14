@@ -1,8 +1,7 @@
 ﻿using Nox.Reference.Data.World;
-using Nox.Reference.Data.World.Models;
 using LibPhoneNumber = PhoneNumbers;
 
-namespace Nox.Reference.PhoneNumbers;
+namespace Nox.Reference;
 
 public class PhoneNumberService : IPhoneNumberService
 {
@@ -16,6 +15,7 @@ public class PhoneNumberService : IPhoneNumberService
         _worldDbContext = worldDbContext;
     }
 
+    /// <inheritdoc/>
     public PhoneNumberInfo GetPhoneNumberInfo(string inputPhoneNumber, string? countryAlpha2Code = null)
     {
         var phoneNumber = _phoneUtil.Parse(inputPhoneNumber, countryAlpha2Code);

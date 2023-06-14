@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
-namespace Nox.Reference.World;
+
+namespace Nox.Reference;
 
 public enum WorldCountries
 {
@@ -500,4 +501,5 @@ public enum WorldCountries
 	[Description("Zambia")]
 	Zambia,
 	[Description("Zimbabwe")]
-	Zimbabwe,}
+	Zimbabwe,
+}

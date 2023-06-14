@@ -1,7 +1,7 @@
 ﻿using Nox.Reference.Common;
 using System.Text.Json.Serialization;
 
-namespace Nox.Reference.Data.World.Models;
+namespace Nox.Reference;
 
 public class CultureInfo
 {
@@ -10,7 +10,7 @@ public class CultureInfo
     [JsonPropertyName("nativeName")] public string NativeName { get; set; } = string.Empty;
     [JsonPropertyName("commonName")] public string? CommonName { get; set; }
     [JsonPropertyName("language")] public string Language { get; set; } = string.Empty;
-    [JsonPropertyName("country")] public string Country { get; set; } = string.Empty;
+    [JsonPropertyName("country")] public string? Country { get; set; }
     [JsonPropertyName("displayName")] public string DisplayName { get; set; } = string.Empty;
     [JsonPropertyName("displayNameWithDialect")] public string DisplayNameWithDialect { get; set; } = string.Empty;
     [JsonPropertyName("characterOrientation")] public string CharacterOrientation { get; set; } = string.Empty;

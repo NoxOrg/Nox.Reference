@@ -1,72 +1,97 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data;
-using Nox.Reference.Data.Machine;
-using Nox.Reference.Data.World;
-using Nox.Reference.Data.World.Extensions.Queries;
-using Nox.Reference.Data.World.Models;
+using Nox.Reference;
 using System.Text.Json;
 
 Console.WriteLine("This is Nox.Reference Demo!");
-
-// TODO: redirect to nuget feed packages instead of local
 
 // Simplified flow
 
 // World
 // Country
-var ukraine1 = World.Countries.Get("UKR");
+Country ukraine1 = World.Countries.Get("UA")!;
 var ukraine2 = World.Countries.First(x => x.FipsCode == "UP");
-var ukraine3 = World.Countries.GetByAlpha2Code("UA");
+var ukraine3 = World.Countries.GetByAlpha3Code("UKR");
+var ukraine4 = World.Countries.Get(WorldCountries.Ukraine);
 
 Console.WriteLine($"Inline -- Country -- {ukraine1!.AlphaCode3} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
+Console.WriteLine($"Inline -- Country -- {ukraine4!.AlphaCode2} -- {ukraine4.Names.CommonName}");
 
-var countryEnglishTranslation = World.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
+CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
-// Cultures
-var culture = World.Cultures.Get("tg-TJ")!;
+var sundayDate = DateTime.Parse("2023-01-01");
+var fridayDate = DateTime.Parse("2023-01-06");
 
-Console.WriteLine($"Inline -- Culture -- {culture.Name} -- {culture.DisplayName}");
+Console.WriteLine($"Country: 'UA', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("UA", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Ukraine', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Ukraine, fridayDate)}");
+Console.WriteLine($"Country: 'IL', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("IL", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Israel', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Israel, fridayDate)}");
+
+// Cultures
+Culture culture1 = World.Cultures.Get("tg-TJ")!;
+List<Culture> culture2 = World.Cultures.GetByCountry(WorldCountries.UnitedStates)!;
+
+Console.WriteLine($"Inline -- Culture -- {culture1.Name} -- {culture1.DisplayName}");
+Console.WriteLine($"Inline -- Culture -- {WorldCountries.UnitedStates} -- {culture2.Count}");
 
 // Currencies
-var currency = World.Currencies.Get("TWD")!;
+Currency currency1 = World.Currencies.Get("TWD")!;
+Currency currency2 = World.Currencies.Get(WorldCurrencies.UkrainianHryvnia)!;
 
-Console.WriteLine($"Inline -- Currency -- {currency.IsoCode} -- {currency.Name}");
+Console.WriteLine($"Inline -- Currency -- {currency1.IsoCode} -- {currency1.Name}");
+Console.WriteLine($"Inline -- Currency -- {currency2.IsoCode} -- {currency2.Name}");
 
 // Holidays
-var holidays = World.Holidays.Get(2024, "AD")!;
+CountryHoliday holidays1 = World.Holidays.Get(2024, "AD")!;
+CountryHoliday holidays2 = World.Holidays.Get(2024, WorldCountries.Ukraine)!;
 
-Console.WriteLine($"Inline -- Holidays -- {holidays.CountryName} - {holidays.Year} -- {holidays.Holidays.Count}");
+Console.WriteLine($"Inline -- Holidays -- {holidays1.CountryName} - {holidays1.Year} -- {holidays1.Holidays.Count}");
+Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Year} -- {holidays2.Holidays.Count}");
+
+var newYearDate = DateTime.Parse("2023-01-01");
+var trettondagsaftonDate = DateTime.Parse("2023-01-05");
+Console.WriteLine($"Inline -- Holidays -- {"UA"} -- {newYearDate.ToShortDateString()} -- {World.Holidays.GetHoliday("UA", newYearDate).Name}");
+Console.WriteLine($"Inline -- Holidays -- {WorldCountries.Sweden} -- {trettondagsaftonDate.ToShortDateString()} -- {World.Holidays.GetHoliday(WorldCountries.Sweden, trettondagsaftonDate).Name}");
 
 // Languages
-var language = World.Languages.GetByIso_639_2t("ces")!;
+Language language = World.Languages.GetByIso_639_2t("ces")!;
+List<Language> languages = World.Languages.GetLanguagesForCountry(WorldCountries.Switzerland)!;
 
 Console.WriteLine($"Inline -- Language -- {language.Iso_639_3} -- {language.Name}");
+Console.WriteLine($"Inline -- Language -- {WorldCountries.Switzerland} -- {languages.Count}");
 
 // Timezones
-var timezone = World.TimeZones.Get("EET")!;
+Nox.Reference.TimeZone timezone = World.TimeZones.Get("EET")!;
+List<Nox.Reference.TimeZone> timezones = World.TimeZones.GetByCountry(WorldCountries.Canada)!;
 
 Console.WriteLine($"Inline -- TimeZone -- {timezone.Code} -- {timezone.Type}");
+Console.WriteLine($"Inline -- TimeZone -- {WorldCountries.Canada} -- {timezones.Count}");
 
 // VatNumberDefinitions
-var validationSuccessResult = World.VatNumberDefinitions.Validate("ES", "B65296485", true)!;
-var validationFailResult = World.VatNumberDefinitions.Validate("ES", "BROKEN", true)!;
+VatNumberValidationResult validationSuccessResult = World.VatNumberDefinitions.Validate("ES", "B65296485", true)!;
+var validationFailResult = World.VatNumberDefinitions.Validate(WorldCountries.Spain, "BROKEN", true)!;
 
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationSuccessResult.Country} -- {validationSuccessResult.FormattedVatNumber} -- {validationSuccessResult.Status}");
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationFailResult.Country} -- {validationFailResult.FormattedVatNumber} -- {validationFailResult.Status}");
 
 // Phone
-var phone = World.PhoneNumbers.GetPhoneNumberInfo("+380965370000", "UA");
+PhoneNumberInfo phone = World.PhoneNumbers.GetPhoneNumberInfo("+380965370000", "UA");
 
 Console.WriteLine($"Inline -- PhoneNumbers -- {phone.FormattedNumber} -- {phone.CarrierName}");
 
 // Machine
 // Mac address
-var macAddress = Machine.MacAddresses.Get("00-16-F6-11-22-33")!;
+MacAddress macAddressDash = Machine.MacAddresses.Get("00-16-F6-11-22-33")!;
+MacAddress macAddressSemi = Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
+MacAddress macAddressNoSpace = Machine.MacAddresses.Get("0016F6112233")!;
+MacAddress macAddressSpace = Machine.MacAddresses.Get("00 16 F6 11 22 33")!;
 
-Console.WriteLine($"Inline -- MacAddress -- {macAddress.MacPrefix} -- {macAddress.OrganizationName}");
+Console.WriteLine($"Inline -- MacAddress -- {macAddressDash.MacPrefix} -- {macAddressDash.OrganizationName}");
+Console.WriteLine($"Inline -- MacAddress -- {macAddressSemi.MacPrefix} -- {macAddressSemi.OrganizationName}");
+Console.WriteLine($"Inline -- MacAddress -- {macAddressNoSpace.MacPrefix} -- {macAddressNoSpace.OrganizationName}");
+Console.WriteLine($"Inline -- MacAddress -- {macAddressSpace.MacPrefix} -- {macAddressSpace.OrganizationName}");
 
 // Dependency injection flow
 
@@ -78,18 +103,18 @@ serviceCollection.AddMachineContext();
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
 // World context
-var worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
+IWorldInfoContext worldContextDi = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
 // Country
-ukraine1 = worldContextDi.Countries.Get("UKR");
+ukraine1 = worldContextDi.Countries.Get("UA")!;
 ukraine2 = worldContextDi.Countries.First(x => x.FipsCode == "UP");
-ukraine3 = worldContextDi.Countries.GetByAlpha2Code("UA");
+ukraine3 = worldContextDi.Countries.GetByAlpha3Code("UKR");
 
 Console.WriteLine($"Inline -- Country -- {ukraine1!.Name} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine2.FipsCode} -- {ukraine1.Names.CommonName}");
 Console.WriteLine($"Inline -- Country -- {ukraine3!.AlphaCode2} -- {ukraine1.Names.CommonName}");
 
-countryEnglishTranslation = worldContextDi.Countries.Get("ZAF")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
+countryEnglishTranslation = worldContextDi.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
 // Timezones
@@ -101,14 +126,14 @@ Console.WriteLine($"DI -- TimeZone -- {timezone.Code} -- {timezone.Type}");
 var machineContextDi = serviceProvider.GetRequiredService<IMachineInfoContext>();
 
 // Mac address
-macAddress = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
+macAddressDash = machineContextDi.MacAddresses.Get("00-16-F6-11-22-33")!;
 
-Console.WriteLine($"DI -- MacAddress -- {macAddress.MacPrefix} -- {macAddress.OrganizationName}");
+Console.WriteLine($"DI -- MacAddress -- {macAddressDash.MacPrefix} -- {macAddressDash.OrganizationName}");
 
 // Automapper example
-var ukraineMapped = World.Mapper.Map<CountryInfo>(ukraine1);
+CountryInfo ukraineMapped = ukraine1.ToDto();
 Console.WriteLine("Serialized data:");
-Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new System.Text.Json.JsonSerializerOptions
+Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new JsonSerializerOptions
 {
     WriteIndented = true,
 }));
