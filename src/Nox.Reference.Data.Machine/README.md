@@ -41,7 +41,7 @@ or
 ### How to create migrations:
 - In Powershell or a similar command tool go to Nox.Reference\src\Nox.Reference.Data.Machine
 - Run the following command:   
-`dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.Machine.csproj`
+`dotnet ef  migrations add  <MigrationName>  --project ../Nox.Reference.Data.World/Nox.Reference.Data.Machine.csproj`
 - Created migration will appear in Nox.Reference.Data.Machine\\Migrations folder
 
 To create or update the database:

@@ -1,5 +1,5 @@
 # Nox.Refence.World project
-*Nox.Reference.World* project contains functionality and classes to get common information about Countries, Currencies, Languages, CountryHolidays, etc.
+*Nox.Reference.World* project contains functionality and classes to get common information about Countries, Currencies, Languages, Holidays, etc.
 ## How to use:
 There are 2 approaches how to deal with Nox.Reference.World:
 ### 1. Static approach: 
@@ -17,12 +17,16 @@ Currency currency = World.Currencies.FirstOrDefault(x => x.IsoCode == isoCode);
 	
 ### 2. Use dependency injection:
 - Initially, World data context should be registered in the dependency container
-`
+
+```
+
 services.AddWorldContext();
-`
 
+```
 
-Then is simply be acquired using DI
+- Then is simply be acquired using DI
+
+```
 
     class ConsumerService
 	{
@@ -40,6 +44,7 @@ Then is simply be acquired using DI
 			Currency currency = _wordContext.Currencies.Get(isoCode);
 		}
 	}
+```
 
 More examples you can find in  [Nox.Reference.Demo project](https://github.com/NoxOrg/Nox.Reference/blob/main/src/Nox.Demo/Program.cs "Examples")
 
@@ -47,7 +52,7 @@ More examples you can find in  [Nox.Reference.Demo project](https://github.com/N
 - In powershel or a similar command tool go to Nox.Reference\src\Nox.Reference.Data.World
 - Run the following command:   
 
-`dotnet ef  migrations add  <MigrationName>  --project ../NoNox.Reference.Data.World/Nox.Reference.Data.World.csproj`
+`dotnet ef  migrations add  <MigrationName>  --project ../Nox.Reference.Data.World/Nox.Reference.Data.World.csproj`
 
 - Created migration will appear in Nox.Reference.Data.World\\Migrations folder
 

@@ -3,10 +3,11 @@
 ***Nox.Reference*** is a storage that contains the most commonly used types.
 To persist data Nox.Reference uses sqlLite databases which are dived by domain-specific responsibilities. 
 
-Nox.Reference solution consists of the following projects:
+Nox.Reference represents the following packages:
 
 - Nox.Refence.World
 - Nox.Refence.Machine
+- Nox.Refence.IpAddress
 
 
 ## Soluition design convention:
@@ -41,7 +42,7 @@ public class Country : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<string>
 {
 	// Should be defined as how to build the key.
 	// Id field is not persisted in a database.
-    public string Id => Code;
+	public string Id => Code;
 }
 
 ```
@@ -63,7 +64,7 @@ If entity supports Id property then derive from class.
 NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey>  
 `
 
-*(Note: it shouldn't register configuration in dataContext, it will be registered automatiacally)*
+*(Note: it doesn't need to register configuration in dataContext class, all configurations will be registered automatically)*
 
 
 ## How to write custom data seeder.
