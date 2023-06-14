@@ -29,12 +29,6 @@ public static class CurrencyQueryExtensions
     /// <param name="query">Current collection</param>
     /// <param name="isoCode">Currency ISO Code Example: 'AED'</param>
     /// <returns>Currency info</returns>
-    /// <summary>
-    /// Get currency by ISO curency code. 
-    /// </summary>
-    /// <param name="query">IQueryable<Currency> query</param>
-    /// <param name="currency">Currency ISO code</param>
-    /// <returns>Currency</returns>
     public static Currency? GetByIsoCode(this IQueryable<Currency> query, string isoCode)
     {
         return query.FirstOrDefault(x => x.IsoCode == isoCode.ToUpper());
