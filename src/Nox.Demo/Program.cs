@@ -21,6 +21,14 @@ Console.WriteLine($"Inline -- Country -- {ukraine4!.AlphaCode2} -- {ukraine4.Nam
 CountryNameTranslation countryEnglishTranslation = World.Countries.Get("ZA")!.NameTranslations.FirstOrDefault(x => x.Language.Iso_639_1 == "cs")!;
 Console.WriteLine($"Inline -- Translation -- {"ZAF"} -- Language - cs -- {countryEnglishTranslation.OfficialName}");
 
+var sundayDate = DateTime.Parse("2023-01-01");
+var fridayDate = DateTime.Parse("2023-01-06");
+
+Console.WriteLine($"Country: 'UA', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("UA", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Ukraine', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Ukraine, fridayDate)}");
+Console.WriteLine($"Country: 'IL', Day: '{sundayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay("IL", sundayDate)}");
+Console.WriteLine($"Country: 'WorldCountries.Israel', Date: '{fridayDate.DayOfWeek}', is working day: {World.Countries.IsWorkingDay(WorldCountries.Israel, fridayDate)}");
+
 // Cultures
 Culture culture1 = World.Cultures.Get("tg-TJ")!;
 List<Culture> culture2 = World.Cultures.GetByCountry(WorldCountries.UnitedStates)!;
@@ -41,6 +49,11 @@ CountryHoliday holidays2 = World.Holidays.Get(2024, WorldCountries.Ukraine)!;
 
 Console.WriteLine($"Inline -- Holidays -- {holidays1.CountryName} - {holidays1.Year} -- {holidays1.Holidays.Count}");
 Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Year} -- {holidays2.Holidays.Count}");
+
+var newYearDate = DateTime.Parse("2023-01-01");
+var trettondagsaftonDate = DateTime.Parse("2023-01-05");
+Console.WriteLine($"Inline -- Holidays -- {"UA"} -- {newYearDate.ToShortDateString()} -- {World.Holidays.GetHoliday("UA", newYearDate).Name}");
+Console.WriteLine($"Inline -- Holidays -- {WorldCountries.Sweden} -- {trettondagsaftonDate.ToShortDateString()} -- {World.Holidays.GetHoliday(WorldCountries.Sweden, trettondagsaftonDate).Name}");
 
 // Languages
 Language language = World.Languages.GetByIso_639_2t("ces")!;
