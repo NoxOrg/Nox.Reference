@@ -197,7 +197,7 @@ public static class CountryQueryExtensions
         WorldCountries country,
         DateTime date)
     {
-        var countryCode = query.Get(country)!.Code;
+        var countryCode = World.Countries.Get(country)!.Code;
         return query.IsWorkingDay(countryCode, date);
     }
 
@@ -219,7 +219,7 @@ public static class CountryQueryExtensions
         string countryCode,
         DateTime date)
     {
-        var country = query.Get(countryCode)!;
+        var country = World.Countries.Get(countryCode)!;
         var weekendDay1 = (int)country.StartDayOfWeek - 1;
         var weekendDay2 = (int)country.StartDayOfWeek - 2;
 
