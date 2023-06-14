@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
+using System;
 using System.Diagnostics;
 
 namespace Nox.Reference.Data.World.Tests;
@@ -84,6 +85,46 @@ public class CountryInfoTests
             Assert.That(translationInfo.CommonName, Is.EqualTo("South Africa"));
         });
     }
+
+    #region IsWorkingDay
+
+    [TestCase("UA", "2023-06-19", true)]
+    [TestCase("UA", "2023-06-18", false)]
+    [TestCase("UA", "2023-06-17", false)]
+    [TestCase("UA", "2023-06-16", true)]
+    [TestCase("IL", "2023-06-18", true)]
+    [TestCase("IL", "2023-06-17", false)]
+    [TestCase("IL", "2023-06-16", false)]
+    [TestCase("IL", "2023-06-15", true)]
+    public void IsHolidayDate_PositiveAndNegativeScenarios(
+        string country,
+        string date,
+        bool expectedResult)
+    {
+        var isWorkingDay = _worldDbContext.Countries.IsWorkingDay(country, DateTime.Parse(date))!;
+
+        Assert.That(isWorkingDay, Is.EqualTo(expectedResult));
+    }
+
+    [TestCase(WorldCountries.Ukraine, "2023-06-19", true)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-18", false)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-17", false)]
+    [TestCase(WorldCountries.Ukraine, "2023-06-16", true)]
+    [TestCase(WorldCountries.Israel, "2023-06-18", true)]
+    [TestCase(WorldCountries.Israel, "2023-06-17", false)]
+    [TestCase(WorldCountries.Israel, "2023-06-16", false)]
+    [TestCase(WorldCountries.Israel, "2023-06-15", true)]
+    public void IsHolidayDate_PositiveAndNegativeScenarios_WithEnumCode(
+        WorldCountries country,
+        string date,
+        bool expectedResult)
+    {
+        var isWorkingDay = _worldDbContext.Countries.IsWorkingDay(country, DateTime.Parse(date))!;
+
+        Assert.That(isWorkingDay, Is.EqualTo(expectedResult));
+    }
+
+    #endregion IsWorkingDay
 
     [TearDown]
     public void EndTest()

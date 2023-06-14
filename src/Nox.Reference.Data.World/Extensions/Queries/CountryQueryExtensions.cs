@@ -178,4 +178,66 @@ public static class CountryQueryExtensions
     {
         return query.FirstOrDefault(x => x.Name == EnumHelper.GetItemDescription(country));
     }
+
+    /// <summary>
+    /// Returns if particular date is a working day or weekend day for a country.
+    /// <example>
+    /// <code>
+    /// Holidays.IsWorkingDay(WorldCountries.Ukraine, DateTime.Parse("2023-01-04"))]
+    /// Holidays.IsWorkingDay(WorldCountries.Ukraine, DateTime.Parse("2023-01-02"))]
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="query">Holidays list</param>
+    /// <param name="date">Date to check for working day</param>
+    /// <param name="country">Country enum value</param>
+    /// <returns>True if date is a working date, false if not</returns>
+    public static bool IsWorkingDay(
+        this IQueryable<Country> query,
+        WorldCountries country,
+        DateTime date)
+    {
+        var countryCode = query.Get(country)!.Code;
+        return query.IsWorkingDay(countryCode, date);
+    }
+
+    /// <summary>
+    /// Returns if particular date is a working day or weekend day for a country.
+    /// <example>
+    /// <code>
+    /// Holidays.IsWorkingDay("UA", DateTime.Parse("2023-01-04"))]
+    /// Holidays.IsWorkingDay("UA", DateTime.Parse("2023-01-02"))]
+    /// </code>
+    /// </example>
+    /// </summary>
+    /// <param name="query">Holidays list</param>
+    /// <param name="date">Date to check for working day</param>
+    /// <param name="countryCode">Country alpha 2 code</param>
+    /// <returns>True if date is a working date, false if not</returns>
+    public static bool IsWorkingDay(
+        this IQueryable<Country> query,
+        string countryCode,
+        DateTime date)
+    {
+        var country = query.Get(countryCode)!;
+        var weekendDay1 = (int)country.StartDayOfWeek - 1;
+        var weekendDay2 = (int)country.StartDayOfWeek - 2;
+
+        var normalizeWeekendDay1 = NormalizeWeekendDay(weekendDay1);
+        var normalizeWeekendDay2 = NormalizeWeekendDay(weekendDay2);
+
+        return
+            (int)date.DayOfWeek != normalizeWeekendDay1 &&
+            (int)date.DayOfWeek != normalizeWeekendDay2;
+    }
+
+    private static int NormalizeWeekendDay(int dayOfWeek)
+    {
+        if (dayOfWeek < 0)
+        {
+            dayOfWeek = 7 + dayOfWeek;
+        }
+
+        return dayOfWeek;
+    }
 }
