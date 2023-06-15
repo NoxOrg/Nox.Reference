@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
@@ -40,7 +41,8 @@ public class TaxNumberTests
             }
             path = path.Parent;
         }
-        _testFilePath = Path.Combine(path.FullName, "data/tests/TaxNumbers/");
+        // TODO: come up with different test data
+        _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -132,6 +134,71 @@ public class TaxNumberTests
     }
 
     #endregion ValidateTaxNumber
+
+    #region PerCountry
+
+    [Test]
+    [TestCase("UA")]
+    //[TestCase("ZA")]
+    //[TestCase("CO")]
+    //[TestCase("CH")]
+    //[TestCase("BR")]
+    //[TestCase("GB")]
+    //[TestCase("IT")]
+    //[TestCase("FR")]
+    //[TestCase("DE")]
+    //[TestCase("ES")]
+    //[TestCase("NL")]
+    //[TestCase("MX")]
+    //[TestCase("IN")]
+    //[TestCase("CA")]
+    //[TestCase("BE")]
+    //[TestCase("AU")]
+    //[TestCase("PL")]
+    //[TestCase("PT")]
+    //[TestCase("DK")]
+    //[TestCase("AT")]
+    //[TestCase("JP")]
+    //[TestCase("CN")]
+    //[TestCase("TR")]
+    //[TestCase("SE")]
+    //[TestCase("IL")]
+    //[TestCase("TH")]
+    //[TestCase("AE")]
+    //[TestCase("MY")]
+    //[TestCase("FI")]
+    //[TestCase("SG")]
+    //[TestCase("NO")]
+    //[TestCase("RU")]
+    //[TestCase("NZ")]
+    //[TestCase("SA")]
+    //[TestCase("PH")]
+    //[TestCase("ID")]
+    //[TestCase("HK")]
+    public void VatNumber_TestNumberOfFailingVATPerCountry(string countryCode)
+    {
+        using var sr = new StreamReader($"{_testFilePath}/{countryCode}-VatNumbers.json");
+        var testData = JsonSerializer.Deserialize<string[]>(sr.ReadToEnd());
+
+        var failedVat = new List<string>();
+        foreach (var vatNumber in testData!)
+        {
+            var validationResult = _dbContext.VatNumberDefinitions
+                .Get(countryCode)!
+                .Validate(vatNumber, false)!;
+
+            if (validationResult.Status != ValidationStatus.Valid)
+            {
+                failedVat.Add($"{vatNumber}:{string.Join(';', validationResult.ValidationErrors)}");
+            }
+        }
+
+        Trace.WriteLine($"Failed TAX count: {failedVat.Count}/{testData.Length}");
+        Trace.WriteLine("Failed TAX:");
+        Trace.WriteLine(JsonSerializer.Serialize(failedVat, _jsonOptions));
+    }
+
+    #endregion PerCountry
 
     [Test]
     public void TaxNumber_Automapper()

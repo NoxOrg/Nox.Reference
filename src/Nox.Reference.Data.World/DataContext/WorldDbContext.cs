@@ -80,7 +80,7 @@ public class WorldDbContext : DbContext, IWorldInfoContext
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
 
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
-        //connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(WorldDbContext), nameof(World));
+        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(WorldDbContext), nameof(World));
 
         optionsBuilder
             .UseLazyLoadingProxies()

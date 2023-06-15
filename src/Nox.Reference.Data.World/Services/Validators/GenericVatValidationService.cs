@@ -1,4 +1,4 @@
-﻿using Nox.Reference.Data.World;
+﻿using Nox.Reference.Data.World.Helpers;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -219,7 +219,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateLuhnDigitForVatNumber());
+                result.AddErrors(ChecksumValidationHelper.ValidateLuhnDigitNumber(digitPart));
                 break;
 
             case ChecksumAlgorithm.ModAndSubstract:
@@ -233,7 +233,7 @@ public static class GenericVatValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateModAndSubstract(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
+                result.AddErrors(ChecksumValidationHelper.ValidateModAndSubstract(digitPart, validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
                 break;
 
             case ChecksumAlgorithm.ModAndSubstract_IT:
@@ -247,12 +247,12 @@ public static class GenericVatValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateModAndSubstractItaly(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights()));
+                result.AddErrors(ChecksumVatValidationHelper.ValidateModAndSubstractItaly(digitPart, validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights()));
                 break;
 
             case ChecksumAlgorithm.Mod:
                 if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
-                    !(validationInfoByPattern.Checksum.GetWeights().Length > 0))
+                    (validationInfoByPattern.Checksum.GetWeights().Length <= 0))
                 {
                     result.AddError(
                         string.Format(
@@ -261,13 +261,13 @@ public static class GenericVatValidationService
                     break;
                 }
 
-                result.AddErrors(digitPart.ValidateMod(validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
+                result.AddErrors(ChecksumValidationHelper.ValidateMod(digitPart, validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
                 break;
 
             case ChecksumAlgorithm.MX_Algorithm:
                 // length is checked inside
 
-                result.AddErrors(result.OriginalVatNumber.ValidateMXAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatMXAlgorithm(result.OriginalVatNumber));
                 break;
 
             case ChecksumAlgorithm.DE_Algorithm:
@@ -278,7 +278,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateDEAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatDEAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.FR_Algorithm:
@@ -289,7 +289,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateFRAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatFRAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.CO_Algorithm:
@@ -300,7 +300,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateCOAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatCOAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.AU_Algorithm:
@@ -311,7 +311,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateAUAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatAUAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.BE_Algorithm:
@@ -322,7 +322,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateBEAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatBEAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.BR_Algorithm:
@@ -333,7 +333,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateBRAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatBRAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.CA_Algorithm:
@@ -344,7 +344,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateCAAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatCAAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.CH_Algorithm:
@@ -355,7 +355,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateCHAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatCHAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.GB_Algorithm:
@@ -366,7 +366,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateGBAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatGBAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.ES_Algorithm1:
@@ -383,7 +383,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(formattedVatNumber.Substring(3).ValidateES1Algorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatES1Algorithm(formattedVatNumber.Substring(3)));
                 break;
 
             case ChecksumAlgorithm.ES_Algorithm2:
@@ -400,7 +400,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(formattedVatNumber.Substring(3).ValidateES2Algorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatES2Algorithm(formattedVatNumber.Substring(3)));
                 break;
 
             case ChecksumAlgorithm.ES_Algorithm3:
@@ -417,7 +417,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(formattedVatNumber.Substring(2).ValidateES3Algorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatES3Algorithm(formattedVatNumber.Substring(2)));
                 break;
 
             case ChecksumAlgorithm.DK_Algorithm:
@@ -428,7 +428,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateDKAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatDKAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.AT_Algorithm:
@@ -439,7 +439,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateATAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatATAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.JP_Algorithm:
@@ -450,7 +450,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateJPAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatJPAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.CN_Algorithm:
@@ -461,7 +461,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateCNAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatCNAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.TR_Algorithm:
@@ -472,7 +472,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateTRAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatTRAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.SE_Algorithm:
@@ -483,7 +483,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateSEAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatSEAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.NO_Algorithm:
@@ -494,7 +494,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateNOAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatNOAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.RU_Algorithm:
@@ -507,7 +507,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateRUAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatRUAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.NZ_Algorithm:
@@ -518,7 +518,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateNZAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatNZAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.ID_Algorithm:
@@ -529,7 +529,7 @@ public static class GenericVatValidationService
                     return;
                 }
 
-                result.AddErrors(digitPart.ValidateIDAlgorithm());
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatIDAlgorithm(digitPart));
                 break;
 
             case ChecksumAlgorithm.None:

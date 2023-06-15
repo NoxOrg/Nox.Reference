@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace Nox.Reference.Data.World;
 
-// TODO: join with vat number service into single service
+// TODO: join with vat number service into single service if possible
 public static class GenericTaxValidationService
 {
     /// <summary>
@@ -110,11 +110,41 @@ public static class GenericTaxValidationService
             return;
         }
 
-        // TODO: add checksum validation
-        //ValidateChecksumByCountry(result, validationInfoByPattern, digitPart, checksumDigitPosition.Value);
+        ValidateChecksumByCountry(result, validationInfoByPattern, digitPart, checksumDigitPosition.Value);
     }
 
-    private static int? CalculateChecksumDigitPosition(TaxNumberValidationRule validationInfoByPattern, TaxNumberValidationResult result, string digitPart)
+    private static void ValidateChecksumByCountry(
+        TaxNumberValidationResult result,
+        TaxNumberValidationRule validationInfoByPattern,
+        string digitPart,
+        int checksumDigitPosition)
+    {
+        int minimumLength;
+        //var formattedTaxNumber = result.FormattedTaxNumber;
+
+        switch (validationInfoByPattern.Checksum!.Algorithm)
+        {
+            //case ChecksumAlgorithm.Luhn:
+            //    minimumLength = 6;
+            //    if (digitPart.Length < minimumLength)
+            //    {
+            //        result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+            //        return;
+            //    }
+
+            //    result.AddErrors(digitPart.ValidateLuhnDigitForVatNumber());
+            //    break;
+
+            case ChecksumAlgorithm.None:
+                break;
+
+            default:
+                result.AddError(ValidationErrors.UnknownChecksumAlgorithm);
+                break;
+        }
+    }
+
+        private static int? CalculateChecksumDigitPosition(TaxNumberValidationRule validationInfoByPattern, TaxNumberValidationResult result, string digitPart)
     {
         var checksumDigitPosition = -1;
         var checksumDigitValue = validationInfoByPattern.Checksum!.ChecksumDigit ?? "Last";
