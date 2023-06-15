@@ -1,4 +1,6 @@
-﻿namespace Nox.Reference.Data.Machine;
+﻿using Nox.Reference.Data.Machine;
+
+namespace Nox.Reference;
 
 public static class MachineQueryExtensions
 {

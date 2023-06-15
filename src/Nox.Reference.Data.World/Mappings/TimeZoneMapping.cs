@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using TimeZoneInfo = Nox.Reference.Data.World.Models.TimeZoneInfo;
 
 namespace Nox.Reference.Data.World.Mappings;
 

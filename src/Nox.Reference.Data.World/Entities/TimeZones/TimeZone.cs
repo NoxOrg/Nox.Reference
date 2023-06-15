@@ -1,10 +1,9 @@
 ﻿using GeoTimeZone;
-using Nox.Reference.Data.Common;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public class TimeZone : NoxReferenceEntityBase,
-    IDtoConvertibleEntity<Models.TimeZoneInfo>
+    IDtoConvertibleEntity<TimeZoneInfo>
 {
     public string Code { get; set; } = string.Empty;
     public string? EmbeddedComments { get; set; }
@@ -31,8 +30,8 @@ public class TimeZone : NoxReferenceEntityBase,
         return World.TimeZones.FirstOrDefault(x => x.Code == result);
     }
 
-    public Models.TimeZoneInfo ToDto()
+    public TimeZoneInfo ToDto()
     {
-        return World.Mapper.Map<Models.TimeZoneInfo>(this);
+        return World.Mapper.Map<TimeZoneInfo>(this);
     }
 }

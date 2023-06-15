@@ -1,6 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 
-namespace Nox.Reference.Data.Machine;
+namespace Nox.Reference;
 
 public class MacAddressInfo
 {

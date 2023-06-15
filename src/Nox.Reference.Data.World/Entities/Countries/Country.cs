@@ -1,8 +1,6 @@
-﻿using Nox.Reference.Data.Common;
-using Nox.Reference.Data.World.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Nox.Reference.Data.World;
+namespace Nox.Reference;
 
 public class Country : NoxReferenceEntityBase,
     IKeyedNoxReferenceEntity<string>,

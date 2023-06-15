@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Nox.Reference.Common.Utilities;
+namespace Nox.Reference;
 
 public static class EnumHelper
 {

@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Data.Machine;
 using Nox.Reference.Data.Machine.Tests;
 using System.Diagnostics;
 
@@ -57,7 +56,7 @@ public class MacAddressesTests
         string expectedPrefix,
         string expectedOrganizationName)
     {
-        var info = Machine.Machine.MacAddresses.Get(input)!;
+        var info = Reference.Machine.MacAddresses.Get(input)!;
 
         var mappedInfo = info.ToDto();
 
@@ -72,7 +71,7 @@ public class MacAddressesTests
     [Test]
     public void GetVendorMacAddress_ConvertToDto_ReturnsSuccess()
     {
-        MacAddress macAddress = Machine.Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
+        MacAddress macAddress = Reference.Machine.MacAddresses.Get("00:16:F6:11:22:33")!;
 
         MacAddressInfo macAddressInfo = macAddress.ToDto();
         Assert.Multiple(() =>

@@ -3,6 +3,7 @@ using System.Text;
 
 namespace Nox.Reference.Common;
 
+// TODO: make internal
 public static class FileUtilities
 {
     /// <summary>

@@ -1,8 +1,9 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Common;
+using System.Reflection;
 
-namespace Nox.Reference.Common;
+namespace Nox.Reference;
 
 public static class NoxReferenceCommonExtensions
 {
