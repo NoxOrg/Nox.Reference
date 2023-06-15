@@ -34,9 +34,23 @@ namespace Nox.Reference.Data.Common.Seeds
             _fileStorageService = fileStorageService;
         }
 
+        /// <summary>
+        /// Defines files which imported data will be saved.
+        /// </summary>
         public abstract string TargetFileName { get; }
+
+        /// <summary>
+        /// Defines folder where imported data will be saved.
+        /// </summary>
         public abstract string DataFolderPath { get; }
 
+        /// <summary>
+        /// Carries out seeding ta flow.
+        /// Import data from external source.
+        /// Transform daa from dto to particular entity.
+        /// Save imported data to aoutput files.
+        /// </summary>
+        /// <exception cref="NoxDataExtractorException"></exception>
         public void Seed()
         {
             var dataSet = _dbContext
@@ -78,7 +92,8 @@ namespace Nox.Reference.Data.Common.Seeds
         /// </summary>
         /// <param name="sources">Flat models collection</param>
         /// <param name="destinations">Entity framework model collection</param>
-        protected virtual void DoSpecialTreatAfterAdding(IEnumerable<TSource> sources, IEnumerable<TEntity> destinations) { }
+        protected virtual void DoSpecialTreatAfterAdding(IEnumerable<TSource> sources, IEnumerable<TEntity> destinations)
+        { }
 
         /// <summary>
         /// Method to fetch and format data from different sources into
