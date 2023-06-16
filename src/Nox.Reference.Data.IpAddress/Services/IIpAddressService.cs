@@ -6,10 +6,11 @@
 public interface IIpAddressService
 {
     /// <summary>
+    /// <summary>
     /// Get country code for ip address.
     /// </summary>
     /// <param name="ipAddress">Ipv4 or Ipv6 address string</param>
-    /// <returns>Two letter Country Code</returns>
-    /// <exception cref="ApplicationException"></exception>
+    /// <returns>IpSearchResult</returns>
+    /// </summary>
     IpSearchResult GetCountryByIp(string ipAddress);
 }

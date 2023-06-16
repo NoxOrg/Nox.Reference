@@ -16,8 +16,9 @@ var host = Host.CreateDefaultBuilder()
         IpAddressContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName)!);
 
         services.AddScoped<DataSeedRunner>();
-        //services.AddMachineContext();
-        //services.AddWorldContext();
+
+        services.AddMachineContext();
+        services.AddWorldContext();
         services.AddIpAddressContext();
     })
     .ConfigureLogging(x => x.Services.AddLogging())

@@ -52,11 +52,7 @@ internal class IpAddressDbContext : DbContext
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
         connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(IpAddressContext));
 
-        optionsBuilder.UseSqlite(connectionString);
-
-        // optionsBuilder
-        //.UseLazyLoadingProxies()
-        //.UseSqlite(connectionString);//.LogTo(Console.WriteLine);
+        optionsBuilder.UseSqlite(connectionString);//.LogTo(Console.WriteLine) // Debug purposes;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

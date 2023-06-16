@@ -56,7 +56,7 @@ namespace Nox.Reference.Data.IpAddress.Tests
         [TestCase("2e00::", "DE")]
         [TestCase("2607:f8b0:3d00::", "US")]
         [TestCase("2001:4860:4860::", "US")]
-        public void IpAddressStatic_DetermineCountryByIpCode_Success(string ipAddress, string expectedCountryCode)
+        public void IpAddressStatic_DetermineCountryCodeByIp_Success(string ipAddress, string expectedCountryCode)
         {
             var result = IpAddressContext.GetCountryByIp(ipAddress);
 

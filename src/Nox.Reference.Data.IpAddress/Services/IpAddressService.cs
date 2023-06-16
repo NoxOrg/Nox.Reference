@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
-using System.Text.RegularExpressions;
 using Nox.Reference.Data.IpAddress;
+using Nox.Reference.Data.IpAddress.Constants;
 
 namespace Nox.Reference;
 
@@ -9,27 +9,27 @@ namespace Nox.Reference;
 /// </summary>
 internal class IpAddressService : IIpAddressService
 {
-    private readonly Regex _ipAddressRegex = new Regex(@"((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))");
     private readonly IpAddressDbContext _dbContext;
 
     /// <summary>
     /// IpAddressService constructor.
     /// </summary>
-    /// <param name="dbContext"></param>
+    /// <param name="dbContext">IpAddressDbContext type</param>
     public IpAddressService(IpAddressDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
     /// <summary>
+    /// <summary>
     /// Get country code for ip address.
     /// </summary>
     /// <param name="ipAddress">Ipv4 or Ipv6 address string</param>
-    /// <returns>Two letter Country Code</returns>
-    /// <exception cref="ApplicationException"></exception>
+    /// <returns>IpSearchResult</returns>
+    /// </summary>
     public IpSearchResult GetCountryByIp(string ipAddress)
     {
-        var validationResult = _ipAddressRegex.Match(ipAddress);
+        var validationResult = IpAddressConstants.IpAddressRegex.Match(ipAddress);
         if (!validationResult.Success)
         {
             return IpSearchResult.IncorrectInput();
