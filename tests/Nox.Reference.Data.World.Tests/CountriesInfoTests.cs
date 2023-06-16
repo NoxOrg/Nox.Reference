@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference.Common;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Nox.Reference.Data.World.Tests;
 

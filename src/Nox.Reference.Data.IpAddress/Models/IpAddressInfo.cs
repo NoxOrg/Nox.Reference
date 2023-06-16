@@ -1,4 +1,4 @@
-﻿namespace Nox.Reference.Data.IpAddress.Models;
+﻿namespace Nox.Reference;
 
 public class IpAddressInfo
 {

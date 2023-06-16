@@ -20,7 +20,7 @@ internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbConte
         IMapper mapper,
         ILogger<IpAddressDataSeeder> logger,
         NoxReferenceFileStorageService fileStorageService)
-        : base(dbContext, mapper, logger, fileStorageService)
+        : base(dbContext, mapper, logger, fileStorageService, false)
     {
         _configuration = configuration;
     }

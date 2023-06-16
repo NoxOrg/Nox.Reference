@@ -24,6 +24,7 @@ namespace Nox.Reference.Data.IpAddress.Migrations
 
                     b.Property<string>("CountryCode")
                         .IsRequired()
+                        .HasMaxLength(2)
                         .HasColumnType("TEXT");
 
                     b.HasKey("EntityId");
@@ -33,9 +34,15 @@ namespace Nox.Reference.Data.IpAddress.Migrations
 
             modelBuilder.Entity("Nox.Reference.Data.IpAddress.IpAddress", b =>
                 {
-                    b.OwnsOne("Nox.Reference.Data.IpAddress.IpAddressChunk", "StartAddress", b1 =>
+                    b.OwnsOne("Nox.Reference.Data.IpAddress.IpAddressChunk", "EndAddress", b1 =>
                         {
                             b1.Property<int>("IpAddressEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<long>("End")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<long>("Start")
                                 .HasColumnType("INTEGER");
 
                             b1.HasKey("IpAddressEntityId");
@@ -45,6 +52,28 @@ namespace Nox.Reference.Data.IpAddress.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("IpAddressEntityId");
                         });
+
+                    b.OwnsOne("Nox.Reference.Data.IpAddress.IpAddressChunk", "StartAddress", b1 =>
+                        {
+                            b1.Property<int>("IpAddressEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<long>("End")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<long>("Start")
+                                .HasColumnType("INTEGER");
+
+                            b1.HasKey("IpAddressEntityId");
+
+                            b1.ToTable("IpAddress");
+
+                            b1.WithOwner()
+                                .HasForeignKey("IpAddressEntityId");
+                        });
+
+                    b.Navigation("EndAddress")
+                        .IsRequired();
 
                     b.Navigation("StartAddress")
                         .IsRequired();

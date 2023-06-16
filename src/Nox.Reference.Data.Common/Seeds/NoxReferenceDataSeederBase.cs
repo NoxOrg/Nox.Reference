@@ -22,17 +22,20 @@ namespace Nox.Reference.Data.Common.Seeds
         protected readonly IMapper _mapper;
         protected readonly ILogger _logger;
         protected readonly NoxReferenceFileStorageService _fileStorageService;
+        private readonly bool _importDataToJson;
 
         protected NoxReferenceDataSeederBase(
             TDbContext dbContext,
             IMapper mapper,
             ILogger logger,
-            NoxReferenceFileStorageService fileStorageService)
+            NoxReferenceFileStorageService fileStorageService,
+            bool importDataToJson = true)
         {
             _dbContext = dbContext;
             _mapper = mapper;
             _logger = logger;
             _fileStorageService = fileStorageService;
+            _importDataToJson = importDataToJson;
         }
 
         /// <summary>
@@ -67,8 +70,10 @@ namespace Nox.Reference.Data.Common.Seeds
             try
             {
                 var infos = GetFlatEntitiesFromDataSources();
-                _fileStorageService.SaveDataToFile(infos, DataFolderPath, TargetFileName);
-
+                if (_importDataToJson)
+                {
+                    _fileStorageService.SaveDataToFile(infos, DataFolderPath, TargetFileName);
+                }
                 var entities = _mapper.Map<IEnumerable<TEntity>>(infos);
 
                 dataSet.AddRange(entities);

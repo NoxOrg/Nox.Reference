@@ -18,6 +18,9 @@ public static class IpAddressDataExtensions
         services.AddNoxReferenceCommon();
 
         services.AddDbContext<IpAddressDbContext>();
+
+        services.AddScoped<IpAddressService>();
+
         services.AddScoped<INoxReferenceDataSeeder, IpAddressDataSeeder>();
         services.AddScoped<IIpAddressInfoContext, IpAddressDbContext>();
 

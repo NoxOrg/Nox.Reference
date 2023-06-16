@@ -1,15 +1,13 @@
 using System.Diagnostics;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Common;
 using NUnit.Framework;
 
 namespace Nox.Reference.Data.IpAddress.Tests
 {
-    public class Tests
+    public class IpAddressTests
     {
-        private IIpAddressInfoContext _dataContext;
+        private IpAddressService _ipAddressService;
 
         [OneTimeSetUp]
         public void Setup()
@@ -22,40 +20,28 @@ namespace Nox.Reference.Data.IpAddress.Tests
 
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             IpAddressDbContext.UseDatabaseConnectionString(configuration.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName)!);
-            _dataContext = serviceProvider.GetRequiredService<IIpAddressInfoContext>();
+            _ipAddressService = serviceProvider.GetRequiredService<IpAddressService>();
 
             Trace.Listeners.Add(new ConsoleTraceListener());
         }
 
-        [Test]
-        public void Test1()
+        [TestCase("81.90.224.0", "UA")]
+        [TestCase("45.12.25.125", "UA")]
+        [TestCase("103.190.102.11", "CH")]
+        [TestCase("168.235.255.7", "GB")]
+        [TestCase("142.251.32.46", "US")]
+        [TestCase("142.251.32.46", "US")]
+        [TestCase("149.126.4.31", "CH")]
+        [TestCase("2a01:ab20:0:4::31", "CH")]
+        [TestCase("2001:470:71:21::", "UA")]
+        [TestCase("2e00::", "DE")]
+        [TestCase("2607:f8b0:3d00::", "US")]
+        [TestCase("2001:4860:4860::", "US")]
+        public void IpAddress_DetermineCountryByIpCode_Success(string ipAddress, string expectedCountryCode)
         {
-            var ipAddressInput = "1.0.0.0";
-            var ipAddress = System.Net.IPAddress.Parse(ipAddressInput);
+            var countryCode = _ipAddressService.GetCountryByIp(ipAddress);
 
-            var vvv = _dataContext.IpAddresses.First();
-
-            //var str = Encoding.ASCII.GetString(vvv.StartAddress);
-            //var ct = System.Net.IPAddress.Parse(str);
-
-            //var ipAddressInput1 = "16777216";
-            //var ipAddress1 = System.Net.IPAddress.Parse(ipAddressInput1);
-            ////var vvv = _dataContext.IpAddresses.First();
-
-            //var vvv1 = _dataContext.IpAddresses.Skip(480331).First();
-            //// var str1 = Encoding.ASCII.GetString(vvv1.StartAddress);
-            //var ipAddress3 = new System.Net.IPAddress(vvv1.StartAddress);
-            //new UInt128()
-            //var ct = new System.Net.IPAddress(vvv.StartAddress);
-
-            //var ct1 = new System.Net.IPAddress(vvv.EndAddress);
-            //var pp = ct.ToString();
-            //var pp1 = ct1.ToString();
-
-            //var addressBytes = ipAddress.GetAddressBytes();
-            //addressBytes.CompareTo()
-            //_dataContext.IpAddresses.First(x=>x.StartAddress.coma > = )
-            //Assert.Pass();
+            Assert.That(countryCode, Is.EqualTo(expectedCountryCode));
         }
     }
 }

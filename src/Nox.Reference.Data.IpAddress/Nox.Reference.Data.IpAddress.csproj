@@ -25,7 +25,7 @@
     <None Remove="NoxReferenceDatabase\Nox.Reference.IpAddress.db" />
   </ItemGroup>
   <Target Name="CopyMiscFilesToLocal" AfterTargets="BeforeBuild">
-    <Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.IpAddress.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />
+    <!--<Copy SourceFiles="..\..\data\output\sqlite\Nox.Reference.IpAddress.db" DestinationFolder="NoxReferenceDatabase" SkipUnchangedFiles="true" />-->
     <Copy SourceFiles="..\Nox.Reference.Common\noxReferenceSettings.json" DestinationFolder="NoxReferenceConfig" SkipUnchangedFiles="true" />
   </Target>
   <ItemGroup>

@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Helpers;
 using Nox.Reference.Data.IpAddress.Configurations;
 
@@ -54,13 +54,16 @@ public class IpAddressDbContext : DbContext, IIpAddressInfoContext
         //connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(IpAddressContext));
 
         optionsBuilder.UseSqlite(connectionString);
+
+        // optionsBuilder
+        //.UseLazyLoadingProxies()
+        //.UseSqlite(connectionString);//.LogTo(Console.WriteLine);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new IpAddressConfiguration());
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<IpAddress>().OwnsOne(x => x.StartAddress);
     }
 }
