@@ -2,11 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Nox.Reference.Data.Common.Helpers;
-using Nox.Reference.Data.IpAddress.Configurations;
 
 namespace Nox.Reference.Data.IpAddress;
 
-public class IpAddressDbContext : DbContext, IIpAddressInfoContext
+internal class IpAddressDbContext : DbContext
 {
     private readonly IConfiguration _configuration;
     private static string? _databasePath;
@@ -51,7 +50,7 @@ public class IpAddressDbContext : DbContext, IIpAddressInfoContext
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName);
 
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
-        //connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(IpAddressContext));
+        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(IpAddressContext));
 
         optionsBuilder.UseSqlite(connectionString);
 

@@ -1,16 +1,14 @@
 ﻿using System.Globalization;
-using System.Text;
 using AutoMapper;
 using CsvHelper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Nox.Reference.Common;
 using Nox.Reference.Data.Common.Seeds;
-using Nox.Reference.Data.IpAddress.Models;
 
 namespace Nox.Reference.Data.IpAddress.DataSeeds;
 
-internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbContext, IpAddressInfo, IpAddress>
+internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbContext, Reference.IpAddressInfo, IpAddress>
 {
     private readonly IConfiguration _configuration;
 
@@ -29,12 +27,12 @@ internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbConte
 
     public override string DataFolderPath => "IpAddresses";
 
-    protected override IReadOnlyList<IpAddressInfo> GetFlatEntitiesFromDataSources()
+    protected override IReadOnlyList<Reference.IpAddressInfo> GetFlatEntitiesFromDataSources()
     {
         var ip4Url = _configuration.GetValue<string>(ConfigurationConstants.Ip4AddressesUrlSettingName)!;
         var ip6Url = _configuration.GetValue<string>(ConfigurationConstants.Ip6AddressesUrlSettingName)!;
 
-        var ipAddresses = new List<IpAddressInfo>();
+        var ipAddresses = new List<Reference.IpAddressInfo>();
 
         var ip4Addresses = GetData(ip4Url);
         var ip6Addresses = GetData(ip6Url);
@@ -45,7 +43,7 @@ internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbConte
         return ipAddresses;
     }
 
-    private static IEnumerable<IpAddressInfo> GetData(string url)
+    private static IEnumerable<Reference.IpAddressInfo> GetData(string url)
     {
         using var httpClient = new HttpClient();
 
@@ -57,11 +55,11 @@ internal class IpAddressDataSeeder : NoxReferenceDataSeederBase<IpAddressDbConte
 
         using var sr = new StreamReader(inputStream);
         using var csvReader = new CsvReader(sr, CultureInfo.InvariantCulture);
-        var ipAddresses = new List<IpAddressInfo>();
+        var ipAddresses = new List<Reference.IpAddressInfo>();
 
         while (csvReader.Read())
         {
-            var ipAddress = new IpAddressInfo
+            var ipAddress = new Reference.IpAddressInfo
             {
                 StartAddress = csvReader[0]!,
                 EndAddress = csvReader[1]!,

@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Nox.Reference.Common;
 using Nox.Reference.Data.Common;
 using Nox.Reference.Data.IpAddress;
 using Nox.Reference.Data.IpAddress.DataSeeds;
 
-namespace Nox.Reference.Data;
+namespace Nox.Reference;
 
 public static class IpAddressDataExtensions
 {
@@ -19,10 +18,8 @@ public static class IpAddressDataExtensions
 
         services.AddDbContext<IpAddressDbContext>();
 
-        services.AddScoped<IpAddressService>();
-
         services.AddScoped<INoxReferenceDataSeeder, IpAddressDataSeeder>();
-        services.AddScoped<IIpAddressInfoContext, IpAddressDbContext>();
+        services.AddScoped<IIpAddressService, IpAddressService>();
 
         return services;
     }

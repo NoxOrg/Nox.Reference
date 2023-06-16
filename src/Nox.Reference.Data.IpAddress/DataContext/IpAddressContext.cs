@@ -1,17 +1,34 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nox.Reference.Data.IpAddress;
 
-namespace Nox.Reference.Data.IpAddress;
+namespace Nox.Reference;
 
 public static class IpAddressContext
 {
-    private static readonly IServiceProvider _serviceProvider;
+    public static readonly IIpAddressService _ipAddressService;
+
+#pragma warning disable S3963 // "static" fields should be initialized inline
 
     static IpAddressContext()
+#pragma warning restore S3963 // "static" fields should be initialized inline
     {
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddIpAddressContext();
 
-        _serviceProvider = serviceCollection.BuildServiceProvider();
+        _ipAddressService = serviceCollection
+            .BuildServiceProvider()
+            .GetRequiredService<IIpAddressService>();
+    }
+
+    /// <summary>
+    /// Get country code for ip address.
+    /// </summary>
+    /// <param name="ipAddress">Ipv4 or Ipv6 address string</param>
+    /// <returns>Two letter Country Code</returns>
+    /// <exception cref="ApplicationException"></exception>
+    public static IpSearchResult GetCountryByIp(string ipAddress)
+    {
+        return _ipAddressService.GetCountryByIp(ipAddress);
     }
 
     /// <summary>

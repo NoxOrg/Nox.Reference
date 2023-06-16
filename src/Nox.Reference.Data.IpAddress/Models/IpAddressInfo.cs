@@ -1,6 +1,6 @@
 ﻿namespace Nox.Reference;
 
-public class IpAddressInfo
+internal class IpAddressInfo
 {
     public string CountryCode { get; set; } = string.Empty;
     public string StartAddress { get; set; } = string.Empty;
