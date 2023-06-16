@@ -4,9 +4,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.IpAddress</PackageId>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
-    <FileVersion>1.0.0.1</FileVersion>
-    <PackageVersion>1.0.0.1</PackageVersion>
+    <AssemblyVersion>1.0.0.9</AssemblyVersion>
+    <FileVersion>1.0.0.9</FileVersion>
+    <PackageVersion>1.0.0.9</PackageVersion>
     <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnyh</Authors>
     <Company>The Nox Factory</Company>
     <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Nox.Reference.Data.IpAddress.targets">
-      <PackagePath>build/Nox.Reference.Data.World.targets</PackagePath>
+      <PackagePath>build/Nox.Reference.Data.IpAddress.targets</PackagePath>
     </Content>
   </ItemGroup>
   <ItemGroup>
