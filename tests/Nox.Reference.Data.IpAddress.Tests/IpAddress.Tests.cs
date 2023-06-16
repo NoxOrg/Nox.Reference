@@ -60,7 +60,7 @@ namespace Nox.Reference.Data.IpAddress.Tests
         [TestCase("2001:4860:4860::", "US")]
         public void IpAddressStatic_DetermineCountryCodeByIPString_Success(string ipAddress, string expectedCountryCode)
         {
-            var result = IpAddressContext.GetCountryByIPAddress(ipAddress);
+            var result = Reference.IpAddress.GetCountryByIPAddress(ipAddress);
 
             Assert.Multiple(() =>
             {

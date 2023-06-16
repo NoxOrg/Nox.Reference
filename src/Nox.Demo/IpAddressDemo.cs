@@ -41,7 +41,7 @@ namespace Nox.Demo
             Console.WriteLine("Get IpAddress info using static approach");
             foreach (var entry in ipAddressExamples)
             {
-                IpSearchResult result = IpAddressContext.GetCountryByIPAddress(entry.ip);
+                IpSearchResult result = IpAddress.GetCountryByIPAddress(entry.ip);
 
                 Console.WriteLine($"Result = {result.Kind} . Country code = {result.CountryCode} ");
             }

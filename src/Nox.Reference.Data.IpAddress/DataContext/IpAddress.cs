@@ -8,13 +8,13 @@ namespace Nox.Reference;
 /// <summary>
 /// Service to lookup country code by provided IP address.
 /// </summary>
-public static class IpAddressContext
+public static class IpAddress
 {
     private static readonly IIpAddressService _ipAddressService;
 
 #pragma warning disable S3963 // "static" fields should be initialized inline
 
-    static IpAddressContext()
+    static IpAddress()
 #pragma warning restore S3963 // "static" fields should be initialized inline
     {
         var serviceCollection = new ServiceCollection();

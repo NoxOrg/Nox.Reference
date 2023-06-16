@@ -50,7 +50,7 @@ internal class IpAddressDbContext : DbContext
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName);
 
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
-        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(IpAddressContext));
+        connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(connectionString, typeof(IpAddressDbContext), nameof(Reference.IpAddress));
 
         optionsBuilder.UseSqlite(connectionString);//.LogTo(Console.WriteLine) // Debug purposes;
     }
