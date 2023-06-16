@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Net;
+using System.Numerics;
 using Nox.Reference.Data.IpAddress;
 using Nox.Reference.Data.IpAddress.Constants;
 
@@ -27,7 +28,7 @@ internal class IpAddressService : IIpAddressService
     /// <param name="ipAddress">Ipv4 or Ipv6 address string</param>
     /// <returns>IpSearchResult</returns>
     /// </summary>
-    public IpSearchResult GetCountryByIp(string ipAddress)
+    public IpSearchResult GetCountryByIPAddress(string ipAddress)
     {
         var validationResult = IpAddressConstants.IpAddressRegex.Match(ipAddress);
         if (!validationResult.Success)
@@ -35,21 +36,45 @@ internal class IpAddressService : IIpAddressService
             return IpSearchResult.IncorrectInput();
         }
 
-        var ipAddressInfo = System.Net.IPAddress.Parse(ipAddress);
-        var ipAddressBytes = ipAddressInfo.GetAddressBytes();
+        var ipAddressInfo = IPAddress.Parse(ipAddress);
+
+        return GetCountryByIPAddress(ipAddressInfo);
+    }
+
+    /// <summary>
+    /// <summary>
+    /// Gets country code for ip address by IPAddress object.
+    /// </summary>
+    /// <param name="ipAddress">.Net type IPAddress</param>
+    /// <returns>IpSearchResult</returns>
+    /// </summary>
+    public IpSearchResult GetCountryByIPAddress(IPAddress ipAddress)
+    {
+        var ipAddressBytes = ipAddress.GetAddressBytes();
         if (BitConverter.IsLittleEndian)
         {
             Array.Reverse(ipAddressBytes);
         }
 
         var ipAddressLong = new BigInteger(ipAddressBytes, true);
-        var searchChunk = IpAddressChunk.CreateIpAddressChunkFromNumber(ipAddressLong);
+
+        return GetCountryByIPAddress(ipAddressLong);
+    }
+
+    /// <summary>
+    /// Gets country code for ip address by IPv4 or IPv6 string.
+    /// </summary>
+    /// <param name="ipAddressNumber">IPAddress 32 or 128-bit number</param>
+    /// <returns></returns>
+    public IpSearchResult GetCountryByIPAddress(BigInteger ipAddressNumber)
+    {
+        var searchChunk = IpAddressChunk.CreateIpAddressChunkFromNumber(ipAddressNumber);
 
         var ipAddressRange = _dbContext
             .IpAddresses
             .FirstOrDefault(
                 x => x.StartAddress.Start <= searchChunk.Start
-                && x.StartAddress.End <= searchChunk.End
+                && (searchChunk.End == -1 || x.StartAddress.End <= searchChunk.End)
                 && x.EndAddress.Start >= searchChunk.Start
                 && (x.EndAddress.End == -1 || (x.EndAddress.End >= searchChunk.End))
             );

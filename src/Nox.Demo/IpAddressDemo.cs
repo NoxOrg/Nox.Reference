@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Reference;
 
 namespace Nox.Demo
@@ -37,7 +32,7 @@ namespace Nox.Demo
             Console.WriteLine("Get IpAddress info using DI");
             foreach (var (ip, country) in ipAddressExamples)
             {
-                IpSearchResult result = _ipAddressService.GetCountryByIp(ip);
+                IpSearchResult result = _ipAddressService.GetCountryByIPAddress(ip);
 
                 Console.WriteLine($"Result = {result.Kind} ... Country Code - Expected: {country}. Actual:  {result.CountryCode} ");
             }
@@ -46,7 +41,7 @@ namespace Nox.Demo
             Console.WriteLine("Get IpAddress info using static approach");
             foreach (var entry in ipAddressExamples)
             {
-                IpSearchResult result = IpAddressContext.GetCountryByIp(entry.ip);
+                IpSearchResult result = IpAddressContext.GetCountryByIPAddress(entry.ip);
 
                 Console.WriteLine($"Result = {result.Kind} . Country code = {result.CountryCode} ");
             }
