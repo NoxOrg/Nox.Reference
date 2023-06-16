@@ -98,7 +98,6 @@ dotnet ef database update --connection "Data Source=..\\..\\data\\Nox.Reference.
 
 Nox.Reference.IpAddress.db database file will appear in (RootPath)\data\output\sqlite
 
-
 ## Project structure		
 Nox.Reference.IpAddress contains the following entities:
 
