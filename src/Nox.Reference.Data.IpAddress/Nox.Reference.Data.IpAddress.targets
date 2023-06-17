@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<NoxIpAddressDbFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceDatabase/Nox.Reference.IpAddress.db" />
+	</ItemGroup>
+	<Target Name="CopyWorldDbFile" BeforeTargets="Build">
+		<Copy SourceFiles="@(NoxIpAddressDbFiles)" DestinationFolder="$(TargetDir)/NoxReferenceDatabase/" />
+	</Target>
+	<ItemGroup>
+		<NoxCommonConfigFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceConfig/noxReferenceSettings.json" />
+	</ItemGroup>
+	<Target Name="CopyConfigFiles" BeforeTargets="Build">
+		<Copy SourceFiles="@(NoxCommonConfigFiles)" DestinationFolder="$(TargetDir)/" />
+	</Target>
+</Project>

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nox.Reference.Data.Common\Nox.Reference.Data.Common.csproj" />
+    <ProjectReference Include="..\Nox.Reference.Data.IpAddress\Nox.Reference.Data.IpAddress.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.Machine\Nox.Reference.Data.Machine.csproj" />
     <ProjectReference Include="..\Nox.Reference.Data.World\Nox.Reference.Data.World.csproj" />
   </ItemGroup>
