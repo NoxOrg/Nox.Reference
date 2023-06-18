@@ -53,8 +53,8 @@ Console.WriteLine($"Inline -- Holidays -- {holidays2.CountryName} - {holidays2.Y
 
 var newYearDate = DateTime.Parse("2023-01-01");
 var trettondagsaftonDate = DateTime.Parse("2023-01-05");
-Console.WriteLine($"Inline -- Holidays -- {"UA"} -- {newYearDate.ToShortDateString()} -- {World.Holidays.GetHoliday("UA", newYearDate).Name}");
-Console.WriteLine($"Inline -- Holidays -- {WorldCountries.Sweden} -- {trettondagsaftonDate.ToShortDateString()} -- {World.Holidays.GetHoliday(WorldCountries.Sweden, trettondagsaftonDate).Name}");
+Console.WriteLine($"Inline -- Holidays -- {"UA"} -- {newYearDate.ToShortDateString()} -- {World.Holidays.GetHoliday("UA", newYearDate)!.Name}");
+Console.WriteLine($"Inline -- Holidays -- {WorldCountries.Sweden} -- {trettondagsaftonDate.ToShortDateString()} -- {World.Holidays.GetHoliday(WorldCountries.Sweden, trettondagsaftonDate)!.Name}");
 
 // Languages
 Language language = World.Languages.GetByIso_639_2t("ces")!;

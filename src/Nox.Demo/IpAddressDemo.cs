@@ -34,7 +34,7 @@ namespace Nox.Demo
             {
                 IpSearchResult result = _ipAddressService.GetCountryByIPAddress(ip);
 
-                Console.WriteLine($"Result = {result.Kind} ... Country Code - Expected: {country}. Actual:  {result.CountryCode} ");
+                Console.WriteLine($"Result = {result.Kind}. Country Code - Expected: {country}. Actual:  {result.CountryCode} ");
             }
 
             //Static use
@@ -43,7 +43,7 @@ namespace Nox.Demo
             {
                 IpSearchResult result = IpAddress.GetCountryByIPAddress(entry.ip);
 
-                Console.WriteLine($"Result = {result.Kind} . Country code = {result.CountryCode} ");
+                Console.WriteLine($"Result = {result.Kind}. Country code = {result.CountryCode} ");
             }
         }
     }
