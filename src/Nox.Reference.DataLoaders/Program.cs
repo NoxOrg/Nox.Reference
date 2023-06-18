@@ -2,7 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nox.Reference;
-using Nox.Reference.Data.World;
+using Nox.Reference.Data;
+using Nox.Reference.Data.IpAddress;
 using Nox.Reference.DataLoaders;
 
 var host = Host.CreateDefaultBuilder()
@@ -12,10 +13,13 @@ var host = Host.CreateDefaultBuilder()
 
         WorldDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.WorldDataLoadConnectionStringName)!);
         MachineDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.MachineDataLoadConnectionStringName)!);
+        IpAddress.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName)!);
 
         services.AddScoped<DataSeedRunner>();
+
         services.AddMachineContext();
         services.AddWorldContext();
+        services.AddIpAddressContext();
     })
     .ConfigureLogging(x => x.Services.AddLogging())
     .Build();

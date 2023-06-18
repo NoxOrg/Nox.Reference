@@ -13,6 +13,7 @@ public static class ConfigurationConstants
     public const string WorldConnectionStringName = "NoxReferenceWorldConnection";
     public const string WorldDataLoadConnectionStringName = "NoxReferenceDataLoadWorldConnection";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
+    public const string IpAddressConnectionStringName = "NoxReferenceIpAddressConnection";
     public const string MachineDataLoadConnectionStringName = "NoxReferenceDataLoadMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string TaxNumberDefinitionDataPathSettingName = "TaxNumberDefinitionDataPath";
@@ -24,4 +25,7 @@ public static class ConfigurationConstants
     public const string NodaTimeUrl = "NodaTimeUrl";
     public const string HolidaysZipPathSettingName = "HolidaysZipPath";
     public const string PhoneCarrierDataPathSettingName = "PhoneCarrierDataPath";
+
+    public const string Ip4AddressesUrlSettingName = "Ip4AddressesUrl";
+    public const string Ip6AddressesUrlSettingName = "Ip6AddressesUrl";
 }

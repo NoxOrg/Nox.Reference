@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Nox.Demo;
 using Nox.Reference;
 using System.Text.Json;
 
@@ -137,3 +138,5 @@ Console.WriteLine(JsonSerializer.Serialize(ukraineMapped, new JsonSerializerOpti
 {
     WriteIndented = true,
 }));
+
+IpAddressDemo.ShowDemo();
