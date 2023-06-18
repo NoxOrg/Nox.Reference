@@ -28,12 +28,13 @@ public class Country : NoxReferenceEntityBase,
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
 
     internal int? VatNumberDefinitionId { get; private set; }
-
     [ForeignKey("VatNumberDefinitionId")]
     public virtual VatNumberDefinition? VatNumberDefinition { get; internal set; }
+
     internal int? TaxNumberDefinitionId { get; private set; }
     [ForeignKey("TaxNumberDefinitionId")]
     public virtual TaxNumberDefinition? TaxNumberDefinition { get; internal set; }
+
     public virtual CountryDialing? Dialing { get; private set; }
     public virtual CoatOfArms? CoatOfArms { get; private set; }
     public virtual GeoCoordinates? GeoCoordinates { get; private set; }
