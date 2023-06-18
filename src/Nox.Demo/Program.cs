@@ -77,6 +77,13 @@ var validationFailResult = World.VatNumberDefinitions.Validate(WorldCountries.Sp
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationSuccessResult.Country} -- {validationSuccessResult.FormattedVatNumber} -- {validationSuccessResult.Status}");
 Console.WriteLine($"Inline -- VatNumberDefinitions -- {validationFailResult.Country} -- {validationFailResult.FormattedVatNumber} -- {validationFailResult.Status}");
 
+// TaxNumberDefinitions
+TaxNumberValidationResult taxValidationSuccessResult = World.TaxNumberDefinitions.Validate("TH", "0105557124135", false)!;
+var taxValidationFailResult = World.TaxNumberDefinitions.Validate(WorldCountries.Thailand, "BROKEN", false)!;
+
+Console.WriteLine($"Inline -- TaxNumberDefinitions -- {taxValidationSuccessResult.Country} -- {taxValidationSuccessResult.FormattedTaxNumber} -- {taxValidationSuccessResult.Status}");
+Console.WriteLine($"Inline -- TaxNumberDefinitions -- {taxValidationFailResult.Country} -- {taxValidationFailResult.FormattedTaxNumber} -- {taxValidationFailResult.Status}");
+
 // Phone
 PhoneNumberInfo phone = World.PhoneNumbers.GetPhoneNumberInfo("+380965370000", "UA");
 

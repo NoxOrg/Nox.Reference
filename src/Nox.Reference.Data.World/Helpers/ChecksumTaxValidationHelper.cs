@@ -281,7 +281,7 @@ internal static class ChecksumTaxValidationHelper
 
         var checksum = (sum - (int)char.GetNumericValue(stringDigits[stringDigits.Length - 1])).Mod(11);
 
-        var checkDigit = stringDigits.Substring(10, 1);
+        var checkDigit = stringDigits.Substring(8, 1);
         var isValid = checksum.ToString() == checkDigit;
         if (!isValid)
         {
@@ -867,9 +867,9 @@ internal static class ChecksumTaxValidationHelper
             { '-', 1900},
             {  'A', 2000}
             };
-        year = centuries[stringDigits[6]] + year;
         try
         {
+            year = centuries[stringDigits[6]] + year;
             DateTime date = new DateTime(year, month, day);
             if (date > DateTime.UtcNow)
             {
