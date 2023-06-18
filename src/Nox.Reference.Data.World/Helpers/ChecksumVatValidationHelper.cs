@@ -182,9 +182,9 @@ internal static class ChecksumVatValidationHelper
             return errorMessage;
         }
 
-        if (!HasValidDate(vatNumber.Substring(3, 6)))
+        if (!ChecksumValidationHelper.HasValidDate(vatNumber.Substring(3, 6)))
         {
-            errorMessage.Add(ValidationErrors.MX_InvalidDate);
+            errorMessage.Add(ValidationErrors.InvalidDate);
         }
 
         string alphabet = "0123456789ABCDEFGHIJKLMN&OPQRSTUVWXYZ Ñ";
@@ -207,22 +207,6 @@ internal static class ChecksumVatValidationHelper
         }
 
         return errorMessage;
-    }
-
-    private static bool HasValidDate(string number)
-    {
-        try
-        {
-            var year = int.Parse(number.Substring(0, 2));
-            var month = int.Parse(number.Substring(2, 2));
-            var day = int.Parse(number.Substring(4, 2));
-            var date = new DateTime(1900 + year, month, day);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
     }
 
     private static IEnumerable<string> CheckDEAlgorithm(string stringDigits)

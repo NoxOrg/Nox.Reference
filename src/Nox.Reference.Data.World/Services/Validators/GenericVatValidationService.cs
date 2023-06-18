@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Nox.Reference;
 
+// Important: not production ready, should be tested and refined
 public static class GenericVatValidationService
 {
     /// <summary>

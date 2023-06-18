@@ -142,4 +142,20 @@ internal static class ChecksumValidationHelper
 
         return errorMessage;
     }
+
+    public static bool HasValidDate(string number)
+    {
+        try
+        {
+            var year = int.Parse(number.Substring(0, 2));
+            var month = int.Parse(number.Substring(2, 2));
+            var day = int.Parse(number.Substring(4, 2));
+            var date = new DateTime(1900 + year, month, day);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 }

@@ -1,9 +1,11 @@
-﻿using System.Text.Json;
+﻿using Nox.Reference.Data.World.Helpers;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace Nox.Reference.Data.World;
 
 // TODO: join with vat number service into single service if possible
+// Important: not production ready, should be tested and refined
 public static class GenericTaxValidationService
 {
     /// <summary>
@@ -120,20 +122,298 @@ public static class GenericTaxValidationService
         int checksumDigitPosition)
     {
         int minimumLength;
-        //var formattedTaxNumber = result.FormattedTaxNumber;
+        var formattedVatNumber = result.FormattedTaxNumber;
+        var firstTypeLength = 0;
+        var secondTypeLength = 0;
 
         switch (validationInfoByPattern.Checksum!.Algorithm)
         {
-            //case ChecksumAlgorithm.Luhn:
-            //    minimumLength = 6;
-            //    if (digitPart.Length < minimumLength)
-            //    {
-            //        result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
-            //        return;
-            //    }
 
-            //    result.AddErrors(digitPart.ValidateLuhnDigitForVatNumber());
-            //    break;
+            case ChecksumAlgorithm.Luhn:
+                minimumLength = 6;
+                if (digitPart.Length < minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumValidationHelper.ValidateLuhnDigitNumber(digitPart));
+                break;
+
+            case ChecksumAlgorithm.ModAndSubstract:
+                if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
+                    !(validationInfoByPattern.Checksum.GetWeights().Any()))
+                {
+                    result.AddError(
+                        string.Format(
+                            ValidationErrors.NotEnoughParametersProvidedToChecksum,
+                            $"{nameof(validationInfoByPattern.Checksum.Modulus)},{nameof(validationInfoByPattern.Checksum.Weights)}"));
+                    break;
+                }
+
+                result.AddErrors(ChecksumValidationHelper.ValidateModAndSubstract(digitPart, validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
+                break;
+
+            case ChecksumAlgorithm.Mod:
+                if (!validationInfoByPattern.Checksum.Modulus.HasValue ||
+                    (validationInfoByPattern.Checksum.GetWeights().Length <= 0))
+                {
+                    result.AddError(
+                        string.Format(
+                            ValidationErrors.NotEnoughParametersProvidedToChecksum,
+                            $"{nameof(validationInfoByPattern.Checksum.Modulus)},{nameof(validationInfoByPattern.Checksum.Weights)}"));
+                    break;
+                }
+
+                result.AddErrors(ChecksumValidationHelper.ValidateMod(digitPart, validationInfoByPattern.Checksum.Modulus.Value, validationInfoByPattern.Checksum.GetWeights(), checksumDigitPosition));
+                break;
+
+            case ChecksumAlgorithm.CO_Algorithm:
+                minimumLength = 1;
+                if (digitPart.Length < minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                    return;
+                }
+
+                // Same as Colombian VAT
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatCOAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.CH_Tax_Algorithm:
+                minimumLength = 13;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxCHAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.BR_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxBRAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.IT_Tax_Algorithm:
+                minimumLength = 16;
+                if (formattedVatNumber.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxITAlgorithm(formattedVatNumber));
+                break;
+
+            case ChecksumAlgorithm.DE_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxDEAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.NL_Tax_Algorithm:
+                minimumLength = 9;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxNLAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.MX_Tax1_Algorithm:
+                minimumLength = 12;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxMX1Algorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.MX_Tax2_Algorithm:
+                minimumLength = 13;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxMX2Algorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.IN_Tax_Algorithm:
+                minimumLength = 10;
+                if (formattedVatNumber.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxINAlgorithm(formattedVatNumber));
+                break;
+
+            case ChecksumAlgorithm.CA_Tax_Algorithm:
+                minimumLength = 9;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxCAAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.BE_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxBEAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.AU_Tax_Algorithm:
+                minimumLength = 9;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxAUAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.PL_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxPLAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.DK_Tax_Algorithm:
+                minimumLength = 9;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxATAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.TR_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxTRAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.SE_Tax_Algorithm:
+                minimumLength = 10;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxSEAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.IL_Tax_Algorithm:
+                minimumLength = 9;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxILAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.RU_Algorithm:
+                firstTypeLength = 10;
+                secondTypeLength = 12;
+                if (digitPart.Length != firstTypeLength &&
+                    digitPart.Length != secondTypeLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, $"{firstTypeLength}' or '{secondTypeLength}"));
+                    return;
+                }
+
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatRUAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.NO_Tax_Algorithm:
+                minimumLength = 11;
+                if (digitPart.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxNOAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.NZ_Tax_Algorithm:
+                firstTypeLength = 8;
+                secondTypeLength = 9;
+                if (digitPart.Length != firstTypeLength &&
+                    digitPart.Length != secondTypeLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, $"{firstTypeLength}' or '{secondTypeLength}"));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxNZAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.FI_Tax_Algorithm:
+                minimumLength = 11;
+                if (formattedVatNumber.Length != minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.LengthShouldEqualError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumTaxValidationHelper.ValidateTaxFIAlgorithm(digitPart));
+                break;
+
+            case ChecksumAlgorithm.ID_Algorithm:
+                minimumLength = 12;
+                if (digitPart.Length < minimumLength)
+                {
+                    result.AddError(string.Format(ValidationErrors.MinimumNumbericLengthError, minimumLength));
+                    return;
+                }
+
+                result.AddErrors(ChecksumVatValidationHelper.ValidateVatIDAlgorithm(digitPart));
+                break;
 
             case ChecksumAlgorithm.None:
                 break;

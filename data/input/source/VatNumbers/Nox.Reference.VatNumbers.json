@@ -39,7 +39,7 @@
             {
                 "translationId": "Nox.Reference.VatNumber.ValidationInfo_PT_1",
                 "regex": "^PT\\d{9}$",
-                "validationFormatDescription": "A Portugese VAT number and be followed by 9 numeric characters, the last being a checksum.",
+                "validationFormatDescription": "A Portugese VAT number consists of 9 numeric characters, the last being a checksum.",
                 "inputMask": "\\P\\T000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,
@@ -59,7 +59,7 @@
             {
                 "translationId": "Nox.Reference.VatNumber.ValidationInfo_PL_1",
                 "regex": "^PL\\d{10}$",
-                "validationFormatDescription": "A Polish VAT number and be followed by 9 numeric characters, the last being a checksum.",
+                "validationFormatDescription": "A Polish VAT number consists of 10 numeric characters, the last being a checksum.",
                 "inputMask": "\\P\\L0000000000",
                 "minimumLength": 12,
                 "maximumLength": 12,
@@ -79,7 +79,7 @@
             {
                 "translationId": "Nox.Reference.VatNumber.ValidationInfo_IT_1",
                 "regex": "^IT\\d{11}$",
-                "validationFormatDescription": "An Italian VAT number and be followed by 11 numeric characters, the last being a checksum.",
+                "validationFormatDescription": "An Italian VAT number contains 11 numeric characters, the last being a checksum.",
                 "inputMask": "\\I\\T00000000000",
                 "minimumLength": 13,
                 "maximumLength": 13,
@@ -137,7 +137,7 @@
             {
                 "translationId": "Nox.Reference.VatNumber.ValidationInfo_DE_1",
                 "regex": "^DE[1-9]\\d{8}$",
-                "validationFormatDescription": "A German VAT number should consist of 9 digits.",
+                "validationFormatDescription": "A German VAT number should consist of 9 digits, first can't be 0.",
                 "inputMask": "\\D\\E000000000",
                 "minimumLength": 11,
                 "maximumLength": 11,

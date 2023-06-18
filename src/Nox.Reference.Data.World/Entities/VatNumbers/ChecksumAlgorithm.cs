@@ -32,5 +32,27 @@ public enum ChecksumAlgorithm
     NO_Algorithm,
     RU_Algorithm,
     NZ_Algorithm,
-    ID_Algorithm
+    ID_Algorithm,
+
+   // TODO: split vat and tax
+    CH_Tax_Algorithm,
+    BR_Tax_Algorithm,
+    IT_Tax_Algorithm,
+    DE_Tax_Algorithm,
+    NL_Tax_Algorithm,
+    MX_Tax1_Algorithm,
+    MX_Tax2_Algorithm,
+    IN_Tax_Algorithm,
+    CA_Tax_Algorithm,
+    BE_Tax_Algorithm,
+    AU_Tax_Algorithm,
+    PL_Tax_Algorithm,
+    DK_Tax_Algorithm,
+    AT_Tax_Algorithm,
+    TR_Tax_Algorithm,
+    SE_Tax_Algorithm,
+    IL_Tax_Algorithm,
+    NO_Tax_Algorithm,
+    NZ_Tax_Algorithm,
+    FI_Tax_Algorithm,
 }
