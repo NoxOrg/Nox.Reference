@@ -153,6 +153,21 @@ internal class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Co
         {
             germany.VehicleInfo.InternationalRegistrationCodes = new string[] { "D" };
         }
+
+        // Map alpha 3 to alpha 2 for bordering countries
+        foreach (var country in countries)
+        {
+            var newBorderingCountries = new List<string>();
+            var bordersAlpha3 = country.BorderingCountries;
+
+            foreach (var countryAlpha3 in bordersAlpha3)
+            {
+                var countryByAlpha3 = countries.First(x => x.AlphaCode3 == countryAlpha3);
+                newBorderingCountries.Add(countryByAlpha3.AlphaCode2);
+            }
+
+            country.BorderingCountries = newBorderingCountries;
+        }
     }
 
     private static void MapLatLongIntoGeoCoordinates(CountryInfo country)

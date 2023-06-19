@@ -46,6 +46,7 @@ public class CountryInfoTests
             Assert.That(countryInfo.Currencies, Is.Not.Empty);
             Assert.That(countryInfo.TopLevelDomains, Is.Not.Empty);
             Assert.That(countryInfo.Capitals, Is.Not.Empty);
+            Assert.That(countryInfo.BorderingCountries, Is.Not.Empty);
         });
     }
 
