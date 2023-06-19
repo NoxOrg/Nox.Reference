@@ -42,7 +42,7 @@ public class TaxNumberTests
             path = path.Parent;
         }
         // TODO: come up with different test data
-        _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
+        _testFilePath = DatabaseConstant.TaxNumberTestDataPath;
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }

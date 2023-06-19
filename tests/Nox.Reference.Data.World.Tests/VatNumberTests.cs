@@ -41,7 +41,7 @@ public class VatNumberTests
             }
             path = path.Parent;
         }
-        _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
+        _testFilePath = DatabaseConstant.VatNumberTestDataPath;
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -201,7 +201,7 @@ public class VatNumberTests
     [TestCase("4410268272", "FR", false)]
     public void VatNumber_TestApiValidation_ViesApi(string vatNumber, string countryCode, bool isValid)
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber)!;
+        var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber, true)!;
 
         var status = isValid ? ValidationStatus.Valid : ValidationStatus.Invalid;
 
