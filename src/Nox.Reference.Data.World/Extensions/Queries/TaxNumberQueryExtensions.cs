@@ -51,7 +51,7 @@ public static class TaxNumberQueryExtensions
         this IQueryable<TaxNumberDefinition> query,
         string countryAlpha2Code,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         var definition = query.FirstOrDefault(x => x.Country.AlphaCode2.ToUpper() == countryAlpha2Code.ToUpper());
 
@@ -80,7 +80,7 @@ public static class TaxNumberQueryExtensions
         this IQueryable<TaxNumberDefinition> query,
         WorldCountries country,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         var definition = query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
 
@@ -107,7 +107,7 @@ public static class TaxNumberQueryExtensions
     public static TaxNumberValidationResult? Validate(
         this TaxNumberDefinition info,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         return TaxValidationService.ValidateTaxNumber(info, validationNumber, shouldValidateViaApi);
     }

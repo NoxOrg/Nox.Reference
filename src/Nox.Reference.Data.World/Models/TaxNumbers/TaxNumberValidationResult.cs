@@ -22,7 +22,7 @@ public class TaxNumberValidationResult
         var result = new TaxNumberValidationResult();
         if (!string.IsNullOrWhiteSpace(validationError))
         {
-            result.AddError(validationError);
+            result.AddErrorIfNotEmpty(validationError);
         }
 
         result.Status = ValidationStatus.Unverified;
@@ -41,7 +41,7 @@ public class TaxNumberValidationResult
         return result;
     }
 
-    public void AddError(string error)
+    public void AddErrorIfNotEmpty(string error)
     {
         if (error != null)
         {
@@ -50,7 +50,7 @@ public class TaxNumberValidationResult
         _validationErrors.Add(error);
     }
 
-    public void AddErrors(IEnumerable<string> errors)
+    public void AddErrorsIfNotEmpty(IEnumerable<string> errors)
     {
         if (errors == null || !errors.Any())
         {
