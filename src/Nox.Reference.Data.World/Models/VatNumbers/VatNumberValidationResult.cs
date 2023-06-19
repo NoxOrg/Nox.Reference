@@ -10,7 +10,7 @@ public class VatNumberValidationResult
     {
     }
 
-    public VatValidationStatus Status { get; private set; } = VatValidationStatus.Unverified;
+    public ValidationStatus Status { get; private set; } = ValidationStatus.Unverified;
     public object? ApiVerificationData { get; set; }
     public IReadOnlyList<string?> ValidationErrors => _validationErrors;
     public string FormattedVatNumber { get; init; } = string.Empty;
@@ -25,7 +25,7 @@ public class VatNumberValidationResult
             result.AddError(validationError);
         }
 
-        result.Status = VatValidationStatus.Unverified;
+        result.Status = ValidationStatus.Unverified;
         return result;
     }
 
@@ -36,7 +36,7 @@ public class VatNumberValidationResult
             OriginalVatNumber = vatNumber,
             FormattedVatNumber = NormalizeVatNumber(vatNumber, country),
             Country = country,
-            Status = VatValidationStatus.Valid
+            Status = ValidationStatus.Valid
         };
         return result;
     }
@@ -45,7 +45,7 @@ public class VatNumberValidationResult
     {
         if (error != null)
         {
-            Status = VatValidationStatus.Invalid;
+            Status = ValidationStatus.Invalid;
         }
         _validationErrors.Add(error);
     }
@@ -57,7 +57,7 @@ public class VatNumberValidationResult
             return;
         }
 
-        Status = VatValidationStatus.Invalid;
+        Status = ValidationStatus.Invalid;
         _validationErrors.AddRange(errors);
     }
 

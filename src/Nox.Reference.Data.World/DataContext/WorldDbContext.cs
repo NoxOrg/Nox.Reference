@@ -37,6 +37,9 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     public IQueryable<VatNumberDefinition> VatNumberDefinitions
          => GetData<VatNumberDefinition>();
 
+    public IQueryable<TaxNumberDefinition> TaxNumberDefinitions
+         => GetData<TaxNumberDefinition>();
+
     public IQueryable<Language> Languages
          => GetData<Language>();
 

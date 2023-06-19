@@ -1,0 +1,542 @@
+[
+    {
+        "country": "UA",
+        "localName": "Податковий номер платника податку",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_UA_1",
+                "regex": "^UA\\d{10,12}$",
+                "validationFormatDescription": "Ukrainian tax number should have from 10 to 12 numeric characters.",
+                "inputMask": "\\U\\A000000000099",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "ZA",
+        "localName": "South African Revenue Service tax number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_ZA_1",
+                "regex": "^ZA[01239]\\d{9}$",
+                "validationFormatDescription": "South african tax number should have 10 numeric characters and start with 0,1,2,3,9.",
+                "inputMask": "\\Z\\A\\0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "Luhn"
+                }
+            }
+        ]
+    },
+    {
+        "country": "CO",
+        "localName": "Número de Identificación Tributaria",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_CO_1",
+                "regex": "^CO[CJ]{0,1}[0-9]{9,10}[CJ]{0,1}$",
+                "validationFormatDescription": "A Colombian tax number should have 9 or 10 numeric characters optionally with a letter C or J before or after the numeric code.",
+                "inputMask": "\\C\\O?0000000009?",
+                "minimumLength": 11,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "CO_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "CH",
+        "localName": "AHV (Sozialversicherungsnummer)",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_CH_1",
+                "regex": "^(CH(E-)?)?E?[0-9]{13}$",
+                "validationFormatDescription": "A Swiss tax number should have 13 numeric characters.",
+                "inputMask": "\\C\\H?0000000000000",
+                "minimumLength": 15,
+                "maximumLength": 17,
+                "checksum": {
+                    "algorithm": "CH_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "BR",
+        "localName": "Cadastro de Pessoas Físicas",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_BR_1",
+                "regex": "^BR\\d{11}$",
+                "validationFormatDescription": "A Brazil tax number should have 11 digits.",
+                "inputMask": "\\B\\R00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "BR_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "GB",
+        "localName": "National Insurance Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_GB_1",
+                "regex": "^(?!BG|GB|NK|KN|TN|NT|ZZ)((?![DFIQUV])([A-Z])(?![DFIQUVO])([A-Z]))[0-9]{6}[A-D ]$",
+                "validationFormatDescription": "A British National Insurance Number should consist of 9 characters, two letters, 6 numbers, and optional letter in the end.",
+                "inputMask": "\\G\\BLL000000?",
+                "minimumLength": 10,
+                "maximumLength": 11
+            }
+        ]
+    },
+    {
+        "country": "IT",
+        "localName": "Codice Fiscale",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_IT_1",
+                "regex": "^IT[A-Z]{6}\\d{2}[A-Z]\\d{2}[A-Z]\\d{3}[A-Z]$",
+                "validationFormatDescription": "An Italian tax number contains 16 numbers or letters, the last being a checksum.",
+                "inputMask": "\\I\\TAAAAAAAAAAAAAAAAAA",
+                "minimumLength": 18,
+                "maximumLength": 18,
+                "checksum": {
+                    "algorithm": "IT_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "FR",
+        "localName": "Numéro d'Immatriculation Fiscale",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_FR_1",
+                "regex": "^FR\\d{13}$",
+                "validationFormatDescription": "A French tax number should consist of 13 digits.",
+                "inputMask": "\\F\\R0000000000000",
+                "minimumLength": 15,
+                "maximumLength": 15
+            }
+        ]
+    },
+    {
+        "country": "DE",
+        "localName": "Steueridentifikationsnummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_DE_1",
+                "regex": "^DE[1-9]\\d{10}$",
+                "validationFormatDescription": "A German tax number should consist of 11 digits, first can't be 0.",
+                "inputMask": "\\D\\E00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "DE_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "NL",
+        "localName": "Burgerservicenummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_NL_1",
+                "regex": "^NL\\d{9}$",
+                "validationFormatDescription": "An Dutch tax number should consist of 9 digits",
+                "inputMask": "\\N\\L000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "NL_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "MX",
+        "localName": "Registro Federal de Contribuyentes",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_MX_1",
+                "regex": "^MX[A-Z&Ñ]{3}[0-9]{6}[1-9A-V][1-9A-Z][0-9A]$",
+                "validationFormatDescription": "A Mexican tax number should consist of 3 letters, 6 digits, a number or letter A-V, a number or letter A-Z, a number or letter A.",
+                "inputMask": "\\M\\XAAA000000AAA",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "MX_Tax1_Algorithm"
+                }
+            },
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_MX_2",
+                "regex": "^MX[A-Z&Ñ]{3}[0-9]{6}[1-9A-V][1-9A-Z][0-9A]$",
+                "validationFormatDescription": "A Mexican tax number should consist of 13 letters or numbers.",
+                "inputMask": "\\M\\XAAAAAAAAAAAAA",
+                "minimumLength": 15,
+                "maximumLength": 15,
+                "checksum": {
+                    "algorithm": "MX_Tax2_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "IN",
+        "localName": "Permanent Account Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_IN_1",
+                "regex": "^IN[A-Z]{5}[0-9]{4}[A-Z]$",
+                "validationFormatDescription": "Indian tax number should start with 5 letters, followed by 4 numbers and 1 letter.",
+                "inputMask": "\\I\\NLLLLL0000L",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "IN_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "CA",
+        "localName": "Social Insurance Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_CA_1",
+                "regex": "^CA\\d{9}$",
+                "validationFormatDescription": "A Canadian tax number should have 9 digits.",
+                "inputMask": "\\C\\A000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "CA_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "BE",
+        "localName": "Rijksregisternummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_BE_1",
+                "regex": "^BE\\d{11}$",
+                "validationFormatDescription": "A Belgian tax number should have 11 digits.",
+                "inputMask": "\\B\\E00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "BE_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "AU",
+        "localName": "Tax File Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_AU_1",
+                "regex": "^AU\\d{8,9}$",
+                "validationFormatDescription": "An Australian tax number should have frmo 8 to 9 digits.",
+                "inputMask": "\\A\\U000000009",
+                "minimumLength": 10,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "AU_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "PL",
+        "localName": "Powszechny Elektroniczny System Ewidencji Ludności",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_PL_1",
+                "regex": "^PL\\d{11}$",
+                "validationFormatDescription": "A Polish tax number consists of 11 numeric characters, the last being a checksum.",
+                "inputMask": "\\P\\L00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "PL_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "PT",
+        "localName": "Número de Identificação Fiscal",
+        "verificationApi": "EuropeVies",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_PT_1",
+                "regex": "^PT\\d{9}$",
+                "validationFormatDescription": "A Portugese tax number consists of 9 numeric characters, the last being a checksum.",
+                "inputMask": "\\P\\T000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "ModAndSubstract",
+                    "modulus": 11,
+                    "weights": [ 9, 8, 7, 6, 5, 4, 3, 2 ]
+                }
+            }
+        ]
+    },
+    {
+        "country": "DK",
+        "localName": "Det Centrale Personregister",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_DK_1",
+                "regex": "^DK\\d{10}$",
+                "validationFormatDescription": "A Danish tax number should consist of 10 digits.",
+                "inputMask": "\\D\\K0000000000",
+                "minimumLength": 12,
+                "maximumLength": 12,
+                "checksum": {
+                    "algorithm": "DK_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "AT",
+        "localName": "Abgabenkontonummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_AT_1",
+                "regex": "^AT\\d{9}$",
+                "validationFormatDescription": "An Austrian tax number should consist of 9 digits.",
+                "inputMask": "\\A\\T000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "AT_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "JP",
+        "localName": "My Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_JP_1",
+                "regex": "^JP\\d{12}$",
+                "validationFormatDescription": "A Japanese tax number should consist of 12 digits.",
+                "inputMask": "\\J\\P000000000000",
+                "minimumLength": 14,
+                "maximumLength": 14,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "TR",
+        "localName": "T.C. Kimlik No.",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_TR_1",
+                "regex": "^TR[1-9]\\d{10}$",
+                "validationFormatDescription": "A Turkish tax number should consist of 11 digits, first not being 0.",
+                "inputMask": "\\T\\R00000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "TR_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "SE",
+        "localName": "PERSONNUMMER",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_SE_1",
+                "regex": "^SE(\\d{10}|\\d{12})$",
+                "validationFormatDescription": "A Swedish tax number should consist of 10 or 12 digits.",
+                "inputMask": "\\S\\E000000000099",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "SE_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "IL",
+        "localName": "Teudat Zehut",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_IL_1",
+                "regex": "^IL\\d{9}$",
+                "validationFormatDescription": "An Israel tax number should consist of 9 digits.",
+                "inputMask": "\\I\\L000000000",
+                "minimumLength": 11,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "IL_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "TH",
+        "localName": "Lek Ti Pracham Dtua Phusi Phasaa",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_TH_1",
+                "regex": "^TH\\d{13}$",
+                "validationFormatDescription": "A Thai tax number should consist of 13 digits.",
+                "inputMask": "\\T\\H0000000000000",
+                "minimumLength": 15,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "AE",
+        "localName": "Tax Registration Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_AE_1",
+                "regex": "^AE\\d{15}$",
+                "validationFormatDescription": "An UAE tax number should consist of 15 digits.",
+                "inputMask": "\\A\\E000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "MY",
+        "localName": "Nombor Cukai Pendapatan",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_MY_1",
+                "regex": "^MY(SG|OG)\\d{10}[01]$",
+                "validationFormatDescription": "A Malayan tax number should consist of 2 letters, followed by 10 digits, and 0 or 1 digit after that.",
+                "inputMask": "\\M\\Y??00000000000",
+                "minimumLength": 13,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "RU",
+        "localName": "Идентификационный номер налогоплательщика",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.VatNumber.ValidationInfo_RU_1",
+                "regex": "^RU(\\d{10}|\\d{12})$",
+                "validationFormatDescription": "A Russian VAT number should consist of 10 or 12 digits.",
+                "inputMask": "\\R\\U000000000099",
+                "minimumLength": 12,
+                "maximumLength": 14,
+                "checksum": {
+                    "algorithm": "RU_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "NO",
+        "localName": "Fødselsnummer",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_NO_1",
+                "regex": "^NO\\d{11}$",
+                "validationFormatDescription": "A Norwegian tax number should consist of 11 digits.",
+                "inputMask": "\\N\\O000000000",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "NO_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "NZ",
+        "localName": "New Zealand Inland Revenue Department (Te Tari Tāke) number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_NZ_1",
+                "regex": "^NZ\\d{8,9}$",
+                "validationFormatDescription": "A New Zealand tax number should consist of 8 or 9 digits.",
+                "inputMask": "\\N\\Z000000009",
+                "minimumLength": 10,
+                "maximumLength": 11,
+                "checksum": {
+                    "algorithm": "NZ_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "PH",
+        "localName": "Tax Identification Number",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_PH_1",
+                "regex": "^PH\\d{12}[VN]?$",
+                "validationFormatDescription": "A Philippines tax number should consist of 12 digits and optional V or N in the end.",
+                "inputMask": "\\P\\H\\000000000000?",
+                "minimumLength": 14,
+                "maximumLength": 15,
+                "checksum": null
+            }
+        ]
+    },
+    {
+        "country": "FI",
+        "localName": "Henkilotunnus",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_FI_1",
+                "regex": "^FI[0-9]{6}A[0-9]{3}[0-9ABCDEFHJKLMNPRSTUVWXY]$",
+                "validationFormatDescription": "A Finnish tax number should consist of 6 digits, letter A, 3 digits and a digit or letter in the end.",
+                "inputMask": "\\F\\I000000\\A000A",
+                "minimumLength": 13,
+                "maximumLength": 13,
+                "checksum": {
+                    "algorithm": "FI_Tax_Algorithm"
+                }
+            }
+        ]
+    },
+    {
+        "country": "ID",
+        "localName": "Nomor Pokok Wajib Pajak",
+        "validations": [
+            {
+                "translationId": "Nox.Reference.TaxNumber.ValidationInfo_ID_1",
+                "regex": "^ID\\d{15}$",
+                "validationFormatDescription": "A Indonesian tax number should consist of 15 digits.",
+                "inputMask": "\\I\\D\\000000000000000",
+                "minimumLength": 17,
+                "maximumLength": 17,
+                "checksum": {
+                    "algorithm": "ID_Algorithm"
+                }
+            }
+        ]
+    }
+]

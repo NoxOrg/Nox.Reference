@@ -51,7 +51,7 @@ public static class VatNumberQueryExtensions
         this IQueryable<VatNumberDefinition> query,
         string countryAlpha2Code,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         var definition = query.FirstOrDefault(x => x.Country.AlphaCode2.ToUpper() == countryAlpha2Code.ToUpper());
 
@@ -80,7 +80,7 @@ public static class VatNumberQueryExtensions
         this IQueryable<VatNumberDefinition> query,
         WorldCountries country,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         var definition = query.FirstOrDefault(x => x.Country.Name == EnumHelper.GetItemDescription(country));
 
@@ -107,7 +107,7 @@ public static class VatNumberQueryExtensions
     public static VatNumberValidationResult? Validate(
         this VatNumberDefinition info,
         string validationNumber,
-        bool shouldValidateViaApi = true)
+        bool shouldValidateViaApi)
     {
         return VatValidationService.ValidateVatNumber(info, validationNumber, shouldValidateViaApi);
     }

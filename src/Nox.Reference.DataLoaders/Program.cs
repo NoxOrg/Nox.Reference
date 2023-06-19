@@ -2,8 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Nox.Reference;
-using Nox.Reference.Data;
-using Nox.Reference.Data.IpAddress;
 using Nox.Reference.DataLoaders;
 
 var host = Host.CreateDefaultBuilder()

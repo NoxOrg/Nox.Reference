@@ -16,6 +16,7 @@ public static class ConfigurationConstants
     public const string IpAddressConnectionStringName = "NoxReferenceIpAddressConnection";
     public const string MachineDataLoadConnectionStringName = "NoxReferenceDataLoadMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
+    public const string TaxNumberDefinitionDataPathSettingName = "TaxNumberDefinitionDataPath";
     public const string ConfigFileName = "noxReferenceSettings.json";
     public const string UriLocalePlanetList = "UriLocalePlanetList";
     public const string UriLocalePlanetItem = "UriLocalePlanetItem";

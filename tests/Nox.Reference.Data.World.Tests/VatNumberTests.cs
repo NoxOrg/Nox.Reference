@@ -41,7 +41,7 @@ public class VatNumberTests
             }
             path = path.Parent;
         }
-        _testFilePath = Path.Combine(path.FullName, "data/tests/VatNumbers/");
+        _testFilePath = DatabaseConstant.VatNumberTestDataPath;
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -57,7 +57,7 @@ public class VatNumberTests
 
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+        Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
@@ -72,7 +72,7 @@ public class VatNumberTests
         Trace.WriteLine(Serialize(validationResult));
 
         Assert.That(definitionInfo, Is.Not.Null);
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+        Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
@@ -89,7 +89,7 @@ public class VatNumberTests
         Trace.WriteLine(Serialize(validationResult));
 
         Assert.That(definitionInfo, Is.Not.Null);
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+        Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
@@ -101,7 +101,7 @@ public class VatNumberTests
 
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Valid));
+        Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Valid));
     }
 
     [Test]
@@ -113,7 +113,7 @@ public class VatNumberTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Invalid));
+            Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Invalid));
             Assert.That(validationResult.ValidationErrors, Has.Count.EqualTo(1));
         });
     }
@@ -127,7 +127,7 @@ public class VatNumberTests
 
         Trace.WriteLine(Serialize(validationResult));
 
-        Assert.That(validationResult.Status, Is.EqualTo(VatValidationStatus.Unverified));
+        Assert.That(validationResult.Status, Is.EqualTo(ValidationStatus.Unverified));
     }
 
     #endregion ValidateVatNumber
@@ -184,7 +184,7 @@ public class VatNumberTests
                 .Get(countryCode)!
                 .Validate(vatNumber, false)!;
 
-            if (validationResult.Status != VatValidationStatus.Valid)
+            if (validationResult.Status != ValidationStatus.Valid)
             {
                 failedVat.Add($"{vatNumber}:{string.Join(';', validationResult.ValidationErrors)}");
             }
@@ -201,9 +201,9 @@ public class VatNumberTests
     [TestCase("4410268272", "FR", false)]
     public void VatNumber_TestApiValidation_ViesApi(string vatNumber, string countryCode, bool isValid)
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber)!;
+        var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber, true)!;
 
-        var status = isValid ? VatValidationStatus.Valid : VatValidationStatus.Invalid;
+        var status = isValid ? ValidationStatus.Valid : ValidationStatus.Invalid;
 
         Assert.Multiple(() =>
         {

@@ -15,6 +15,7 @@
   "UriLanguagesISO639": "https://raw.githubusercontent.com/scsmith/language_list/master/data/languages.yml",
   "UriLanguagesAdditionalInfo": "https://raw.githubusercontent.com/haliaeetus/iso-639/master/data/iso_639-2.json",
   "VatNumberDefinitionDataPath": "..\\..\\..\\..\\..\\data\\input\\source\\VatNumbers\\Nox.Reference.VatNumbers.json",
+  "TaxNumberDefinitionDataPath": "..\\..\\..\\..\\..\\data\\input\\source\\TaxNumbers\\Nox.Reference.TaxNumbers.json",
   "HolidaysZipPath": "..\\..\\..\\..\\..\\data\\input\\source\\Holidays",
   "UriLocalePlanetList": "https://www.localeplanet.com/icu/index.html",
   "UriLocalePlanetItem": "https://www.localeplanet.com/icu/{localeCode}/index.html",
