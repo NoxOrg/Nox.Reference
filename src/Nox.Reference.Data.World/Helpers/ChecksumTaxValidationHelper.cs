@@ -7,6 +7,20 @@ namespace Nox.Reference.Data.World.Helpers;
 
 internal static class ChecksumTaxValidationHelper
 {
+    private static readonly string[] CardHolderTypes = new string[]{
+                "A",// 'Association of Persons (AOP)'
+                "B",//Body of Individuals (BOI)'
+                "C",//Company'
+                "F",//Firm'
+                "G",//Government'
+                "H",//HUF (Hindu Undivided Family)'
+                "L",//Local Authority'
+                "J",//Artificial Juridical Person'
+                "P",//Individual
+                "T",//Trust (AOP)
+                "K",//Krish (Trust Krish)
+            };
+
     public static IEnumerable<string> ValidateTaxCHAlgorithm(string vatNumber)
     {
         return ChecksumValidationHelper.ValidateCustomChecksum(vatNumber, (vatNumber) => CheckCHAlgorithm(vatNumber));
@@ -312,7 +326,6 @@ internal static class ChecksumTaxValidationHelper
         stringDigits = ("   " + stringDigits);
         stringDigits = stringDigits.Substring(stringDigits.Length - 12);
 
-
         int sum = 0;
         for (int i = 0; i < stringDigits.Length; i++)
         {
@@ -334,23 +347,7 @@ internal static class ChecksumTaxValidationHelper
     private static IEnumerable<string> CheckINAlgorithm(string stringDigits)
     {
         var errorMessage = new List<string>();
-
-        // TODO: move static
-        string[] card_holder_types = new string[]{
-                "A",// 'Association of Persons (AOP)'
-                "B",//Body of Individuals (BOI)'
-                "C",//Company'
-                "F",//Firm'
-                "G",//Government'
-                "H",//HUF (Hindu Undivided Family)'
-                "L",//Local Authority'
-                "J",//Artificial Juridical Person'
-                "P",//Individual
-                "T",//Trust (AOP)
-                "K",//Krish (Trust Krish)
-            };
-
-        var isValid = card_holder_types.Contains(stringDigits.Substring(3, 1));
+        var isValid = CardHolderTypes.Contains(stringDigits.Substring(3, 1));
         if (!isValid)
         {
             errorMessage.Add(ValidationErrors.InvalidCardType);
@@ -791,7 +788,6 @@ internal static class ChecksumTaxValidationHelper
         }
         else
         {
-
             return false;
         }
         try

@@ -3,8 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Nox.Reference.Common;
 
-// TODO: make internal
-public class NoxRefenceInfoJsonConverter<TSource, TDest> : JsonConverter<TSource>
+internal class NoxRefenceInfoJsonConverter<TSource, TDest> : JsonConverter<TSource>
     where TDest : TSource
 {
     public override TSource Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

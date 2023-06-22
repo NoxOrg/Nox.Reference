@@ -4,8 +4,7 @@ using System.Text.Json;
 
 namespace Nox.Reference.Common;
 
-// TODO: make internal
-public class NoxReferenceFileStorageService
+internal class NoxReferenceFileStorageService
 {
     private readonly IConfiguration _configuration;
 

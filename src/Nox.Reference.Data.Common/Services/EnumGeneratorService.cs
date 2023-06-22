@@ -6,8 +6,7 @@ namespace Nox.Reference.Data.Common;
 /// This service generates custom enums for fetched data
 /// that allows easier and better-readable entity access
 /// </summary>
-// TODO: make internal
-public static class EnumGeneratorService
+internal static class EnumGeneratorService
 {
     public static void Generate<TEntity>(
         IEnumerable<TEntity> entities,

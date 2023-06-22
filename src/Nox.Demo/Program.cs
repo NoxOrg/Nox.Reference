@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Nox.Demo;
 using Nox.Reference;
+using Nox.Reference.Common;
 using System.Text.Json;
 
 Console.WriteLine("This is Nox.Reference Demo!");
