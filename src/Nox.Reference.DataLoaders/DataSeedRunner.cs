@@ -3,7 +3,7 @@ using Nox.Reference.Data.Common;
 
 namespace Nox.Reference.DataLoaders;
 
-public class DataSeedRunner
+internal class DataSeedRunner
 {
     private readonly IEnumerable<INoxReferenceDataSeeder> _dataSeeders;
     private readonly ILogger<DataSeedRunner> _logger;

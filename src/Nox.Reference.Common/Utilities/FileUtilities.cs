@@ -3,8 +3,7 @@ using System.Text;
 
 namespace Nox.Reference.Common;
 
-// TODO: make internal
-public static class FileUtilities
+internal static class FileUtilities
 {
     /// <summary>
     /// This method converts .gzip file into string that

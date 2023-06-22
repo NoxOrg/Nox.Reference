@@ -2,7 +2,7 @@
 
 namespace Nox.Reference;
 
-public abstract class NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey> : NoxReferenceEntityConfigurationBase<TEntity>
+internal abstract class NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey> : NoxReferenceEntityConfigurationBase<TEntity>
     where TEntity : NoxReferenceEntityBase, IKeyedNoxReferenceEntity<TKey>
     where TKey : IEquatable<TKey>
 {

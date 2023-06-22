@@ -2,9 +2,11 @@
 
 namespace Nox.Reference.Common;
 
-// TODO: make internal
+/// <summary>
+/// Exception is thrown during import data process. 
+/// </summary>
 [Serializable]
-public class NoxDataExtractorException : Exception
+internal class NoxDataExtractorException : Exception
 {
 #pragma warning disable S1075 // URIs should not be hardcoded
     private const string HelpLinkUri = "https://github.com/NoxOrg/Nox.Reference";
