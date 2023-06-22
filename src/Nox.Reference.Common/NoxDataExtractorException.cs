@@ -3,7 +3,7 @@
 namespace Nox.Reference.Common;
 
 /// <summary>
-/// Exception is thrown during import data process. 
+/// Exception is thrown during import data process.
 /// </summary>
 [Serializable]
 internal class NoxDataExtractorException : Exception

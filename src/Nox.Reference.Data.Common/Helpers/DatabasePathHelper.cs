@@ -46,8 +46,7 @@ internal static class DatabasePathHelper
         if (!File.Exists(filePath))
         {
             var errorMessage = $"Cannot find {contextName} database by the provided connection string {connectionString}. Please, check the path or override it using {contextName}.UseDatabasePath(path). Possibly an issue with '.\\' operator is present.";
-            // TODO change exception type.
-            throw new Exception(errorMessage);
+            throw new FileNotFoundException(errorMessage);
         }
 
         return fixedConnectionString;
