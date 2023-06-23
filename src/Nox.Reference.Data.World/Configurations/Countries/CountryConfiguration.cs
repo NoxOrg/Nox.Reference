@@ -88,5 +88,7 @@ internal class CountryConfiguration : NoxReferenceKeyedEntityConfigurationBase<C
         builder
             .HasMany(x => x.GiniCoefficients)
             .WithOne();
+
+        builder.Ignore(x => x.IsMetric);
     }
 }

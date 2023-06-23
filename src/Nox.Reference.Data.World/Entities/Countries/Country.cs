@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Metrics;
+using System.Globalization;
 
 namespace Nox.Reference;
 
@@ -6,6 +8,8 @@ public class Country : NoxReferenceEntityBase,
     IKeyedNoxReferenceEntity<string>,
     IDtoConvertibleEntity<CountryInfo>
 {
+    private bool? _isMetric = null;
+
     public string Id => Code;
     public string Name { get; private set; } = string.Empty;
     public string Code { get; private set; } = string.Empty;
@@ -28,10 +32,12 @@ public class Country : NoxReferenceEntityBase,
     public CountryCapital Capital => Capitals.FirstOrDefault() ?? new CountryCapital();
 
     internal int? VatNumberDefinitionId { get; private set; }
+
     [ForeignKey("VatNumberDefinitionId")]
     public virtual VatNumberDefinition? VatNumberDefinition { get; internal set; }
 
     internal int? TaxNumberDefinitionId { get; private set; }
+
     [ForeignKey("TaxNumberDefinitionId")]
     public virtual TaxNumberDefinition? TaxNumberDefinition { get; internal set; }
 
@@ -59,6 +65,22 @@ public class Country : NoxReferenceEntityBase,
     public string FipsCode { get; private set; } = string.Empty;
     public string CodeAssignedStatus { get; private set; } = string.Empty;
     public DayOfWeek StartDayOfWeek { get; private set; }
+
+    /// <summary>
+    /// Indicates whether country uses metric or non-metric system.
+    /// <example>
+    /// </example>
+    /// </summary>
+    /// <returns>boolean</returns>
+    public bool IsMetric
+    {
+        get
+        {
+            _isMetric ??= new RegionInfo(Id).IsMetric;
+
+            return _isMetric.Value;
+        }
+    }
 
     public CountryInfo ToDto()
     {

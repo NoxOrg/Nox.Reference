@@ -88,6 +88,27 @@ public class CountryInfoTests
         });
     }
 
+    [TestCase("US", false)]
+    [TestCase("LR", false)]
+    [TestCase("MM", true)]
+    [TestCase("UA", true)]
+    [TestCase("CH", true)]
+    [TestCase("GB", true)]
+    public void Country_DetermineIfUseMetricSystem_Check(string countryCode, bool isMetric)
+    {
+        var country = _worldDbContext
+            .Countries
+            .Get(countryCode)!;
+
+        var countryInfo = country.ToDto();
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(country.IsMetric, Is.EqualTo(isMetric));
+            Assert.That(countryInfo.IsMetric, Is.EqualTo(isMetric));
+        });
+    }
+
     #region IsWorkingDay
 
     [TestCase("UA", "2023-06-19", true)]

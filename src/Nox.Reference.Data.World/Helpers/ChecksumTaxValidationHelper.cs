@@ -1,26 +1,10 @@
-﻿using AutoMapper.Execution;
-using Nox.Reference.Common;
+﻿using Nox.Reference.Common;
 using System.Text;
-using YamlDotNet.Core.Tokens;
 
 namespace Nox.Reference.Data.World.Helpers;
 
 internal static class ChecksumTaxValidationHelper
 {
-    private static readonly string[] CardHolderTypes = new string[]{
-                "A",// 'Association of Persons (AOP)'
-                "B",//Body of Individuals (BOI)'
-                "C",//Company'
-                "F",//Firm'
-                "G",//Government'
-                "H",//HUF (Hindu Undivided Family)'
-                "L",//Local Authority'
-                "J",//Artificial Juridical Person'
-                "P",//Individual
-                "T",//Trust (AOP)
-                "K",//Krish (Trust Krish)
-            };
-
     public static IEnumerable<string> ValidateTaxCHAlgorithm(string vatNumber)
     {
         return ChecksumValidationHelper.ValidateCustomChecksum(vatNumber, (vatNumber) => CheckCHAlgorithm(vatNumber));
@@ -214,7 +198,6 @@ internal static class ChecksumTaxValidationHelper
         var f15 = stringDigits.Substring(0, 15);
 
         // TODO: move to static
-        int[] ControlCodeArray = new[] { 1, 0, 5, 7, 9, 13, 15, 17, 19, 21, 2, 4, 18, 20, 11, 3, 6, 8, 12, 14, 16, 10, 22, 25, 24, 23 };
 
         byte[] arrCode = Encoding.UTF8.GetBytes(f15.ToUpper());
         for (int i = 0; i < f15.Length; i++)
@@ -223,8 +206,8 @@ internal static class ChecksumTaxValidationHelper
                 ? arrCode[i] - (byte)'A'
                 : arrCode[i] - (byte)'0';
             else tot += (char.IsLetter(f15, i))
-                ? ControlCodeArray[(arrCode[i] - (byte)'A')]
-                : ControlCodeArray[(arrCode[i] - (byte)'0')];
+                ? ChecksumConstants.ControlCodeArray[(arrCode[i] - (byte)'A')]
+                : ChecksumConstants.ControlCodeArray[(arrCode[i] - (byte)'0')];
         }
         tot %= 26;
         char l = (char)(tot + 'A');
@@ -347,7 +330,7 @@ internal static class ChecksumTaxValidationHelper
     private static IEnumerable<string> CheckINAlgorithm(string stringDigits)
     {
         var errorMessage = new List<string>();
-        var isValid = CardHolderTypes.Contains(stringDigits.Substring(3, 1));
+        var isValid = ChecksumConstants.CardHolderTypes.Contains(stringDigits.Substring(3, 1));
         if (!isValid)
         {
             errorMessage.Add(ValidationErrors.InvalidCardType);

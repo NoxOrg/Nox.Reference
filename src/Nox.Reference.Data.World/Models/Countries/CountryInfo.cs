@@ -155,4 +155,7 @@ public class CountryInfo
 
     [JsonPropertyName("timezones")]
     public IReadOnlyList<string> TimeZones { get; set; } = new List<string>();
+
+    [JsonIgnore]
+    public bool IsMetric { get; set; }
 }
