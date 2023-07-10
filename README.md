@@ -1,7 +1,7 @@
 # About 
 
-***Nox.Reference*** is a storage that contains the most commonly used types.
-To persist data Nox.Reference uses SQLite databases which are dived by domain-specific responsibilities. 
+***Nox.Reference*** is a reference library that provides convenient access to universal information like country, machine and IP address.
+For data persistence Nox.Reference uses [SQLite](https://www.sqlite.org/index.html) databases which are divided by domain-specific responsibilities. 
 
 Nox.Reference represents the following packages:
 
@@ -10,20 +10,20 @@ Nox.Reference represents the following packages:
 - Nox.Reference.IpAddress
 
 
-## Soluition design convention:
+## Solution design convention:
 - All entities in a project should be placed in the folder {ProjectName}/Entities/{Plural Entity Name}/{Singular Entity Name}.cs
 - All entity configuration in a project should be placed in the folder {ProjectName}/Configurations/{Plural Entity Name}Configuration.cs
 - All data seeder in a project should be placed in the folder {ProjectName}/Seeds/{Plural Entity Name}DataSeeder.cs
 - All data mapping in a project should be placed in the folder {ProjectName}/Mappings/{Plural Entity Name}Mapping.cs
-- Configuration, DataSeeder classes should have an internal access level in order not to be exposed to external usages.
+- Configuration and DataSeeder classes should have an internal access level to avoid being exposed to external usages.
 
 
 ## Nox.Reference.Data.Common
 Contains common logic to facilitate implementation and invocation for major entities and their configurations.
 IKeyedNoxReferenceEntity<TKey>  - use this interface when an entity is bound to contain Id field. Id property type can vary.
-NoxReferenceEntityBase - base class for all entities intended to store in a database.
+NoxReferenceEntityBase - base class for all entities intended to be stores in a database.
 NoxReferenceDataSeederBase<TDbContext, TSource, TEntity>  - base class for data seeder to load and transform input data to entities.
-EnumGeneratorService - a class that serves for enum generation. These enums help to get static data and are usually used as parameters for methods that obtain data. 
+EnumGeneratorService - a class that can be used for enum generation. These enums help to get static data and are usually used as parameters for methods that obtain data. 
 
 
 
@@ -69,7 +69,7 @@ NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey>
 
 ## How to write custom data seeder.
 
-DataSeeder is a class that serves to load external data with dto and transform them into certain entities.
+DataSeeder is a class that serves to load external data with dto and transform them into matching entities.
 
 - Create a class according to name convention (For example CountryDataSeeder.cs)
 
@@ -90,14 +90,13 @@ services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>(); // you can ex
 ```
 
 ## How to transform input data into an entity.
--   Create an automapper profile and setup a mapping
+-   Create an [Automapper](https://automapper.org/) profile and set up a mapping
 
 ```
  internal class CurrencyMapping : Profile
 ```
 
-- For a complex scenario like resolving related entities or just using DI during the transformation use the following approach:
- For example 
+- For a complex scenario like resolving related entities or just using dependency injection during the transformation use the approach outlined in the example below:
  
 ```
 CreateMap<string, Country>().ConvertUsing<CountrySingleMapping>();
@@ -108,8 +107,8 @@ internal  CountrySingleMapping : ITypeConverter<string, Country>{}
 
 ```
 
- - To convert entity to dto Nox.Reference provides an extension method of any entity derived from NoxReferenceEntityBase ToDto<>() method should be typed by appropriated dto which is already mapped with the entity.
-Also, there is overload  ToDto<>( to facilitate handling the conversion list of dto to entities.  
+ - To convert an entity to a DTO Nox.Reference provides an extension method of any entity derived from NoxReferenceEntityBase ToDto<>() method should be typed by an appropriate DTO which is already mapped to the entity.
+Also, there is an overload ToDto<>() which facilitates handling the conversion list of DTOs to entities.  
  
  
 ## How to add migration for a particular data context :
