@@ -1,13 +1,13 @@
 # About 
 
 ***Nox.Reference*** is a storage that contains the most commonly used types.
-To persist data Nox.Reference uses sqlLite databases which are dived by domain-specific responsibilities. 
+To persist data Nox.Reference uses SQLite databases which are dived by domain-specific responsibilities. 
 
 Nox.Reference represents the following packages:
 
-- Nox.Refence.World
-- Nox.Refence.Machine
-- Nox.Refence.IpAddress
+- Nox.Reference.World
+- Nox.Reference.Machine
+- Nox.Reference.IpAddress
 
 
 ## Soluition design convention:
@@ -69,13 +69,13 @@ NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey>
 
 ## How to write custom data seeder.
 
-DataSeeder is a class that serves to load external data with dto and transform them to certain entities.
+DataSeeder is a class that serves to load external data with dto and transform them into certain entities.
 
-- Create a class according to name convention (For example: CountryDataSeeder.cs)
+- Create a class according to name convention (For example CountryDataSeeder.cs)
 
 - It can implement interface ```INoxReferenceDataSeeder```. Write any custome logic in ```Seed()``` method.
 
-- To significantly reduce common work it possible to derive from ```NoxReferenceDataSeederBase<,,>``` class that already implements common logic.
+- To significantly reduce common work it is possible to derive from ```NoxReferenceDataSeederBase<,,>``` class that already implements common logic.
 
 ```
 public class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, CountryInfo, Country>
@@ -86,10 +86,10 @@ public class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Coun
 - Register data seeder in the data flow in the following line in DataSeederExtensions file.
 
 ```
-services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>(); // you can exclude dataloader from flow if necessary, especially in debug purposes.
+services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>(); // you can exclude dataloader from flow if necessary, especially for debug purposes.
 ```
 
-## How to transform input data to an entity.
+## How to transform input data into an entity.
 -   Create an automapper profile and setup a mapping
 
 ```
@@ -109,11 +109,11 @@ internal  CountrySingleMapping : ITypeConverter<string, Country>{}
 ```
 
  - To convert entity to dto Nox.Reference provides an extension method of any entity derived from NoxReferenceEntityBase ToDto<>() method should be typed by appropriated dto which is already mapped with the entity.
-Also, there is overload  ToDto<>( to facilitate handling the convertion list of dto to entities.  
+Also, there is overload  ToDto<>( to facilitate handling the conversion list of dto to entities.  
  
  
 ## How to add migration for a particular data context :
- - Open Developer Powershel in Visual Studio
+ - Open Developer Powershell in Visual Studio
  - Go to the ceratin project folder: 
 ls  Nox.Reference\src\Nox.Reference.Data.World
  - Run command 
@@ -180,4 +180,4 @@ To change the databases output folder replace the following line:
 ```
 
 *SourceDataPath* - a folder where source data from external resources are saved.
-*TargetDataPath* - output folder for json files which are generated during gathering data from external sources.
+*TargetDataPath* - output folder for JSON files which are generated during gathering data from external sources.
