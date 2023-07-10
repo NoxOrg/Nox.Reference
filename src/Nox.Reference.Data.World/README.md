@@ -1,4 +1,4 @@
-# Nox.Refence.World project
+# Nox.Reference.World project
 *Nox.Reference.World* project contains functionality and classes to get common information about Countries, Currencies, Languages, Holidays, etc.
 ## How to use:
 There are 2 approaches how to deal with Nox.Reference.World:

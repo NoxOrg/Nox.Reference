@@ -2,7 +2,7 @@
 *Nox.Reference.Machine* project contains functionality and classes to get common information about MacAddresses.
 
 ## How to use:
-There are 2 approaches how to deal with Nox.Refence.World:
+There are 2 approaches how to deal with Nox.Reference.World:
 ### 1. Static approach: 
 Allow to call extension methods or run a query over queryable properties.
 

@@ -1,6 +1,6 @@
 # About 
 
-***Nox.Reference*** is a reference library that provides convenient access to universal information like country, machine and IP address.
+***Nox.Reference*** is a reference library that provides convenient access to universal information like country, machine, and IP address.
 For data persistence Nox.Reference uses [SQLite](https://www.sqlite.org/index.html) databases which are divided by domain-specific responsibilities. 
 
 Nox.Reference represents the following packages:
@@ -21,7 +21,7 @@ Nox.Reference represents the following packages:
 ## Nox.Reference.Data.Common
 Contains common logic to facilitate implementation and invocation for major entities and their configurations.
 IKeyedNoxReferenceEntity<TKey>  - use this interface when an entity is bound to contain Id field. Id property type can vary.
-NoxReferenceEntityBase - base class for all entities intended to be stores in a database.
+NoxReferenceEntityBase - base class for all entities intended to be stored in a database.
 NoxReferenceDataSeederBase<TDbContext, TSource, TEntity>  - base class for data seeder to load and transform input data to entities.
 EnumGeneratorService - a class that can be used for enum generation. These enums help to get static data and are usually used as parameters for methods that obtain data. 
 
@@ -69,11 +69,11 @@ NoxReferenceKeyedEntityConfigurationBase<TEntity, TKey>
 
 ## How to write custom data seeder.
 
-DataSeeder is a class that serves to load external data with DTOs and transform them to matching entities.
+DataSeeder is a class that serves to load external data with dto and transform them into matching entities.
 
-- Create a class according to name convention (For example: CountryDataSeeder.cs)
+- Create a class according to name convention (For example CountryDataSeeder.cs)
 
-- It can implement interface ```INoxReferenceDataSeeder```. Write any custome logic in ```Seed()``` method.
+- It can implement interface ```INoxReferenceDataSeeder```. Write any custom logic in ```Seed()``` method.
 
 - To significantly reduce common work it is possible to derive from ```NoxReferenceDataSeederBase<,,>``` class that already implements common logic.
 
@@ -86,10 +86,10 @@ public class CountryDataSeeder : NoxReferenceDataSeederBase<WorldDbContext, Coun
 - Register data seeder in the data flow in the following line in DataSeederExtensions file.
 
 ```
-services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>(); // you can exclude dataloader from flow if necessary, especially in debug purposes.
+services.AddScoped<INoxReferenceDataSeeder, CurrencyDataSeeder>(); // you can exclude dataloader from flow if necessary, especially for debug purposes.
 ```
 
-## How to transform input data to an entity.
+## How to transform input data into an entity.
 -   Create an [Automapper](https://automapper.org/) profile and set up a mapping
 
 ```
@@ -179,4 +179,4 @@ To change the databases output folder replace the following line:
 ```
 
 *SourceDataPath* - a folder where source data from external resources are saved.
-*TargetDataPath* - output folder for json files which are generated during gathering data from external sources.
+*TargetDataPath* - output folder for JSON files which are generated during gathering data from external sources.
