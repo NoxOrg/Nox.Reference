@@ -1,6 +1,6 @@
 # About 
 
-***Nox.Reference*** is a reference library that provides convenient access to universal information like country, machine and IP address.
+***Nox.Reference*** is a reference library that provides convenient access to universal information like country, machine, and IP address.
 For data persistence Nox.Reference uses [SQLite](https://www.sqlite.org/index.html) databases which are divided by domain-specific responsibilities. 
 
 Nox.Reference represents the following packages:
@@ -21,7 +21,7 @@ Nox.Reference represents the following packages:
 ## Nox.Reference.Data.Common
 Contains common logic to facilitate implementation and invocation for major entities and their configurations.
 IKeyedNoxReferenceEntity<TKey>  - use this interface when an entity is bound to contain Id field. Id property type can vary.
-NoxReferenceEntityBase - base class for all entities intended to be stores in a database.
+NoxReferenceEntityBase - base class for all entities intended to be stored in a database.
 NoxReferenceDataSeederBase<TDbContext, TSource, TEntity>  - base class for data seeder to load and transform input data to entities.
 EnumGeneratorService - a class that can be used for enum generation. These enums help to get static data and are usually used as parameters for methods that obtain data. 
 
@@ -73,7 +73,7 @@ DataSeeder is a class that serves to load external data with dto and transform t
 
 - Create a class according to name convention (For example CountryDataSeeder.cs)
 
-- It can implement interface ```INoxReferenceDataSeeder```. Write any custome logic in ```Seed()``` method.
+- It can implement interface ```INoxReferenceDataSeeder```. Write any custom logic in ```Seed()``` method.
 
 - To significantly reduce common work it is possible to derive from ```NoxReferenceDataSeederBase<,,>``` class that already implements common logic.
 
