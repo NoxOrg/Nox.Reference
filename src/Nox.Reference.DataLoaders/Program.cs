@@ -11,7 +11,7 @@ var host = Host.CreateDefaultBuilder()
 
         WorldDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.WorldDataLoadConnectionStringName)!);
         MachineDbContext.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.MachineDataLoadConnectionStringName)!);
-        IpAddress.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.IpAddressDataLoadConnectionStringName)!);
+        IpAddress.UseDatabaseConnectionString(config.GetConnectionString(ConfigurationConstants.IpAddressConnectionStringName)!);
 
         services.AddScoped<DataSeedRunner>();
 
