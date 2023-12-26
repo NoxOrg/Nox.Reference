@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Nox.Demo": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
