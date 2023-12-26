@@ -14,6 +14,7 @@ public static class ConfigurationConstants
     public const string WorldDataLoadConnectionStringName = "NoxReferenceDataLoadWorldConnection";
     public const string MachineConnectionStringName = "NoxReferenceMachineConnection";
     public const string IpAddressConnectionStringName = "NoxReferenceIpAddressConnection";
+    public const string IpAddressDataLoadConnectionStringName = "NoxReferenceDataLoadIpAddressConnection";
     public const string MachineDataLoadConnectionStringName = "NoxReferenceDataLoadMachineConnection";
     public const string VatNumberDefinitionDataPathSettingName = "VatNumberDefinitionDataPath";
     public const string TaxNumberDefinitionDataPathSettingName = "TaxNumberDefinitionDataPath";
