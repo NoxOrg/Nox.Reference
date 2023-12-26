@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  nox.demo:
+    image: ${DOCKER_REGISTRY-}noxdemo
+    build:
+      context: .
+      dockerfile: Nox.Demo/Dockerfile
