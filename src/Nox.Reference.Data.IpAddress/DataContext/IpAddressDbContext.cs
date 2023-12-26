@@ -5,7 +5,7 @@ using Nox.Reference.Data.Common.Helpers;
 
 namespace Nox.Reference.Data.IpAddress;
 
-internal class IpAddressDbContext : DbContext
+public class IpAddressDbContext : DbContext
 {
     private readonly IConfiguration _configuration;
     private static string? _databasePath;

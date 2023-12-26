@@ -2,7 +2,7 @@
 
 namespace Nox.Reference.Data.IpAddress;
 
-internal class IpAddressChunk
+public class IpAddressChunk
 {
     private IpAddressChunk()
     { }

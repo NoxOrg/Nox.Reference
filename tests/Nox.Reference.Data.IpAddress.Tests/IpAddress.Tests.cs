@@ -14,6 +14,7 @@ namespace Nox.Reference.Data.IpAddress.Tests
         public void Setup()
         {
             var serviceCollection = new ServiceCollection();
+            IpAddressDbContext.UseDatabaseConnectionString(DatabaseConstant.IpAddressDbPath);
             serviceCollection.AddIpAddressContext();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
