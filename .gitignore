@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 # nuget content
 NoxReferenceConfig/
 NoxReferenceDatabase/
+src/.idea/
