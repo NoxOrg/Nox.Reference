@@ -48,15 +48,5 @@ public static class World
         new PhoneNumbersFacade(WorldDataContext);
 
     private static IWorldInfoContext WorldDataContext
-        => _serviceProvider.GetRequiredService<IWorldInfoContext>();
-
-    /// <summary>
-    /// <para>Override default database path. Examples: </para>
-    /// <para>'Data Source=.\NoxReferenceDatabase\Nox.Reference.World.db'</para>
-    /// <para>'Data Source=..\..\data\Nox.Reference.World.db'</para>
-    /// <para>'Data Source=C:\project\NoxReferenceDatabase\Nox.Reference.World.db'</para>
-    /// </summary>
-    /// <param name="path">New overridden database connection string</param>
-    public static void UseDatabaseConnectionString(string path)
-        => WorldDbContext.UseDatabaseConnectionString(path);
+        => _serviceProvider.GetRequiredService<IWorldInfoContext>();    
 }
