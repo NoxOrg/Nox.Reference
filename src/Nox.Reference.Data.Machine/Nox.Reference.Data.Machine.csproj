@@ -3,21 +3,17 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>Nox.Reference.Data.Machine</PackageId>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <PackageVersion>1.1.0.0</PackageVersion>
-    <Authors>Andre Sharpe, Andrii Dehtiarov</Authors>
-    <Company>The Nox Factory</Company>
-    <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
+    <PackageId>Nox.Reference.Data.Machine</PackageId>    
+    <Description>All necessary information about Mac Addresses</Description>
+    <Copyright>Copyright (c) The Nox Factory 2024</Copyright>
     <PackageProjectUrl>https://github.com/NoxOrg/Nox.Reference</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NoxOrg/Nox.Reference.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>nox.png</PackageIcon>
-    <Description>All necessary information about Mac Addresses</Description>
+    <Description>Common Nox Reference entities</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>   
   </PropertyGroup>
   <ItemGroup>
     <None Remove="NoxReferenceConfig\noxReferenceSettings.json" />

@@ -4,20 +4,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Nox.Reference.Data.Common</PackageId>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <PackageVersion>1.1.0.0</PackageVersion>
-    <Authors>Andre Sharpe, Andrii Dehtiarov, Dmytro Dorodnykh</Authors>
-    <Company>The Nox Factory</Company>
-    <Copyright>Copyright (c) Andre Sharpe 2023</Copyright>
+    <Authors>The Nox Factory</Authors>
+    <Description>Basic shared classes for data</Description>
+    <Copyright>Copyright (c) The Nox Factory 2024</Copyright>
     <PackageProjectUrl>https://github.com/NoxOrg/Nox.Reference</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NoxOrg/Nox.Reference.git</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <PackageIcon>nox.png</PackageIcon>
-    <Description>Basic shared classes for data</Description>
+    <Description>Common Nox Reference entities</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>    
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\docs\images\nox.png" Pack="true" PackagePath="" />
