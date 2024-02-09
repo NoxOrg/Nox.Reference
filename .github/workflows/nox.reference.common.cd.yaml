@@ -1,4 +1,4 @@
-name: Publish
+name: Publish Common
 
 on:
   workflow_dispatch:
@@ -12,6 +12,9 @@ jobs:
         dotnet-version: ['7.0.x']
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
