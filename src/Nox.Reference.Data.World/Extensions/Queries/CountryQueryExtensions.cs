@@ -197,7 +197,9 @@ public static class CountryQueryExtensions
         WorldCountries country,
         DateTime date)
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         var countryCode = World.Countries.Get(country)!.Code;
+#pragma warning restore CS0618 // Type or member is obsolete
         return query.IsWorkingDay(countryCode, date);
     }
 
@@ -219,7 +221,9 @@ public static class CountryQueryExtensions
         string countryCode,
         DateTime date)
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         var country = World.Countries.Get(countryCode)!;
+#pragma warning restore CS0618 // Type or member is obsolete
         var weekendDay1 = (int)country.StartDayOfWeek - 1;
         var weekendDay2 = (int)country.StartDayOfWeek - 2;
 

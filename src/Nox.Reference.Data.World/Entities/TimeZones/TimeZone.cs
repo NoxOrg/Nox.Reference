@@ -27,11 +27,15 @@ public class TimeZone : NoxReferenceEntityBase,
 
         var result = TimeZoneLookup.GetTimeZone(Convert.ToDouble(geoCoordinates.Latitude), Convert.ToDouble(geoCoordinates.Longitude)).Result;
 
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.TimeZones.FirstOrDefault(x => x.Code == result);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     public TimeZoneInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<TimeZoneInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

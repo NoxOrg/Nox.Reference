@@ -19,6 +19,8 @@ public class Language : NoxReferenceEntityBase,
 
     public LanguageInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<LanguageInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

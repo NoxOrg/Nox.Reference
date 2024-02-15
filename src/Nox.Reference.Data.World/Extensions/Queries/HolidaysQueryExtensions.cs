@@ -134,7 +134,9 @@ public static class HolidaysQueryExtensions
         string? state = null,
         string? region = null)
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         var countryCode = World.Countries.Get(country)!;
+#pragma warning restore CS0618 // Type or member is obsolete
         return query.GetHoliday(countryCode.Code, date, state, region);
     }
 

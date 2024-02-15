@@ -14,7 +14,8 @@
     <PackageIcon>nox.png</PackageIcon>
     <Description>Common Nox Reference entities</Description>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>   
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="NoxReferenceConfig\noxReferenceSettings.json" />
