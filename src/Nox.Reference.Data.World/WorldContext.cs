@@ -78,6 +78,7 @@ public sealed class WorldContext :  IDisposable
     {
         return _dbContext.VatNumberDefinitions;
     }
+    public PhoneNumbersFacade PhoneNumbers => new PhoneNumbersFacade(_dbContext);
 
     public void Dispose()
     {
