@@ -21,6 +21,8 @@ public class Currency : NoxReferenceEntityBase,
 
     public CurrencyInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<CurrencyInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

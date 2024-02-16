@@ -10,6 +10,8 @@ public class CountryNameTranslation : NoxReferenceEntityBase,
 
     public CountryNameTranslationInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<CountryNameTranslationInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

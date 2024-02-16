@@ -19,6 +19,8 @@ public class Culture : NoxReferenceEntityBase,
 
     public CultureInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<CultureInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

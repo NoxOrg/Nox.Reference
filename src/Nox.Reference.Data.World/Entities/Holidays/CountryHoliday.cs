@@ -12,6 +12,8 @@ public class CountryHoliday : NoxReferenceEntityBase,
 
     public CountryHolidayInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<CountryHolidayInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }

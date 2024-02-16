@@ -4,6 +4,11 @@ using Nox.Reference.Data.World;
 
 namespace Nox.Reference;
 
+/// <summary>
+/// Non thread safe world context
+/// Create multiple instance of this class if you need to use it in a multi-threaded environment
+/// </summary>
+[Obsolete("Use WorldContext instead")]
 public static class World
 {
     private static readonly IServiceProvider _serviceProvider;

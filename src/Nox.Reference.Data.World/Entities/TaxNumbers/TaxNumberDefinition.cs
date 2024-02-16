@@ -11,6 +11,8 @@ public class TaxNumberDefinition : NoxReferenceEntityBase,
 
     public TaxNumberDefinitionInfo ToDto()
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         return World.Mapper.Map<TaxNumberDefinitionInfo>(this);
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 }
