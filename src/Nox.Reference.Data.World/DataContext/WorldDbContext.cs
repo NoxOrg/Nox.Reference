@@ -81,7 +81,10 @@ public class WorldDbContext : DbContext, IWorldInfoContext
         base.OnConfiguring(optionsBuilder);
 
         if (_configuration is null)
+        {
             return;
+        }
+            
 
         var connectionString = _databasePath ?? _configuration.GetConnectionString(ConfigurationConstants.WorldConnectionStringName);
 

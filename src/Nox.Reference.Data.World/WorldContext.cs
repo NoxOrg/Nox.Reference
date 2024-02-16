@@ -106,7 +106,9 @@ public sealed class WorldContext :  IDisposable
         // TODO: fix adding migrations. Currently throws an error of "empty db path". Need to find a way of fixing it.
         var connectionString = DatabasePathHelper.FixConnectionStringPathUsingAssemblyPath(dbConnectionString, typeof(WorldDbContext), nameof(World));
 
-        optionsBuilder.UseSqlite(connectionString);
+        optionsBuilder
+            .UseLazyLoadingProxies()
+            .UseSqlite(connectionString);
 
         lock (_factoryCreationLock)
         {
