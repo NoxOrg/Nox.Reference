@@ -10,7 +10,7 @@ Nox.Reference represents the following packages:
 - Nox.Reference.IpAddress
 
 
-## Solution design convention:
+## Solution design convention: 
 - All entities in a project should be placed in the folder {ProjectName}/Entities/{Plural Entity Name}/{Singular Entity Name}.cs
 - All entity configuration in a project should be placed in the folder {ProjectName}/Configurations/{Plural Entity Name}Configuration.cs
 - All data seeder in a project should be placed in the folder {ProjectName}/Seeds/{Plural Entity Name}DataSeeder.cs
