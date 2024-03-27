@@ -5,11 +5,13 @@
   </ItemGroup>
   <Target Name="CopyWorldDbFile" BeforeTargets="Build">
     <Copy SourceFiles="@(NoxWorldDbFiles)" DestinationFolder="$(TargetDir)/NoxReferenceDatabase/" />
+    <Copy SourceFiles="@(NoxWorldDbFiles)" DestinationFolder="$(PublishDir)/NoxReferenceDatabase/" />
   </Target>
   <ItemGroup>
     <NoxCommonConfigFiles Include="$(MSBuildThisFileDirectory)/../NoxReferenceConfig/noxReferenceSettings.json" />
   </ItemGroup>
   <Target Name="CopyConfigFiles" BeforeTargets="Build">
     <Copy SourceFiles="@(NoxCommonConfigFiles)" DestinationFolder="$(TargetDir)/" />
+    <Copy SourceFiles="@(NoxCommonConfigFiles)" DestinationFolder="$(PublishDir)/" />
   </Target>
 </Project>
