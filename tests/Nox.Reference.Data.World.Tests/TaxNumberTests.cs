@@ -11,7 +11,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class TaxNumberTests
 {
     private string _testFilePath = string.Empty;
-    private IWorldInfoContext _dbContext = null!;
+    private IWorldInfoContext _worldDbContext = null!;
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -27,7 +27,7 @@ public class TaxNumberTests
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
-        _dbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         var path = new DirectoryInfo(Directory.GetCurrentDirectory());
 
@@ -52,7 +52,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUkraineNumber_ReturnsSuccess()
     {
-        var validationResult = _dbContext!
+        var validationResult = _worldDbContext!
             .TaxNumberDefinitions.Get("UA")!
             .Validate("0203654090", false)!;
 
@@ -64,7 +64,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var definition = _dbContext!.TaxNumberDefinitions.Get("UA")!;
+        var definition = _worldDbContext!.TaxNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
@@ -81,7 +81,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
     {
-        var definition = _dbContext!.TaxNumberDefinitions.Get(WorldCountries.Ukraine)!;
+        var definition = _worldDbContext!.TaxNumberDefinitions.Get(WorldCountries.Ukraine)!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
@@ -98,7 +98,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.TaxNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
+        var validationResult = _worldDbContext!.TaxNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
 
         Assert.That(validationResult.Country, Is.Not.Null);
 
@@ -110,7 +110,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithInvalidUkraineValue_ReturnsFail()
     {
-        var validationResult = _dbContext!.TaxNumberDefinitions.Get("UA")!.Validate("123Test456", false)!;
+        var validationResult = _worldDbContext!.TaxNumberDefinitions.Get("UA")!.Validate("123Test456", false)!;
 
         Trace.WriteLine(Serialize(validationResult));
 
@@ -124,7 +124,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = Reference.World.TaxNumberDefinitions
+        var validationResult = _worldDbContext.TaxNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -178,7 +178,7 @@ public class TaxNumberTests
         var failedVat = new List<string>();
         foreach (var vatNumber in testData!)
         {
-            var validationResult = _dbContext.TaxNumberDefinitions
+            var validationResult = _worldDbContext.TaxNumberDefinitions
                 .Get(countryCode)!
                 .Validate(vatNumber, false)!;
 
@@ -198,7 +198,7 @@ public class TaxNumberTests
     [Test]
     public void TaxNumber_Automapper()
     {
-        var validationDefinition = Reference.World.TaxNumberDefinitions.Get("UA")!;
+        var validationDefinition = _worldDbContext.TaxNumberDefinitions.Get("UA")!;
 
         var mappedResult = validationDefinition.ToDto();
 

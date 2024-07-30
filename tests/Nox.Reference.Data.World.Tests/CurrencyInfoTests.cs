@@ -7,7 +7,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class CurrencyTests
 {
     // set during mamndatory init
-    private IWorldInfoContext _countryDbContext = null!;
+    private IWorldInfoContext _worldDbContext = null!;
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -24,7 +24,7 @@ public class CurrencyTests
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        _countryDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -34,7 +34,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var info = _countryDbContext.Currencies.GetByIsoCode("UAH");
+        var info = _worldDbContext.Currencies.GetByIsoCode("UAH");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -49,7 +49,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_WithEnumUkraine_ReturnsValidInfo()
     {
-        var info = _countryDbContext.Currencies.Get(WorldCurrencies.UkrainianHryvnia);
+        var info = _worldDbContext.Currencies.Get(WorldCurrencies.UkrainianHryvnia);
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -63,7 +63,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticWithKnownUkraineCode_ReturnsValidInfo()
     {
-        Currency uaCurrency = Reference.World.Currencies.Get("UAH")!;
+        Currency uaCurrency = _worldDbContext.Currencies.Get("UAH")!;
 
         Assert.Multiple(() =>
         {
@@ -75,7 +75,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencies_StaticGetCurrencyWithReferenceEntity_ReturnsReferenceInfo()
     {
-        var currency = Reference.World.Currencies.Get("USD")!;
+        var currency = _worldDbContext.Currencies.Get("USD")!;
 
         var currencyInfo = currency.ToDto();
 
@@ -90,7 +90,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoCode_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var info = _countryDbContext.Currencies.GetByIsoCode("UAH");
+        var info = _worldDbContext.Currencies.GetByIsoCode("UAH");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -104,7 +104,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoCode_WitUnknownCode_ReturnsNull()
     {
-        var info = _countryDbContext.Currencies.GetByIsoCode("SomeCode");
+        var info = _worldDbContext.Currencies.GetByIsoCode("SomeCode");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -121,7 +121,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoNumber_WithKnownUkraineCode_ReturnsValidInfo()
     {
-        var info = _countryDbContext.Currencies.GetByIsoNumber("980");
+        var info = _worldDbContext.Currencies.GetByIsoNumber("980");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 
@@ -135,7 +135,7 @@ public class CurrencyTests
     [Test]
     public void GetCurrencyByIsoNumber_WitUnknownCode_ReturnsNull()
     {
-        var info = _countryDbContext.Currencies.GetByIsoNumber("SomeCode");
+        var info = _worldDbContext.Currencies.GetByIsoNumber("SomeCode");
 
         Trace.WriteLine(JsonSerializer.Serialize(info, _jsonOptions));
 

@@ -17,7 +17,7 @@ public class WorldContextTests
     public void WhenGetCountries_ShouldLoad()
     {
         var countries = _worldContext!.GetCountriesQuery().ToList();
-        Assert.IsNotEmpty(countries);
+        Assert.That(countries, Is.Not.Empty);
         Assert.That(countries.Count, Is.EqualTo(249));
     }
 
@@ -29,7 +29,7 @@ public class WorldContextTests
             using var localWorldContext = new WorldContext(DatabaseConstant.WorldDbPath);
 
             var countries = localWorldContext!.GetCountriesQuery().ToList();
-            Assert.IsNotEmpty(countries);
+            Assert.That(countries, Is.Not.Empty);
             Assert.That(countries.Count, Is.EqualTo(249));
         });
     }
