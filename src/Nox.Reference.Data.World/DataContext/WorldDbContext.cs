@@ -7,7 +7,7 @@ using System.Reflection;
 namespace Nox.Reference;
 internal class PooledWorldDbContext : WorldDbContext
 {
-    public PooledWorldDbContext(DbContextOptions options) : base(options, null)
+    public PooledWorldDbContext(DbContextOptions<WorldDbContext> options) : base(options, null)
     {
 
     }
@@ -27,7 +27,7 @@ public class WorldDbContext : DbContext, IWorldInfoContext
     }
     
     public WorldDbContext(
-        DbContextOptions options,
+        DbContextOptions<WorldDbContext> options,
         IConfiguration? configuration)
         : base(options)
     {
