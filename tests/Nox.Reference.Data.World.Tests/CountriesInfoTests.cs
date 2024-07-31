@@ -29,10 +29,10 @@ public class CountryInfoTests
     {
         const string countryCode = "ZA";
 
-        var country = Reference.World.Countries.Get(countryCode)!;
-        Assert.IsNotNull(country);
-        Assert.IsNotEmpty(country.Cultures);
-        Assert.IsNotNull(country.VatNumberDefinition);
+        var country = _worldDbContext.Countries.Get(countryCode)!;
+        Assert.That(country, Is.Not.Null);
+        Assert.That(country.Cultures, Is.Not.Empty);
+        Assert.That(country.VatNumberDefinition, Is.Not.Null);
         Assert.That(country.Id, Is.EqualTo(countryCode));
 
         var countryInfo = country.ToDto();
@@ -53,7 +53,7 @@ public class CountryInfoTests
     [Test]
     public void CountryInfo_WithEnum_ReturnsValidInfo()
     {
-        var country = Reference.World.Countries.Get(WorldCountries.SouthAfrica)!;
+        var country = _worldDbContext.Countries.Get(WorldCountries.SouthAfrica)!;
 
         var countryInfo = country.ToDto();
 

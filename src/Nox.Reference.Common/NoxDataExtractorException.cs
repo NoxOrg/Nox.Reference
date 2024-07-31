@@ -5,7 +5,6 @@ namespace Nox.Reference.Common;
 /// <summary>
 /// Exception is thrown during import data process.
 /// </summary>
-[Serializable]
 internal class NoxDataExtractorException : Exception
 {
 #pragma warning disable S1075 // URIs should not be hardcoded
@@ -20,11 +19,6 @@ internal class NoxDataExtractorException : Exception
 
     public NoxDataExtractorException(string message, Exception inner)
         : base(message, inner) { }
-
-    public NoxDataExtractorException(SerializationInfo info, StreamingContext context)
-       : base(info, context)
-    {
-    }
 
     public NoxDataExtractorException(string message, string resourceName)
        : base(message)

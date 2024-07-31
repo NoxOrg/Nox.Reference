@@ -8,6 +8,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class PhoneNumberInfoTests
 {
     private IPhoneNumberService _phoneNumberService = null!;
+    private IWorldInfoContext _worldDbContext = null!;
 
     [OneTimeSetUp]
     public void Setup()
@@ -19,6 +20,7 @@ public class PhoneNumberInfoTests
         var serviceProvider = serviceCollection.BuildServiceProvider();
 
         _phoneNumberService = serviceProvider.GetRequiredService<IPhoneNumberService>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         Trace.Listeners.Add(new ConsoleTraceListener());
     }
@@ -48,7 +50,7 @@ public class PhoneNumberInfoTests
     [Test]
     public void GetPhoneCarriers_StaticWithMap_ReturnsResult()
     {
-        var carrierPhoneNumbers = Reference.World.PhoneNumbers.PhoneCarriers.First(x => x.Name == "Kyivstar");
+        var carrierPhoneNumbers = _worldDbContext.PhoneCarriers.First(x => x.Name == "Kyivstar");
 
         var carrierPhoneNumberInfos = carrierPhoneNumbers.ToDto();
 

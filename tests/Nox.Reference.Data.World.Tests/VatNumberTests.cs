@@ -11,7 +11,7 @@ namespace Nox.Reference.Data.World.Tests;
 public class VatNumberTests
 {
     private string _testFilePath = string.Empty;
-    private IWorldInfoContext _dbContext = null!;
+    private IWorldInfoContext _worldDbContext = null!;
 
     private readonly JsonSerializerOptions _jsonOptions = new()
     {
@@ -27,7 +27,7 @@ public class VatNumberTests
         serviceCollection.AddWorldContext();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
-        _dbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
+        _worldDbContext = serviceProvider.GetRequiredService<IWorldInfoContext>();
 
         var path = new DirectoryInfo(Directory.GetCurrentDirectory());
 
@@ -51,7 +51,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUkraineNumber_ReturnsSuccess()
     {
-        var validationResult = _dbContext!
+        var validationResult = _worldDbContext!
             .VatNumberDefinitions.Get("UA")!
             .Validate("0203654090", false)!;
 
@@ -63,7 +63,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefix_ReturnsSuccess()
     {
-        var definition = _dbContext!.VatNumberDefinitions.Get("UA")!;
+        var definition = _worldDbContext!.VatNumberDefinitions.Get("UA")!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         var definitionInfo = definition.ToDto();
@@ -78,7 +78,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnum_ReturnsSuccess()
     {
-        var definition = _dbContext!.VatNumberDefinitions.Get(WorldCountries.Ukraine)!;
+        var definition = _worldDbContext!.VatNumberDefinitions.Get(WorldCountries.Ukraine)!;
         var validationResult = definition.Validate("UA0203654090", false)!;
 
         Assert.That(definition.Country, Is.Not.Null);
@@ -95,7 +95,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithValidUAPrefixAndEnumUsingCollection_ReturnsSuccess()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
+        var validationResult = _worldDbContext!.VatNumberDefinitions.Validate(WorldCountries.Ukraine, "UA0203654090", false)!;
 
         Assert.That(validationResult.Country, Is.Not.Null);
 
@@ -107,7 +107,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithInvalidUkraineValue_ReturnsFail()
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get("UA")!.Validate("123Test456", false)!;
+        var validationResult = _worldDbContext!.VatNumberDefinitions.Get("UA")!.Validate("123Test456", false)!;
 
         Trace.WriteLine(Serialize(validationResult));
 
@@ -121,7 +121,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_WithNotFoundSanMarinoNumber_ReturnsInvalid()
     {
-        var validationResult = Reference.World.VatNumberDefinitions
+        var validationResult = _worldDbContext.VatNumberDefinitions
             .Get("SM")!
             .Validate("123456", false)!;
 
@@ -180,7 +180,7 @@ public class VatNumberTests
         var failedVat = new List<string>();
         foreach (var vatNumber in testData!)
         {
-            var validationResult = _dbContext.VatNumberDefinitions
+            var validationResult = _worldDbContext.VatNumberDefinitions
                 .Get(countryCode)!
                 .Validate(vatNumber, false)!;
 
@@ -196,12 +196,12 @@ public class VatNumberTests
     }
 
     [TestCase("44403198682", "FR", true)]
-    [TestCase("157050817", "DE", true)]
+    [TestCase("129273398", "DE", true)]
     [TestCase("00386730462", "DE", false)]
     [TestCase("4410268272", "FR", false)]
     public void VatNumber_TestApiValidation_ViesApi(string vatNumber, string countryCode, bool isValid)
     {
-        var validationResult = _dbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber, true)!;
+        var validationResult = _worldDbContext!.VatNumberDefinitions.Get(countryCode)!.Validate(vatNumber, true)!;
 
         var status = isValid ? ValidationStatus.Valid : ValidationStatus.Invalid;
 
@@ -217,7 +217,7 @@ public class VatNumberTests
     [Test]
     public void VatNumber_Automapper()
     {
-        var validationDefinition = Reference.World.VatNumberDefinitions.Get("DE")!;
+        var validationDefinition = _worldDbContext.VatNumberDefinitions.Get("DE")!;
 
         var validationDefinitionInfo = validationDefinition.ToDto();
 
