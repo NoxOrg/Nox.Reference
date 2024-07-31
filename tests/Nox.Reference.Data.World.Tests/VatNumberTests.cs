@@ -196,7 +196,7 @@ public class VatNumberTests
     }
 
     [TestCase("44403198682", "FR", true)]
-    [TestCase("157050817", "DE", true)]
+    [TestCase("129273398", "DE", true)]
     [TestCase("00386730462", "DE", false)]
     [TestCase("4410268272", "FR", false)]
     public void VatNumber_TestApiValidation_ViesApi(string vatNumber, string countryCode, bool isValid)

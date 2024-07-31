@@ -68,7 +68,7 @@ public static class GenericVatValidationService
                     using var httpClient = new HttpClient();
                     apiResult = httpClient.Send(new HttpRequestMessage
                     {
-                        RequestUri = new Uri($"https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vatNumberInfo.Country}/vat/{formattedVatNumber.Substring(2)}"),
+                        RequestUri = new Uri($"https://ec.europa.eu/taxation_customs/vies/rest-api/ms/{vatNumberInfo.Country.AlphaCode2}/vat/{formattedVatNumber.Substring(2)}"),
                         Method = HttpMethod.Get
                     });
                     var viesResult = JsonSerializer.Deserialize<ViesVerificationResponse>(apiResult.Content.ReadAsStringAsync().Result)!;
