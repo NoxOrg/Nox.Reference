@@ -14,7 +14,7 @@
     <PackageReference Include="Nox.Reference.Data.IpAddress" Version="8.0.0" />
     <PackageReference Include="Nox.Reference.Data.Machine" Version="8.0.0" />
     <PackageReference Include="Nox.Reference.Data.World" Version="8.0.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
 </Project>
